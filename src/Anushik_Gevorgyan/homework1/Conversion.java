@@ -1,4 +1,4 @@
-package Anushik_Gevorgyan;
+package Anushik_Gevorgyan.homework1;
 
 public class Conversion {
     public static void main(String[] args) {

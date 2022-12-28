@@ -1,4 +1,4 @@
-package Anushik_Gevorgyan;
+package Anushik_Gevorgyan.homework1;
 
 public class CharDemo2 {
     public static void main(String[] args) {

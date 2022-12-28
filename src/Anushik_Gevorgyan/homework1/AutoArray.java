@@ -1,4 +1,4 @@
-package Anushik_Gevorgyan;
+package Anushik_Gevorgyan.homework1;
 
 public class AutoArray {
     public static void main(String[] args) {
