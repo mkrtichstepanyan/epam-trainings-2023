@@ -1,17 +1,20 @@
-Mkrtich Stepanyan
-Sevak Martirosyan
-Hovhannes Gspeyan
-Aram Mehrabyan
-Gohar Hakobyan
-Anna Manukyan
-Garik Gharibyan
-Roza Petrosyan
-Rafik Pahlevanyan
-Lavrentii Karapetian
-Lilit  Adamyan 
-Anush Ananyan
-Araksya Ghazaryan
-Vazgen Harutyunyan
-Qnarik Khachatryan
-Gevorg Martirosian
-Alina Mkhoyan
+Mentors
+	Mkrtich Stepanyan
+	Sevak Martirosyan
+Members
+	 1.Hovhannes Gspeyan
+	 2.Aram Mehrabyan
+	 3.Gohar Hakobyan
+	 4.Anna Manukyan
+	 5.Garik Gharibyan
+	 6.Roza Petrosyan
+	 7.Rafik Pahlevanyan
+	 8.Lavrentii Karapetian
+	 9.Lilit  Adamyan 
+	10.Anush Ananyan
+	11.Araksya Ghazaryan
+	12.Vazgen Harutyunyan
+	13.Qnarik Khachatryan
+	14.Gevorg Martirosian
+	15.Alina Mkhoyan
+	16.Gevorg Arghushyan
