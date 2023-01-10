@@ -1,4 +1,4 @@
-package Garik_Gharibyan;
+package garik_gharibyan;
 
 public class BoolTest {
     public static void main(String[] args) {
