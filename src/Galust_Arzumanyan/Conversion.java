@@ -1,4 +1,4 @@
-package Galust_Arzumanyan
+package Galust_Arzumanyan;
 
 
 // This method is used to convert data types

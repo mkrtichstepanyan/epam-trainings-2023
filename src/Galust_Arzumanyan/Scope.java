@@ -1,4 +1,4 @@
-package Galust_Arzumanyan Arzumanyan
+package Galust_Arzumanyan;
 
 // This method is used to demonstrate the variable visibility
 class Scope {
