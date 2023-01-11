@@ -1,4 +1,4 @@
-package Roza_Petrosayn;
+package Roza_Petrosyan;
 
 // An improveversion of the previous program
 public class AutoArray {
