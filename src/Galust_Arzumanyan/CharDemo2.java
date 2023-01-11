@@ -1,4 +1,4 @@
-package Galust_Arzumanyan
+package Galust_Arzumanyan;
 
 // This method is used to change character using ASCII value
 class CharDemo2 {
