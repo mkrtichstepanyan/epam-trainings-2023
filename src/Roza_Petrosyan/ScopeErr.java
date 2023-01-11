@@ -1,4 +1,4 @@
-package Roza_Petrsoayn;
+package Roza_Petrosyan;
 
 // This program will not compile
 public class ScopeErr {
