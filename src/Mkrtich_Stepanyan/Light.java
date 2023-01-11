@@ -5,7 +5,7 @@ public class Light {
         int lightspeed;
         long days;
         long seconds;
-
+System.out.println("Hi");
         // ...
     }
 }
