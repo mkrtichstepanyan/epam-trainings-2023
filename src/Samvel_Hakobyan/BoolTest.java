@@ -5,12 +5,18 @@ public class BoolTest {
 
         boolean b;
         b = false;
-        System.out.println(" b equals " + b);
+        System.out.println(" b is " + b);
         b = true;
-        System.out.println(" b equals " + b);
-        if (b);System.out.println(" This is  excuted ");
-        b = false;
-        if (b);System.out.println(" This is not excuted ");
-        System.out.println(" 10 > 9 equals " + ( 10 > 9 ) );
+        System.out.println(" b is " + b);
+        if (b) {
+            System.out.println("This is excuted");
+        }
+        if (b){
+            System.out.println("This is not excuted");
+    }
+            System.out.println(" 10 > 9 is " + (10 > 9));
+
+
+
     }
 }
