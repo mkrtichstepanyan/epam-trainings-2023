@@ -10,7 +10,8 @@ public class TwoDAgain {
 
         int i, j, k = 0;
         for (i = 0; i < 4; i++) {
-            twoD[i][j] = k;
+            for (j = 0; j < i + i; j++)
+            twoD [i] [j] = k;
             k++;
         }
         for (i = 0; i < 4; i++) {
