@@ -23,9 +23,9 @@ public class TwoDArray {
             }
             System.out.println();
         }
-        i=0;
-        j=0;
-         k=0;
+        i = 0;
+        j = 0;
+        k = 0;
 
         for (i = 0; i < 4; i++) {
             for (j = 0; j < i + 1; j++) {
@@ -35,7 +35,7 @@ public class TwoDArray {
         }
 
         for (i = 0; i < 4; i++) {
-            for (j = 0; j < i+1; j++) {
+            for (j = 0; j < i + 1; j++) {
                 System.out.print(twoD1[i][j] + " ");
             }
             System.out.println();
