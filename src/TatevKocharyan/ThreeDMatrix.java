@@ -9,7 +9,6 @@ public class ThreeDMatrix {
                 for (k = 0; k < 5; k++) {
                     threeD[i][j][k] = i * j * k;
                 }
-
             }
         }
         for (i = 0; i < 3; i++) {
@@ -18,11 +17,8 @@ public class ThreeDMatrix {
                     System.out.print(threeD[i][j][k] + " ");
                 }
                 System.out.println();
-
             }
             System.out.println();
         }
-
-
     }
 }
