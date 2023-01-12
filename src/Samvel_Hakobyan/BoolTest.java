@@ -11,6 +11,7 @@ public class BoolTest {
         if (b) {
             System.out.println("This is excuted");
         }
+        b = false;
         if (b){
             System.out.println("This is not excuted");
     }
