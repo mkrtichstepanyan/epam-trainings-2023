@@ -1,3 +1,5 @@
+package Hovhannes_Abrahamyan;
+
 
 public class CharDemo2 {
     public static void main(String args[]) {

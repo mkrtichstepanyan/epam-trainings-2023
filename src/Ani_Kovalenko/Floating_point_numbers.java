@@ -7,6 +7,6 @@ public class Floating_point_numbers {
         pi = 3.1416; // π
         a = r*r*pi; //area
 
-        System.out.println ("Area equals to " + a);
+        System.out.println ("Area1 equals to " + a);
     }
 }

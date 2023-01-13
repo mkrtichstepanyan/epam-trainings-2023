@@ -6,6 +6,6 @@ class Double {
         r = 10.8;
         pi = 3.1416;
         a = pi * r * r;
-        System.out.println(" Area of circle is " + a );
+        System.out.println(" Area1 of circle is " + a );
     }
 }

@@ -1,3 +1,4 @@
+package Hovhannes_Abrahamyan;
 
 public class Area {
     public static void main(String args[]) {
