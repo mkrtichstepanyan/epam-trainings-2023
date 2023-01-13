@@ -1,3 +1,5 @@
+package Argishti_Mesropyan;
+
 public class VarDemo {
     public static void main (String[] args){
         var avg = 10.0;

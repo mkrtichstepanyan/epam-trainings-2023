@@ -1,3 +1,5 @@
+package Argishti_Mesropyan;
+
 public class ArrayDemostrate {
     public static void main(String[] args) {
         int[] month_days;

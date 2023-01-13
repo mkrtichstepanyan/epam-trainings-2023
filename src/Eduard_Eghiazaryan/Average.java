@@ -8,6 +8,6 @@ public class Average {
 
         for (i = 0; i < 5; i++)
             result = result + nums[i];
-        System.out.printf("Average value:" + result / 5);
+        System.out.printf("Argishti_Mesropyan.Average value:" + result / 5);
     }
 }

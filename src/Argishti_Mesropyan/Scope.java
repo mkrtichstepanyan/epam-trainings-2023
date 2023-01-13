@@ -1,3 +1,5 @@
+package Argishti_Mesropyan;
+
 public class Scope {
     public static void main(String[] args) {
         int x;

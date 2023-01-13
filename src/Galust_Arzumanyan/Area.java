@@ -8,6 +8,6 @@ class Area {
         radius = 15.0; // radius of circle
         pi = 3.1416; // constant number
         area = pi * radius * radius; // area of circle
-        System.out.println("Area of circle is " + area);
+        System.out.println("Argishti_Mesropyan.Area of circle is " + area);
     }
 }
