@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //better version of the previous example (Array)
 public class AutoArray {
     public static void main(String[] args) {

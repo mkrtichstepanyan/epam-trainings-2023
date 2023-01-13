@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //demonstration of variable lifetime
 public class LifeTime {
     public static void main(String[] args) {

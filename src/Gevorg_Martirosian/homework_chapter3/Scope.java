@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //demonstration of scopes
 public class Scope {
     public static void main(String[] args) {

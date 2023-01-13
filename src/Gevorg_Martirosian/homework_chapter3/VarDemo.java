@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //simple demonstration of local variables
 public class VarDemo {
     public static void main(String[] args) {

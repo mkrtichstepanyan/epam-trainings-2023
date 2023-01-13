@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //demonstration of type promotion
 public class Promote {
     public static void main(String[] args) {
