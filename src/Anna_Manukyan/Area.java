@@ -9,6 +9,6 @@ public class Area {
         pi = 3.1416;
         a = pi * Math.pow(r, 2);
 
-        System.out.println("Area1 of circle is " + a);
+        System.out.println("Area of circle is " + a);
     }
 }
