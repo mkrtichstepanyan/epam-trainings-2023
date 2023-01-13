@@ -9,6 +9,6 @@ public class Average {
             result += nums[i];
         }
 
-        System.out.println("Argishti_Mesropyan.Average is " + result / 5.0);
+        System.out.println("Average is " + result / 5.0);
     }
 }

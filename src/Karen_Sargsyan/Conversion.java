@@ -6,15 +6,15 @@ public class Conversion {
         int i = 257;
         double d = 323.142;
 
-        System.out.println("\nArgishti_Mesropyan.Conversion of int to byte.");
+        System.out.println("\nConversion of int to byte.");
         b = (byte) i;
         System.out.println("i an d " + i + " " + b);
 
-        System.out.println("\nArgishti_Mesropyan.Conversion of double to int.");
+        System.out.println("\nConversion of double to int.");
         i = (int) d;
         System.out.println("d and i " + d + " " + i);
 
-        System.out.println("\nArgishti_Mesropyan.Conversion of double to byte.");
+        System.out.println("\nConversion of double to byte.");
         b = (byte) d;
         System.out.println("d and b " + d + " " + b);
     }

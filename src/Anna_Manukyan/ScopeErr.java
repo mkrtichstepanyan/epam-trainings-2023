@@ -1,6 +1,6 @@
 package Anna_Manukyan;
 
-//Argishti_Mesropyan.Scope error example
+//Scope error example
 public class ScopeErr {
     public static void main(String[] args) {
         int bar = 1;

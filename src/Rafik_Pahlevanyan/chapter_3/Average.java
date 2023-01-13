@@ -1,6 +1,6 @@
 package Rafik_Pahlevanyan.chapter_3;
 
-//Argishti_Mesropyan.Average an array of values
+//Average an array of values
 public class Average {
     public static void main(String[] args) {
 
@@ -9,7 +9,7 @@ public class Average {
         int i;
         for (i = 0; i < 5; i++) {
             result = result + nums[i];
-            System.out.println("Argishti_Mesropyan.Average is " + result / 5);
+            System.out.println("Average is " + result / 5);
 
         }
 

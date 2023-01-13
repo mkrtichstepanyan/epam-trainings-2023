@@ -8,7 +8,7 @@ public class Average {
         for ( i = 0; i < nums.length; i++) {
             result += nums[i];
         }
-        System.out.println("Argishti_Mesropyan.Average value: " + result / nums.length);
+        System.out.println("Average value: " + result / nums.length);
 
     }
 }

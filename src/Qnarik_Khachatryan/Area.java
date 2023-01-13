@@ -8,6 +8,6 @@ class Area {
         pi = 3.1416; //pi, approximately;
         a = pi * r * r; //compute area
 
-        System.out.println("Argishti_Mesropyan.Area of a circle is " + a);
+        System.out.println("Area of a circle is " + a);
     }
 }

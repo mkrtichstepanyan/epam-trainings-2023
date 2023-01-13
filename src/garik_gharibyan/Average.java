@@ -9,6 +9,6 @@ public class Average {
         for (i = 0; i < 5; i++){
             res = res + numbers[i];
         }
-        System.out.println("Argishti_Mesropyan.Average is - " + res/numbers.length);
+        System.out.println("Average is - " + res/numbers.length);
     }
 }

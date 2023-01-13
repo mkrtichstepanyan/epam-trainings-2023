@@ -8,6 +8,6 @@ public class Area {
         pi = 3.1416;
         a = pi * r * r;
 
-        System.out.println("Argishti_Mesropyan.Area of the circle is " + a);
+        System.out.println("Area of the circle is " + a);
     }
 }

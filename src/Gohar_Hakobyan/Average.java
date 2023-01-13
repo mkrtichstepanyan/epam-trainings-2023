@@ -6,7 +6,7 @@ public class Average {
         double result = 0;
         for (int i = 0; i < 5; i++) {
             result = result + nums[i];
-            System.out.println("Argishti_Mesropyan.Average of nums = " + result / 5);
+            System.out.println("Average of nums = " + result / 5);
         }
     }
 }

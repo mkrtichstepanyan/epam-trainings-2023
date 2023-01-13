@@ -7,7 +7,7 @@ public class Average {
         int i;
         for(i = 0; i < 5; i ++)
             result = result + nums [i];
-        System.out.print("Argishti_Mesropyan.Average is "  + result /5);
+        System.out.print("Average is "  + result /5);
 
     }
 }
