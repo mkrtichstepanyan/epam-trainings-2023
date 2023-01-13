@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //demonstration of 3-level massive
 public class ThreeDMatrix {
     public static void main(String[] args) {

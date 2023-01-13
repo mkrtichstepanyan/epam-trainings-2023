@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //char type variables looks like integers in some cases
 public class CharDemo2 {
     public static void main(String[] args) {

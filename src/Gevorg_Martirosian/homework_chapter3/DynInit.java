@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //demonstration of dynamic initialisation
 public class DynInit {
     public static void main(String[] args) {

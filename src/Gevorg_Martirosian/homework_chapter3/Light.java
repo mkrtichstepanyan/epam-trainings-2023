@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //calculate the distance of the light
 public class Light {
     public static void main(String[] args) {

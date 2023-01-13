@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //calculate average of massive
 public class Average {
     public static void main(String[] args) {

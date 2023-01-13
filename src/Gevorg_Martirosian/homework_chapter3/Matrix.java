@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //initialisation of multiple massive
 public class Matrix {
     public static void main(String[] args) {
