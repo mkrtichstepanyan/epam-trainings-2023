@@ -1,3 +1,5 @@
+package Argishti_Mesropyan;
+
 public class CharDemo {
     public static void main(String[] args) {
         char ch1, ch2;

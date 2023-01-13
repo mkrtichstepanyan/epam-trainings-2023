@@ -1,3 +1,5 @@
+package Argishti_Mesropyan;
+
 public class Conversion {
     public static void main(String[] args) {
         byte b;

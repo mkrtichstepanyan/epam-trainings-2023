@@ -1,3 +1,5 @@
+package Argishti_Mesropyan;
+
 public class ThreeDMatrix {
     public static void main(String[] args) {
         int[][][] threeD = new int[3][4][5];

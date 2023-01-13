@@ -1,3 +1,5 @@
+package Argishti_Mesropyan;
+
 public class ScopeErr {
     public static void main(String[] args) {
         int bar = 1;

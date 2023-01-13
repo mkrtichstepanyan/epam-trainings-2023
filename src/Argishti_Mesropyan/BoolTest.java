@@ -1,3 +1,5 @@
+package Argishti_Mesropyan;
+
 public class BoolTest {
     public static void main(String[] args) {
         boolean b;
