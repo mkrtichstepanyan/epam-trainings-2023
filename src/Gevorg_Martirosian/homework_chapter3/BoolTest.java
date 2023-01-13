@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //demonstration of boolean data types
 public class BoolTest {
     public static void main(String[] args) {

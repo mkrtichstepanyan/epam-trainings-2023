@@ -1,11 +1,10 @@
-package Anna_Manukyan;
+package Eduard_Eghiazaryan;
 
-//Scope error example
 public class ScopeErr {
     public static void main(String[] args) {
         int bar = 1;
         {
-           //int bar = 2;
+//            int bar = 2;
         }
     }
 }

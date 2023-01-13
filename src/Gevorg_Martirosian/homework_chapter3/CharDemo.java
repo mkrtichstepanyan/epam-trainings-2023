@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //demonstration of char data types
 public class CharDemo {
     public static void main(String[] args) {

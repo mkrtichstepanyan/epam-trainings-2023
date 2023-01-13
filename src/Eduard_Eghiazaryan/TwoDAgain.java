@@ -1,5 +1,5 @@
-package Gevorg_Martirosian.homework_chapter3;
-//manual adding in multiple massive, not equal rows
+package Eduard_Eghiazaryan;
+
 public class TwoDAgain {
     public static void main(String[] args) {
         int[][] twoD = new int[4][];
@@ -9,18 +9,14 @@ public class TwoDAgain {
         twoD[3] = new int[4];
 
         int i, j, k = 0;
-
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < 4; i++)
             for (j = 0; j < i + 1; j++) {
                 twoD[i][j] = k;
                 k++;
             }
-        }
-
         for (i = 0; i < 4; i++) {
-            for (j = 0; j < i + 1; j++) {
-                System.out.print(twoD[i][j] + " ");
-            }
+            for (j = 0; j < i + 1; j++)
+                System.out.print(twoD[i][j] + "");
             System.out.println();
         }
     }
