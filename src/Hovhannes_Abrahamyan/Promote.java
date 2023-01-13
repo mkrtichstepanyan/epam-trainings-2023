@@ -1,3 +1,5 @@
+package Hovhannes_Abrahamyan;
+
 
 public class Promote {
     public static void main(String rgs[]) {

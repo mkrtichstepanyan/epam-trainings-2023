@@ -1,3 +1,5 @@
+package Hovhannes_Abrahamyan;
+
 
 public class Light {
     public static void main(String args[]) {

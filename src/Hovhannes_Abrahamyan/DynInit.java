@@ -1,3 +1,5 @@
+package Hovhannes_Abrahamyan;
+
 
 public class DynInit {
     public static void main(String args[]) {
