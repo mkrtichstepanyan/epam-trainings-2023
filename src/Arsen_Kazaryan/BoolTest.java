@@ -2,17 +2,19 @@ package Arsen_Kazaryan;
 
 public class BoolTest {
     public static void main(String[] args) {
+        boolean b;
 
-        boolean b = false;
-        System.out.println("Boolean b is - " + b);
-
+        b = false;
+        System.out.println("b equal " + b);
         b = true;
-        System.out.println("Boolean b is - " + b);
+        System.out.println("b equal " + b);
 
-        if (b) {
-            System.out.println("This is executes.");
-        }
+        if (b) System.out.println("This is executed.");
 
-        System.out.println("10>9 result is - " + (10 > 5));
+        b = false;
+        if (b) System.out.println("This is executed.");
+
+        System.out.println("10 > 9 equal " + (10 > 9) );
     }
+
 }

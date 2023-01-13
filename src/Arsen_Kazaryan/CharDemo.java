@@ -2,12 +2,11 @@ package Arsen_Kazaryan;
 
 public class CharDemo {
     public static void main(String[] args) {
+     char ch1, ch2;
+     ch1 = 88;
+     ch2 = 'Y';
+        System.out.print("ch1 and ch2: ");
+        System.out.println(ch1 + " " + ch2);
 
-        char char1 = 100;
-        char char2 = 's';
-        System.out.println("char1: " + char1 + ", char2: " + char2);
-
-        char2++;
-        System.out.println("char3: " + char2);
     }
 }
