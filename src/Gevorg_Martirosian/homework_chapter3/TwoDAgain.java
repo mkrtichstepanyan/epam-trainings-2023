@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //manual adding in multiple massive, not equal rows
 public class TwoDAgain {
     public static void main(String[] args) {

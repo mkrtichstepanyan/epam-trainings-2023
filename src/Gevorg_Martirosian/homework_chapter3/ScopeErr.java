@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //this program contains error
 public class ScopeErr {
     public static void main(String[] args) {

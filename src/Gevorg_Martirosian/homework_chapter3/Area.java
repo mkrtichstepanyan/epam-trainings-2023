@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //calculate the area of circle
 public class Area {
     public static void main(String[] args) {

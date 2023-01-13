@@ -1,3 +1,4 @@
+package Gevorg_Martirosian.homework_chapter3;
 //demonstration of simple massive
 public class Array {
     public static void main(String[] args) {
