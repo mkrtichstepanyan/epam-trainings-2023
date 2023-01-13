@@ -2,8 +2,10 @@ package radik_manasyan;
 
 public class CharDemo {
     public static void main(String[] args) {
-        char ch1 = 'R';
-        System.out.println("Char --> " + ch1);
-        System.out.println("Char * 2 = " + (ch1 * 2));
+        char ch1, ch2;
+        ch1 = 88;
+        ch2 = 'Y';
+        System.out.print("ch1 and ch2: ");
+        System.out.println(ch1 + " " + ch2);
     }
 }
