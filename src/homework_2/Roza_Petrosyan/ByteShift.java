@@ -1,9 +1,8 @@
-package homework_2.Rafik_Pahlevanyan.chapter_4;
+package homework_2.Roza_Petrosyan;
 
-//Left shifting a byte value
+// Left shifting a byte value.
 public class ByteShift {
     public static void main(String[] args) {
-
         byte a = 64, b;
         int i;
 
