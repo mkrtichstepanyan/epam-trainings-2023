@@ -1,4 +1,4 @@
-package Diana_Melkonyan;
+package homework_2.Diana_Melkonyan;
 
 public class IncDec {
     public static void main(String[] args) {
