@@ -1,10 +1,9 @@
-package homework_2.Rafik_Pahlevanyan.chapter_4;
+package homework_2.Roza_Petrosyan;
 
-//Demonstrate the basic arithmetic operators
+// Demonstrate the basic arithmetic operators.
 public class BasicMath {
     public static void main(String[] args) {
-
-        //arithmetic using integers
+        // arithmetic using integers
         System.out.println("Integer Arithmetic");
         int a = 1 + 1;
         int b = a * 3;
@@ -17,12 +16,12 @@ public class BasicMath {
         System.out.println("d = " + d);
         System.out.println("e = " + e);
 
-        //arithmetic using doubles
+        // arithmetic using doubles
         System.out.println("\nFloating Point Arithmetic");
         double da = 1 + 1;
         double db = da * 3;
         double dc = db / 4;
-        double dd = dc - a;
+        double dd = dc - da;
         double de = -dd;
         System.out.println("da = " + da);
         System.out.println("db = " + db);
