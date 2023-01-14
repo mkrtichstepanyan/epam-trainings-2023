@@ -1,4 +1,4 @@
-package Nelli_Poghosyan
+package Nelli_Poghosyan;
 
 //demonstraion of three-dim. array
 public class ThreeDMatrix {

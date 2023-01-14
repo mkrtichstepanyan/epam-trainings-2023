@@ -1,4 +1,4 @@
-package Nelli_Poghosyan
+package Nelli_Poghosyan;
 
 //demonstration of two-dimensional array
 public class TwoDArray {

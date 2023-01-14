@@ -1,4 +1,4 @@
-package Nelli_Poghosyan
+package Nelli_Poghosyan;
 
 //Average an array of values.
 public class Average {

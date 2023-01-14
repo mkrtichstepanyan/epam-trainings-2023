@@ -1,4 +1,4 @@
-package Nelli_Poghosyan
+package Nelli_Poghosyan;
 
 // char variables behave like integers
 public class CharDemo2 {

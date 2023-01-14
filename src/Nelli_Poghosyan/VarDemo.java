@@ -1,4 +1,4 @@
-package Nelli_Poghosyan
+package Nelli_Poghosyan;
 
 //A simple demo of local variable type inference
 public class VarDemo {

@@ -1,4 +1,4 @@
-package Nelli_Poghosyan
+package Nelli_Poghosyan;
 
 //demonstraion lifetime of a variable
 public class LifeTime {

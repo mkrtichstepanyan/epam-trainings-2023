@@ -1,4 +1,4 @@
-package Nelli_Poghosyan
+package Nelli_Poghosyan;
 
 public class TwoDAgain {
     public static void main(String[] args) {

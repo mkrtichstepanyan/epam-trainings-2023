@@ -1,4 +1,4 @@
-package Nelli_Poghosyan
+package Nelli_Poghosyan;
 
 // demonstration of one-dimensional array.
 public class Array {

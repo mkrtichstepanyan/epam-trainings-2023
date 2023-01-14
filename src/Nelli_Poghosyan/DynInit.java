@@ -1,4 +1,4 @@
-package Nelli_Poghosyan
+package Nelli_Poghosyan;
 
 //demonstration of dynamic initialization
 public class DynInit {
