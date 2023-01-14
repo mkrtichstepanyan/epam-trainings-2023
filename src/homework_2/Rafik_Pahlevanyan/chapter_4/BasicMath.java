@@ -29,7 +29,5 @@ public class BasicMath {
         System.out.println("dc = " + dc);
         System.out.println("dd = " + dd);
         System.out.println("de = " + de);
-
-
     }
 }
