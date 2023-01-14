@@ -1,4 +1,4 @@
-package samvel_hakobyan_homework_2;
+package homework_2.Samvel_Hakobyan;
 
 public class Modulus {
     public static void main(String[] args) {
