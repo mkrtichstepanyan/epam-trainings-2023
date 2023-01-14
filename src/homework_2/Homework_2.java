@@ -6,13 +6,9 @@ public class Homework_2 {
         1. Create package with your <name_surname> in "src/homework_2" package (see example with my name in "scr/homework_2")
         2. Write all book examples in Chapter 4
         3. Create separate classes if there is need
-
-        4. Todo Calculate and write correct values instead of "???" symbols below (Write this part of homework inside this comment -> Just replace the "???" symbols)
-
         4. Todo Calculate and write correct values instead of "???" symbols below
             (Copy 4-rd step only into new file inside "src/homework_2/<Name_Surname>/calculations.txt" and write correct values instead of ??? symbols)
             See example in "src/homework_2/Mkrtich_Stepanyan/calculations.txt"  file
-
                    * Convert number 456 from decimal to binary = ???
                    * Convert number 01001001011 from binary to decimal = ???
                    * Convert number 450 from octal to decimal = ???
