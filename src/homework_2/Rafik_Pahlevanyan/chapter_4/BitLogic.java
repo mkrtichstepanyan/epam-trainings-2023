@@ -24,5 +24,4 @@ public class BitLogic {
         System.out.println("~a&b|a&-b = " + binary[f]);
         System.out.println(" ~а= " + binary[g]);
     }
-
 }
