@@ -8,4 +8,8 @@ public class Light {
 
         // ...
     }
+
+    private static class String {
+    }
 }
+
