@@ -1,4 +1,4 @@
-package homework_2.Araksya_Ghazaryan;
+package homework_2.Alina_Mkhoyan.Chap_4;
 
 public class OpBitEquals {
     public static void main(String[] args) {
@@ -10,8 +10,8 @@ public class OpBitEquals {
         b >>= 1;
         c <<= 1;
         a ^= c;
-        System.out.println(" a = " + a);
-        System.out.println(" b = " + b);
-        System.out.println(" c = " + c);
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+        System.out.println("c = " + c);
     }
 }

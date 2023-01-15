@@ -1,8 +1,8 @@
 package homework_2.Alina_Mkhoyan.Chap_4;
 
-public class BasiMath {
+public class BasicMath {
     public static void main(String[] args) {
-        System.out.println(" IntegerAtithmetic ");
+        System.out.println("Integer Arithmetic");
         int a = 1 + 1;
         int b = a * 3;
         int c = b / 4;
@@ -14,8 +14,7 @@ public class BasiMath {
         System.out.println("d = " + d);
         System.out.println("e = " + e);
 
-
-        System.out.println("\nFloating PointArithmatic ");
+        System.out.println("\nFloating Point Arithmetic");
         double da = 1 + 1;
         double db = da * 3;
         double dc = db / 4;
@@ -27,7 +26,4 @@ public class BasiMath {
         System.out.println("dd = " + dd);
         System.out.println("de = " + de);
     }
-
-
-
 }
