@@ -9,7 +9,7 @@ public class Promote {
         float f=5.67f;
         double d=.1234;
         double result=(f*b)+(i/c)-(d*s);
-        System.out.println((f*b) + "+" (i/c) + "-" + (d*s));
+        System.out.println((f * b) + "+" + (i / c) + "-" + (d * s));
         System.out.println("result = " + result);
     }
 }
