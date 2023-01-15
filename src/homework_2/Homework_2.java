@@ -2,7 +2,7 @@ package homework_2;
 
 public class Homework_2 {
     public static void main(String[] args) {
-      /* homework_2.Homework
+     /* homework_2.Homework
         1. Create package with your <name_surname> in "src/homework_2" package (see example with my name in "scr/homework_2")
         2. Write all book examples in Chapter 4
         3. Create separate classes if there is need
