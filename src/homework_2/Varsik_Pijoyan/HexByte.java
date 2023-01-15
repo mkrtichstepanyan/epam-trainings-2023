@@ -1,4 +1,4 @@
-package Varsik_Pijoyan;
+package homework_2.Varsik_Pijoyan;;
 
 //Making sign extension
 public class HexByte {

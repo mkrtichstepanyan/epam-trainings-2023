@@ -1,4 +1,4 @@
-package Varsik_Pijoyan;
+package homework_2.Varsik_Pijoyan;;
 
 //Left shifting a byte value
 public class ByteShift {

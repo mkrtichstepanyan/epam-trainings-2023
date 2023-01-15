@@ -1,4 +1,4 @@
-package Varsik_Pijoyan;
+package homework_2.Varsik_Pijoyan;;
 //Unsigned shifting a byte value
 public class ByteUShift {
     public static void main(String[] args) {

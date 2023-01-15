@@ -1,4 +1,4 @@
-package Varsik_Pijoyan;
+package homework_2.Varsik_Pijoyan;;
 
 //Left shifting asa a quick way to multiply by2
 public class MultByTwo {

@@ -1,4 +1,4 @@
-package Varsik_Pijoyan;
+package homework_2.Varsik_Pijoyan;;
 
 public class OpBitEquals {
     public static void main(String[] args) {
