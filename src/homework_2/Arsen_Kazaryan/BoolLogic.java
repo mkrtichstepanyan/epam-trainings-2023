@@ -1,4 +1,4 @@
-package Arsen_Kazaryan;
+package homework_2.Arsen_Kazaryan;
 
 public class BoolLogic {
     public static void main(String[] args) {
