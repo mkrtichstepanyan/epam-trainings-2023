@@ -1,5 +1,3 @@
-
-
 * Convert number 456 from decimal to binary = 111001000
 * Convert number 01001001011 from binary to decimal = 587
 * Convert number 450 from octal to decimal = 296
