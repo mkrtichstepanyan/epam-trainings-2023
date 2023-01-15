@@ -1,4 +1,4 @@
-package homework_2.Araksya_Ghazaryan;
+package homework_2.Alina_Mkhoyan.Chap_4;
 
 public class BoolLogic {
     public static void main(String[] args) {
