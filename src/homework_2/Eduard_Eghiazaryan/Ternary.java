@@ -1,4 +1,4 @@
-package Eduard_Eghiazaryan;
+package homework_2.Eduard_Eghiazaryan;
 
 public class Ternary {
     public static void main(String[] args) {
