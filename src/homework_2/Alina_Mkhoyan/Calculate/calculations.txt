@@ -1,0 +1,25 @@
+Convert number 456 from decimal to binary result = 456/2 = 228, --> 0
+                                                   228/2 = 114,--> 0
+                                                   114/2 = 57, --> 0
+                                                   57/2 = 28,--> 1
+                                                   28/2 = 14, --> 0
+                                                   14/2 = 7, --> 0
+                                                   7/2 = 3, --> 1
+                                                   3/2 = 1, --> 1
+                                                   1/2 = 0,--> 1 -----> 111001000
+Convert number 01001001011 from binary to decimal = (01001001011)₂ =
+(0 × 2¹⁰) + (1 × 2⁹) + (0 × 2⁸) + (0 × 2⁷) + (1 × 2⁶) + (0 × 2⁵) + (0 × 2⁴) + (1 × 2³) + (0 × 2²) + (1 × 2¹) + (1 × 2⁰) = (587)₁₀
+512 + 64 + 8 + 2 + 1 = 587
+Convert number 450 from octal to decimal = 4x82 + 5x81 + 0x80 = 256 + 40 + 0 = 296
+Convert number 345 from decimal to octal = 345/8 = 43-->1, 43/8 = 5--> 3, 5/8 = 0 --> 5 = 531
+Convert number 542 from decimal to hexadecimal = 21E
+542 / 16 = 33.875 ,
+ 0.875 x 16 = E ,  remainder 14 (E)
+ 33 / 16 = 2.0625 ,
+  0.0625 x 16 = 1,
+  2 / 16 = 0.125,
+  0.125 x 16 = 2 -->21E
+Convert number 34F1E from hexadecimal to decimal =
+ (34F1E)₁₆ = (3 × 16⁴) + (4 × 16³) + (15 × 16²) + (1 × 16¹) + (14 × 16⁰) = (216862)₁₀
+Example:
+         Convert number 2 from decimal to binary = 0000 0010
