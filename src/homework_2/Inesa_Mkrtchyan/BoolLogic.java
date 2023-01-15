@@ -1,4 +1,4 @@
-package Inesa_Mkrtchyan;
+package homework_2.Inesa_Mkrtchyan;
 
 public class BoolLogic {
     public static void main(String[] args) {
