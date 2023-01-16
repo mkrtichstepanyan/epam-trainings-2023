@@ -22,6 +22,6 @@ public class Homework_2 {
         7. Create PR and assign to your mentor
       */
 
-//        System.out.println("Hello Students. Please read the comment above with your homework 2 description");
+        System.out.println("Hello Students. Please read the comment above with your homework 2 description");
     }
 }
