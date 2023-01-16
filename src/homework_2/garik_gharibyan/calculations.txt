@@ -1,0 +1,7 @@
+* Convert number 456 from decimal to binary = 1 1100 1000
+* Convert number 010 0100 1011 from binary to decimal = 1*2^0 + 1*2^1 + 1*2^3 + 1*2^6 + 1*2^9 = 587
+* Convert number 450 from octal to decimal = 0*8^0 + 5*8^1 + 4*8^2 = 296
+* Convert number 345 from decimal to octal = 531
+* Convert number 542 from decimal to hexadecimal = 0x21e
+* Convert number 34F1E from hexadecimal to decimal = 14*16^0 + 1*16^1 + 15*16^2 + 4*16^3 + 3*16^4 = 216862
+456/2
