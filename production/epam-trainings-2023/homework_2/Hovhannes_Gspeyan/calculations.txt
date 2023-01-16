@@ -1,0 +1,8 @@
+ Todo Calculate and write correct values instead of "???" symbols below (Write this part of homework inside this comment -> Just replace the "???" symbols)
+                    Convert number 456 from decimal to binary = whereas the 456 is range of short values, it must be 16
+                                                                 bits, so 0000000111001000 or 0b111001000 is decimal 456
+                    1.Convert number 01001001011 from binary to decimal = 587
+                    2.Convert number 450 from octal to decimal = 296
+                    3.Convert number 345 from decimal to octal = 531
+                    4.Convert number 542 from decimal to hexadecimal = 21E
+                    5.Convert number 34F1E from hexadecimal to decimal = 216862
