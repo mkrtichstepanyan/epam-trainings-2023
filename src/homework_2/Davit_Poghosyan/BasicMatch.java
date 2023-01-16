@@ -9,7 +9,7 @@ public class BasicMatch {
         int c = b / 4;
         int d = c - a;
         int e = - d;
-        System.out.println("a = " + a);
+        System.out.println("da = " +a);
         System.out.println("b = " + b);
         System.out.println("c = " + c);
         System.out.println("d = " + d);
@@ -18,10 +18,10 @@ public class BasicMatch {
         //arithmetic using doubles
         System.out.println("\nFloating Point Arithmetic");
         double da = 1 + 1;
-        double db = a * 3;
-        double dc = b / 4;
-        double dd = c - a;
-        double de = - d;
+        double db = da * 3;
+        double dc = db / 4;
+        double dd = dc - a;
+        double de = - dd;
         System.out.println("da = " + da);
         System.out.println("db = " + db);
         System.out.println("dc = " + dc);
