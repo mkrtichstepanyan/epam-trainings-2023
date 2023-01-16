@@ -12,6 +12,5 @@ public class ByteShift {
 
         System.out.println("Original value of a: " + a);
         System.out.println("i and b: " + i + " " + b);
-
     }
 }
