@@ -1,9 +1,0 @@
-
- Todo Calculate and write correct values instead of "???" symbols below (Write this part of homework inside this comment -> Just replace the "???" symbols)
-
-    * Convert number 456 from decimal to binary = 111001000   // 456/2(0), 228/2(0), 114/2(0), 57/2 (1), 28/2 (0), 14/2(0), 7/2(1), 3/2(1), 1/2(1)
-    * Convert number 01001001011 from binary to decimal = 587 //(0×2¹⁰)+(1×2⁹)+(0×2⁸)+(0×2⁷)+(1×2⁶)+(0×2⁵)+(0×2⁴)+(1×2³)+(0×2²)+(1×2¹)+ (1 × 2⁰)
-    * Convert number 450 from octal to decimal = 296          // (4×8²)+(5×8¹)+(0×8⁰)
-    * Convert number 345 from decimal to octal = 531          // 345/8=43(1), 43/8=5(3), 5/8(5)
-    * Convert number 542 from decimal to hexadecimal = 21E    // 542/16=33(14=E), 33/16=2(1), 2/16(2)
-    * Convert number 34F1E from hexadecimal to decimal=216862 // (3×16⁴)+(4×16³)+(15×16²)+(1×16¹)+(14×16⁰)
