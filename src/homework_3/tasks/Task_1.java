@@ -1,4 +1,4 @@
-package homework_3.Mkrtich_Stepanyan.tasks;
+package homework_3.tasks;
 
 public class Task_1 {
 
@@ -27,9 +27,6 @@ public class Task_1 {
      */
     public static void drawLeftUpTriangle(int length){
         // TODO : complete the method
-        for (int i = 0; i < length; i++) {
-            System.out.println("ass");
-        }
     }
 
 
