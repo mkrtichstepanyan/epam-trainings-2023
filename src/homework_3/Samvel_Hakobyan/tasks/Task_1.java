@@ -1,4 +1,4 @@
-package homework_3.Mkrtich_Stepanyan.tasks;
+package homework_3.Samvel_Hakobyan.tasks;
 
 public class Task_1 {
 
@@ -34,6 +34,7 @@ public class Task_1 {
             System.out.println();
         }
         System.out.println("--------------");
+
     }
 
 
@@ -86,7 +87,6 @@ public class Task_1 {
         }
 
         System.out.println("-------------------");
-
     }
 
 
@@ -133,7 +133,7 @@ public class Task_1 {
      */
     public static void drawRhombus(int length) {
         // TODO : complete the method
-        int lenght = 5 - 2;
+        int lenght = 5 - 2 ;
         int space = lenght - 1;
         for (int i = 0; i <= lenght; i++) {
             for (int j = 0; j <= space; j++)
@@ -157,7 +157,7 @@ public class Task_1 {
             space++;
 
         }
-        System.out.println("-------------------");
+        System.out.println("-----------------");
 
     }
 
@@ -173,6 +173,7 @@ public class Task_1 {
      * @param length specified length of triangle will be drawn
      */
     public static void drawIsoscelesTriangle(int length){
+
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < (length - i - 1); j++) {
                 System.out.print("  ");
