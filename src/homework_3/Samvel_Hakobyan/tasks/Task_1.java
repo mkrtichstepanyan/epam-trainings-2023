@@ -157,7 +157,7 @@ public class Task_1 {
             space++;
 
         }
-        System.out.println("-----------------");
+        System.out.println("----------------");
 
     }
 
