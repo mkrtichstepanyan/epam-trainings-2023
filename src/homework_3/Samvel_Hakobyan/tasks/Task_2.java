@@ -8,9 +8,10 @@ public class Task_2 {
         printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
         sumNumbers(10);            // Question 2
         table(10);
-//        factorialDemo1();            // Question 3
-//        powerDemo();                 // Question 4
-//        reverseNumber();             // Question 5
+
+        factorialDemo1(10);            // Question 3
+//        powerDemo(10);                 // Question 4
+        reverseNumber(10);             // Question 5
 //        readSetIntegers();           // Question 6
 //        testPrime();                 // Question 7
     }
@@ -33,10 +34,12 @@ public class Task_2 {
     */
     public static void sumNumbers(int count) {
         int sum = 0;
-        for (int i = 1; i <=10 ; i++) {
+        for (int i = 1; i <= 10; i++) {
             sum += i;
         }
         System.out.println("Sum: " + sum);
+        System.out.println("------------");
+
     }
 
 
@@ -56,13 +59,15 @@ public class Task_2 {
         for (int i = 0; i <= 10; i++) {
             System.out.println(num + "*" + i + " =" + (num * i));
         }
+        System.out.println("------------");
+
     }
 
 
     /* TODO: Question 4
         Write a program to find the factorial value of any number entered through the keyboard.
     */
-    public static void factorialDemo1() {
+    public static void factorialDemo1(int n) {
         Scanner console = new Scanner(System.in);
         int num; // To hold number
         int fact = 1; // To hold factorial
@@ -70,10 +75,18 @@ public class Task_2 {
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
 
-        // Todo write your code here ...
+        int i;
+        for (i = 2; i <= num; i++) {
+            fact *= i;
+        }
+        System.out.println("Factorial: " + num + " -> " + fact);
 
-        System.out.println("Factorial: " + fact);
+        System.out.println("------------");
+
     }
+
+
+
 
      /* TODO: Question 4
          Two numbers are entered through the keyboard.
@@ -86,25 +99,25 @@ public class Task_2 {
 
         int base;
         int power;
-        int result = 1;
+       int result = 1;
 
         System.out.print("Enter the base number ");
         base = console.nextInt();
 
         System.out.print("Enter the power ");
         power = console.nextInt();
+       // Todo write your code here ...
 
-        // Todo write your code here ...
 
-        System.out.println("Result: " + result);
-    }
+       System.out.println("Result: " + result);
+   }
 
      /* TODO: Question 5
          Write a program that prompts the user to input an integer and then outputs the number with the digits reversed.
          For example, if the input is 12345, the output should be 54321.
      */
 
-    public static void reverseNumber() {
+    public static void reverseNumber(int count) {
         Scanner console = new Scanner(System.in);
 
         int number;
@@ -116,9 +129,14 @@ public class Task_2 {
         int temp = number;
         int remainder = 0;
 
-        // Todo write your code here ...
-
+        for (; number != remainder; ) {
+            reverse *= count;
+            reverse += number % count;
+            number /= count;
+        }
         System.out.println("Reverse of " + number + " is " + reverse);
+        System.out.println("------------");
+
     }
 
     /* TODO: Question 6
