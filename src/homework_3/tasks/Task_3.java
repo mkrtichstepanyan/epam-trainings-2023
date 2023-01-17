@@ -1,4 +1,4 @@
-package homework_3.Samvel_Hakobyan.Tasks.tasks;
+package homework_3.tasks;
 
 import java.util.Scanner;
 
