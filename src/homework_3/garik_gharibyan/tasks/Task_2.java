@@ -21,9 +21,9 @@ public class Task_2 {
     */
     public static void printNumbers(int count) {
         System.out.print("Question 1: ");
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= count; i++) {
             System.out.print(i);
-        };
+        }
     }
 
     /* TODO: Question 2
@@ -51,13 +51,13 @@ public class Task_2 {
         num = console.nextInt();
 
 
-        if (num < 9 && num >0){
+        if (num < 9 && num > 0) {
             for (int i = 0; i <= 10; i++) {
-                System.out.println(i + " * " +  num +  " = " +  i * num);
+                System.out.println(i + " * " + num + " = " + i * num);
             }
             System.out.println("Multiplication Table of " + num);
 
-        }else {
+        } else {
             System.out.println("invalid number");
         }
     }
@@ -75,15 +75,11 @@ public class Task_2 {
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
 
-        if (num > 0){
-            for (int i = 1; i <= num; i++) {
-                fact = fact * i;
-            }
-            System.out.println("Factorial: " + fact);
-
-        }else {
-            System.out.println("invalid number");
+        for (int i = 1; i <= num; i++) {
+            fact = fact * i;
         }
+        System.out.println("Factorial: " + fact);
+
 
     }
 
@@ -109,7 +105,7 @@ public class Task_2 {
 
         for (int i = 1; i <= power; i++) {
             result = result * base;
-        };
+        }
 
         System.out.println("Result: " + result);
     }
@@ -132,9 +128,9 @@ public class Task_2 {
         int temp = number;
         int remainder = 0;
 
-        while (temp != 0){
-            remainder = temp%10;
-            reverse = reverse * 10 +remainder;
+        while (temp != 0) {
+            remainder = temp % 10;
+            reverse = reverse * 10 + remainder;
             temp = temp / 10;
         }
 
@@ -158,9 +154,9 @@ public class Task_2 {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
-            if (number % 2 == 0){
+            if (number % 2 == 0) {
                 evenSum = number + evenSum;
-            }else {
+            } else {
                 oddSum = number + oddSum;
             }
 
@@ -188,14 +184,14 @@ public class Task_2 {
         boolean flag = true;
 
         for (int i = 2; i < number; i++) {
-            if (number % i == 0){
+            if (number % i == 0) {
                 flag = false;
                 break;
             }
         }
-        if (flag){
+        if (flag) {
             System.out.println(number + " is a prime number");
-        }else {
+        } else {
             System.out.println(number + " is a not prime number");
 
         }
