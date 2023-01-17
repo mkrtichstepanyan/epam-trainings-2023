@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Task_2 {
 
     public static void main(String[] args) {
-//        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
-//        sumNumbers();                // Question 2
+        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
+        sumNumbers(10);                // Question 2
 //        factorialDemo1();            // Question 3
 //        powerDemo();                 // Question 4
 //        reverseNumber();             // Question 5
@@ -20,14 +20,23 @@ public class Task_2 {
     */
     public static void printNumbers(int count) {
         // Todo write your code here ...
+        for (int i = 0; i < 10; i++) {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("------------");
     }
+
 
     /* TODO: Question 2
         Write a program to calculate the sum of first 10 natural numbers.
     */
-    public static void sumNumbers() {
-        int sum = 0;
+    public static void sumNumbers(int i) {
         // Todo write your code here ...
+        int sum = 0;
+        for (i = 1; i <=10 ; i++) {
+            sum +=i;
+        }
         System.out.println("Sum: " + sum);
     }
 
