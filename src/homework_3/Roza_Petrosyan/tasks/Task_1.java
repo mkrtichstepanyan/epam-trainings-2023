@@ -28,7 +28,7 @@ public class Task_1 {
     public static void drawLeftUpTriangle(int length){
         for (int i = 0; i < length; i++) {
             for (int j = 0; j <= i; j++) {
-                System.out.print("*");
+                System.out.print("* ");
             }
             System.out.println();
         }
@@ -49,10 +49,10 @@ public class Task_1 {
     public static void drawRightUpTriangle(int length){
         for (int i = 0; i < length; i++) {
             for (int j = i; j < length; j++) {
-                System.out.print(" ");
+                System.out.print("  ");
             }
             for (int k = 0; k <= i; k++) {
-                System.out.print("*");
+                System.out.print("* ");
             }
             System.out.println();
         }
@@ -74,7 +74,7 @@ public class Task_1 {
     public static void drawLeftBottomTriangle(int length){
         for (int i = 0; i < length; i++) {
             for (int j = i; j < length; j++) {
-                System.out.print("*");
+                System.out.print("* ");
             }
             System.out.println();
         }
@@ -96,10 +96,10 @@ public class Task_1 {
     public static void drawRightBottomTriangle(int length){
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < i; j++) {
-                System.out.print(" ");
+                System.out.print("  ");
             }
             for (int k = i; k < length; k++) {
-                System.out.print("*");
+                System.out.print("* ");
             }
             System.out.println();
         }
@@ -123,26 +123,26 @@ public class Task_1 {
     public static void drawRhombus(int length) {
         for (int i = 0; i < length - 1; i++) {
             for (int j = i; j < length - 1; j++) {
-                System.out.print(" ");
+                System.out.print("  ");
             }
             for (int k = 0; k <= i; k++) {
-                System.out.print("*");
+                System.out.print("* ");
             }
             for (int f = 0; f < i; f++) {
-                System.out.print("*");
+                System.out.print("* ");
             }
             System.out.println();
         }
 
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < i; j++) {
-                System.out.print(" ");
+                System.out.print("  ");
             }
             for (int k = i; k < length; k++) {
-                System.out.print("*");
+                System.out.print("* ");
             }
             for (int f = i; f < length - 1; f++) {
-                System.out.print("*");
+                System.out.print("* ");
             }
             System.out.println();
         }
@@ -162,13 +162,13 @@ public class Task_1 {
     public static void drawIsoscelesTriangle(int length){
         for (int i = 0; i < length; i++) {
             for (int j = i; j < length - 1; j++) {
-                System.out.print(" ");
+                System.out.print("  ");
             }
             for (int k = 0; k <= i; k++) {
-                System.out.print("*");
+                System.out.print("* ");
             }
             for (int f = 0; f < i; f++) {
-                System.out.print("*");
+                System.out.print("* ");
             }
             System.out.println();
         }
@@ -188,13 +188,13 @@ public class Task_1 {
     public static void drawBottomIsoscelesTriangle(int length){
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < i; j++) {
-                System.out.print(" ");
+                System.out.print("  ");
             }
             for (int k = i; k < length; k++) {
-                System.out.print("*");
+                System.out.print("* ");
             }
             for (int f = i; f < length - 1; f++) {
-                System.out.print("*");
+                System.out.print("* ");
             }
             System.out.println();
         }
