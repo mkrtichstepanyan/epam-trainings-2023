@@ -7,12 +7,12 @@ public class Task_2 {
     public static void main(String[] args) {
         //       printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
         //       sumNumbers();                // Question 2
-         //        factorialDemo1();            // Question 3
+        //        factorialDemo1();            // Question 3
         //       powerDemo();                 // Question 4
         //      reverseNumber();             // Question 5
-              readSetIntegers();           // Question 6
-        //      testPrime();                 // Question 7
-       //         table();  // ես եմ այս ֆունկցիան այստեղ ավելացրել,չկար գրված
+        //    readSetIntegers();           // Question 6
+        //     testPrime();                 // Question 7
+        //         table();  // ես եմ այս ֆունկցիան այստեղ ավելացրել,չկար գրված
     }
 
 
@@ -96,10 +96,10 @@ public class Task_2 {
         power = console.nextInt();
 
         // Todo write your code here ...
-        for (int i = 1; i <= base; i++) {
-            result = power * result;
+        for (int i = 0; i < power; i++) {
+            result = base * result;
         }
-
+        System.out.println(base + "^" + power + "=" + result);
         System.out.println("Result: " + result);
     }
 
@@ -147,20 +147,18 @@ public class Task_2 {
             number = console.nextInt();
 
             // Todo write your code here ...
-
-
+            if (number % 2 == 0) {
+                evenSum = evenSum + number;
+            } else {
+                oddSum = oddSum + number;
+            }
 
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
 
         } while (choice == 'y' || choice == 'Y');
-        for (int i = 0; i < number; i++) {
-            if (i % 2 == 0) {
-                evenSum = evenSum + i;
-            } else {
-                oddSum = oddSum + i;
-            }
-        }
+
+
         System.out.println("Sum of even numbers: " + evenSum);
         System.out.println("Sum of odd numbers: " + oddSum);
     }
@@ -180,18 +178,15 @@ public class Task_2 {
         boolean flag = true;
 
         // Todo write your code here ...
-        for (int i = 2; i < number; i++) {
-            flag = true;
-            for (int j = 2; j < i; j++) {
-                if (i % j == 0) {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag) {
-                System.out.println(i + "number is a prime number");
-            }
-        }
+ for (int i =2; i< number; i++){
+     if(number % i ==0){
+         flag = false;
+     }
+ }
+ if(flag)
+     System.out.println("prime");
+ else
+     System.out.println("Not prime");
     }
 }
 
