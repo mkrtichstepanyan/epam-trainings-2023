@@ -53,8 +53,6 @@ public class Task_2 {
             System.out.println(num + " x " + i + " = " + (num * i));
         }
 
-
-        // Todo write your code here ...
     }
 
 
