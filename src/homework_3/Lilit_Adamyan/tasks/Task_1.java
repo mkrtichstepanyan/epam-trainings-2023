@@ -18,12 +18,12 @@ public class Task_1 {
      * Draws the triangle by specified length number
      * for example when n = 4 , it must be such as
      * drawn below :
-     * *
-     * * *
-     * * * *
-     * * * * *
+     *      *
+     *      * *
+     *      * * *
+     *      * * * *
      *
-     * @param length specified length of triangle will be drawn
+     * @param length  specified length of triangle will be drawn
      */
     public static void drawLeftUpTriangle(int length) {
         for (int i = 1; i < length; i++) {
@@ -41,13 +41,12 @@ public class Task_1 {
      * Draws the triangle by specified length number
      * for example when n = 5 , it must be such as
      * drawn below :
-     * *
-     * * *
-     * * * *
-     * * * * *
-     * * * * * *
-     *
-     * @param length specified length of triangle will be drawn
+     *             *
+     *           * *
+     *         * * *
+     *       * * * *
+     *     * * * * *
+     * @param length  specified length of triangle will be drawn
      */
     public static void drawRightUpTriangle(int length) {
         for (int i = 1; i <= length; i++) {
@@ -68,13 +67,13 @@ public class Task_1 {
      * Draws the triangle by specified length number
      * for example when n = 4 , it must be such as
      * drawn below :
-     * <p>
-     * * * * *
-     * * * *
-     * * *
-     * *
      *
-     * @param length specified length of triangle will be drawn
+     *       * * * *
+     *       * * *
+     *       * *
+     *       *
+     *
+     * @param length  specified length of triangle will be drawn
      */
     public static void drawLeftBottomTriangle(int length) {
         for (int i = 0; i <= length; i++) {
@@ -86,17 +85,18 @@ public class Task_1 {
         System.out.println("____LeftBottomTriangle____");
     }
 
+
     /**
      * Draws the triangle by specified length number
      * for example when n = 4 , it must be such as
      * drawn below :
-     * <p>
-     * * * * *
-     * * * *
-     * * *
-     * *
      *
-     * @param length specified length of triangle will be drawn
+     *       * * * *
+     *         * * *
+     *           * *
+     *             *
+     *
+     * @param length  specified length of triangle will be drawn
      */
     public static void drawRightBottomTriangle(int length) {
         for (int i = 0; i <= length; i++) {
@@ -115,16 +115,15 @@ public class Task_1 {
      * Draws the rhombus by specified length number
      * for example when n = 5 , it must be such as
      * drawn below :
-     * <p>
-     * *
-     * * *
-     * * * *
-     * * * * *
-     * * * *
-     * * *
-     * *
      *
-     * @param length specified length of rhombus will be drawn
+     *        *
+     *       * *
+     *      * * *
+     *     * * * *
+     *      * * *
+     *       * *
+     *        *
+     * @param length  specified length of rhombus will be drawn
      */
     public static void drawRhombus(int length) {
         for (int i = 1; i <= length; i++) {
@@ -151,11 +150,11 @@ public class Task_1 {
 
     /**
      * lenght = 5
-     * *
-     * * * *
-     * * * * * *
-     * * * * * * * *
-     * * * * * * * * * *
+     *            *
+     *          * * *
+     *        * * * * *
+     *      * * * * * * *
+     *    * * * * * * * * *
      *
      * @param length specified length of triangle will be drawn
      */
@@ -175,11 +174,12 @@ public class Task_1 {
 
 
     /**
-     * * * * * * * * * *
-     * * * * * * * *
-     * * * * * *
-     * * * *
-     * *
+     *
+     *   * * * * * * * * *
+     *     * * * * * * *
+     *       * * * * *
+     *         * * *
+     *           *
      *
      * @param length specified length of triangle will be drawn
      */
