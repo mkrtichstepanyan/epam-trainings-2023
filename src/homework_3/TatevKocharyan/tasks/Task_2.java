@@ -9,7 +9,7 @@ public class Task_2 {
 //        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
 //        sumNumbers(2);               // Question 2
 //        table();                     // Question 3
-//        factorialDemo1();            // Question 4
+//       factorialDemo1();            // Question 4
 //        powerDemo();                 // Question 5
 //        reverseNumber();             // Question 6
 //        readSetIntegers();           // Question 7
@@ -73,7 +73,10 @@ public class Task_2 {
         num = console.nextInt();
 
         // Todo write your code here ...
+        for (int i = 1; i <= num; i++) {
+            fact = fact * i;
 
+        }
         System.out.println("Factorial: " + fact);
     }
 
@@ -147,22 +150,18 @@ public class Task_2 {
             number = console.nextInt();
 
             // Todo write your code here ...
-            for (int i = 1; i <= number; i++) {
-                System.out.print(i);
-            }
 
+            if (number % 2 == 0) {
+                evenSum = evenSum + number;
+            } else oddSum = oddSum + number;
+
+            System.out.println("Sum of even numbers: " + evenSum);
+            System.out.println("Sum of odd numbers: " + oddSum);
             System.out.print("\nDo you want to continue y/n? ");
             choice = console.next().charAt(0);
-            for (int i = 1; i <= number; i++) {
-                if (i % 2 == 0) {
-                    evenSum = evenSum + i;
-                } else oddSum = oddSum + i;
-            }
 
         } while (choice == 'y' || choice == 'Y');
 
-        System.out.println("Sum of even numbers: " + evenSum);
-        System.out.println("Sum of odd numbers: " + oddSum);
 
     }
 
