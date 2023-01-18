@@ -9,7 +9,7 @@ public class Task_3 {
 //        sumAgain();                  // Question 9
 //        countNumbers();              // Question 10
 //        findMaxMin();                // Question 11
-//        armstrongNumber();           // Question 12
+        armstrongNumber();           // Question 12
 //        fibonacciSeries();           // Question 13
 //        sumOfSeries();               // Question 14
 //        guessMyNumber();             // Question 15
@@ -25,13 +25,18 @@ public class Task_3 {
         int dividend, divisor;
         int remainder, hcf = 0;
 
-        System.out.print("Enter the first number ");
+        System.out.print("Enter the first number: ");
         dividend = console.nextInt();
 
-        System.out.print("Enter the second number ");
+        System.out.print("Enter the second number: ");
         divisor = console.nextInt();
 
-        // Todo write your code here ...
+        while (divisor != 0) {
+            remainder = dividend % divisor;
+            dividend = divisor;
+            divisor = remainder;
+        }
+        hcf = dividend;
 
         System.out.println("HCF: " + hcf);
     }
@@ -49,7 +54,18 @@ public class Task_3 {
 
         int number1, number2;
         char choice;
+        do {
+            System.out.println("Enter first number: ");
+            number1 = console.nextInt();
 
+            System.out.println("Enter second number: ");
+            number2 = console.nextInt();
+
+            int sum = number1 + number2;
+            System.out.println("Sum: " + sum);
+            System.out.println("Do you want to perform the operation again? (yes/no) ");
+            choice = console.next().charAt(0);
+        } while (choice == 'y' || choice == 'Y');
         // Todo write your code here ...
     }
 
@@ -65,11 +81,16 @@ public class Task_3 {
         int number, countPositive = 0, countNegative = 0, countZero = 0;
 
         char choice;
-
         do {
-            System.out.print("Enter the number ");
+            System.out.print("Enter the number: ");
             number = console.nextInt();
-
+            if (number > 0) {
+                countPositive++;
+            } else if (number < 0) {
+                countNegative++;
+            } else {
+                countZero++;
+            }
             // Todo write your code here ...
 
             System.out.print("Do you want to continue y/n? ");
@@ -96,11 +117,22 @@ public class Task_3 {
         int min = Integer.MAX_VALUE;  // Intialize min with maximum value
 
         char choice;
+        do {
+            System.out.print("Enter the number: ");
+            number = console.nextInt();
 
-        // Todo write your code here ...
+            if (number > max) {
+                max = number;
+            }
+            if (number < min) {
+                min = number;
+            }
+            System.out.println("Largest number: " + max);
+            System.out.println("Smallest number: " + min);
+            System.out.print("Do you want to continue y/n? ");
+            choice = console.next().charAt(0);
 
-        System.out.println("Largest number: " + max);
-        System.out.println("Smallest number: " + min);
+        } while (choice == 'y' || choice == 'Y');
     }
 
 
@@ -113,10 +145,16 @@ public class Task_3 {
         int digit1,  // To hold first digit (Ones) of number
                 digit2,  // To hold second digit (Tens) of number
                 digit3;  // To hold third digit (Hundreds) of number
-
-        // Todo write your code here ...
+        for (int i = 1; i <= 500; i++) {
+            digit1 = i % 10;
+            digit2 = i / 10 % 10;
+            digit3 = i / 100;
+            if (digit1 * digit1 * digit1 + digit2 * digit2 * digit2 + digit3 * digit3 * digit3 == i) {
+                System.out.println(i + " is an Armstrong number. ");
+            }
+            // Todo write your code here ...
+        }
     }
-
 
     /* TODO: Question 13
         Write a program to print Fibonacci series of n terms where n is input by user :
@@ -124,9 +162,7 @@ public class Task_3 {
     */
     public static void fibonacciSeries() {
         Scanner console = new Scanner(System.in);
-
         int number;  // To hold number of terms
-
         int firstTerm = 0, secondTerm = 1, thirdTerm;
 
         System.out.print("Enter number of terms of series : ");
@@ -134,9 +170,14 @@ public class Task_3 {
 
         System.out.print(firstTerm + " " + secondTerm + " ");
 
-        // Todo write your code here ...
+        for (int i = 2; i < number; i++) {
+            thirdTerm = firstTerm + secondTerm;
+            System.out.print(" " + thirdTerm);
+            firstTerm = secondTerm;
+            secondTerm = thirdTerm;
+            // Todo write your code here ...
+        }
     }
-
 
     /* TODO: Question 14
         Write a program to calculate the sum of following series where n is input by user.
@@ -152,9 +193,11 @@ public class Task_3 {
         System.out.print("Enter number of terms of series : ");
         number = console.nextInt();
 
+        for (int i = 1; i <= number; i++) {
+            sum += (double) 1 / i;
+        }
+        System.out.println("The sum of the series is: " + sum);
         // Todo write your code here ...
-
-        System.out.println("sum: " + sum);
     }
 
 
@@ -173,8 +216,18 @@ public class Task_3 {
 
         number = (int) (Math.random() * 100) + 1; // get random number between 1 and 100
 
-        System.out.println("Guess My Number Game");
+        System.out.println("Guess My Number Game!!! ");
         System.out.println();
+        do {
+            System.out.print("Guess the number: ");
+            guess = console.nextInt();
+            if (guess > number) {
+                System.out.println("Too high, try again.");
+            } else if (guess < number) {
+                System.out.println("Too low, try again.");
+            }
+        } while (guess != number);
+        System.out.println("Congratulations! You guessed the number!");
 
         // Todo write your code here ...
     }

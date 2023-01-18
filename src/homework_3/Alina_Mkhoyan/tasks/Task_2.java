@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Task_2 {
 
     public static void main(String[] args) {
-//        printNumbers(30);            // Question 1 -> try with different integer values instead of 10 only
+        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
 //        sumNumbers();                // Question 2
 //        table();                     // Question 3
 //        factorialDemo1();            // Question 4
@@ -21,10 +21,13 @@ public class Task_2 {
     */
     public static void printNumbers(int count) {
         // Todo write your code here ...
-        for (int i = 1; i <= count; i++) {
-            System.out.println(i);
+        int i = 0;
+        while (count != i) {
+            System.out.println(++i);
         }
-
+//        for (int i = 0; i <= count; ++i) {
+//            System.out.println(i);
+//        }
     }
 
     /* TODO: Question 2
@@ -67,8 +70,8 @@ public class Task_2 {
     */
     public static void factorialDemo1() {
         Scanner console = new Scanner(System.in);
-        int num; // To hold number
-        int fact = 1; // To hold factorial
+        int num;
+        int fact = 1;
 
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
@@ -122,9 +125,7 @@ public class Task_2 {
             reverse = reverse * 10 + number % 10;
             number /= 10;
         }
-//        System.out.println("Reversed number: " + reverse);
         // Todo write your code here ...
-
         System.out.println("Reverse of " + number + " is " + reverse);
     }
 
@@ -152,7 +153,6 @@ public class Task_2 {
             choice = console.next().charAt(0);
 
         } while (choice == 'y' || choice == 'Y');
-
         System.out.println("Sum of even numbers: " + evenSum);
         System.out.println("Sum of odd numbers: " + oddSum);
     }
@@ -171,14 +171,12 @@ public class Task_2 {
         boolean flag = true;
         if (number == 1) {
             flag = false;
-
         } else {
             for (int i = 2; i <= Math.sqrt(number); i++) {
                 if (number % i == 0) {
                     flag = false;
                     break;
                 }
-
             }
         }
         if (flag) {
@@ -187,7 +185,6 @@ public class Task_2 {
             System.out.println(number + " is not a prime number.");
         }
         // Todo write your code here ...
-
     }
 }
 
