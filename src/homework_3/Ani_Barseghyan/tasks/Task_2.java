@@ -12,7 +12,7 @@ public class Task_2 {
 //        powerDemo();                 // Question 4
 //        reverseNumber();             // Question 5
 //        readSetIntegers();           // Question 6
-        testPrime();                 // Question 7
+//        testPrime();                 // Question 7
     }
 
 
@@ -47,14 +47,11 @@ public class Task_2 {
         Scanner console = new Scanner(System.in);
         int num;
 
-        System.out.print("Enter any positive integer: ");
-        num = console.nextInt();
-
         // Todo write your code here ...
-        while (num <= 0) {
+        do {
             System.out.print("Enter any positive integer: ");
             num = console.nextInt();
-        }
+        } while (num <= 0);
 
         System.out.println("Multiplication Table of " + num);
         for (int i = 1; i <= 10; i++) {
@@ -71,10 +68,12 @@ public class Task_2 {
         int num; // To hold number
         int fact = 1; // To hold factorial
 
-        System.out.print("Enter any positive integer: ");
-        num = console.nextInt();
 
         // Todo write your code here ...
+        do {
+            System.out.print("Enter any positive integer: ");
+            num = console.nextInt();
+        } while (num <= 0);
 
         for (int i = num; i > 0; i--) {
             fact *= i;
@@ -177,17 +176,13 @@ public class Task_2 {
         Scanner console = new Scanner(System.in);
 
         int number;
-
-        System.out.print("Enter the positive integer ");
-        number = console.nextInt();
-
         boolean flag = true;
 
         // Todo write your code here ...
-        while (number <= 0) {
+        do {
             System.out.print("Enter any positive integer: ");
             number = console.nextInt();
-        }
+        } while (number <= 0);
 
         if (number < 2) {
             flag = false;
@@ -195,7 +190,7 @@ public class Task_2 {
             flag = true;
         }
 
-        for (int i = 2; i <= number/i; i++) {
+        for (int i = 2; i <= number / i; i++) {
             if (number % i == 0) {
                 flag = false;
                 break;
