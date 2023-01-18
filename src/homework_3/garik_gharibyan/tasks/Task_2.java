@@ -183,7 +183,11 @@ public class Task_2 {
 
         boolean flag = true;
 
-        for (int i = 2; i < number; i++) {
+        if (number < 2 ){
+            flag = false;
+        }
+
+        for (int i = 2; i < number/i; i++) {
             if (number % i == 0) {
                 flag = false;
                 break;
