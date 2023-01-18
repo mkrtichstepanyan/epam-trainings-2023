@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class Task_2 {
 
     public static void main(String[] args) {
-        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
-        sumNumbers(10);            // Question 2
-        table(10);
-        factorialDemo1();            // Question 3
+//        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
+//        sumNumbers(10);            // Question 2
+//        table(10);
+//        factorialDemo1();            // Question 3
 //        powerDemo(10);                 // Question 4
 //        reverseNumber();             // Question 5
 //        readSetIntegers();           // Question 6
-//        testPrime();                 // Question 7
+        testPrime(0);                 // Question 7
     }
 
 
@@ -105,9 +105,8 @@ public class Task_2 {
 
         System.out.print("Enter the power ");
         power = console.nextInt();
-        // Todo write your code here ...
-
-
+        for (int i = 1; i <= power; i++)
+            result *= base;
         System.out.println("Result: " + result);
     }
 
@@ -170,22 +169,33 @@ public class Task_2 {
         Write a program that prompts the user to input a positive integer.
         It should then output a message indicating whether the number is a prime number.
     */
-    public static void testPrime() {
+    public static void testPrime(int tmp) {
         Scanner console = new Scanner(System.in);
 
         int number;
 
+        System.out.print("Enter the positive integer ");
 
         number = console.nextInt();
 
         boolean flag = true;
-
-
-        System.out.print("\nEnter the positive integer ");
-
-
+        for (int i = 2; i <= number / 2; i++) {
+            tmp = number % i;
+            if (tmp == 0) {
+                flag = false;
+                break;
+            }
         }
+
+        if (flag) {
+            System.out.println(number + " - is prime");
+        } else {
+            System.out.println(number + " - isnt prime");
+        }
+
+
     }
+}
 
 
 
