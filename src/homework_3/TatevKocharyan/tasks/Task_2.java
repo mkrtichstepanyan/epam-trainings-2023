@@ -178,7 +178,6 @@ public class Task_2 {
         number = console.nextInt();
 
         boolean flag = true;
-
         // Todo write your code here ...
         if (number < 2) {
             flag = false;
