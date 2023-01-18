@@ -1,0 +1,35 @@
+package Gevorg_Martirosian.chapter_5;
+
+//advanced version of program which found the season by the given month number
+public class Switch {
+    public static void main(String[] args) {
+        int month = 1; //january
+        String season;
+        switch (month){
+            case 12:
+            case 1:
+            case 2:
+                season = "winter";
+                break;
+            case 3:
+            case 4:
+            case 5:
+                season = "spring";
+                break;
+            case 6:
+            case 7:
+            case 8:
+                season = "summer";
+                break;
+            case 9:
+            case 10:
+            case 11:
+                season = "autumn";
+                break;
+            default:
+                season = "unknown month";
+        }
+
+        System.out.println("january is " + season);
+    }
+}
