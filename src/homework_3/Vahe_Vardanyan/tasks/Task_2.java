@@ -6,8 +6,7 @@ public class Task_2 {
 
     public static void main(String[] args) {
         printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
-        sumNumbers(10);                // Question 2
-      table(10);
+        sumNumbers(10);       // Question 2
         factorialDemo1();            // Question 3
         powerDemo();                 // Question 4
         reverseNumber();             // Question 5
@@ -50,7 +49,7 @@ public class Task_2 {
         Write a program that prompts the user to input a positive integer.
         It should then print the multiplication table of that number.
     */
-    public static void table(int count) {
+    public static void table(){
         Scanner console = new Scanner(System.in);
         int num;
 
@@ -59,7 +58,7 @@ public class Task_2 {
 
         System.out.println("Multiplication Table of " + num);
 
-        for (int i = 0; i <= count; i++) {
+        for (int i = 1; i <= num; i++) {
             System.out.println(num + " * " + i + " = " + (num * i));
 
         }
