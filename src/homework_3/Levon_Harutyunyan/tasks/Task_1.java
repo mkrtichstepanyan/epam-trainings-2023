@@ -3,9 +3,9 @@ package homework_3.Levon_Harutyunyan.tasks;
 public class Task_1 {
 
     public static void main(String[] args) {
-        drawLeftUpTriangle(10);
-        drawRightUpTriangle(10);
-//        drawLeftBottomTriangle(10);
+        drawLeftUpTriangle(4);
+//        drawRightUpTriangle(4);
+//        drawLeftBottomTriangle(4);
 //        drawRightBottomTriangle(10);
 //        drawRhombus(10);
 //        drawIsoscelesTriangle(10);
@@ -28,7 +28,7 @@ public class Task_1 {
     public static void drawLeftUpTriangle(int length){
 
         for (int i = length; i > 0; i--) {
-            for (int j = 10; j >= i; j--) {
+            for (int j = length; j >= i; j--) {
                 System.out.print("* ");
             }
             System.out.println();
@@ -77,7 +77,15 @@ public class Task_1 {
      * @param length  specified length of triangle will be drawn
      */
     public static void drawLeftBottomTriangle(int length){
-        // TODO : complete the method
+        int i;
+        int j;
+
+        for (i = 0; i < length; i++) {
+            for (j = i; j < length; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
     }
 
 
