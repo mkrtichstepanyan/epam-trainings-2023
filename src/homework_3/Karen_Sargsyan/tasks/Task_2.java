@@ -7,7 +7,7 @@ public class Task_2 {
     public static void main(String[] args) {
 //        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
 //        sumNumbers();                // Question 2
-//        table();                     // Question 3
+        table();                     // Question 3
 //        factorialDemo1();            // Question 4
 //        powerDemo();                 // Question 5
 //        reverseNumber();             // Question 6
@@ -49,10 +49,8 @@ public class Task_2 {
         num = console.nextInt();
         if (num > 0) {
             System.out.println("Multiplication Table of " + num);
-            for (int i = 0; i <= 10; i++) {
-                for (int j = num; j <= num; j++) {
-                    System.out.println(i + " * " + j + " = " + (i * j));
-                }
+                for (int i = 0; i <= 10; i++) {
+                    System.out.println(i + " * " + num + " = " + (i * num));
             }
         }
     }
