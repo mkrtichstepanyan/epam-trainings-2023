@@ -3,9 +3,9 @@ package homework_3.Diana_Melkonyan.Tasks;
 public class Task_1 {
 
     public static void main(String[] args) {
- //       drawLeftUpTriangle(10);
+  //      drawLeftUpTriangle(10);
  //       drawRightUpTriangle(10);
-//        drawLeftBottomTriangle(10);
+ //     drawLeftBottomTriangle(10);
  //       drawRightBottomTriangle(10);
  //       drawRhombus(10);
 //        drawIsoscelesTriangle(10);
@@ -31,9 +31,9 @@ public class Task_1 {
             for(int j = 0; j<=i; j++){
                 System.out.print("* ");
             }
-            System.out.print("");
+            System.out.println("");
         }
-
+        System.out.println();
     }
 
 
@@ -78,11 +78,12 @@ public class Task_1 {
     public static void drawLeftBottomTriangle(int length){
         // TODO : complete the method
         for (int i = 0; i < length; i++) {
-            for(int j = i; j<=length; j++){
+            for(int j = i; j<length; j++){
                 System.out.print("* ");
             }
             System.out.println("");
         }
+        System.out.println();
     }
 
 
@@ -138,11 +139,11 @@ public class Task_1 {
             }
             System.out.println();
         }
-        for (int i = 0; i <length-1 ; i++) {
+        for (int i = 0; i <length ; i++) {
             for (int j = 0; j <=i; j++) {
                 System.out.print(" ");
             }
-            for (int j = 0; j <length-i-1 ; j++) {
+            for (int j = 0; j <length-i ; j++) {
                 System.out.print("* ");
             }
             System.out.println();
