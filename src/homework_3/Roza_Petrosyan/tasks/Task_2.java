@@ -20,8 +20,8 @@ public class Task_2 {
         Write a program to print numbers from 1 to given parameter.
     */
     public static void printNumbers(int count) {
-        int i = 0;
-        while (i < count) {
+        int i = 1;
+        while (i <= count) {
             System.out.println("i is: " + i);
             i++;
         }
@@ -73,18 +73,13 @@ public class Task_2 {
     public static void factorialDemo1() {
         Scanner console = new Scanner(System.in);
         int num; // To hold number
-        int fact = 1; // To hold factorial
+        long fact = 1; // To hold factorial
 
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
         if (num > 0) {
-            if (num == 1) {
-                fact = 1;
-            } else {
-                for (int i = 1; i < num; i++) {
-                    fact *= (num - i);
-                }
-                fact *= num;
+            for (int i = 1; i <= num; i++) {
+                fact *= i;
             }
         } else {
             System.out.println("Please enter positive number");
@@ -133,13 +128,9 @@ public class Task_2 {
         System.out.print("Enter the number ");
         number = console.nextInt();
 
-        int temp = number;
-        int remainder = 0;
-
-        while (temp > 0) {
-            remainder = temp % 10;
-            reverse = (reverse * 10) + remainder;
-            temp = temp / 10;
+        for(;number != 0; number /= 10) {
+            int digit = number % 10;
+            reverse = reverse * 10 + digit;
         }
 
         System.out.println("Reverse of " + number + " is " + reverse);
@@ -156,21 +147,15 @@ public class Task_2 {
         char choice;
         int evenSum = 0;
         int oddSum = 0;
-        int tempNum = 0;
 
         do {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
-            while (number > 0) {
-                tempNum = number % 10;
-                number = number / 10;
-
-                if (tempNum % 2 == 0) {
-                    evenSum += tempNum;
-                } else {
-                    oddSum += tempNum;
-                }
+            if (number % 2 == 0) {
+                evenSum += number;
+            } else {
+                oddSum += number;
             }
 
             System.out.print("Do you want to continue y/n? ");
