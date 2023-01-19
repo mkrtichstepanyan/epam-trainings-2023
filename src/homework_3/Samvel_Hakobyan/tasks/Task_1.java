@@ -118,13 +118,13 @@ public class Task_1 {
      * for example when n = 5 , it must be such as
      * drawn below :
      * <p>
-     * *
-     * * *
-     * * * *
-     * * * * *
-     * * * *
-     * * *
-     * *
+     *     *
+     *    * *
+     *   * * *
+     *  * * * *
+     *   * * *
+     *    * *
+     *     *
      *
      * @param length specified length of rhombus will be drawn
      */

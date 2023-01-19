@@ -9,10 +9,10 @@ public class Task_2 {
 //        sumNumbers(10);            // Question 2
 //        table(10);
 //        factorialDemo1();            // Question 3
-//        powerDemo(10);                 // Question 4
+//        powerDemo();                 // Question 4
 //        reverseNumber();             // Question 5
 //        readSetIntegers();           // Question 6
-        testPrime(0);                 // Question 7
+//        testPrime(0);                 // Question 7
     }
 
 
@@ -21,8 +21,8 @@ public class Task_2 {
     */
     public static void printNumbers(int count) {
 
-        for (int i = 0; i < count; i++) {
-            System.out.print(i);
+        for (int i = 0; i <= count; i++) {
+            System.out.print(i + "|");
         }
         System.out.println();
         System.out.println("------------");
@@ -87,7 +87,7 @@ public class Task_2 {
 
 
 
-     /* TODO: Question 4
+     /* TODO: Question 5
          Two numbers are entered through the keyboard.
          Write a program to find the value of one number raised to the power of another.
          (Do not use Java built-in method)
@@ -105,12 +105,14 @@ public class Task_2 {
 
         System.out.print("Enter the power ");
         power = console.nextInt();
-        for (int i = 1; i <= power; i++)
+        for (int i = 1; i <= power; i++) {
             result *= base;
+        }
         System.out.println("Result: " + result);
+        System.out.println("------------");
     }
 
-     /* TODO: Question 5
+     /* TODO: Question 6
          Write a program that prompts the user to input an integer and then outputs the number with the digits reversed.
          For example, if the input is 12345, the output should be 54321.
      */
@@ -129,9 +131,14 @@ public class Task_2 {
         int temp = number;
         int remainder = 0;
 
-        for (; number != remainder; ) {
-            reverse *= 10;
-            reverse += number % 10;
+        while (temp > 0) {
+            temp /= 10;
+            remainder++;
+        }
+        int i = 0;
+        while (i < remainder) {
+            i++;
+            reverse = (reverse * 10) + (number % 10);
             number /= 10;
         }
         System.out.println("Reverse of " + number + " is " + reverse);
@@ -139,7 +146,7 @@ public class Task_2 {
 
     }
 
-    /* TODO: Question 6
+    /* TODO: Question 7
          Write a program that reads a set of integers, and then prints the sum of the even and odd integers.
     */
 
@@ -155,6 +162,14 @@ public class Task_2 {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
+            if (number != 0) {
+                if (number % 2 == 0) {
+                    evenSum += number;
+                } else {
+                    oddSum += number;
+                }
+            }
+
 
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
@@ -165,7 +180,7 @@ public class Task_2 {
         System.out.println("Sum of odd numbers: " + oddSum);
     }
 
-    /* TODO: Question 7
+    /* TODO: Question 8
         Write a program that prompts the user to input a positive integer.
         It should then output a message indicating whether the number is a prime number.
     */
@@ -188,9 +203,9 @@ public class Task_2 {
         }
 
         if (flag) {
-            System.out.println(number + " - is prime");
+            System.out.println(number + " - is prime number");
         } else {
-            System.out.println(number + " - isnt prime");
+            System.out.println(number + " - isnt prime number");
         }
 
 
