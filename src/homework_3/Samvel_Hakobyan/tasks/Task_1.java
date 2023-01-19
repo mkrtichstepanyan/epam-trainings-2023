@@ -3,13 +3,13 @@ package homework_3.Samvel_Hakobyan.tasks;
 public class Task_1 {
 
     public static void main(String[] args) {
-        drawLeftUpTriangle(4);
-        drawRightUpTriangle(5);
-        drawLeftBottomTriangle(4);
-        drawRightBottomTriangle(4);
+//        drawLeftUpTriangle(4);
+//        drawRightUpTriangle(5);
+//        drawLeftBottomTriangle(4);
+//        drawRightBottomTriangle(4);
         drawRhombus(5);
         drawIsoscelesTriangle(5);
-        drawBottomIsoscelesTriangle(5);
+//        drawBottomIsoscelesTriangle(5);
 
     }
 
@@ -118,37 +118,39 @@ public class Task_1 {
      * for example when n = 5 , it must be such as
      * drawn below :
      * <p>
-     *     *
-     *    * *
-     *   * * *
-     *  * * * *
-     *   * * *
-     *    * *
-     *     *
+     * *
+     * * *
+     * * * *
+     * * * * *
+     * * * * * *
+     * * * * *
+     * * * *
+     * * *
+     * *
      *
      * @param length specified length of rhombus will be drawn
      */
     public static void drawRhombus(int length) {
 
-        for (int i = length; i > 1; i--) {
-            for (int j = 0; j < i; j++) {
+        for (int i = 1; i <= length; i++) {
+            for (int j = 0; j < (length - i); j++) {
                 System.out.print(" ");
             }
-            for (int j = length + 1; j > i; j--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+
+        }
+        for (int i = length - 1; i > 0; i--) {
+            for (int j = length + 1; j > (i + 1); j--) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < i; j++) {
                 System.out.print("* ");
             }
             System.out.println();
         }
-        for (int i = length - 2; i > 0; i--) {
-            for (int j = length + 1; j > i; j--) {
-                System.out.print(" ");
-            }
-            for (int j = 0; j < i; j++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
-        System.out.println();
         System.out.println("---------------");
     }
 

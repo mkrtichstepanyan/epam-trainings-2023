@@ -12,7 +12,7 @@ public class Task_2 {
 //        powerDemo();                 // Question 4
 //        reverseNumber();             // Question 5
 //        readSetIntegers();           // Question 6
-//        testPrime(0);                 // Question 7
+        testPrime();                 // Question 7
     }
 
 
@@ -131,15 +131,9 @@ public class Task_2 {
         int temp = number;
         int remainder = 0;
 
-        while (temp > 0) {
+        while (temp != remainder) {
+            reverse = reverse * 10 + temp % 10;
             temp /= 10;
-            remainder++;
-        }
-        int i = 0;
-        while (i < remainder) {
-            i++;
-            reverse = (reverse * 10) + (number % 10);
-            number /= 10;
         }
         System.out.println("Reverse of " + number + " is " + reverse);
         System.out.println("------------");
@@ -184,7 +178,7 @@ public class Task_2 {
         Write a program that prompts the user to input a positive integer.
         It should then output a message indicating whether the number is a prime number.
     */
-    public static void testPrime(int tmp) {
+    public static void testPrime() {
         Scanner console = new Scanner(System.in);
 
         int number;
@@ -193,6 +187,7 @@ public class Task_2 {
 
         number = console.nextInt();
 
+        int tmp;
         boolean flag = true;
         for (int i = 2; i <= number / 2; i++) {
             tmp = number % i;
