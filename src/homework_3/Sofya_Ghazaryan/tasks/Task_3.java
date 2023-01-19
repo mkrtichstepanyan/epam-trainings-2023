@@ -1,4 +1,4 @@
-package homework_3.Mkrtich_Stepanyan.tasks;
+package homework_3.Sofya_Ghazaryan.tasks;
 
 import java.util.Scanner;
 

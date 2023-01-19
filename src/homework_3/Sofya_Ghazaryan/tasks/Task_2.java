@@ -1,4 +1,4 @@
-package homework_3.Mkrtich_Stepanyan.tasks;
+package homework_3.Sofya_Ghazaryan.tasks;
 
 import java.util.Scanner;
 
@@ -6,12 +6,13 @@ public class Task_2 {
 
     public static void main(String[] args) {
 //        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
-//        sumNumbers();                // Question 2
+//        sumNumbers(10);                // Question 2
+//        table();
 //        factorialDemo1();            // Question 3
 //        powerDemo();                 // Question 4
 //        reverseNumber();             // Question 5
 //        readSetIntegers();           // Question 6
-//        testPrime();                 // Question 7
+        testPrime();                 // Question 7
     }
 
 
@@ -20,14 +21,22 @@ public class Task_2 {
     */
     public static void printNumbers(int count) {
         // Todo write your code here ...
+        for (int i = 1; i <= count; i++) {
+            System.out.print(i + " ");
+
+        }
+        System.out.println();
     }
 
     /* TODO: Question 2
         Write a program to calculate the sum of first 10 natural numbers.
     */
-    public static void sumNumbers() {
+    public static void sumNumbers(int nums) {
         int sum = 0;
         // Todo write your code here ...
+        for (int i = 0; i <= nums; i++) {
+            sum = sum + i;
+        }
         System.out.println("Sum: " + sum);
     }
 
@@ -43,9 +52,17 @@ public class Task_2 {
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
 
-        System.out.println("Multiplication Table of " + num);
+        if (num > 0) {
+            System.out.println("Multiplication Table of " + num);
 
-        // Todo write your code here ...
+            // Todo write your code here ...
+
+            for (int i = 0; i <= 10; i++) {
+                System.out.println(num + " * " + i + " = " + (num * i));
+            }
+        } else {
+            System.out.println("Number does not positive.");
+        }
     }
 
 
@@ -61,8 +78,14 @@ public class Task_2 {
         num = console.nextInt();
 
         // Todo write your code here ...
-
-        System.out.println("Factorial: " + fact);
+        if (num > 0) {
+            for (int i = 1; i <= num; i++) {
+                fact *= i;
+            }
+            System.out.println("Factorial: " + fact);
+        } else {
+            System.out.println("Number dose not positive.");
+        }
     }
 
      /* TODO: Question 4
@@ -85,9 +108,20 @@ public class Task_2 {
         power = console.nextInt();
 
         // Todo write your code here ...
-
-        System.out.println("Result: " + result);
+        if (power > 0) {
+            for (int i = 0; i < power; i++) {
+                result *= base;
+            }
+            System.out.println("Result: " + result);
+        } else if (power == 0) {
+            System.out.println("Result: " + 1);
+        } else if (power < 0) {
+            System.out.println("This programme does not work with negative power.");
+        }
     }
+
+
+
 
      /* TODO: Question 5
          Write a program that prompts the user to input an integer and then outputs the number with the digits reversed.
@@ -103,11 +137,15 @@ public class Task_2 {
         System.out.print("Enter the number ");
         number = console.nextInt();
 
-        int temp = number;
+
         int remainder = 0;
 
         // Todo write your code here ...
-
+        while (number != 0) {
+            remainder = number % 10;
+            reverse = reverse * 10 + remainder;
+            number /= 10;
+        }
         System.out.println("Reverse of " + number + " is " + reverse);
     }
 
@@ -127,6 +165,11 @@ public class Task_2 {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
+            if (number % 2 == 0) {
+                evenSum += number;
+            } else {
+                oddSum += number;
+            }
             // Todo write your code here ...
 
             System.out.print("Do you want to continue y/n? ");
@@ -153,7 +196,21 @@ public class Task_2 {
         boolean flag = true;
 
         // Todo write your code here ...
-
+        if (number > 0) {
+            for (int i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                System.out.println(number + " is a prime.");
+            } else {
+                System.out.println(number + " is not a prime.");
+            }
+        } else {
+            System.out.println(number + " is not positive.");
+        }
     }
 }
 
