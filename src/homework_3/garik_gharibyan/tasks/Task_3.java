@@ -1,18 +1,19 @@
 package homework_3.garik_gharibyan.tasks;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Task_3 {
 
     public static void main(String[] args) {
-//        FindHcf();                   // Question 8
-//        sumAgain();                  // Question 9
-//        countNumbers();              // Question 10
-//        findMaxMin();                // Question 11
-//        armstrongNumber();           // Question 12
-//        fibonacciSeries();           // Question 13
-//        sumOfSeries();               // Question 14
-//        guessMyNumber();             // Question 15
+        FindHcf();                   // Question 8
+        sumAgain();                  // Question 9
+        countNumbers();              // Question 10
+        findMaxMin();                // Question 11
+        armstrongNumber();           // Question 12
+        fibonacciSeries();           // Question 13
+        sumOfSeries();               // Question 14
+        guessMyNumber();             // Question 15
     }
 
 
@@ -31,7 +32,16 @@ public class Task_3 {
         System.out.print("Enter the second number ");
         divisor = console.nextInt();
 
-        // Todo write your code here ...
+        while (divisor != 0) {
+
+            remainder = dividend % divisor;
+            dividend = divisor;
+            divisor = remainder;
+
+        }
+
+
+        hcf = dividend;
 
         System.out.println("HCF: " + hcf);
     }
@@ -45,12 +55,27 @@ public class Task_3 {
     */
 
     public static void sumAgain() {
+        System.out.println("Question 9");
         Scanner console = new Scanner(System.in);
 
         int number1, number2;
         char choice;
 
-        // Todo write your code here ...
+        do {
+            System.out.print("write the first number ");
+            number1 = console.nextInt();
+            System.out.print("write the second number ");
+            number2 = console.nextInt();
+
+            int sum = number1 + number2;
+
+            System.out.println("number1 + number2 = " + sum);
+
+            System.out.println("if want again click a and A");
+            choice = console.next().charAt(0);
+            System.out.println();
+
+        } while (choice == 'a' || choice == 'A');
     }
 
 
@@ -60,6 +85,7 @@ public class Task_3 {
     */
 
     public static void countNumbers() {
+        System.out.println("Question 10");
         Scanner console = new Scanner(System.in);
 
         int number, countPositive = 0, countNegative = 0, countZero = 0;
@@ -70,7 +96,13 @@ public class Task_3 {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
-            // Todo write your code here ...
+            if (number > 0) {
+                countPositive++;
+            } else if (number < 0) {
+                countNegative++;
+            } else {
+                countZero++;
+            }
 
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
@@ -89,15 +121,37 @@ public class Task_3 {
     */
 
     public static void findMaxMin() {
+        System.out.println("Question 11: ");
+
         Scanner console = new Scanner(System.in);
 
         int number;
         int max = Integer.MIN_VALUE;  // Intialize max with minimum value
         int min = Integer.MAX_VALUE;  // Intialize min with maximum value
 
-        char choice;
 
-        // Todo write your code here ...
+        System.out.print("write the number: ");
+        number = console.nextInt();
+        max = number;
+        min = number;
+
+        char choice;
+        System.out.print("if you went continue click 'a' and 'A'");
+        choice = console.next().charAt(0);
+
+
+        while (choice == 'a' || choice == 'A') {
+            System.out.print("write the number: ");
+            number = console.nextInt();
+            if (number >= max) {
+                max = number;
+            } else if (number <= min) {
+                min = number;
+            }
+
+            System.out.print("if you went continue click 'a' and 'A'");
+            choice = console.next().charAt(0);
+        }
 
         System.out.println("Largest number: " + max);
         System.out.println("Smallest number: " + min);
@@ -110,11 +164,25 @@ public class Task_3 {
         For example, 153 = ( 1 * 1 * 1 ) + ( 5 * 5 * 5 ) + ( 3 * 3 * 3 )
     */
     public static void armstrongNumber() {
+        System.out.println("Question 12: ");
+
         int digit1,  // To hold first digit (Ones) of number
                 digit2,  // To hold second digit (Tens) of number
                 digit3;  // To hold third digit (Hundreds) of number
 
-        // Todo write your code here ...
+        System.out.println("armstrong numbers are: ");
+
+        for (int i = 0; i < 500; i++) {
+
+            digit1 = i % 10;
+            digit2 = (i / 10) % 10;
+            digit3 = (i / 100) % 10;
+
+            int armstrong = (digit1 * digit1 * digit1) + (digit2 * digit2 * digit2) + (digit3 * digit3 * digit3);
+            if (i == armstrong) {
+                System.out.print(i + ", ");
+            }
+        }
     }
 
 
@@ -123,6 +191,7 @@ public class Task_3 {
         0 1 1 2 3 5 8 13 24 .....
     */
     public static void fibonacciSeries() {
+        System.out.println("Question 13: ");
         Scanner console = new Scanner(System.in);
 
         int number;  // To hold number of terms
@@ -132,9 +201,26 @@ public class Task_3 {
         System.out.print("Enter number of terms of series : ");
         number = console.nextInt();
 
-        System.out.print(firstTerm + " " + secondTerm + " ");
+        int[] fibonacciSeries = new int[number];
 
-        // Todo write your code here ...
+        if (number == 0) {
+            System.out.println(firstTerm);
+        } else if (number == 1) {
+            System.out.print(firstTerm + " " + secondTerm + " ");
+        } else if (number >= 2) {
+
+            fibonacciSeries[0] = firstTerm;
+            fibonacciSeries[1] = secondTerm;
+            System.out.print(firstTerm + " " + secondTerm + " ");
+
+            for (int i = 2; i < number; i++) {
+
+                fibonacciSeries[i] = fibonacciSeries[i - 1] + fibonacciSeries[i - 2];
+
+                System.out.print(fibonacciSeries[i] + " ");
+
+            }
+        }
     }
 
 
@@ -143,6 +229,7 @@ public class Task_3 {
         1 + 1/2 + 1/3 + 1/4 + 1/5 +…………1/n
     */
     public static void sumOfSeries() {
+        System.out.println("Question 14: ");
         Scanner console = new Scanner(System.in);
 
         int number;  // To hold number of terms
@@ -152,8 +239,9 @@ public class Task_3 {
         System.out.print("Enter number of terms of series : ");
         number = console.nextInt();
 
-        // Todo write your code here ...
-
+        for (int i = 1; i <= number; i++) {
+            sum = sum + (double) 1 / i;
+        }
         System.out.println("sum: " + sum);
     }
 
@@ -176,7 +264,25 @@ public class Task_3 {
         System.out.println("Guess My Number Game");
         System.out.println();
 
-        // Todo write your code here ...
+
+        do {
+            guess = console.nextInt();
+            if (guess > number) {
+                System.out.println("Too high, try again.");
+                tries++;
+            } else if (guess < number) {
+                System.out.println("Too low, try again.");
+                tries++;
+            }
+
+        } while (guess != number);
+
+        System.out.println();
+        System.out.println("you guess");
+        ;
+        System.out.println("tries: " + tries);
+        System.out.println("numbers is: " + number);
+
     }
 }
 
