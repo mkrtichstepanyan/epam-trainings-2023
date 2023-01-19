@@ -1,4 +1,4 @@
-package Gevorg_Martirosian.chapter_5;
+package homework_3.Gevorg_Martirosian.chapter_5;
 
 //loops can be nested
 public class Nested {

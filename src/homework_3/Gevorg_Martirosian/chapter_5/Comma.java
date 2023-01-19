@@ -1,4 +1,4 @@
-package Gevorg_Martirosian.chapter_5;
+package homework_3.Gevorg_Martirosian.chapter_5;
 
 //using comma in for loop (more effective version of Sample class)
 public class Comma {

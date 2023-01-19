@@ -1,4 +1,4 @@
-package Gevorg_Martirosian.tasks;
+package homework_3.Gevorg_Martirosian.tasks;
 
 import java.util.Scanner;
 
@@ -45,7 +45,7 @@ public class Task_3 {
             min = divisor;
         }
 
-        for (int i = min / 2; i >= 2; i--) {
+        for (int i = min; i >= 2; i--) {
             if (dividend % i == 0 && divisor % i == 0) {
                 hcf = i;
                 break;
@@ -165,7 +165,7 @@ public class Task_3 {
         int sum = 0; //sum of cubes of each digit of the number
         int currentNum; //current number for check
         System.out.print("all armstrong numbers between 1 and 500: ");
-        for (int i = 0; i <= 500; i++) {
+        for (int i = 1; i <= 500; i++) {
             currentNum = i;
             while (currentNum > 0) {
                 nextDigit = currentNum % 10;

@@ -1,4 +1,4 @@
-package Gevorg_Martirosian.chapter_5;
+package homework_3.Gevorg_Martirosian.chapter_5;
 
 //the parts of for loop can be empty
 public class ForVar {

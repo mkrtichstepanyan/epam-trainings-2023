@@ -1,4 +1,4 @@
-package Gevorg_Martirosian.chapter_5;
+package homework_3.Gevorg_Martirosian.chapter_5;
 
 //using break for exit from nested loop
 public class BreakLoop3 {

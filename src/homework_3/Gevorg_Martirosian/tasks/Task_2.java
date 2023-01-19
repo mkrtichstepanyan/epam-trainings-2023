@@ -1,4 +1,4 @@
-package Gevorg_Martirosian.tasks;
+package homework_3.Gevorg_Martirosian.tasks;
 
 import java.util.Scanner;
 
@@ -124,7 +124,6 @@ public class Task_2 {
         number = console.nextInt();
 
         int temp = number;
-        int remainder = 0;
 
         while (temp > 0){
             reverse *= 10;

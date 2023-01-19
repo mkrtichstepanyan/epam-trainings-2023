@@ -1,4 +1,4 @@
-package Gevorg_Martirosian.tasks;
+package homework_3.Gevorg_Martirosian.tasks;
 
 public class Task_1 {
     public static void main(String[] args) {
