@@ -75,8 +75,8 @@ public class Task_1 {
      * @param length  specified length of triangle will be drawn
      */
     public static void drawLeftBottomTriangle(int length) {
-        for (int i = 0; i <= length; i++) {
-            for (int j = 0; j <= length - i; j++) {
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < length - i; j++) {
                 System.out.print("* ");
             }
             System.out.println();
@@ -129,23 +129,26 @@ public class Task_1 {
     public static void drawRhombus(int length) {
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < length - i - 1; j++) {
-                System.out.print("  ");
+                System.out.print(" ");
             }
-            for (int j = 0; j < i * 2 + 1; j++) {
+            for (int j = 0; j <= i; j++) {
                 System.out.print("* ");
             }
             System.out.println();
         }
         for (int i = 0; i < length; i++) {
-            for (int j = 0; j < i; j++) {
-                System.out.print("  ");
+            for (int j = 0; j <= i; j++) {
+                System.out.print(" ");
             }
-            for (int j = 0; j < length * 2 - i * 2 - 1; j++) {
+            for (int j = 0; j < length - i - 1; j++) {
                 System.out.print("* ");
             }
             System.out.println();
         }
+
     }
+
+
 
 
     /**
