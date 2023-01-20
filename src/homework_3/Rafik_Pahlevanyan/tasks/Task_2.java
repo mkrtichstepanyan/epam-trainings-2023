@@ -178,7 +178,7 @@ public class Task_2 {
             }
         }
 
-        if (!flag) {
+        if (flag) {
             System.out.println(number + " is a prime number.");
         } else {
             System.out.println(number + " is not a prime number.");
