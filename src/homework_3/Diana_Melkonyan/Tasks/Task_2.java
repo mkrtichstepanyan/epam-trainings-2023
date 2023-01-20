@@ -1,4 +1,4 @@
-package homework_3.Diana_Melkonyan.tasks;
+package homework_3.Diana_Melkonyan.Tasks;
 
 import java.util.Scanner;
 
