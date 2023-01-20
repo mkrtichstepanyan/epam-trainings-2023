@@ -32,7 +32,6 @@ public class Task_1 {
      * @param length specified length of triangle will be drawn
      */
     public static void drawLeftUpTriangle(int length) {
-        // TODO : complete the method
         for (int i = 0; i < length; i++) {
             for (int j = 0; j <= i; j++) {
                 System.out.print("* ");
@@ -55,7 +54,6 @@ public class Task_1 {
      * @param length specified length of triangle will be drawn
      */
     public static void drawRightUpTriangle(int length) {
-        // TODO : complete the method
         for (int i = 0; i < length; i++) {
             for (int j = length; j > i; j--) {
                 System.out.print("  ");
@@ -81,7 +79,6 @@ public class Task_1 {
      * @param length specified length of triangle will be drawn
      */
     public static void drawLeftBottomTriangle(int length) {
-        // TODO : complete the method
         for (int i = 0; i < length; i++) {
             for (int j = length; j > i; j--) {
                 System.out.print("* ");
@@ -104,7 +101,6 @@ public class Task_1 {
      * @param length specified length of triangle will be drawn
      */
     public static void drawRightBottomTriangle(int length) {
-        // TODO : complete the method
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < i; j++) {
                 System.out.print("  ");
@@ -122,19 +118,17 @@ public class Task_1 {
      * for example when n = 5 , it must be such as
      * drawn below :
      * <p>
-     * *
-     * * *
-     * * * *
+     *    *
+     *   * *
+     *  * * *
      * * * * *
-     * * * *
-     * * *
-     * *
+     *  * * *
+     *   * *
+     *    *
      *
      * @param length specified length of rhombus will be drawn
      */
     public static void drawRhombus(int length) {
-        // TODO : complete the method
-
         for (int i = 0; i <= length; i++) {
             for (int j = 0; j < length - i; j++) {
                 System.out.print(" ");
@@ -153,8 +147,6 @@ public class Task_1 {
                 System.out.print("* ");
             }
             System.out.println();
-
-
         }
     }
 
@@ -205,6 +197,5 @@ public class Task_1 {
             countIterationsSymbol += 2;
             System.out.println();
         }
-
     }
 }

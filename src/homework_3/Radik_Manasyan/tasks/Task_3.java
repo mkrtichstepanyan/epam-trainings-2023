@@ -8,10 +8,10 @@ public class Task_3 {
 //        FindHcf();                   // Question 8
 //        sumAgain();                  // Question 9
 //        countNumbers();              // Question 10
-        findMaxMin();               // Question 11
+//        findMaxMin();               // Question 11
 //        armstrongNumber();           // Question 12
 //        fibonacciSeries();           // Question 13
-//        sumOfSeries();               // Question 14
+        sumOfSeries();               // Question 14
 //        guessMyNumber();             // Question 15
     }
 
@@ -31,7 +31,6 @@ public class Task_3 {
         System.out.print("Enter the second number ");
         divisor = console.nextInt();
 
-        // Todo write your code here ...
         int minDigit = (dividend <= divisor) ? dividend : divisor;
 
         if (dividend % minDigit == 0 && divisor % minDigit == 0) {
@@ -61,7 +60,6 @@ public class Task_3 {
         char choice;
         int sumTwoDigits = 0;
 
-        // Todo write your code here ...
         do {
             System.out.print("Enter the first number: ");
             number1 = console.nextInt();
@@ -95,7 +93,6 @@ public class Task_3 {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
-            // Todo write your code here ...
             if (number == 0) {
                 countZero++;
 
@@ -131,8 +128,6 @@ public class Task_3 {
 
         char choice;
 
-        // Todo write your code here ...
-
         do {
             System.out.print("Enter number: ");
             number = console.nextInt();
@@ -158,8 +153,6 @@ public class Task_3 {
         int digit1,  // To hold first digit (Ones) of number
                 digit2,  // To hold second digit (Tens) of number
                 digit3;  // To hold third digit (Hundreds) of number
-
-        // Todo write your code here ...
 
         System.out.print("Armstrong numbers: ");
         for (int i = 1; i <= 500; i++) {
@@ -202,7 +195,6 @@ public class Task_3 {
 
         System.out.print(firstTerm + " " + secondTerm + " ");
 
-        // Todo write your code here ...
         for (int i = 3; i < number; i++) {
             thirdTerm = firstTerm + secondTerm;
             if (thirdTerm < i) {
@@ -228,9 +220,7 @@ public class Task_3 {
         System.out.print("Enter number of terms of series : ");
         number = console.nextInt();
 
-        // Todo write your code here ...
-        for (double i = 2; i < number; i++) {
-            System.out.println(i);
+        for (double i = 1; i < number; i++) {
             sum += 1 / i;
         }
 
@@ -256,7 +246,6 @@ public class Task_3 {
         System.out.println("Guess My Number Game");
         System.out.println();
 
-        // Todo write your code here ...
         do {
             System.out.print("\nEnter number: ");
             guess = console.nextInt();
