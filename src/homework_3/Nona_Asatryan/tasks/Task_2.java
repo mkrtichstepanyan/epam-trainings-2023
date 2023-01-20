@@ -12,7 +12,7 @@ public class Task_2 {
 //        powerDemo();                 // Question 5
 //        reverseNumber();             // Question 6
 //        readSetIntegers();           // Question 7
-//        testPrime();                 // Question 8
+        testPrime();                 // Question 8
     }
 
 
@@ -160,26 +160,23 @@ public class Task_2 {
         Scanner console = new Scanner(System.in);
 
         int number;
-
-        System.out.print("Enter the positive integer ");
-        number = console.nextInt();
-
         boolean flag = true;
 
-        if (number <= 0 || number == 1) {
-            System.out.println(number + " is not a prime number");
-        } else {
-            for (int i = 2; i <= number / 2; i++) {
-                if (number % i == 0) {
-                    System.out.println(number + " is not a prime number");
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag) {
-                System.out.println(number + " is a prime number");
+        do {
+            System.out.print("Enter the positive integer ");
+            number = console.nextInt();
+        } while (number <= 0);
 
+        for (int i = 2; i <= number / i; i++) {
+            if (number % i == 0) {
+                flag = false;
+                break;
             }
+        }
+        if (flag) {
+            System.out.println(number + " is a prime number");
+        } else {
+            System.out.println(number + " is not a prime number");
         }
     }
 }
