@@ -131,15 +131,24 @@ public class Task_1 {
      */
     public static void drawRhombus(int length) {
         int bigLength = length + 2;
-//        for (int i = 0; i < bigLength; i++) {
-//            for (int j = 0; j < bigLength - i; j++) {
-//                System.out.print(" ");
-//            }
-//            for (int k = bigLength - i; k <= bigLength; k++) {
-//                System.out.print("* ");
-//            }
-//            System.out.println();
-//        }
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < length - i; j++) {
+                System.out.print(" ");
+            }
+            for (int k = length - i; k <= length; k++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        for (int i = 1; i < length; i++) {
+            for (int j = 0; j < i+1; j++) {
+                System.out.print(" ");
+            }
+            for (int k = 0; k < length - i; k++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
     }
 
 

@@ -173,14 +173,13 @@ public class Task_2 {
         System.out.print("Enter the positive integer ");
         number = console.nextInt();
 
-        if (number <= 0) {
+        while (number <= 0){
             System.out.println("Please enter the positive integer ");
             System.out.println(number + "  isn't positive");
             number = console.nextInt();
-            methodForTestPrime(number);
-        } else {
-            methodForTestPrime(number);
         }
+
+        methodForTestPrime(number);
     }
 
     private static void methodForTestPrime(int number) {
