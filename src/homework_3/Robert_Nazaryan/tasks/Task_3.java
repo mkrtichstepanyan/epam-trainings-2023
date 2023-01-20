@@ -11,7 +11,7 @@ public class Task_3 {
 //        countNumbers();              // Question 11
         findMaxMin();                // Question 12
 //        armstrongNumber();           // Question 13
-//        fibonacciSeries();           // Question 14
+        fibonacciSeries();           // Question 14
 //        sumOfSeries();               // Question 15
 //        guessMyNumber();             // Question 16
     }
@@ -124,15 +124,16 @@ public class Task_3 {
         do {
             System.out.print("Enter the number: ");
             number = console.nextInt();
-            if (number > max) {
+            if (min == Integer.MAX_VALUE || max == Integer.MIN_VALUE){
+                min = number;
+                max = number;
+
+            } else if (number > max) {
                 max = number;
 
             } else if (number < min) {
                 min = number;
 
-            }
-            if (min == Integer.MAX_VALUE){
-                min = max;
             }
 
             System.out.print("Do you want to continue y/n? ");
@@ -183,7 +184,7 @@ public class Task_3 {
 
         System.out.print(firstTerm + " " + secondTerm + " ");
 
-        for (int i = 0; i < number; i++) {
+        for (int i = 0; i < number - 2; i++) {
             thirdTerm = firstTerm + secondTerm;
             firstTerm = secondTerm;
             secondTerm = thirdTerm;
