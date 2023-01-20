@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class Task_2 {
 
     public static void main(String[] args) {
-        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
-        sumNumbers();                // Question 2
-        table();
-        factorialDemo1();            // Question 3
-        powerDemo();                 // Question 4
-        reverseNumber();             // Question 5
-        readSetIntegers();           // Question 6
+//        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
+//        sumNumbers();                // Question 2
+//        table();
+//        factorialDemo1();            // Question 3
+//        powerDemo();                 // Question 4
+//        reverseNumber();             // Question 5
+//        readSetIntegers();           // Question 6
         testPrime();                 // Question 7
     }
 
@@ -198,33 +198,22 @@ public class Task_2 {
         number = console.nextInt();
 
         boolean flag = true;
-        int countIterations = 2;
 
         // Todo write your code here ...
-        while (flag) {
-            switch (number) {
-                case 1:
-                case 2: {
-                    System.out.println("Number is prime");
+        if (number == 1 || number == 2) {
+            System.out.println("Number is prime");
+
+        } else {
+            for (int i = 3; i <= number / 2; i++) {
+                if (number % i == 0) {
                     flag = false;
+                    System.out.println("Number is not prime");
                     break;
                 }
-                default: {
-                    for (int i = 2; i < (number / 2); i++) {
-                        countIterations++;
-                        if (number % i == 0) {
-                            flag = false;
-                            System.out.println("Number is not prime");
-                            break;
-                        }
-                    }
-                    if (countIterations == (number / 2)) {
-                        System.out.println("Number is prime");
-                        flag = false;
-                        break;
-                    }
-                }
             }
+        }
+        if (flag) {
+            System.out.println("Number is prime");
         }
     }
 }
