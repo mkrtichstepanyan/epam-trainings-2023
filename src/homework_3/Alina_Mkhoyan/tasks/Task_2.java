@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class Task_2 {
 
     public static void main(String[] args) {
-        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
+//        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
 //        sumNumbers();                // Question 2
 //        table();                     // Question 3
 //        factorialDemo1();            // Question 4
 //        powerDemo();                 // Question 5
-//        reverseNumber();             // Question 6
+        reverseNumber();             // Question 6
 //        readSetIntegers();           // Question 7
-        testPrime();                 // Question 8
+//        testPrime();                 // Question 8
     }
 
 
@@ -91,7 +91,6 @@ public class Task_2 {
 
     public static void powerDemo() {
         Scanner console = new Scanner(System.in);
-
         int base;
         int power;
         int result = 1;
@@ -110,30 +109,31 @@ public class Task_2 {
         System.out.println("Result: " + result);
     }
 
-     /* TODO: Question 6
-         Write a program that prompts the user to input an integer and then outputs the number with the digits reversed.
-         For example, if the input is 12345, the output should be 54321.
-     */
-
+    /* TODO: Question 6
+        Write a program that prompts the user to input an integer and then outputs the number with the digits reversed.
+        For example, if the input is 12345, the output should be 54321.
+    */
     public static void reverseNumber() {
         Scanner console = new Scanner(System.in);
         int number;
         int reverse = 0;
         System.out.print("Enter the number: ");
         number = console.nextInt();
+        int temp = number;
         while (number != 0) {
-            reverse = reverse * 10 + number % 10;
+            int digit = number % 10;
+            reverse = reverse * 10 + digit;
             number /= 10;
         }
         // Todo write your code here ...
-        System.out.println("Reverse of " + number + " is " + reverse);
+        System.out.println("Reverse of " + temp + " is " + reverse);
     }
+
 
     /* TODO: Question 7
          Write a program that reads a set of integers,
          and then prints the sum of the even and odd integers.
     */
-
     public static void readSetIntegers() {
         Scanner console = new Scanner(System.in);
         int number;
