@@ -4,10 +4,10 @@ public class Task_1 {
 
     public static void main(String[] args) {
 //        drawLeftUpTriangle(4);
-        drawRightUpTriangle(5);
+//        drawRightUpTriangle(5);
 //        drawLeftBottomTriangle(4);
 //        drawRightBottomTriangle(4);
-//        drawRhombus(5);
+        drawRhombus(5);
 //        drawIsoscelesTriangle(5);
 //        drawBottomIsoscelesTriangle(5);
 
@@ -125,26 +125,8 @@ public class Task_1 {
      */
     public static void drawRhombus(int length) {
         // TODO : complete the method
-//        for (int i = length; i >1; i--) {
-//            for (int j = 0; j < i; j++) {
-//                System.out.print(" ");
-//            }
-//            for (int j = length + 1; j > i; j--) {
-//                System.out.print("* ");
-//            }
-//            System.out.println();
-//        }
-//        for (int i = length - 2; i > 0; i--) {
-//            for (int j = length + 1; j > i; j--) {
-//                System.out.print(" ");
-//            }
-//            for (int j = 0; j < i; j++) {
-//                System.out.print("* ");
-//            }
-//            System.out.println();
-//        }
         for (int i = 0; i < length; i++) {
-            for (int j = length; j > i; j--) {
+            for (int j = length-1; j > i; j--) {
                 System.out.print(" ");
             }
             for (int k = i; k >= 0; k--) {
@@ -157,7 +139,7 @@ public class Task_1 {
                 System.out.print(" ");
             }
             for (int k = length; k > i; k--) {
-                System.out.print(" *");
+                System.out.print("* ");
             }
             System.out.println();
         }
