@@ -8,7 +8,7 @@ public class Switch {
             case 12:
             case 1:
             case 2:
-                season = "winter";
+                season = "Winter";
                 break;
             case 3:
             case 4:
@@ -26,7 +26,8 @@ public class Switch {
                 break;
             default:
                 season = "Bogus Month";
-                System.out.println("April is in the " + season + ".");
+
         }
+        System.out.println("April is in the " + season + ".");
     }
 }

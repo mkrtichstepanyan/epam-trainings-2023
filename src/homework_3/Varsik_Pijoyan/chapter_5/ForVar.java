@@ -12,6 +12,7 @@ public class ForVar {
                 done = true;
                 i++;
             }
+            break;
         }
     }
 }

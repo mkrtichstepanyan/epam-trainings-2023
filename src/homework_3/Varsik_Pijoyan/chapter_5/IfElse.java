@@ -15,7 +15,8 @@ public class IfElse {
             season = "Autumn";
         } else {
             season = "Bogus Month";
-            System.out.println("April is in the " + season + ".");
+
         }
+        System.out.println("April is in the " + season + ".");
     }
 }

@@ -26,11 +26,12 @@ public class Task_1 {
      * @param length  specified length of triangle will be drawn
      */
     public static void drawLeftUpTriangle(int length){
-       for (int i = 0; i < length; i++){
-           for(int j = length; j < i; j--){
-               System.out.print("*");
-           }
-       }
+        for (int i = 1; i < length; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
 
 
@@ -46,15 +47,15 @@ public class Task_1 {
      * @param length  specified length of triangle will be drawn
      */
     public static void drawRightUpTriangle(int length){
-       for (int i = length; i >= 0; i--){
-           for (int j = 1; j < i; j++){
-               System.out.print(" ");
-           }
-           for (int k = length; k >= i; k--){
-               System.out.println("*");
-           }
-           System.out.println();
-       }
+        for (int i = 1; i <= length; i++){
+            for (int j = 1; j <= length - i; j++){
+                System.out.print(" ");
+            }
+            for (int  k = 1; k <= i; k++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
 
 
@@ -93,12 +94,12 @@ public class Task_1 {
      * @param length  specified length of triangle will be drawn
      */
     public static void drawRightBottomTriangle(int length){
-        for(int i = length; i >= 1; i--){
-            for(int j = length; j > i; j--){
+        for(int i=length; i>=1; i--){
+            for(int k=length; k>=i; k--){
                 System.out.print(" ");
             }
-            for (int k=1; k < (i*2); k++){
-                System.out.println("*");
+            for (int j=1; j<=i; j++){
+                System.out.print("*");
             }
             System.out.println();
         }
@@ -129,6 +130,15 @@ public class Task_1 {
             }
             System.out.println();
         }
+        for (int i = length; i >= 1; i--){
+            for (int j = length; j > i; j--){
+                System.out.print(" ");
+            }
+            for(int k = 1; k < (i*2); k++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
 
 
@@ -148,15 +158,6 @@ public class Task_1 {
                 System.out.print(" ");
             }
             for (int k = 1; k < (i*2); k++){
-                System.out.print("*");
-            }
-            System.out.println();
-        }
-        for (int i = length; i >= 1; i--){
-            for (int j = length; j > i; j--){
-                System.out.print(" ");
-            }
-            for(int k = 1; k < (i*2); k++){
                 System.out.print("*");
             }
             System.out.println();
