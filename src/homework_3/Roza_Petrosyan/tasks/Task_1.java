@@ -1,15 +1,15 @@
-package homework_3.Araksya_Ghazaryan.tasks;
+package homework_3.Roza_Petrosyan.tasks;
 
 public class Task_1 {
 
     public static void main(String[] args) {
-//        drawLeftUpTriangle(4);
-//        drawRightUpTriangle(5);
-//        drawLeftBottomTriangle(4);
-//        drawRightBottomTriangle(4);
-        drawRhombus(5);
-//        drawIsoscelesTriangle(5);
-//        drawBottomIsoscelesTriangle(5);
+//        drawLeftUpTriangle(10);
+//        drawRightUpTriangle(10);
+//        drawLeftBottomTriangle(10);
+//        drawRightBottomTriangle(10);
+//        drawRhombus(10);
+//        drawIsoscelesTriangle(10);
+//        drawBottomIsoscelesTriangle(10);
 
     }
 
@@ -26,9 +26,9 @@ public class Task_1 {
      * @param length  specified length of triangle will be drawn
      */
     public static void drawLeftUpTriangle(int length){
-        for ( int i = 0; i < length; i++) {
-            for ( int j = 0; j <= i; j++) {
-                System.out.print("* " );
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print("* ");
             }
             System.out.println();
         }
@@ -48,10 +48,10 @@ public class Task_1 {
      */
     public static void drawRightUpTriangle(int length){
         for (int i = 0; i < length; i++) {
-            for (int j = 0; j <= (length -i- 1); j++) {
+            for (int j = i; j < length; j++) {
                 System.out.print("  ");
             }
-            for (int j = 0; j <= i; j++) {
+            for (int k = 0; k <= i; k++) {
                 System.out.print("* ");
             }
             System.out.println();
@@ -73,7 +73,7 @@ public class Task_1 {
      */
     public static void drawLeftBottomTriangle(int length){
         for (int i = 0; i < length; i++) {
-            for (int j = 0; j < (length - i); j++) {
+            for (int j = i; j < length; j++) {
                 System.out.print("* ");
             }
             System.out.println();
@@ -98,7 +98,7 @@ public class Task_1 {
             for (int j = 0; j < i; j++) {
                 System.out.print("  ");
             }
-            for (int j = 0; j < (length - i); j++) {
+            for (int k = i; k < length; k++) {
                 System.out.print("* ");
             }
             System.out.println();
@@ -121,21 +121,22 @@ public class Task_1 {
      * @param length  specified length of rhombus will be drawn
      */
     public static void drawRhombus(int length) {
-        for (int i = 0; i < length; i++) {
-            for (int j = 0; j < (length - 1 - i); j++) {
+        for (int i = 0; i < length - 1; i++) {
+            for (int j = i; j < length - 1; j++) {
                 System.out.print(" ");
             }
-            for (int j = 0; j < i; j++) {
+            for (int k = 0; k <= i; k++) {
                 System.out.print("* ");
             }
             System.out.println();
         }
-        for (int i = length - 1; i > 0; i--) {
-            for (int j = 1; j < (length - i); j++) {
+
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < i; j++) {
                 System.out.print(" ");
             }
-            for (int j = 1; j < i; j++) {
-                System.out.print(" *");
+            for (int k = i; k < length; k++) {
+                System.out.print("* ");
             }
             System.out.println();
         }
@@ -154,10 +155,13 @@ public class Task_1 {
      */
     public static void drawIsoscelesTriangle(int length){
         for (int i = 0; i < length; i++) {
-            for (int j = 0; j < (length - i - 1); j++) {
+            for (int j = i; j < length - 1; j++) {
                 System.out.print("  ");
             }
-            for (int j = 0; j < (i * 2 + 1); j++) {
+            for (int k = 0; k <= i; k++) {
+                System.out.print("* ");
+            }
+            for (int f = 0; f < i; f++) {
                 System.out.print("* ");
             }
             System.out.println();
@@ -180,7 +184,10 @@ public class Task_1 {
             for (int j = 0; j < i; j++) {
                 System.out.print("  ");
             }
-            for (int j = 0; j < (length * 2 - i * 2 - 1); j++) {
+            for (int k = i; k < length; k++) {
+                System.out.print("* ");
+            }
+            for (int f = i; f < length - 1; f++) {
                 System.out.print("* ");
             }
             System.out.println();
