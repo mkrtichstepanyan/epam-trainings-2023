@@ -9,7 +9,7 @@ public class Task_3 {
 //        FindHcf();                   // Question 9
 //        sumAgain();                  // Question 10
 //        countNumbers();              // Question 11
-//        findMaxMin();                // Question 12
+        findMaxMin();                // Question 12
 //        armstrongNumber();           // Question 13
 //        fibonacciSeries();           // Question 14
 //        sumOfSeries();               // Question 15
@@ -124,12 +124,15 @@ public class Task_3 {
         do {
             System.out.print("Enter the number: ");
             number = console.nextInt();
-
             if (number > max) {
                 max = number;
 
-            } else {
+            } else if (number < min) {
                 min = number;
+
+            }
+            if (min == Integer.MAX_VALUE){
+                min = max;
             }
 
             System.out.print("Do you want to continue y/n? ");
