@@ -1,14 +1,14 @@
-package homework_3.Rafik_Pahlevanyan.tasks;
+package homework_3.Varsik_Pijoyan.tasks;
 
 import java.util.Scanner;
 
 public class Task_2 {
 
     public static void main(String[] args) {
-//        printNumbers(50);            // Question 1 -> try with different integer values instead of 10 only
-//        sumNumbers(20);              // Question 2
-//        table();                     // Question 3
-//        factorialDemo1();            // Question 4
+//        printNumbers(80);            // Question 1 -> try with different integer values instead of 10 only
+//        sumNumbers(40);              // Question 2
+//        table(10);                     // Question 3
+//        factorialDemo1(5);            // Question 4
 //        powerDemo();                 // Question 5
 //        reverseNumber();             // Question 6
 //        readSetIntegers();           // Question 7
@@ -20,8 +20,7 @@ public class Task_2 {
         Write a program to print numbers from 1 to given parameter.
     */
     public static void printNumbers(int count) {
-        int[] numbers = new int[count];
-        for (int i = 0; i < numbers.length; i++) {
+        for (int i = 1; i <= 80; i++){
             System.out.println(i);
         }
     }
@@ -29,9 +28,9 @@ public class Task_2 {
     /* TODO: Question 2
         Write a program to calculate the sum of first 10 natural numbers.
     */
-    public static void sumNumbers(int i) {
+    public static void sumNumbers() {
         int sum = 0;
-        for (i = 0; i <= 10; i++) {
+        for(int i = 0; i <= 10; i++){
             sum += i;
         }
         System.out.println("Sum: " + sum);
@@ -48,11 +47,12 @@ public class Task_2 {
 
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
-        System.out.println("Multiplication Table of " + num);
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(num + " x " + i + " = " + (num * i));
-        }
 
+        System.out.println("Multiplication Table of " + num);
+
+       for(int i = 1; i <= 10; i++){
+           System.out.println(num + "*" + "=" + (num * i));
+       }
     }
 
 
@@ -67,11 +67,11 @@ public class Task_2 {
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
 
-        for (int i = 1; i <= num; i++) {
+        for (int i = 1; i<=num; i++){
             fact *= i;
         }
 
-        System.out.println("Factorial: " + num + " is: " + fact);
+        System.out.println("Factorial: " + fact);
     }
 
      /* TODO: Question 5
@@ -93,11 +93,11 @@ public class Task_2 {
         System.out.print("Enter the power ");
         power = console.nextInt();
 
-        for (int i = 0; i <= power; i++) {
-            result *= base;
+        for(int i = 1; i <= power; i++){
+            result = result * base;
         }
 
-        System.out.println(base + " raised to the power of " + power + " is " + result);
+        System.out.println("Result: " + result);
     }
 
      /* TODO: Question 6
@@ -115,13 +115,16 @@ public class Task_2 {
         number = console.nextInt();
 
         int temp = number;
-        while (number != 0) {
-            int digit = number % 10;
-            reverse = reverse * 10 + digit;
-            number /= 10;
+        int remainder = 0;
+
+        while(temp > 0)
+        {
+            remainder = temp % 10;
+            reverse = reverse * 10 + remainder;
+            temp /= 10;
         }
 
-        System.out.println("Reverse of " + temp + " is " + reverse);
+        System.out.println("Reverse of " + number + " is " + reverse);
     }
 
     /* TODO: Question 7
@@ -140,22 +143,21 @@ public class Task_2 {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
-            if (number % 2 == 0) {
-                evenSum += number;
+           if(number % 2 == 0){
+               evenSum += number;
+           }else{
+               oddSum += number;
+           }
 
-            } else {
-                oddSum += number;
 
-            }
-            System.out.println("Sum of even numbers: " + evenSum);
-            System.out.println("Sum of odd numbers: " + oddSum);
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
 
         } while (choice == 'y' || choice == 'Y');
 
+        System.out.println("Sum of even numbers: " + evenSum);
+        System.out.println("Sum of odd numbers: " + oddSum);
     }
-
 
     /* TODO: Question 8
         Write a program that prompts the user to input a positive integer.
@@ -171,19 +173,19 @@ public class Task_2 {
 
         boolean flag = true;
 
-        for (int i = 2; i < number; i++) {
+        for (int i = 2; i <= number / 2; i++) {
+
             if (number % i == 0) {
-                flag = false;
+                flag = true;
                 break;
             }
         }
-
-        if (!flag) {
+        if (flag) {
             System.out.println(number + " is a prime number.");
-        } else {
+        }
+        else {
             System.out.println(number + " is not a prime number.");
         }
     }
-
 }
 
