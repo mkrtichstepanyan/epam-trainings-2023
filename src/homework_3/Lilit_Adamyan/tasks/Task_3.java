@@ -13,8 +13,8 @@ public class Task_3 {
 //        fibonacciSeries();           // Question 13
 //        sumOfSeries();               // Question 14
 //        guessMyNumber();             // Question 15
+//
     }
-
 
     /* TODO: Question 8
         Write a program to calculate HCF of Two given number.
@@ -31,12 +31,14 @@ public class Task_3 {
         System.out.print("Enter the second number ");
         divisor = console.nextInt();
 
-        // Todo write your code here ...
+        for (remainder = 1; remainder <= dividend || remainder <= divisor; remainder++) {
+            if (dividend % remainder == 0 && divisor % remainder == 0)
+                hcf = remainder;
 
+        }
         System.out.println("HCF: " + hcf);
+
     }
-
-
     /* TODO: Question 9
         Write a do-while loop that asks the user to enter two numbers.
         The numbers should be added and the sum displayed.
@@ -50,9 +52,21 @@ public class Task_3 {
         int number1, number2;
         char choice;
 
-        // Todo write your code here ...
-    }
+        do {
+            System.out.print("Enter the first number.");
+            number1 = console.nextInt();
+            System.out.print("Enter the second number.");
+            number2 = console.nextInt();
+            int sum = number1 + number2;
 
+            System.out.print("The sum is " + sum);
+
+            System.out.print(" .Do you want to continue y/n? ");
+            choice = console.next().charAt(0);
+
+        } while (choice == 'y' || choice == 'Y');
+
+    }
 
     /* TODO: Question 10
         Write a program to enter the numbers till the user wants and at the end it should display the count of positive,
@@ -64,16 +78,22 @@ public class Task_3 {
 
         int number, countPositive = 0, countNegative = 0, countZero = 0;
 
-        char choice;
+        char choice = 0;
 
         do {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
-            // Todo write your code here ...
+            if (number > 0) {
+                countPositive++;
+            } else if (number < 0) {
+                countNegative++;
+            } else {
+                countPositive++;
+            }
 
             System.out.print("Do you want to continue y/n? ");
-            choice = console.next().charAt(0);
+
 
         } while (choice == 'y' || choice == 'Y');
 
@@ -95,14 +115,28 @@ public class Task_3 {
         int max = Integer.MIN_VALUE;  // Intialize max with minimum value
         int min = Integer.MAX_VALUE;  // Intialize min with maximum value
 
-        char choice;
+        char choice = 0;
 
-        // Todo write your code here ...
+        do {
+            System.out.print("Enter the number ");
+            number = console.nextInt();
+
+            if (number > max) {
+                max = number;
+            }
+            if (number < min) {
+                min = number;
+            }
+
+            System.out.print("Do you want to enter another number? y/n? ");
+            choice = console.next().charAt(0);
+
+        } while (choice == 'y' || choice == 'Y');
 
         System.out.println("Largest number: " + max);
         System.out.println("Smallest number: " + min);
-    }
 
+    }
 
     /* TODO: Question 12
         Write a program to print out all Armstrong numbers between 1 and 500.
@@ -113,8 +147,17 @@ public class Task_3 {
         int digit1,  // To hold first digit (Ones) of number
                 digit2,  // To hold second digit (Tens) of number
                 digit3;  // To hold third digit (Hundreds) of number
-
-        // Todo write your code here ...
+        for (int i = 0; i <= 500; i++) {
+            int sum = 0, temp = i;
+            while (temp != 0) {
+                digit1 = temp % 10;
+                sum = sum + (digit1 * digit1 * digit1);
+                temp = temp / 10;
+            }
+            if (sum == i) {
+                System.out.println(i + " is an Armstrong number.");
+            }
+        }
     }
 
 
@@ -134,7 +177,12 @@ public class Task_3 {
 
         System.out.print(firstTerm + " " + secondTerm + " ");
 
-        // Todo write your code here ...
+        for (int i = 2; i < number; i++) {
+            thirdTerm = firstTerm + secondTerm;
+            System.out.print(" " + thirdTerm);
+            firstTerm = secondTerm;
+            secondTerm = thirdTerm;
+        }
     }
 
 
@@ -152,7 +200,9 @@ public class Task_3 {
         System.out.print("Enter number of terms of series : ");
         number = console.nextInt();
 
-        // Todo write your code here ...
+        for (int i = 1; i <= number; i++) {
+            sum = sum + 1.0 / i;
+        }
 
         System.out.println("sum: " + sum);
     }
@@ -173,10 +223,22 @@ public class Task_3 {
 
         number = (int) (Math.random() * 100) + 1; // get random number between 1 and 100
 
-        System.out.println("Guess My Number Game");
-        System.out.println();
+        do {
+            System.out.println("Guess My Number Game");
 
-        // Todo write your code here ...
+            guess = console.nextInt();
+            if (guess > number) {
+                System.out.println("Too high,try again.");
+            } else if (guess < number) {
+                System.out.println("Too low,try again.");
+            }
+            tries++;
+
+        } while (guess != number);
+
+        System.out.println("Congratulations,you guess the correct number " + number);
+        System.out.println("You guess the number in " + tries + " tries");
+
     }
 }
 

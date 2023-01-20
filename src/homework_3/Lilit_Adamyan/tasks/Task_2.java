@@ -11,7 +11,7 @@ public class Task_2 {
         // factorialDemo1();            // Question 3
         // powerDemo();                 // Question 4
         // reverseNumber();             // Question 5
-       //  readSetIntegers();           // Question 6
+          readSetIntegers();           // Question 6
         // testPrime();                 // Question 7
     }
 
@@ -146,7 +146,11 @@ public class Task_2 {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
-            // Todo write your code here ...
+            if (number % 2 == 0) {
+                evenSum += number;
+            } else {
+                oddSum += number;
+            }
 
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
