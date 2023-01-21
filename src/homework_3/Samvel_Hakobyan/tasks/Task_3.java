@@ -12,7 +12,7 @@ public class Task_3 {
 //        armstrongNumber();           // Question 12
 //        fibonacciSeries(+);           // Question 13
 //        sumOfSeries(+);               // Question 14
-//        guessMyNumber();             // Question 15
+        guessMyNumber();             // Question 15
     }
 
 
@@ -120,9 +120,9 @@ public class Task_3 {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
-            if( number > max ) {
+            if (number > max) {
                 max = number;
-            }else if ( number < min ) {
+            } else if (number < min) {
                 min = number;
             }
 
@@ -167,7 +167,7 @@ public class Task_3 {
         System.out.print(firstTerm + " " + secondTerm + " ");
 
         int i = 0;
-        while ( i < number ) {
+        while (i < number) {
             thirdTerm = firstTerm + secondTerm;
             System.out.print(thirdTerm + " ");
             firstTerm = secondTerm;
@@ -218,7 +218,20 @@ public class Task_3 {
         System.out.println();
 
 
-        // Todo write your code here ...
+        while (true) {
+            System.out.println("guess the number: " + " attempt -> " + tries);
+            guess = console.nextInt();
+            tries++;
+            if (number == guess) {
+                System.out.println("you guessed right " + number);
+                break;
+            } else if (number < guess) {
+                System.out.println("too smaller. try again!");
+            } else {
+                System.out.println("too bigger. try again!");
+            }
+
+        }
     }
 }
 
