@@ -6,13 +6,13 @@ public class Task_3 {
 
     public static void main(String[] args) {
  //      FindHcf();                   // Question 8
- //      sumAgain();                  // Question 9
+       sumAgain();                  // Question 9
 //        countNumbers();              // Question 10
  //       findMaxMin();                // Question 11
  //       armstrongNumber();           // Question 12
  //       fibonacciSeries();           // Question 13
  //       sumOfSeries();               // Question 14
-       guessMyNumber();             // Question 15
+ //      guessMyNumber();             // Question 15
     }
 
 
@@ -58,12 +58,12 @@ public class Task_3 {
         do{
             System.out.println("Enter number 1");
        number1 = console.nextInt();
-            System.out.println("Enter number 1");
+            System.out.println("Enter number 2");
         number2= console.nextInt();
 
         int sum = number1 +number2;
 
-        System.out.println(sum);
+        System.out.println(number1 + "+" + number2+ "="+ sum);
 
         System.out.println("Do you want to perform the operation again");
         choice= console.next().charAt(0);
