@@ -1,5 +1,4 @@
-package homework_3.tasks;
-
+package homework_3.Inesa_Mkrtchyan.Tasks;
 import java.util.Scanner;
 
 public class Task_2 {
