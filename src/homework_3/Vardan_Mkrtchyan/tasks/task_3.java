@@ -42,9 +42,9 @@ public class task_3 {
         char choice;
 
         do{
-            System.out.printf("numba 1: ");
+            System.out.printf("number 1: ");
             number1 = console.nextInt();
-            System.out.printf("numba 2: ");
+            System.out.printf("number 2: ");
             number2 = console.nextInt();
             System.out.printf("Sum: " + (number1 + number2));
             System.out.printf(" continue? (y/n): ");
@@ -101,20 +101,18 @@ public class task_3 {
     }
 
     public static void armstrongNumber() {
-            for(int digit1 = 1; digit1 <= 5; digit1++){
-                for(int digit2 = 0; digit2 <= 7; digit2++){
-                    for(int digit3 = 0; digit3 <= 7; digit3++){
-                        if((100 * digit1 + 10 * digit2 + digit3) == aa(digit1,digit2,digit3)){
-                            System.out.println(100 * digit1 + 10 * digit2 + digit3);
-                        }
-                    }
-                }
+        System.out.println("Armstrong numbers: ");
+        for (int i = 100; i <= 500; i++) {
+            if(i == aa(i % 10, (i / 10) % 10, (i / 100) % 10)) {
+                System.out.print(i + " ");
+
             }
+        }
+        System.out.println();
+
     }
     public static int aa(int x, int y, int z){
-        int a = x;
-        int b = y;
-        int c = z;
+        int a = x, b = y, c = z;
         for(int i = 1; i < 3; i++){
             x = x * a;
             y = y * b;
@@ -176,7 +174,7 @@ public class task_3 {
                 System.out.println("Too low, try again.");
             }
         } while(guess != number);
-        System.out.println("Congrats, you just wasted your time!!!");
+        System.out.println("Congrats, you guessed the number in "+ tries + " tries!!!");
     }
 
 }
