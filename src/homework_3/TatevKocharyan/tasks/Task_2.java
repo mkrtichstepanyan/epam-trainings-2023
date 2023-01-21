@@ -6,14 +6,14 @@ public class Task_2 {
 
     public static void main(String[] args) {
 
-//        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
-//        sumNumbers(2);               // Question 2
+//        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 onl
+//      sumNumbers();               // Question 2
 //        table();                     // Question 3
 //       factorialDemo1();            // Question 4
 //        powerDemo();                 // Question 5
 //        reverseNumber();             // Question 6
-//        readSetIntegers();           // Question 7
-//       testPrime();                 // Question 8
+//       readSetIntegers();           // Question 7
+//     testPrime();                 // Question 8
     }
 
 
@@ -30,10 +30,10 @@ public class Task_2 {
     /* TODO: Question 2
         Write a program to calculate the sum of first 10 natural numbers.
     */
-    public static void sumNumbers(int number) {
+    public static void sumNumbers() {
         int sum = 0;
         // Todo write your code here ...
-        for (int i = 0; i <= number; i++) {
+        for (int i = 0; i <= 10; i++) {
             sum = i + sum;
         }
         System.out.println("Sum: " + sum);
@@ -53,10 +53,11 @@ public class Task_2 {
         // Todo write your code here ...
         if (num < 0) {
             System.out.println("The number you have entered is invalid. Please try again.");
-        }
-        System.out.println("Multiplication Table of " + num);
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(num + "*" + i + "=" + num * i);
+        } else {
+            System.out.println("Multiplication Table of " + num);
+            for (int i = 1; i <= 10; i++) {
+                System.out.println(num + "*" + i + "=" + num * i);
+            }
         }
     }
 
@@ -155,13 +156,13 @@ public class Task_2 {
                 evenSum = evenSum + number;
             } else oddSum = oddSum + number;
 
-            System.out.println("Sum of even numbers: " + evenSum);
-            System.out.println("Sum of odd numbers: " + oddSum);
+
             System.out.print("\nDo you want to continue y/n? ");
             choice = console.next().charAt(0);
 
         } while (choice == 'y' || choice == 'Y');
-
+        System.out.println("Sum of even numbers: " + evenSum);
+        System.out.println("Sum of odd numbers: " + oddSum);
 
     }
 
@@ -179,13 +180,9 @@ public class Task_2 {
 
         boolean flag = true;
         // Todo write your code here ...
-        if (number < 2) {
-            flag = false;
-        } else flag = true;
-        for (int i = 2; i < number / i; i++) {
-            if (number % i == 0) {
+        if (number > 2) {
+            if (number % 2 == 0 ) {
                 flag = false;
-                break;
             }
         }
         if (flag) {
