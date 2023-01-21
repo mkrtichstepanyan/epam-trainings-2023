@@ -11,7 +11,7 @@ public class Task_3 {
 //        findMaxMin();                // Question 11
 //        armstrongNumber();           // Question 12
 //        fibonacciSeries();           // Question 13
-//        sumOfSeries();               // Question 14
+        sumOfSeries();               // Question 14
 //        guessMyNumber();             // Question 15
     }
 
@@ -226,8 +226,8 @@ public class Task_3 {
         number = console.nextInt();
 
         // Todo write your code here ...
-        for (int i = 0; i <= number; i++) {
-            sum += (double) 1 / number;
+        for (int i = 1; i <= number; i++) {
+            sum += (double) 1 / i;
         }
         System.out.println("sum: " + sum);
     }

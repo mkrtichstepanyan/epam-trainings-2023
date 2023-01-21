@@ -9,7 +9,8 @@ public class Task_1 {
 //        drawRightBottomTriangle(4);
 //        drawRhombus(7);
 //        drawIsoscelesTriangle(5);
-//        drawBottomIsoscelesTriangle(5);
+        drawBottomIsoscelesTriangle(5);
+//        drawRhombusNew(5);
 
     }
 
@@ -166,10 +167,10 @@ public class Task_1 {
     public static void drawIsoscelesTriangle(int length) {
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < (length - 1 - i); j++) {
-                System.out.print(" ");
+                System.out.print("  ");
             }
             for (int j = 0; j < 2 * i + 1; j++) {
-                System.out.print("*");
+                System.out.print("* ");
             }
             System.out.println();
         }
@@ -189,11 +190,53 @@ public class Task_1 {
     public static void drawBottomIsoscelesTriangle(int length) {
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < i; j++) {
-                System.out.print(" ");
+                System.out.print("  ");
             }
             for (int j = 0; j < 2 * (length - i) - 1; j++) {
-                System.out.print("*");
+                System.out.print("* ");
             }
+            System.out.println();
+        }
+    }
+
+    public static void drawRhombusNew(int depth) {
+        int length = depth * 2 - 1;
+        int middle = length / 2 + 1;
+        int left = middle;
+        int right = middle;
+        int left1 = 2;
+        int right1 = length-1;
+
+        for (int i = 1; i <= depth; i++) {
+            for (int j = 1; j <= length; j++) {
+
+                if (j != left) {
+                    System.out.print("  ");
+                } else {
+                    for (int k = left; k <= right; k++) {
+                        System.out.print("* ");
+                        j = right;
+                    }
+                }
+            }
+            left--;
+            right++;
+            System.out.println();
+        }
+
+        for (int i = depth + 1; i < 2 * depth; i++) {
+            for (int j = 1; j <= length; j++) {
+                if (j != left1) {
+                    System.out.print("  ");
+                } else {
+                    for (int k = left1; k <= right1; k++) {
+                        System.out.print("* ");
+                        j = right1;
+                    }
+                }
+            }
+            right1--;
+            left1++;
             System.out.println();
         }
     }
