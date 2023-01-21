@@ -10,8 +10,8 @@ public class Task_3 {
 //        countNumbers(+);              // Question 10
 //        findMaxMin(+);                // Question 11
 //        armstrongNumber();           // Question 12
-//        fibonacciSeries();           // Question 13
-//        sumOfSeries();               // Question 14
+//        fibonacciSeries(+);           // Question 13
+//        sumOfSeries(+);               // Question 14
 //        guessMyNumber();             // Question 15
     }
 
@@ -30,6 +30,7 @@ public class Task_3 {
 
         System.out.print("Enter the second number ");
         divisor = console.nextInt();
+
 
         // Todo write your code here ...
 
@@ -119,18 +120,18 @@ public class Task_3 {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
-            if( number > max ) {
+            if (number > max) {
                 max = number;
             }
-            if( number != -1 )
-                if( number < min ) {
+            if (number != -1)
+                if (number < min) {
                     min = number;
                 }
 
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
 
-        }while (choice == 'y' || choice == 'Y');
+        } while (choice == 'y' || choice == 'Y');
 
         System.out.println("Largest number: " + max);
         System.out.println("Smallest number: " + min);
@@ -167,7 +168,14 @@ public class Task_3 {
 
         System.out.print(firstTerm + " " + secondTerm + " ");
 
-        // Todo write your code here ...
+        int i = 0;
+        while ( i < number ) {
+            thirdTerm = firstTerm + secondTerm;
+            System.out.print(thirdTerm + " ");
+            firstTerm = secondTerm;
+            secondTerm = thirdTerm;
+            i++;
+        }
     }
 
 
@@ -185,7 +193,10 @@ public class Task_3 {
         System.out.print("Enter number of terms of series : ");
         number = console.nextInt();
 
-        // Todo write your code here ...
+        for (int i = 1; i <= number; i++) {
+            sum += i / 1.0;
+        }
+
 
         System.out.println("sum: " + sum);
     }
@@ -207,6 +218,7 @@ public class Task_3 {
 
         System.out.println("Guess My Number Game");
         System.out.println();
+
 
         // Todo write your code here ...
     }
