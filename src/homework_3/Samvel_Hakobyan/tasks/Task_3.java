@@ -120,13 +120,11 @@ public class Task_3 {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
-            if (number > max) {
+            if( number > max ) {
                 max = number;
+            }else if ( number < min ) {
+                min = number;
             }
-            if (number != -1)
-                if (number < min) {
-                    min = number;
-                }
 
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
