@@ -126,18 +126,24 @@ public class Task_1 {
      * @param length  specified length of rhombus will be drawn
      */
     public static void drawRhombus(int length) {
-        for (int i = 0; i < length; i++) {
-            for (int j = length; j > i; j--) {
+        for (int i = 0; i <= length; i++) {
+            for (int j = 0; j < length - i; j++) {
                 System.out.print(" ");
             }
-            for (int k = 0; k <= i; k++) {
+            for (int j = 0; j < i; j++) {
                 System.out.print("* ");
             }
             System.out.println();
-
         }
-        for (int r = 1; r < length; r++) {
-            System.out.print("* ");
+
+        for (int m = 0; m < length; m++) {
+            for (int k = 0; k <= m; k++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j < length - m; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
         }
     }
 

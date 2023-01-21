@@ -11,7 +11,7 @@ public class Task_2 {
 //        powerDemo();                 // Question 5
 //        reverseNumber();             // Question 6
 //        readSetIntegers();           // Question 7
-//        testPrime();                 // Question 8
+        testPrime();                 // Question 8
     }
 
 
@@ -68,12 +68,14 @@ public class Task_2 {
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
 
-        // Todo write your code here ...
+        for(int i = 1; i <=num; i++){
+            fact *= i;
+        }
 
         System.out.println("Factorial: " + fact);
     }
 
-     /* TODO: Question 4
+     /* TODO: Question 5
          Two numbers are entered through the keyboard.
          Write a program to find the value of one number raised to the power of another.
          (Do not use Java built-in method)
@@ -92,12 +94,14 @@ public class Task_2 {
         System.out.print("Enter the power ");
         power = console.nextInt();
 
-        // Todo write your code here ...
+        for (int i = 0; i <= power; i++) {
+            result *= base;
+        }
 
         System.out.println("Result: " + result);
     }
 
-     /* TODO: Question 5
+     /* TODO: Question 6
          Write a program that prompts the user to input an integer and then outputs the number with the digits reversed.
          For example, if the input is 12345, the output should be 54321.
      */
@@ -114,12 +118,16 @@ public class Task_2 {
         int temp = number;
         int remainder = 0;
 
-        // Todo write your code here ...
+        while (temp != 0) {
+            remainder = temp % 10;
+            temp = temp / 10;
+            reverse = reverse * 10 + remainder;
+        }
 
         System.out.println("Reverse of " + number + " is " + reverse);
     }
 
-    /* TODO: Question 6
+    /* TODO: Question 7
          Write a program that reads a set of integers, and then prints the sum of the even and odd integers.
     */
 
@@ -127,15 +135,22 @@ public class Task_2 {
         Scanner console = new Scanner(System.in);
 
         int number;
-        char choice;
+        char choice = 'y';
         int evenSum = 0;
         int oddSum = 0;
 
         do {
             System.out.print("Enter the number ");
             number = console.nextInt();
-
-            // Todo write your code here ...
+            if (number == 0) {
+                System.out.println("Please choose another positive number of 0");
+                continue;
+            }
+            if (number % 2 == 0) {
+                evenSum += number;
+            } else {
+                oddSum += number;
+            }
 
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
@@ -146,7 +161,7 @@ public class Task_2 {
         System.out.println("Sum of odd numbers: " + oddSum);
     }
 
-    /* TODO: Question 7
+    /* TODO: Question 8
         Write a program that prompts the user to input a positive integer.
         It should then output a message indicating whether the number is a prime number.
     */
@@ -160,7 +175,20 @@ public class Task_2 {
 
         boolean flag = true;
 
-        // Todo write your code here ...
+        if (number == 1 || number == 2) {
+            System.out.println("Number is prime");
 
+        } else {
+            for (int i = 3; i <= number / 2; i++) {
+                if (number % i == 0) {
+                    flag = false;
+                    System.out.println("Number is not prime");
+                    break;
+                }
+            }
+        }
+        if (flag && number != 2 && number != 1) {
+            System.out.println("Number is prime");
+        }
     }
 }
