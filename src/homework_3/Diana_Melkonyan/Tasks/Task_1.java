@@ -7,7 +7,7 @@ public class Task_1 {
  //       drawRightUpTriangle(10);
  //     drawLeftBottomTriangle(10);
  //       drawRightBottomTriangle(10);
- //       drawRhombus(10);
+        drawRhombus(10);
  //       drawIsoscelesTriangle(10);
  //      drawBottomIsoscelesTriangle(10);
 
@@ -130,9 +130,9 @@ public class Task_1 {
      */
     public static void drawRhombus(int length) {
         // TODO : complete the method
-        for (int i = 0; i <length ; i++) {
+        for (int i = 1; i <length ; i++) {
             for (int j = length; j >i; j--) {
-                System.out.print(" ");
+                System.out.print("-");
             }
             for (int j = 0; j <i; j++) {
                 System.out.print("* ");
@@ -141,7 +141,7 @@ public class Task_1 {
         }
         for (int i = 0; i <length ; i++) {
             for (int j = 0; j <i; j++) {
-                System.out.print(" ");
+                System.out.print("-");
             }
             for (int j = length; j >i ; j--) {
                 System.out.print("* ");
