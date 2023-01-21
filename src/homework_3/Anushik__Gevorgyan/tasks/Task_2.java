@@ -121,6 +121,11 @@ public class Task_2 {
 
         int temp = number;
         int remainder = 0;
+        while (number!=0){
+            int digit=number%10;
+            reverse=reverse*10+digit;
+            number/=10;
+        }
 
         // Todo write your code here ...
 
