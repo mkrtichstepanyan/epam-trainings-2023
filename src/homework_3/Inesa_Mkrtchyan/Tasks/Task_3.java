@@ -223,14 +223,17 @@ public class Task_3 {
         System.out.println();
         do {
             System.out.print("Your version: ");
+            tries++;
             guess = console.nextInt();
             if (guess > number) {
                 System.out.println("Too high, try again");
+
             } else if (guess < number) {
                 System.out.println("Too low, try again");
             }
         } while (number != guess);
         System.out.println("You are right");
+        System.out.println("Tries : " + tries);
     }
 }
 
