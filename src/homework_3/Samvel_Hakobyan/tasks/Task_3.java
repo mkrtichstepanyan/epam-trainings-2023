@@ -12,7 +12,7 @@ public class Task_3 {
 //        armstrongNumber();           // Question 12
 //        fibonacciSeries(+);           // Question 13
 //        sumOfSeries(+);               // Question 14
-        guessMyNumber();             // Question 15
+//        guessMyNumber(+);             // Question 15
     }
 
 
