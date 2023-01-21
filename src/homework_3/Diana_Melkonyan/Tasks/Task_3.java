@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class Task_3 {
 
     public static void main(String[] args) {
-//        FindHcf();                   // Question 8
-//        sumAgain();                  // Question 9
+ //      FindHcf();                   // Question 8
+ //      sumAgain();                  // Question 9
 //        countNumbers();              // Question 10
-//        findMaxMin();                // Question 11
-//        armstrongNumber();           // Question 12
-//        fibonacciSeries();           // Question 13
-//        sumOfSeries();               // Question 14
-//        guessMyNumber();             // Question 15
+ //       findMaxMin();                // Question 11
+ //       armstrongNumber();           // Question 12
+ //       fibonacciSeries();           // Question 13
+ //       sumOfSeries();               // Question 14
+ //      guessMyNumber();             // Question 15
     }
 
 
@@ -32,8 +32,12 @@ public class Task_3 {
         divisor = console.nextInt();
 
         // Todo write your code here ...
+        for (remainder = 1; remainder<=dividend || remainder <=divisor; remainder++) {
+            if(dividend % remainder==0 && divisor % remainder==0){
+                hcf= remainder;}
 
-        System.out.println("HCF: " + hcf);
+        }
+        System.out.print("HCF: " + hcf);
     }
 
 
@@ -49,8 +53,18 @@ public class Task_3 {
 
         int number1, number2;
         char choice;
-
+         boolean x = true;
         // Todo write your code here ...
+        number1 = console.nextInt();
+        number2= console.nextInt();
+        int sum = number1 +number2;
+        System.out.println(sum);
+        System.out.println("Do you want to perform the operation again");
+        choice= console.next().charAt(0);
+       if(choice == 'y' || choice=='Y') {
+           x = false;
+
+       }while (x);
     }
 
 
@@ -71,6 +85,15 @@ public class Task_3 {
             number = console.nextInt();
 
             // Todo write your code here ...
+            if(number<0){
+                countNegative++;
+            }
+            if(number==0){
+                countZero++;
+            }
+            if(number>0){
+                countPositive++;
+            }
 
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
@@ -98,9 +121,25 @@ public class Task_3 {
         char choice;
 
         // Todo write your code here ...
+        do {
+            System.out.print("Enter the number ");
+            number = console.nextInt();
 
+            if(number>max){
+                max = number;
+            }
+            if(number < min){
+                min = number;
+            }
+
+
+            System.out.print("Do you want to continue y/n? ");
+            choice = console.next().charAt(0);
+
+        }while (choice == 'y' || choice == 'Y');
         System.out.println("Largest number: " + max);
         System.out.println("Smallest number: " + min);
+
     }
 
 
@@ -115,6 +154,17 @@ public class Task_3 {
                 digit3;  // To hold third digit (Hundreds) of number
 
         // Todo write your code here ...
+        for (int i = 0; i < 500; i++) {
+            int sum = 0;
+
+            digit1 = i % 10;
+            digit2 = (i / 10) % 10;
+            digit3 = i / 100;
+
+            sum += (digit1 * digit1 * digit1) + (digit2 * digit2 * digit2) + (digit3 * digit3 * digit3);
+            if (i == sum)
+                System.out.println(i);
+        }
     }
 
 
@@ -135,6 +185,14 @@ public class Task_3 {
         System.out.print(firstTerm + " " + secondTerm + " ");
 
         // Todo write your code here ...
+        for (int i = 2; i < number; i++) {
+            thirdTerm= firstTerm +secondTerm;
+            System.out.print(thirdTerm +" ");
+            firstTerm = secondTerm;
+            secondTerm = thirdTerm;
+
+        }
+
     }
 
 
@@ -153,6 +211,10 @@ public class Task_3 {
         number = console.nextInt();
 
         // Todo write your code here ...
+        for (int i = 1; i <= number; i++) {
+            sum +=1.0/ i;
+
+        }
 
         System.out.println("sum: " + sum);
     }
@@ -177,6 +239,17 @@ public class Task_3 {
         System.out.println();
 
         // Todo write your code here ...
+      do {
+          guess = console.nextInt();
+          if (guess > number) {
+              System.out.println("Too high, Try again!" + number);
+          }
+          if (guess < number) {
+              System.out.println("Too Low, Try again!"+ number);
+          }
+
+      }while(guess !=number);
+      tries++;
     }
 }
 
