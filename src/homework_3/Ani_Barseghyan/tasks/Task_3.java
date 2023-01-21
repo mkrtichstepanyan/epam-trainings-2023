@@ -64,7 +64,7 @@ public class Task_3 {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Please enter the first number: ");
             number1 = scanner.nextInt();
-            System.out.print("Please enter the first number: ");
+            System.out.print("Please enter the second number: ");
             number2 = scanner.nextInt();
 
             System.out.print("The sum of the two given numbers is: ");

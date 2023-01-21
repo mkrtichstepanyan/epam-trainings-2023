@@ -128,7 +128,7 @@ public class Task_2 {
 
         // Todo write your code here ...
 
-        while (temp > 0) {
+        while (temp != 0) {
             remainder = temp % 10;
             reverse = reverse * 10 + remainder;
             temp = temp / 10;
@@ -144,7 +144,7 @@ public class Task_2 {
         Scanner console = new Scanner(System.in);
 
         int number;
-        char choice;
+        char choice = 'y';
         int evenSum = 0;
         int oddSum = 0;
 
@@ -153,6 +153,10 @@ public class Task_2 {
             number = console.nextInt();
 
             // Todo write your code here ...
+            if (number == 0) {
+                System.out.println("Please enter another number instead of 0");
+                continue;
+            }
             if (number % 2 == 0) {
                 evenSum += number;
             } else {
