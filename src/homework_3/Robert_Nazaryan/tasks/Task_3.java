@@ -124,7 +124,7 @@ public class Task_3 {
         do {
             System.out.print("Enter the number: ");
             number = console.nextInt();
-            if (min == Integer.MAX_VALUE || max == Integer.MIN_VALUE){
+            if (min == Integer.MAX_VALUE && max == Integer.MIN_VALUE){
                 min = number;
                 max = number;
 
