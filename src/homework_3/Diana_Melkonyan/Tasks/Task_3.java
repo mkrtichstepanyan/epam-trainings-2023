@@ -12,7 +12,7 @@ public class Task_3 {
  //       armstrongNumber();           // Question 12
  //       fibonacciSeries();           // Question 13
  //       sumOfSeries();               // Question 14
- //      guessMyNumber();             // Question 15
+       guessMyNumber();             // Question 15
     }
 
 
@@ -53,18 +53,22 @@ public class Task_3 {
 
         int number1, number2;
         char choice;
-         boolean x = true;
+
         // Todo write your code here ...
-        number1 = console.nextInt();
+        do{
+            System.out.println("Enter number 1");
+       number1 = console.nextInt();
+            System.out.println("Enter number 1");
         number2= console.nextInt();
+
         int sum = number1 +number2;
+
         System.out.println(sum);
+
         System.out.println("Do you want to perform the operation again");
         choice= console.next().charAt(0);
-       if(choice == 'y' || choice=='Y') {
-           x = false;
 
-       }while (x);
+       }while (choice == 'y' || choice=='Y');
     }
 
 
@@ -242,14 +246,16 @@ public class Task_3 {
       do {
           guess = console.nextInt();
           if (guess > number) {
-              System.out.println("Too high, Try again!" + number);
+              System.out.println("Too high, Try again!" );
           }
-          if (guess < number) {
-              System.out.println("Too Low, Try again!"+ number);
+          else if (guess < number) {
+              System.out.println("Too Low, Try again!");
           }
 
       }while(guess !=number);
       tries++;
+        System.out.println();
+        System.out.println("you guess");
     }
 }
 
