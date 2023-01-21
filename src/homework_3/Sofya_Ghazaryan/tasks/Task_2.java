@@ -20,7 +20,7 @@ public class Task_2 {
         Write a program to print numbers from 1 to given parameter.
     */
     public static void printNumbers(int count) {
-        // Todo write your code here ...
+
         for (int i = 1; i <= count; i++) {
             System.out.print(i + " ");
 
@@ -33,7 +33,6 @@ public class Task_2 {
     */
     public static void sumNumbers(int nums) {
         int sum = 0;
-        // Todo write your code here ...
         for (int i = 0; i <= nums; i++) {
             sum = sum + i;
         }
@@ -55,8 +54,6 @@ public class Task_2 {
         if (num > 0) {
             System.out.println("Multiplication Table of " + num);
 
-            // Todo write your code here ...
-
             for (int i = 0; i <= 10; i++) {
                 System.out.println(num + " * " + i + " = " + (num * i));
             }
@@ -77,7 +74,6 @@ public class Task_2 {
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
 
-        // Todo write your code here ...
         if (num > 0) {
             for (int i = 1; i <= num; i++) {
                 fact *= i;
@@ -86,6 +82,7 @@ public class Task_2 {
         } else {
             System.out.println("Number dose not positive.");
         }
+
     }
 
      /* TODO: Question 4
@@ -107,7 +104,6 @@ public class Task_2 {
         System.out.print("Enter the power ");
         power = console.nextInt();
 
-        // Todo write your code here ...
         if (power > 0) {
             for (int i = 0; i < power; i++) {
                 result *= base;
@@ -140,7 +136,6 @@ public class Task_2 {
 
         int remainder = 0;
 
-        // Todo write your code here ...
         while (number != 0) {
             remainder = number % 10;
             reverse = reverse * 10 + remainder;
@@ -170,7 +165,6 @@ public class Task_2 {
             } else {
                 oddSum += number;
             }
-            // Todo write your code here ...
 
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
@@ -195,7 +189,6 @@ public class Task_2 {
 
         boolean flag = true;
 
-        // Todo write your code here ...
         if (number > 0) {
             for (int i = 2; i < number; i++) {
                 if (number % i == 0) {
