@@ -8,7 +8,7 @@ public class Task_1 {
 //        drawLeftBottomTriangle(10);
 //        drawRightBottomTriangle(10);
 //        drawRhombus(10);
-//        drawIsoscelesTriangle(10);
+//        drawIsoscelesTriangle(5);
 //        drawBottomIsoscelesTriangle(10);
 
     }
@@ -136,7 +136,7 @@ public class Task_1 {
             }
             System.out.println();
         }
-        for (int i = length; i >= 1; i--) {
+        for (int i = length - 1; i >= 1; i--) {
             for (int j = length; j > i; j--) {
                 System.out.print(" ");
             }

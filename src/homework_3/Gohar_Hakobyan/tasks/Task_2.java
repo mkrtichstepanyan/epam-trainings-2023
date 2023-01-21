@@ -102,7 +102,7 @@ public class Task_2 {
 
         // Todo write your code here ...
         if (power >= 1) {
-            for (int i = 1; i < power; i++) {
+            for (int i = 0; i < power; i++) {
                 result = result * base;
             }
             System.out.println("Result: " + result);
@@ -153,16 +153,16 @@ public class Task_2 {
             number = console.nextInt();
 
             // Todo write your code here ...
-
+            if (number % 2 == 0) {
+                evenSum += number;
+            } else {
+                oddSum += number;
+            }
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
 
         } while (choice == 'y' || choice == 'Y');
-        if (number % 2 == 0) {
-            evenSum += number;
-        } else {
-            oddSum += number;
-        }
+
         System.out.println("Sum of even numbers: " + evenSum);
         System.out.println("Sum of odd numbers: " + oddSum);
     }
@@ -176,19 +176,21 @@ public class Task_2 {
         Scanner console = new Scanner(System.in);
 
         int number;
-
-        System.out.print("Enter the positive integer ");
-        number = console.nextInt();
         boolean flag = true;
-
-        // Todo write your code here ...
-        if (number <= 0) {
-            System.out.println("Error: Please enter a positive integer!");
-        } else if (number % 2 == 0) {
-            flag = false;
-            System.out.print(number + " its not a prime");
-        } else {
+        //  Todo write your code here
+        do {
+            System.out.print("Enter the positive integer ");
+            number = console.nextInt();
+        } while (number <= 0);
+        for (int i = 2; i < number / i; i++) {
+            if (number % 2 == 0) {
+                flag = false;
+            }
+            if (flag) {
+                System.out.print(number + " its not a prime");
+            } else {
                 System.out.println(number + " its  a prime");
+            }
         }
     }
 }

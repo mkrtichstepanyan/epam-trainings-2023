@@ -6,7 +6,7 @@ public class Task_3 {
 
     public static void main(String[] args) {
 //        FindHcf();                   // Question 8
-//        sumAgain();                  // Question 9
+        sumAgain();                  // Question 9
 //        countNumbers();                // Question 10
 //        findMaxMin();                // Question 11
 //        armstrongNumber();           // Question 12
@@ -55,12 +55,12 @@ public class Task_3 {
             number1 = console.nextInt();
             System.out.print("Enter the number ");
             number2 = console.nextInt();
-            sum = +number1 + number2;
+            sum = number1 + number2;
+            System.out.println("sum " + sum);
 
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
         } while (choice == 'y' || choice == 'Y');
-        System.out.println("sum " + sum);
     }
 
 
