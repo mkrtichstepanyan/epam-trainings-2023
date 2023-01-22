@@ -170,7 +170,7 @@ public class task_3 {
             if(guess > number){
                 System.out.println("Too high, try again.");
             }
-            else{
+            else if(guess < number){
                 System.out.println("Too low, try again.");
             }
         } while(guess != number);
