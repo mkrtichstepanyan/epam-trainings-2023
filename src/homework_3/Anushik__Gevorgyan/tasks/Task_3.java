@@ -26,6 +26,7 @@ public class Task_3 {
 
         System.out.print("Enter the first number ");
         dividend = console.nextInt();
+
         System.out.print("Enter the second number ");
         divisor = console.nextInt();
         while (dividend != divisor) {
