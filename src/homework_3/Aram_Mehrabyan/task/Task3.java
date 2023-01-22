@@ -8,10 +8,10 @@ public class Task3 {
 //        sumAgain();                  // Question 9
 //        countNumbers();              // Question 10
 //        findMaxMin();                // Question 11
- //       armstrongNumber();           // Question 12
+        armstrongNumber();           // Question 12
 //       fibonacciSeries();           // Question 13
 //        sumOfSeries();               // Question 14
-       guessMyNumber();             // Question 15
+ //      guessMyNumber();             // Question 15
     }
 
 
@@ -152,25 +152,20 @@ public class Task3 {
                 digit3;  // To hold third digit (Hundreds) of number
 
         // Todo write your code here ...
-        for (int num=1;num<500;num++){
-            if(num>=1&&num<10){
-                digit1=num;
-                System.out.println(digit1*digit1*digit1);
-            }
-             if(num>=10&&num<100){
-                digit2=num/10;
-                digit1=num%10;
-                System.out.println(digit1*digit1*digit1+digit2*digit2*digit2);
-            }
-            else{
+        int sum;
+        for (int num=1;num<=500;num++){
+                sum=0;
                 digit3=num/100;
                 digit2=(num%100)/10;
                 digit1=(num%100)%10;
-                System.out.println(digit1*digit1*digit1+digit2*digit2*digit2+digit3*digit3*digit3);
+                sum+=digit1*digit1*digit1+digit2*digit2*digit2+digit3*digit3*digit3;
+                if(num==sum)
+                    System.out.println(num);
+
             }
 
         }
-    }
+
 
 
     /* TODO: Question 13
