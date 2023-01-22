@@ -9,7 +9,7 @@ public class Task_3 {
 //        sumAgain(+);                  // Question 9
 //        countNumbers(+);              // Question 10
 //        findMaxMin(+);                // Question 11
-//        armstrongNumber();           // Question 12
+//        armstrongNumber(+);           // Question 12
 //        fibonacciSeries(+);           // Question 13
 //        sumOfSeries(+);               // Question 14
 //        guessMyNumber(+);             // Question 15
@@ -122,7 +122,8 @@ public class Task_3 {
 
             if (number > max) {
                 max = number;
-            } else if (number < min) {
+            }
+            if (number < min) {
                 min = number;
             }
 
@@ -146,7 +147,17 @@ public class Task_3 {
                 digit2,  // To hold second digit (Tens) of number
                 digit3;  // To hold third digit (Hundreds) of number
 
-        // Todo write your code here ...
+
+        int i = 1;
+        while (i < 500) {
+            digit1 = i % 10;
+            digit2 = (i / 10) % 10;
+            digit3 = i /100;
+            if ((digit1*digit1*digit1)+(digit2*digit2*digit2)+(digit3*digit3*digit3) == i){
+                System.out.print(i + "|");
+            }
+            i++;
+        }
     }
 
 
@@ -167,7 +178,7 @@ public class Task_3 {
         System.out.print(firstTerm + " " + secondTerm + " ");
 
         int i = 0;
-        while (i < number) {
+        while (i < number - 1) {
             thirdTerm = firstTerm + secondTerm;
             System.out.print(thirdTerm + " ");
             firstTerm = secondTerm;
@@ -186,16 +197,16 @@ public class Task_3 {
 
         int number;  // To hold number of terms
 
-        double sum = 0;
+        double sum = 0.0;
 
         System.out.print("Enter number of terms of series : ");
         number = console.nextInt();
 
-        for (int i = 1; i <= number; i++) {
-            sum += i / 1.0;
+
+        for (double i = 1; i <= number; i++) {
+             sum += 1 / i;
+
         }
-
-
         System.out.println("sum: " + sum);
     }
 
@@ -219,16 +230,16 @@ public class Task_3 {
 
 
         while (true) {
-            System.out.println("guess the number: " + " attempt -> " + tries);
+            System.out.println("guess the number of 0 to 100: " + " attempt -> " + tries);
             guess = console.nextInt();
             tries++;
             if (number == guess) {
-                System.out.println("you guessed right " + number);
+                System.out.println("you guessed right " + number + " attempt -> " + tries);
                 break;
             } else if (number < guess) {
-                System.out.println("too smaller. try again!");
-            } else {
                 System.out.println("too bigger. try again!");
+            } else {
+                System.out.println("too smaller. try again!");
             }
 
         }
