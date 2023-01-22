@@ -232,6 +232,7 @@ public class Task_3 {
         System.out.println("Guess My Number Game");
         System.out.println();
 
+
         while (guess != number) {
             System.out.print("Enter your guess: ");
             guess = console.nextInt();
