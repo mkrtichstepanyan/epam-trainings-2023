@@ -1,5 +1,4 @@
-package homework_3.Inesa_Mkrtchyan.tasks;
-
+package homework_3.Inesa_Mkrtchyan.Tasks;
 public class Task_1 {
 
     public static void main(String[] args) {
@@ -73,8 +72,8 @@ public class Task_1 {
      * @param length  specified length of triangle will be drawn
      */
     public static void drawLeftBottomTriangle(int length){
-        for (int i = 0; i < length; i++){
-            for(int j = length-1;j > i;j--){
+        for (int i = 0; i <= length; i++){
+            for(int j = length;j > i;j--){
                 System.out.print("*");
             }
             System.out.println();
@@ -155,12 +154,12 @@ public class Task_1 {
      * @param length specified length of triangle will be drawn
      */
     public static void drawIsoscelesTriangle(int length){
-        for(int i = 1; i <= length; i++){
-            for(int j = 0; j < length-i;j++){
+        for (int i = 1, j = 1; i < length; i++, j += 2) {
+            for (int b = length - i; b >= 1; b--) {
                 System.out.print(" ");
             }
-            for(int j = 0; j < i; j++){
-                System.out.print("* ");
+            for (int n = 0; n < j; n++) {
+                System.out.print("*");
             }
             System.out.println();
         }
@@ -178,12 +177,12 @@ public class Task_1 {
      * @param length specified length of triangle will be drawn
      */
     public static void drawBottomIsoscelesTriangle(int length){
-        for(int i = length-1; i >= 0; i--){
-            for(int j = 0; j < length-i;j++){
+        for (int i = 0; i < length; i++) {
+            for (int j = 1; j < i + 1; j++) {
                 System.out.print(" ");
             }
-            for(int j = 0; j < i; j++){
-                System.out.print("* ");
+            for (int n = length + 2; n >= (2 * i); n--) {
+                System.out.print("*");
             }
             System.out.println();
         }

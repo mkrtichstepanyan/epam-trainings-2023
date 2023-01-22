@@ -5,7 +5,7 @@ public class ForEach3 {
         int sum = 0;
         int[][] nums = new int[3][3];
         for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 5; j++) {
+            for (int j = 0; j < 3; j++) {
                 nums[i][j] = (i + 1) * (j + 1);
             }
         }

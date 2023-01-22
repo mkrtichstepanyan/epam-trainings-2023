@@ -30,8 +30,7 @@ public class Task_3 {
         System.out.print("Enter the second number ");
         divisor = console.nextInt();
 
-
-        for (int i = Math.min(dividend, divisor); i > 1; i++) {
+        for (int i = Math.min(dividend, divisor); i >= 1; i--) {
             if (dividend % i == 0 & divisor % i == 0) {
                 hcf = i;
                 break;
@@ -149,11 +148,11 @@ public class Task_3 {
         for (int i = 1; i <= 500; i++) {
             int tempDigit = 0;
             digit = i;
-            while (i != 0) {
-                tempDigit += (i % 10) * (i % 10) * (i % 10);
-                i /= 10;
+            while (digit != 0) {
+                tempDigit += (digit % 10) * (digit % 10) * (digit % 10);
+                digit /= 10;
             }
-            if (digit == tempDigit) System.out.println(digit);
+            if (i == tempDigit) System.out.println(i);
         }
     }
 
@@ -165,18 +164,15 @@ public class Task_3 {
     public static void fibonacciSeries() {
         Scanner console = new Scanner(System.in);
         int number;  // To hold number of ter ms
-        int firstTerm = 0, secondTerm = 1, thirdTerm;
+        int firstTerm = 0, secondTerm = 1, thirdTerm = 0;
         System.out.print("Enter number of terms of series : ");
         number = console.nextInt();
-        thirdTerm = firstTerm + secondTerm;
-        System.out.print(firstTerm + " " + secondTerm + " " + thirdTerm + " ");
-        while (thirdTerm <= number) {
-            firstTerm = secondTerm + thirdTerm;
-            System.out.print(firstTerm + " ");
-            secondTerm = thirdTerm + firstTerm;
-            System.out.print(secondTerm + " ");
+        System.out.print(firstTerm + " " + secondTerm + " " );
+        while (firstTerm + secondTerm < number) {
             thirdTerm = firstTerm + secondTerm;
             System.out.print(thirdTerm + " ");
+            firstTerm = secondTerm;
+            secondTerm = thirdTerm;
         }
     }
 
@@ -195,11 +191,12 @@ public class Task_3 {
         System.out.print("Enter number of terms of series : ");
         number = console.nextInt();
 
-        for (int i = 0; i < number; i++) {
+        for (double i = 1; i <= number; i++) {
             sum += 1 / i;
         }
 
         System.out.println("sum: " + sum);
+
     }
 
 
