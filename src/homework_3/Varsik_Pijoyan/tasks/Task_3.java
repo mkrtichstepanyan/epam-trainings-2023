@@ -180,7 +180,7 @@ public class Task_3 {
         System.out.print("Enter number of terms of series : ");
         number = console.nextInt();
 
-        System.out.print(firstTerm + " " + secondTerm + " ");
+
 
         for (int i = 1; i <= number; i++) {
             System.out.print(firstTerm + ", ");
