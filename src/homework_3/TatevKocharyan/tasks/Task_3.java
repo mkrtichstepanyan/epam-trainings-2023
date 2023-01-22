@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Task_3 {
 
     public static void main(String[] args) {
-//        FindHcf();                   // Question 8
+        FindHcf();                   // Question 8
 //        sumAgain();                  // Question 9
 //        countNumbers();              // Question 10
 //        findMaxMin();                // Question 11
@@ -30,16 +30,18 @@ public class Task_3 {
 
         System.out.print("Enter the second number ");
         divisor = console.nextInt();
-
+        if (dividend < 0 && divisor < 0) {
+            hcf = -1;
+            System.out.println("HCF: " + hcf);
+        }
         // Todo write your code here ...
-        do {
+
             remainder = dividend % divisor;
             remainder = divisor % remainder;
-
-        } while (remainder == 0);
-        hcf = remainder;
-        System.out.println("HCF: " + hcf);
-
+            hcf = remainder;
+            if (hcf == 0) {
+                System.out.println("HCF: " + (hcf + (dividend % divisor)));
+            } else System.out.println("HCF: " + hcf);
     }
 
 
