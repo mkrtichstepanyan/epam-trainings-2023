@@ -103,7 +103,7 @@ public class task_3 {
     public static void armstrongNumber() {
         System.out.println("Armstrong numbers: ");
         for (int i = 100; i <= 500; i++) {
-            if(i == aa(i % 10, (i / 10) % 10, (i / 100) % 10)) {
+            if (i == aa(i % 10, (i / 10) % 10, (i / 100) % 10)){
                 System.out.print(i + " ");
 
             }
