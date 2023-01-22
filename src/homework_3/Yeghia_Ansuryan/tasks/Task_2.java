@@ -12,7 +12,7 @@ public class Task_2 {
 //        powerDemo();                 // Question 4
 //        reverseNumber();             // Question 5
 //        readSetIntegers();           // Question 6
-        testPrime();                 // Question 7
+//        testPrime();                 // Question 7
     }
 
 
@@ -48,9 +48,11 @@ public class Task_2 {
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
 
+        System.out.println("Multiplication Table of ");
+
         for (int i = 1; i <= 10; i++) {
 
-            System.out.println("Multiplication Table of " + num + "*" + i + " = " + (num * i));
+            System.out.println( num + " " + "*" + " "+ i + " = " + (num * i));
 
         }
     }
@@ -68,10 +70,10 @@ public class Task_2 {
         num = console.nextInt();
 
         for (int i = 2; i <= num; i++) {
-            fact = fact * i;
+            fact *= i;
         }
 
-        System.out.println("Factorial: " + num + " it`s " + fact);
+        System.out.println("Factorial: " +  fact);
     }
 
      /* TODO: Question 4
@@ -94,7 +96,7 @@ public class Task_2 {
         power = console.nextInt();
 
         for (int i = 0; i < power; i++) {
-            result = result * base;
+            result *= base;
         }
 
         System.out.println("Result: " + result);
