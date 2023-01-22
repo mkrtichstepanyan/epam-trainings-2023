@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class Task2 {
     public static void main(String[] args) {
- //      printNumbers(15);            // Question 1 -> try with different integer values instead of 10 only
+       printNumbers(15);            // Question 1 -> try with different integer values instead of 10 only
  //       sumNumbers();                // Question 2
         //      table();
  //       factorialDemo1();            // Question 3
  //       powerDemo();                 // Question 4
  //       reverseNumber();             // Question 5
  //       readSetIntegers();           // Question 6
-        testPrime();                 // Question 7
+   //     testPrime();                 // Question 7
     }
 
 
@@ -21,8 +21,7 @@ public class Task2 {
     public static void printNumbers(int count) {
         // Todo write your code here ...
         for(int i=0;i<count;i++){
-            if(i==10)
-                continue;
+
             System.out.print(i+ " ");
         }
     }
@@ -55,7 +54,7 @@ public class Task2 {
 
         // Todo write your code here ...
                 int temp;
-                for(int k=1;k<10;k++){
+                for(int k=1;k<=10;k++){
                     temp=num*k;
                     System.out.print(temp+ " ");
                 }
