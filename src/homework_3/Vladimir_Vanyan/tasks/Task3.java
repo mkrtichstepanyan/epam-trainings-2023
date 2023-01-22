@@ -10,8 +10,8 @@ public class Task3 {
         //findMaxMin();                // Question 11
         //armstrongNumber();           // Question 12
         //fibonacciSeries();           // Question 13
-        sumOfSeries();               // Question 14
-        guessMyNumber();             // Question 15
+        //sumOfSeries();               // Question 14
+        //guessMyNumber();             // Question 15
     }
 
     /* TODO: Question 8
