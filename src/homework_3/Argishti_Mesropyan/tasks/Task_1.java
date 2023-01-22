@@ -8,7 +8,7 @@ public class Task_1 {
 //        drawRightBottomTriangle(10);
 //        drawRhombus(5);
 //        drawIsoscelesTriangle(10);
-//        drawBottomIsoscelesTriangle(10);
+        drawBottomIsoscelesTriangle(5);
 
     }
 
@@ -136,7 +136,7 @@ public class Task_1 {
             System.out.println();
         }
 
-        for (int m = 0; m < length; m++) {
+        for (int m = 0; m < length - 1; m++) {
             for (int k = 0; k <= m; k++) {
                 System.out.print(" ");
             }
@@ -186,9 +186,9 @@ public class Task_1 {
     public static void drawBottomIsoscelesTriangle(int length) {
         int star;
         int row;
-        for (star = length - 1; star > 0; star--) {
+        for (star = length; star > 0; star--) {
             for (row = 1; row <= length - star; row++) {
-                System.out.print("  ");
+                System.out.print("- ");
             }
             for (row = 1; row <= star * 2 - 1; row++) {
                 System.out.print("* ");

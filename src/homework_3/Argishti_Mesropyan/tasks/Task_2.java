@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Task_2 {
     public static void main(String[] args) {
 //        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
-//        sumNumbers();                // Question 2
+        sumNumbers();                // Question 2
 //        table();                     // Question 3
 //        factorialDemo1();            // Question 4
 //        powerDemo();                 // Question 5
@@ -31,10 +31,12 @@ public class Task_2 {
     */
     public static void sumNumbers() {
         int sum = 0;
-        while (sum <= 10 && sum >= 0) {
-            System.out.println("Sum: " + sum);
-            sum++;
+
+        for (int i = 1; i <= 10; i++) {
+            sum += i;
         }
+        System.out.println("Sum: " + sum);
+
     }
 
 
