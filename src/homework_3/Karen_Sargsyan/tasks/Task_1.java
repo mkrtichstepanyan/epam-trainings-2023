@@ -7,7 +7,7 @@ public class Task_1 {
 //        drawRightUpTriangle(10);
 //        drawLeftBottomTriangle(10);
 //        drawRightBottomTriangle(10);
-//        drawRhombus(10);
+//        drawRhombus(5);
 //        drawIsoscelesTriangle(10);
 //        drawBottomIsoscelesTriangle(10);
     }

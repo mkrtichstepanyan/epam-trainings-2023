@@ -7,7 +7,7 @@ public class Task_2 {
     public static void main(String[] args) {
 //        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
 //        sumNumbers();                // Question 2
-        table();                     // Question 3
+//        table();                     // Question 3
 //        factorialDemo1();            // Question 4
 //        powerDemo();                 // Question 5
 //        reverseNumber();             // Question 6
@@ -113,10 +113,11 @@ public class Task_2 {
         System.out.print("Enter the number ");
         number = console.nextInt();
 
-        int remainder;
+        int temp = number;
+        int remainder = 0;
 
-        for (; number != 0; number = number / 10) {
-            remainder = number % 10;
+        for (; temp != 0; temp = temp / 10) {
+            remainder = temp % 10;
             reverse = reverse * 10 + remainder;
         }
         System.out.println("Reverse of " + number + " is " + reverse);
@@ -167,6 +168,7 @@ public class Task_2 {
         number = console.nextInt();
 
         boolean flag = true;
+
         if (number < 2) {
             flag = false;
         }
