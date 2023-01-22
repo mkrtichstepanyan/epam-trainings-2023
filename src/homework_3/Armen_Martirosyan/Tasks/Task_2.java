@@ -148,13 +148,13 @@ public class Task_2 {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
-            for (int i = 1; i <= number; i++) {
-                if (i % 2 == 0) {
-                    evenSum += i;
-                } else {
-                    oddSum += i;
-                }
+
+            if (number % 2 == 0) {
+                evenSum += number;
+            } else {
+                oddSum += number;
             }
+
 
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
