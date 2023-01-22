@@ -12,7 +12,7 @@ public class Task_3 {
 //        armstrongNumber();           // Question 13
 //        fibonacciSeries();           // Question 14
 //        sumOfSeries();               // Question 15
-//        guessMyNumber();             // Question 16
+        guessMyNumber();             // Question 16
     }
 
 
@@ -236,18 +236,20 @@ public class Task_3 {
         number = (int) (Math.random() * 100) + 1; // get random number between 1 and 100
         System.out.print("Guess My Number Game ");
         System.out.println();
-        while (guess != number) {
+
+        do {
             System.out.print("Enter your number: ");
             guess = console.nextInt();
-            if (guess == number) {
-                System.out.println("\nCongratulations you found true number" );
-            } else if (guess > number) {
+            tries++;
+            if (guess > number) {
                 System.out.println("Too high, try again.");
-            } else {
+            } else if (guess < number) {
                 System.out.println("Too low, try again.");
             }
-            tries++;
         }
+        while (guess != number);
+        
+        System.out.println("Congratulations you found true number");
     }
 }
 
