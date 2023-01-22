@@ -1,4 +1,4 @@
-package homework_3.Vardan_Mkrtchyan.Chapter5;
+package homework_3.Diana_Melkonyan.chapter_5;
 
 public class MissingBreak {
     public static void main(String[] args) {
@@ -21,5 +21,7 @@ public class MissingBreak {
                 default:
                     System.out.println("i is 10 or more");
             }
+
+
     }
 }

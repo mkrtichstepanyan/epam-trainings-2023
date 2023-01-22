@@ -1,4 +1,4 @@
-package Vardan_Mkrtchyan.Chapter5;
+package homework_3.Diana_Melkonyan.chapter_5;
 
 public class Continue {
     public static void main(String[] args) {

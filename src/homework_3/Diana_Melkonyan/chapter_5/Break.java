@@ -1,19 +1,14 @@
-package homework_3.Vardan_Mkrtchyan.Chapter5;
+package homework_3.Diana_Melkonyan.chapter_5;
 
 public class Break {
     public static void main(String[] args) {
-        boolean t = true;
+        boolean t =true;
 
-        first:
-        {
-            second:
-            {
-                third:
-                {
+        first: {
+            second:{
+                third:{
                     System.out.println("Before the break.");
-                    if (t) {
-                        break second;
-                    }
+                    if(t) break second; //break out of second block
                     System.out.println("This wont execute");
                 }
                 System.out.println("This wont execute");
@@ -21,4 +16,5 @@ public class Break {
             System.out.println("This is after second block.");
         }
     }
+
 }

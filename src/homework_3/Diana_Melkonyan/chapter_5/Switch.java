@@ -1,4 +1,4 @@
-package homework_3.Vardan_Mkrtchyan.Chapter5;
+package homework_3.Diana_Melkonyan.chapter_5;
 
 public class Switch {
     public static void main(String[] args) {
@@ -28,7 +28,6 @@ public class Switch {
                 break;
             default:
                 season = "Bogus Month";
-
         }
         System.out.println("April is in the " + season + ".");
     }

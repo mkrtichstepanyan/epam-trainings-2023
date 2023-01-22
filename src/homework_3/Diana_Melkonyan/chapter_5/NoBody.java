@@ -1,4 +1,4 @@
-package homework_3.Vardan_Mkrtchyan.Chapter5;
+package homework_3.Diana_Melkonyan.chapter_5;
 
 public class NoBody {
     public static void main(String[] args) {
@@ -7,7 +7,9 @@ public class NoBody {
         i = 100;
         j = 200;
 
-        while (++i < --j) ;
+        //find midpoint between i and j
+        while (++i < --j) ; // no body in this loop
         System.out.println("Midpoint is " + i);
+
     }
 }

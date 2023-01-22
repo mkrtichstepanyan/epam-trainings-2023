@@ -1,4 +1,4 @@
-package homework_3.Vardan_Mkrtchyan.Chapter5;
+package homework_3.Diana_Melkonyan.chapter_5;
 
 public class Comma {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Vardan_Mkrtchyan.Chapter5;
+package homework_3.Vardan_Mkrtchyan.Chapter5;
 
 public class Menu {
     public static void main(String[] args)

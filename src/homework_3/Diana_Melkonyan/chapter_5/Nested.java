@@ -1,8 +1,9 @@
-package homework_3.Vardan_Mkrtchyan.Chapter5;
+package homework_3.Diana_Melkonyan.chapter_5;
 
 public class Nested {
     public static void main(String[] args) {
         int i, j;
+
         for (i = 0; i < 10; i++) {
             for (j = i; j < 10; j++)
                 System.out.print(".");

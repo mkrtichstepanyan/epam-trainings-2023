@@ -1,11 +1,14 @@
-package homework_3.Vardan_Mkrtchyan.Chapter5;
+package homework_3.Diana_Melkonyan.chapter_5;
 
-public class While {
+public class DoWhile {
     public static void main(String[] args) {
         int n = 10;
-        while (n > 0) {
+
+        do {
             System.out.println("tick " + n);
             n--;
-        }
+
+        } while (n > 0);
     }
 }
+

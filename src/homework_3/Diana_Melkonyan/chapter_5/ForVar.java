@@ -1,4 +1,4 @@
-package homework_3.Vardan_Mkrtchyan.Chapter5;
+package homework_3.Diana_Melkonyan.chapter_5;
 
 public class ForVar {
     public static void main(String[] args) {
@@ -6,7 +6,7 @@ public class ForVar {
         boolean done = false;
 
         i = 0;
-        for ( ; !done ; ) {
+        for (; !done; ) {
             System.out.println("i is " + i);
             if (i == 10) done = true;
             i++;

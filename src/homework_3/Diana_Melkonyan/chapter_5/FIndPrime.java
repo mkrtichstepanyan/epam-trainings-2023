@@ -1,10 +1,12 @@
-package homework_3.Vardan_Mkrtchyan.Chapter5;
+package homework_3.Diana_Melkonyan.chapter_5;
 
-public class FindPrime {
+public class FIndPrime {
     public static void main(String[] args) {
         int num;
         boolean isPrime;
+
         num = 14;
+
         if (num < 2) isPrime = false;
         else isPrime = true;
 
