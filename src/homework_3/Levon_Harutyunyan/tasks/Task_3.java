@@ -10,7 +10,7 @@ public class Task_3 {
 //        countNumbers();              // Question 10
 //        findMaxMin();                // Question 11
 //        armstrongNumber();           // Question 12
-//        fibonacciSeries();           // Question 13
+        fibonacciSeries();           // Question 13
 //        sumOfSeries();               // Question 14
 //        guessMyNumber();             // Question 15
     }
@@ -154,11 +154,28 @@ public class Task_3 {
         For example, 153 = ( 1 * 1 * 1 ) + ( 5 * 5 * 5 ) + ( 3 * 3 * 3 )
     */
     public static void armstrongNumber() {
-        int digit1,  // To hold first digit (Ones) of number
-                digit2,  // To hold second digit (Tens) of number
-                digit3;  // To hold third digit (Hundreds) of number
 
-        // Todo write your code here ...
+//        int digit1,  // To hold first digit (Ones) of number
+//                digit2,  // To hold second digit (Tens) of number
+//                digit3;  // To hold third digit (Hundreds) of number
+
+        int num1 = 1;
+        int num2 = 500;
+
+        for (int i = num1; i < num2; i++){
+           int digit1 = i;
+           int digit2 = 0;
+           int digit3 = 0;
+
+            while( digit1 != 0 ) {
+                digit2 = digit1 % 10;
+                digit3 = digit3 + (digit2 * digit2 * digit2);
+                digit1 = digit1 / 10;
+            }
+            if(digit3 == i){
+                System.out.println(""+i+" is an Armstrong number.");
+            }
+        }
     }
 
 
@@ -178,7 +195,13 @@ public class Task_3 {
 
         System.out.print(firstTerm + " " + secondTerm + " ");
 
-        // Todo write your code here ...
+
+        for (int i = 0; i < number - 1; i++) {
+            thirdTerm = firstTerm + secondTerm;
+            System.out.print(thirdTerm + " ");
+            firstTerm = secondTerm;
+            secondTerm = thirdTerm;
+        }
     }
 
 
