@@ -30,8 +30,8 @@ public class Task_3 {
 
         while (divisor != 0) {
             remainder = dividend % divisor;
-            divisor = remainder;
             dividend = divisor;
+            divisor = remainder;
         }
         hcf = dividend;
         System.out.println("HCF " + hcf);
@@ -144,7 +144,7 @@ public class Task_3 {
             digit1 = number % 10;
             digit2 = number / 10 % 10;
             digit3 = number / 100;
-            if (digit3 * digit3 + digit3 + digit2 * digit2 * digit2 + digit1 * digit1 * digit1 == number ) {
+            if (digit3 * digit3 * digit3 + digit2 * digit2 * digit2 + digit1 * digit1 * digit1 == number ) {
                 System.out.println(number + " is an armstrong number ");
             }
         }
