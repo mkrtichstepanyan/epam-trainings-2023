@@ -168,7 +168,7 @@ public class Task_3 {
         System.out.print("Enter number of terms of series : ");
         number = console.nextInt();
         System.out.print(firstTerm + " " + secondTerm + " " );
-        while (firstTerm + secondTerm < number) {
+        for (int i = 2; i < number; i++) {
             thirdTerm = firstTerm + secondTerm;
             System.out.print(thirdTerm + " ");
             firstTerm = secondTerm;

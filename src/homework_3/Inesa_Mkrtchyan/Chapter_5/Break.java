@@ -1,4 +1,4 @@
-package homework_3.Inesa_Mkrtchyan.Chapter_5;
+package homework_3.Inesa_Mkrtchyan.Tasks;
 
 public class Break {
     public static void main(String[] args) {
