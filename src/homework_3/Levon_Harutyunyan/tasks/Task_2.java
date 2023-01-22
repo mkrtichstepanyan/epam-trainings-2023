@@ -101,7 +101,9 @@ public class Task_2 {
         System.out.print("Enter the power ");
         power = console.nextInt();
 
-        // Todo write your code here ...
+        for (int i = 1; i <= power; i++) {
+            result *= base;
+        }
 
         System.out.println("Result: " + result);
     }
@@ -123,7 +125,12 @@ public class Task_2 {
         int temp = number;
         int remainder = 0;
 
-        // Todo write your code here ...
+        while (temp != 0) {
+
+            remainder = temp % 10;
+            temp = temp / 10;
+            reverse = reverse * 10 + remainder;
+        }
 
         System.out.println("Reverse of " + number + " is " + reverse);
     }
@@ -144,7 +151,11 @@ public class Task_2 {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
-            // Todo write your code here ...
+            if ( number % 2 == 0){
+                evenSum += number;
+            } else {
+                oddSum += number;
+            }
 
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
@@ -169,7 +180,25 @@ public class Task_2 {
 
         boolean flag = true;
 
-        // Todo write your code here ...
+        if (number < 2) {
+            flag = false;
+        } else {
+            flag = true;
+        }
+
+        for (int i = 2; i <= number / i; i++) {
+
+            if ((number % i) == 0) {
+                flag = false;
+                break;
+            }
+
+        }
+        if (flag) {
+            System.out.println("Number is prime");
+        } else {
+            System.out.println("Number is not prime");
+        }
 
     }
 }
