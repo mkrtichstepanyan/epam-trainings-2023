@@ -150,9 +150,9 @@ public class Task_2 {
 
             for (int i = 1; i <= number; i++) {
                 if (i % 2 == 0) {
-                    evenSum = evenSum + i;
+                    evenSum += i;
                 } else {
-                    oddSum = oddSum + i;
+                    oddSum += i;
                 }
             }
 

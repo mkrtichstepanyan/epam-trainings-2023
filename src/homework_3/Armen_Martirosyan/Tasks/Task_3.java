@@ -6,7 +6,6 @@ public class Task_3 {
 
     public static void main(String[] args) {
         FindHcf();                   // Question 8
-        sumAgain();                  // Question 9
         countNumbers();              // Question 10
         findMaxMin();                // Question 11
         armstrongNumber();           // Question 12
@@ -91,9 +90,11 @@ public class Task_3 {
             number = console.nextInt();
 
             if (number > 0) {
-                countPositive += number;
+                countPositive++;
+            } else if (number < 0) {
+                countNegative++;
             } else {
-                countNegative += number;
+                countZero++;
             }
 
             System.out.print("Do you want to continue y/n? ");
@@ -186,14 +187,15 @@ public class Task_3 {
         System.out.print("Enter number of terms of series : ");
         number = console.nextInt();
 
-        for (int i = 2; i < number; i++) {
+        System.out.print(firstTerm + " " + secondTerm + " ");
+        for (int i = 2; i <= number; i++) {
             thirdTerm = firstTerm + secondTerm;
 
-            System.out.println(thirdTerm);
+            System.out.println(thirdTerm + " ");
             firstTerm = secondTerm;
             secondTerm = thirdTerm;
         }
-        System.out.print("First number is " + firstTerm + "\nSecond number is " + secondTerm);
+        System.out.print(firstTerm + " " + secondTerm + " ");
     }
 
 
@@ -239,7 +241,6 @@ public class Task_3 {
         System.out.println();
 
         while (true) {
-            System.out.println("Random number is " + number);
             guess = console.nextInt();
             if (guess == number) {
                 System.out.println("You find the guess number");
