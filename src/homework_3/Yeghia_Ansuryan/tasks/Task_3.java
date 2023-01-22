@@ -12,7 +12,7 @@ public class Task_3 {
 //        armstrongNumber();           // Question 12
 //        fibonacciSeries();           // Question 13
 //        sumOfSeries();               // Question 14
-//        guessMyNumber();             // Question 15
+        guessMyNumber();             // Question 15
     }
 
 
@@ -32,8 +32,9 @@ public class Task_3 {
         divisor = console.nextInt();
 
         for (remainder = 1; remainder <= dividend || remainder <= divisor; remainder++) {
-            if (dividend % remainder == 0 && divisor % remainder == 0)
+            if (dividend % remainder == 0 && divisor % remainder == 0) {
                 hcf = remainder;
+            }
         }
 
         System.out.println("HCF: " + hcf);
@@ -142,7 +143,6 @@ public class Task_3 {
     }
 
 
-
     /* TODO: Question 12
         Write a program to print out all Armstrong numbers between 1 and 500.
         If sum of cubes of each digit of the number is equal to the number itself, then the number is called an Armstrong number.
@@ -240,23 +240,28 @@ public class Task_3 {
         System.out.println("Guess My Number Game");
         System.out.println();
 
-        while (guess != number) {
+        do {
             System.out.print("Enter your number: ");
             guess = console.nextInt();
+            tries++;
 
-            if (guess == number) {
-                System.out.println();
+            if (guess > number) {
 
-                System.out.println("Congratulations you found true number" + " "+ guess);
-
-            } else if (guess > number) {
                 System.out.println("Too high, try again.");
 
-            } else {
+            } else if (guess < number) {
+
                 System.out.println("Too low, try again.");
             }
-            tries++;
-        }
+
+        } while (guess != number);
+
+        System.out.println("Congratulations you found true number" + " " + guess);
+
     }
+
 }
+
+
+
 
