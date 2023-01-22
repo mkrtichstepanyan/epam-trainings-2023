@@ -178,7 +178,7 @@ public class Task_3 {
         System.out.print(firstTerm + " " + secondTerm + " ");
 
         int i = 0;
-        while (i < number - 1) {
+        while (i < number - 2) {
             thirdTerm = firstTerm + secondTerm;
             System.out.print(thirdTerm + " ");
             firstTerm = secondTerm;
