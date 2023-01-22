@@ -191,11 +191,10 @@ public class Task_3 {
         for (int i = 2; i <= number; i++) {
             thirdTerm = firstTerm + secondTerm;
 
-            System.out.println(thirdTerm + " ");
+            System.out.print(thirdTerm + " ");
             firstTerm = secondTerm;
             secondTerm = thirdTerm;
         }
-        System.out.print(firstTerm + " " + secondTerm + " ");
     }
 
 
@@ -245,7 +244,7 @@ public class Task_3 {
             if (guess == number) {
                 System.out.println("You find the guess number");
                 break;
-            } else if (number > guess) {
+            } else if (number < guess) {
                 System.out.println("Too high, try again.");
             } else {
                 System.out.println("Too low, try again");
