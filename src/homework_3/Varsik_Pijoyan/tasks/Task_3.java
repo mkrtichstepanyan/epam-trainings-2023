@@ -37,6 +37,7 @@ public class Task_3 {
                 hcf = i;
         }
 
+
         System.out.println("HCF: " + hcf);
     }
 
@@ -82,9 +83,9 @@ public class Task_3 {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
-           if(countPositive > 0){
+           if(number > 0){
                countPositive++;
-           }else if(countNegative > 0){
+           }else if(number > 0){
                countNegative++;
            }else{
                countZero++;
@@ -146,16 +147,20 @@ public class Task_3 {
         For example, 153 = ( 1 * 1 * 1 ) + ( 5 * 5 * 5 ) + ( 3 * 3 * 3 )
     */
     public static void armstrongNumber() {
-        int digit1,  // To hold first digit (Ones) of number
-                digit2,  // To hold second digit (Tens) of number
-                digit3;  // To hold third digit (Hundreds) of number
-        int num = 1;
-        while(num <= 1000){
-            digit1 = num % 10;
-            digit2 = num / 10 % 10;
-            digit3 = num % 100;
-            if (digit3 * digit3 * digit3 + digit2 * digit2 * digit2 + digit1 * digit1 * digit1 == num) {
-                System.out.println(num + " is an Armstrong number.");
+//        int digit1,  // To hold first digit (Ones) of number
+//                digit2,  // To hold second digit (Tens) of number
+//                digit3;  // To hold third digit (Hundreds) of number
+
+        for (int i = 1; i<=500; i++){
+            int check, rem, sum = 0;
+            check = i;
+            while(check != 0) {
+                rem = check % 10;
+                sum = sum + (rem * rem * rem);
+                check = check / 10;
+            }
+            if(sum == i){
+                System.out.println(""+i+" is an Armstrong number.");
             }
         }
     }
@@ -177,7 +182,7 @@ public class Task_3 {
 
         System.out.print(firstTerm + " " + secondTerm + " ");
 
-        for (int i = 1; i <= number - 2; i++) {
+        for (int i = 1; i <= number; i++) {
             System.out.print(firstTerm + ", ");
 
             int nextTerm = firstTerm + secondTerm;
@@ -233,12 +238,15 @@ public class Task_3 {
             tries++;
 
             if (guess > number) {
-                System.out.println("Too high, try again.");
+                System.out.println("Too HIGH, please try again.");
             } else if (guess < number) {
-                System.out.println("Too low, try again.");
+                System.out.println("Too LOW, please try again.");
+            }else {
+                System.out.println("You guessed the number right!");
             }
         }
-        System.out.println("You guessed the number! " + tries);
+        System.out.println( "You  guessed " + tries + "times");
     }
 }
+
 

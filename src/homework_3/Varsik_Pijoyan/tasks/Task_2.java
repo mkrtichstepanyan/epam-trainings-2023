@@ -6,9 +6,9 @@ public class Task_2 {
 
     public static void main(String[] args) {
 //        printNumbers(80);            // Question 1 -> try with different integer values instead of 10 only
-//        sumNumbers(40);              // Question 2
-//        table(10);                     // Question 3
-//        factorialDemo1(5);            // Question 4
+//        sumNumbers();                // Question 2
+//        table();                     // Question 3
+//        factorialDemo1();            // Question 4
 //        powerDemo();                 // Question 5
 //        reverseNumber();             // Question 6
 //        readSetIntegers();           // Question 7
@@ -20,7 +20,7 @@ public class Task_2 {
         Write a program to print numbers from 1 to given parameter.
     */
     public static void printNumbers(int count) {
-        for (int i = 1; i <= 80; i++){
+        for (int i = 1; i <= count; i++){
             System.out.println(i);
         }
     }
