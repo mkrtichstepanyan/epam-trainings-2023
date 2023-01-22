@@ -11,8 +11,8 @@ public class Task_2 {
 //        powerDemo();                 // Question 4
 //        reverseNumber();             // Question 5
 //        readSetIntegers();           // Question 6
-        testPrime();                 // Question 7
-//        table();
+//        testPrime();                 // Question 7
+        table();
     }
 
 
