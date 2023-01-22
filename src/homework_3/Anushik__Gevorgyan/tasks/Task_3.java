@@ -5,21 +5,21 @@ import java.util.Scanner;
 public class Task_3 {
 
     public static void main(String[] args) {
-        // FindHcf();                   // Question 8
+        // findHcf();                   // Question 8
         //  sumAgain();                  // Question 9
         // countNumbers();              // Question 10
         //findMaxMin();                // Question 11
         // armstrongNumber();           // Question 12
         //fibonacciSeries();           // Question 13
         //sumOfSeries();               // Question 14
-        //  guessMyNumber();             // Question 15
+         guessMyNumber();             // Question 15
     }
 
 
     /* TODO: Question 8
         Write a program to calculate HCF of Two given number.
     */
-    public static void FindHcf() {
+    public static void findHcf() {
         Scanner console = new Scanner(System.in);
 
         int dividend, divisor;
@@ -148,24 +148,25 @@ public class Task_3 {
         For example, 153 = ( 1 * 1 * 1 ) + ( 5 * 5 * 5 ) + ( 3 * 3 * 3 )
     */
     public static void armstrongNumber() {
-        Scanner console = new Scanner(System.in);
-        System.out.print("Enter the number:");
-        int number = console.nextInt();
-        int Amstrongnum = number;
 
-        int sum = 0;
+        for (int i = 0; i < 500; i++) {
 
-        while (number > 0) {
-            int digit = number % 10;
-            sum = sum + (digit * digit * digit);
-            number /= 10;
+            int number = i;
+            int armstrongNum = number;
+
+
+            int sum = 0;
+
+            while (number > 0) {
+                int digit = number % 10;
+                sum = sum + (digit * digit * digit);
+                number /= 10;
+            }
+            if (sum == armstrongNum)
+                System.out.println(armstrongNum );
+
+
         }
-        if (sum == Amstrongnum)
-            System.out.println(Amstrongnum + "is an Amstrong number");
-        else
-            System.out.println(Amstrongnum + "is not an Amstrong number");
-
-
     }
 
 
