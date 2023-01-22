@@ -1,4 +1,6 @@
 package homework_3.Inesa_Mkrtchyan.Tasks;
+import java.util.Scanner;
+
 public class Task_1 {
 
     public static void main(String[] args) {
@@ -56,7 +58,7 @@ public class Task_1 {
         for(int i = 0; i < length; i++){
             for(int j = length-1;j >=0;j--){
                 if(j > i){
-                    System.out.print(" ");
+                    System.out.print("  ");
                 }else{
                     System.out.print("* ");
                 }
@@ -104,7 +106,7 @@ public class Task_1 {
         for(int i = 0; i < length; i++){
             for(int j = 0; j < length; j++){
                 if(j < i){
-                    System.out.print(" ");
+                    System.out.print("  ");
                 }else{
                     System.out.print("* ");
                 }
