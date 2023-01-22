@@ -12,7 +12,7 @@ public class Task_3 {
  //       armstrongNumber();           // Question 12
  //       fibonacciSeries();           // Question 13
  //       sumOfSeries();               // Question 14
- //      guessMyNumber();             // Question 15
+//       guessMyNumber();             // Question 15
     }
 
 
@@ -244,7 +244,9 @@ public class Task_3 {
 
         // Todo write your code here ...
       do {
+
           guess = console.nextInt();
+          tries++;
           if (guess > number) {
               System.out.println("Too high, Try again!" );
           }
@@ -252,10 +254,13 @@ public class Task_3 {
               System.out.println("Too Low, Try again!");
           }
 
+
+
       }while(guess !=number);
-      tries++;
+
         System.out.println();
         System.out.println("you guess");
+        System.out.println(tries);
     }
 }
 

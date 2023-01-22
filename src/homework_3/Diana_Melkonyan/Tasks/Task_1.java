@@ -4,7 +4,7 @@ public class Task_1 {
 
     public static void main(String[] args) {
   //      drawLeftUpTriangle(10);
-  //      drawRightUpTriangle(10);
+        drawRightUpTriangle(5);
  //     drawLeftBottomTriangle(10);
  //       drawRightBottomTriangle(10);
  //       drawRhombus(10);
@@ -50,11 +50,11 @@ public class Task_1 {
      */
     public static void drawRightUpTriangle(int length){
         // TODO : complete the method
-        for (int i = 0; i < length; i++) {
-            for (int j = 0; j <= (length -i- 1); j++) {
+        for (int i = 1; i <=length; i++) {
+            for (int j =i; j <length; j++) {
                 System.out.print("  ");
             }
-            for (int j = 0; j <= i; j++) {
+            for (int j = 1; j <=i; j++) {
                 System.out.print("* ");
             }
             System.out.println();
