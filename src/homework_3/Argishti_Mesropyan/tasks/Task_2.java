@@ -11,7 +11,7 @@ public class Task_2 {
 //        powerDemo();                 // Question 5
 //        reverseNumber();             // Question 6
 //        readSetIntegers();           // Question 7
-        testPrime();                 // Question 8
+//        testPrime();                 // Question 8
     }
 
 
@@ -44,7 +44,7 @@ public class Task_2 {
     */
     public static void table() {
         Scanner console = new Scanner(System.in);
-        int num = 5;
+        int num ;
 
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
@@ -94,8 +94,9 @@ public class Task_2 {
         System.out.print("Enter the power ");
         power = console.nextInt();
 
-        for (int i = 0; i <= power; i++) {
+        for (int i = 0; i < power; i++) {
             result *= base;
+
         }
 
         System.out.println("Result: " + result);

@@ -126,7 +126,7 @@ public class Task_1 {
      * @param length  specified length of rhombus will be drawn
      */
     public static void drawRhombus(int length) {
-        for (int i = 0; i <= length; i++) {
+        for (int i = 1; i <= length; i++) {
             for (int j = 0; j < length - i; j++) {
                 System.out.print(" ");
             }
@@ -159,11 +159,13 @@ public class Task_1 {
      * @param length specified length of triangle will be drawn
      */
     public static void drawIsoscelesTriangle(int length) {
-        for (int i = 0; i < length; i++) {
-            for (int j = length; j > i; j--) {
-                System.out.print(" ");
+        int star;
+        int row;
+        for (star = 1; star <= length; star++) {
+            for (row = 1; row <= length - star; row++) {
+                System.out.print("  ");
             }
-            for (int k = 0; k <= i; k++) {
+            for (row = 1; row <= star * 2 - 1; row++) {
                 System.out.print("* ");
             }
             System.out.println();
@@ -182,14 +184,16 @@ public class Task_1 {
      * @param length specified length of triangle will be drawn
      */
     public static void drawBottomIsoscelesTriangle(int length) {
-        for (int i = 0; i < length; i++) {
-            for (int j = length; j > i; j--) {
+        int star;
+        int row;
+        for (star = length - 1; star > 0; star--) {
+            for (row = 1; row <= length - star; row++) {
+                System.out.print("  ");
+            }
+            for (row = 1; row <= star * 2 - 1; row++) {
                 System.out.print("* ");
             }
             System.out.println();
-            for (int k = 0; k <= i; k++) {
-                System.out.print(" ");
-            }
         }
     }
 }
