@@ -150,7 +150,7 @@ public class Task_3 {
                 digit2,  // To hold second digit (Tens) of number
                 digit3;  // To hold third digit (Hundreds) of number
 
-        for (int i = 0; i <= 500; i++) {
+        for (int i = 1; i <= 500; i++) {
             int num = i;
             digit1 = num % 10;
             num = num / 10;
@@ -204,7 +204,6 @@ public class Task_3 {
         number = console.nextInt();
 
         for (double i = 1; i <= number; i++) {
-            double t = 1 / i;
             sum = sum + 1 / i;
         }
 
@@ -232,11 +231,16 @@ public class Task_3 {
         do {
             guess = console.nextInt();
             if (guess == number) {
+                tries += 1;
                 System.out.println("You guess number!!! Congrats!!!");
+                System.out.println("Number of tries "+tries);
             } else if (guess > number) {
+                tries += 1;
                 System.out.println("Too high, try again.");
             } else {
+                tries += 1;
                 System.out.println("Too low,try again.");
+
             }
         } while (guess != number);
     }

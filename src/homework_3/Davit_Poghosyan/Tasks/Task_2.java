@@ -170,7 +170,6 @@ public class Task_2 {
 
         System.out.print("Enter the positive integer ");
         number = console.nextInt();
-        int count = 0;
         boolean flag = true;
         if (number < 2) {
             flag = false;
