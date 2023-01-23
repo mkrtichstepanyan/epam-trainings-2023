@@ -146,13 +146,6 @@ public class Task_2 {
         do {
             System.out.print("Enter the number ");
             number = console.nextInt();
-//            int index = number-1;
-//            int [] array = new int [index];
-//            for(int k:array){
-//                if(number%2 == 0){
-//                    evenSum = evenSum + number;
-//                } else { oddSum = oddSum + number;
-//            }
             for (int i = 1; i <= number; i++) {
                 if (number % 2 == 0) {
                     evenSum++;
@@ -176,42 +169,27 @@ public class Task_2 {
         Scanner console = new Scanner(System.in);
 
         int number;
-        int x;
 
         System.out.print("Enter the positive integer ");
         number = console.nextInt();
-
-        boolean flag = true;
-
-        /* if (number == 1) {
-            System.out.println("1 is not neither prime nor composite number. Please run again and enter another number.");
-        } else if (x != number && x != 1) {
-        } else if (number % number == 0 && number % 1 == 0 && number % x != 0) {
-            System.out.println("This is a prime number");
+        if (number == 0 || number == 1) {
+            System.out.println("0 and 1 are not prime number");
         } else {
-            System.out.println("This is not a prime number. This is a composite number");
-        } */
+            boolean flag = true;
 
-      /*  for(int i=2; i<=number;i++){
-            if(number%number == 0 && number%1 == 0){
-                System.out.println("This is a prime number");
+
+            for (int i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                System.out.println(number + " is a prime number");
             } else {
-                System.out.println("This is not a prime number. This is a composite number");
+                System.out.println(number + " is not a prime number");
             }
-        } */
 
-        for(int i =2; i<number; i++){
-            if(number % i == 0){
-                flag = false;
-                break;
-            }
         }
-        if(flag){
-            System.out.println(number + " is a prime number");
-        } else {
-            System.out.println(number + " is not a prime number");
-        }
-
-
     }
 }
