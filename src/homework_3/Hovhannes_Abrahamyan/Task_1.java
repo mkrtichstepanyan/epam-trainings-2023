@@ -1,7 +1,7 @@
-package homework_3.Hovhannes_Abrahamya;
+package homework_3.Hovhannes_Abrahamyan;
 
 
-public class Task_1 {
+public class    Task_1 {
 
     public static void main(String[] args) {
 //        drawLeftUpTriangle(4);
