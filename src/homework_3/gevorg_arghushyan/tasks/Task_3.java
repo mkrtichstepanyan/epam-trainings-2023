@@ -10,9 +10,9 @@ public class Task_3 {
 //        countNumbers();              // Question 10
 //        findMaxMin();                // Question 11
 //        armstrongNumber();           // Question 12
-//        fibonacciSeries();           // Question 13
+        fibonacciSeries();           // Question 13
 //        sumOfSeries();               // Question 14
-        guessMyNumber();             // Question 15
+//        guessMyNumber();             // Question 15
     }
 
 
@@ -186,17 +186,15 @@ public class Task_3 {
             System.out.print("Enter number of terms of series : ");
             number = console.nextInt();
 
+            System.out.print(firstTerm + " " + secondTerm + " ");
 
-
-            for (int i = 0; i <= number; i=firstTerm + secondTerm) {
-                System.out.print(i + ", ");
+            for (int i = 0; i <= number - 2; i++) {
+                thirdTerm = firstTerm + secondTerm;
+                System.out.print(thirdTerm + " ");
                 firstTerm = secondTerm;
-                secondTerm = i;
+                secondTerm = thirdTerm;
 
             }
-
-
-
         }
 
 
