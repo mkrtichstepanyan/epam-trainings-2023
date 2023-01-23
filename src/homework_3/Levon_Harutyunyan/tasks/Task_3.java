@@ -10,9 +10,9 @@ public class Task_3 {
 //        countNumbers();              // Question 10
 //        findMaxMin();                // Question 11
 //        armstrongNumber();           // Question 12
-        fibonacciSeries();           // Question 13
+//        fibonacciSeries();           // Question 13
 //        sumOfSeries();               // Question 14
-//        guessMyNumber();             // Question 15
+        guessMyNumber();           // Question 15
     }
 
 
@@ -219,7 +219,15 @@ public class Task_3 {
         System.out.print("Enter number of terms of series : ");
         number = console.nextInt();
 
-        // Todo write your code here ...
+        if (number <= 0){
+            System.out.println(sum);
+        } else {
+            for (int i = 1; i <= number; i++) {
+                double reminder = 1;
+                double num1 = reminder / i;
+                sum += num1;
+            }
+        }
 
         System.out.println("sum: " + sum);
     }
@@ -242,8 +250,23 @@ public class Task_3 {
 
         System.out.println("Guess My Number Game");
         System.out.println();
+        guess = console.nextInt();
 
-        // Todo write your code here ...
+        do {
+            if (guess > number){
+                System.out.println("Too high, try again.");
+            } else if ( guess < number) {
+                System.out.println("Too low, try again.");
+            }
+
+            System.out.print("Guess the number again ");
+            guess = console.nextInt();
+            tries++;
+
+        } while (guess != number) ;
+
+        System.out.println("After " + tries + " tries you find random number: "  + number);
+
     }
 }
 
