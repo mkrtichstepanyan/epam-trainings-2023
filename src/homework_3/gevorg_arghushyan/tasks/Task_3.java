@@ -12,7 +12,7 @@ public class Task_3 {
 //        armstrongNumber();           // Question 12
 //        fibonacciSeries();           // Question 13
 //        sumOfSeries();               // Question 14
-//        guessMyNumber();             // Question 15
+        guessMyNumber();             // Question 15
     }
 
 
@@ -22,16 +22,25 @@ public class Task_3 {
     public static void FindHcf() {
         Scanner console = new Scanner(System.in);
 
-        int dividend, divisor;
+        int firstNum, secondNum;
         int remainder, hcf = 0;
 
         System.out.print("Enter the first number ");
-        dividend = console.nextInt();
+        firstNum = console.nextInt();
 
         System.out.print("Enter the second number ");
-        divisor = console.nextInt();
+        secondNum = console.nextInt();
 
-        // Todo write your code here ...
+        while (secondNum != 0) {
+
+            remainder = firstNum % secondNum;
+            firstNum = secondNum;
+            secondNum = remainder;
+
+        }
+
+
+        hcf = firstNum;
 
         System.out.println("HCF: " + hcf);
     }
@@ -49,8 +58,21 @@ public class Task_3 {
 
         int number1, number2;
         char choice;
+        do {
+            System.out.print("Enter the number ");
+            number1 = console.nextInt();
+            System.out.print("Enter the number ");
+            number2 = console.nextInt();
 
-        // Todo write your code here ...
+            int res = number1 + number2;
+            System.out.println(res);
+
+            System.out.print("Do you want to continue y/n? ");
+            choice = console.next().charAt(0);
+
+        } while (choice == 'y' || choice == 'Y');
+
+
     }
 
 
@@ -70,7 +92,13 @@ public class Task_3 {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
-            // Todo write your code here ...
+            if (number == 0) {
+                countZero++;
+            } else if (number > 0) {
+                countPositive++;
+            } else {
+                countNegative++;
+            }
 
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
@@ -92,12 +120,26 @@ public class Task_3 {
         Scanner console = new Scanner(System.in);
 
         int number;
-        int max = Integer.MIN_VALUE;  // Intialize max with minimum value
-        int min = Integer.MAX_VALUE;  // Intialize min with maximum value
+        int max = 0;
+        int min = 0;
 
         char choice;
 
-        // Todo write your code here ...
+        do {
+            System.out.print("Enter the number ");
+            number = console.nextInt();
+
+            if (number > max) {
+                max = number;
+
+            } else if (number < min) {
+                min = number;
+            }
+
+            System.out.print("Do you want to continue y/n? ");
+            choice = console.next().charAt(0);
+
+        } while (choice == 'y' || choice == 'Y');
 
         System.out.println("Largest number: " + max);
         System.out.println("Smallest number: " + min);
@@ -114,7 +156,19 @@ public class Task_3 {
                 digit2,  // To hold second digit (Tens) of number
                 digit3;  // To hold third digit (Hundreds) of number
 
-        // Todo write your code here ...
+
+       for (int i = 0; i < 500; i++) {
+
+            digit1 = i % 10;
+            digit2 = (i / 10) % 10;
+            digit3 = (i / 100) % 10;
+
+            int armstrong = (digit1 * digit1 * digit1) + (digit2 * digit2 * digit2) + (digit3 * digit3 * digit3);
+            if (i == armstrong) {
+                System.out.println(i + " is Amstrong number");
+            }
+        }
+        System.out.println(9%10);
     }
 
 
@@ -122,40 +176,51 @@ public class Task_3 {
         Write a program to print Fibonacci series of n terms where n is input by user :
         0 1 1 2 3 5 8 13 24 .....
     */
-    public static void fibonacciSeries() {
-        Scanner console = new Scanner(System.in);
+        public static void fibonacciSeries () {
+            Scanner console = new Scanner(System.in);
 
-        int number;  // To hold number of terms
+            int number;  // To hold number of terms
 
-        int firstTerm = 0, secondTerm = 1, thirdTerm;
+            int firstTerm = 0, secondTerm = 1, thirdTerm;
 
-        System.out.print("Enter number of terms of series : ");
-        number = console.nextInt();
+            System.out.print("Enter number of terms of series : ");
+            number = console.nextInt();
 
-        System.out.print(firstTerm + " " + secondTerm + " ");
 
-        // Todo write your code here ...
-    }
+
+            for (int i = 0; i <= number; i=firstTerm + secondTerm) {
+                System.out.print(i + ", ");
+                firstTerm = secondTerm;
+                secondTerm = i;
+
+            }
+
+
+
+        }
 
 
     /* TODO: Question 14
         Write a program to calculate the sum of following series where n is input by user.
         1 + 1/2 + 1/3 + 1/4 + 1/5 +…………1/n
     */
-    public static void sumOfSeries() {
-        Scanner console = new Scanner(System.in);
+        public static void sumOfSeries () {
+            Scanner console = new Scanner(System.in);
 
-        int number;  // To hold number of terms
+            int number;  // To hold number of terms
 
-        double sum = 0;
+            double sum = 0;
 
-        System.out.print("Enter number of terms of series : ");
-        number = console.nextInt();
+            System.out.print("Enter number of terms of series : ");
+            number = console.nextInt();
 
-        // Todo write your code here ...
+            for (double i = 1; i <= number; i++){
+                sum = sum + 1 / i;
+            }
 
-        System.out.println("sum: " + sum);
-    }
+            System.out.println("sum: " + sum);
+
+        }
 
 
     /* TODO: Question 15
@@ -164,19 +229,31 @@ public class Task_3 {
          If the user's guess is lower than the random number, the program should display "Too low, try again."
          The program should use a loop that repeats until the user correctly guesses the random number.
     */
-    public static void guessMyNumber() {
-        Scanner console = new Scanner(System.in);
+        public static void guessMyNumber () {
+            Scanner console = new Scanner(System.in);
 
-        int number, // To hold the random number
-                guess,  // To hold the number guessed by user
-                tries = 0; // To hold number of tries
+            int number, // To hold the random number
+                    guess,  // To hold the number guessed by user
+                    myStep = 0; // To hold number of tries
 
-        number = (int) (Math.random() * 100) + 1; // get random number between 1 and 100
+            number = (int) (Math.random() * 100) + 1; // get random number between 1 and 100
 
-        System.out.println("Guess My Number Game");
-        System.out.println();
+            System.out.println("Guess My Number Game");
+            System.out.println();
 
-        // Todo write your code here ...
+            do {
+                System.out.print("Enter your number : ");
+                guess = console.nextInt();
+                myStep ++;
+                if (guess > number) {
+                    System.out.println("Too high, try again.");
+                } else if (guess < number) {
+                    System.out.println("Too low, try again.");
+                }
+            } while (guess != number);
+            System.out.println("Cheer! You guessed the number on the " + myStep + " try.");
+        }
     }
-}
+
+
 
