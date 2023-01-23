@@ -1,4 +1,4 @@
-package homework_3.Hovhannes_Abrahamyan.tasks;
+package homework_3.Hovhannes_Abrahamya;
 
 
 public class Task_1 {

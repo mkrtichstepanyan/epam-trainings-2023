@@ -1,4 +1,4 @@
-package homework_3.Hovhannes_Abrahamyan.tasks;
+package homework_3.Hovhannes_Abrahamyan;
 
 import java.util.Scanner;
 
