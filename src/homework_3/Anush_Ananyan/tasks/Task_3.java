@@ -194,7 +194,7 @@ public class Task_3 {
 
         // Todo write your code here ...
 
-        while (firstTerm <= number) {
+        for (int i =firstTerm; i <= number; i++) {
             System.out.print(firstTerm + " ");
 
             thirdTerm = firstTerm + secondTerm;
@@ -237,7 +237,7 @@ public class Task_3 {
     public static void guessMyNumber() {
         Scanner console = new Scanner(System.in);
 
-        int number, // To hold the random number
+            int number, // To hold the random number
                 guess,  // To hold the number guessed by user
                 tries = 0; // To hold number of tries
 
@@ -249,16 +249,16 @@ public class Task_3 {
         while (true) {
             System.out.print("Guess the number ");
             guess = console.nextInt();
+            tries++;
             if (guess < 1 || guess > 100) {
                 System.out.println("You must enter number between 1 to 100");
                 continue;
             }
             if (guess < number) {
                 System.out.println("Entered number is smaller ");
-                tries++;
             } else if (guess > number) {
                 System.out.println("Entered number is bigger ");
-                tries++;
+
             } else {
                 System.out.println("Congratulations you won! You tried " + tries + " times");
                 break;

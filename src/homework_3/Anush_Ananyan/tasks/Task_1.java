@@ -9,7 +9,7 @@ public class Task_1 {
 //        drawRightBottomTriangle(10);
 //        drawRhombus(5);
 //        drawIsoscelesTriangle(7);
-//        drawBottomIsoscelesTriangle(10);
+//        drawBottomIsoscelesTriangle(3);
 
     }
 
@@ -143,7 +143,7 @@ public class Task_1 {
         for (int i = 1; i <= dept-1; i++) {
             for (int j = 1; j <= lenght; j++) {
                 if (j != left) {
-                    System.out.print("-");
+                    System.out.print(" ");
                 } else {
                     for (int k = left; k <= right; k++) {
                         System.out.print("*");
@@ -233,8 +233,8 @@ public class Task_1 {
                 if (j <= last ) {
                     for (int k = first; k <= last; k++) {
                         System.out.print("*");
-                        j = last;
                     }
+                    j = last;
                     System.out.println();
                 } else {
                     System.out.print(" ");
@@ -243,6 +243,5 @@ public class Task_1 {
             first++;
             last--;
         }
-        System.out.println();
     }
 }

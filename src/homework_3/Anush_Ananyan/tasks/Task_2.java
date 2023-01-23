@@ -49,22 +49,21 @@ public class Task_2 {
     public static void table() {
         Scanner console = new Scanner(System.in);
         int num;
+        boolean isPositive = false;
 
-        System.out.print("Enter any positive integer: ");
-        num = console.nextInt();
-
-        System.out.println("Multiplication Table of " + num);
-
-        // Todo write your code here ...
-        if (num < 0) {
-            System.out.println("Please enter the positive number");
-            table();
-        } else {
-            int multiplicand[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
-            for (int x : multiplicand) {
-                int product = num * x;
-                System.out.println(num + "*" + x + "=" + product);
+        while (!isPositive) {
+            System.out.print("Enter any positive integer: ");
+            num = console.nextInt();
+            if (num < 0) {
+                System.out.println("Please enter the positive number");
+                continue;
+            } else {
+                System.out.println("Multiplication Table of " + num);
+                for (int i = 1; i <= 10; i++) {
+                    int product = num * i;
+                    System.out.println(num + "*" + i + "=" + product);
+                    isPositive = true;
+                }
             }
         }
     }
@@ -84,7 +83,7 @@ public class Task_2 {
         // Todo write your code here ...
         if (num < 0) {
             System.out.println("Please enter the positive integer number ");
-             //factorialDemo1();
+
         } else {
             while (num > 0) {
                 fact *= num;
@@ -93,6 +92,7 @@ public class Task_2 {
         }
         System.out.println("Factorial: " + fact);
     }
+
 
 
      /* TODO: Question 5
@@ -117,7 +117,7 @@ public class Task_2 {
         // Todo write your code here ...
         if (power < 0) {
             System.out.println("Power must be positive integer number");
-          // powerDemo();
+            // powerDemo();
         } else {
             while (power > 0) {
                 result = result * base;
@@ -202,25 +202,25 @@ public class Task_2 {
         System.out.print("Enter the positive integer ");
         number = console.nextInt();
 
-        boolean flag = true;
+        boolean flag;
 
         // Todo write your code here ...
         if (number < 2) {
             flag = false;
         } else {
-            for (int i = 2; i < number/i; i++) {
-                if (number % i == 0) {
-                    flag = false;
-                    break;
-                } else {
-                    flag = true;
-                }
+            flag = true;
+        }
+        for (int i = 2; i < number / i; i++) {
+            if (number % i == 0) {
+                flag = false;
+                break;
+            } else {
+                flag = true;
             }
         }
-        if (flag== true) {
+        if (flag) {
             System.out.println("The number " + number + " is prime");
-        }
-        if (flag== false) {
+        }else {
             System.out.println("The number " + number + " is not prime");
         }
     }
