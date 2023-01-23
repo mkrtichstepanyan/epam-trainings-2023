@@ -7,7 +7,7 @@ public class Task_1 {
 //        drawRightUpTriangle(5);
 //        drawLeftBottomTriangle(4);
 //        drawRightBottomTriangle(4);
-        drawRhombus(5);
+//        drawRhombus(5);
 //        drawIsoscelesTriangle(5);
 //        drawBottomIsoscelesTriangle(5);
 
@@ -26,16 +26,11 @@ public class Task_1 {
      * @param length  specified length of triangle will be drawn
      */
     public static void drawLeftUpTriangle(int length){
-        int a = 1;
         for (int i = 0; i < length; i++) {
-
-            for (int j = 0; j < a; j++) {
+            for (int j = 0; j <= i; j++) {
                 System.out.print("* ");
             }
-
             System.out.println();
-           a++;
-
         }
     }
 
