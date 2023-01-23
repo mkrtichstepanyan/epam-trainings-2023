@@ -232,13 +232,16 @@ public class Task_3 {
             guess = console.nextInt();
             if (guess == number) {
                 tries += 1;
+
                 System.out.println("You guess number!!! Congrats!!!");
                 System.out.println("Number of tries "+tries);
             } else if (guess > number) {
                 tries += 1;
+
                 System.out.println("Too high, try again.");
             } else {
                 tries += 1;
+
                 System.out.println("Too low,try again.");
 
             }

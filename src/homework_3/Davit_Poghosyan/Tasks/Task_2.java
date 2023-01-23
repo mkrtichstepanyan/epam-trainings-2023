@@ -172,9 +172,11 @@ public class Task_2 {
         number = console.nextInt();
         boolean flag = true;
         if (number < 2) {
+
             flag = false;
         }
         else {
+            
             flag = true;
         }
 
