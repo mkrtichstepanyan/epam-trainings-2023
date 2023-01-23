@@ -1,4 +1,4 @@
-package homework_3.Roza_Petrosyan.tasks;
+package homework_3.Galust_Arzumanyan.tasks;
 
 import java.util.Scanner;
 
@@ -19,7 +19,7 @@ public class Task_3 {
     /* TODO: Question 9
         Write a program to calculate HCF of Two given number.
     */
-    public static void FindHcf() {
+    public static void findHcf() {
         Scanner console = new Scanner(System.in);
 
         int dividend, divisor;
@@ -112,8 +112,8 @@ public class Task_3 {
         Scanner console = new Scanner(System.in);
 
         int number;
-        int max = Integer.MIN_VALUE;  // Initialize max with minimum value
-        int min = Integer.MAX_VALUE;  // Initialize min with maximum value
+        int max = Integer.MIN_VALUE;  // Intialize max with minimum value
+        int min = Integer.MAX_VALUE;  // Intialize min with maximum value
 
         char choice;
 
@@ -151,7 +151,7 @@ public class Task_3 {
 
         int num, cubeSum = 0;
         System.out.print("Armstrong numbers from 1 to 500 are: 1 ");
-        for (int i = 10; i <= 500; i++) {
+        for (int i = 0; i <= 500; i++) {
             num = i;
             if (num >= 100) {
                 digit1 = num / 100;
@@ -165,7 +165,7 @@ public class Task_3 {
             }
 
             if (num == cubeSum) {
-                System.out.print(cubeSum + " ");
+                System.out.println(cubeSum + " ");
             }
         }
 
