@@ -168,6 +168,29 @@ public class Task_1 {
         }
     }
 
+//    public static void drawIsoscelesTriangle(int dept){
+//        int length = dept * 2 - 1;
+//        int middle = length / 2 + 1;
+//        int left = middle;
+//        int right = middle;
+//
+//        for (int i = 1; i <= dept; i++) {
+//            for (int j = 1; j <= length; j++) {
+//                if (j != left) {
+//                    System.out.print("- ");
+//                } else {
+//                    for (int k = left; k <= right; k++) {
+//                        System.out.print("* ");
+//                        j = right;
+//                    }
+//                }
+//            }
+//            left--;
+//            right++;
+//            System.out.println();
+//        }
+//    }
+
 
     /**
      *
@@ -193,4 +216,23 @@ public class Task_1 {
             System.out.println();
         }
     }
+
+//    public static void drawBottomIsoscelesTriangle(int dept){
+//        int length = dept * 2 - 1;
+//        int left = length;
+//        int right = length;
+//        for (int i = 1; i <= dept; i++) {
+//            for (int j = 1, k = length; j <= length && k >=1; j++, k--) {
+//                if (j <= left && k <= right) {
+//                    System.out.print("* ");
+//                } else {
+//                    System.out.print("- ");
+//                }
+//            }
+//
+//            left--;
+//            right--;
+//            System.out.println();
+//        }
+//    }
 }
