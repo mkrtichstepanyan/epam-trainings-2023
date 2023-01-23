@@ -8,11 +8,11 @@ public class Task_3 {
 //        FindHcf();                   // Question 8
 //        sumAgain();                  // Question 9
 //        countNumbers();              // Question 10
-//        findMaxMin();                // Question 11
+        findMaxMin();                // Question 11
 //        armstrongNumber();           // Question 12
 //        fibonacciSeries();           // Question 13
 //        sumOfSeries();               // Question 14
-        guessMyNumber();           // Question 15
+//        guessMyNumber();           // Question 15
     }
 
 
@@ -123,18 +123,14 @@ public class Task_3 {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
-            if (number > max) {
-                max = number;
-            } else {
-                min = number;
-            }
+            int previousNumber = number;
 
-            if (number < min) {
-                min = number;
-            } else {
+            if (number >= max && number >= previousNumber){
                 max = number;
             }
-
+            else if (number <= min && number <= previousNumber) {
+                min = number;
+            }
 
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
