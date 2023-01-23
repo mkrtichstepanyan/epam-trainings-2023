@@ -3,13 +3,13 @@ package homework_3.Rafik_Pahlevanyan.tasks;
 public class Task_1 {
 
     public static void main(String[] args) {
-        drawLeftUpTriangle(5);
-        drawRightUpTriangle(5);
-        drawLeftBottomTriangle(5);
-        drawRightBottomTriangle(5);
+//        drawLeftUpTriangle(5);
+//        drawRightUpTriangle(5);
+//        drawLeftBottomTriangle(5);
+//        drawRightBottomTriangle(5);
         drawRhombus(5);
-        drawIsoscelesTriangle(5);
-        drawBottomIsoscelesTriangle(5);
+//        drawIsoscelesTriangle(5);
+//        drawBottomIsoscelesTriangle(5);
 
     }
 
@@ -161,10 +161,10 @@ public class Task_1 {
 
 
     /*        * * * * * * * * *
-               * * * * * * *
-                 * * * * *
-                   * * *
-                     *
+                * * * * * * *
+                  * * * * *
+                    * * *
+                      *
 
           @param length specified length of triangle will be drawn
       */

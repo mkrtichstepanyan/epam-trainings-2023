@@ -21,7 +21,7 @@ public class Task_2 {
     */
     public static void printNumbers(int count) {
         int[] numbers = new int[count];
-        for (int i = 0; i < numbers.length; i++) {
+        for (int i = 1; i < numbers.length; i++) {
             System.out.println(i);
         }
     }
