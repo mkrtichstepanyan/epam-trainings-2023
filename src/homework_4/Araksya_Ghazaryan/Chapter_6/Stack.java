@@ -3,24 +3,21 @@ package homework_4.Araksya_Ghazaryan.Chapter_6;
 public class Stack {
     int[] stck = new int[10];
     int tos;
-
     Stack() {
-
-        tos = (int) -1;
+        tos = -1;
     }
-
         void push(int item) {
-        if (tos == stck.length)
+        if (tos == 9)
             System.out.println("Stack is full. ");
         else
             stck[++tos] = item;
     }
-
         int pop() {
-        if (tos < 0) {
+        if (tos < 0 ) {
             System.out.println("Stack underflow. ");
             return 0;
-        } else
+        }
+        else
             return stck[tos--];
     }
 }

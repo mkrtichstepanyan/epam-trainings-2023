@@ -1,10 +1,10 @@
 package homework_4.Araksya_Ghazaryan.Chapter_6;
 
-class BoxDemo3 {
+public class BoxDemo3 {
     public static void main(String[] args) {
+
         Box mybox1 = new Box();
         Box mybox2 = new Box();
-
 
         mybox1.width = 10;
         mybox1.height = 20;
@@ -15,7 +15,10 @@ class BoxDemo3 {
         mybox2.depth = 9;
 
         mybox1.volume();
+        System.out.println("Volum is " + mybox1.volume());
+
         mybox2.volume();
+        System.out.println("Volum is " + mybox2.volume());
 
     }
 }

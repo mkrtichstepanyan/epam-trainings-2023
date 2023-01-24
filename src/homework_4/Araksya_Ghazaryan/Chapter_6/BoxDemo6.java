@@ -2,7 +2,7 @@ package homework_4.Araksya_Ghazaryan.Chapter_6;
 
 public class BoxDemo6 {
     public static void main(String[] args) {
-        double vol;
+
         Box myBox1 = new Box();
         Box myBox2 = new Box();
 
