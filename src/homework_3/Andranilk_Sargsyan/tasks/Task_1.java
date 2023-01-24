@@ -96,7 +96,7 @@ public class Task_1 {
             for (int j = length; j > i; j--) {
                 System.out.print("  ");
             }
-            for (int k = 0; k <= i; k++) {
+            for (int k = 1; k <= i; k++) {
                 System.out.print("* ");
             }
             System.out.println();
@@ -123,7 +123,7 @@ public class Task_1 {
             for (int j = length; j > i; j--) {
                 System.out.print("  ");
             }
-            for (int k = 0; k <= i; k++) {
+            for (int k = 1; k <= i; k++) {
                 System.out.print(" *  ");
             }
             System.out.println();
@@ -132,7 +132,7 @@ public class Task_1 {
             for (int j = length; j > i; j--) {
                 System.out.print("  ");
             }
-            for (int k = 0; k <= i; k++) {
+            for (int k = 1; k <= i; k++) {
                 System.out.print(" *  ");
             }
             System.out.println();
