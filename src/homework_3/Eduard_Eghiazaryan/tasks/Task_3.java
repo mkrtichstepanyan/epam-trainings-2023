@@ -216,19 +216,23 @@ public class Task_3 {
 
         number = (int) (Math.random() * 100) + 1; // get random number between 1 and 100
 
-        System.out.println("Guess My Number Game!!! ");
-        System.out.println();
         do {
-            System.out.print("Guess the number: ");
+            System.out.println("Guess My Number Game");
+
             guess = console.nextInt();
             if (guess > number) {
-                System.out.println("Too high, try again.");
+                System.out.println("Too high,try again.");
             } else if (guess < number) {
-                System.out.println("Too low, try again.");
+                System.out.println("Too low,try again.");
             }
-        } while (guess != number);
-        System.out.println("Congratulations! You guessed the number!");
+            tries++;
 
-        // Todo write your code here ...
+        } while (guess != number);
+
+        System.out.println("Congratulations,you guess the correct number " + number);
+        System.out.println("You guess the number in " + tries + " tries");
+
     }
 }
+
+
