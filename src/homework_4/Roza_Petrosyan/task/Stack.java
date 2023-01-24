@@ -6,8 +6,9 @@ public class Stack {
     long percent;
 
 
-    Stack() {
-        stack = new int[10];
+    public Stack() {
+        this.size = 10;
+        stack = new int[size];
         tos = -1;
     }
 
@@ -17,8 +18,16 @@ public class Stack {
         tos = -1;
     }
 
+    public boolean isFull() {
+        return (tos == size - 1);
+    }
+
+    public boolean isEmpty() {
+        return (tos == -1);
+    }
+
     public void push(int item) {
-        if (tos == size - 1) {
+        if (isFull()) {
             System.out.println("The stack is already full!");
         } else {
             stack[++tos] = item;
@@ -34,7 +43,7 @@ public class Stack {
     }
 
     public int pop() {
-        if (tos < 0) {
+        if (isEmpty()) {
             System.out.println("The stack is empty!");
             return 0;
         } else {
