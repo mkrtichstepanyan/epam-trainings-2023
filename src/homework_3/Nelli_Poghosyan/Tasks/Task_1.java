@@ -3,14 +3,15 @@ package homework_3.Nelli_Poghosyan.Tasks;
 public class Task_1 {
 
     public static void main(String[] args) {
-        drawLeftUpTriangle(10);
-        drawRightUpTriangle(10);
-        drawLeftBottomTriangle(10);
-        drawRightBottomTriangle(10);
-        drawRhombus(10);
-        drawIsoscelesTriangle(10);
-        drawBottomIsoscelesTriangle(10);
-        drawRomb(10);
+     //   drawLeftUpTriangle(10);
+     //   drawRightUpTriangle(10);
+     //  drawLeftBottomTriangle(10);
+     //   drawRightBottomTriangle(10);
+     //   drawRhombus(10);
+     //   drawIsoscelesTriangle(10);
+     //   drawBottomIsoscelesTriangle(10);
+     //   drawRomb(10);
+        drawBottomIsoscelesTriangle1(10);
     }
 
 
@@ -245,16 +246,38 @@ public class Task_1 {
                     right--;
 
                 }
-
             }
             System.out.println();
         }
         System.out.println();
     }
 
+    public static void drawBottomIsoscelesTriangle1(int length) {
+        int horizontalLength = 2*length-1;
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print("  ");
+            }
+            for (int j = horizontalLength/2; j >i; j--) {
+                System.out.print("* ");
+            }
+            for (int j = horizontalLength/2; j < horizontalLength-i; j++) {
+                System.out.print("* ");
+            }
+            for (int j = i; j > 0; j--) {
+                System.out.print("  ");
+            }
+            System.out.println();
+        }
+
+
+    }
+
+
     public static void drawRomb(int length) {
         //calculate horizontal length of iso triangle
         int horizontalLength = length * 2 - 1;
+
 
         //left variable for left side length
         int left = length;

@@ -150,12 +150,15 @@ public class Task_2 {
         do {
             System.out.print("Enter the number ");
             number = console.nextInt();
-
+        if(number>0) {
             if (number % 2 == 0) {
                 evenSum += number;
             } else {
                 oddSum += number;
             }
+        }else {
+            System.out.println("The number must be greater than 0");
+        }
 
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);

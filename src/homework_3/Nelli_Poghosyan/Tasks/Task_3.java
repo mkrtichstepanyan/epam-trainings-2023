@@ -210,7 +210,7 @@ public class Task_3 {
         number = console.nextInt();
 
         System.out.print(firstTerm + " " + secondTerm + " ");
-        for (int i = 0; i < number; i++) {
+        for (int i = 0; i < number-2; i++) {
             thirdTerm = (firstTerm + secondTerm);
             firstTerm = secondTerm;
             secondTerm = thirdTerm;
@@ -235,7 +235,6 @@ public class Task_3 {
         number = console.nextInt();
 
         for (double i = 1; i <= number; i++) {
-            double t = 1 / i;
             sum = sum + 1 / i;
         }
 
