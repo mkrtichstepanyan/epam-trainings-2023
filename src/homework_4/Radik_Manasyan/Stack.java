@@ -1,43 +1,44 @@
 package homework_4.Radik_Manasyan;
 
 public class Stack {
-    int arrayLength = 10;
-    int[] array = new int[arrayLength];
-    int arraySize = -1;
+    int length = 10;
+    int[] array = new int[length];
+    int size = -1;
 
     Stack() {
+
     }
 
     Stack(int arraySize) {
-        this.arrayLength = arraySize;
+        this.length = arraySize;
     }
 
     void push(int element) {
-        if (arraySize == arrayLength - 1) {
+        if (size == length - 1) {
             System.out.println("The stack is already full!");
         } else {
+            array[++size] = element;
             refactor();
-            array[++arraySize] = element;
         }
     }
 
     Integer pop() {
-        if (arraySize <= -1) {
+        if (size <= -1) {
             System.out.print("The stack is empty! ");
             return null;
         } else {
-            return array[arraySize--];
+            return array[size--];
         }
     }
 
     void refactor() {
-        if (arraySize >= arrayLength * 75 / 100) {
-            int[] temp = new int[arrayLength * 2];
-            for (int i = 0; i <= arraySize; i++) {
+        if (size >= length * 75 / 100) {
+            int[] temp = new int[length * 2];
+            for (int i = 0; i <= size; i++) {
                 temp[i] = array[i];
             }
             array = temp;
-            arrayLength = temp.length;
+            length = temp.length;
         }
     }
 }
