@@ -61,7 +61,7 @@ public class Task_1 {
             }
             System.out.println();
         }
-
+    }
 
         /**
          * Draws the triangle by specified length number
@@ -76,7 +76,7 @@ public class Task_1 {
          * @param length specified length of triangle will be drawn
          */
         public static void drawLeftBottomTriangle( int length){
-        }
+
             for (int i = 0; i < length; i++) {
                 for (int j = 0; j < i; j++){
                     System.out.print(" *");
@@ -123,7 +123,7 @@ public class Task_1 {
          *        *
          * @param length  specified length of rhombus will be drawn
          */
-        public static void drawRhombus ( int length){
+        public static void drawRhombus ( int length) {
 
         }
 
