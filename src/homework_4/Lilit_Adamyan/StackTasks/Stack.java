@@ -7,13 +7,13 @@ public class Stack {
 
 //    overloaded constructor
 
-    Stack(int size){
+    public Stack(int size){
         size = 10;
        stack = new int[10];
        tos = -1;
     }
 
-     Stack(){
+    public Stack(){
          stack = new int[10];
          tos = -1;
      }
