@@ -1,4 +1,4 @@
-package homework_5;
+package homework_5.task;
 
 public class Stack1 {
 

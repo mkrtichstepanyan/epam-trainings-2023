@@ -1,4 +1,4 @@
-package homework_5;
+package homework_5.task;
 
 
 import homework_4.Anushik_Gevorgyan.task.Stack1;
