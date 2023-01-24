@@ -2,10 +2,12 @@ package homework_3.shushanik_araqelyan.tasks;
 
 public class Task_1 {
 
+
+
     public static void main(String[] args) {
-        //drawLeftUpTriangle(10);
-        // drawRightUpTriangle(10);
-        // drawLeftBottomTriangle(10);
+        //drawLeftUpTriangle(5);
+         //drawRightUpTriangle(5);
+         drawLeftBottomTriangle(5);
         // drawRightBottomTriangle(10);
         //drawRhombus(10);
         //drawIsoscelesTriangle(5);
@@ -74,10 +76,17 @@ public class Task_1 {
     *
     * @param length specified length of triangle will be drawn
     */
-        public static void drawLeftBottomTriangle( int length){
+        public static void drawLeftBottomTriangle( int length) {
+            for (int i = 1; i <= length; i++) {
+                for (int j = 0; j <= length; j++) {
+                    System.out.print("  ");
+                }
+                for (int j = 1; j <= i; j++) {
+                    System.out.print("* ");
+                }
+                System.out.println();
 
-
-
+            }
         }
 
 
@@ -95,7 +104,6 @@ public class Task_1 {
      */
         public static void drawRightBottomTriangle ( int length){
             // TODO : complete the method
-
         }
 
 
