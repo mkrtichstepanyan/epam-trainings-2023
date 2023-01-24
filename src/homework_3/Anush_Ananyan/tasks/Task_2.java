@@ -210,18 +210,16 @@ public class Task_2 {
         } else {
             flag = true;
         }
-        for (int i = 2; i < number / i; i++) {
-            if (number % i == 0) {
+        for (int i = 2; i <= number / i; i++) {
+            if ((number % i) == 0) {
                 flag = false;
                 break;
-            } else {
-                flag = true;
             }
         }
         if (flag) {
-            System.out.println("The number " + number + " is prime");
-        }else {
-            System.out.println("The number " + number + " is not prime");
+            System.out.println("The" +" "+ number + " " + "is prime");
+        } else {
+            System.out.println("The" +" "+ number + " " + "is not prime");
         }
     }
 }
