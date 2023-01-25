@@ -2,11 +2,11 @@ package homework_4_1.task;
 
 public class Stack1 {
 
-    protected int[] stack;
+    private int[] stack;
     private int top;
     private int size;
 
-    private Stack1() {
+    public Stack1() {
         this.size = 10;
         this.stack = new int[size];
         this.top = -1;
