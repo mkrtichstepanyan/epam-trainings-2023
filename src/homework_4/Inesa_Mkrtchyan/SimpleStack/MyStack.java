@@ -35,7 +35,9 @@ public class MyStack {
             System.out.println("Stack is empty");
             return null;
         }
-        return arr[size--];
+        String result = arr[size];
+        arr[size--] = null;
+        return result;
     }
 
 }
