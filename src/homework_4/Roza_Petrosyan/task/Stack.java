@@ -1,49 +1,42 @@
 package homework_4.Roza_Petrosyan.task;
 
 public class Stack {
-    int size, tos;
-    int[] stack;
-    long percent;
+    private int tos;
+    private int[] stack;
 
 
     public Stack() {
-        this.size = 10;
-        stack = new int[size];
+        stack = new int[10];
         tos = -1;
     }
 
     public Stack(int size) {
-        this.size = size;
         stack = new int[size];
         tos = -1;
     }
 
-    public boolean isFull() {
-        return (tos == size - 1);
-    }
-
-    public boolean isEmpty() {
-        return (tos == -1);
-    }
-
     public void push(int item) {
-        if (isFull()) {
+        if (tos == stack.length - 1) {
             System.out.println("The stack is already full!");
         } else {
             stack[++tos] = item;
-            percent = Math.round(size * 0.75);
-            if (tos > percent) {
-                int double_size = size * 2;
-                int[] double_stack = new int[double_size];
-                System.arraycopy(stack, 0, double_stack, 0, size);
-                stack = double_stack;
-                size = double_size;
-            }
+        }
+    }
+
+    public void dblPush(int item) {
+        if (tos > stack.length * 0.75) {
+            int double_size = stack.length * 2;
+            int[] double_stack = new int[double_size];
+            System.arraycopy(stack, 0, double_stack, 0, stack.length);
+            stack = double_stack;
+            stack[++tos] = item;
+        } else {
+            stack[++tos] = item;
         }
     }
 
     public int pop() {
-        if (isEmpty()) {
+        if (tos == -1) {
             System.out.println("The stack is empty!");
             return 0;
         } else {
