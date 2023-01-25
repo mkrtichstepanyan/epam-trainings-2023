@@ -29,10 +29,8 @@ public class Stack {
             int[] double_stack = new int[double_size];
             System.arraycopy(stack, 0, double_stack, 0, stack.length);
             stack = double_stack;
-            stack[++tos] = item;
-        } else {
-            stack[++tos] = item;
         }
+        stack[++tos] = item;
     }
 
     public int pop() {
