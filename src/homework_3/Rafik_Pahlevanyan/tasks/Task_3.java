@@ -117,8 +117,8 @@ public class Task_3 {
         Scanner console = new Scanner(System.in);
 
         int number;
-        int max = Integer.MIN_VALUE;  // Intialize max with minimum value
-        int min = Integer.MAX_VALUE;  // Intialize min with maximum value
+        int max = Integer.MIN_VALUE;  // Initialize max with minimum value
+        int min = Integer.MAX_VALUE;  // Initialize min with maximum value
 
         char choice;
 
