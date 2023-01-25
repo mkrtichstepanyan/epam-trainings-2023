@@ -2,20 +2,23 @@ package homework_4.Diana_Melkonyan.stack;
 
 public class StackTest {
     public static void main(String[] args) {
-        Stack myStack = new Stack();
+        Stack mystack1 = new Stack();
+        Stack mystack2 = new Stack();
 
-        myStack.push(10);
-        myStack.push(20);
-        myStack.push(30);
-        myStack.push(40);
-        myStack.push(50);
-        myStack.push(60);
-        myStack.push(60);
-        myStack.push(70);
-        myStack.push(80);
-        myStack.push(90);
-   //     myStack.push(1000);
-        System.out.println(myStack.pop());
+        for (int i = 0; i < 10; i++)
+            mystack1.push(i);
+        for (int i = 10; i < 20; i++)
+            mystack2.push(i);
+
+        System.out.println("Stack in mystack1:");
+        for (int i = 0; i < 10; i++);
+
+        System.out.println(mystack1.pop());
+
+        System.out.println("Stack in mystack2:");
+        for (int i = 0; i < 10; i++)
+            System.out.println(mystack2.pop());
+
 
     }
 }
