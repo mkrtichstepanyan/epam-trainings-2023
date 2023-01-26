@@ -1,5 +1,7 @@
 package homework_4.Samvel_Hakobyan.stack;
 
+import java.lang.constant.Constable;
+
 public class Stack {
     Integer[] arr;
     int cursor;
@@ -39,19 +41,18 @@ public class Stack {
     }
 
 
-    int refactor() {
-        if (cursor > (arr.length * 75) / 100) {
+  Object refactor() {
+        if (cursor >= (arr.length * 75) / 100) {
             System.out.println("Stack is reached 75%");
             Integer[] newarr = new Integer[arr.length + 1 * 2];
             for (int i = 0; i < arr.length; i++) {
                 newarr[i] = arr[i];
             }
             arr = newarr;
-
         }
-
-
-        return 0;
+       
+return null;
+   
     }
 
 }
