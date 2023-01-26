@@ -7,7 +7,7 @@ public class StackExample {
         int top;
 
 
-    public StackExample() {  //Default constructor
+    public StackExample() {   //Default constructor
         top = -1;
     }
 
