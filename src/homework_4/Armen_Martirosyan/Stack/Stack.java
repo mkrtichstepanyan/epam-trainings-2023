@@ -1,51 +1,42 @@
 package homework_4.Armen_Martirosyan.Stack;
 
 public class Stack {
-    private int[] array = new int[10];
+    private int[] array;
     private int size;
-
+    private int top;
 
     public Stack() {
+
     }
 
     public Stack(int size) {
-        this.size = -1;
+        this.size = 10;
         this.array = new int[size];
+        this.top = -1;
+
     }
 
     public void push(int value) {
-        if (size == array.length) {
+        if (top == size - 1) {
             System.out.println("Stack is full");
+        } else {
+            array[++top] = value;
         }
-        resize();
-        array[size] = value;
-        size++;
+
+        if (top >= size * 3 / 4) {
+            int[] array1 = new int[2 * size];
+            array = array1;
+            size *= 2;
+        }
     }
 
     public int pop() {
-        int result;
-        if (size < 0) {
+        if (top == -1) {
             System.out.println("Stack is empty ");
-        }
-        result = array[size - 1];
-        array[size - 1] = 0;
-        size--;
-        return result;
-    }
-
-    public void resize() {
-        if (size == array.length * 3 / 4) {
-            int[] Array1 = new int[2 * array.length];
-            for (int i = 0; i <= size; i++) {
-                Array1[i] = array[i];
-            }
-            array = Array1;
-        }
-    }
-
-    public void show() {
-        for (int i : array) {
-            System.out.print(i + " ");
+            return -1;
+        } else {
+            return array[top--];
         }
     }
 }
+
