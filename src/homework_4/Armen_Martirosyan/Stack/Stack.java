@@ -6,20 +6,25 @@ public class Stack {
 
 
     public Stack() {
-        size = 0;
+    }
+
+    public Stack(int size) {
+        this.size = -1;
+        this.array = new int[size];
     }
 
     public void push(int value) {
         if (size == array.length) {
             System.out.println("Stack is full");
         }
+        resize();
         array[size] = value;
         size++;
     }
 
     public int pop() {
         int result;
-        if (size == 0) {
+        if (size < 0) {
             System.out.println("Stack is empty ");
         }
         result = array[size - 1];
@@ -28,10 +33,14 @@ public class Stack {
         return result;
     }
 
-    public int peek() {
-        int value;
-        value = array[size - 1];
-        return value;
+    public void resize() {
+        if (size == array.length * 3 / 4) {
+            int[] Array1 = new int[2 * array.length];
+            for (int i = 0; i <= size; i++) {
+                Array1[i] = array[i];
+            }
+            array = Array1;
+        }
     }
 
     public void show() {
