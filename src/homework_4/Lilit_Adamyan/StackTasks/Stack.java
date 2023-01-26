@@ -8,8 +8,8 @@ public class Stack {
 //    overloaded constructor
 
     public Stack(int size){
-        size = 10;
-       stack = new int[10];
+        this.size = size;
+       stack = new int[this.size];
        tos = -1;
     }
 
@@ -32,4 +32,5 @@ public class Stack {
              return stack[tos--];
          }
      }
+
 }

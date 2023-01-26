@@ -1,4 +1,4 @@
-package homework_4.Lilit_Adamyan.chaper_6;
+package homework_4.Lilit_Adamyan.chapter_6;
 
 public class BoxDemo7 {
     public static void main(String[] args) {

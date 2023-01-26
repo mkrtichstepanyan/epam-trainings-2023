@@ -1,6 +1,6 @@
-package homework_4.Lilit_Adamyan.chaper_6;
+package homework_4.Lilit_Adamyan.chapter_6;
 
-public class BoxDemo2 {
+public class BoxDemo4 {
     public static void main(String[] args) {
         Box myBox1 = new Box();
         Box myBox2 = new Box();
@@ -14,10 +14,10 @@ public class BoxDemo2 {
         myBox2.height = 6;
         myBox2.depth = 9;
 
-        vol = myBox1.width * myBox1.height * myBox1.depth;
-        System.out.println("Volume is " + vol);
+        vol = myBox1.volume1();
+        System.out.println("volume is " + vol);
 
-        vol = myBox2.width * myBox2.height * myBox2.depth;
+        vol = myBox2.volume1();
         System.out.println("Volume is " + vol);
     }
 }
