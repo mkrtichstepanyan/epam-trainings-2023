@@ -7,16 +7,22 @@ public class StackExample {
         int top;
 
 
-    public StackExample() {
+    public StackExample() {  //Default constructor
         top = -1;
     }
 
+    public StackExample(int size) { //overloaded constructor
+        top = size;
+    }
+
+
+
     boolean isFull() {
-            return top == size - 1;
+        return top == size - 1;
         }
 
         boolean isEmpty() {
-            return top == -1;
+        return top == -1;
         }
         public void push(int element){
             if (isFull()){
@@ -34,4 +40,5 @@ public class StackExample {
                 return array[top--];
             }
         }
+
 }
