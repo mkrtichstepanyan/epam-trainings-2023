@@ -1,20 +1,21 @@
 package homework_4.Anush_Ananyan.Chapter_6;
 
 public class Stack {
-    int[] stck = new int[10];
+    int[] stck;
     int tos;
 
     Stack() {
+        stck = new int[10];
         tos = -1;
     }
 
-
-    Stack(int l) {
-        int[] stck = new int[l];
+    Stack(int size) {
+        stck = new int[size];
+        tos = -1;
     }
 
     void push(int item) {
-        if (tos == 9) {
+        if (tos == stck.length - 1) {
             System.out.println("The stack is already full!");
         } else {
             stck[++tos] = item;

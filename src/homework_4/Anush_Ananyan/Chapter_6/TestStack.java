@@ -14,23 +14,23 @@ public class TestStack {
 
         System.out.println("Stack in mystack1: ");
 
-        for(int i =0; i<10; i++) {
+        for (int i = 0; i < 10; i++) {
             System.out.println(mystack1.pop());
         }
         System.out.println("Stack in mystack2: ");
 
-        for(int i =0; i<10; i++) {
+        for (int i = 0; i < 10; i++) {
             System.out.println(mystack2.pop());
         }
-            System.out.println();
+        System.out.println();
 
 
         Stack mystack3 = new Stack(5);
 
-        for (int i =0; i < 5; i++) {
+        for (int i = 0; i <= 6; i++) {
             mystack3.push(i);
         }
-        for (int i = 0; i < 5; i++) {
+        for (int i = -2; i < 5; i++) {
             System.out.println(mystack3.pop());
         }
     }
