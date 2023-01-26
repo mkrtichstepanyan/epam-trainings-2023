@@ -1,5 +1,7 @@
 package homework_4.Lilit_Adamyan.StackTasks;
 
+import java.util.Arrays;
+
 public class Stack {
      int [] stack;
      int tos;
@@ -24,11 +26,11 @@ public class Stack {
              stack[++tos] = item;
      }
 
-     int pop(){
-         if(tos ==-1){
-             System.out.println("Stack is empty!");
-             return 0;
-         }else {
+     int pop() {
+         if (tos == -1) {
+             System.out.println("The stack is empty!");
+             return  0;
+         } else {
              return stack[tos--];
          }
      }
