@@ -1,4 +1,4 @@
-package homework_4.Ani_Barseghyan.chapter_6.BoxDemo7;
+package homework_4.Ani_Barseghyan.chapter_6;
 
 public class BoxDemo7 {
     public static void main(String[] args) {
@@ -7,10 +7,10 @@ public class BoxDemo7 {
 
         double vol;
 
-        vol = myBox1.volume();
+        vol = myBox1.volume2();
         System.out.println("Volume is " + vol);
 
-        vol = myBox2.volume();
+        vol = myBox2.volume2();
         System.out.println("Volume is " + vol);
     }
 }

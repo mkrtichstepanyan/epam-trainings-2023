@@ -38,7 +38,7 @@ public class StackTest {
         stack3.pushDynamic(14);
 
         for (int i = 1; i <= stack3.elementCount; i++) {
-            System.out.println("The " + i + "th element in stack is " + stack3.pop());
+            System.out.println("The " + i + "element in stack is " + stack3.pop());
         }
     }
 }

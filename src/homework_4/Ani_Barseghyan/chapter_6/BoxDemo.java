@@ -1,4 +1,4 @@
-package homework_4.Ani_Barseghyan.chapter_6.BoxDemo;
+package homework_4.Ani_Barseghyan.chapter_6;
 
 public class BoxDemo {
     public static void main(String[] args) {
