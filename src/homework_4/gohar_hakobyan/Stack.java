@@ -5,9 +5,16 @@ public class Stack {
     private int top;
     private int size;
 
+    //Դefault constructor
+    public Stack() {
+        this.size = 10;
+        stack = new int[this.size];
+        top = -1;
+    }
+
     //Overloaded Constructor
     public Stack(int size) {
-        this.size = 10;
+        this.size = size;
         stack = new int[this.size];
         top = -1;
     }
@@ -19,7 +26,7 @@ public class Stack {
         } else {
             stack[++top] = element;
         }
-        if (top == 0.75 * size) {
+        if (top > 0.75 * size) {
             int[] newStack = new int[size * 2];
             if (size >= 0) {
                 System.arraycopy(stack, 0, newStack, 0, size);
