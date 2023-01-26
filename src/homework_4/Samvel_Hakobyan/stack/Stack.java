@@ -1,10 +1,9 @@
 package homework_4.Samvel_Hakobyan.stack;
 
-import java.lang.constant.Constable;
-
 public class Stack {
     Integer[] arr;
     int cursor;
+
 
     Stack(int capacity) {
         this.arr = new Integer[capacity];
@@ -31,17 +30,17 @@ public class Stack {
     }
 
 
-    int pop() {
+    Integer pop() {
         if (this.isEmpty()) {
             System.err.println("Error Stack is Empty");
-            return -1;
+            return null;
 
         }
         return this.arr[--this.cursor];
     }
 
 
-  Object refactor() {
+  Integer refactor() {
         if (cursor >= (arr.length * 75) / 100) {
             System.out.println("Stack is reached 75%");
             Integer[] newarr = new Integer[arr.length + 1 * 2];
