@@ -21,7 +21,7 @@ public class MainStack {
         //implementation of second stack+
         System.out.println("\nSecond stack");
         Stack_4b stack4b = new Stack_4b(12);
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 16; i++) {
             stack4b.push(i+3);
         }
         for (int i = 0; i < 12; i++) {

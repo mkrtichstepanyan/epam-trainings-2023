@@ -23,7 +23,7 @@ public class Stack_4c {
                     counter++;
                 }
             } else {
-            stackCopy(stackArray.length*2);
+           stackArray = stackCopy(stackArray.length*2);
             }
         }
         public int pop() {

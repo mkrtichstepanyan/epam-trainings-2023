@@ -8,7 +8,7 @@ public class Stack_4b {
         stackArray = new int[sizeOfStack];
     }
     public void push(int k) {
-        if (topS == stackArray.length) {
+        if (topS == stackArray.length-1) {
             System.out.println("The stack is already full");
         } else {
             stackArray[++topS] = k;
