@@ -3,14 +3,14 @@ package homework_3.Nelli_Poghosyan.Tasks;
 public class Task_1 {
 
     public static void main(String[] args) {
-     //   drawLeftUpTriangle(10);
-     //   drawRightUpTriangle(10);
-     //  drawLeftBottomTriangle(10);
-     //   drawRightBottomTriangle(10);
-     //   drawRhombus(10);
-     //   drawIsoscelesTriangle(10);
-     //   drawBottomIsoscelesTriangle(10);
-     //   drawRomb(10);
+        //   drawLeftUpTriangle(10);
+        //   drawRightUpTriangle(10);
+        //  drawLeftBottomTriangle(10);
+        //   drawRightBottomTriangle(10);
+        //   drawRhombus(10);
+        //   drawIsoscelesTriangle(10);
+        //   drawBottomIsoscelesTriangle(10);
+        //   drawRomb(10);
         drawBottomIsoscelesTriangle1(10);
     }
 

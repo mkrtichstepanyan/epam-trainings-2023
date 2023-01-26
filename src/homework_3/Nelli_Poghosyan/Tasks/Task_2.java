@@ -150,16 +150,11 @@ public class Task_2 {
         do {
             System.out.print("Enter the number ");
             number = console.nextInt();
-        if(number>0) {
-            if (number % 2 == 0) {
-                evenSum += number;
-            } else {
-                oddSum += number;
-            }
-        }else {
-            System.out.println("The number must be greater than 0");
-        }
-
+                if (number % 2 == 0) {
+                    evenSum += number;
+                } else {
+                    oddSum += number;
+                }
             System.out.print("Do you want to continue y/n? ");
             choice = console.next().charAt(0);
 
@@ -182,17 +177,19 @@ public class Task_2 {
         System.out.print("Enter the positive integer ");
         number = console.nextInt();
         int count = 0;
-        boolean flag = true;
-        for (int i = 1; i <= number / 2; i++) {
-            if (number % i == 0) {
-                count++;
-            }
-        }
-        if ((count + 1) > 2) {
-            System.out.println("not prime");
-        } else {
-            System.out.println("prime");
-        }
+       if(number>=0) {
+           for (int i = 1; i <= number / 2; i++) {
+               if (number % i == 0) {
+                   count++;
+               }
+           }
+           if ((count + 1) > 2) {
+               System.out.println("not prime");
+           } else {
+               System.out.println("prime");
+           }
+       }else{
+           System.out.println("The number must be greater than 0");
+       }
     }
 }
-

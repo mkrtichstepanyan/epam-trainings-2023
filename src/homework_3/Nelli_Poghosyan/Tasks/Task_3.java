@@ -272,4 +272,3 @@ public class Task_3 {
         } while (guess != number);
     }
 }
-
