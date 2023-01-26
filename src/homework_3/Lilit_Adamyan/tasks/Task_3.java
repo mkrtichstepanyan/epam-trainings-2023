@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class Task_3 {
 
     public static void main(String[] args) {
-//        FindHcf();                   // Question 8
+       FindHcf();                   // Question 8
 //        sumAgain();                  // Question 9
 //        countNumbers();              // Question 10
-//        findMaxMin();                // Question 11
-//        armstrongNumber();           // Question 12
+ //       findMaxMin();                // Question 11
+       armstrongNumber();           // Question 12
 //        fibonacciSeries();           // Question 13
 //        sumOfSeries();               // Question 14
 //        guessMyNumber();             // Question 15
@@ -55,8 +55,10 @@ public class Task_3 {
         do {
             System.out.print("Enter the first number.");
             number1 = console.nextInt();
+
             System.out.print("Enter the second number.");
             number2 = console.nextInt();
+
             int sum = number1 + number2;
 
             System.out.print("The sum is " + sum);
@@ -112,8 +114,8 @@ public class Task_3 {
         Scanner console = new Scanner(System.in);
 
         int number;
-        int max = Integer.MIN_VALUE;  // Intialize max with minimum value
-        int min = Integer.MAX_VALUE;  // Intialize min with maximum value
+        int max =Integer.MIN_VALUE;  // Intialize max with minimum value
+        int min =Integer.MAX_VALUE ;  // Intialize min with maximum value
 
         char choice = 0;
 
