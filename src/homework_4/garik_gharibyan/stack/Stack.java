@@ -8,6 +8,8 @@ public class Stack {
 
     boolean isFull;
 
+    int noZero = 0;
+
     public Stack(int arraySize) {
         arrayStack = new int[arraySize];
 
@@ -23,11 +25,16 @@ public class Stack {
                 isFull = false;
                 break;
             }
+            noZero++;
+        }
+        if (noZero > 0.75 * arrayStack.length){
+            int[] newArrayStack = new int[arrayStack.length * 2];
+            for (int i = 0; i < arrayStack.length; i++) {
+                newArrayStack[i] = arrayStack[i];
+            }
+            arrayStack = newArrayStack;
         }
 
-        if (isFull) {
-            System.out.println("The stack is already full!");
-        }
     }
 
     int pop() {
