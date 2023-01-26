@@ -2,20 +2,20 @@ package homework_4.Robert_Nazaryan;
 
 public class Stack {
 
-    int[] stack;
+    Integer[] stack;
     int tos;
     int size = 10;
 
     Stack() {
         tos = -1;
-        stack = new int[size];
+        stack = new Integer[size];
     }
 
     Stack(int s) {
 
         size = s;
         tos = -1;
-        stack = new int[size];
+        stack = new Integer[size];
     }
 
     void push(int item) {
@@ -29,12 +29,12 @@ public class Stack {
         }
     }
 
-    int pop() {
+    Integer pop() {
 
         if (tos == -1) {
 
             System.out.println("The stack is empty!");
-            return 0;
+            return null;
         } else {
 
             return stack[tos--];
