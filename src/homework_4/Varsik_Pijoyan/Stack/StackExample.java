@@ -2,17 +2,20 @@ package homework_4.Varsik_Pijoyan.Stack;
 
 public class StackExample {
 
-        int[] array = new int[10];
-        int size;
-        int top;
+    int[] array = new int[10];
+    int top;
+    int size;
 
 
-    public StackExample() {   //Default constructor
+
+
+    public StackExample() {
         top = -1;
     }
 
-    public StackExample(int size) { //overloaded constructor
-        top = size;
+    public StackExample(int size){
+        this.size = size;
+        top = -1;
     }
 
 
