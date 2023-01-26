@@ -1,6 +1,6 @@
 1. Create package with your <name_surname> in "src/homework_4" package (see example with my name in "scr/homework_4")
 2. Crate package chapter_6 inside your package and write all book examples in Chapter 6
-3. Create separate classes if there is need
+3. Create    separate classes if there is need
 4. Create brand new class with name Stack
     a. Implement simple stack that after initializing will have size 10, it should have two methods
         1)'push(int element)' that will add the given element onto a top of the stack
@@ -14,3 +14,4 @@
 7. Create new branch <homework_4_name_surname> -> example homework_4_sevak_martirosyan
 8. Commit and push into new branch
 9. Create PR and assign to your mentor
+
