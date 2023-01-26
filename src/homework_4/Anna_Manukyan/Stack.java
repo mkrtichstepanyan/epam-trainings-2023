@@ -11,6 +11,10 @@ public class Stack {
     private int count;
     private int capacity;
 
+    Stack() {
+        top = -1;
+        stack = new int[10];
+    }
     Stack(int size) {
         top = -1;
         stack = new int[size];

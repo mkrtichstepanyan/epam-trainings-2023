@@ -2,7 +2,7 @@ package homework_4.Anna_Manukyan;
 
 public class StackTest {
     public static void main(String[] args) {
-        Stack stack = new Stack(10);
+        Stack stack = new Stack();
         for (int i = 50; i < 60; i++) {
             stack.push(i);
         }
