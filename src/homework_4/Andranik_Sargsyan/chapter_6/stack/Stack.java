@@ -17,12 +17,7 @@ public class Stack {
 
     void push(int item) {
         refactoringStack();
-        if (index == arr.length - 1) {
-            System.out.println("The stack is already full!");
-        } else {
-            arr[++index] = item;
-            System.out.println(arr[index]);
-        }
+        arr[++index] = item;
     }
 
     int pop() {
@@ -44,4 +39,3 @@ public class Stack {
         }
     }
 }
-
