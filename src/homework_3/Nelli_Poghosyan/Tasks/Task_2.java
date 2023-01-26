@@ -177,7 +177,7 @@ public class Task_2 {
         System.out.print("Enter the positive integer ");
         number = console.nextInt();
         int count = 0;
-       if(number>=0) {
+       if(number>0) {
            for (int i = 1; i <= number / 2; i++) {
                if (number % i == 0) {
                    count++;
