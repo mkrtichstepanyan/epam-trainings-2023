@@ -8,8 +8,15 @@ public class TestJava {
             stack.push(i);
         }
 
+        int k = 0;
+        while (k < stack.arr.length) {
+
+            stack.refactor();
+            k += stack.cursor;
+        }
+
         for (int i = 0; i < 10; i++) {
             System.out.println("Pop element : " + stack.pop());
         }
-}
+    }
 }
