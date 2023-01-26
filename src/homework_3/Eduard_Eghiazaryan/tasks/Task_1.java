@@ -3,13 +3,20 @@ package homework_3.Eduard_Eghiazaryan.tasks;
 public class Task_1 {
 
     public static void main(String[] args) {
-//        drawLeftUpTriangle(4);
-//        drawRightUpTriangle(5);
-//        drawLeftBottomTriangle(4);
-//        drawRightBottomTriangle(4);
-//        drawRhombus(5);
-//        drawIsoscelesTriangle(5);
-//        drawBottomIsoscelesTriangle(5);
+        drawLeftUpTriangle(4);
+        System.out.println("--------------");
+        drawRightUpTriangle(5);
+        System.out.println("--------------");
+        drawLeftBottomTriangle(4);
+        System.out.println("--------------");
+        drawRightBottomTriangle(4);
+        System.out.println("--------------");
+        drawRhombus(5);
+        System.out.println("--------------");
+        drawIsoscelesTriangle(5);
+        System.out.println("--------------");
+        drawBottomIsoscelesTriangle(5);
+        System.out.println("--------------");
 
     }
 
@@ -73,7 +80,7 @@ public class Task_1 {
      * @param length  specified length of triangle will be drawn
      */
     public static void drawLeftBottomTriangle(int length){
-        int a = 4;
+        int a = length;
        for (int i = 0; i < length; i++){
 
            for (int j = 0; j < a; j++){
@@ -99,17 +106,16 @@ public class Task_1 {
      * @param length  specified length of triangle will be drawn
      */
     public static void drawRightBottomTriangle(int length){
-       for (int i = 0; i < length; i++){
-         for (int j = 0; j < length; j++){
-             System.out.println(" ");
-         }
-        for (int j = 0; j < length - 1; j++){
-            System.out.print(" *");
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print("  ");
+            }
+            for (int k = length; k > i; k--) {
+                System.out.print("* ");
+            }
+            System.out.println();
         }
-           System.out.println();
-       }
     }
-
 
     /**
      * Draws the rhombus by specified length number
