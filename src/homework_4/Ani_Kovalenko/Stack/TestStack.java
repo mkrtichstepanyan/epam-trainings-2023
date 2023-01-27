@@ -7,7 +7,7 @@ public class TestStack {
         for(int i=0;i<10;i++){
             mystack.push(i);
         }
-        for(int i=0;i<10;i++){
+        for(int i=0;i<11;i++){
             System.out.println(mystack.pop());
         }
         /* DynamicStack dynStack = new DynamicStack();

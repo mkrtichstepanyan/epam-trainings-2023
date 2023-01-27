@@ -21,10 +21,10 @@ public class DynamicStack {
         }
         array[++index] = element;
     }
-    int pop(){
+    Integer pop(){
         if(index<0){
             System.out.println("Stack is empty !");
-            return -1;
+            return null;
         } else {
             int temp = array[index];
             return temp;

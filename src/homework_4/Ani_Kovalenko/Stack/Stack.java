@@ -20,13 +20,12 @@ public class Stack {
         }
     }
 
-    int pop() {
+    Integer pop() {
         if (index < 0) {
             System.out.println("Stack is empty");
-            return -1;
-        } else {
-            int temp = array[index];
-            return temp;
+            return null;
         }
+            int temp = array[index--];
+            return temp;
     }
 }
