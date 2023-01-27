@@ -1,8 +1,8 @@
 package homework_4.Anush_Ananyan.Chapter_6;
 
 public class Stack {
-    int[] stck;
-    int tos;
+    private int[] stck;
+    private int tos;
 
     Stack() {
         stck = new int[10];
@@ -14,7 +14,10 @@ public class Stack {
         tos = -1;
     }
 
-    void push(int item) {
+    public void push(int item) {
+        if (tos == stck.length * 75 / 100) {
+            extandVolume();
+        }
         if (tos == stck.length - 1) {
             System.out.println("The stack is already full!");
         } else {
@@ -22,12 +25,19 @@ public class Stack {
         }
     }
 
-    int pop() {
+    public int pop() {
         if (tos < 0) {
             System.out.println("The stack is empty!");
             return 0;
         } else {
             return stck[tos--];
+        }
+    }
+
+    private void extandVolume() {
+        int[] newStck = new int[stck.length * 2];
+        for (int i =0;  i <= tos; i++) {
+            newStck[i] =stck[i];
         }
     }
 }
