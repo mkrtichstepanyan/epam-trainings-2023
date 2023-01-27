@@ -1,32 +1,32 @@
 package homework_4.Armen_Martirosyan.Stack;
 
 public class Stack {
-    private int[] array;
-    private int size;
-    private int top;
+    int[] array;
+    int size;
+    int top;
 
     public Stack() {
 
     }
 
     public Stack(int size) {
-        this.size = 10;
+        this.size = size;
         this.array = new int[size];
         this.top = -1;
 
     }
 
     public void push(int value) {
-        if (top == size - 1) {
+        if (top == size ) {
             System.out.println("Stack is full");
         } else {
             array[++top] = value;
-        }
-
-        if (top >= size * 3 / 4) {
-            int[] array1 = new int[2 * size];
-            array = array1;
-            size *= 2;
+            if (top >= size * 3 / 4) {
+                int[] array1 = new int[2 * size];
+                System.arraycopy(array, 0, array1, 0, size);
+                array = array1;
+                size *= 2;
+            }
         }
     }
 
