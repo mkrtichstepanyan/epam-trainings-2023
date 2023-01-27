@@ -5,7 +5,15 @@ public class Stack_4c {
         int topS=-1;
         int counter;
         Stack_4c(int sizeOfStack){
+
             stackArray = new int[sizeOfStack];
+        }
+        public int[] stackCopy(int size){
+            int[] array = new int[size];
+            for(int i = 0; i < stackArray.length; i++){
+                array[i] = stackArray[i];
+            }
+            return  array;
         }
         public void push(int k) {
             if (counter < stackArray.length * 75 / 100) {
@@ -16,7 +24,7 @@ public class Stack_4c {
                     counter++;
                 }
             } else {
-                new Stack_4c(2*stackArray.length);
+                stackArray = stackCopy(stackArray.length*2);
             }
         }
         public int pop() {
