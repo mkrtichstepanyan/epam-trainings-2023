@@ -21,16 +21,15 @@ public class Stack {
     }
 
     public void push(int x) {
-        if (index == size - 1) {
+        if (array.length == index) {
             System.out.println("The stack is already full!");
         } else {
             array[++index] = x;
         }
         if (index > 0.75 * size) {
             int[] newArray = new int[size * 2];
-            if (size >= 0) {
-                System.arraycopy(array, 0, newArray, 0, size);
-            }
+            System.arraycopy(array, 0, newArray, 0, size);
+
             array = newArray;
             size *= 2;
         }
