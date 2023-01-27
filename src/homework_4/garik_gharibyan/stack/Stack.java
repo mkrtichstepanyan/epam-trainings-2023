@@ -4,47 +4,43 @@ import java.util.ArrayList;
 
 public class Stack {
 
+    int topItem = -1;
+
     public int[] arrayStack;
 
-    boolean isFull;
-
-    int noZero = 0;
+    Stack() {
+        arrayStack = new int[10];
+    }
 
     public Stack(int arraySize) {
+
         arrayStack = new int[arraySize];
 
     }
 
     void push(int number) {
 
-        isFull = true;
-
-        for (int i = 0; i < arrayStack.length; i++) {
-            if (arrayStack[i] == 0) {
-                arrayStack[i] = number;
-                isFull = false;
-                break;
+        if (topItem == arrayStack.length - 1) {
+            System.out.println("The stack is already full!");
+        } else {
+            if (topItem > ((75 * arrayStack.length) / 100) - 2) {
+                int[] newArrayStack = new int[arrayStack.length * 2];
+                for (int i = 0; i < arrayStack.length; i++) {
+                    newArrayStack[i] = arrayStack[i];
+                }
+                arrayStack = newArrayStack;
             }
-            noZero++;
-        }
-        if (noZero > 0.75 * arrayStack.length){
-            int[] newArrayStack = new int[arrayStack.length * 2];
-            for (int i = 0; i < arrayStack.length; i++) {
-                newArrayStack[i] = arrayStack[i];
-            }
-            arrayStack = newArrayStack;
+            arrayStack[++topItem] = number;
         }
 
     }
 
     int pop() {
-        for (int i = arrayStack.length - 1; i >= 0; i--) {
-            if (arrayStack[i] != 0) {
-                return arrayStack[i];
-            }
+        if (topItem < 0) {
+            System.out.println("The stack is empty!");
+            return 0;
+        } else {
+            return arrayStack[topItem--];
         }
-        System.out.println("The stack is empty!");
-        return 0;
     }
-
 }
