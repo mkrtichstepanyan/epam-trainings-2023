@@ -31,8 +31,8 @@ public class Task_3 {
         System.out.print("Enter the second number ");
         divisor = console.nextInt();
 
-        for(int i = 1; i <= dividend || i <= divisor; i++) {
-            if( dividend % i == 0 && divisor % i == 0 )
+        for (int i = 1; i <= dividend || i <= divisor; i++) {
+            if (dividend % i == 0 && divisor % i == 0)
                 hcf = i;
         }
 
@@ -64,7 +64,7 @@ public class Task_3 {
 
             System.out.print("Do you wish to perform operation again y/n? ");
             choice = console.next().charAt(0);
-        }while (choice == 'y' || choice == 'Y');
+        } while (choice == 'y' || choice == 'Y');
     }
 
 
@@ -84,7 +84,7 @@ public class Task_3 {
             System.out.print("Enter the number ");
             number = console.nextInt();
 
-            if(number > 0) {
+            if (number > 0) {
                 countPositive++;
             } else if (number < 0) {
                 countNegative++;
@@ -112,8 +112,8 @@ public class Task_3 {
         Scanner console = new Scanner(System.in);
 
         int number;
-        int max = Integer.MIN_VALUE;  // Intialize max with minimum value
-        int min = Integer.MAX_VALUE;  // Intialize min with maximum value
+        int max = Integer.MIN_VALUE;  // Initialize max with minimum value
+        int min = Integer.MAX_VALUE;  // Initialize min with maximum value
 
         char choice;
 
@@ -122,11 +122,11 @@ public class Task_3 {
             number = console.nextInt();
             System.out.println(number);
 
-            if(number > max) {
+            if (number > max) {
                 max = number;
             }
 
-            if(number < min) {
+            if (number < min) {
                 min = number;
             }
 
