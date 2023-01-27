@@ -6,13 +6,13 @@ public class Stack {
     private int index;
 
     public Stack() {
-        stack = new int[10];
-        index = -1;
+        this.stack = new int[10];
+        this.index = -1;
     }
 
     public Stack(int size) {
-        stack = new int[size];
-        index = -1;
+        this.stack = new int[size];
+        this.index = -1;
     }
 
     public void push(int item) {
