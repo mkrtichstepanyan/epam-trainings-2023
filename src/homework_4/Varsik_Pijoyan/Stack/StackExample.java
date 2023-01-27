@@ -24,10 +24,10 @@ public class StackExample {
 
 
 
-    public int pop() {
+    public Integer pop() {
         if (isEmpty()) {
             System.out.println("The stack is empty!");
-            return 0;
+            return null;
         }
             return stack[top--];
 
