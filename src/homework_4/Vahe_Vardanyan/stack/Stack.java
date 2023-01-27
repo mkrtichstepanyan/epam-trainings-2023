@@ -21,8 +21,12 @@ public class Stack {
         if (this.isFully()) {
             System.err.println("Error Stacl is Fully " + value);
             return;
+        }else{
+            this.arr[this.size++] = value;
+            refactor();
+
+
         }
-        this.arr[this.size++] = value;
     }
 
     Integer pop() {
@@ -32,16 +36,17 @@ public class Stack {
         }
         return this.arr[--this.size];
         }
-    Integer refactor() {
+    void refactor() {
         if (size >= (arr.length * 75) / 100) {
             System.out.println("Stack is reached 75%");
-            Integer[] newarr = new Integer[arr.length + 1 * 2];
-            for (int i = 0; i < arr.length; i++) {
-                newarr[i] = arr[i];
+            Integer[] newarr = new Integer[this.arr.length + 2];
+
+            for (int i = 0; i < this.arr.length; ++i) {
+                newarr[i] = this.arr[i];
             }
-            arr = newarr;
+            this.arr = newarr;
 
         }
-        return null;
+
     }
 }
