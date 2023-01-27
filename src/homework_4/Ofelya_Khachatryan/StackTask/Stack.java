@@ -14,16 +14,12 @@ public class Stack {
     }
 
     public void push(int element) {
-        if (index == 9) {
-            System.out.println("The Stack is already full!");
+        if (index > stack.length * 75 / 100) {
+            Integer[] dest = new Integer[stack.length * 2];
+            System.arraycopy(stack, 0, dest, 0, index + 1);
+            stack = dest;
         } else {
             stack[++index] = element;
-
-            if (index > stack.length * 75 / 100) {
-                Integer[] dest = new Integer[stack.length * 2];
-                System.arraycopy(stack, 0, dest, 0, index + 1);
-                stack = dest;
-            }
         }
     }
 
@@ -35,6 +31,5 @@ public class Stack {
             return stack[index--];
         }
     }
-
 
 }
