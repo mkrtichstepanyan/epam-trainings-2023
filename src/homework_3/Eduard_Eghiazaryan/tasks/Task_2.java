@@ -5,13 +5,14 @@ import java.util.Scanner;
 public class Task_2 {
 
     public static void main(String[] args) {
-//        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
+//        printNumbers(10);      // Question 1 -> try with different integer values instead of 10 only
 //        sumNumbers();                // Question 2
-//        factorialDemo1();            // Question 3
-//        powerDemo();                 // Question 4
-//        reverseNumber();             // Question 5
-//        readSetIntegers();           // Question 6
-//        testPrime();                 // Question 7
+//        table();                     // question 3
+//        factorialDemo1();            // Question 4
+//        powerDemo();                 // Question 5
+//        reverseNumber();             // Question 6
+//        readSetIntegers();           // Question 7
+//        testPrime();                 // Question 8
     }
 
 
@@ -38,8 +39,8 @@ public class Task_2 {
 
         for (int i = 1; i <= a; i++) {
             sum += i;
-            System.out.println("Sum: " + sum);
         }
+        System.out.println("Sum: " + sum);
     }
 
     /* TODO: Question 3
@@ -54,8 +55,8 @@ public class Task_2 {
         num = console.nextInt();
 
         System.out.println("Multiplication Table of " + num);
-        for (int i = 1; i < 10; i++) {
-            System.out.println(num + " * " + i + " = " + num * i);
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(num + " x " + i + " = " + num * i);
         }
 
     }
@@ -75,7 +76,7 @@ public class Task_2 {
             fact *= 1;
         }
 
-        System.out.println("Factorial of " + num + ": " + fact);
+        System.out.println("Factorial: " + fact);
     }
 
      /* TODO: Question 4
