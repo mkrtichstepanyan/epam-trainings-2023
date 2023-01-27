@@ -20,19 +20,14 @@ public class Stack {
 
     void push(int number) {
 
-        if (topItem == arrayStack.length - 1) {
-            System.out.println("The stack is already full!");
-        } else {
-            if (topItem > ((75 * arrayStack.length) / 100) - 2) {
-                int[] newArrayStack = new int[arrayStack.length * 2];
-                for (int i = 0; i < arrayStack.length; i++) {
-                    newArrayStack[i] = arrayStack[i];
-                }
-                arrayStack = newArrayStack;
+        if (topItem > ((75 * arrayStack.length) / 100) - 2) {
+            int[] newArrayStack = new int[arrayStack.length * 2];
+            for (int i = 0; i < arrayStack.length; i++) {
+                newArrayStack[i] = arrayStack[i];
             }
-            arrayStack[++topItem] = number;
+            arrayStack = newArrayStack;
         }
-
+        arrayStack[++topItem] = number;
     }
 
     int pop() {
@@ -40,7 +35,10 @@ public class Stack {
             System.out.println("The stack is empty!");
             return 0;
         } else {
-            return arrayStack[topItem--];
+            int topElement = arrayStack[topItem];
+            arrayStack[topItem] = 0;
+            topItem--;
+            return topElement;
         }
     }
 }
