@@ -9,7 +9,7 @@ public class Task_3 {
 //        sumAgain();                  // Question 9
 //        countNumbers();              // Question 10
 //        findMaxMin();                // Question 11
-        armstrongNumber();           // Question 12
+//        armstrongNumber();           // Question 12
 //        fibonacciSeries();           // Question 13
 //        sumOfSeries();               // Question 14
 //        guessMyNumber();             // Question 15
