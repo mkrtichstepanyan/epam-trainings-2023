@@ -2,26 +2,24 @@ package homework_4.Varsik_Pijoyan.Stack;
 
 public class StackTest {
     public static void main(String[] args) {
-        StackExample stack1 = new StackExample(10);
-        StackExample stack2 = new StackExample(10);
+        StackExample stack = new StackExample();
+        System.out.println("Initial Stack Empty : " + stack.isEmpty());
+        //pushing elements
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        stack.push(40);
 
+        System.out.println("After Push Operation...");
 
-        for (int i = 0; i < 10; i++) {
-            stack1.push(i);
-        }
-        for (int i = 0; i < 10; i++) {
-            stack2.push(i);
-        }
-        System.out.println("Stack in stack1: ");
+        //printing the stack elements
+        stack.print();
+        //popping two elements
+        stack.pop();
+        stack.pop();
+        System.out.println("After Pop Operation...");
 
-        for (int i = 0; i < 10; i++) {
-            stack1.pop();
-        }
-
-        System.out.println("Stack in stack2: ");
-        for (int i = 0; i < 10; i++) {
-            stack2.pop();
-        }
-
+        //printing the stack elements again
+        stack.print();
     }
 }
