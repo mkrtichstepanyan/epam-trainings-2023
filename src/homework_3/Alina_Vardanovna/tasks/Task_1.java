@@ -4,9 +4,9 @@ public class Task_1 {
 
     public static void main(String[] args) {
 
-        drawLeftUpTriangle(10);
+//        drawLeftUpTriangle(10);
 //        drawRightUpTriangle(10);
-//        drawLeftBottomTriangle(10);
+        drawLeftBottomTriangle(10);
 //        drawRightBottomTriangle(10);
 //        drawRhombus(10);
 //        drawIsoscelesTriangle(5);
@@ -47,7 +47,7 @@ public class Task_1 {
      * @param length  specified length of triangle will be drawn
      */
 
-    public void drawRightUpTriangle(int length) {
+    public static void drawRightUpTriangle(int length) {
         for (int i = 0; i < length; i++) {
             for (int j = length - 1; j > i; j--) {
                 System.out.print("  ");
@@ -72,13 +72,14 @@ public class Task_1 {
      * @param length  specified length of triangle will be drawn
      */
 
-    public void drawLeftBottomTriangle(int length) {
+    public static void drawLeftBottomTriangle(int length) {
         for (int i = length; i >= 0; i--) {
             for (int j = 0; j <= i; j++) {
                 System.out.print("* ");
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     /**
@@ -94,7 +95,7 @@ public class Task_1 {
      * @param length  specified length of triangle will be drawn
      */
 
-    public void drawRightBottomTriangle(int length) {
+    public static void drawRightBottomTriangle(int length) {
         for (int i = 0; i < length; i++) {
             for (int j = 0; j <= i; j++) {
                 System.out.print("  ");
@@ -121,7 +122,7 @@ public class Task_1 {
      * @param length  specified length of rhombus will be drawn
      */
 
-    public void drawRhombus(int length) {
+    public static void drawRhombus(int length) {
         for (int i = 0; i < length; i++) {
             for (int j = length; j > i; j--) {
                 System.out.print(" ");
@@ -153,7 +154,7 @@ public class Task_1 {
      * @param length specified length of triangle will be drawn
      */
 
-    public void drawIsoscelesTriangle(int length) {
+    public static void drawIsoscelesTriangle(int length) {
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < length - i - 1; j++) {
                 System.out.print("  ");
