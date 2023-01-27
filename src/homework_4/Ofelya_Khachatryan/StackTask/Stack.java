@@ -1,6 +1,4 @@
-package homework_4.Ofelya_Khachatryan;
-
-import java.util.Arrays;
+package homework_4.Ofelya_Khachatryan.StackTask;
 
 public class Stack {
     private Integer[] stack;
@@ -16,8 +14,8 @@ public class Stack {
     }
 
     public void push(int element) {
-        if (index == stack.length) {
-            System.out.println("The Stack is already full");
+        if (index == 9) {
+            System.out.println("The Stack is already full!");
         } else {
             stack[++index] = element;
 
@@ -38,11 +36,5 @@ public class Stack {
         }
     }
 
-    public static void main(String[] args) {
-        Stack stack = new Stack();
 
-        for (int i = 0; i < 9; i++) {
-            stack.push(i);
-        }
-    }
 }
