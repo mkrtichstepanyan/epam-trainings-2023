@@ -115,6 +115,7 @@ public class Task_1 {
         number = console.nextInt();
 
         int temp = number;
+
         int remainder = 0;
         reverse = calculatereverseNumber(number, remainder);
 
