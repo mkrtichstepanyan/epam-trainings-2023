@@ -7,7 +7,7 @@ public class Stack {
         tos =-1;
     }
     void push(int item) {
-        if (tos == 9) {
+        if (tos == stack.length-1) {
             System.out.println("The stack is full");
         } else {
             stack[++tos] = item;

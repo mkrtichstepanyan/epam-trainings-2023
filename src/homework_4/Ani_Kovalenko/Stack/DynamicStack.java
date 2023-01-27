@@ -2,7 +2,7 @@ package homework_4.Ani_Kovalenko.Stack;
 
 public class DynamicStack {
     int[] array;
-    int index;
+    int index = -1;
 
     public DynamicStack(){
         array = new int[10];
@@ -27,7 +27,6 @@ public class DynamicStack {
             return -1;
         } else {
             int temp = array[index];
-            array[index--]= 0;
             return temp;
         }
     }

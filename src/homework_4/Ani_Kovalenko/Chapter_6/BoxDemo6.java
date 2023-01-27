@@ -7,7 +7,7 @@ public class BoxDemo6 {
         double vol;
         vol = mybox1.volume4();
         System.out.println(vol);
-        vol = mybox1.volume4();
+        vol = mybox2.volume4();
         System.out.println(vol);
 
     }

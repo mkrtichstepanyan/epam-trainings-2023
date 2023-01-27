@@ -13,7 +13,7 @@ public class Stack {
     }
 
     void push(int element) {
-        if (index >= array.length-1) {
+        if (index == array.length-1) {
             System.out.println("Stack is already full !!");
         } else {
             array[++index] = element;
@@ -26,7 +26,6 @@ public class Stack {
             return -1;
         } else {
             int temp = array[index];
-            array[index--] = 0;
             return temp;
         }
     }
