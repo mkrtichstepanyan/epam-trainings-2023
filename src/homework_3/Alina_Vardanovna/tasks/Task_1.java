@@ -4,13 +4,13 @@ public class Task_1 {
 
     public static void main(String[] args) {
 
-//        drawLeftUpTriangle(10);
-//        drawRightUpTriangle(10);
+        drawLeftUpTriangle(10);
+        drawRightUpTriangle(10);
         drawLeftBottomTriangle(10);
-//        drawRightBottomTriangle(10);
-//        drawRhombus(10);
-//        drawIsoscelesTriangle(5);
-//        drawBottomIsoscelesTriangle(10);
+        drawRightBottomTriangle(10);
+        drawRhombus(10);
+        drawIsoscelesTriangle(5);
+        drawBottomIsoscelesTriangle(10);
 
     }
 
@@ -33,6 +33,7 @@ public class Task_1 {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     /**
@@ -57,6 +58,7 @@ public class Task_1 {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     /**
@@ -105,6 +107,7 @@ public class Task_1 {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     /**
@@ -141,6 +144,7 @@ public class Task_1 {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     /**
@@ -164,6 +168,7 @@ public class Task_1 {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     /**
@@ -187,6 +192,7 @@ public class Task_1 {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
 }
