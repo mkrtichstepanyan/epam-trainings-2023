@@ -1,22 +1,19 @@
 package homework_4.Vahe_Vardanyan.stack;
 
-public class Stack {Integer[] arr;
-    int cursor;
+public class Stack {
+    Integer[] arr;
+    int size;
 
     Stack(int capacity) {
         this.arr = new Integer[capacity];
     }
 
-    int Constructer() {
-        return this.cursor;
-    }
-
-    boolean isEmty() {
-        return this.cursor == 0;
+    boolean isEmpty() {
+        return this.size == 0;
     }
 
     boolean isFully() {
-        return this.cursor == this.arr.length;
+        return this.size == this.arr.length;
     }
 
 
@@ -25,18 +22,18 @@ public class Stack {Integer[] arr;
             System.err.println("Error Stacl is Fully " + value);
             return;
         }
-        this.arr[this.cursor++] = value;
+        this.arr[this.size++] = value;
     }
 
-    int pop() {
-        if (this.isEmty()) {
+    Integer pop() {
+        if (this.isEmpty()) {
             System.err.println("Error Stack is Empty");
-            return -1;
+            return null;
         }
-        return this.arr[--this.cursor];
+        return this.arr[--this.size];
         }
-    void refactor() {
-        if (cursor > (arr.length * 75) / 100) {
+    Integer refactor() {
+        if (size >= (arr.length * 75) / 100) {
             System.out.println("Stack is reached 75%");
             Integer[] newarr = new Integer[arr.length + 1 * 2];
             for (int i = 0; i < arr.length; i++) {
@@ -45,5 +42,6 @@ public class Stack {Integer[] arr;
             arr = newarr;
 
         }
+        return null;
     }
 }
