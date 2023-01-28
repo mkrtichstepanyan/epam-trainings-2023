@@ -1,4 +1,4 @@
-package homework_4.Alina_Mkhoyan.stack;
+package homework_4_1.stack;
 
 class Stack {
     private int[] stack;
