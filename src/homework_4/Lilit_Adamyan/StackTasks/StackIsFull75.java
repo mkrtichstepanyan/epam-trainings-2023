@@ -6,10 +6,36 @@ public class StackIsFull75 {
     private int[] stack;
     private int tos;
 
+
+
     public StackIsFull75(int size) {
         this.size = size;
         stack = new int[this.size];
         tos = -1;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public int[] getStack() {
+        return stack;
+    }
+
+    public void setStack(int[] stack) {
+        this.stack = stack;
+    }
+
+    public int getTos() {
+        return tos;
+    }
+
+    public void setTos(int tos) {
+        this.tos = tos;
     }
 
     public void push(int item) {
