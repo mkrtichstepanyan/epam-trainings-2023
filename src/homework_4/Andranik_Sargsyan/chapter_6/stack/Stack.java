@@ -1,26 +1,28 @@
 package homework_4.Andranik_Sargsyan.chapter_6.stack;
 
 public class Stack {
-    int[] arr;
+    private int[] arr;
     private static final int DEFAULT_SIZE = 10;
-    int index;
+    private int index;
 
-    Stack(int size) {
-        arr = new int[size];
-        index = -1;
+    public Stack(int size) {
+        this.arr = new int[size];
+        this.index = -1;
     }
 
-    Stack() {
-        arr = new int[DEFAULT_SIZE];
-        index = -1;
+    public Stack() {
+        this(DEFAULT_SIZE);
+        this.index = -1;
     }
 
-    void push(int item) {
-        refactoringStack();
+    public void push(int item) {
+        if (index == arr.length * 75 / 100) {
+            extendCapacity();
+        }
         arr[++index] = item;
     }
 
-    int pop() {
+    public int pop() {
         if (index < 0) {
             System.out.println("The stack is empty!");
             return 0;
@@ -29,13 +31,11 @@ public class Stack {
         }
     }
 
-    private void refactoringStack() {
-        if (index == arr.length * 75 / 100) {
-            int[] newArr = new int[2 * arr.length];
-            for (int i = 0; i <= index; i++) {
-                newArr[i] = arr[i];
-            }
-            arr = newArr;
+    private void extendCapacity() {
+        int[] newArr = new int[2 * arr.length];
+        for (int i = 0; i <= index; i++) {
+            newArr[i] = arr[i];
         }
+        arr = newArr;
     }
 }
