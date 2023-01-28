@@ -1,4 +1,4 @@
-package homework_4.Anna_Manukyan;
+package homework_4.Anna_Manukyan.stack;
 
 import homework_1.Zara_Avetyan.Array;
 
@@ -6,19 +6,20 @@ import java.util.Arrays;
 
 //Implementation of stack class
 public class Stack {
-    private int top;
+    private int top = -1;
     private int[] stack;
     private int count;
     private int capacity;
+    private static int DEFAULT_SIZE = 10;
 
     Stack() {
+        stack = new int[DEFAULT_SIZE];
         top = -1;
-        stack = new int[10];
     }
+
     Stack(int size) {
-        top = -1;
         stack = new int[size];
-        capacity = size;
+        top = -1;
     }
 
     //This method checks is empty stack or not
@@ -38,8 +39,8 @@ public class Stack {
         return false;
     }
 
-    public boolean isFullRef() {
-        if (top > stack.length * 0.75 - 1) {
+    public boolean extendIsFull() {
+        if (top == stack.length * 75/100) {
             count++;
             return true;
         }
@@ -58,18 +59,13 @@ public class Stack {
     /*This method add element in stack
       If stack size is less than top, then increase stack size
     */
-    public void pushRefactor(int element) {
-        if (isFullRef()) {
-            if (count > 0) {
-                System.out.println("We increase stack size, because stack is fully");
-                capacity = 2 * capacity;
-            }
-            stack = Arrays.copyOf(stack, capacity);
-            stack[++top] = element;
-        } else {
-            stack[++top] = element;
-        }
+    public void extendPush(int element) {
+        if (extendIsFull()) {
+            capacity = stack.length;
+            stack = Arrays.copyOf(stack, 2 * capacity);
 
+        }
+            stack[++top] = element;
     }
 
     //This method remove elements from stack

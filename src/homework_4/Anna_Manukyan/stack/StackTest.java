@@ -1,4 +1,6 @@
-package homework_4.Anna_Manukyan;
+package homework_4.Anna_Manukyan.stack;
+
+import homework_4.Anna_Manukyan.stack.Stack;
 
 public class StackTest {
     public static void main(String[] args) {
@@ -18,7 +20,7 @@ public class StackTest {
         System.out.println();
         Stack stackRef = new Stack(3);
         for (int i = 0; i < 10; i++) {
-            stackRef.pushRefactor(i);
+            stackRef.extendPush(i);
         }
         stackRef.printStack();
     }
