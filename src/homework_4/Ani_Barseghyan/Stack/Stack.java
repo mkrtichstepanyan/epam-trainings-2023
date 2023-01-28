@@ -1,45 +1,38 @@
 package homework_4.Ani_Barseghyan.Stack;
 
 public class Stack {
-    int[] stackArray;
-    int top = -1;
+    private int[] stackArray;
+    private int top;
     int size;
-    int elementCount = 0;
-
-    Stack() {
-        size = 10;
-        stackArray = new int[size];
-    }
+    private static int defaultSize = 10;
+    public int elementCount = 0;
 
     Stack(int length) {
         this.size = length;
-        stackArray = new int[this.size];
+        this.stackArray = new int[size];
+        this.top = -1;
+    }
+
+    Stack() {
+        this(defaultSize);
+        this.size = defaultSize;
+        this.top = -1;
     }
 
     public void push(int element) {
-        if (top == size - 1) {
-            System.out.println("The stack is already full!");
-        } else {
-            stackArray[++top] = element;
+        if (elementCount >= stackArray.length * 0.75) {
+            extendStack();
         }
+        stackArray[++top] = element;
+        elementCount++;
     }
 
-    public void pushDynamic(int element) {
-        if (elementCount > size * 0.75) {
-            System.out.println("Increasing the stack size");
-            int[] newArray = new int[2 * size];
-
-            for (int i = 0; i < size; i++) {
-                newArray[i] = stackArray[i];
-            }
-            stackArray = newArray;
-            stackArray[++top] = element;
-            elementCount++;
-            size *= 2;
-        } else {
-            stackArray[++top] = element;
-            elementCount++;
+    public void extendStack() {
+        int[] newArray = new int[2 * stackArray.length];
+        for (int i = 0; i < elementCount; i++) {
+            newArray[i] = stackArray[i];
         }
+        stackArray = newArray;
     }
 
     public int pop() {
