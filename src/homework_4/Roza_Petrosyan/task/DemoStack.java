@@ -25,13 +25,22 @@ public class DemoStack {
         }
 
         for (int i = 0; i < 30; i++) {
-            stack1.dblPush(i);
+            stack1.extendCapacity(i);
         }
 
         System.out.println("Popped elements from double stack with parameter : ");
         for (int i = 0; i < 30; i++) {
             System.out.println(stack1.pop());
         }
+
+        // Access modifiers
+
+//        System.out.println(stack.tos);   // has private access
+//        System.out.println(stack.stack); // has private access
+
+        stack.getTos();
+        stack.getStack();
+        System.out.println(stack.test); // protected access in package
     }
 }
 

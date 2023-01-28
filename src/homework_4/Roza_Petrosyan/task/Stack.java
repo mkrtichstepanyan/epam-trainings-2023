@@ -4,7 +4,8 @@ public class Stack {
     private int tos;
     private int[] stack;
 
-
+    protected int test;
+    
     public Stack() {
         stack = new int[10];
         tos = -1;
@@ -23,7 +24,7 @@ public class Stack {
         }
     }
 
-    public void dblPush(int item) {
+    public void extendCapacity(int item) {
         if (tos > stack.length * 0.75) {
             int double_size = stack.length * 2;
             int[] double_stack = new int[double_size];
@@ -40,5 +41,22 @@ public class Stack {
         } else {
             return stack[tos--];
         }
+    }
+
+    public void setTos(int tos) {
+
+        this.tos = tos;
+    }
+
+    public int getTos() {
+        return tos;
+    }
+
+    public void setStack(int[] stack) {
+        this.stack = stack;
+    }
+
+    public int[] getStack() {
+        return stack;
     }
 }
