@@ -5,12 +5,18 @@ public class StackDemo {
         Stack myStakc = new Stack();
         myStakc.push(1);
         myStakc.push(2);
-
-
-        System.out.println(myStakc.pop());
-        System.out.println(myStakc.pop());
-        System.out.println(myStakc.pop());
-
-
+        myStakc.push(2);
+        myStakc.push(2);
+        myStakc.push(2);
+        myStakc.push(2);
+        myStakc.push(2);
+        myStakc.push(2);
+        myStakc.push(2);
+        myStakc.push(2);
+        myStakc.push(2);
+        myStakc.push(2);
+        myStakc.push(2);
+        myStakc.push(2);
+        myStakc.push(2);
     }
 }
