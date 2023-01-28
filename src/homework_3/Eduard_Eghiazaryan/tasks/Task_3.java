@@ -112,8 +112,8 @@ public class Task_3 {
         Scanner console = new Scanner(System.in);
 
         int number;
-        int max = Integer.MIN_VALUE;  // Intialize max with minimum value
-        int min = Integer.MAX_VALUE;  // Intialize min with maximum value
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
 
         char choice;
         do {
@@ -141,9 +141,9 @@ public class Task_3 {
         For example, 153 = ( 1 * 1 * 1 ) + ( 5 * 5 * 5 ) + ( 3 * 3 * 3 )
     */
     public static void armstrongNumber() {
-        int digit1,  // To hold first digit (Ones) of number
-                digit2,  // To hold second digit (Tens) of number
-                digit3;  // To hold third digit (Hundreds) of number
+        int digit1,
+                digit2,
+                digit3;
         for (int i = 1; i <= 500; i++) {
             digit1 = i % 10;
             digit2 = i / 10 % 10;
@@ -162,7 +162,7 @@ public class Task_3 {
     public static void fibonacciSeries() {
         Scanner console = new Scanner(System.in);
 
-        int number;  // To hold number of terms
+        int number;
         int firstTerm = 0, secondTerm = 1, thirdTerm;
 
         System.out.print("Enter number of terms of series : ");
@@ -186,7 +186,7 @@ public class Task_3 {
     public static void sumOfSeries() {
         Scanner console = new Scanner(System.in);
 
-        int number;  // To hold number of terms
+        int number;
 
         double sum = 0;
 
@@ -200,7 +200,6 @@ public class Task_3 {
     }
 
 
-
     /* TODO: Question 15
          Write a program that generates a random number and asks the user to guess what the number is.
          If the user's guess is higher than the random number, the program should display "Too high, try again."
@@ -210,29 +209,28 @@ public class Task_3 {
     public static void guessMyNumber() {
         Scanner console = new Scanner(System.in);
 
-        int number, // To hold the random number
-                guess,  // To hold the number guessed by user
-                tries = 0; // To hold number of tries
+        int number,
+                guess = 0,
+                tries = 0;
 
-        number = (int) (Math.random() * 100) + 1; // get random number between 1 and 100
+        number = (int) (Math.random() * 100) + 1;
 
-        do {
-            System.out.println("Guess My Number Game");
+        System.out.println("Guess My Number Game");
+        System.out.println();
 
+        while (guess != number) {
+            System.out.print("Enter your guess: ");
             guess = console.nextInt();
-            if (guess > number) {
-                System.out.println("Too high,try again.");
-            } else if (guess < number) {
-                System.out.println("Too low,try again.");
-            }
             tries++;
 
-        } while (guess != number);
+            if (guess > number) {
+                System.out.println("Too high, try again.");
+            } else if (guess < number) {
+                System.out.println("Too low, try again.");
+            }
+        }
+        System.out.println("Congratulations! You guessed the number in " + tries + " tries.");
 
-        System.out.println("Congratulations,you guess the correct number " + number);
-        System.out.println("You guess the number in " + tries + " tries");
 
     }
 }
-
-
