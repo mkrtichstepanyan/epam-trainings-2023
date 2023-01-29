@@ -29,14 +29,14 @@ class Stack {
             System.out.println("Created new stack...");
             stack = newStack;
             size *= 2;
+        }
             stack[++top] = element;
             System.out.println("Added in stack: " + element);
-        }
     }
-    public int pop() {
+    public Integer pop() {
         if (top <= -1) {
             System.out.println("The stack is empty!");
-            return -1;
+            return null;
         } else {
             return stack[top--];
         }
