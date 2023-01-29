@@ -1,15 +1,17 @@
 package homework_4.Diana_Melkonyan.stack;
 
 public class Stack {
+    private static final int DEFAULT_SIZE = 2;
    private int[] array;
    private int index;
 
+
     Stack() {
-        array = new int[2];
+        this(DEFAULT_SIZE);
         index = -1;
     }
 
-    public Stack(int size) {
+    Stack(int size) {
 
         array = new int[size];
         index = -1;
@@ -18,11 +20,7 @@ public class Stack {
 
    public void push(int item) {
         if (index >= (array.length * 75) / 100) {
-            int[] newArr = new int[array.length * 2];
-            for (int i = 0; i < array.length; i++) {
-                newArr[i] = array[i];
-            }
-            array = newArr;
+           extendCapacity();
         }
         array[++index] = item;
     }
@@ -41,19 +39,16 @@ public class Stack {
         }
     }
 
-    public int[] getArray() {
-        return array;
-    }
-
-    public void setArray(int[] array) {
-        this.array = array;
+    private void extendCapacity(){
+        int[] newArr = new int[array.length * 2];
+        for (int i = 0; i < array.length; i++) {
+            newArr[i] = array[i];
+        }
+        array = newArr;
     }
 
     public int getIndex() {
         return index;
     }
 
-    public void setIndex(int index) {
-        this.index = index;
-    }
 }
