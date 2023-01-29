@@ -33,10 +33,11 @@ class Stack {
             }
             System.out.println("Created new stack...");
             stack = newStack;
+        }
             size *= 2;
             stack[++top] = element;
             System.out.println("Added in stack: " + element);
-        }
+
     }
     public Integer pop() {
         if (top <= -1) {

@@ -10,7 +10,9 @@ public class StackDemo {
         }
 
         System.out.println("---------------");
-        stack.refactoringPush(10);
+        for (int i = 0; i < 100; i++) {
+            stack.refactoringPush(i);
+        }
         System.out.println("---------------");
 
         for (int i = 0; i < 10; i++) {
