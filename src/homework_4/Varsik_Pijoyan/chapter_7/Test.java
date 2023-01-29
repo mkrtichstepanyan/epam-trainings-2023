@@ -10,6 +10,11 @@ public class Test {
         b = j;
     }
 
+    void  meth(Test o){
+        o.a *= 2;
+        o.b /= 2;
+    }
+
     public Test(int i) {
         a = i;
     }
