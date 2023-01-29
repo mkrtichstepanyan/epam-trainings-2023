@@ -16,6 +16,7 @@ class Stack {
         this.stack = new Integer[size];
         this.top = -1;
     }
+
     public void push(int element) {
         if (top >= size - 1) {
             System.out.println("The stack is already full!");
@@ -24,6 +25,7 @@ class Stack {
             System.out.println("Added in stack: " + element);
         }
     }
+
     public void refactoringPush(int element) {
         if (top > (size * 0.75)) {
             System.out.println("Stack is reached 75%");
@@ -34,10 +36,12 @@ class Stack {
             System.out.println("Created new stack...");
             stack = newStack;
             size *= 2;
-            stack[++top] = element;
-            System.out.println("Added in stack: " + element);
         }
+        stack[++top] = element;
+        System.out.println("Added in stack: " + element);
+
     }
+
     public Integer pop() {
         if (top <= -1) {
             System.out.println("The stack is empty!");
