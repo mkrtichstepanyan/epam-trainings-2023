@@ -7,16 +7,11 @@ public class TestJava {
         for (int i = 20; i >= 0; i--) {
             stack.push(i);
         }
-
-
-        for (int i = 0; i < stack.arr.length; i++) {
-
-          stack.refactor();
-
+        for (int i = 0; i < 20; i++) {
+            stack.scanAndIncrease();
         }
-
         for (int i = 0; i < 10; i++) {
             System.out.println("Pop element : " + stack.pop());
         }
-}
+    }
 }
