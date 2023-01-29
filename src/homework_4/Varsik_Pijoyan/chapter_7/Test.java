@@ -1,33 +1,40 @@
 package homework_4.Varsik_Pijoyan.chapter_7;
 
 public class Test {
-    int a; //default access
-    public int b; //public access
-    private  int c; //private access
+    int a;
+    public  int b;
+    private int c;
 
-    void setC(int i){  //setting c's value
+    Test(int i, int j){
+        a = i;
+        b = j;
+    }
+
+    public Test(int i) {
+        a = i;
+    }
+
+
+    boolean equalTo(Test o){
+        if (o.a == a && o.b == b){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    void setC(int i){
         c = i;
     }
-    int getC(){ //getting c's value
+
+    int getC(){
         return c;
     }
 
-//    public Test(int i){
-//        a = i;
-//    }
-//
-//    public Test incrByTen(){
-//        Test temp =new Test(a + 10);
-//        return temp;
-//    }
-//    void meth(Test o){
-//       o.a *= 2;
-//       o.b /= 2;
-//    }
-
-//    int a, b;
 
 
 
-
+    public Test incrByTen() {
+        Test temp = new Test(a +10);
+        return temp;
+    }
 }

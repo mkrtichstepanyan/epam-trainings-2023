@@ -31,11 +31,11 @@ public class Box {
 //         return width * height * depth;
 //    }
 //
-//    void SetDim(double w, double h, double d) {
-//        width = w;
-//        height = h;
-//        depth = d;
-//    }
+    void SetDim(double w, double h, double d) {
+        width = w;
+        height = h;
+        depth = d;
+    }
 
     //Constructor used when no dimensions specified
     public Box() {
@@ -53,4 +53,7 @@ public class Box {
     public double volume() {
         return width * height * depth;
     }
+
+
+
 }

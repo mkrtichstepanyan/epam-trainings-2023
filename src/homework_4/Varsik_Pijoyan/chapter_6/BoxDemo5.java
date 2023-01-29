@@ -4,7 +4,6 @@ public class BoxDemo5 {
     public static void main(String[] args) {
         Box mybox1 = new Box();
         Box mybox2 = new Box();
-
         double vol;
 
         mybox1.SetDim(10, 20, 15);
