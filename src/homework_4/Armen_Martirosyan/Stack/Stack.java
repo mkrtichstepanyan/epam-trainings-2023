@@ -1,9 +1,9 @@
 package homework_4.Armen_Martirosyan.Stack;
 
 public class Stack {
-    int[] array;
-    int size;
-    int top;
+    private int[] array;
+    private int size;
+    private int top;
 
     public Stack() {
 
@@ -16,8 +16,8 @@ public class Stack {
 
     }
 
-    public void push(int value) {
-        if (top == size ) {
+    protected void push(int value) {
+        if (top == size) {
             System.out.println("Stack is full");
         } else {
             array[++top] = value;
@@ -30,7 +30,7 @@ public class Stack {
         }
     }
 
-    public int pop() {
+    protected int pop() {
         if (top == -1) {
             System.out.println("Stack is empty ");
             return -1;
