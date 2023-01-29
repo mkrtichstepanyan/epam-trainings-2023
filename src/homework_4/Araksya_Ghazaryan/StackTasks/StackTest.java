@@ -1,4 +1,6 @@
-package homework_4.Araksya_Ghazaryan;
+package homework_4.Araksya_Ghazaryan.StackTasks;
+
+import homework_4.Araksya_Ghazaryan.StackTasks.Stack;
 
 public class StackTest {
     public static void main(String[] args) {

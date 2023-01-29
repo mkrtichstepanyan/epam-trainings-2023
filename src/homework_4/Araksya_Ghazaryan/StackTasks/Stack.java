@@ -1,4 +1,4 @@
-package homework_4.Araksya_Ghazaryan;
+package homework_4.Araksya_Ghazaryan.StackTasks;
 
 public class Stack {
 
