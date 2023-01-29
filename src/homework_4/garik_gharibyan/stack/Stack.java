@@ -1,12 +1,10 @@
 package homework_4.garik_gharibyan.stack;
 
-import java.util.ArrayList;
-
 public class Stack {
 
-    int topItem = -1;
+    private int topItem = -1;
 
-    public int[] arrayStack;
+    private int[] arrayStack;
 
     Stack() {
         arrayStack = new int[10];
@@ -17,8 +15,16 @@ public class Stack {
         arrayStack = new int[arraySize];
 
     }
+    public int getTopItem() {
+        return topItem;
+    }
 
-    void push(int number) {
+    public int[] getArrayStack() {
+        return arrayStack;
+    }
+
+
+    public void push(int number) {
 
         if (topItem > ((75 * arrayStack.length) / 100) - 2) {
             int[] newArrayStack = new int[arrayStack.length * 2];
@@ -30,7 +36,7 @@ public class Stack {
         arrayStack[++topItem] = number;
     }
 
-    int pop() {
+    public int pop() {
         if (topItem < 0) {
             System.out.println("The stack is empty!");
             return 0;
