@@ -4,7 +4,8 @@ public class Stack {
     private int tos;
     private int[] stack;
 
-
+    protected int test;
+    
     public Stack() {
         stack = new int[10];
         tos = -1;
@@ -16,21 +17,17 @@ public class Stack {
     }
 
     public void push(int item) {
-        if (tos == stack.length - 1) {
-            System.out.println("The stack is already full!");
-        } else {
-            stack[++tos] = item;
-        }
-    }
-
-    public void dblPush(int item) {
         if (tos > stack.length * 0.75) {
-            int double_size = stack.length * 2;
-            int[] double_stack = new int[double_size];
-            System.arraycopy(stack, 0, double_stack, 0, stack.length);
-            stack = double_stack;
+            extendCapacity();
         }
         stack[++tos] = item;
+    }
+
+    private void extendCapacity() {
+        int double_size = stack.length * 2;
+        int[] double_stack = new int[double_size];
+        System.arraycopy(stack, 0, double_stack, 0, stack.length);
+        stack = double_stack;
     }
 
     public int pop() {
