@@ -1,22 +1,21 @@
-package homework_4.Vahe_Vardanyan.stack;
+package homework_4.Vahe_Vardanyan.homework_4_1.stack2;
 
-public class Stack {
-    int length;
+public class Stack2 {
+    private  int length;
+private int[] arr;
+    private int size;
 
-    Integer[] arr;
-    int size;
 
-
-    Stack(int capacity) {
-        this.arr = new Integer[capacity];
+   public Stack2(int[] arr){
+        this.arr = arr;
     }
 
 
-    boolean isEmpty() {
+   public boolean isEmpty() {
         return this.size == 0;
     }
 
-    boolean isFully() {
+   public boolean isFully() {
         return this.size == this.arr.length;
     }
 
@@ -34,7 +33,7 @@ public class Stack {
     }
 
 
-    Integer pop() {
+   public Integer pop() {
         if (this.isEmpty()) {
             System.err.println("Error Stack is Empty");
             return null;
@@ -44,17 +43,14 @@ public class Stack {
     }
 
 
-    void extend() {
-
+   private void extend() {
 
             System.out.println("Stack is reached 75%");
             Integer[] newarr = new Integer[arr.length + 1 * 2];
             for (int i = 0; i < arr.length; i++) {
                 newarr[i] = arr[i];
             }
-            arr = newarr;
-        }
+   }
 
     }
-
 
