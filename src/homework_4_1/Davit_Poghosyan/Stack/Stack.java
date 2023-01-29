@@ -1,12 +1,18 @@
 package homework_4_1.Davit_Poghosyan.Stack;
 
 public class Stack {
-  private   int[] stackArray;
-  private   int topS = -1;
-  private   int counter;
+  private  int[] stackArray;
+  private static final int SIZE=10;
+  private  int topS;
+  private  int counter;
 
+    public Stack(){
+        this(SIZE);
+        topS = -1;
+
+    }
    public Stack(int sizeOfStack) {
-
+        topS = -1;
         stackArray = new int[sizeOfStack];
     }
 
@@ -18,7 +24,7 @@ public class Stack {
         return array;
     }
     public void push(int k) {
-        if (topS == stackArray.length) {
+        if (topS == stackArray.length-1) {
             System.out.println("The stack is already full");
         } else {
             stackArray[++topS] = k;
