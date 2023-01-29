@@ -1,6 +1,5 @@
 package homework_4.Anna_Manukyan;
 
-import homework_1.Zara_Avetyan.Array;
 
 import java.util.Arrays;
 

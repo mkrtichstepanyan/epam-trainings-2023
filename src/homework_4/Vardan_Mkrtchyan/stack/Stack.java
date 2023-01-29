@@ -5,14 +5,14 @@ public class Stack {
         String[] arr;
         int size;
     public
-        Stack(){
-            length = 10;
+        Stack(int x){
+            length = x;
             size = -1;
             arr = new String[length];
         }
         void push(String x){
-            if(size >= length - 1){
-                System.out.println("Stack is full");
+            if(size >= length * 0.75){
+                extendPush(x);
             }
             else{
                 arr[++size] = x;
@@ -28,18 +28,20 @@ public class Stack {
             arr[size--] = null;
             return result;
         }
+        int getSize(){
+            return size + 1;
+        }
+        private void extendPush(String x){
 
-        void refPush(String x){
-            if(size >= length * 0.75){
-                length *= 2;
-                String arr[] = new String[length];
+            length *= 2;
+            String arr[] = new String[length];
 
-                for(int i = 0; i < size + 1; i++){
-                    arr[i] = this.arr[i];
-                }
-                System.out.println("refPush: " + x);
-                this.arr = arr;
-                this.arr[++size] = x;
+            for(int i = 0; i < size + 1; i++){
+                arr[i] = this.arr[i];
             }
+
+            System.out.println("extendPush: " + x);
+            this.arr = arr;
+            this.arr[++size] = x;
         }
 }
