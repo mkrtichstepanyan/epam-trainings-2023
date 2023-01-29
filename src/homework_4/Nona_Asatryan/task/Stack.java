@@ -18,18 +18,14 @@ public class Stack {
     }
 
     public void push(int element) {
-        if (top == size - 1) {
-            System.out.println("The stack is already full!");
-        } else {
-            stack[++top] = element;
-            if (top >= 0.75 * size) {
-                System.out.println("Stack is full up to 75%.");
-                int[] newStack = new int[size * 2];
-                System.arraycopy(stack, 0, newStack, 0, size);
-                System.out.println("New stack is created.");
-                stack = newStack;
-                size *= 2;
-            }
+        stack[++top] = element;
+        if (top >= 0.75 * size) {
+            System.out.println("Stack is full up to 75%.");
+            int[] newStack = new int[size * 2];
+            System.arraycopy(stack, 0, newStack, 0, size);
+            System.out.println("New stack is created.");
+            stack = newStack;
+            size *= 2;
         }
     }
 
