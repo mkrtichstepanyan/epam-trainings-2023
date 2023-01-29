@@ -8,7 +8,7 @@ public class Task_2 {
 //        printNumbers(10);      // Question 1 -> try with different integer values instead of 10 only
 //        sumNumbers();                // Question 2
 //        table();                     // question 3
-//        factorialDemo1();            // Question 4
+        factorialDemo1();            // Question 4
 //        powerDemo();                 // Question 5
 //        reverseNumber();             // Question 6
 //        readSetIntegers();           // Question 7
@@ -73,7 +73,7 @@ public class Task_2 {
         num = console.nextInt();
 
         for (int i = 1; i <= num; i++){
-            fact *= 1;
+            fact *= i;
         }
 
         System.out.println("Factorial: " + fact);
