@@ -5,7 +5,7 @@ public class Stack {
     private int top;
     private int size;
 
-    //Դefault constructor
+    //Default constructor
     public Stack() {
         this.size = 10;
         stack = new int[this.size];
@@ -27,12 +27,7 @@ public class Stack {
             stack[++top] = element;
         }
         if (top > 0.75 * size) {
-            int[] newStack = new int[size * 2];
-            if (size >= 0) {
-                System.arraycopy(stack, 0, newStack, 0, size);
-            }
-            stack = newStack;
-            size *= 2;
+            extendStack();
         }
     }
 
@@ -44,6 +39,15 @@ public class Stack {
         } else {
             return stack[top--];
         }
+    }
+
+    private void extendStack() {
+        int[] newStack = new int[2 * stack.length];
+        if (size >= 0) {
+            System.arraycopy(stack, 0, newStack, 0, top + 1);
+        }
+        stack = newStack;
+        size *= 2;
     }
 }
 
