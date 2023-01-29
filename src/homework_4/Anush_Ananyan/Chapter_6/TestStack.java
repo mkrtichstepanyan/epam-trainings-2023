@@ -6,7 +6,8 @@ public class TestStack {
     public static void main(String[] args) {
         Stack mystack1 = new Stack();
 
-       // System.out.println("stack size before push:" + " " + mystack1.stck.length);
+        // System.out.println("stack size before push:" + " " + mystack1.stck.length);
+
         mystack1.push(1);
         mystack1.push(2);
         mystack1.push(3);
@@ -20,6 +21,6 @@ public class TestStack {
         mystack1.push(11);
         mystack1.push(12);
 
-       // System.out.println("stack size after push:" + " " + mystack1.stck.length);
+       //  System.out.println("stack size after push:" + " " + mystack1.stck.length);
     }
 }

@@ -1,11 +1,16 @@
 package homework_4.Anush_Ananyan.Chapter_6;
 
 public class Stack {
-   private int[] stck;
-   private int tos;
+    private int[] stck;
+    private int tos;
 
     public Stack() {
         stck = new int[10];
+        tos = -1;
+    }
+
+    public Stack(int size) {
+        stck = new int[size];
         tos = -1;
     }
 
@@ -13,7 +18,7 @@ public class Stack {
         if (tos == stck.length * 75 / 100) {
             extendVolume();
         }
-        stck[++tos] =item;
+        stck[++tos] = item;
     }
 
     public int pop() {
@@ -30,6 +35,6 @@ public class Stack {
         for (int i = 0; i <= tos; i++) {
             newStck[i] = stck[i];
         }
-         stck =newStck;
+        stck = newStck;
     }
 }
