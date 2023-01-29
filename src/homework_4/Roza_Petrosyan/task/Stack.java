@@ -17,21 +17,17 @@ public class Stack {
     }
 
     public void push(int item) {
-        if (tos == stack.length - 1) {
-            System.out.println("The stack is already full!");
-        } else {
-            stack[++tos] = item;
-        }
-    }
-
-    public void extendCapacity(int item) {
         if (tos > stack.length * 0.75) {
-            int double_size = stack.length * 2;
-            int[] double_stack = new int[double_size];
-            System.arraycopy(stack, 0, double_stack, 0, stack.length);
-            stack = double_stack;
+            extendCapacity();
         }
         stack[++tos] = item;
+    }
+
+    private void extendCapacity() {
+        int double_size = stack.length * 2;
+        int[] double_stack = new int[double_size];
+        System.arraycopy(stack, 0, double_stack, 0, stack.length);
+        stack = double_stack;
     }
 
     public int pop() {
@@ -41,22 +37,5 @@ public class Stack {
         } else {
             return stack[tos--];
         }
-    }
-
-    public void setTos(int tos) {
-
-        this.tos = tos;
-    }
-
-    public int getTos() {
-        return tos;
-    }
-
-    public void setStack(int[] stack) {
-        this.stack = stack;
-    }
-
-    public int[] getStack() {
-        return stack;
     }
 }
