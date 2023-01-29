@@ -20,7 +20,7 @@ public class Stack {
 
     public void push(int item) {
 
-        if (index == 0.75 * length) {
+        if (index >= 0.75 * length) {
             extendCapacity();
         }
         stack[++index] = item;
@@ -45,9 +45,10 @@ public class Stack {
             newStack[i] = stack[i];
         }
         stack = newStack;
+        this.length = newStack.length;
     }
 
-    public int setLength() {
+    public int getLength() {
         return this.length;
     }
 }
