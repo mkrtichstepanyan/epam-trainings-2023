@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 //Implementation of stack class
 public class Stack {
-    private int top = -1;
+    private int top;
     private int[] stack;
     private int capacity;
     private static final int DEFAULT_SIZE = 10;
