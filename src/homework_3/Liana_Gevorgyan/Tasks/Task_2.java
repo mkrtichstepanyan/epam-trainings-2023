@@ -35,7 +35,6 @@ public class Task_2 {
         // Todo write your code here ...
         for (int i = 1; i <=10 ; i++) {
                 sum= sum+i;
-                System.out.println(sum);
 
         }
         System.out.println("Sum: " + sum);
