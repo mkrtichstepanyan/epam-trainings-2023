@@ -9,12 +9,12 @@ public class Stack {
     private int multiplier = 2;
 
 
-    Stack() {
+    public Stack() {
         this(DEFAULT_SIZE);
         this.index = -1;
     }
 
-    Stack(int size) {
+    public Stack(int size) {
         this.size = size;
         this.stack = new int[size];
         this.index = -1;
