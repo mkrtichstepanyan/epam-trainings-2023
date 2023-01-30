@@ -1,13 +1,14 @@
 package homework_4.gohar_hakobyan;
 
 public class Stack {
+    private static final int DEFAULT_SIZE = 10;
     private int[] stack;
     private int top;
     private int size;
 
     //Default constructor
     public Stack() {
-        this.size = 10;
+        this.size = DEFAULT_SIZE;
         stack = new int[this.size];
         top = -1;
     }
