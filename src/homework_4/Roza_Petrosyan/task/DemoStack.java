@@ -24,14 +24,10 @@ public class DemoStack {
             System.out.println(stack1.pop());
         }
 
-        for (int i = 0; i < 30; i++) {
-            stack1.dblPush(i);
-        }
+        // Access modifiers
 
-        System.out.println("Popped elements from double stack with parameter : ");
-        for (int i = 0; i < 30; i++) {
-            System.out.println(stack1.pop());
-        }
+//        System.out.println(stack.tos);   // has private access
+//        System.out.println(stack.stack); // has private access
     }
 }
 
