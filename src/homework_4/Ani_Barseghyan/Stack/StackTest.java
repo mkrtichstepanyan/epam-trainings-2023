@@ -20,7 +20,7 @@ public class StackTest {
         for (int i = 1; i <= stack2.size; i++) {
             stack2.push(i);
         }
-        for (int i = 1; i <= stack2.elementCount; i++) {
+        for (int i = 1; i <= stack2.size; i++) {
             System.out.println("The " + i + " element in stack is " + stack2.pop());
         }
 
@@ -33,7 +33,7 @@ public class StackTest {
         stack3.push(12);
         stack3.push(13);
         stack3.push(14);
-        for (int i = 1; i <= stack3.elementCount; i++) {
+        for (int i = 1; i <= 7; i++) {
             System.out.println("The " + i + " element in stack is " + stack3.pop());
         }
     }

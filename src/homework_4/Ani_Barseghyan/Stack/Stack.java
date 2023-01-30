@@ -4,8 +4,7 @@ public class Stack {
     private int[] stackArray;
     private int top;
     int size;
-    private static int defaultSize = 10;
-    public int elementCount = 0;
+    private static final int DEFAULT_SIZE = 10;
 
     Stack(int length) {
         this.size = length;
@@ -14,22 +13,21 @@ public class Stack {
     }
 
     Stack() {
-        this(defaultSize);
-        this.size = defaultSize;
+        this(DEFAULT_SIZE);
+        this.size = DEFAULT_SIZE;
         this.top = -1;
     }
 
     public void push(int element) {
-        if (elementCount >= stackArray.length * 0.75) {
+        if (top > stackArray.length * 0.75 - 1) {
             extendStack();
         }
         stackArray[++top] = element;
-        elementCount++;
     }
 
     public void extendStack() {
         int[] newArray = new int[2 * stackArray.length];
-        for (int i = 0; i < elementCount; i++) {
+        for (int i = 0; i <= top; i++) {
             newArray[i] = stackArray[i];
         }
         stackArray = newArray;
