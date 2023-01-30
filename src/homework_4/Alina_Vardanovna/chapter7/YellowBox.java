@@ -1,6 +1,6 @@
 package homework_4.Alina_Vardanovna.chapter7;
 
-import homework.javabook.chapter6.Box;
+import homework_4.Alina_Vardanovna.chapter6.Box;
 
 public class YellowBox {
 
@@ -14,7 +14,6 @@ public class YellowBox {
         this.height = height;
         this.depth = depth;
     }
-
 
     public double volume() {
         return width * height * depth;
