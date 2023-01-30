@@ -5,7 +5,7 @@ package homework_4.Galust_Arzumanyan.Test_Stack;
  * Todo Refactor the stack to accept as many elements as we want,
  * when the stack is full by 75 percent, increase its size by two times (x2)
  */
-class Stack {
+public class Stack {
     int stack_size;
     int[] stack;
     int tos;
