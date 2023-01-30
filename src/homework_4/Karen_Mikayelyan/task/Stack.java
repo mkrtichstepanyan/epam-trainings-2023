@@ -16,22 +16,20 @@ public class Stack {
     }
 
     public void push(int item) {
-        if (index == stack.length - 1) {
-            System.out.println("The stack is already full!");
+        if (index > stack.length * 0.75) {
+            extendCapacity(item);
         } else {
             stack[++index] = item;
         }
     }
 
-    public void doublePush(int item) {
-        if (index > stack.length * 0.75) {
-            int doubleSize = stack.length * 2;
-            int[] doubleStack = new int[doubleSize];
-            System.arraycopy(stack, 0, doubleStack, 0, stack.length);
-            stack = doubleStack;
-        }
+    private void extendCapacity(int item) {
+        int[] newStack = new int[stack.length * 2];
+        System.arraycopy(stack, 0, newStack, 0, stack.length);
+        stack = newStack;
         stack[++index] = item;
     }
+
 
     public int pop() {
         if (index < 0) {
