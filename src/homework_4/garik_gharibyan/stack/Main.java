@@ -15,12 +15,12 @@ public class Main {
         }
 
         System.out.print("Array stack1 are: ");
-        for (int i : stack1.arrayStack) {
+        for (int i : stack1.getArrayStack()) {
             System.out.print(i + " ");
         }
         System.out.println();
         System.out.print("Array stack2 are: ");
-        for (int i : stack2.arrayStack) {
+        for (int i : stack2.getArrayStack()) {
             System.out.print(i + " ");
         }
 
@@ -33,6 +33,10 @@ public class Main {
         for (int i = 0; i < 8; i++) {
             System.out.print(stack2.pop() + " ");
         }
+
+        System.out.println();
+        System.out.println("Stack1 topItem id : " + stack1.getTopItem());
+        System.out.println("Stack2 topItem id : " + stack2.getTopItem());
 
     }
 }

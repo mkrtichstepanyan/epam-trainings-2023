@@ -2,7 +2,7 @@ package homework_4.Samvel_Hakobyan.stack;
 
 public class Stack {
     Integer[] arr;
-    int cursor;
+     int cursor;
 
 
     Stack(int capacity) {
@@ -13,11 +13,11 @@ public class Stack {
         return this.cursor;
     }
 
-    boolean isEmpty() {
+  boolean isEmpty() {
         return this.cursor == 0;
     }
 
-    boolean isFully() {
+   boolean isFully() {
         return this.cursor == this.arr.length;
     }
 
@@ -30,7 +30,7 @@ public class Stack {
     }
 
 
-    Integer pop() {
+     Integer pop() {
         if (this.isEmpty()) {
             System.err.println("Error Stack is Empty");
             return null;
@@ -40,8 +40,9 @@ public class Stack {
     }
 
 
-  Integer refactor() {
+    Integer scanAndIncrease() {
         if (cursor >= (arr.length * 75) / 100) {
+
             System.out.println("Stack is reached 75%");
             Integer[] newarr = new Integer[arr.length + 1 * 2];
             for (int i = 0; i < arr.length; i++) {
@@ -49,9 +50,8 @@ public class Stack {
             }
             arr = newarr;
         }
-       
-return null;
-   
+        return null;
     }
 
 }
+

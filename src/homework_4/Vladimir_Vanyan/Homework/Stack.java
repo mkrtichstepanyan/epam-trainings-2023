@@ -5,28 +5,26 @@ class Home {
         Stack stack = new Stack();
         // Stack stack2=new Stack(26);
 
-        System.out.println("First size of stack" + stack.stackSize);
 
         for (int i = 0; i < 100; i++) {
             stack.push(i);
         }
         System.out.println("First element is " + stack.pop());
-        System.out.println("The stack size is " + stack.stackSize);
     }
 }
 
 class Stack {
-    int[] stack;
-    int tos = -1;
-    int stackSize = 10;
+    private int[] stack;
+    private int tos = -1;
+    private int stackSize = 10;
 
     Stack() {
         stack = new int[stackSize];
     }
 
     Stack(int size) {
-        stack = new int[size];
-        stackSize = size;
+        this.stack = new int[size];
+        this.stackSize = size;
     }
 
     void push(int element) {

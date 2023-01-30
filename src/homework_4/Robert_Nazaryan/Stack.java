@@ -2,43 +2,53 @@ package homework_4.Robert_Nazaryan;
 
 public class Stack {
 
-    Integer[] stack;
-    int tos;
-    int size = 10;
+    private Integer[] stack;
+    private int index;
+    private int length = 10;
 
-    Stack() {
-        tos = -1;
-        stack = new Integer[size];
+    public Stack() {
+        index = -1;
+        stack = new Integer[length];
     }
 
-    Stack(int s) {
+    public Stack(int l) {
 
-        size = s;
-        tos = -1;
-        stack = new Integer[size];
+        length = l;
+        index = -1;
+        stack = new Integer[length];
     }
 
-    void push(int item) {
+    public void push(int item) {
 
-        if (tos == size - 1) {
-
-            System.out.println("Stack is full.");
-        } else {
-
-            stack[++tos] = item;
+        if (index >= 0.75 * length) {
+            extendCapacity();
         }
+        stack[++index] = item;
     }
 
-    Integer pop() {
+    public Integer pop() {
 
-        if (tos == -1) {
+        if (index == -1) {
 
             System.out.println("The stack is empty!");
             return null;
         } else {
 
-            return stack[tos--];
+            return stack[index--];
         }
     }
 
+    private void extendCapacity() {
+
+        Integer[] newStack = new Integer[2 * stack.length];
+        for (int i = 0; i <= index; i++) {
+            newStack[i] = stack[i];
+        }
+        stack = newStack;
+        this.length = newStack.length;
+    }
+
+    public int getLength() {
+        return this.length;
+    }
 }
