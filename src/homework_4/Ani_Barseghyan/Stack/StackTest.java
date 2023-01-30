@@ -8,25 +8,25 @@ public class StackTest {
 
 
         System.out.println("Stack 1");
-        for (int i = 1; i <= stack1.size; i++) {
+        for (int i = 1; i <= 10; i++) {
             stack1.push(i);
         }
-        for (int i = 1; i <= stack1.size; i++) {
+        for (int i = 1; i <= 10; i++) {
             System.out.println("The " + i + " element in stack is " + stack1.pop());
         }
 
         System.out.println();
         System.out.println("Stack 2");
-        for (int i = 1; i <= stack2.size; i++) {
+        for (int i = 1; i <= 5; i++) {
             stack2.push(i);
         }
-        for (int i = 1; i <= stack2.size; i++) {
+        for (int i = 1; i <= 5; i++) {
             System.out.println("The " + i + " element in stack is " + stack2.pop());
         }
 
         System.out.println();
         System.out.println("Stack 3");
-        for (int i = 1; i <= stack3.size; i++) {
+        for (int i = 1; i <= 3; i++) {
             stack3.push(i);
         }
         stack3.push(11);

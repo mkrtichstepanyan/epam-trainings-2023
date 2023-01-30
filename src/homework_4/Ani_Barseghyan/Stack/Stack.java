@@ -3,7 +3,7 @@ package homework_4.Ani_Barseghyan.Stack;
 public class Stack {
     private int[] stackArray;
     private int top;
-    int size;
+    private int size;
     private static final int DEFAULT_SIZE = 10;
 
     Stack(int length) {
@@ -13,8 +13,7 @@ public class Stack {
     }
 
     Stack() {
-        this(DEFAULT_SIZE);
-        this.size = DEFAULT_SIZE;
+        this.stackArray = new int[ DEFAULT_SIZE];
         this.top = -1;
     }
 
