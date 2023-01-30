@@ -1,4 +1,4 @@
-package homework_5;
+package homework_5.garik_gharibyan;
 
 class Factorial {
     int fact(int n) {

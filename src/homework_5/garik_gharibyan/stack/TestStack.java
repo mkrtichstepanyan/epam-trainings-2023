@@ -1,6 +1,6 @@
-package homework_5.stack;
+package homework_5.garik_gharibyan.stack;
 
-import homework_5.stack.Stack;
+import homework_5.garik_gharibyan.stack.Stack;
 
 public class TestStack {
     public static void main(String[] args) {

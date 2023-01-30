@@ -1,4 +1,4 @@
-package homework_5.stack;
+package homework_5.garik_gharibyan.stack;
 
 public class Stack {
     private int[] stck = new int[10];

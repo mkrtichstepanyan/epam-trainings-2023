@@ -1,4 +1,4 @@
-package homework_5;
+package homework_5.garik_gharibyan;
 
 class RecTest {
     int[] values;
