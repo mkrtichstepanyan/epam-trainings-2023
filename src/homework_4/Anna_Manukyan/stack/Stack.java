@@ -1,16 +1,13 @@
 package homework_4.Anna_Manukyan.stack;
 
-import homework_1.Zara_Avetyan.Array;
-
 import java.util.Arrays;
 
 //Implementation of stack class
 public class Stack {
     private int top = -1;
     private int[] stack;
-    private int count;
     private int capacity;
-    private static int DEFAULT_SIZE = 10;
+    private static final int DEFAULT_SIZE = 10;
 
     Stack() {
         stack = new int[DEFAULT_SIZE];
@@ -41,7 +38,6 @@ public class Stack {
 
     public boolean extendIsFull() {
         if (top == stack.length * 75/100) {
-            count++;
             return true;
         }
         return false;

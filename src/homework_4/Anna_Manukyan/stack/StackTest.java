@@ -1,7 +1,5 @@
 package homework_4.Anna_Manukyan.stack;
 
-import homework_4.Anna_Manukyan.stack.Stack;
-
 public class StackTest {
     public static void main(String[] args) {
         Stack stack = new Stack();
