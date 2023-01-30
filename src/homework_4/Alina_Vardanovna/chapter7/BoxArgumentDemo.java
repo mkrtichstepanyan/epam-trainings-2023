@@ -3,7 +3,6 @@ package homework_4.Alina_Vardanovna.chapter7;
 import homework_4.Alina_Vardanovna.chapter6.Box;
 
 public class BoxArgumentDemo {
-
     public static void main(String[] args) {
 
         BoxArgument boxArgument = new BoxArgument();
