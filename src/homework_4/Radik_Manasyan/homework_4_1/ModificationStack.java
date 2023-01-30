@@ -18,7 +18,9 @@ public class ModificationStack {
             System.out.println("The stack is already full!");
         } else {
             array[++size] = element;
-            refactor();
+            if (size >= length * 75 / 100) {
+                refactor();
+            }
         }
     }
 
@@ -32,15 +34,9 @@ public class ModificationStack {
     }
 
     private void refactor() {
-        if (size >= length * 75 / 100) {
-            int[] temp = new int[length * 2];
-            if (size + 1 >= 0) System.arraycopy(array, 0, temp, 0, size + 1);
-            array = temp;
-            length = temp.length;
-        }
-    }
-
-    public int getLength() {
-        return length;
+        int[] temp = new int[length * 2];
+        if (size + 1 >= 0) System.arraycopy(array, 0, temp, 0, size + 1);
+        array = temp;
+        length = temp.length;
     }
 }
