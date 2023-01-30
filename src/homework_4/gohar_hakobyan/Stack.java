@@ -1,13 +1,14 @@
 package homework_4.gohar_hakobyan;
 
 public class Stack {
+    private static final int DEFAULT_SIZE = 10;
     private int[] stack;
     private int top;
     private int size;
 
-    //Դefault constructor
+    //Default constructor
     public Stack() {
-        this.size = 10;
+        this.size = DEFAULT_SIZE;
         stack = new int[this.size];
         top = -1;
     }
@@ -27,12 +28,7 @@ public class Stack {
             stack[++top] = element;
         }
         if (top > 0.75 * size) {
-            int[] newStack = new int[size * 2];
-            if (size >= 0) {
-                System.arraycopy(stack, 0, newStack, 0, size);
-            }
-            stack = newStack;
-            size *= 2;
+            extendStack();
         }
     }
 
@@ -44,6 +40,15 @@ public class Stack {
         } else {
             return stack[top--];
         }
+    }
+
+    private void extendStack() {
+        int[] newStack = new int[2 * stack.length];
+        if (size >= 0) {
+            System.arraycopy(stack, 0, newStack, 0, top + 1);
+        }
+        stack = newStack;
+        size *= 2;
     }
 }
 
