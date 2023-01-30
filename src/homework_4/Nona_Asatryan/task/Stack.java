@@ -4,10 +4,11 @@ public class Stack {
     private int[] stack;
     private int size;
     private int top;
+    private static final int DEFAULT_SIZE = 10;
 
     public Stack() {
-        this.stack = new int[size];
-        this.size = 10;
+        this.stack = new int[DEFAULT_SIZE];
+        this.size = DEFAULT_SIZE;
         this.top = -1;
     }
 
