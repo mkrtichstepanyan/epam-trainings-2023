@@ -34,6 +34,10 @@ public class Main {
             System.out.print(stack2.pop() + " ");
         }
 
+        System.out.println();
+        System.out.println("Stack1 topItem id : " + stack1.getTopItem());
+        System.out.println("Stack2 topItem id : " + stack2.getTopItem());
+
     }
 }
 
