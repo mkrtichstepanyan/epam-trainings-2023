@@ -8,13 +8,15 @@ public class StackDemo {
         for (int i = 0; i < 11; i++) {
             stack.push(i);
         }
-
         System.out.println("---------------");
-        stack.refactoringPush(10);
+        for (int i = 0; i < 100; i++) {
+            stack.refactoringPush(i);
+        }
         System.out.println("---------------");
 
         for (int i = 0; i < 10; i++) {
             System.out.println("Pop element : " + stack.pop());
         }
+
     }
 }

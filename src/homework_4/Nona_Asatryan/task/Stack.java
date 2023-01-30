@@ -4,10 +4,11 @@ public class Stack {
     private int[] stack;
     private int size;
     private int top;
+    private static final int DEFAULT_SIZE = 10;
 
     public Stack() {
-        this.stack = new int[size];
-        this.size = 10;
+        this.stack = new int[DEFAULT_SIZE];
+        this.size = DEFAULT_SIZE;
         this.top = -1;
     }
 
@@ -18,18 +19,14 @@ public class Stack {
     }
 
     public void push(int element) {
-        if (top == size - 1) {
-            System.out.println("The stack is already full!");
-        } else {
-            stack[++top] = element;
-            if (top >= 0.75 * size) {
-                System.out.println("Stack is full up to 75%.");
-                int[] newStack = new int[size * 2];
-                System.arraycopy(stack, 0, newStack, 0, size);
-                System.out.println("New stack is created.");
-                stack = newStack;
-                size *= 2;
-            }
+        stack[++top] = element;
+        if (top >= 0.75 * size) {
+            System.out.println("Stack is full up to 75%.");
+            int[] newStack = new int[size * 2];
+            System.arraycopy(stack, 0, newStack, 0, size);
+            System.out.println("New stack is created.");
+            stack = newStack;
+            size *= 2;
         }
     }
 
