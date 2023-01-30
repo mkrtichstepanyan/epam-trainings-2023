@@ -35,7 +35,7 @@ public class ModificationStack {
 
     private void refactor() {
         int[] temp = new int[length * 2];
-        if (size + 1 >= 0) System.arraycopy(array, 0, temp, 0, size + 1);
+        System.arraycopy(array, 0, temp, 0, size + 1);
         array = temp;
         length = temp.length;
     }
