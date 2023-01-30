@@ -2,19 +2,22 @@ package homework_4.garik_gharibyan.stack;
 
 public class Stack {
 
-    private int topItem = -1;
+    private static final int DEFAULT_SIZE = 10;
+
+    private int topItem;
 
     private int[] arrayStack;
 
-    Stack() {
-        arrayStack = new int[10];
+    public Stack() {
+        arrayStack = new int[DEFAULT_SIZE];
+        topItem = -1;
     }
 
     public Stack(int arraySize) {
-
         arrayStack = new int[arraySize];
-
+        topItem = -1;
     }
+
     public int getTopItem() {
         return topItem;
     }
@@ -23,15 +26,10 @@ public class Stack {
         return arrayStack;
     }
 
-
     public void push(int number) {
 
         if (topItem > ((75 * arrayStack.length) / 100) - 2) {
-            int[] newArrayStack = new int[arrayStack.length * 2];
-            for (int i = 0; i < arrayStack.length; i++) {
-                newArrayStack[i] = arrayStack[i];
-            }
-            arrayStack = newArrayStack;
+            extendCapacity();
         }
         arrayStack[++topItem] = number;
     }
@@ -46,5 +44,13 @@ public class Stack {
             topItem--;
             return topElement;
         }
+    }
+
+    private void extendCapacity(){
+        int[] newArrayStack = new int[arrayStack.length * 2];
+        for (int i = 0; i < arrayStack.length; i++) {
+            newArrayStack[i] = arrayStack[i];
+        }
+        arrayStack = newArrayStack;
     }
 }
