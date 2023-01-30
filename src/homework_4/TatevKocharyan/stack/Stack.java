@@ -1,62 +1,58 @@
 package homework_4.TatevKocharyan.stack;
 
 public class Stack {
-
-    int[] array;
-    int size;
+    private int[] stck;
 
     Stack(int size) {
-        this.size = size;
-        array = new int[size];
+
+        stck = new int[size];
     }
 
 
     void push(int number) {
-        int[] newArray = new int[array.length * 2];
-        if (array[array.length / 4 * 3] != 0) {
+        if (stck[stck.length / 4 * 3] != 0) {
             System.out.println("The stack is already full!");
-            for (int i = 0; i < array.length; i++) {
-                newArray[i] = array[i];
-            }
-            array = newArray;
-
+            extendCapacity();
         } else {
-            for (int i = 0; i < array.length; i++) {
-                if (array[i] == 0) {
-                    array[i] = number;
+            for (int i = 0; i < stck.length; i++) {
+                if (stck[i] == 0) {
+                    stck[i] = number;
                     break;
                 }
             }
         }
+    }
 
+    private void extendCapacity() {
+        int[] newArray = new int[stck.length * 2];
+        for (int i = 0; i < stck.length; i++) {
+            newArray[i] = stck[i];
+        }
+        stck = newArray;
     }
 
     int pop() {
         int poped = 0;
-
-        for (int i = array.length - 1; i >= 0; i--) {
-            if (array[i] != 0) {
-                poped = array[i];
-                array[i] = 0;
+        for (int i = stck.length - 1; i >= 0; i--) {
+            if (stck[i] != 0) {
+                poped = stck[i];
+                stck[i] = 0;
                 break;
             }
-
         }
-        if (array[0] == 0) {
+        if (stck[0] == 0) {
             System.out.println("The stack is empty!");
         }
-
         return poped;
     }
 
     void print() {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == 0) {
+        for (int i = 0; i < stck.length; i++) {
+            if (stck[i] == 0) {
                 continue;
             } else {
-                System.out.print(array[i] + " ");
+                System.out.print(stck[i] + " ");
             }
         }
-
     }
 }
