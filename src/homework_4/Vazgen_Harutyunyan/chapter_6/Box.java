@@ -13,6 +13,9 @@ public class Box {
     }
 
     public Box(int w, int h, int d) {
+        width = w;
+        height = h;
+        depth = d;
     }
 
     void volume() {

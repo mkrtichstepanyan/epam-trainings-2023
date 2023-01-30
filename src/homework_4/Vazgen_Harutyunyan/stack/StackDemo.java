@@ -17,5 +17,6 @@ public class StackDemo {
         stack.push(11);
         stack.push(12);
         stack.pop();
+        stack.pop();
     }
 }

@@ -1,9 +1,9 @@
 package homework_4.Vazgen_Harutyunyan.stack;
 
 public class Stack {
-    int[] array;
-    int top;
-    int capacity;
+    private int[] array;
+    private int top;
+    private int capacity;
 
     Stack(int size) {
         array = new int[size];
@@ -13,35 +13,22 @@ public class Stack {
 
     public void push(int x) {
         if (isFull()) {
-            System.out.println("Overflow\n");
+            System.out.println("The stack is already full!");
             this.increaseStackCapacity();
         }
         System.out.println("Inserting " + x);
         array[++top] = x;
     }
 
-    public int pop() {
+    public Integer pop() {
 
-        if (isEmpty()) {
-            System.out.println("Underflow\nProgram Terminated");
-            System.exit(-1);
+        if (capacity <= 0) {
+            System.out.println("The stack is empty!");
+            return null;
         }
-        System.out.println("Removing " + peek());
+        System.out.println("Removing " + array[top]);
 
         return array[top--];
-    }
-
-    private int peek() {
-        if (!isEmpty()) {
-            return array[top];
-        } else {
-            System.exit(-1);
-        }
-        return -1;
-    }
-
-    private boolean isEmpty() {
-        return top == -1;
     }
 
     private boolean isFull() {
