@@ -15,7 +15,6 @@ public class YellowBox {
         this.depth = depth;
     }
 
-
     public double volume() {
         return width * height * depth;
     }

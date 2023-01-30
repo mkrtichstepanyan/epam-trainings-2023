@@ -24,10 +24,6 @@ public class StackDemo {
             System.out.println(stack1.pop());
         }
 
-        for (int i = 0; i < 30; i++) {
-            stack1.doublePush(i);
-        }
-
         System.out.println("Popped elements from double stack with parameter : ");
         for (int i = 0; i < 30; i++) {
             System.out.println(stack1.pop());
