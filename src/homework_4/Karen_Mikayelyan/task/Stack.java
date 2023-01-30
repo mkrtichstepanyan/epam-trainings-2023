@@ -23,7 +23,7 @@ public class Stack {
         }
     }
 
-    public void extendCapacity(int item) {
+    private void extendCapacity(int item) {
         int[] newStack = new int[stack.length * 2];
         System.arraycopy(stack, 0, newStack, 0, stack.length);
         stack = newStack;
