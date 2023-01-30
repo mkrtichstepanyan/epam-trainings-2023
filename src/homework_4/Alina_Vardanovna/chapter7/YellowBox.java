@@ -1,6 +1,6 @@
 package homework_4.Alina_Vardanovna.chapter7;
 
-import homework.javabook.chapter6.Box;
+import homework_4.Alina_Vardanovna.chapter6.Box;
 
 public class YellowBox {
 
