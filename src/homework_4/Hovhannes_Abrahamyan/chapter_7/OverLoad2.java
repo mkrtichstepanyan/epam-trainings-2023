@@ -1,8 +1,8 @@
 package homework_4.Hovhannes_Abrahamyan.chapter_7;
 
-public class Overload2 {
+public class OverLoad2 {
     public static void main(String[] args) {
-        OverloadDemo2 ob = new OverloadDemo2();
+        OverLoadDemo2 ob = new OverLoadDemo2();
         int i = 88;
 
         ob.test();
