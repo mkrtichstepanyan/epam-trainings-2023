@@ -2,17 +2,16 @@ package homework_4.Vardan_Mkrtchyan.stack;
 public class Stack {
     private
         int length;
-        String[] arr;
-        int size;
+        int[] arr;
+        int size = -1;
     public
         Stack(int x){
             length = x;
-            size = -1;
-            arr = new String[length];
+            arr = new int[length];
         }
-        void push(String x){
+        void push(int x){
             if(size >= length * 0.75){
-                extendPush(x);
+                extend(x);
             }
             else{
                 arr[++size] = x;
@@ -24,17 +23,17 @@ public class Stack {
             if (size < 0) {
                 return "Stack is empty";
             }
-            String result = arr[size];
-            arr[size--] = null;
-            return result;
+            int result = arr[size];
+            arr[size--] = 0;
+            return Integer.toString(result);
         }
         int getSize(){
             return size + 1;
         }
-        private void extendPush(String x){
+        private void extend(int x){
 
             length *= 2;
-            String arr[] = new String[length];
+            int arr[] = new int[length];
 
             for(int i = 0; i < size + 1; i++){
                 arr[i] = this.arr[i];

@@ -6,7 +6,7 @@ public class StackDemo {
         Stack stack = new Stack(10);
         Random rn = new Random();
         for(int i = 0; i < 14; i++){
-            stack.push(Integer.toString(rn.nextInt() % 10));
+            stack.push(i);
         }
         System.out.println("Size: " + stack.getSize());
         System.out.println("---------------");
