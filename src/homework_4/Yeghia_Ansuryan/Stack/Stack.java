@@ -4,12 +4,12 @@ public class Stack {
     private int[] array;
     private int index;
 
-    Stack() {
+   public Stack() {
         array = new int[10];
         index = -1;
     }
 
-    Stack(int size) {
+    public Stack(int size) {
 
         array = new int[size];
         index = -1;
