@@ -8,8 +8,7 @@ public class Task_1 {
 //        System.out.println(factorialDemo1(4));             // Question 3
 //        System.out.println(powerDemo(5,4));                // Question 4
 //        reverseNumber(245782);                             // Question 5
-//        readSetIntegers();                                 // Question 6
-//        System.out.println(isPrime(13,3));                 // Question 7 //here divisor must be 3
+//        System.out.println(isPrime(11));                   // Question 6
     }
 
 
@@ -70,13 +69,13 @@ public class Task_1 {
          For example, if the input is 12345, the output should be 54321.
      */
 
-    public static void reverseNumber(int number) {
+    public static int reverseNumber(int number) {
         if (number == 0) {
-            return;
+            return 1;
         }
 
         System.out.print(number % 10);
-        reverseNumber(number / 10);
+        return reverseNumber(number / 10);
     }
 
 
@@ -85,7 +84,11 @@ public class Task_1 {
         It should then output a message indicating whether the number is a prime number.
     */
 
-    public static boolean isPrime(int n, int currDivisor) {
+    public static boolean isPrime(int number) {
+        return isPrimeInternal(number, 3);
+    }
+
+    private static boolean isPrimeInternal(int n, int currDivisor) {
         if (n < 2 || n % currDivisor == 0) {
             return false;
         }
@@ -98,7 +101,7 @@ public class Task_1 {
             return true;
         }
 
-        return isPrime(n, currDivisor + 2);
+        return isPrimeInternal(n, currDivisor + 2);
     }
 }
 
