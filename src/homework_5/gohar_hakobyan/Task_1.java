@@ -137,6 +137,9 @@ public class Task_1 {
     }
 
     private static boolean isPrime(int number, int divisor) {
+        if (number == divisor) {
+            return true;
+        }
         if (number % divisor == 0) {
             return false;
         }
