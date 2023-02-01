@@ -123,12 +123,12 @@ public class Task_1 {
         It should then output a message indicating whether the number is a prime number.
     */
     public static boolean testPrime(int number, int i) {
-
-        if (number <= 0) {
-            System.out.println("Please enter the positive integer ");
-            System.out.println(number + "  isn't positive");
-        }
         boolean flag = true;
+        if (number <= 0) {
+            System.out.println(number + "  isn't prime");
+            return false;
+        }
+
         while (i < number) {
             if (number % i == 0) {
                 flag = false;
