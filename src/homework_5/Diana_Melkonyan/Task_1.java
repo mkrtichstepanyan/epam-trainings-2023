@@ -37,7 +37,7 @@ public class Task_1 {
         System.out.println(sum);
     }
 
-    public static int sumNumbers(int n) {
+    private static int sumNumbers(int n) {
         if (n <= 1)
             return n;
         return n + sumNumbers(n - 1);
@@ -62,7 +62,7 @@ public class Task_1 {
         System.out.println("Factorial: " + fact);
     }
 
-    public static int factorialDemo1Rec(int n) {
+    private static int factorialDemo1Rec(int n) {
 
         if (n <= 1) return 1;
         return n * factorialDemo1Rec(n - 1);
@@ -96,7 +96,7 @@ public class Task_1 {
         System.out.println("Result: " + result);
     }
 
-    public static int powerDemoRec(int base, int power) {
+    private static int powerDemoRec(int base, int power) {
         if (power != 0) {
             return base * powerDemoRec(base, power - 1);
         } else {
@@ -127,7 +127,7 @@ public class Task_1 {
         System.out.println("Reverse of " + number + " is " + reverse);
     }
 
-    public static int reversNumberRec(int num, int r) {
+    private static int reversNumberRec(int num, int r) {
         if (num == 0) {
             return r;
         } else {
@@ -160,7 +160,7 @@ public class Task_1 {
         }
     }
 
-    public static boolean testPrimeRec(int num) {
+    private static boolean testPrimeRec(int num) {
 
         if (num <= 1) {
             return false;
