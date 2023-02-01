@@ -1,20 +1,20 @@
 package homework_4.Karen_Sargsyan;
 
 public class Stack {
-    int[] array;
-    int index;
+    private int[] array;
+    private int index;
 
     public Stack() {
-        array = new int[10];
-        index = -1;
+        this.array = new int[10];
+        this.index = -1;
     }
 
     public Stack(int size) {
-        array = new int[size];
-        index = -1;
+        this.array = new int[size];
+        this.index = -1;
     }
 
-    void push(int element) {
+    public void push(int element) {
         if (index >= array.length - 1) {
             System.out.println("The stack is already full!");
         } else {
@@ -22,7 +22,7 @@ public class Stack {
         }
     }
 
-    int pop() {
+    public int pop() {
         if (index < 0) {
             System.out.println("The stack is empty!");
             return -1;
