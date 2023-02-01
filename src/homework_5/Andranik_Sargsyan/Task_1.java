@@ -2,14 +2,13 @@ package homework_5.Andranik_Sargsyan;
 
 public class Task_1 {
     public static void main(String[] args) {
-        printNumbers(22);                                // Question 1
+//        printNumbers(22);                                // Question 1
 //        System.out.println("Sum is: " + sumNumbers(1));  // Question 2
 //        System.out.println(factorialDemo1(6));           // Question 3
 //        System.out.println(powerDemo(3, 4));             // Question 4
-//        reverseNumber(12345);                            // Question 5
-//         isPrime(13);                                    // Question 6
+//        System.out.println(reverseNumber(123456789       // Question 5
+//        System.out.println(isPrime(17));                 // Question 6
     }
-
 
     /* TODO: Question 1
         Write a program to print numbers from 1 to given parameter.
@@ -59,43 +58,42 @@ public class Task_1 {
         }
     }
 
-     /* TODO: Question 5
-         Write a program that prompts the user to input an integer and then outputs the number with the digits reversed.
-         For example, if the input is 12345, the output should be 54321.
-     */
-
-    private static void reverseNumber(int number) {
-        if (number < 10) {
-            System.out.println(number);
-        } else {
-            System.out.print(number % 10);
-            reverseNumber(number / 10);
-        }
+    /* TODO: Question 5
+        Write a program that prompts the user to input an integer and then outputs the number with the digits reversed.
+        For example, if the input is 12345, the output should be 54321.
+    */
+    private static int reverseNumber(int num) {
+        return reverseNumberLogic(num, 0);
     }
 
+    private static int reverseNumberLogic(int number, int temp) {
+        if (number == 0) {
+            return temp;
+        }
+        int num = number % 10;
+        temp = temp * 10 + num;
+        return reverseNumberLogic(number / 10, temp);
+    }
 
     /* TODO: Question 6
         Write a program that prompts the user to input a positive integer.
         It should then output a message indicating whether the number is a prime number.
     */
 
-    private static void isPrime(int num) {
-
-        if (logic(num, 2)) {
-            System.out.println("It's Prime");
-        } else {
-            System.out.println("It's Not Prime");
-        }
+    private static boolean isPrime(int num) {
+        return logic(num, 2);
     }
 
     private static boolean logic(int num, int i) {
-        if (i == 1) {
+        if (num <= 2) {
             return true;
-        }
-        else if (num % i == 0) {
+        } else if (num % i == 0) {
             return false;
+        }
+        if (i * i > num) {
+            return true;
         } else {
-            return logic(num, i - 1);
+            return logic(num, i + 1);
         }
     }
 }
