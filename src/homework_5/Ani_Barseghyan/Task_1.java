@@ -23,8 +23,6 @@ public class Task_1 {
         if (count > 0) {
             printNumbers(count - 1);
             System.out.print(count + ", ");
-        } else {
-            System.out.println("Number is less than 1");
         }
     }
 
