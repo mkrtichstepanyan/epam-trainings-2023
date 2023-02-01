@@ -6,7 +6,7 @@ public class Task_1 {
 //        System.out.println("Sum is: " + sumNumbers(1));  // Question 2
 //        System.out.println(factorialDemo1(6));           // Question 3
 //        System.out.println(powerDemo(3, 4));             // Question 4
-//        reverseNumber(12345);                            // Question 5
+//        System.out.println(reverseNumber(12345));                            // Question 5
 //        System.out.println(isPrime(13));                 // Question 6
     }
 
@@ -84,13 +84,13 @@ public class Task_1 {
     }
 
     private static boolean logic(int num, int i) {
-        if (i == 1) {
+        if (num <= 2) {
             return true;
-        }
-        else if (num % i == 0) {
+        } else if (num % i == 0) {
             return false;
+        } else if (i * i > num) {
+            return true;
         } else {
-            return logic(num, i - 1);
-        }
+            return logic(num, i + 1);
     }
 }
