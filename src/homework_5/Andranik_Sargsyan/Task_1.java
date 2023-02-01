@@ -2,12 +2,12 @@ package homework_5.Andranik_Sargsyan;
 
 public class Task_1 {
     public static void main(String[] args) {
-        printNumbers(22);                                // Question 1
+//        printNumbers(22);                                // Question 1
 //        System.out.println("Sum is: " + sumNumbers(1));  // Question 2
 //        System.out.println(factorialDemo1(6));           // Question 3
 //        System.out.println(powerDemo(3, 4));             // Question 4
 //        reverseNumber(12345);                            // Question 5
-//         isPrime(13);                                    // Question 6
+//        System.out.println(isPrime(13));                 // Question 6
     }
 
 
@@ -55,7 +55,6 @@ public class Task_1 {
             return 1;
         } else {
             return (base * powerDemo(base, power - 1));
-
         }
     }
 
@@ -64,13 +63,14 @@ public class Task_1 {
          For example, if the input is 12345, the output should be 54321.
      */
 
-    private static void reverseNumber(int number) {
+    private static int reverseNumber(int number) {
         if (number < 10) {
             System.out.println(number);
         } else {
             System.out.print(number % 10);
             reverseNumber(number / 10);
         }
+        return number;
     }
 
 
@@ -79,13 +79,8 @@ public class Task_1 {
         It should then output a message indicating whether the number is a prime number.
     */
 
-    private static void isPrime(int num) {
-
-        if (logic(num, 2)) {
-            System.out.println("It's Prime");
-        } else {
-            System.out.println("It's Not Prime");
-        }
+    private static boolean isPrime(int num) {
+        return logic(num, 2);
     }
 
     private static boolean logic(int num, int i) {
