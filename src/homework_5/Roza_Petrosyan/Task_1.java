@@ -7,7 +7,7 @@ public class Task_1 {
 //        System.out.println(sumNumbers(10));                // Question 2
 //        System.out.println(factorialDemo1(4));             // Question 3
 //        System.out.println(powerDemo(5,4));                // Question 4
-//        reverseNumber(245782);                             // Question 5
+//        System.out.println(reverseNumber(245782));         // Question 5
 //        System.out.println(isPrime(11));                   // Question 6
     }
 
@@ -70,12 +70,16 @@ public class Task_1 {
      */
 
     public static int reverseNumber(int number) {
-        if (number == 0) {
-            return 1;
-        }
+        return innerReverseNumber(number, 0);
+    }
 
-        System.out.print(number % 10);
-        return reverseNumber(number / 10);
+    private static int innerReverseNumber(int number, int reverse) {
+        if (number == 0) {
+            return reverse;
+        } else {
+            reverse = reverse * 10 + number % 10;
+            return innerReverseNumber(number / 10, reverse);
+        }
     }
 
 
