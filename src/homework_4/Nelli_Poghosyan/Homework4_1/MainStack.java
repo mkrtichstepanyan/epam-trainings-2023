@@ -20,10 +20,10 @@ public class MainStack {
 
         System.out.println("\nSecond stack");
         Stack stack1 = new Stack(12);
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 15; i++) {
            stack1.push(i, 75);
         }
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 15; i++) {
             System.out.println(stack1.pop());
         }
     }

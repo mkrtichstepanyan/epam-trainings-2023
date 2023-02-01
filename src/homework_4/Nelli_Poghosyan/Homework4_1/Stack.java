@@ -4,15 +4,14 @@ public class Stack {
       private int[] stackArray;
       private int topS;
       private static final int SIZE = 10;
-      private int counter;
 
       public Stack(){
-          this(SIZE);
+          stackArray = new int[SIZE];
           topS = -1;
       }
       public Stack(int sizeOfStack){
-          topS = -1;
           stackArray = new int[sizeOfStack];
+          topS = -1;
         }
     public void push(int k) {
         if (topS == SIZE) {
@@ -22,15 +21,10 @@ public class Stack {
         }
     }
         public void push(int k, int percent) {
-                if (topS == stackArray.length) {
-                    System.out.println("The stack is already full");
-                } else {
                     stackArray[++topS] = k;
-                    counter++;
-                    if (counter > stackArray.length * percent / 100) {
+                    if (topS > stackArray.length * percent / 100) {
                         stackArray = stackCopy(stackArray.length * 2);
                     }
-                }
         }
         public int pop() {
             if (topS < 0) {
