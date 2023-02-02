@@ -11,7 +11,7 @@ public class Task_1 {
 //    powerDemo();            // Question 4
         //       reverseNumber();        // Question 5
         //   readSetIntegers();      // Question 6
-//    testPrime();            // Question 7
+    testPrime();            // Question 7
     }
 
 
@@ -165,7 +165,7 @@ public class Task_1 {
         if (num <= 1) {
             return false;
         }
-        for (int i = 2; i < num; i = i + 2) {
+        for (int i = 2; i < num; i++) {
             if (num % i == 0)
                 return false;
         }
