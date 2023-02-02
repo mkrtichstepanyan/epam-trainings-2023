@@ -8,20 +8,20 @@ public class PizzeriaPalmettoDemo {
 
     public static void main(String[] args) {
         Order order1 = new Order(new Customer("John", 7717));
-        Pizza margarita = new Pizza("Margarita", "Calzone", 2, order1.getIndex(), order1.getCustomer());
+        Pizza margarita = new Pizza("Margarita", "Calzone", 2);
         margarita.addIngredient("Tomato paste");
         margarita.addIngredient("Pepperoni");
         margarita.addIngredient("Garlic");
         margarita.addIngredient("Bacon");
 
-        Pizza pepperoniOro = new Pizza("PepperoniOro", "Calzone", 3, order1.getIndex(), order1.getCustomer());
+        Pizza pepperoniOro = new Pizza("PepperoniOro", "Calzone", 3);
         pepperoniOro.addIngredient("Tomato paste");
         pepperoniOro.addIngredient("Cheese");
         pepperoniOro.addIngredient("Salami");
         pepperoniOro.addIngredient("Olives");
 
         Order order2 = new Order(new Customer("George", 4372));
-        Pizza basePZZ = new Pizza("BasePZZ", "", 12, order2.getIndex(), order2.getCustomer());
+        Pizza basePZZ = new Pizza("BasePZZ", "", 12);
         basePZZ.addIngredient("Bacon");
         basePZZ.addIngredient("Cheese");
         basePZZ.addIngredient("Garlic");
@@ -40,17 +40,18 @@ public class PizzeriaPalmettoDemo {
         order2.displayPizzaAttributes(basePZZ);
         order3.displayPizzaAttributes(baseWithCalzoneAndTomatoPaste);
 
-        order1.addPizza(margarita);
         order1.addPizza(pepperoniOro);
-//      order1.addPizza(pepperoniOro);
-//      order1.addPizza(pepperoniOro);
-//      order1.addPizza(pepperoniOro);
-//      order1.addPizza(pepperoniOro);
-//      order1.addPizza(pepperoniOro);
-//      order1.addPizza(pepperoniOro);
-//      order1.addPizza(pepperoniOro);
-//      order1.addPizza(pepperoniOro);
-//      order1.addPizza(pepperoniOro);
+        order1.addPizza(margarita);
+
+//         order1.addPizza(pepperoniOro);
+//         order1.addPizza(pepperoniOro);
+//         order1.addPizza(pepperoniOro);
+//         order1.addPizza(pepperoniOro);
+//         order1.addPizza(pepperoniOro);
+//         order1.addPizza(pepperoniOro);
+//         order1.addPizza(pepperoniOro);
+//         order1.addPizza(pepperoniOro);
+//         order1.addPizza(pepperoniOro);
 
         order1.printCheck();
 

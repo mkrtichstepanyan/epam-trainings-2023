@@ -44,6 +44,13 @@ public class Pizza {
         this.ingredients = new String[MAX_INGREDIENTS];
         this.ingredientCount = 0;
     }
+    public Pizza(String name, String type, int quantity) {
+        this.name = name;
+        this.type = type;
+        this.quantity = quantity;
+        this.ingredients = new String[MAX_INGREDIENTS];
+        this.ingredientCount = 0;
+    }
 
     // adds ingredients to pizza, also disallows ingredient
     // count to rise more than max count of accessed and to

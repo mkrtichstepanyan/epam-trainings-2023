@@ -22,7 +22,7 @@ public class Order {
     private final Customer customer;
 
     // array keeps pizza objects
-    private final Pizza[] pizzas;
+    private final Pizza[] pizzas = new Pizza[10];
 
     // declares order date and time
     private final LocalDateTime orderTime;
@@ -33,7 +33,6 @@ public class Order {
         this.customer = customer;
         this.orderNumber = nextOrderNumber++;
         this.orderTime = LocalDateTime.now();
-        this.pizzas = new Pizza[9];
     }
 
     // getter for index
@@ -51,8 +50,11 @@ public class Order {
     // method gives message
     public void addPizza(Pizza pizza) {
         if (pizzas.length <= index) {
-            System.out.println("sorry, you can't order up to 10 orders! ");
+            System.out.println("sorry, you can't order up to 10 pizzas! ");
             System.exit(1);
+        }
+        if (pizza == null) {
+            System.out.println("you haven't chosen any pizza! \n please add pizza to your order list");
         }
         pizzas[index++] = pizza;
     }
