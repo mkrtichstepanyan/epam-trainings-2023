@@ -81,10 +81,10 @@ public class Task_1 {
     */
 
     private static boolean isPrime(int num) {
-        return logic(num, 2);
+        return isPrimeLogic(num, 2);
     }
 
-    private static boolean logic(int num, int i) {
+    private static boolean isPrimeLogic(int num, int i) {
         if (num <= 2) {
             return true;
         } else if (num % i == 0) {
@@ -93,7 +93,7 @@ public class Task_1 {
         if (i * i > num) {
             return true;
         } else {
-            return logic(num, i + 1);
+            return isPrimeLogic(num, i + 1);
         }
     }
 }
