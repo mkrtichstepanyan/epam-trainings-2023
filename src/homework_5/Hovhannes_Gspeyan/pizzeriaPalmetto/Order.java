@@ -10,15 +10,16 @@ import java.time.LocalDateTime;
 public class Order {
 
     // declares pizzas index
-    private int index = 0;
+    private int index;
+
     // declares order number
     private final int orderNumber;
 
     // declares five - digit number for order number
     private static int nextOrderNumber = 10001;
 
-    // declares customer number
-    private final int customerNumber;
+    // declares customer object
+    private final Customer customer;
 
     // array keeps pizza objects
     private final Pizza[] pizzas;
@@ -28,16 +29,20 @@ public class Order {
 
     // order objects constructor with 3 args as parameters
     // also provides order number to automatically rise up
-    public Order(int customerNumber, int numPizzas) {
+    public Order(Customer customer) {
+        this.customer = customer;
         this.orderNumber = nextOrderNumber++;
-        this.customerNumber = customerNumber;
-        this.pizzas = new Pizza[numPizzas];
         this.orderTime = LocalDateTime.now();
+        this.pizzas = new Pizza[10];
     }
 
     // getter for index
     public int getIndex() {
         return index;
+    }
+    // getter for customer
+    public Customer getCustomer() {
+        return customer;
     }
 
     // allows order to add pizza objects
@@ -49,7 +54,7 @@ public class Order {
     public void displayPizzaAttributes(Pizza pizza) {
         if (pizza != null) {
             System.out.println("--------------------------------");
-            System.out.println("[" + orderNumber + ": " + customerNumber + ": " + pizza.getName() + ": " + pizza.getQuantity() + "]");
+            System.out.println("[" + orderNumber + ": " + customer.getCustomerNumber() + ": " + pizza.getName() + ": " + pizza.getQuantity() + "]");
         }
     }
 
@@ -58,7 +63,7 @@ public class Order {
         System.out.println("********************************");
         System.out.println("Order date and time: " + orderTime);
         System.out.println("Order: " + orderNumber);
-        System.out.println("Client: " + customerNumber);
+        System.out.println("Client: " + customer.getCustomerNumber());
         double totalAmount = 0;
         totalAmount = getTotalAmount(totalAmount);
         System.out.println("Total amount: " + totalAmount + " $");

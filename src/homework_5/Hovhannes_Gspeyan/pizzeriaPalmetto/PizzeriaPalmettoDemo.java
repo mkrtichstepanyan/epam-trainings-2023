@@ -7,28 +7,28 @@ package homework_5.Hovhannes_Gspeyan.pizzeriaPalmetto;
 public class PizzeriaPalmettoDemo {
 
     public static void main(String[] args) {
-        Order order1 = new Order( 7717, 2);
-        Pizza margarita = new Pizza("Margarita", "Calzone", 2,order1.getIndex());
+        Order order1 = new Order( new Customer("John",7717));
+        Pizza margarita = new Pizza("Margarita", "Calzone", 2,order1.getIndex(),order1.getCustomer());
         margarita.addIngredient("Tomato paste");
         margarita.addIngredient("Pepperoni");
         margarita.addIngredient("Garlic");
         margarita.addIngredient("Bacon");
 
-        Pizza pepperoniOro = new Pizza("PepperoniOro", "Calzone", 3,order1.getIndex());
+        Pizza pepperoniOro = new Pizza("PepperoniOro", "Calzone", 3,order1.getIndex(),order1.getCustomer());
         pepperoniOro.addIngredient("Tomato paste");
         pepperoniOro.addIngredient("Cheese");
         pepperoniOro.addIngredient("Salami");
         pepperoniOro.addIngredient("Olives");
 
-        Order order2 = new Order( 4372, 1);
-        Pizza basePZZ = new Pizza("BasePZZ", "", 12,order2.getIndex());
+        Order order2 = new Order(  new Customer("George",4372));
+        Pizza basePZZ = new Pizza("BasePZZ", "", 12,order2.getIndex(),order2.getCustomer());
         basePZZ.addIngredient("Bacon");
         basePZZ.addIngredient("Cheese");
         basePZZ.addIngredient("Garlic");
         basePZZ.addIngredient("Corn");
 
-        Order order3 = new Order(4454,1);
-        Pizza baseWithCalzoneAndTomatoPaste = new Pizza("BaseWithCalzoneAndTomatoPaste","Calzone",1,order3.getIndex());
+        Order order3 = new Order( new Customer("Juan",4545));
+        Pizza baseWithCalzoneAndTomatoPaste = new Pizza("BaseWithCalzoneAndTomatoPaste","Calzone",1,order3.getIndex(),order3.getCustomer());
         baseWithCalzoneAndTomatoPaste.addIngredient("Bacon");
         baseWithCalzoneAndTomatoPaste.addIngredient("Garlic");
         baseWithCalzoneAndTomatoPaste.addIngredient("Corn");

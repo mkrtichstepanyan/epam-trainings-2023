@@ -28,13 +28,14 @@ public class Pizza {
     // declares quantity of pizza objects
     private final int quantity;
 
+
     // pizza object constructor with 3 args as parameters
     // also checks object's name is valid otherwise names
     // pizza obj. as "customer_name + quantity"
-    public Pizza(String name, String type, int quantity,int index) {
+    public Pizza(String name, String type, int quantity,int index, Customer customer) {
         if (name.length() < 4 || name.length() > 20) {
             this.index = index;
-            this.name = "customer_name_" + index;
+            this.name = customer.getName() + "_" + index;
         } else {
             this.name = name;
         }
