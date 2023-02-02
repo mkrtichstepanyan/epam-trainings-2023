@@ -1,6 +1,7 @@
 package homework_5.Hovhannes_Gspeyan.pizzeriaPalmetto;
 
 import java.time.LocalDateTime;
+
 /**
  * This class built to implement
  * customers orders objects
@@ -8,6 +9,7 @@ import java.time.LocalDateTime;
  */
 public class Order {
 
+    // declares pizzas index
     private int index = 0;
     // declares order number
     private final int orderNumber;
@@ -33,6 +35,11 @@ public class Order {
         this.orderTime = LocalDateTime.now();
     }
 
+    // getter for index
+    public int getIndex() {
+        return index;
+    }
+
     // allows order to add pizza objects
     public void addPizza(Pizza pizza) {
         pizzas[index++] = pizza;
@@ -45,6 +52,7 @@ public class Order {
             System.out.println("[" + orderNumber + ": " + customerNumber + ": " + pizza.getName() + ": " + pizza.getQuantity() + "]");
         }
     }
+
     // prints tickets for customers to provide them to see their orders
     public void printCheck() {
         System.out.println("********************************");

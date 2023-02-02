@@ -9,6 +9,10 @@ public class Pizza {
     // declares max size of allowed ingredients in pizza object
     public static final int MAX_INGREDIENTS = 7;
 
+    // declares pizzas obj. index
+    // with customer_name if pizzas name
+    // length isn't required
+    private int index;
     // name of a pizza object
     private String name;
 
@@ -27,9 +31,10 @@ public class Pizza {
     // pizza object constructor with 3 args as parameters
     // also checks object's name is valid otherwise names
     // pizza obj. as "customer_name + quantity"
-    public Pizza(String name, String type, int quantity) {
+    public Pizza(String name, String type, int quantity,int index) {
         if (name.length() < 4 || name.length() > 20) {
-            this.name = "customer_name_" + (quantity + 1);
+            this.index = index;
+            this.name = "customer_name_" + index;
         } else {
             this.name = name;
         }
@@ -88,5 +93,8 @@ public class Pizza {
 
     public int getQuantity() {
         return quantity;
+    }
+    public int getIndex() {
+        return index;
     }
 }
