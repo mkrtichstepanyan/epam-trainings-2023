@@ -1,4 +1,4 @@
-package homework_4.Vardan_Mkrtchyan.chapter7;package homework_4.Vardan_Mkrtchyan.chapter7;
+package homework_4.Vardan_Mkrtchyan.chapter7;
 public class Test {
     int a;
     public int b;
