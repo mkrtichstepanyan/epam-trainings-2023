@@ -31,11 +31,11 @@ public class PizzeriaPalmettoDemo {
         order1.displayPizzaAttributes(pepperoniOro);
         order2.displayPizzaAttributes(basePZZ);
 
-        order1.addPizza(margarita, 0);
-        order1.addPizza(pepperoniOro, 1);
+        order1.addPizza(margarita);
+        order1.addPizza(pepperoniOro);
         order1.printCheck();
 
-        order2.addPizza(basePZZ, 0);
+        order2.addPizza(basePZZ);
         order2.printCheck();
     }
 }

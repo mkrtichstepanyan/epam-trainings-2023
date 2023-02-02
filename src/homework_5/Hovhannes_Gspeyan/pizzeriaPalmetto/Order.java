@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
  */
 public class Order {
 
+    private int index = 0;
     // declares order number
     private final int orderNumber;
 
@@ -33,8 +34,8 @@ public class Order {
     }
 
     // allows order to add pizza objects
-    public void addPizza(Pizza pizza, int index) {
-        pizzas[index] = pizza;
+    public void addPizza(Pizza pizza) {
+        pizzas[index++] = pizza;
     }
 
     // displays pizza attributes
