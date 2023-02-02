@@ -55,7 +55,7 @@ public class Task_1 {
     /* TODO: Question 3
         Write a program to find the factorial value of any number entered through the keyboard.
     */
-    public static int calculateFactorialDemo(int number) {
+    private static int calculateFactorialDemo(int number) {
 
         int fact; // To hold factorial
 
