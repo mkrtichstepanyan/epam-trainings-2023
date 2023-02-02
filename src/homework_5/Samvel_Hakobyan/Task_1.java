@@ -11,7 +11,7 @@ public class Task_1 {
 //        powerDemo();                 // Question 4
 //        reverseNumber();             // Question 5
 //        readSetIntegers();           // Question 6
-//        testPrime();                 // Question 7
+        testPrime();                 // Question 7
     }
 
 
@@ -152,9 +152,29 @@ public class Task_1 {
         number = console.nextInt();
 
         boolean flag = true;
+        flag = recursionPrime(number, number / 2);
 
-        // Todo write your code here ...
+        if (flag) {
+            System.out.println(number + " - is prime number");
+        } else {
+            System.err.println(number + " - isnt prime number");
+        }
+
+    }
+
+
+    private static boolean recursionPrime(int n, int tmp) {
+        if (tmp <= 1) {
+            return true;
+        }
+        if (n % tmp == 0) {
+            return false;
+        }
+        return recursionPrime(n, tmp - 1);
+
 
     }
 }
+
+
 
