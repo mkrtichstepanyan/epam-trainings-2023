@@ -1,19 +1,17 @@
-package homework_5;
+package homework_5.Samvel_Hakobyan;
 
 import java.util.Scanner;
-
-import static java.lang.Long.sum;
 
 public class Task_1 {
 
     public static void main(String[] args) {
-//        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
+//        printNumbers(6);            // Question 1 -> try with different integer values instead of 10 only
 //        sumNumbers();                // Question 2
 //        factorialDemo1();            // Question 3
 //        powerDemo();                 // Question 4
- //       reverseNumber();             // Question 5
+//        reverseNumber();             // Question 5
 //        readSetIntegers();           // Question 6
-//        testPrime();                 // Question 7
+        testPrime();                 // Question 7
     }
 
 
@@ -21,7 +19,13 @@ public class Task_1 {
         Write a program to print numbers from 1 to given parameter.
     */
     public static void printNumbers(int count) {
-        // Todo write your code here ...
+        if (count == 0) {
+            return;
+        } else {
+            printNumbers(count - 1);
+        }
+        System.out.print(count + " | ");
+
     }
 
     /* TODO: Question 2
@@ -29,8 +33,18 @@ public class Task_1 {
     */
     public static void sumNumbers() {
         int sum = 0;
-
+        sum = recursionNumberCalculate(10);
         System.out.println("Sum: " + sum);
+    }
+
+    private static int recursionNumberCalculate(int n) {
+
+        if (n <= 1) {
+            return 1; //base step
+        } else {
+            return n + recursionNumberCalculate(n - 1); //recursion step
+        }
+
     }
 
 
@@ -45,9 +59,18 @@ public class Task_1 {
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
 
-        // Todo write your code here ...
+        fact = recursionFacterial(num);
 
         System.out.println("Factorial: " + fact);
+    }
+
+    private static int recursionFacterial(int n) {
+        if (n <= 1) {
+            return 1;
+        } else {
+            return n * recursionFacterial(n - 1);
+        }
+
     }
 
      /* TODO: Question 4
@@ -69,9 +92,19 @@ public class Task_1 {
         System.out.print("Enter the power ");
         power = console.nextInt();
 
+
+        result = recursionPower(base, power);
         // Todo write your code here ...
 
         System.out.println("Result: " + result);
+    }
+
+    private static int recursionPower(int base, int power) {
+        if (power == 0) {
+            return 1;
+        } else {
+            return base * recursionPower(base, power - 1);
+        }
     }
 
      /* TODO: Question 5
@@ -91,9 +124,18 @@ public class Task_1 {
         int temp = number;
         int remainder = 0;
 
-        // Todo write your code here ...
+        reverse = recursionReverse(temp, remainder);
 
         System.out.println("Reverse of " + number + " is " + reverse);
+    }
+
+    private static int recursionReverse(int temp, int reverse) {
+        int k = 10;
+        if (temp <= 10) {
+            return reverse * k + temp;
+        }
+        return recursionReverse(temp / k, reverse * k + temp % k);
+
     }
 
 
@@ -110,9 +152,29 @@ public class Task_1 {
         number = console.nextInt();
 
         boolean flag = true;
+        flag = recursionPrime(number, number / 2);
 
-        // Todo write your code here ...
+        if (flag) {
+            System.out.println(number + " - is prime number");
+        } else {
+            System.err.println(number + " - isnt prime number");
+        }
+
+    }
+
+
+    private static boolean recursionPrime(int n, int tmp) {
+        if (tmp <= 1) {
+            return true;
+        }
+        if (n % tmp == 0) {
+            return false;
+        }
+        return recursionPrime(n, tmp - 1);
+
 
     }
 }
+
+
 
