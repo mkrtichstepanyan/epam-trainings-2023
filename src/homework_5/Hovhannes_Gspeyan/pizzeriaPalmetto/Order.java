@@ -33,20 +33,27 @@ public class Order {
         this.customer = customer;
         this.orderNumber = nextOrderNumber++;
         this.orderTime = LocalDateTime.now();
-        this.pizzas = new Pizza[10];
+        this.pizzas = new Pizza[9];
     }
 
     // getter for index
     public int getIndex() {
         return index;
     }
+
     // getter for customer
     public Customer getCustomer() {
         return customer;
     }
 
     // allows order to add pizza objects
+    // if pizzas array length already full
+    // method gives message
     public void addPizza(Pizza pizza) {
+        if (pizzas.length <= index) {
+            System.out.println("sorry, you can't order up to 10 orders! ");
+            System.exit(1);
+        }
         pizzas[index++] = pizza;
     }
 
