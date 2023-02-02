@@ -2,16 +2,12 @@ package homework_4.Vardan_Mkrtchyan.chapter7;
 
 public class CallByValue {
     public static void main(String[] args) {
-       TestCallByValue ob = new TestCallByValue();
-       int x = 10, y = 15;
-        System.out.println("Before: " + x + " " + y);
-        ob.meth(x,y);
-        System.out.println("After: " + x + " " + y);
-    }
-}
-class TestCallByValue{
-    void meth(int i, int j){
-        i *= 2;
-        j *= 2;
+        Test ob = new Test();
+        int a = 15, b = 20;
+        System.out.println("a and b before call:" + " " + a + " " + b);
+
+        ob.meth(a, b);
+        System.out.println("a and b after call:" + " " + a + " " + b);
+
     }
 }
