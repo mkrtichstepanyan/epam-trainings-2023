@@ -11,7 +11,7 @@ public class Task_1 {
         System.out.println(factorialDemo1(5));            // Question 3
         System.out.println(powerDemo(6, 3));                 // Question 4
         System.out.println(reverseNumber(123456, 0));             // Question 5
-        System.out.println(testPrime(4, 2));                 // Question 6
+        System.out.println(testPrime(5, 2));                 // Question 6
     }
 
 
@@ -86,7 +86,7 @@ public class Task_1 {
             if (number % i == 0) {
                 return false;
             } else {
-                return testPrime(number, i++);
+                return testPrime(number, i+1);
             }
         }
         return true;
