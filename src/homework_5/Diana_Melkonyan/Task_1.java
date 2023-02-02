@@ -153,23 +153,24 @@ public class Task_1 {
         boolean flag = true;
         // Todo write your code here ...
 
-        if (testPrimeRec(number)) {
+        if (testPrimeRec(number,number/2)) {
             System.out.println(number + " is prime number" + " " + flag);
         } else {
             System.out.println(number + " is a non-prime number");
         }
     }
 
-    private static boolean testPrimeRec(int num) {
+    private static boolean testPrimeRec(int num, int i) {
 
-        if (num <= 1) {
+        if (i == 1) {
+            return true;
+        } else if (num % i == 0) {
             return false;
         }
-        for (int i = 2; i < num; i++) {
-            if (num % i == 0)
-                return false;
+        else{
+            return testPrimeRec(num, i-1 );
         }
-        return true;
+
     }
 }
 
