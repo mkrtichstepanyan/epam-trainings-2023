@@ -1,4 +1,4 @@
-package homework_5;
+package homework_5.Alina_Mkhoyan;
 
 import java.util.Scanner;
 

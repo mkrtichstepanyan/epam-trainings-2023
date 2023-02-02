@@ -1,4 +1,4 @@
-package homework_5.pizza;
+package homework_5.Alina_Mkhoyan.pizza;
 
 public class PizzaType {
 
