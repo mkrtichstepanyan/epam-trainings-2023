@@ -2,6 +2,8 @@ package homework_5;
 
 import java.util.Scanner;
 
+import static java.lang.Long.sum;
+
 public class Task_1 {
 
     public static void main(String[] args) {
@@ -9,7 +11,7 @@ public class Task_1 {
 //        sumNumbers();                // Question 2
 //        factorialDemo1();            // Question 3
 //        powerDemo();                 // Question 4
-        reverseNumber();             // Question 5
+ //       reverseNumber();             // Question 5
 //        readSetIntegers();           // Question 6
 //        testPrime();                 // Question 7
     }
@@ -27,7 +29,7 @@ public class Task_1 {
     */
     public static void sumNumbers() {
         int sum = 0;
-        // Todo write your code here ...
+
         System.out.println("Sum: " + sum);
     }
 
