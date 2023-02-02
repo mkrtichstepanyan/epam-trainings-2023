@@ -238,10 +238,9 @@ public class Order {
                 System.out.println("--------------------------------");
             }
             System.out.println("Total amount: " + (
-                    (amountOfMargaritaIngredients * pizza.get(2).quantity) +
-                            (amountOfSalamiIngredients * pizza.get(1).quantity) +
-                            (amountOfPepperoniIngredients * pizza.get(0).quantity) +
-                            (2 * price_of_calzone) + price_of_regular) + "$");
+                    ((amountOfMargaritaIngredients + price_of_calzone) * pizza.get(0).quantity) +
+                            ((amountOfSalamiIngredients + price_of_regular)* pizza.get(2).quantity) +
+                            (amountOfPepperoniIngredients + price_of_calzone) * pizza.get(1).quantity) + "$");
             System.out.println("********************************");
 
         }
