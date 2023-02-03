@@ -89,9 +89,7 @@ public class Task_1 {
         if (pwr == 0){
             return 1;
         }
-        else {
-            return b * powerDemoRec(--pwr, b );
-        }
+        return b * powerDemoRec(b, --pwr );
     }
 
      /* TODO: Question 5
@@ -142,7 +140,7 @@ public class Task_1 {
 
         boolean flag = true;
         flag = testPrimeRec(number, number);
-        if (!flag) {
+        if (flag) {
             System.out.println(number + " is a prime number.");
         } else {
             System.out.println(number + " is not a prime number.");
@@ -155,7 +153,7 @@ public class Task_1 {
         } else if (inputNumber % i == 0) {
             return false;
         } else {
-            return testPrimeRec(inputNumber, --i);
+            return testPrimeRec(inputNumber, i - 1);
         }
     }
 }
