@@ -21,7 +21,7 @@ public class Task_1 {
         if (count == 0)
             return;
         System.out.print(count + " ");
-        printNumbers(--count);
+        printNumbers(count - 1);
     }
 
     /* TODO: Question 2
@@ -85,7 +85,7 @@ public class Task_1 {
         result = powerDemoRec(base, power);
         System.out.println("Result: " + result);
     }
-    private  static int powerDemoRec(int pwr, int b){
+    private  static int powerDemoRec(int b, int pwr){
         if (pwr == 0){
             return 1;
         }
@@ -142,7 +142,7 @@ public class Task_1 {
 
         boolean flag = true;
         flag = testPrimeRec(number, number);
-        if (flag) {
+        if (!flag) {
             System.out.println(number + " is a prime number.");
         } else {
             System.out.println(number + " is not a prime number.");
