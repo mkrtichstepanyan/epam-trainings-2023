@@ -139,7 +139,7 @@ public class Task_1 {
         number = console.nextInt();
 
         boolean flag = true;
-        flag = testPrimeRec(number, number);
+        flag = testPrimeRec(number, number / 2);
         if (flag) {
             System.out.println(number + " is a prime number.");
         } else {
