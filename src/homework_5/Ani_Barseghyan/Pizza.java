@@ -1,25 +1,34 @@
 package homework_5.Ani_Barseghyan;
 
 public class Pizza {
-    private static int orderNumber;
-    private static int customerNumber;
-    private static String pizzaName;
-    private static char pizzaType;
-    private static int quantity;
-    private static String[] ingredients;
-    public static double cost = 0;
-    public static double crustCost = 0;
+    private static final int MAX_ING_COUNT = 8;
+    private String pizzaName;
+    private char pizzaType;
+    private int quantity;
+    private int toppingCount;
+    private Ingredients[] ingredients;
+    private int[] ingredientsIndex;
+    private double crustCost = 0;
 
     Pizza() {
-
+        this.ingredients = new Ingredients[MAX_ING_COUNT];
     }
 
-    public void setOrderNumber(int orderNumber) {
-        Pizza.orderNumber = orderNumber;
+    Pizza(String pizzaName, char pizzaType) {
+        this.pizzaName = pizzaName;
+        this.pizzaType = pizzaType;
+        this.ingredients = new Ingredients[MAX_ING_COUNT];
     }
 
-    public void setCustomerNumber(int customerNumber) {
-        Pizza.customerNumber = customerNumber;
+    Pizza(String pizzaName, char pizzaType, Ingredients[] ingredients) {
+        this.pizzaName = pizzaName;
+        this.pizzaType = pizzaType;
+        if (ingredients.length > MAX_ING_COUNT) {
+            System.out.println("Ingredients should not be more than 8");
+            this.ingredients = new Ingredients[MAX_ING_COUNT];
+        } else {
+            this.ingredients = ingredients;
+        }
     }
 
     public String getPizzaName() {
@@ -28,89 +37,124 @@ public class Pizza {
 
     public void setPizzaName(String pizzaName) {
         if (pizzaName.length() < 4 || pizzaName.length() > 20) {
-            Pizza.pizzaName = "customer_name_" + customerNumber;
+            this.pizzaName = "customer_name_";
         } else {
-            Pizza.pizzaName = pizzaName;
+            this.pizzaName = pizzaName;
         }
     }
 
+    public char getPizzaType() {
+        return pizzaType;
+    }
+
+
     public void setPizzaType(char pizzaType) {
-        Pizza.pizzaType = pizzaType;
+        if (pizzaType == 'b' || pizzaType == 'B') {
+            this.pizzaType = 'B';
+        } else {
+            this.pizzaType = 'C';
+        }
     }
 
-    public void setQuantity(int quantity) {
-        Pizza.quantity = quantity;
+    public double getCrustCost() {
+        if (pizzaType == 'b' || pizzaType == 'B') {
+            crustCost = 1;
+        } else {
+            crustCost = 1.5;
+        }
+        return crustCost;
     }
 
-    public static String[] getIngredients() {
+    public int getToppingCount() {
+        return toppingCount;
+    }
+
+
+    public void setToppingCount(int toppingCount) {
+        this.toppingCount = toppingCount;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int setQuantity(int quantity) {
+        if (quantity > 10) {
+            System.out.println("You can order up to 10 pizzas");
+        }
+        this.quantity = quantity;
+        return quantity;
+    }
+
+    public Ingredients[] getIngredients() {
         return ingredients;
     }
 
-    public static void setIngredients(String[] ingredients) {
-        Pizza.ingredients = ingredients;
+    public void setIngredients(Ingredients[] ingredients) {
+        this.ingredients = ingredients;
     }
 
-    public static void displayOrder() {
-        System.out.println("[" + orderNumber + " : " + customerNumber + " : " + pizzaName + " : " + quantity + "]");
-    }
-
-    public static double addIngredient(String[] ingredients) {
-        if (pizzaType == 'b' || pizzaType == 'B') {
-            cost++;
-            crustCost = 1;
-        } else {
-            cost += 1.5;
-            crustCost = 1.5;
+    public void addIngredient(Ingredients ingredient) {
+        if (toppingCount > MAX_ING_COUNT) {
+            System.out.println("Pizza is full");
         }
-        for (String ingr : ingredients) {
-            switch (ingr) {
-                case "Tomato paste":
-                case "Cheese": {
-                    cost += 1;
-                    break;
-                }
-                case "Salami": {
-                    cost += 1.5;
-                    break;
-                }
-                case "Bacon": {
-                    cost += 1.2;
-                    break;
-                }
-                case "Garlic": {
-                    cost += 0.3;
-                    break;
-                }
-                case "Corn": {
-                    cost += 0.7;
-                    break;
-                }
-                case "Pepperoni": {
-                    cost += 0.6;
-                    break;
-                }
-                case "Olives": {
-                    cost += 0.5;
-                    break;
-                }
+        ingredients[toppingCount++] = ingredient;
+    }
+
+    public double calculatePizzaCost() {
+        double cost = getCrustCost();
+        for (Ingredients i : ingredients) {
+            if (i == null) {
+                break;
+            } else {
+                cost += i.getToppingCost();
             }
         }
         return cost;
     }
 
-    public static void printCheck() {
-        System.out.println("*********************");
-        System.out.println("Order: " + orderNumber);
-        System.out.println("Order: " + customerNumber);
-        System.out.println("Pizza: " + pizzaName);
-        System.out.println("---------------------");
-        System.out.println("Pizza Base " + pizzaType + " " + crustCost);
-        for (int i = 0; i < ingredients.length; i++) {
-            System.out.println( ingredients[i] + " " + cost);
-        }
-        System.out.println("---------------------");
-        System.out.println("Amount " + cost);
-        System.out.println("Quantity " + quantity);
-        System.out.println("*********************");
-    }
+
+//    public void addIngredient() {
+//        String[] toppings = new String[toppingCount];
+//        if (toppingCount > MAX_ING_COUNT) {
+//            System.out.println("Pizza is full");
+//        }
+//        for (int i = 0; i<ingredientsIndex.length;i++) {
+//            switch (i){
+//                case 0: {
+//                    toppings[i] = new Ingredients().tomatoPaste().getToppingName();
+//                    break;
+//                }
+//                case 1: {
+//                    toppings[i] = new Ingredients().cheese().getToppingName();
+//                    break;
+//                }
+//                case 2: {
+//                    toppings[i] = new Ingredients().salami().getToppingName();
+//                    break;
+//                }
+//                case 3: {
+//                    toppings[i] = new Ingredients().bacon().getToppingName();
+//                    break;
+//                }
+//                case 4: {
+//                    toppings[i] = new Ingredients().garlic().getToppingName();
+//                    break;
+//                }
+//                case 5: {
+//                    toppings[i] = new Ingredients().corn().getToppingName();
+//                    break;
+//                }
+//                case 6: {
+//                    toppings[i] = new Ingredients().pepperoni().getToppingName();
+//                    break;
+//                }
+//                case 7: {
+//                    toppings[i] = new Ingredients().olives().getToppingName();
+//                    break;
+//                }
+//            }
+//        }
+//    }
+
 }
