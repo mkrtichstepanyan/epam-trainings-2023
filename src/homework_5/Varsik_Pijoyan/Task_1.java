@@ -6,10 +6,10 @@ public class Task_1 {
 
     public static void main(String[] args) {
 //        printNumbers(25);            // Question 1 -> try with different integer values instead of 10 only
-//        sumNumbers(10);                // Question 2
-//        factorialDemo1(5);            // Question 3
+//        sumNumbers();                // Question 2
+//        factorialDemo1();            // Question 3
 //        powerDemo();                 // Question 4
-//        reverseNumber(23456);             // Question 5
+//        reverseNumber();             // Question 5
 //        testPrime();                 // Question 6
     }
 
@@ -20,30 +20,34 @@ public class Task_1 {
     public static void printNumbers(int count) {
         if (count == 0)
             return;
-        System.out.print((count--) + " ");
-        printNumbers(count);
+        System.out.print(count + " ");
+        printNumbers(--count);
     }
 
     /* TODO: Question 2
         Write a program to calculate the sum of first 10 natural numbers.
     */
-    public static int  sumNumbers(int num) {
-        int sum = sumNumbers(10);
+    public static void  sumNumbers() {
+        int sum = 0;
+        sum = sumNumbersRec(10);
         System.out.println("Sum: " + sum);
+    }
 
-        if (num != 0)
-            return num + sumNumbers(num - 1);
-        else
-            return num;
+    public static int sumNumbersRec(int i) {
+        if (i == 0) {
+            return 0;
+        }else {
+            return i + sumNumbersRec(i - 1);
+        }
     }
 
 
     /* TODO: Question 3
         Write a program to find the factorial value of any number entered through the keyboard.
     */
-    public static void factorialDemo1(int num) {
+    public static void factorialDemo1() {
         Scanner console = new Scanner(System.in);
-
+        int num;
         int fact = 1; // To hold factorial
 
         System.out.print("Enter any positive integer: ");
@@ -78,6 +82,7 @@ public class Task_1 {
 
         System.out.print("Enter the power ");
         power = console.nextInt();
+        result = powerDemoRec(base, power);
         System.out.println("Result: " + result);
     }
     private  static int powerDemoRec(int pwr, int b){
@@ -85,7 +90,7 @@ public class Task_1 {
             return 1;
         }
         else {
-            return b * powerDemoRec(pwr--, b );
+            return b * powerDemoRec(--pwr, b );
         }
     }
 
@@ -94,7 +99,7 @@ public class Task_1 {
          For example, if the input is 12345, the output should be 54321.
      */
 
-    public static void reverseNumber(int num) {
+    public static void reverseNumber() {
         Scanner console = new Scanner(System.in);
 
         int number = 0;
@@ -105,19 +110,20 @@ public class Task_1 {
 
         int temp = number;
         int remainder = 0;
-
-        if (number < 10) {
-            System.out.println(number);
-            return;
-        }
-        else {
-            System.out.print(number % 10);
-
-            reverseNumber(number/10);
-        }
+        reverse = reverseNumberRec(number, remainder);
 
         System.out.println("Reverse of " + number + " is " + reverse);
     }
+
+    private static int reverseNumberRec(int num, int reverseNum) {
+        if(num < 10){
+            return reverseNum * 10 + num;
+        }
+        return reverseNumberRec( num / 10 , reverseNum * 10 + num % 10);
+
+    }
+
+
 
 
 
@@ -144,15 +150,13 @@ public class Task_1 {
 
     }
     private static boolean testPrimeRec(int inputNumber, int i) {
-        boolean isItPrime = true;
         if (i == 1) {
             return true;
         } else if (inputNumber % i == 0) {
             return false;
         } else {
-            testPrimeRec(inputNumber, --i);
+            return testPrimeRec(inputNumber, --i);
         }
-        return isItPrime;
     }
 }
 
