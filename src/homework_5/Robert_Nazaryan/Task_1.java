@@ -7,9 +7,9 @@ public class Task_1 {
     public static void main(String[] args) {
 //        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
 //       sumNumbers();                // Question 2
-//       factorialDemo1();            // Question 3
+       factorialDemo1();            // Question 3
 //        powerDemo();                 // Question 4
-        reverseNumber();             // Question 5
+//        reverseNumber();             // Question 5
 //        testPrime();                 // Question 6
     }
 
