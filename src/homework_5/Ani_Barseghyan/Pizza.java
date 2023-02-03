@@ -7,7 +7,6 @@ public class Pizza {
     private int quantity;
     private int toppingCount;
     private Ingredients[] ingredients;
-    private int[] ingredientsIndex;
     private double crustCost = 0;
 
     Pizza() {
@@ -112,49 +111,4 @@ public class Pizza {
         }
         return cost;
     }
-
-
-//    public void addIngredient() {
-//        String[] toppings = new String[toppingCount];
-//        if (toppingCount > MAX_ING_COUNT) {
-//            System.out.println("Pizza is full");
-//        }
-//        for (int i = 0; i<ingredientsIndex.length;i++) {
-//            switch (i){
-//                case 0: {
-//                    toppings[i] = new Ingredients().tomatoPaste().getToppingName();
-//                    break;
-//                }
-//                case 1: {
-//                    toppings[i] = new Ingredients().cheese().getToppingName();
-//                    break;
-//                }
-//                case 2: {
-//                    toppings[i] = new Ingredients().salami().getToppingName();
-//                    break;
-//                }
-//                case 3: {
-//                    toppings[i] = new Ingredients().bacon().getToppingName();
-//                    break;
-//                }
-//                case 4: {
-//                    toppings[i] = new Ingredients().garlic().getToppingName();
-//                    break;
-//                }
-//                case 5: {
-//                    toppings[i] = new Ingredients().corn().getToppingName();
-//                    break;
-//                }
-//                case 6: {
-//                    toppings[i] = new Ingredients().pepperoni().getToppingName();
-//                    break;
-//                }
-//                case 7: {
-//                    toppings[i] = new Ingredients().olives().getToppingName();
-//                    break;
-//                }
-//            }
-//        }
-//    }
-
 }
