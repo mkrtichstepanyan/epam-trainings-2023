@@ -8,7 +8,7 @@ public class Task_1 {
 //     System.out.println("Factorial: " + factorialDemo1(5));   // Question 3
 //     System.out.println(powerDemo(5, 2));                     // Question 4
 //     reverseNumber(123);                                      // Question 5
-//     System.out.println(testPrime(13));                       // Question 6
+//     System.out.println(testPrime(2));                        // Question 6
     }
 
 
@@ -80,7 +80,6 @@ public class Task_1 {
         }
     }
 
-
     /* TODO: Question 6
         Write a program that prompts the user to input a positive integer.
         It should then output a message indicating whether the number is a prime number.
@@ -90,7 +89,7 @@ public class Task_1 {
     }
 
     private static boolean Prime(int number, int num) {
-        if (number < 2) {
+        if (number <= 2) {
             return true;
         } else if (number % num == 0) {
             return false;
