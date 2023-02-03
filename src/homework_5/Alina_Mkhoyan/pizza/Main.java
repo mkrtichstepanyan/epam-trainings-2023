@@ -22,6 +22,5 @@ public class Main {
         order.displayPizzaAttributes(pizza);
         order.displayPizzaAttributes(pizza1);
         CheckPrinter.printCheck(order);
-
     }
 }
