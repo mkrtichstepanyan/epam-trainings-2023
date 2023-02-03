@@ -1,83 +1,81 @@
 package homework_5.Alina_Mkhoyan.pizza;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pizza {
 
+    private String name;
+    private PizzaType type;
+    private List<Ingredient> ingredients;
+    private int quantity;
     private static final int MAX_ALLOWED_INGREDIENTS_SIZE = 7;
 
-    public String name;
-    private PizzaType pizzaType;
-    private Ingredients[] ingredients;
-    private int ingredientsCount;
-    private int quantity;
-
-
-    public Pizza(String name) {
-        this.name = name;
-        this.ingredients = new Ingredients[MAX_ALLOWED_INGREDIENTS_SIZE];
-        this.pizzaType = PizzaType.getCalzoneType();
+    public Pizza(String name, PizzaType type, int quantity) {
+        this.checkPizzaName(name);
+        this.type = type;
+        this.quantity = quantity;
     }
 
-
-    public Pizza(String name, PizzaType pizzaType) {
-        this.name = name;
-        this.ingredients = new Ingredients[MAX_ALLOWED_INGREDIENTS_SIZE];
-        this.pizzaType = pizzaType;
-    }
-
-    public Pizza(String name, PizzaType pizzaType, Ingredients[] ingredients) {
-        this.name = name;
-        this.pizzaType = pizzaType;
-        if (ingredients.length > MAX_ALLOWED_INGREDIENTS_SIZE) {
-            System.out.println("Ingredients more than allowed " + MAX_ALLOWED_INGREDIENTS_SIZE);
-            this.ingredients = new Ingredients[MAX_ALLOWED_INGREDIENTS_SIZE];
+    public void checkPizzaName(String pizzaName) {
+        if (pizzaName.length() < 4 || pizzaName.length() > 20) {
+            this.name = "customer_" + Order.getCustomerId() + "_" + Order.getOrderId();
         } else {
-            this.ingredients = ingredients;
+            this.name = pizzaName;
         }
     }
 
-    public double calculatePrice() {
-        double price = 0;
-        price = price + pizzaType.getPrice();
-
-        for (Ingredients ingredient : ingredients) {
-            if (ingredient == null) {
-                break;
-            } else {
-                price += ingredient.getPrice();
-            }
+    public void addIngredients(String ingredientName) {
+        if (ingredients == null) {
+            ingredients = new ArrayList<>();
         }
-        return price * quantity;
-    }
-
-
-    public void addIngredients(Ingredients ingredient) {
-        if (ingredientsCount > MAX_ALLOWED_INGREDIENTS_SIZE) {
-            System.out.println("No more ingredients allowed.");
+        if (ingredients.size() == MAX_ALLOWED_INGREDIENTS_SIZE) {
+            System.out.println("You can't add any more ingredients");
             return;
         }
-        ingredients[ingredientsCount++] = ingredient;
-    }
-
-    public int setQuantity(int quantity) {
-        if (quantity > 10) {
-            System.out.println("Quantity can't be more than 10");
-            return this.quantity = 10;
-        } else {
-            return this.quantity = quantity;
+        for (Ingredient ingredient1 : ingredients) {
+            if (ingredient1.getName().equals(ingredientName)) {
+                throw new IllegalArgumentException("You have already added that ingredient");
+            }
         }
-    }
-
-    public int getQuantity() {
-        return quantity;
+        for (Ingredient ingredient : Ingredient.values()) {
+            if (ingredient.getName().equals(ingredientName)) {
+                ingredients.add(ingredient);
+            }
+        }
     }
 
     public String getName() {
         return name;
     }
 
-    public Ingredients[] getIngredients() {
+    public PizzaType getType() {
+        return type;
+    }
+
+    public void setType(PizzaType type) {
+        this.type = type;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public List<Ingredient> getIngredients() {
         return ingredients;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setName(String name) {
+        this.checkPizzaName(name);
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
 }

@@ -1,43 +1,27 @@
 package homework_5.Alina_Mkhoyan.pizza;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        PizzaType pizzaType = new PizzaType("Calzone", 1.5);
-        Pizza pizza = new Pizza("", pizzaType);
-        pizza.addIngredients(Ingredients.getTomatoPaste());
-        pizza.addIngredients(Ingredients.getPepperoni());
-        pizza.addIngredients(Ingredients.getGarlic());
-        pizza.addIngredients(Ingredients.getBacon());
-        pizza.setQuantity(2);
+        Pizza pizza = new Pizza("Margarita", PizzaType.Regular, 2);
+        pizza.addIngredients("Cheese");
+        pizza.addIngredients("Bacon");
+        pizza.addIngredients("Tomato paste");
+        pizza.addIngredients("Olives");
+        Pizza pizza1 = new Pizza("Pepperoni", PizzaType.Closed, 4);
+        pizza1.addIngredients("Pepperoni");
+        pizza1.addIngredients("Olives");
+        pizza1.addIngredients("Cheese");
+        List<Pizza> pizzas = new ArrayList<>();
+        pizzas.add(pizza);
+        pizzas.add(pizza1);
+        Order order = new Order(pizzas);
+        order.displayPizzaAttributes(pizza);
+        order.displayPizzaAttributes(pizza1);
+        CheckPrinter.printCheck(order);
 
-        String characters = "QWERTYUIOASDFGHJKLZXCVBNM";
-        String randomString = "";
-        int length = 5;
-        Random rand = new Random();
-        char[] text = new char[length];
-        for (int i = 0; i < length; i++) {
-            text[i] = characters.charAt(rand.nextInt(characters.length()));
-        }
-        for (int i = 0; i < text.length; i++) {
-            randomString += text[i];
-        }
-
-        Customer customer = new Customer(randomString);
-        Order order = new Order();
-        OrderItem orderItem = new OrderItem();
-        CheckPrinter checkPrinter = new CheckPrinter(pizzaType, pizza, order, customer,orderItem);
-        pizza.name = setName(pizza, customer, order, orderItem);
-        checkPrinter.printReceipt();
-    }
-
-    public static String setName(Pizza pizza, Customer customer, Order order,OrderItem orderItem) {
-        if ((pizza.name.length() < 4 || pizza.name.length() > 20) && (pizza.name.isBlank())) {
-            return customer.getName() + "_" + order.getOrderNumber();
-        } else {
-            return pizza.name;
-        }
     }
 }

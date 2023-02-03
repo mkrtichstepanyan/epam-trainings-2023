@@ -1,12 +1,12 @@
 package homework_5.Alina_Mkhoyan.pizza;
 
 import java.time.LocalTime;
+import java.util.List;
 
 public class Order {
-    private int orderNumber;
-    private Customer customer;
-    private OrderItem[] orderItems;
-    private int orderItemCount;
+    private static int orderId = 10000;
+    private static int customerId = 0;
+    private List<Pizza> items;
     private final LocalTime time = LocalTime.now();
 
     public LocalTime getTime() {
@@ -14,23 +14,34 @@ public class Order {
     }
 
     public Order() {
-        this.orderNumber = (int) (10000 + (Math.random() * 1000));
-        this.customer = customer;
-        this.orderItems = orderItems;
+        orderId++;
+        customerId++;
     }
 
-
-    public int getOrderNumber() {
-        return this.orderNumber;
+    public Order(List<Pizza> items) {
+        this.items = items;
+        orderId++;
+        customerId++;
     }
 
-    public OrderItem[] addOrderItems() {
-        this.orderItems = new OrderItem[orderItemCount++];
-        return this.orderItems;
+    public List<Pizza> getItems() {
+        return items;
     }
 
-    public OrderItem[] getOrderItems() {
-        return orderItems;
+    public static int getOrderId() {
+        return orderId;
     }
 
+    public static int getCustomerId() {
+        return customerId;
+    }
+
+    public void setItems(List<Pizza> items) {
+        this.items = items;
+    }
+
+    public void displayPizzaAttributes(Pizza pizza) {
+        System.out.println("[" + orderId + ": " + customerId + ": " +
+                pizza.getName() + ": " + pizza.getQuantity() + "]");
+    }
 }
