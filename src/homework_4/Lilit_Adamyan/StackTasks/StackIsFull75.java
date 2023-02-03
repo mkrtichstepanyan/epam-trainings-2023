@@ -2,11 +2,9 @@ package homework_4.Lilit_Adamyan.StackTasks;
 
 //    c. Refactor the stack to accept as many elements as we want, when the stack is full by 75 percent, increase its size by two times (x2)
 public class StackIsFull75 {
-    private int size;
-    private int[] stack;
-    private int tos;
-
-
+    int size;
+    int[] stack;
+    int tos;
 
     public StackIsFull75(int size) {
         this.size = size;
@@ -14,31 +12,7 @@ public class StackIsFull75 {
         tos = -1;
     }
 
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public int[] getStack() {
-        return stack;
-    }
-
-    public void setStack(int[] stack) {
-        this.stack = stack;
-    }
-
-    public int getTos() {
-        return tos;
-    }
-
-    public void setTos(int tos) {
-        this.tos = tos;
-    }
-
-    public void push(int item) {
+    void push(int item) {
         if (tos >= size * 0.75) {
             int[] newStack = new int[size * 2];
             System.arraycopy(stack,0,newStack,0,stack.length);
@@ -47,7 +21,7 @@ public class StackIsFull75 {
         }
         stack[++tos] = item;
     }
-    public int pop(){
+    int pop(){
         if(tos==-1){
             System.out.println("Stack is empty");
             return 0;
