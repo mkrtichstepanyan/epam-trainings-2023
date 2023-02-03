@@ -9,7 +9,7 @@ public class Task_1 {
 //        System.out.println(sumNumbers(10));                // Question 2
 //        factorialDemo1();            // Question 3
 //        powerDemo();                 // Question 4
-//        reverseDemo();             // Question 5
+        reverseDemo();             // Question 5
 //        testPrime();                 // Question 6
     }
 
