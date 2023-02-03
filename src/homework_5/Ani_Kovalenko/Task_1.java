@@ -10,7 +10,7 @@ public class Task_1 {
 //        System.out.println(factorialDemo1());            // Question 3
 //        System.out.println(powerDemo());                 // Question 4
 //        reverseNumber(5625);             // Question 5
-        System.out.println(testPrime(289));                 // Question 6
+        System.out.println(testPrime(7));                 // Question 6
     }
 
 
