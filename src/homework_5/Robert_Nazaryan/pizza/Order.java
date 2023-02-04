@@ -1,6 +1,8 @@
 package homework_5.Robert_Nazaryan.pizza;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 public class Order {
@@ -8,12 +10,12 @@ public class Order {
     private Pizza[] pizzas;
     private Customer customer;
     private final int orderNumber;
-    private LocalTime orderTime;
+    private LocalDateTime orderTime;
     private int index;
 
     public Order(Customer customer, Pizza[] pizzas, String type) {
         this.orderNumber = new Random().nextInt(99999 - 10000) + 10000;
-        this.orderTime = LocalTime.now();
+        this.orderTime = LocalDateTime.now();
         this.customer = customer;
         if (pizzas.length <= 10) {
             this.pizzas = pizzas;
@@ -23,7 +25,9 @@ public class Order {
     }
 
     public void orderInfo() {
-        System.out.println("[ " + orderNumber + " | " + customer.getNumber() + " | " + customer.getName() + " | " + pizzas.length + " | " + orderTime + " ]");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String formatDate = dtf.format(orderTime);
+        System.out.println("[ " + orderNumber + " | " + customer.getNumber() + " | " + customer.getName() + " | " + pizzas.length + " | " + formatDate + " ]");
     }
 
     public void printCheck() {

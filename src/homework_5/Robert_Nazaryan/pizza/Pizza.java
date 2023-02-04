@@ -30,8 +30,10 @@ public class Pizza {
         this.pizzaType = pizzaType;
         if (pizzaType == "closed" || pizzaType == "Closed") {
             price += closedPrice;
+            this.pizzaType = "Closed" + ' ' + closedPrice + " $";
         } else {
             price += regularPrice;
+            this.pizzaType = "Closed" + ' ' + closedPrice + " $";
         }
     }
 
@@ -43,54 +45,69 @@ public class Pizza {
                     return;
                 }
             }
-            ingredients[index++] = item;
             switch (item) {
                 case "Tomato":
+                    ingredients[index++] = item + ' ' + tomatoPrice + " $";
                     this.price += tomatoPrice;
                     break;
                 case "tomato":
+                    ingredients[index++] = item + ' ' + tomatoPrice + " $";
                     this.price += tomatoPrice;
                     break;
                 case "Cheese":
+                    ingredients[index++] = item + ' ' + cheesePrice + " $";
                     this.price += cheesePrice;
                     break;
                 case "cheese":
+                    ingredients[index++] = item + ' ' + cheesePrice + " $";
                     this.price += cheesePrice;
                     break;
                 case "Salami":
+                    ingredients[index++] = item + ' ' + salamiPrice + " $";
                     this.price += salamiPrice;
                     break;
                 case "salami":
+                    ingredients[index++] = item + ' ' + salamiPrice + " $";
                     this.price += salamiPrice;
                     break;
                 case "Bacon":
+                    ingredients[index++] = item + ' ' + baconPrice + " $";
                     this.price += baconPrice;
                     break;
                 case "bacon":
+                    ingredients[index++] = item + ' ' + baconPrice + " $";
                     this.price += baconPrice;
                     break;
                 case "Garlic":
+                    ingredients[index++] = item + ' ' + garlicPrice + " $";
                     this.price += garlicPrice;
                     break;
                 case "garlic":
+                    ingredients[index++] = item + ' ' + garlicPrice + " $";
                     this.price += garlicPrice;
                     break;
                 case "Corn":
+                    ingredients[index++] = item + ' ' + cornPrice + " $";
                     this.price += cornPrice;
                     break;
                 case "corn":
+                    ingredients[index++] = item + ' ' + cornPrice + " $";
                     this.price += cornPrice;
                     break;
                 case "Pepperoni":
+                    ingredients[index++] = item + ' ' + pepperoniPrice + " $";
                     this.price += pepperoniPrice;
                     break;
                 case "pepperoni":
+                    ingredients[index++] = item + ' ' + pepperoniPrice + " $";
                     this.price += pepperoniPrice;
                     break;
                 case "Olives":
+                    ingredients[index++] = item + ' ' + olivesPrice + " $";
                     this.price += olivesPrice;
                     break;
                 case "olives":
+                    ingredients[index++] = item + ' ' + olivesPrice + " $";
                     this.price += olivesPrice;
                     break;
             }
