@@ -1,27 +1,42 @@
 package homework_5.Alina_Mkhoyan.pizza;
 
 
+import java.util.List;
+
 public class CheckPrinter {
     public static void printCheck(Order order) {
-        double totalAmount = 0;
-        System.out.print("*********************************" + "\n" + "Order Time: " + order.getTime()
-                + "\n" + "Order: " + Order.getOrderId() + "\n" + "Client: " +
-                Order.getCustomerId() + "\n");
-        for (int i = 0; i < order.getItems().size(); i++) {
-            double amount = 0;
-            System.out.println("Name: " + order.getItems().get(i).getName() + "\n" + "---------------------" + "\n" +
-                    "Pizza Base (Calzone)" + " " + order.getItems().get(i).getType().getPrice() + " $");
-            for (int j = 0; j < order.getItems().get(i).getIngredients().size(); j++) {
-                System.out.println(order.getItems().get(i).getIngredients().get(j).getName() +
-                        " " + order.getItems().get(i).getIngredients().get(j).getPrice() + " $");
-                amount += order.getItems().get(i).getIngredients().get(j).getPrice();
-            }
-            amount += order.getItems().get(i).getType().getPrice();
-            System.out.println("---------------------" + "\n" + "Amount: " + amount + " $" + "\n" + "Quantity: " +
-                    order.getItems().get(i).getQuantity() + "\n" + "---------------------");
-            totalAmount += order.getItems().get(i).getQuantity() * amount;
+        List<Pizza> pizza= order.getItems();
+        int sumQuantity = 0;
+        for (Pizza item : pizza) {
+            sumQuantity += item.getQuantity();
         }
-        System.out.print("Total Amount: " + totalAmount + " $" + "\n"
-                + "*********************************");
+        if (sumQuantity > 10) {
+            System.out.println("Quantity can't be more than 10");
+        } else {
+            double totalAmount = 0;
+            System.out.print("*********************************" + "\n" + "Order Time: " + order.getTime()
+                    + "\n" + "Order: " + Order.getOrderId() + "\n" + "Client: " +
+                    Order.getCustomerId() + "\n");
+            for (int i = 0; i < pizza.size(); i++) {
+                double amount = 0;
+                System.out.println("Name: " + pizza.get(i).getName() +
+                        "\n" + "---------------------");
+                System.out.println("Pizza Base (" + pizza.get(i).getType().getName()+ ") "
+                        + pizza.get(i).getType().getPrice()  + " $");
+                for (int j = 0; j < pizza.get(i).getIngredients().size(); j++) {
+                    System.out.println(pizza.get(i).getIngredients().get(j).getName() +
+                            " " + pizza.get(i).getIngredients().get(j).getPrice() + " $");
+
+                    amount += pizza.get(i).getIngredients().get(j).getPrice();
+                }
+                amount += pizza.get(i).getType().getPrice();
+                System.out.println("---------------------" + "\n" + "Amount: " + amount + " $");
+                System.out.println("Quantity: " + pizza.get(i).getQuantity() +
+                        "\n" + "---------------------");
+                totalAmount += pizza.get(i).getQuantity() * amount;
+            }
+            System.out.print("Total Amount: " + totalAmount + " $" + "\n"
+                    + "*********************************");
+        }
     }
 }

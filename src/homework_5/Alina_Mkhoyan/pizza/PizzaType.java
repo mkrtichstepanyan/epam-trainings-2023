@@ -2,16 +2,17 @@ package homework_5.Alina_Mkhoyan.pizza;
 
 
 public enum PizzaType {
-    Regular("regular", 1.0),
-    Closed("Closed (Calzone)", 1.5);
+
+    REGULAR("Regular",1),
+    CLOSED("Calzone",1.5);
+
+    private final String name;
+    private final double price;
 
     PizzaType(String name, double price) {
         this.name = name;
         this.price = price;
     }
-
-    private final String name;
-    private final double price;
 
     public String getName() {
         return name;

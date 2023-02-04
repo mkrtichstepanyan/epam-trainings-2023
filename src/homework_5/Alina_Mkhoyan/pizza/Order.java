@@ -40,8 +40,25 @@ public class Order {
         this.items = items;
     }
 
+    public static void setOrderId(int orderId) {
+        Order.orderId = orderId;
+    }
+
+    public static void setCustomerId(int customerId) {
+        Order.customerId = customerId;
+    }
+
+
     public void displayPizzaAttributes(Pizza pizza) {
-        System.out.println("[" + orderId + ": " + customerId + ": " +
+        System.out.println("[" + orderId + ": " + customerId + ": "+
                 pizza.getName() + ": " + pizza.getQuantity() + "]");
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "items=" + items +
+                ", time=" + time +
+                '}';
     }
 }

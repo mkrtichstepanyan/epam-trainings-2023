@@ -9,8 +9,8 @@ public class Pizza {
     private String name;
     private PizzaType type;
     private List<Ingredient> ingredients;
-    private int quantity;
     private static final int MAX_ALLOWED_INGREDIENTS_SIZE = 7;
+    private int quantity;
 
     public Pizza(String name, PizzaType type, int quantity) {
         this.checkPizzaName(name);
@@ -35,12 +35,12 @@ public class Pizza {
             return;
         }
         for (Ingredient ingredient1 : ingredients) {
-            if (ingredient1.getName().equals(ingredientName)) {
+            if (ingredient1.getName().equalsIgnoreCase(ingredientName)) {
                 throw new IllegalArgumentException("You have already added that ingredient");
             }
         }
         for (Ingredient ingredient : Ingredient.values()) {
-            if (ingredient.getName().equals(ingredientName)) {
+            if (ingredient.getName().equalsIgnoreCase(ingredientName)) {
                 ingredients.add(ingredient);
             }
         }
@@ -62,20 +62,20 @@ public class Pizza {
         this.ingredients = ingredients;
     }
 
-    public List<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
     public int getQuantity() {
         return quantity;
-    }
-
-    public void setName(String name) {
-        this.checkPizzaName(name);
     }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+
+    public void setName(String name) {
+        this.checkPizzaName(name);
+    }
 }
