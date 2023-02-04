@@ -16,7 +16,7 @@ public class Task_1 {
         Write a program to print numbers from 1 to given parameter.
     */
     public static void printNumbers(int count) {
-        if (count == 0) {
+        if (count <= 0) {
             return;
         }
         printNumbers(count - 1);
@@ -85,10 +85,10 @@ public class Task_1 {
         It should then output a message indicating whether the number is a prime number.
     */
     public static boolean testPrime(int number) {
-        return Prime(number, 2);
+        return prime(number, 2);
     }
 
-    private static boolean Prime(int number, int num) {
+    private static boolean prime(int number, int num) {
         if (number <= 2) {
             return true;
         } else if (number % num == 0) {
@@ -97,7 +97,7 @@ public class Task_1 {
         if (num * num > number) {
             return true;
         } else {
-            return (Prime(number, num + 1));
+            return (prime(number, num + 1));
         }
     }
 }
