@@ -3,7 +3,7 @@ package homework_5.Karen_Sargsyan;
 public class Task_1 {
 
     public static void main(String[] args) {
-//        printNumbers(10);                                        // Question 1 -> try with different integer values instead of 10 only
+//     printNumbers(10);                                        // Question 1 -> try with different integer values instead of 10 only
 //     System.out.println("Sum: " + sumNumbers(3));             // Question 2
 //     System.out.println("Factorial: " + factorialDemo1(5));   // Question 3
 //     System.out.println(powerDemo(5, 2));                     // Question 4
@@ -16,12 +16,14 @@ public class Task_1 {
         Write a program to print numbers from 1 to given parameter.
     */
     public static void printNumbers(int count) {
-        if (count > 0) {
-            printNumbers(count - 1);
-            System.out.print(count + " ");
-        } else if (count < 0) {
+        if (count <= 0) {
             System.out.println("The number must be positive");
+            return;
         }
+        if (count > 1) {
+            printNumbers(count - 1);
+        }
+        System.out.print(count + " ");
     }
 
     /* TODO: Question 2
