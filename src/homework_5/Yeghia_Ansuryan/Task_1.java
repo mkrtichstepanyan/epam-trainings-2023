@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Task_1 {
 
     public static void main(String[] args) {
-//        printNumbers(10);                       // Question 1 -> try with different integer values instead of 10 only
+//        printNumbers(-10);                       // Question 1 -> try with different integer values instead of 10 only
 //          System.out.println(sumNumbers(9));    // Question 2
 //        System.out.println(factorialDemo1(5)); // Question 3
 //        System.out.println(powerDemo(3, 8));   // Question 4
 //            reverseNumber(5625);               // Question 5
-       System.out.println(testPrime(2)); // Question 6
+//       System.out.println(testPrime(4)); // Question 6
     }
 
 
@@ -18,10 +18,16 @@ public class Task_1 {
         Write a program to print numbers from 1 to given parameter.
     */
     public static void printNumbers(int count) {
-        if (count > 1) {
+        if (count <= 0) {
+
+            System.out.println("The number must be positive");
+            return;
+
+        } else if (count >= 2) {
             printNumbers(count - 1);
         }
-        System.out.println(count);
+        System.out.print(count + " ");
+
     }
 
     /* TODO: Question 2
@@ -91,19 +97,21 @@ public class Task_1 {
         It should then output a message indicating whether the number is a prime number.
     */
     public static boolean testPrime(int number) {
-        return Prime(number, 2);
+
+        return prime(number, 2);
     }
 
-    private static boolean Prime(int number, int num) {
+    private static boolean prime(int number, int num) {
         if (number <= 2) {
             return true;
         } else if (number % num == 0) {
+
             return false;
         }
         if (num * num > number) {
             return true;
         } else {
-            return (Prime(number, num + 1));
+            return (prime(number, num + 1));
         }
     }
 }
