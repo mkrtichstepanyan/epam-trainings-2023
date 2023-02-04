@@ -5,7 +5,7 @@ import java.util.List;
 
 public class CheckPrinter {
     public static void printCheck(Order order) {
-        List<Pizza> pizza= order.getItems();
+        List<Pizza> pizza = order.getItems();
         int sumQuantity = 0;
         for (Pizza item : pizza) {
             sumQuantity += item.getQuantity();
@@ -21,12 +21,11 @@ public class CheckPrinter {
                 double amount = 0;
                 System.out.println("Name: " + pizza.get(i).getName() +
                         "\n" + "---------------------");
-                System.out.println("Pizza Base (" + pizza.get(i).getType().getName()+ ") "
-                        + pizza.get(i).getType().getPrice()  + " $");
+                System.out.println("Pizza Base (" + pizza.get(i).getType().getName() + ") "
+                        + pizza.get(i).getType().getPrice() + " $");
                 for (int j = 0; j < pizza.get(i).getIngredients().size(); j++) {
                     System.out.println(pizza.get(i).getIngredients().get(j).getName() +
                             " " + pizza.get(i).getIngredients().get(j).getPrice() + " $");
-
                     amount += pizza.get(i).getIngredients().get(j).getPrice();
                 }
                 amount += pizza.get(i).getType().getPrice();
