@@ -1,12 +1,14 @@
-package homework_4.Arsen_Kazaryan.Stack.chapter_6;
+package homework_4.Arsen_Kazaryan.chapter_6;
 
-public class BoxDemo7 {
+public class BoxDemo5 {
     public static void main(String[] args) {
 
-        Box1 mybox1 = new Box1(10, 20, 15);
-        Box1 mybox2 = new Box1(3, 6, 9);
-
+        Box mybox1 = new Box();
+        Box mybox2 = new Box();
         double vol;
+
+        mybox1.setDim(10, 20, 15);
+        mybox2.setDim(3, 6, 9);
 
         vol = mybox1.volume();
         System.out.println("Volume is " + vol);

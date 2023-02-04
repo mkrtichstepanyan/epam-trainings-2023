@@ -5,7 +5,6 @@ public class Stack {
     int index;
 
     Stack() {
-        index = -1;
     }
 
     void push(int item) {

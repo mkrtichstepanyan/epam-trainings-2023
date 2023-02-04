@@ -1,4 +1,4 @@
-package homework_4.Arsen_Kazaryan.Stack.chapter_6;
+package homework_4.Arsen_Kazaryan.chapter_6;
 
 public class BoxDemo {
 
