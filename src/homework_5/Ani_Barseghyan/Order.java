@@ -39,7 +39,7 @@ public class Order {
             System.out.println("Please add pizza to your order");
         }
         for (int i = 0; i < pizzas.length; i++) {
-            pizzas = pizza;
+            this.pizzas = pizza;
         }
     }
 }

@@ -7,9 +7,16 @@ public class Pizza {
     private int quantity;
     private int toppingCount;
     private Ingredients[] ingredients;
-    private double crustCost = 0;
 
-    Pizza() {
+    Pizza(){
+        this.pizzaName = getPizzaName();
+        this.pizzaType = getPizzaType();
+        this.ingredients = new Ingredients[MAX_ING_COUNT];
+    }
+
+    Pizza(String pizzaName){
+        this.pizzaName = pizzaName;
+        this.pizzaType = getPizzaType();
         this.ingredients = new Ingredients[MAX_ING_COUNT];
     }
 
@@ -19,24 +26,13 @@ public class Pizza {
         this.ingredients = new Ingredients[MAX_ING_COUNT];
     }
 
-    Pizza(String pizzaName, char pizzaType, Ingredients[] ingredients) {
-        this.pizzaName = pizzaName;
-        this.pizzaType = pizzaType;
-        if (ingredients.length > MAX_ING_COUNT) {
-            System.out.println("Ingredients should not be more than 8");
-            this.ingredients = new Ingredients[MAX_ING_COUNT];
-        } else {
-            this.ingredients = ingredients;
-        }
-    }
-
     public String getPizzaName() {
         return pizzaName;
     }
 
-    public void setPizzaName(String pizzaName) {
-        if (pizzaName.length() < 4 || pizzaName.length() > 20) {
-            this.pizzaName = "customer_name_";
+    public void setPizzaName(String pizzaName, int orderNumber) {
+        if (pizzaName == null || pizzaName.length() < 4 || pizzaName.length() > 20) {
+            this.pizzaName = "customer_name_" + orderNumber;
         } else {
             this.pizzaName = pizzaName;
         }
@@ -48,7 +44,7 @@ public class Pizza {
 
 
     public void setPizzaType(char pizzaType) {
-        if (pizzaType == 'b' || pizzaType == 'B') {
+        if (pizzaType == 0 || pizzaType == 'b' || pizzaType == 'B') {
             this.pizzaType = 'B';
         } else {
             this.pizzaType = 'C';
@@ -56,6 +52,7 @@ public class Pizza {
     }
 
     public double getCrustCost() {
+        double crustCost = 0;
         if (pizzaType == 'b' || pizzaType == 'B') {
             crustCost = 1;
         } else {
@@ -64,33 +61,28 @@ public class Pizza {
         return crustCost;
     }
 
-    public int getToppingCount() {
-        return toppingCount;
-    }
-
-
-    public void setToppingCount(int toppingCount) {
-        this.toppingCount = toppingCount;
-    }
-
     public int getQuantity() {
         return quantity;
     }
 
-    public int setQuantity(int quantity) {
+    public void setQuantity(int quantity) {
         if (quantity > 10) {
             System.out.println("You can order up to 10 pizzas");
+            this.quantity = 10;
+        } else if (quantity == 0) {
+            System.out.println("You need to order at least 1 pizza");
+            this.quantity = 1;
+        } else {
+            this.quantity = quantity;
         }
-        this.quantity = quantity;
-        return quantity;
     }
 
     public Ingredients[] getIngredients() {
+        if (ingredients == null) {
+            System.out.println("You need at least one topping on the pizza");
+            ingredients[toppingCount] = Ingredients.tomatoPaste();
+        }
         return ingredients;
-    }
-
-    public void setIngredients(Ingredients[] ingredients) {
-        this.ingredients = ingredients;
     }
 
     public void addIngredient(Ingredients ingredient) {

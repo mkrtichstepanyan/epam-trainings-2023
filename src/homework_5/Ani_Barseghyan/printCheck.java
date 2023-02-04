@@ -22,12 +22,12 @@ public class printCheck {
     public void printCheck() {
         System.out.println("*********************");
         System.out.println("Order: " + order.getOrderNumber());
-        System.out.println("Order: " + customer.getCustomerNumber());
-        for (int i = 0; i < order.getPizzaCount(); i++) {
-            System.out.println("Pizza: " + pizzas[i].getPizzaName());
+        System.out.println("Customer: " + customer.getCustomerNumber());
+        for (Pizza pizza : pizzas) {
+            System.out.println("Pizza: " + pizza.getPizzaName());
             System.out.println("---------------------");
-            System.out.println("Pizza Base " + pizzas[i].getPizzaType() + " " + pizzas[i].getCrustCost());
-            for (Ingredients ing : pizzas[i].getIngredients()) {
+            System.out.println("Pizza Base " + pizza.getPizzaType() + " " + pizza.getCrustCost());
+            for (Ingredients ing : pizza.getIngredients()) {
                 if (ing == null) {
                     break;
                 } else {
@@ -35,12 +35,13 @@ public class printCheck {
                 }
             }
             System.out.println("---------------------");
-            System.out.println("Amount " + pizzas[i].calculatePizzaCost());
-            System.out.println("Quantity " + pizzas[i].getQuantity());
-            System.out.println();
-            pizzaPrice +=  pizzas[i].calculatePizzaCost() * pizzas[i].getQuantity();
+            System.out.println("Amount " + pizza.calculatePizzaCost());
+            System.out.println("Quantity " + pizza.getQuantity());
+
+            pizzaPrice += pizza.calculatePizzaCost() * pizza.getQuantity();
         }
         System.out.println("*********************");
         System.out.println("Total amount: " + pizzaPrice);
+        System.out.println();
     }
 }
