@@ -10,6 +10,7 @@ public class Main {
         margarita.addIngredients("Garlic");
         margarita.addIngredients("Bacon");
         order1.addPizza(margarita);
+       ;
 
         Pizza anotherPizza = new Pizza("Pepperoni", "regular", 3);
         anotherPizza.addIngredients("Tomato paste");

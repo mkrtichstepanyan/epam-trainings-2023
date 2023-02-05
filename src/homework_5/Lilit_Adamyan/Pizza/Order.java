@@ -15,7 +15,10 @@ public class Order {
     }
 
     public void addPizza(Pizza pizza) {
-        this.pizzas.add(pizza);
+        if (pizza.getName().length() < 4 || pizza.getName().length() > 20) {
+            pizza.setName("customer_" + customerNumber + "_" + (pizzas.size() + 1));
+        }
+        pizzas.add(pizza);
     }
 
     public void displayPizzaAttributes() {
@@ -32,7 +35,7 @@ public class Order {
 
         double totalAmount = 0;
         for (Pizza pizza : this.pizzas) {
-            System.out.println("____________________________");
+            
             System.out.println("Name: " + pizza.getName());
             System.out.println("____________________________");
 
