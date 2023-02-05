@@ -11,7 +11,7 @@ public class Order {
     private Customer customer;
     private final int orderNumber;
     private LocalDateTime orderTime;
-    private int index;
+    private double totalPrice;
 
     public Order(Customer customer, Pizza[] pizzas, String type) {
         this.orderNumber = new Random().nextInt(99999 - 10000) + 10000;
@@ -19,9 +19,12 @@ public class Order {
         this.customer = customer;
         if (pizzas.length <= 10) {
             this.pizzas = pizzas;
+        } else {
+            System.out.println("You can't order more than 10 pizzas!");
         }
-        this.index = pizzas.length - 1;
-        pizzas[index].setPizzaType(type);
+        for (int i = 0; i < pizzas.length; i++) {
+            pizzas[i].setPizzaType(type);
+        }
     }
 
     public void orderInfo() {
@@ -36,12 +39,15 @@ public class Order {
         System.out.println("Client: " + customer.getNumber());
         System.out.println("Name: " + customer.getName());
         System.out.println("----------------------------------------");
-        System.out.println("Pizza Base: " + pizzas[index].getPizzaType());
-        pizzas[index].getIngredients();
-        System.out.println("----------------------------------------");
-        System.out.println("Amount: " + pizzas[index].getPrice() + " $");
-        System.out.println("Quantity: " + pizzas.length);
-        System.out.println("----------------------------------------");
-        System.out.println("Total amount: " + pizzas[index].getPrice() * (index+1) + " $");
+        for (int i = 0; i < pizzas.length; i++) {
+            System.out.println("Pizza Base: " + pizzas[i].getPizzaType());
+            pizzas[i].getIngredients();
+            System.out.println("----------------------------------------");
+            System.out.println("Amount: " + pizzas[i].getPrice() + " $");
+            System.out.println("Quantity: " + pizzas.length);
+            System.out.println("----------------------------------------");
+            totalPrice += pizzas[i].getPrice();
+        }
+        System.out.println("Total amount: " + totalPrice * pizzas.length + " $");
     }
 }
