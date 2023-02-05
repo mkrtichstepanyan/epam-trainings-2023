@@ -50,10 +50,6 @@ public class Pizza {
         this.quantity = quantity;
     }
 
-    public void displayPizza() {
-        System.out.println("[Order: Customer: Name: Quantity");
-
-    }
 
 
     public void addIngredients(String ingredient) {
