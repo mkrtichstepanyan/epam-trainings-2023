@@ -1,16 +1,16 @@
-package homework_5.Robert_Nazaryan;
+package homework_5.Karen_Mikayelyan;
 
 import java.util.Scanner;
 
 public class Task_1 {
 
     public static void main(String[] args) {
-//        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
-//       sumNumbers();                // Question 2
-       factorialDemo1();            // Question 3
-//        powerDemo();                 // Question 4
-//        reverseNumber();             // Question 5
-//        testPrime();                 // Question 6
+//               printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
+//               sumNumbers(3);                // Question 2
+//               factorialDemo1();            // Question 3
+//               powerDemo();                 // Question 4
+//               reverseNumber();             // Question 5
+               testPrime();                 // Question 6
     }
 
 
@@ -18,27 +18,32 @@ public class Task_1 {
         Write a program to print numbers from 1 to given parameter.
     */
     public static void printNumbers(int count) {
-        if (count == 0) {
+        if (count <= 0) {
             return;
+        } else {
+            printNumbers(count - 1);
+            System.out.print(count + " ");
         }
-        System.out.print(count + " ");
-        printNumbers(--count);
     }
 
     /* TODO: Question 2
         Write a program to calculate the sum of first 10 natural numbers.
     */
-    public static void sumNumbers() {
-        int sum = 0;
-        sum = sumNumbersRecursion(10);
+    public static int sumNumbers(int number) {
+        int sum = calculateSumNumbers(number);
+
         System.out.println("Sum: " + sum);
+        return sum;
     }
 
-    private static int sumNumbersRecursion(int n) {
-        if (n == 0) {
+    private static int calculateSumNumbers(int num) {
+        int sum = 0;
+
+        if (num == 0) {
             return 0;
         } else {
-            return n + sumNumbersRecursion(--n);
+            sum = calculateSumNumbers(num - 1) + num;
+            return sum;
         }
     }
 
@@ -46,7 +51,6 @@ public class Task_1 {
     /* TODO: Question 3
         Write a program to find the factorial value of any number entered through the keyboard.
     */
-
     public static void factorialDemo1() {
         Scanner console = new Scanner(System.in);
         int num; // To hold number
@@ -55,16 +59,20 @@ public class Task_1 {
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
 
-        fact = factorialDemo1Recursion(num);
-
-        System.out.println("Factorial: " + fact);
+        if (num >= 0) {
+            fact = findFactorial(num);
+            System.out.println("Factorial: " + fact);
+        } else {
+            System.out.println("The number is 'Negative', please try again!!!");
+            factorialDemo1();
+        }
     }
 
-    private static int factorialDemo1Recursion(int n) {
-        if (n <= 1) {
-            return 1;
+    private static int findFactorial(int n) {
+        if (n > 0) {
+            return n * findFactorial(n - 1);
         } else {
-            return n * factorialDemo1Recursion(--n);
+            return 1;
         }
     }
 
@@ -87,15 +95,21 @@ public class Task_1 {
         System.out.print("Enter the power ");
         power = console.nextInt();
 
-        result = powerDemoRecursion(base, power);
+        if (power >= 0) {
+            result = calculatePowerDemo(base, power);
+        } else {
+            System.out.println("Power number must be 'Positive' number");
+            return;
+        }
         System.out.println("Result: " + result);
     }
 
-    private static int powerDemoRecursion(int b, int p) {
-        if (p == 0) {
+    private static int calculatePowerDemo(int baseNum, int powerNum) {
+        if (powerNum == 0) {
             return 1;
+        } else {
+            return baseNum * calculatePowerDemo(baseNum, powerNum - 1);
         }
-        return b * powerDemoRecursion(b, --p);
     }
 
      /* TODO: Question 5
@@ -115,16 +129,19 @@ public class Task_1 {
         int temp = number;
         int remainder = 0;
 
-        reverse = reverseNumberRecursion(number, remainder);
+        reverse = calculateReverseNumber(number, reverse);
 
         System.out.println("Reverse of " + number + " is " + reverse);
     }
 
-    private static int reverseNumberRecursion(int n, int r) {
-        if (n < 10) {
-            return r * 10 + n;
+    private static int calculateReverseNumber(int num, int reverse) {
+        if (num == 0) {
+            return reverse;
+        } else {
+            int reminder = num % 10;
+            reverse = reverse * 10 + reminder;
+            return calculateReverseNumber(num / 10, reverse);
         }
-        return reverseNumberRecursion(n / 10, r * 10 + n % 10);
     }
 
 
@@ -140,25 +157,25 @@ public class Task_1 {
         System.out.print("Enter the positive integer ");
         number = console.nextInt();
 
-        boolean flag = true;
+        boolean flag;
 
-        flag = testPrimeRecursion(number, --number);
-        if (flag) {
-            System.out.println("Prime");
-        } else {
-            System.out.println("Not Prime");
-        }
+        flag = testOfPrime(number, 1);
+
+        System.out.println("The " + number + " is prime : " + flag);
     }
 
-    private static boolean testPrimeRecursion(int num, int temp) {
-        if (temp == 1) {
-            return true;
-        } else if (num % temp == 0) {
+    private static boolean testOfPrime(int num, int i) {
+        if (num < 2) {
             return false;
-        } else {
-            return testPrimeRecursion(num, --temp);
+        } else if (num == 2) {
+            return true;
+        } else if (i != num && num % i == 0) {
+            return false;
+        } else if (i > num) {
+            return true;
         }
-
+        return testOfPrime(num, i + 1);
     }
 }
+
 
