@@ -9,7 +9,7 @@ public class Task_1 {
 //        System.out.println(sumNumbers(10));                // Question 2
 //        System.out.println(factorialDemo1(7));             // Question 3
 //        System.out.println(powerDemo(-2, 3));              // Question 4
-//        reverseNumber(4256);                               // Question 5
+//        System.out.println(reverseNumber(4256)) ;          // Question 5
 //        System.out.println(testPrime(9));                  // Question 6
     }
 
@@ -86,8 +86,7 @@ public class Task_1 {
             reverse = reverse * 10 + reminder;
             return (reverseNumber1(number / 10, reverse));
         } else {
-            System.out.println(reverse);
-            return 0;
+            return reverse;
         }
     }
 
