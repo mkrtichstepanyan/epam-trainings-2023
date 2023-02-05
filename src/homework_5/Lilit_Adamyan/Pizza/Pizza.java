@@ -61,7 +61,7 @@ public class Pizza {
             System.out.println("Pizza is already full");
             return;
         } else if (ingredients.contains(ingredient)) {
-            System.out.println("Ingredient already added .Please check the order again");
+            System.out.println("Ingredient has already added .Please check the order again");
             return;
         }
         ingredients.add(ingredient);
