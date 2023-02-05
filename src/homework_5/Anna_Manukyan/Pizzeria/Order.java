@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class Order {
     private int orderNumber;
-    private int customerNumber;
+    private Customer customer;
     private ArrayList<Pizza> pizzaList;
 
     private LocalTime orderTime = LocalTime.now();
@@ -22,14 +22,14 @@ public class Order {
         for (int i = 0; i < pizzas.size(); i++) {
             String pizzaName = pizzas.get(i).getName();
             if (pizzaName.length() < 4 || pizzaName.length() > 20) {
-                pizzas.get(i).setName(customerNumber + "_" + i);
+                pizzas.get(i).setName(customer.getNumber() + "_" + i);
             }
         }
     }
 
     public void printCheck() {
         System.out.println("Order: " + orderNumber);
-        System.out.println("Client: " + customerNumber);
+        System.out.println("Client: " + customer.getNumber());
         double totalSum = 0;
         for (Pizza pizza : pizzaList) {
             System.out.println("Name: " + pizza.getName());
@@ -37,10 +37,11 @@ public class Order {
             System.out.println("Pizza base (" + pizza.getPizzaType().getName() + ") " + (pizza.getBASE_COST() + pizza.getPizzaType().getCost()) + " €");
             printPizzaIngredients(pizza);
             System.out.println("_______________________");
-            double pizzaAmount = calculatePizzaAmount(pizza);
-            System.out.println("Amount: " + calculatePizzaAmount(pizza) + " €");
+            double pizzaAmount = pizza.calculatePizzaAmount(pizza);
+            System.out.println("Amount: " + pizza.calculatePizzaAmount(pizza) + " €");
             System.out.println("Quantity " + pizza.getQuantity());
-            totalSum += pizzaAmount;
+            System.out.println("_______________________");
+            totalSum += pizzaAmount * pizza.getQuantity();
         }
         System.out.println("_______________________");
         System.out.println("Total amount " + totalSum + " €");
@@ -48,14 +49,6 @@ public class Order {
         System.out.println("Order time " + orderTime.getHour() + ":" + orderTime.getMinute());
     }
 
-    public double calculatePizzaAmount(Pizza pizza) {
-        double sum = 0;
-        List<Ingredient> ingredients = pizza.getIngredients();
-        for (int i = 0; i < ingredients.size(); i++) {
-            sum += ingredients.get(i).getPrice();
-        }
-        return sum;
-    }
 
     public void printPizzaIngredients(Pizza pizza) {
         List<Ingredient> ingredients = pizza.getIngredients();
@@ -65,20 +58,9 @@ public class Order {
     }
 
     public void printPizzaInformation(Pizza pizza) {
-        System.out.println("[ " + orderNumber + " : " + customerNumber + " : " + pizza.getName() + " : " + pizza.getQuantity() + " ]");
+        System.out.println("[ " + orderNumber + " : " + customer.getNumber() + " : " + pizza.getName() + " : " + pizza.getQuantity() + " ]");
     }
 
-    public int getOrderNumber() {
-        return orderNumber;
-    }
-
-    public int getCustomerNumber() {
-        return customerNumber;
-    }
-
-    public void setCustomerNumber(int customerNumber) {
-        this.customerNumber = customerNumber;
-    }
 
     public ArrayList<Pizza> getPizzaList() {
         return pizzaList;
@@ -90,5 +72,13 @@ public class Order {
 
     public LocalTime getOrderTime() {
         return orderTime;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

@@ -31,6 +31,15 @@ public class Pizza {
         }
     }
 
+    public double calculatePizzaAmount(Pizza pizza) {
+        double sum = getBASE_COST() + pizza.getPizzaType().getCost();
+        List<Ingredient> ingredients = pizza.getIngredients();
+        for (int i = 0; i < ingredients.size(); i++) {
+            sum += ingredients.get(i).getPrice();
+        }
+        return sum;
+    }
+
     public PizzaType getPizzaType() {
         return pizzaType;
     }

@@ -24,8 +24,9 @@ public class PizzaTest {
         ingredientsForBasePZZ.add(Ingredient.OLIVES);
         Pizza pizzaBasePZZ = new Pizza(PizzaType.CALZONE, "BasePZZ", ingredientsForBasePZZ, 12);
 
+        Customer customer1 = new Customer("First customer", 7717);
         Order order = new Order();
-        order.setCustomerNumber(7717);
+        order.setCustomer(customer1);
         ArrayList<Pizza> pizzaList = order.getPizzaList();
         pizzaList.add(pizzaMargarita);
         pizzaList.add(pizza);
@@ -35,8 +36,9 @@ public class PizzaTest {
 
         System.out.println("______________________________");
 
+        Customer customer2 = new Customer("Second customer", 4372);
         Order secondOrder = new Order();
-        secondOrder.setCustomerNumber(4372);
+        secondOrder.setCustomer(customer2);
         ArrayList<Pizza> secondOrderPizzaList = secondOrder.getPizzaList();
         secondOrderPizzaList.add(pizzaBasePZZ);
         secondOrder.createValidName(pizzaList);
