@@ -4,23 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
+   private static  int orderCounter = 10001;
     private final int orderNumber;
     private final int customerNumber;
     private final List<Pizza> pizzas;
 
-    public Order(int orderNumber, int customerNumber) {
-        this.orderNumber = orderNumber;
+    public Order( int customerNumber) {
+        this.orderNumber = orderCounter++;
         this.customerNumber = customerNumber;
         this.pizzas = new ArrayList<>();
     }
 
     public void addPizza(Pizza pizza) {
         if (pizza.getName().length() < 4 || pizza.getName().length() > 20) {
-            pizza.setName("customer_" + customerNumber + "_" + (pizzas.size() + 1));
+            pizza.setName("customer_name_" + (pizzas.size() + 1));
         }
         pizzas.add(pizza);
     }
-
     public void displayPizzaAttributes() {
         for (int i = 0; i < pizzas.size(); i++) {
             Pizza pizza = pizzas.get(i);
