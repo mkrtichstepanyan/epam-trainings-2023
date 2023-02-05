@@ -4,7 +4,11 @@ public class Customer {
     private String customer_name;
     private int customer_number;
 
-    Customer(String customer_name, int customer_number) {
+    public Customer() {
+
+    }
+
+    public Customer(String customer_name, int customer_number) {
         this.customer_number = customer_number;
         this.customer_name = customer_name;
     }
