@@ -14,7 +14,7 @@ public class main {
         order1.addIngredient(Ingredient.bacon);
 
         Order order2 = Order.makeOrder(
-                new Pizza("sdsdsd", PizzaType.regular),
+                new Pizza("Europa", PizzaType.regular),
                 5,
                 new Customer("Garik", 4540));
         order2.getInfo();
