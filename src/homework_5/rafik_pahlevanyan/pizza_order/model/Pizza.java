@@ -7,19 +7,23 @@ public class Pizza {
 
     private static final int MAX_QUANTITY_OF_PIZZAS = 10;
 
-    private  String name;
-    private  List<String> ingredients;
-    private  PizzaType type;
-    private  int quantity;
+    private String name;
+    private List<String> ingredients;
+    private PizzaType type;
+    private int quantity;
 
-    public Pizza(String name, PizzaType type, int quantity) {
-        if (quantity < MAX_QUANTITY_OF_PIZZAS){
-        this.name = name;
-        this.type = type;
-        this.quantity = quantity;
-        this.ingredients = new ArrayList<>();
+    public Pizza(String name, PizzaType type, int quantity, Customer customer) {
+        if (quantity < MAX_QUANTITY_OF_PIZZAS) {
+            if (name.length() < 4 || name.length() > 20) {
+                this.name = customer.getName() + "_" + customer.getNumber();
+            } else {
+                this.name = name;
+            }
+            this.type = type;
+            this.quantity = quantity;
+            this.ingredients = new ArrayList<>();
         } else {
-            System.out.println("You cant order more than 10");
+            System.out.println("You cant order more than 10 pizzas");
             System.exit(1);
         }
     }
@@ -37,9 +41,7 @@ public class Pizza {
     public String getName() {
         return this.name;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
+
 
     public int getQuantity() {
         return this.quantity;

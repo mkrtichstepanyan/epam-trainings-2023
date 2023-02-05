@@ -20,10 +20,6 @@ public class Order {
 
 
     public void addPizza(Pizza pizza) {
-        if (pizza.getName().length() < 4 || pizza.getName().length() > 20) {
-            int index = this.pizzas.size() + 1;
-            pizza.setName("customer_name " + index);
-        }
         this.pizzas.add(pizza);
     }
 
@@ -31,12 +27,12 @@ public class Order {
     public void printCheck() {
         System.out.println("********************************");
         System.out.println("Order: " + this.orderNumber);
-        System.out.println("Client: " + this.customer);
+        System.out.println("Client: " + this.customer.getNumber());
         System.out.println("Order time: " + LocalDateTime.now());
         double totalAmount = 0.0;
         for (Pizza pizza : this.pizzas) {
-            System.out.println("--------------------------------");
             System.out.println("Name: " + pizza.getName());
+            System.out.println("--------------------------------");
 
             double pizzaAmount = 1.0;
             if (pizza.getType().equals(PizzaType.CLOSED)) {
@@ -77,7 +73,7 @@ public class Order {
 
     public void displayPizzaAttributes() {
         for (Pizza pizza : this.pizzas) {
-            System.out.println("[Order: " + this.orderNumber + " : " + this.customer + " : " +
+            System.out.println("[Order: " + this.orderNumber + " : " + this.customer.getNumber() + " : " +
                     pizza.getName() + " : " + pizza.getQuantity() + "]");
         }
     }
