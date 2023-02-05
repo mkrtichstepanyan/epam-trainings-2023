@@ -1,13 +1,11 @@
-package homework_5.shushanik_araqelyan;
-
-import java.util.Scanner;
+package homework_5.shushanik_araqelyan.myTask;
 
 public class Task_1 {
 
     public static void main(String[] args) {
-          printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
- //       sumNumbers();                // Question 2
-//        factorialDemo1();            // Question 3
+        //       printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
+        //     sumNumbers( 10);                // Question 2
+        factorialDemo1(9);            // Question 3
 //        powerDemo();                 // Question 4
 //   //     reverseNumber();             // Question 5
 //        readSetIntegers();           // Question 6
@@ -21,36 +19,66 @@ public class Task_1 {
     public static void printNumbers(int count) {
         //      Todo write your code here ...
 
+        if (count > 0) {
+            printNumbers(count - 1);
+
+            System.out.println(count);
+
+        }
+
+
     }
 
 
     /* TODO: Question 2
         Write a program to calculate the sum of first 10 natural numbers.
     */
-    public static void sumNumbers() {
+    public static int sumNumbers(int number) {
         int sum = 0;
+
         // Todo write your code here ...
-        int i, num = 10;
+
+        if (number > 0) {
+            int result = sumNumbers(number - 1);
+
+            sum = number;
 
 
+        }
         System.out.println("Sum = " + sum);
+        return sum;
+    }
+
+
+    /* TODO: Question 3
+        Write a program to find the factorial value of any number entered through the keyboard.
+    */
+    public static int factorialDemo1(int num) {
+
+        int fact = 1; // To hold factorial
+        int result;
+        // Todo write your code here ...
+        if (num == 0 || num == 1) {
+        return 1;
+    
+        return num * factorialDemo1(num-1);
     }
 
 
 
 
 
-    /* TODO: Question 3
-        Write a program to find the factorial value of any number entered through the keyboard.
-    */
-        public static void factorialDemo1 (int num) {
 
-            int fact = 1; // To hold factorial
 
-            // Todo write your code here ...
 
-            System.out.println("Factorial: " + fact);
-        }
+
+
+
+
+
+
+
+
 
      /* TODO: Question 4
          Two numbers are entered through the keyboard.
@@ -67,6 +95,7 @@ public class Task_1 {
             // Todo write your code here ...
 
             System.out.println("Result: " + result);
+        return 0;
         }
 
      /* TODO: Question 5
@@ -74,12 +103,10 @@ public class Task_1 {
          For example, if the input is 12345, the output should be 54321.
      */
 
-        public static void reverseNumber (int number) {
+        //public static void reverseNumber (int number) {
 
 
             int reverse = 0;
-
-
             int temp = number;
             int remainder = 0;
 
@@ -93,7 +120,7 @@ public class Task_1 {
         Write a program that prompts the user to input a positive integer.
         It should then output a message indicating whether the number is a prime number.
     */
-        public static void testPrime (int number) {
+        //public static void testPrime (int number) {
 
 
 

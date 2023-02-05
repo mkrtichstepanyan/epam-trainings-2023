@@ -9,7 +9,7 @@ public class Task_1 {
 //        sumNumbers();                // Question 2
 //        factorialDemo1();            // Question 3
 //        powerDemo();                 // Question 4
-        reverseNumber();             // Question 5
+  //      reverseNumber();             // Question 5
 //        readSetIntegers();           // Question 6
 //        testPrime();                 // Question 7
     }
@@ -20,6 +20,11 @@ public class Task_1 {
     */
     public static void printNumbers(int count) {
         // Todo write your code here ...
+
+        if(count==0 || count==1){
+            System.out.println(count -1);
+        }
+
     }
 
     /* TODO: Question 2
