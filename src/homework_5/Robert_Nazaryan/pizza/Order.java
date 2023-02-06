@@ -13,17 +13,15 @@ public class Order {
     private LocalDateTime orderTime;
     private double totalPrice;
 
-    public Order(Customer customer, Pizza[] pizzas, String type) {
+    public Order(Customer customer, Pizza[] pizzas) {
         this.orderNumber = new Random().nextInt(99999 - 10000) + 10000;
         this.orderTime = LocalDateTime.now();
         this.customer = customer;
         if (pizzas.length <= 10) {
             this.pizzas = pizzas;
         } else {
-            System.out.println("You can't order more than 10 pizzas!");
-        }
-        for (int i = 0; i < pizzas.length; i++) {
-            pizzas[i].setPizzaType(type);
+            System.out.println("You can't order more than 10 pizzas!. Will serve the first 10 only.");
+            resizeArray(pizzas);
         }
     }
 
@@ -44,10 +42,17 @@ public class Order {
             pizzas[i].getIngredients();
             System.out.println("----------------------------------------");
             System.out.println("Amount: " + pizzas[i].getPrice() + " $");
-            System.out.println("Quantity: " + pizzas.length);
             System.out.println("----------------------------------------");
             totalPrice += pizzas[i].getPrice();
         }
+        System.out.println("Quantity: " + pizzas.length);
         System.out.println("Total amount: " + totalPrice * pizzas.length + " $");
+    }
+
+    private void resizeArray(Pizza[] pizzasFrom) {
+        this.pizzas = new Pizza[10];
+        for (int i = 0; i < 10; i++) {
+            this.pizzas[i] = pizzasFrom[i];
+        }
     }
 }

@@ -7,9 +7,19 @@ public class Main {
         pizzaMargarita.addIngredient("Tomato");
         pizzaMargarita.addIngredient("Olives");
         pizzaMargarita.addIngredient("Garlic");
-        pizzaMargarita.addIngredient("Baacon");
-        Pizza[] pizzasMargarita = new Pizza[]{pizzaMargarita};
-        Order orderMargarita = new Order(new Customer("Margarita"),pizzasMargarita, "closed" );
+        pizzaMargarita.addIngredient("Bacon");
+        pizzaMargarita.setPizzaType("closed");
+
+
+        Pizza pizzaMargaritaRegular = new Pizza();
+        pizzaMargaritaRegular.addIngredient("Olives");
+        pizzaMargaritaRegular.addIngredient("Salami");
+        pizzaMargaritaRegular.addIngredient("Garlic");
+        pizzaMargaritaRegular.addIngredient("Corn");
+        pizzaMargaritaRegular.setPizzaType("regular");
+
+        Pizza[] pizzasMargarita = new Pizza[]{pizzaMargarita, pizzaMargaritaRegular};
+        Order orderMargarita = new Order(new Customer("Margarita"), pizzasMargarita);
         orderMargarita.orderInfo();
         orderMargarita.printCheck();
 
@@ -18,10 +28,10 @@ public class Main {
         pizzaPepperoniOro.addIngredient("Pepperoni");
         pizzaPepperoniOro.addIngredient("Garlic");
         pizzaPepperoniOro.addIngredient("Cheese");
+        pizzaPepperoniOro.setPizzaType("closed");
         Pizza[] pizzasPepperoniOro = new Pizza[]{pizzaPepperoniOro};
-        Order orderPepperoniOro = new Order(new Customer("pizzaPepperoniOro"),pizzasPepperoniOro, "closed" );
+        Order orderPepperoniOro = new Order(new Customer("pizzaPepperoniOro"), pizzasPepperoniOro);
         orderPepperoniOro.orderInfo();
         orderPepperoniOro.printCheck();
     }
-
 }
