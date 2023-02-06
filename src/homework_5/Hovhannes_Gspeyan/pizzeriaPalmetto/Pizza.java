@@ -12,7 +12,9 @@ public class Pizza {
     // declares pizzas obj. index
     // with customer_name if pizzas name
     // length isn't required
-    private int index;
+    private int index = 0;
+    private static int indexNumber;
+
     // name of a pizza object
     private String name;
 
@@ -32,9 +34,9 @@ public class Pizza {
     // pizza object constructor with 3 args as parameters
     // also checks object's name is valid otherwise names
     // pizza obj. as "customer_name + quantity"
-    public Pizza(String name, String type, int quantity,int index, Customer customer) {
+    public Pizza(String name, String type, int quantity, Customer customer) {
         if (name.length() < 4 || name.length() > 20) {
-            this.index = index;
+            this.index = indexNumber++;
             this.name = customer.getName() + "_" + index;
         } else {
             this.name = name;
@@ -44,6 +46,7 @@ public class Pizza {
         this.ingredients = new String[MAX_INGREDIENTS];
         this.ingredientCount = 0;
     }
+
     public Pizza(String name, String type, int quantity) {
         this.name = name;
         this.type = type;
@@ -102,6 +105,7 @@ public class Pizza {
     public int getQuantity() {
         return quantity;
     }
+
     public int getIndex() {
         return index;
     }

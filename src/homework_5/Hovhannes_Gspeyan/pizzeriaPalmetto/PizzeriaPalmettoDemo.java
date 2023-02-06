@@ -21,14 +21,14 @@ public class PizzeriaPalmettoDemo {
         pepperoniOro.addIngredient("Olives");
 
         Order order2 = new Order(new Customer("George", 4372));
-        Pizza basePZZ = new Pizza("BasePZZ", "", 12);
-        basePZZ.addIngredient("Bacon");
-        basePZZ.addIngredient("Cheese");
-        basePZZ.addIngredient("Garlic");
-        basePZZ.addIngredient("Corn");
+        Pizza BasePZZNoCalzoneAndPepper = new Pizza("BasePZZNoCalzoneAndPepper", "", 12,order2.getCustomer());
+        BasePZZNoCalzoneAndPepper.addIngredient("Bacon");
+        BasePZZNoCalzoneAndPepper.addIngredient("Cheese");
+        BasePZZNoCalzoneAndPepper.addIngredient("Garlic");
+        BasePZZNoCalzoneAndPepper.addIngredient("Corn");
 
         Order order3 = new Order(new Customer("Juan", 4545));
-        Pizza baseWithCalzoneAndTomatoPaste = new Pizza("BaseWithCalzoneAndTomatoPaste", "Calzone", 1, order3.getIndex(), order3.getCustomer());
+        Pizza baseWithCalzoneAndTomatoPaste = new Pizza("BaseWithCalzoneAndTomatoPaste", "Calzone", 1, order3.getCustomer());
         baseWithCalzoneAndTomatoPaste.addIngredient("Bacon");
         baseWithCalzoneAndTomatoPaste.addIngredient("Garlic");
         baseWithCalzoneAndTomatoPaste.addIngredient("Corn");
@@ -37,7 +37,7 @@ public class PizzeriaPalmettoDemo {
 
         order1.displayPizzaAttributes(margarita);
         order1.displayPizzaAttributes(pepperoniOro);
-        order2.displayPizzaAttributes(basePZZ);
+        order2.displayPizzaAttributes(BasePZZNoCalzoneAndPepper);
         order3.displayPizzaAttributes(baseWithCalzoneAndTomatoPaste);
 
         order1.addPizza(pepperoniOro);
@@ -55,7 +55,7 @@ public class PizzeriaPalmettoDemo {
 
         order1.printCheck();
 
-        order2.addPizza(basePZZ);
+        order2.addPizza(BasePZZNoCalzoneAndPepper);
         order2.printCheck();
 
         order3.addPizza(baseWithCalzoneAndTomatoPaste);
