@@ -1,17 +1,16 @@
-package homework_5;
+package homework_5.Hovhannes_Abrahamyan;
 
 import java.util.Scanner;
 
 public class Task_1 {
 
     public static void main(String[] args) {
-        //        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
-        //        sumNumbers();                // Question 2
-        //        factorialDemo1();            // Question 3
-        //        powerDemo();                 // Question 4
+//        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
+//       sumNumbers();                // Question 2
+//       factorialDemo1();            // Question 3
+//        powerDemo();                 // Question 4
         reverseNumber();             // Question 5
-        //        readSetIntegers();           // Question 6
-        //        testPrime();                 // Question 7
+//        testPrime();                 // Question 6
     }
 
 
@@ -19,7 +18,11 @@ public class Task_1 {
         Write a program to print numbers from 1 to given parameter.
     */
     public static void printNumbers(int count) {
-        // Todo write your code here ...
+        if (count == 0) {
+            return;
+        }
+        System.out.print(count + " ");
+        printNumbers(--count);
     }
 
     /* TODO: Question 2
@@ -27,14 +30,23 @@ public class Task_1 {
     */
     public static void sumNumbers() {
         int sum = 0;
-        // Todo write your code here ...
+        sum = sumNumbersRecursion(10);
         System.out.println("Sum: " + sum);
+    }
+
+    private static int sumNumbersRecursion(int n) {
+        if (n == 0) {
+            return 0;
+        } else {
+            return n + sumNumbersRecursion(--n);
+        }
     }
 
 
     /* TODO: Question 3
         Write a program to find the factorial value of any number entered through the keyboard.
     */
+
     public static void factorialDemo1() {
         Scanner console = new Scanner(System.in);
         int num; // To hold number
@@ -43,9 +55,17 @@ public class Task_1 {
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
 
-        // Todo write your code here ...
+        fact = factorialDemo1Recursion(num);
 
         System.out.println("Factorial: " + fact);
+    }
+
+    private static int factorialDemo1Recursion(int n) {
+        if (n <= 1) {
+            return 1;
+        } else {
+            return n * factorialDemo1Recursion(--n);
+        }
     }
 
      /* TODO: Question 4
@@ -67,9 +87,15 @@ public class Task_1 {
         System.out.print("Enter the power ");
         power = console.nextInt();
 
-        // Todo write your code here ...
-
+        result = powerDemoRecursion(base, power);
         System.out.println("Result: " + result);
+    }
+
+    private static int powerDemoRecursion(int b, int p) {
+        if (p == 0) {
+            return 1;
+        }
+        return b * powerDemoRecursion(b, --p);
     }
 
      /* TODO: Question 5
@@ -89,9 +115,16 @@ public class Task_1 {
         int temp = number;
         int remainder = 0;
 
-        // Todo write your code here ...
+        reverse = reverseNumberRecursion(number, remainder);
 
         System.out.println("Reverse of " + number + " is " + reverse);
+    }
+
+    private static int reverseNumberRecursion(int n, int r) {
+        if (n < 10) {
+            return r * 10 + n;
+        }
+        return reverseNumberRecursion(n / 10, r * 10 + n % 10);
     }
 
 
@@ -109,8 +142,22 @@ public class Task_1 {
 
         boolean flag = true;
 
-        // Todo write your code here ...
+        flag = testPrimeRecursion(number, --number);
+        if (flag) {
+            System.out.println("Prime");
+        } else {
+            System.out.println("Not Prime");
+        }
+    }
+
+    private static boolean testPrimeRecursion(int num, int temp) {
+        if (temp == 1) {
+            return true;
+        } else if (num % temp == 0) {
+            return false;
+        } else {
+            return testPrimeRecursion(num, --temp);
+        }
 
     }
 }
-
