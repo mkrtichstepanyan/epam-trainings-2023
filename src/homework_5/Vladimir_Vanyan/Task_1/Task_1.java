@@ -6,12 +6,12 @@ public class Task_1 {
 
     public static void main(String[] args) {
         //   printNumbers(10);   // Question 1 -> try with different integer values instead of 10 only
-        // System.out.println(sumNumbers());       // Question 2
-        //System.out.println(factorialDemo1(8));    // Question 3
-        powerDemo();        // Question 4
-        //          reverseNumber();  // Question 5
-        //        readSetIntegers();  // Question 6
-        //        testPrime();        // Question 7
+        //   sumNumbers();        // Question 2
+        //   System.out.println(factorialDemo1(8));    // Question 3
+        //   powerDemo();        // Question 4
+        //   reverseNumber();  // Question 5
+        //   readSetIntegers();  // Question 6
+        //   testPrime();        // Question 7
 
     }
 
@@ -32,14 +32,19 @@ public class Task_1 {
     /* TODO: Question 2
         Write a program to calculate the sum of first 10 natural numbers.
     */
-    public static int sumNumbers() {
-        int num = 10;
+
+    public static void sumNumbers() {
+        int sum = 0;
+        sum = recursionNumberCalculate(10);
+        System.out.println("The sum is: " + sum);
+    }
+
+    private static int recursionNumberCalculate(int num) {
 
         if (num == 0) {
-            return num;
+            return 1;
         } else {
-            num--;
-            return num + sumNumbers();
+            return num + recursionNumberCalculate(num - 1);
         }
     }
 
