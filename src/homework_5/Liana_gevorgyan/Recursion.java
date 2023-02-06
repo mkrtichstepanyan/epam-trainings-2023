@@ -8,10 +8,9 @@ public class Recursion {
    //     System.out.println("Sum: " + sumNumbers(4));                // Question 2
     //   factorialDemo1();            // Question 3
     //   powerDemo();                 // Question reverseNumber();             // Question 5
-//        readSetIntegers();           // Question 6
+
         testPrime();                 // Question 7
     }
-
 
     /* TODO: Question 1
         Write a program to print numbers from 1 to given parameter.
