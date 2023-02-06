@@ -6,14 +6,14 @@ import java.util.List;
 
 public class Order {
     private int orderNumber;
-    private int customerPhone;
+    private Customer customer;
     private List<Pizza> pizzas;
     private LocalTime orderTime;
 
-    public Order(int orderNumber, int customerPhone) {
+    public Order(int orderNumber, Customer customer) {
         this.orderNumber = orderNumber;
-        this.customerPhone = customerPhone;
-        this.pizzas = new ArrayList<Pizza>();
+        this.customer = customer;
+        this.pizzas = new ArrayList<>();
         this.orderTime = LocalTime.now();
     }
 
@@ -33,7 +33,7 @@ public class Order {
     public void addIngredient(String pizzaName, String ingredient) {
         for (Pizza pizza : pizzas) {
             if (pizza.getName().equals(pizzaName)) {
-                if (pizza.getIngredients().size() == 7) {
+                if (pizza.getIngredients().size() >= 7) {
                     System.out.println("This pizza already contains 7 ingredients!");
                 } else if (pizza.getIngredients().contains(ingredient)) {
                     System.out.println("This ingredient is already added!");
@@ -48,7 +48,7 @@ public class Order {
         double totalAmount = 0;
         System.out.println("********************************");
         System.out.println("Order: " + orderNumber);
-        System.out.println("Client: " + customerPhone);
+        System.out.println("Client: " + customer.getCustomerPhone());
         for (Pizza pizza : pizzas) {
             System.out.println("Name: " + pizza.getName());
             System.out.println("--------------------------------");

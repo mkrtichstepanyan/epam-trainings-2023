@@ -31,15 +31,8 @@ public class Pizza {
         return this.quantity;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
-    }
 
-    public void addIngredient(String ingredient) {
-        if (ingredients.size() < 10) {
-            ingredients.add(ingredient);
-        } else {
-            System.out.println("Pizza is already full");
-        }
     }
 }
