@@ -119,7 +119,6 @@ public class Task_1 {
         } else if (number % step == 0) {
             return "your number is not prime";
         }
-
         return testPrime(number, ++step);
     }
 }
