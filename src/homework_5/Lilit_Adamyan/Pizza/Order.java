@@ -40,7 +40,7 @@ public class Order {
         double totalAmount = 0;
         for (Pizza pizza : this.pizzas) {
 
-            System.out.println("Name: " + pizza.getName());
+            System.out.println("Name: " + customer.getName());
             System.out.println("____________________________");
 
             double pizzaAmount = 0;
