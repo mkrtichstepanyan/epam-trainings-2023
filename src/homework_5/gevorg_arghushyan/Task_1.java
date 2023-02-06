@@ -24,13 +24,16 @@ public class Task_1 {
 //        power = scanner.nextInt();
 //        System.out.println(powerDemo(base,power));
 //**********************************************************************************************************************
-        Scanner scanner = new Scanner(System.in);                    // Question 5
-        System.out.print("Enter the number ");
-        int number = scanner.nextInt();
-        System.out.println(reverseNumber(number,0) );;
+//        Scanner scanner = new Scanner(System.in);                    // Question 5
+//        System.out.print("Enter the number ");
+//        int number = scanner.nextInt();
+//        System.out.println(reverseNumber(number,0) );;
 //**********************************************************************************************************************
-//        readSetIntegers();                                        // Question 6
-//        testPrime();                                              // Question 7
+        Scanner console = new Scanner(System.in);
+        System.out.print("Enter the positive integer ");
+        int number= console.nextInt();
+
+         System.out.println(testPrime(number,2));;                                               // Question 6
 
     }
     /* TODO: Question 1
@@ -48,7 +51,7 @@ public class Task_1 {
     /* TODO: Question 2
         Write a program to calculate the sum of first 10 natural numbers.
     */
-//    public static void sumNumbers(int number, int sum, int counter) {
+    //    public static void sumNumbers(int number, int sum, int counter) {
 //        if (counter == 0) {
 //            System.out.println(sum);
 //            return;
@@ -108,18 +111,16 @@ public class Task_1 {
         Write a program that prompts the user to input a positive integer.
         It should then output a message indicating whether the number is a prime number.
     */
-    public static void testPrime() {
-        Scanner console = new Scanner(System.in);
+    public static String testPrime(int number, int step) {
 
-        int number;
+        if (number == step) {
+            return "your number is prime";
 
-        System.out.print("Enter the positive integer ");
-        number = console.nextInt();
+        } else if (number % step == 0) {
+            return "your number is not prime";
+        }
 
-        boolean flag = true;
-
-        // Todo write your code here ...
-
+        return testPrime(number, ++step);
     }
 }
 
