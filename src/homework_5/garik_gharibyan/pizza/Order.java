@@ -3,64 +3,16 @@ package homework_5.garik_gharibyan.pizza;
 public class Order {
     private static int lastOrderNumber = 10000;
     private final int orderNumber;
-    private final int quantity;
-    private final Pizza pizza;
+
+    private final Pizza[] pizzas;
     private final Customer customer;
-    private int topElementIngredients = -1;
-    private Ingredient[] ingredients = new Ingredient[0];
 
 
-    private Order(Pizza pizza, int quantity, Customer customer, int orderNumber) {
-        if (quantity >= 10) {
-            this.quantity = 10;
-        } else if (quantity <= 1) {
-            this.quantity = 1;
-        } else {
-            this.quantity = quantity;
-        }
-        this.pizza = pizza;
+    private Order(Pizza[] pizzas, Customer customer, int orderNumber) {
+
+        this.pizzas = pizzas;
         this.customer = customer;
         this.orderNumber = orderNumber;
-    }
-
-    public void addIngredient(Ingredient ingredient) {
-
-        boolean b = isExistIngredient(ingredient);
-        if (b == true) {
-            System.out.println(ingredient.getName() + " ingredient already exist");
-            return;
-        }
-
-        if (ingredients.length > 6) {
-            System.out.println(pizza.getName() + " pizza ingredient are full");
-        } else if (ingredients.length == 0) {
-            extendCapacityIngredient();
-            ingredients[++topElementIngredients] = ingredient;
-        } else {
-            extendCapacityIngredient();
-            ingredients[++topElementIngredients] = ingredient;
-        }
-    }
-
-    private void extendCapacityIngredient() {
-        Ingredient[] newArrayIngredients = new Ingredient[ingredients.length + 1];
-        for (int i = 0; i < ingredients.length; i++) {
-            newArrayIngredients[i] = ingredients[i];
-        }
-        ingredients = newArrayIngredients;
-    }
-
-    boolean isExistIngredient(Ingredient ingredient) {
-        for (Ingredient i : ingredients) {
-            if (i.getName().equals(ingredient.getName())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public int getQuantity() {
-        return quantity;
     }
 
     public Customer getCustomer() {
@@ -71,21 +23,38 @@ public class Order {
         return orderNumber;
     }
 
-    public Pizza getPizza() {
-        return pizza;
+    public Pizza[] getPizzas() {
+        return pizzas;
     }
-
 
     public void getInfo() {
         System.out.println(
-                "order: " + orderNumber + "\n" +
-                        "customer phone number: " + customer.getPhoneNumber() + "\n" +
-                        "customer name: " + customer.getName() + "\n" +
-                        "quantity: " + quantity + "\n"
+                "Order: " + orderNumber + "\n" +
+                        "Customer phone number: " + customer.getPhoneNumber() + "\n" +
+                        "Pizza name: " + pizzas[0].getName() + "\n" +
+                        "Quantity: " + pizzas[0].getQuantity() + "\n"
         );
     }
 
-    public static Order makeOrder(Pizza pizza, int quantity, Customer customer){
-        return new Order(pizza,quantity,customer,lastOrderNumber++);
+    public static Order makeOrder(Pizza[] pizzas, Customer customer) {
+        return new Order(pizzas, customer, lastOrderNumber++);
     }
+
+//    public void printCheck() {
+//
+//        System.out.println(
+//                "**************************************" + "\n" +
+//                        "Order: " + getOrderNumber() + "\n" +
+//                        "Client: " + customer.getPhoneNumber() + "\n" +
+//                        "Name: " + pizza.getName() + "\n" +
+//                        "---------------------------" + "\n" +
+//                        "Pizza base: " + pizza.getPizzaType().getPizzaTypeName() + " " +
+//                        pizza.getPizzaType().getPizzaTypePrice());
+//        pizza.printIngredients();
+//        System.out.println(
+//                "---------------------------" + "\n" +
+//                        "Amount: " + pizza.pizzaAmount() + "\n" +
+//                        "Quantity: " + quantity + "\n");
+//
+//    }
 }
