@@ -1,39 +1,42 @@
-package homework_5.rafik_pahlevanyan.tasks;
+package homework_5.Hovhannes_Gspeyan;
 
 import java.util.Scanner;
 
 public class Task_1 {
 
     public static void main(String[] args) {
-//        printNumbers(20);            // Question 1 -> try with different integer values instead of 10 only
-//        System.out.println(sumNumbers(10));                // Question 2
-//        factorialDemo1();            // Question 3
-//        powerDemo();                 // Question 4
-        reverseDemo();             // Question 5
-//        testPrime();                 // Question 6
-    }
+        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
+        sumNumbers(10);               // Question 2
+        factorialDemo1();            // Question 3
+        powerDemo();                 // Question 4
+        reverseNumber();             // Question 5
+//        readSetIntegers();           // Question 6
 
+        testPrime();                 // Question 7
+    }
 
     /* TODO: Question 1
         Write a program to print numbers from 1 to given parameter.
     */
     public static void printNumbers(int count) {
-        if (count > 0) {
-            printNumbers(count-1);
+        if (count < 1) {
+            return;
         }
+        printNumbers(count - 1);
         System.out.print(count + " ");
     }
 
     /* TODO: Question 2
         Write a program to calculate the sum of first 10 natural numbers.
     */
-    public static int sumNumbers(int i) {
-        if (i <= 1) {
-            return 1;
+    public static void sumNumbers(int i) {
+        int sum = i * (i + 1) / 2;
+        if (i == 0) {
+            return;
         }
-        return i + sumNumbers(i - 1);
+        sumNumbers(i - 1);
+        System.out.println("Sum: " + sum);
     }
-
 
     /* TODO: Question 3
         Write a program to find the factorial value of any number entered through the keyboard.
@@ -41,35 +44,33 @@ public class Task_1 {
     public static void factorialDemo1() {
         Scanner console = new Scanner(System.in);
         int num; // To hold number
+        int fact; // To hold factorial
 
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
 
-        int result = findFactorial(num, 1);
-
-        System.out.println("Factorial: " + num + " is: " + result);
+        fact = factorialDemo1Util(num);
+        System.out.println("fact: " + fact);
     }
 
-    private static int findFactorial(int num, int fact) {
-        if (num == 1) {
-            return fact;
+    private static int factorialDemo1Util(int num) {
+        if (num == 0) {
+            return 1;
         }
-        fact *= num;
-        return findFactorial(num - 1, fact);
+        return num * factorialDemo1Util(num - 1);
     }
 
-     /* TODO: Question 4
+    /* TODO: Question 4
          Two numbers are entered through the keyboard.
          Write a program to find the value of one number raised to the power of another.
          (Do not use Java built-in method)
      */
-
     public static void powerDemo() {
         Scanner console = new Scanner(System.in);
 
         int base;
         int power;
-
+        int result;
 
         System.out.print("Enter the base number ");
         base = console.nextInt();
@@ -77,44 +78,46 @@ public class Task_1 {
         System.out.print("Enter the power ");
         power = console.nextInt();
 
-        int result = findPower(base, power, 1);
-
-        System.out.println(base + " raised to the power of " + power + " is " + result);
+        result = powerDemoUtil(base, power);
+        System.out.println("Result: " + result);
     }
 
-    private static int findPower(int base, int power, int result) {
+    private static int powerDemoUtil(int base, int power) {
         if (power == 0) {
-            return result;
+            return 1;
         }
-        result *= base;
-        return findPower(base, power - 1, result);
+        return base * powerDemoUtil(base, power - 1);
     }
-
-     /* TODO: Question 5
+    /* TODO: Question 5
          Write a program that prompts the user to input an integer and then outputs the number with the digits reversed.
          For example, if the input is 12345, the output should be 54321.
      */
 
-    public static void reverseDemo() {
+    public static void reverseNumber() {
         Scanner console = new Scanner(System.in);
 
         int number;
+        int reverse;
 
         System.out.print("Enter the number ");
         number = console.nextInt();
 
-        int reverse = reverseNumber(number, 0);
+        int temp = number;
+        int remainder = 1;
 
+        while (temp >= 10) {
+            remainder *= 10;
+            temp /= 10;
+        }
+        reverse = reverseNumberUtil(number, remainder);
         System.out.println("Reverse of " + number + " is " + reverse);
     }
 
-    private static int reverseNumber(int number, int reverse) {
+    private static int reverseNumberUtil(int number, int remainder) {
         if (number == 0) {
-            return reverse;
+            return 0;
         }
-        int digit = number % 10;
-        reverse = reverse * 10 + digit;
-        return reverseNumber(number / 10, reverse);
+        return (number % 10) * remainder + reverseNumberUtil(number / 10, remainder / 10);
     }
 
 
@@ -122,8 +125,6 @@ public class Task_1 {
         Write a program that prompts the user to input a positive integer.
         It should then output a message indicating whether the number is a prime number.
     */
-
-
     public static void testPrime() {
         Scanner console = new Scanner(System.in);
 
@@ -132,20 +133,24 @@ public class Task_1 {
         System.out.print("Enter the positive integer ");
         number = console.nextInt();
 
-        if (isPrime(number, number / 2)) {
-            System.out.println(number + " is a prime number.");
+        boolean flag;
+
+        flag = testIsPrime(number, number / 2);
+        if (flag) {
+            System.out.println(number + " is a prime number");
         } else {
-            System.out.println(number + " is not a prime number.");
+            System.out.println(number + " is not a prime number");
         }
     }
 
-    private static boolean isPrime(int n, int i) {
+    private static boolean testIsPrime(int number, int i) {
         if (i == 1) {
             return true;
         }
-        if (n % i == 0) {
+        if (number % i == 0) {
             return false;
         }
-        return isPrime(n, i - 1);
+        return testIsPrime(number, i - 1);
     }
 }
+
