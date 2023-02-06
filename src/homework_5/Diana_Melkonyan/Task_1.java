@@ -1,19 +1,17 @@
-package homework_5;
+package homework_5.Diana_Melkonyan;
 
 import java.util.Scanner;
-
-import static java.lang.Long.sum;
 
 public class Task_1 {
 
     public static void main(String[] args) {
-//        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
-//        sumNumbers();                // Question 2
-//        factorialDemo1();            // Question 3
-//        powerDemo();                 // Question 4
- //       reverseNumber();             // Question 5
-//        readSetIntegers();           // Question 6
-//        testPrime();                 // Question 7
+//        printNumbers(10);      // Question 1 -> try with different integer values instead of 10 only
+//        sumNumbers();           // Question 2
+//        factorialDemo1();       // Question 3
+//        powerDemo();            // Question 4
+//        reverseNumber();        // Question 5
+//        readSetIntegers();      // Question 6
+        testPrime();            // Question 7
     }
 
 
@@ -22,6 +20,10 @@ public class Task_1 {
     */
     public static void printNumbers(int count) {
         // Todo write your code here ...
+        if (count == 0)
+            return;
+        printNumbers(count - 1);
+        System.out.println(count);
     }
 
     /* TODO: Question 2
@@ -29,8 +31,17 @@ public class Task_1 {
     */
     public static void sumNumbers() {
         int sum = 0;
+        //
+        int number = 10;
+        sum = sumNumbers(number);
+        System.out.println(sum);
+    }
 
-        System.out.println("Sum: " + sum);
+    private static int sumNumbers(int n) {
+        if (n <= 1)
+            return n;
+        return n + sumNumbers(n - 1);
+
     }
 
 
@@ -47,8 +58,19 @@ public class Task_1 {
 
         // Todo write your code here ...
 
+        fact = factorialDemo1Rec(num);
         System.out.println("Factorial: " + fact);
     }
+
+    private static int factorialDemo1Rec(int n) {
+
+        if (n <= 1) return 1;
+        return n * factorialDemo1Rec(n - 1);
+    }
+
+
+
+
 
      /* TODO: Question 4
          Two numbers are entered through the keyboard.
@@ -70,8 +92,16 @@ public class Task_1 {
         power = console.nextInt();
 
         // Todo write your code here ...
-
+        result = powerDemoRec(base, power);
         System.out.println("Result: " + result);
+    }
+
+    private static int powerDemoRec(int base, int power) {
+        if (power != 0) {
+            return base * powerDemoRec(base, power - 1);
+        } else {
+            return 1;
+        }
     }
 
      /* TODO: Question 5
@@ -92,8 +122,19 @@ public class Task_1 {
         int remainder = 0;
 
         // Todo write your code here ...
+        reverse = reversNumberRec(number, reverse);
 
         System.out.println("Reverse of " + number + " is " + reverse);
+    }
+
+    private static int reversNumberRec(int num, int r) {
+        if (num == 0) {
+            return r;
+        } else {
+            int remainder = num % 10;
+            r = r * 10 + remainder;
+            return reversNumberRec(num / 10, r);
+        }
     }
 
 
@@ -110,8 +151,25 @@ public class Task_1 {
         number = console.nextInt();
 
         boolean flag = true;
-
         // Todo write your code here ...
+
+        if (testPrimeRec(number,number/2)) {
+            System.out.println(number + " is prime number" + " " + flag);
+        } else {
+            System.out.println(number + " is a non-prime number");
+        }
+    }
+
+    private static boolean testPrimeRec(int num, int i) {
+
+        if (i == 1) {
+            return true;
+        } else if (num % i == 0) {
+            return false;
+        }
+        else{
+            return testPrimeRec(num, i-1 );
+        }
 
     }
 }
