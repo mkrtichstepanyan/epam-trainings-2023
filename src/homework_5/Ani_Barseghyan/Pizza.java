@@ -8,13 +8,13 @@ public class Pizza {
     private int toppingCount;
     private Ingredients[] ingredients;
 
-    Pizza(){
+    Pizza() {
         this.pizzaName = getPizzaName();
         this.pizzaType = getPizzaType();
         this.ingredients = new Ingredients[MAX_ING_COUNT];
     }
 
-    Pizza(String pizzaName){
+    Pizza(String pizzaName) {
         this.pizzaName = pizzaName;
         this.pizzaType = getPizzaType();
         this.ingredients = new Ingredients[MAX_ING_COUNT];
@@ -80,7 +80,7 @@ public class Pizza {
     public Ingredients[] getIngredients() {
         if (ingredients == null) {
             System.out.println("You need at least one topping on the pizza");
-            ingredients[toppingCount] = Ingredients.tomatoPaste();
+            ingredients[toppingCount] = Ingredients.addTomatoPaste();
         }
         return ingredients;
     }

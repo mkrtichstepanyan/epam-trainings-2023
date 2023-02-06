@@ -17,35 +17,35 @@ public class Ingredients {
         return toppingCost;
     }
 
-    public static Ingredients tomatoPaste() {
+    public static Ingredients addTomatoPaste() {
         return new Ingredients("Tomato paste", 1);
     }
 
-    public static Ingredients cheese() {
+    public static Ingredients addCheese() {
         return new Ingredients("Cheese", 1);
     }
 
-    public static Ingredients salami() {
+    public static Ingredients addSalami() {
         return new Ingredients("Salami", 1.5);
     }
 
-    public static Ingredients bacon() {
+    public static Ingredients addBacon() {
         return new Ingredients("Bacon", 1.2);
     }
 
-    public static Ingredients garlic() {
+    public static Ingredients addGarlic() {
         return new Ingredients("Garlic", 0.3);
     }
 
-    public static Ingredients corn() {
+    public static Ingredients addCorn() {
         return new Ingredients("Corn", 0.7);
     }
 
-    public static Ingredients pepperoni() {
+    public static Ingredients addPepperoni() {
         return new Ingredients("Pepperoni", 0.6);
     }
 
-    public static Ingredients olives() {
+    public static Ingredients addOlives() {
         return new Ingredients("Olives", 0.5);
     }
 

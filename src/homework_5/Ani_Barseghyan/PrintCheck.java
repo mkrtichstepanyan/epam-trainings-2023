@@ -1,13 +1,13 @@
 package homework_5.Ani_Barseghyan;
 
-public class printCheck {
-    private Pizza[] pizzas;
-    private Order order;
-    private Customer customer;
+public class PrintCheck {
+    private final Pizza[] pizzas;
+    private final Order order;
+    private final Customer customer;
     private double pizzaPrice = 0;
 
 
-    printCheck(Order order, Customer customer) {
+    PrintCheck(Order order, Customer customer) {
         this.order = order;
         this.customer = customer;
         this.pizzas = order.getPizzas();

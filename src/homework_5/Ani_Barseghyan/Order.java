@@ -35,8 +35,10 @@ public class Order {
     public void setPizzas(Pizza... pizza) {
         if (pizzaCount > 10) {
             System.out.println("You can order up to 10 pizzas");
+            pizzaCount = 10;
         } else if (pizza == null) {
             System.out.println("Please add pizza to your order");
+            pizzaCount = 1;
         }
         for (int i = 0; i < pizzas.length; i++) {
             this.pizzas = pizza;
