@@ -3,7 +3,7 @@ package homework_5.garik_gharibyan.pizza;
 public class Order {
     private static int lastOrderNumber = 10000;
     private final int orderNumber;
-
+    private double totalAmount = 0;
     private final Pizza[] pizzas;
     private final Customer customer;
 
@@ -27,7 +27,11 @@ public class Order {
         return pizzas;
     }
 
-    public void getInfo() {
+    public static Order makeOrder(Pizza[] pizzas, Customer customer) {
+        return new Order(pizzas, customer, lastOrderNumber++);
+    }
+
+    public void pizzaAttributes() {
         System.out.println(
                 "Order: " + orderNumber + "\n" +
                         "Customer phone number: " + customer.getPhoneNumber() + "\n" +
@@ -36,25 +40,35 @@ public class Order {
         );
     }
 
-    public static Order makeOrder(Pizza[] pizzas, Customer customer) {
-        return new Order(pizzas, customer, lastOrderNumber++);
-    }
+    public void printCheck() {
 
-//    public void printCheck() {
-//
-//        System.out.println(
-//                "**************************************" + "\n" +
-//                        "Order: " + getOrderNumber() + "\n" +
-//                        "Client: " + customer.getPhoneNumber() + "\n" +
-//                        "Name: " + pizza.getName() + "\n" +
-//                        "---------------------------" + "\n" +
-//                        "Pizza base: " + pizza.getPizzaType().getPizzaTypeName() + " " +
-//                        pizza.getPizzaType().getPizzaTypePrice());
-//        pizza.printIngredients();
-//        System.out.println(
-//                "---------------------------" + "\n" +
-//                        "Amount: " + pizza.pizzaAmount() + "\n" +
-//                        "Quantity: " + quantity + "\n");
-//
-//    }
+        System.out.println(
+                "**************************************" + "\n" +
+                        "Order: " + getOrderNumber() + "\n" +
+                        "Client: " + customer.getPhoneNumber() + "\n");
+
+        for (Pizza pizza : pizzas) {
+            System.out.println(
+                    "Name: " + pizza.getName() + "\n" +
+                            "---------------------------" + "\n" +
+                            "Pizza base: " + pizza.getPizzaType().getPizzaTypeName() + " " +
+                            pizza.getPizzaType().getPizzaTypePrice()
+            );
+            pizza.printIngredients();
+            System.out.println(
+                    "---------------------------" + "\n" +
+                            "Amount: " + pizza.pizzaAmount() + "\n" +
+                            "Quantity: " + pizza.getQuantity() + "\n" +
+                            "---------------------------" + "\n"
+                            );
+        }
+        System.out.println("Total Amount: " + getTotalAmount() + "\n" +
+                "**************************************");
+    }
+    double getTotalAmount() {
+        for (Pizza pizza : pizzas) {
+            totalAmount = pizza.pizzaAmount() * pizza.getQuantity() + totalAmount;
+        }
+        return totalAmount;
+    }
 }
