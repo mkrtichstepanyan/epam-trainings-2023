@@ -18,8 +18,10 @@ public class Pizza {
         }
         if (quantity >= 10) {
             this.quantity = 10;
+            System.out.println("We can make maximum 10 pizza");
         } else if (quantity <= 1) {
             this.quantity = 1;
+            System.out.println("As you want lass then 1 we will make 1 pizza");
         } else {
             this.quantity = quantity;
         }

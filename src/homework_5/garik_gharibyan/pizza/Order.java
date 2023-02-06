@@ -45,25 +45,24 @@ public class Order {
         System.out.println(
                 "**************************************" + "\n" +
                         "Order: " + getOrderNumber() + "\n" +
-                        "Client: " + customer.getPhoneNumber() + "\n");
+                        "Client: " + customer.getPhoneNumber());
 
         for (Pizza pizza : pizzas) {
             System.out.println(
                     "Name: " + pizza.getName() + "\n" +
                             "---------------------------" + "\n" +
                             "Pizza base: " + pizza.getPizzaType().getPizzaTypeName() + " " +
-                            pizza.getPizzaType().getPizzaTypePrice()
-            );
+                            pizza.getPizzaType().getPizzaTypePrice());
+
             pizza.printIngredients();
             System.out.println(
                     "---------------------------" + "\n" +
                             "Amount: " + pizza.pizzaAmount() + "\n" +
                             "Quantity: " + pizza.getQuantity() + "\n" +
-                            "---------------------------" + "\n"
-                            );
+                            "---------------------------");
         }
         System.out.println("Total Amount: " + getTotalAmount() + "\n" +
-                "**************************************");
+                "**************************************\n\n");
     }
     double getTotalAmount() {
         for (Pizza pizza : pizzas) {
