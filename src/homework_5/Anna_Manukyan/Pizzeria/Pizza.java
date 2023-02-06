@@ -1,6 +1,5 @@
 package homework_5.Anna_Manukyan.Pizzeria;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Pizza {
@@ -8,7 +7,7 @@ public class Pizza {
     private String name;
     private List<Ingredient> ingredients;
     private int quantity;
-    private static final double BASE_COST = 1;
+    static final double BASE_COST = 1;
 
     public Pizza(PizzaType pizzaType, String name, List<Ingredient> ingredients, int quantity) {
         this.pizzaType = pizzaType;
@@ -32,7 +31,7 @@ public class Pizza {
     }
 
     public double calculatePizzaAmount(Pizza pizza) {
-        double sum = getBASE_COST() + pizza.getPizzaType().getCost();
+        double sum = BASE_COST + pizza.getPizzaType().getCost();
         List<Ingredient> ingredients = pizza.getIngredients();
         for (int i = 0; i < ingredients.size(); i++) {
             sum += ingredients.get(i).getPrice();
@@ -70,9 +69,5 @@ public class Pizza {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public double getBASE_COST() {
-        return BASE_COST;
     }
 }

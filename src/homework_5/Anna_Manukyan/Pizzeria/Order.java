@@ -21,8 +21,8 @@ public class Order {
     public void createValidName(ArrayList<Pizza> pizzas) {
         for (int i = 0; i < pizzas.size(); i++) {
             String pizzaName = pizzas.get(i).getName();
-            if (pizzaName.length() < 4 || pizzaName.length() > 20) {
-                pizzas.get(i).setName(customer.getNumber() + "_" + i);
+            if (pizzaName == null || pizzaName.length() < 4 || pizzaName.length() > 20) {
+                pizzas.get(i).setName(customer.getNumber() + "_" + (i + 1));
             }
         }
     }
@@ -34,7 +34,7 @@ public class Order {
         for (Pizza pizza : pizzaList) {
             System.out.println("Name: " + pizza.getName());
             System.out.println("_______________________");
-            System.out.println("Pizza base (" + pizza.getPizzaType().getName() + ") " + (pizza.getBASE_COST() + pizza.getPizzaType().getCost()) + " €");
+            System.out.println("Pizza base (" + pizza.getPizzaType().getName() + ") " + (Pizza.BASE_COST + pizza.getPizzaType().getCost()) + " €");
             printPizzaIngredients(pizza);
             System.out.println("_______________________");
             double pizzaAmount = pizza.calculatePizzaAmount(pizza);
@@ -49,6 +49,17 @@ public class Order {
         System.out.println("Order time " + orderTime.getHour() + ":" + orderTime.getMinute());
     }
 
+    public static boolean isValidPizzasCount(ArrayList<Pizza> pizzaList) {
+        int pizzasCount = 0;
+        for (Pizza pizza : pizzaList) {
+            pizzasCount += pizza.getQuantity();
+        }
+        if (pizzasCount > 10) {
+            System.out.println("Pizzas count can not be more than 10");
+            return false;
+        }
+        return true;
+    }
 
     public void printPizzaIngredients(Pizza pizza) {
         List<Ingredient> ingredients = pizza.getIngredients();

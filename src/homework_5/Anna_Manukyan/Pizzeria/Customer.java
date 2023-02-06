@@ -1,12 +1,14 @@
 package homework_5.Anna_Manukyan.Pizzeria;
 
+import java.util.Random;
+
 public class Customer {
     private String name;
     private int number;
 
-    public Customer(String name, int number) {
+    public Customer(String name) {
         this.name = name;
-        this.number = number;
+        this.number = new Random().nextInt(10000);
     }
 
     public String getName() {
@@ -21,7 +23,4 @@ public class Customer {
         return number;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
-    }
 }

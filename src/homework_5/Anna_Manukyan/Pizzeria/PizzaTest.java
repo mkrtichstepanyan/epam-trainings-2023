@@ -1,14 +1,17 @@
 package homework_5.Anna_Manukyan.Pizzeria;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class PizzaTest {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int quantity = scanner.nextInt();
         ArrayList<Ingredient> ingredientsForMargarita = new ArrayList<>();
         ingredientsForMargarita.add(Ingredient.TOMATO_PASTE);
         ingredientsForMargarita.add(Ingredient.GARLIC);
         ingredientsForMargarita.add(Ingredient.BACON);
-        Pizza pizzaMargarita = new Pizza(PizzaType.REGULAR, "Margarita", ingredientsForMargarita, 2);
+        Pizza pizzaMargarita = new Pizza(PizzaType.REGULAR, null, ingredientsForMargarita, 2);
 
         ArrayList<Ingredient> ingredientsForPepperoniOro = new ArrayList<>();
         ingredientsForPepperoniOro.add(Ingredient.TOMATO_PASTE);
@@ -24,25 +27,30 @@ public class PizzaTest {
         ingredientsForBasePZZ.add(Ingredient.OLIVES);
         Pizza pizzaBasePZZ = new Pizza(PizzaType.CALZONE, "BasePZZ", ingredientsForBasePZZ, 12);
 
-        Customer customer1 = new Customer("First customer", 7717);
+        Customer customer1 = new Customer("First customer");
         Order order = new Order();
         order.setCustomer(customer1);
         ArrayList<Pizza> pizzaList = order.getPizzaList();
         pizzaList.add(pizzaMargarita);
         pizzaList.add(pizza);
-        order.createValidName(pizzaList);
-        order.setPizzaList(pizzaList);
-        order.printCheck();
+        if (Order.isValidPizzasCount(pizzaList)) {
+            order.setPizzaList(pizzaList);
+            order.createValidName(pizzaList);
+            order.printCheck();
+        }
 
         System.out.println("______________________________");
 
-        Customer customer2 = new Customer("Second customer", 4372);
+        Customer customer2 = new Customer("Second customer");
         Order secondOrder = new Order();
         secondOrder.setCustomer(customer2);
         ArrayList<Pizza> secondOrderPizzaList = secondOrder.getPizzaList();
         secondOrderPizzaList.add(pizzaBasePZZ);
-        secondOrder.createValidName(pizzaList);
-        secondOrder.setPizzaList(secondOrderPizzaList);
-        secondOrder.printCheck();
+        if (Order.isValidPizzasCount(secondOrderPizzaList)) {
+            secondOrder.createValidName(secondOrderPizzaList);
+            secondOrder.setPizzaList(secondOrderPizzaList);
+            secondOrder.printCheck();
+        }
+
     }
 }
