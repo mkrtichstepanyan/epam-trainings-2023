@@ -1,5 +1,8 @@
 package homework_5.Lilit_Adamyan.Pizza;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,21 +11,37 @@ public class Order {
     private final int orderNumber;
     private Customer customer;
     private final List<Pizza> pizzas;
+    private LocalTime orderTime;
+    private int counter = 0;
 
     public Order(Customer customer) {
         this.orderNumber = orderCounter++;
         this.customer = customer;
         this.pizzas = new ArrayList<>();
+        this.orderTime = LocalTime.now();
+
+    }
+
+    public LocalTime getOrderTime() {
+        return orderTime;
     }
 
     public void addPizza(Pizza pizza) {
+        counter+=pizza.getQuantity();
+        if(counter>10){
+            System.out.println("You can't order pizza more than 10");
+            return;
+        }
       pizzas.add(pizza);
     }
 
     public void displayPizzaAttributes() {
         for (int i = 0; i < pizzas.size(); i++) {
             Pizza pizza = pizzas.get(i);
-            System.out.println("[" + orderNumber + " : " + customer.getId() + " : " + pizza.getName() + " : " + pizza.getQuantity() + "]");
+            System.out.println("[" + orderNumber + " : " + customer.getId() +
+                    " : " + pizza.getName() +
+                    " : " + pizza.getQuantity() +
+                    " : " + orderTime + "]");
         }
     }
 

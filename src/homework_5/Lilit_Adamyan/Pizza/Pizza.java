@@ -17,11 +17,8 @@ public class Pizza {
         } else {
             this.name = customer.getName() + "_" + customer.getId();
         }
-        if(quantity>10){
-            System.out.println("You have already ordered the maximum number of pizzas.");
-        }
-        this.type = pizzaType;
         this.quantity= quantity;
+        this.type = pizzaType;
         this.ingredients= new ArrayList<>();
 
     }
