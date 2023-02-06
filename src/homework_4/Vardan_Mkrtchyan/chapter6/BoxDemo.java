@@ -1,8 +1,8 @@
-package homework_4.Davit_Poghosyan.Chapter_6;
-
+package homework_4.Vardan_Mkrtchyan.chapter6;
 
 public class BoxDemo {
     public static void main(String[] args) {
+
         Box mybox = new Box();
         double vol;
 
@@ -11,6 +11,7 @@ public class BoxDemo {
         mybox.depth = 15;
 
         vol = mybox.width * mybox.height * mybox.depth;
-        System.out.println("Volume is" + vol);
+        System.out.println("Volume is " + vol);
+
     }
 }
