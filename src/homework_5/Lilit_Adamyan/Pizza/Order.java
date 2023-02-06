@@ -16,13 +16,7 @@ public class Order {
     }
 
     public void addPizza(Pizza pizza) {
-        if (pizzas.size() >= 10) {
-            System.out.println("The customer has already ordered the maximum number of pizzas.");
-        } else if (pizza.getName().length() >= 4 && pizza.getName().length() <= 20) {
-            pizzas.add(pizza);
-        } else {
-            pizzas.add(new Pizza(pizza.getName(), pizza.getType(), pizza.getQuantity()));
-        }
+      pizzas.add(pizza);
     }
 
     public void displayPizzaAttributes() {
@@ -40,7 +34,7 @@ public class Order {
         double totalAmount = 0;
         for (Pizza pizza : this.pizzas) {
 
-            System.out.println("Name: " + customer.getName());
+            System.out.println("Name: " + pizza.getName());
             System.out.println("____________________________");
 
             double pizzaAmount = 0;
