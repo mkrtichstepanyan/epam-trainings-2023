@@ -2,8 +2,6 @@ package homework_5.Roza_Petrosyan.pizza;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Order {
@@ -13,10 +11,6 @@ public class Order {
     private Customer customer;
     private Pizza[] pizza = new Pizza[10];
     private LocalTime order_time = LocalTime.parse(LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss")));
-
-    public Order() {
-
-    }
 
     public Order(Customer customer) {
         this.customer = customer;

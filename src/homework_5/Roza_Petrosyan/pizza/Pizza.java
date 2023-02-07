@@ -9,13 +9,13 @@ public class Pizza {
     private int quantity;
 
 
-    private List<String[]> currentPizzaIngredients = new ArrayList<>(1);
+    private String[] currentPizzaIngredients = new String[1];
 
     public Pizza(String pizza_name, String pizza_type, int quantity, Order order) {
         if (pizza_name.length() >= 4 && pizza_name.length() <= 20 && pizza_name.matches("\\p{IsLatin}+")) {
             this.pizzaName = pizza_name;
         } else {
-            this.pizzaName = getOrder().getCustomer().getCustomer_name() + "_" + getOrder().getOrder_number();
+            this.pizzaName = order.getCustomer().getCustomer_name() + "_" + order.getOrder_number();
         }
         this.quantity = quantity;
         this.pizzaType = pizza_type;
@@ -24,8 +24,8 @@ public class Pizza {
 
 
     public void displayPizzaAttributes() {
-        System.out.println("[" + getOrder().getOrder_number() +
-                ":" + getOrder().getCustomer().getCustomer_number() +
+        System.out.println("[" + order.getOrder_number() +
+                ":" + order.getCustomer().getCustomer_number() +
                 ":" + getPizzaName() +
                 ":" + getQuantity() + "]");
     }
@@ -40,7 +40,8 @@ public class Pizza {
             System.out.println(pizzaName + " pizza is full");
         }
 
-        currentPizzaIngredients.add(ingredients);
+        System.out.println(Arrays.toString(ingredients));
+        currentPizzaIngredients = ingredients;
 
         if (isDuplicate(ingredients)) {
             System.out.println("Please check your order again!");
@@ -59,7 +60,7 @@ public class Pizza {
         return quantity;
     }
 
-    public List<String[]> getCurrentPizzaIngredients() {
+    public String[] getCurrentPizzaIngredients() {
         return currentPizzaIngredients;
     }
 

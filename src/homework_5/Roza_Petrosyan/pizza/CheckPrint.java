@@ -19,7 +19,7 @@ public class CheckPrint {
     }
 
     public void printIngredients(Pizza pizza) {
-        String[] ingredients = pizza.getCurrentPizzaIngredients().get(0);
+        String[] ingredients = pizza.getCurrentPizzaIngredients();
         amountOfIngredients = 0;
 
         List<String> list = Arrays.asList(ingredients);
@@ -55,8 +55,8 @@ public class CheckPrint {
 
     public void printCheck(Pizza[] pizzaList) {
         System.out.println("********************************");
-        System.out.println("Order: " + getOrder().getOrder_number());
-        System.out.println("Client: " + getOrder().getCustomer().getCustomer_number());
+        System.out.println("Order: " + order.getOrder_number());
+        System.out.println("Client: " + order.getCustomer().getCustomer_number());
         double total_amount = 0;
         for (Pizza value : pizzaList) {
             if (value != null) {
@@ -99,10 +99,6 @@ public class CheckPrint {
                 return b.append("").toString();
             b.append(" ");
         }
-    }
-
-    public Order getOrder() {
-        return order;
     }
 
 }

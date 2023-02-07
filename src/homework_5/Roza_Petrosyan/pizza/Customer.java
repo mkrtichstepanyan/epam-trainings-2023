@@ -2,11 +2,7 @@ package homework_5.Roza_Petrosyan.pizza;
 
 public class Customer {
     private String customer_name;
-    private int customer_number;
-
-    public Customer() {
-
-    }
+    private final int customer_number;
 
     public Customer(String customer_name, int customer_number) {
         this.customer_number = customer_number;
