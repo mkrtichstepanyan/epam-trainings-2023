@@ -9,7 +9,6 @@ public class Pizza {
     public static final int MAX_QUANTITY_OF_PIZZAS = 10;
     private String name;
     private List<String> ingredients;
-    private int ingredientCount;
     private String type;
     private int quantity;
 
@@ -37,7 +36,6 @@ public class Pizza {
             System.out.println("The ingredients already added, please check the order");
         } else {
             this.ingredients.add(ingredient);
-
         }
     }
 
