@@ -8,7 +8,7 @@ public class OrderDemo {
     public static void main(String[] args) {
         // Part 1
         System.out.println("---------------Part 1---------------------");
-        Customer customer1 = new Customer("Roza", 7717);
+        Customer customer1 = new Customer("Roza");
 
         Order order = new Order(customer1, new Pizza[10]);
 
@@ -52,7 +52,7 @@ public class OrderDemo {
 
 
         // Customer with number 4372 wants to order delivery of 12 pcs. usual pizzas "BasePZZ".
-        Customer customer2 = new Customer("Roza_Petrosyan", 4372);
+        Customer customer2 = new Customer("Roza_Petrosyan");
         Order order2 = new Order(customer2, new Pizza[10]);
         Pizza first_order_for_second_client = new Pizza("BasePZZ", "Regular", 12);
         order2.getPizzas()[0] = first_order_for_second_client;

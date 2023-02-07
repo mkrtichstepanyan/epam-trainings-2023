@@ -1,11 +1,13 @@
 package homework_5.Roza_Petrosyan.pizza;
 
+import java.util.Random;
+
 public class Customer {
     private String customerName;
-    private final int customerNumber;
+    private final int customerNumber = ((1 + new Random(System.currentTimeMillis()).nextInt(2)) * 1000
+            + new Random(System.currentTimeMillis()).nextInt(1000));
 
-    public Customer(String customerName, int customerNumber) {
-        this.customerNumber = customerNumber;
+    public Customer(String customerName) {
         this.customerName = customerName;
     }
 
