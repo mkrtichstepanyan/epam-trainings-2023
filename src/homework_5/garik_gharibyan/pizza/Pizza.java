@@ -13,7 +13,7 @@ public class Pizza {
     public Pizza(String name, int quantity, PizzaType pizzaType, Customer customer) {
         this.customer = customer;
         if (name.length()<4 ||name.length()>20){
-            this.name = customer.getName();
+            this.name = customer.getName() + "_" + customer.getNumber();
         }else {
             this.name = name;
         }
