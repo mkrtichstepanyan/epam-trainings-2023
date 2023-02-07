@@ -1,20 +1,19 @@
 package homework_5.garik_gharibyan.pizza;
 
 public class Customer {
-    private String name;
-
-    private int phoneNumber;
+    private final String name;
+    private final int number;
 
     public Customer(String name,int phoneNumber){
         this.name = name;
-        this.phoneNumber = phoneNumber;
+        this.number = phoneNumber;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getPhoneNumber() {
-        return phoneNumber;
+    public int getNumber() {
+        return number;
     }
 }

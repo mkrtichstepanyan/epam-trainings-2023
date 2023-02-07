@@ -7,12 +7,13 @@ public class Pizza {
     private final int quantity;
     private int topElementIngredients = -1;
     private Ingredient[] ingredients = new Ingredient[0];
+    private final Customer customer;
 
 
-
-    public Pizza(String name, int quantity, PizzaType pizzaType) {
+    public Pizza(String name, int quantity, PizzaType pizzaType, Customer customer) {
+        this.customer = customer;
         if (name.length()<4 ||name.length()>20){
-            this.name = "customer_name";
+            this.name = customer.getName();
         }else {
             this.name = name;
         }
@@ -74,6 +75,10 @@ public class Pizza {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public Customer getCustomer() {
+        return customer;
     }
 
     public void printIngredients() {
