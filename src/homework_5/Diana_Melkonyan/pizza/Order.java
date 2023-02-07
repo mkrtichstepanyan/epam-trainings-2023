@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 public class Order {
     private  int index;
     private final int orderNumber;
+    private static int nextNumber = 10000;
 
     private final Customer customer;
     private final Pizza[] pizzas = new Pizza[10];
@@ -12,7 +13,7 @@ public class Order {
 
     public Order(Customer customer) {
         this.customer = customer;
-        this.orderNumber = (int) (10000 + (Math.random() * 1000));
+        this.orderNumber = nextNumber++;
         this.orderTime = LocalDateTime.now();
     }
 

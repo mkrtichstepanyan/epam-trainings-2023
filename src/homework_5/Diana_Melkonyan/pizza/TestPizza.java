@@ -2,7 +2,7 @@ package homework_5.Diana_Melkonyan.pizza;
 
 public class TestPizza {
     public static void main(String[] args) {
-        Order order1 = new Order(new Customer("Vika", 7717));
+        Order order1 = new Order(new Customer("Vik", 7717));
         Pizza margarita = new Pizza("Margarita", "Calzone", 2);
         margarita.addIngredient("Tomato paste");
         margarita.addIngredient("Garlic");
@@ -23,6 +23,8 @@ public class TestPizza {
         basePZZ.addIngredient("Corn");
         basePZZ.addIngredient("Olives");
 
+
+
         order1.showPizzaAtributes((margarita));
         order1.showPizzaAtributes(pepperoniOro);
         order2.showPizzaAtributes(basePZZ);
@@ -33,7 +35,6 @@ public class TestPizza {
 
         order2.addPizza(basePZZ);
         order2.printCheck();
-
 
     }
 }
