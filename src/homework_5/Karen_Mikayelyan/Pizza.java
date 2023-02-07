@@ -30,17 +30,15 @@ public class Pizza {
     }
 
     public void addIngredient(String ingredient) {
-        if (ingredientCount >= MAX_INGREDIENTS) {
+        if (ingredients.size() >= MAX_INGREDIENTS) {
             System.out.println("The pizza's ingredients maximum number has already completed!");
-            return;
         }
-        for (int i = 0; i < ingredientCount; i++) {
-            if (ingredients.contains(ingredient)) {
-                System.out.println("The ingredients already added, please check the order");
-                return;
-            }
+        if (ingredients.contains(ingredient)) {
+            System.out.println("The ingredients already added, please check the order");
+        } else {
+            this.ingredients.add(ingredient);
+
         }
-        this.ingredients.add(ingredient);
     }
 
     public List<String> getIngredients() {
