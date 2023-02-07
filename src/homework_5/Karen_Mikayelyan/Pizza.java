@@ -1,6 +1,5 @@
 package homework_5.Karen_Mikayelyan;
 
-import com.sun.source.doctree.LiteralTree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,25 +7,25 @@ import java.util.List;
 public class Pizza {
     public static final int MAX_INGREDIENTS = 7;
     public static final int MAX_QUANTITY_OF_PIZZAS = 10;
-    private int index;
     private String name;
     private List<String> ingredients;
     private int ingredientCount;
     private String type;
     private int quantity;
 
-    public Pizza(String name, String type, int quantity, int index, Customer customer) {
+    public Pizza(String name, String type, int quantity, Customer customer) {
         if (quantity < MAX_QUANTITY_OF_PIZZAS) {
             if (name.length() < 4 || name.length() > 20) {
-                this.index = index;
-                this.name = customer.getName() + "_" + index;
+                this.name = customer.getName() + "_" + customer.getNumber();
             } else {
                 this.name = name;
             }
             this.type = type;
             this.quantity = quantity;
             this.ingredients = new ArrayList<>();
-            this.ingredientCount = 0;
+        } else {
+            System.out.println("You cant order more than 10 pizzas");
+            System.exit(1);
         }
     }
 

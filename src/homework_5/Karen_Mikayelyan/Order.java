@@ -12,7 +12,7 @@ public class Order {
     private final LocalDateTime orderTime;
 
     public Order(Customer customer) {
-        this.orderNumber = (int) (orderNumber + Math.random() * 10000);
+        this.orderNumber = (int) (orderNumber + Math.random() * 100000);
         this.customer = customer;
         this.pizzas = new ArrayList<>();
         this.orderTime = LocalDateTime.now();
