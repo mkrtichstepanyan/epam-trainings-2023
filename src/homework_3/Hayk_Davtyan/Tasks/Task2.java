@@ -8,7 +8,7 @@ public class Task2 {
 //        sumNumbers(10);
 //        factorialDemo1();
 //        powerDemo();
-//        reverseNumber();
+        reverseNumber();
 //        readSetInteger();
 //        testPrime();
 //        table();
@@ -92,16 +92,16 @@ public class Task2 {
         Scanner console = new Scanner(System.in);
         int number;
         int reverse = 0;
+        int remainder = 0;
         System.out.println("Enter the number ");
         number = console.nextInt();
-        int temp = 0;
-        int remainder = 0;
+        int temp = number;
         while (temp != 0) {
             remainder = temp % 10;
-            temp = temp / 10;
-            reverse = reverse * 10 * remainder;
+            reverse = reverse * 10 + remainder;
+            temp /=  10;
         }
-        System.out.println("Reverse of " + number + "is " + reverse);
+        System.out.println("Reverse of " + number + " is " + reverse);
     }
 
     public static void readSetInteger() {
