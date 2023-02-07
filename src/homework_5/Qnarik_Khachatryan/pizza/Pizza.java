@@ -63,40 +63,45 @@ public class Pizza {
     }
 
     public double calculatePrice() {
-            for (int i = 0; i < ingredientsCountInPizza; i++) {
-                IngredientType ingredient = listOfIngredients[i];
-                switch (ingredient) {
-                    case TOMATO_PASTE:
-                        price = 1;
-                        break;
-                    case CHEESE:
-                        price = 1;
-                        break;
-                    case SALAMI:
-                        price = 1.5;
-                        break;
-                    case BACON:
-                        price = 1.2;
-                        break;
-                    case GARLIC:
-                        price = 0.3;
-                        break;
-                    case CORN:
-                        price = 0.7;
-                        break;
-                    case PEPPERONI:
-                        price = 0.6;
-                        break;
-                    case OLIVES:
-                        price = 0.5;
-                        break;
-                }
-                total += price;
+        for (int i = 0; i < ingredientsCountInPizza; i++) {
+            IngredientType ingredient = listOfIngredients[i];
+            switch (ingredient) {
+                case TOMATO_PASTE:
+                    price = 1;
+                    break;
+                case CHEESE:
+                    price = 1;
+                    break;
+                case SALAMI:
+                    price = 1.5;
+                    break;
+                case BACON:
+                    price = 1.2;
+                    break;
+                case GARLIC:
+                    price = 0.3;
+                    break;
+                case CORN:
+                    price = 0.7;
+                    break;
+                case PEPPERONI:
+                    price = 0.6;
+                    break;
+                case OLIVES:
+                    price = 0.5;
+                    break;
+            }
+            total += price;
+        }
+        if (type == PizzaType.REGULAR) {
+            total += getTypePrice(type);
+        } else if (type == PizzaType.CALZONE) {
+            total += getTypePrice(type);
         }
         return total;
     }
 
-    public double getIngredientPrice(IngredientType ingredient){
+    public double getIngredientPrice(IngredientType ingredient) {
         switch (ingredient) {
             case TOMATO_PASTE:
                 price = 1;
@@ -125,6 +130,18 @@ public class Pizza {
         }
         return price;
 
+    }
+
+    public double getTypePrice(PizzaType type) {
+        switch (type) {
+            case REGULAR:
+                price = 1;
+                break;
+            case CALZONE:
+                price = 1.5;
+                break;
+        }
+        return price;
     }
 
 
