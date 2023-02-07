@@ -1,8 +1,8 @@
 package homework_5.Diana_Melkonyan.pizza;
 
 public class Customer {
-    private String name;
-    private int customerNumber;
+    private final String name;
+    private final int customerNumber;
 
     public Customer(String name, int customerNumber) {
         this.name = name;

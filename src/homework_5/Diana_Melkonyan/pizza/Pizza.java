@@ -20,9 +20,10 @@ public class Pizza {
     public Pizza(String name, String type,int quantity, int index, Customer customer){
         if (name.length()<4 || name.length()>20){
             this.index=index;
-            this.name=customer.getName() + " "+ index;
+            this.name=customer.getName() + " " + index;
         }else{
             this.name=name;
+
         }
         this.type=type;
         this.quantity=quantity;

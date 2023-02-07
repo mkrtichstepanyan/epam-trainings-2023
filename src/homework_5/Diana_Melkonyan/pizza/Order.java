@@ -2,12 +2,12 @@ package homework_5.Diana_Melkonyan.pizza;
 
 import java.time.LocalDateTime;
 public class Order {
-    private int index;
-    private int orderNumber;
+    private  int index;
+    private final int orderNumber;
 
-    private Customer customer;
-    private Pizza[] pizzas = new Pizza[10];
-    private LocalDateTime orderTime;
+    private final Customer customer;
+    private final Pizza[] pizzas = new Pizza[10];
+    private final LocalDateTime orderTime;
 
 
     public Order(Customer customer) {
@@ -32,18 +32,19 @@ public class Order {
 
     public void showPizzaAtributes(Pizza pizza) {
         if (pizza != null) {
-            System.out.println("[" + orderNumber + ":" + customer.getCustomerNumber() + ":" + pizza.getName() + "]");
+            System.out.println("[" + orderNumber + ":" + customer.getCustomerNumber() + ":" + pizza.getName() + pizza.quantity + "]");
         }
     }
 
     public void printCheck() {
+        System.out.println("__________________________________");
         System.out.println("Order date and time: " + orderTime);
         System.out.println("Order: " + orderNumber);
         System.out.println("Client: " + customer.getCustomerNumber());
         double totalAmount = 0;
         totalAmount = getTotalAmount(totalAmount);
         System.out.println("Total Amount:" + totalAmount + "€");
-        System.out.println("__________________________________");
+
 
     }
 
@@ -74,6 +75,7 @@ public class Order {
             }
 
             System.out.println("Name: " + pizza.getName());
+            System.out.println("________________________________");
             double price = 1;
             if (pizza.getType().equals("Calzone")) {
                 price = price + 0.5;
@@ -83,6 +85,7 @@ public class Order {
             System.out.println("_________________________________");
             System.out.println("Amount " + price + "€");
             System.out.println("Quantity " + pizza.getQuantity());
+            System.out.println("__________________________________");
             totalAmount = totalAmount + price * pizza.getQuantity();
         }
         return totalAmount;
