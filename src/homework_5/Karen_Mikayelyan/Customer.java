@@ -5,13 +5,13 @@ public class Customer {
     private final int number;
 
 
-    public Customer(String name, int number) {
+    public Customer(String name) {
         this.name = name;
         this.number = addCustomerNumber();
     }
 
     private int addCustomerNumber() {
-        double n = Math.random() * 1000;
+        double n = Math.random() * 10000;
         return (int) n;
     }
 
