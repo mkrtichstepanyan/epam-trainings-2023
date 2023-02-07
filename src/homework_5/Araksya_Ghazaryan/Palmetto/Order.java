@@ -8,15 +8,21 @@ public class Order {
     private int orderNumber;
     private Customer customer;
     private List<Pizza> pizzas;
+    private int counter =0;
 
     public Order(Customer customer) {
         this.orderNumber = (int) (orderNumber + Math.random() * 100000);
         this.customer = customer;
         this.pizzas = new ArrayList<>();
     }
-
     public void addPizza(Pizza pizza) {
+        counter += pizza.getQuantity();
+        if (counter > 10) {
+            System.out.println(" You can't order pizza more then 10");
+            return;
+        }
         this.pizzas.add(pizza);
+
     }
     public void printCheck() {
         System.out.println( "***************");

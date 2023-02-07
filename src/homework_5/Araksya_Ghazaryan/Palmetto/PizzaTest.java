@@ -14,7 +14,7 @@ public class PizzaTest {
 
         Customer customer1 = new Customer("Jeck");
         Order order1 = new Order(customer1);
-        Pizza margarita = new Pizza("Margarita", PizzaType.closed, 3, customer1);
+        Pizza margarita = new Pizza("Margarita", PizzaType.closed, 7, customer1);
         margarita.addIngredient("Tomato paste");
         margarita.addIngredient("Pepperoni");
         margarita.addIngredient("Garlic");
