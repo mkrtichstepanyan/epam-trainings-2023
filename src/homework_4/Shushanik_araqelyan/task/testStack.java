@@ -9,14 +9,15 @@ public class testStack {
             mystack1.push(i);
         }
 
-        System.out.println(Arrays.toString(mystack1.stack));
+
         mystack1.push(22);
 
         for (int i = 0; i < 20; i++) {
-            mystack1.pop();
+            System.out.println(mystack1.pop());
 
 
         }
+
     }
 
 }
