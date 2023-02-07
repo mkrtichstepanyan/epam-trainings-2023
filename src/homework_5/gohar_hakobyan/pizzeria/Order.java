@@ -9,8 +9,6 @@ public class Order {
     private Customer customer;
     private List<Pizza> pizzas;
     private LocalTime orderTime;
-    private PizzaType pizzaType;
-
 
     public Order(int orderNumber, Customer customer) {
         this.orderNumber = orderNumber;
@@ -18,7 +16,6 @@ public class Order {
         this.pizzas = new ArrayList<>();
         this.orderTime = LocalTime.now();
     }
-
 
     public LocalTime getTime() {
         return LocalTime.now();
@@ -85,7 +82,6 @@ public class Order {
             System.out.println("--------------------------------");
             totalAmount = totalAmount * pizza.getQuantity();
         }
-
         System.out.println("Total amount: " + totalAmount + " €");
         System.out.println("********************************");
     }
