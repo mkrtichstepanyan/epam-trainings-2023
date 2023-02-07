@@ -4,35 +4,24 @@ import java.util.*;
 
 public class Pizza {
     private String pizzaName;
-    private Order order;
     private String pizzaType;
     private int quantity;
+    private String[] ingredients = new String[1];
 
-
-    private String[] currentPizzaIngredients = new String[1];
-
-    public Pizza(String pizza_name, String pizza_type, int quantity, Order order) {
-        if (pizza_name.length() >= 4 && pizza_name.length() <= 20 && pizza_name.matches("\\p{IsLatin}+")) {
-            this.pizzaName = pizza_name;
-        } else {
-            this.pizzaName = order.getCustomer().getCustomer_name() + "_" + order.getOrder_number();
-        }
+    public Pizza(String pizzaName, String pizzaType, int quantity) {
+        this.pizzaName = pizzaName;
         this.quantity = quantity;
-        this.pizzaType = pizza_type;
-        this.order = order;
+        this.pizzaType = pizzaType;
     }
 
-
-    public void displayPizzaAttributes() {
-        System.out.println("[" + order.getOrder_number() +
-                ":" + order.getCustomer().getCustomer_number() +
-                ":" + getPizzaName() +
-                ":" + getQuantity() + "]");
-    }
-
-
-    public static <T> boolean isDuplicate(final T[] values) {
-        return Arrays.stream(values).distinct().count() != values.length;
+    public boolean isDuplicate(String[] ingredients) {
+        boolean result = false;
+        for (int i = 0; i < ingredients.length; i++) {
+            for (int j = i + 1; j < ingredients.length; j++) {
+                result = ingredients[i].equals(ingredients[j]);
+            }
+        }
+        return result;
     }
 
     public void addIngredient(String[] ingredients) {
@@ -41,11 +30,15 @@ public class Pizza {
         }
 
         System.out.println(Arrays.toString(ingredients));
-        currentPizzaIngredients = ingredients;
+        this.ingredients = ingredients;
 
         if (isDuplicate(ingredients)) {
             System.out.println("Please check your order again!");
         }
+    }
+
+    public void setPizzaName(String pizzaName) {
+        this.pizzaName = pizzaName;
     }
 
     public String getPizzaName() {
@@ -60,12 +53,8 @@ public class Pizza {
         return quantity;
     }
 
-    public String[] getCurrentPizzaIngredients() {
-        return currentPizzaIngredients;
-    }
-
-    public Order getOrder() {
-        return order;
+    public String[] getIngredients() {
+        return ingredients;
     }
 }
 

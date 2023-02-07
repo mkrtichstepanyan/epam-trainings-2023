@@ -9,12 +9,13 @@ public class Order {
             + new Random(System.currentTimeMillis()).nextInt(10000));
 
     private Customer customer;
-    private Pizza[] pizza = new Pizza[10];
+    private Pizza[] pizzas;
     private LocalTime order_time = LocalTime.parse(LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss")));
 
-    public Order(Customer customer) {
+    public Order(Customer customer, Pizza[] pizzas) {
         this.customer = customer;
-        if (pizza.length > 10) {
+        this.pizzas = pizzas;
+        if (pizzas.length > 10) {
             System.out.println("You can not order more than 10 pizza!");
         }
     }
@@ -23,8 +24,8 @@ public class Order {
         return ORDER_NUMBER;
     }
 
-    public Pizza[] getPizza() {
-        return pizza;
+    public Pizza[] getPizzas() {
+        return pizzas;
     }
 
     public LocalTime getOrder_time() {
@@ -33,5 +34,21 @@ public class Order {
 
     public Customer getCustomer() {
         return customer;
+    }
+
+    public void displayPizzaAttributes(int item) {
+        System.out.println("[" + ORDER_NUMBER +
+                ":" + getCustomer().getCustomerNumber() +
+                ":" + getPizzas()[item].getPizzaName() +
+                ":" + getPizzas()[item].getQuantity() + "]");
+    }
+
+    public void checkPizzaName(Pizza pizza) {
+        String pizzaName = pizza.getPizzaName();
+        if (pizza.getPizzaName().length() >= 4 && pizza.getPizzaName().length() <= 20 && pizza.getPizzaName().matches("\\p{IsLatin}+")) {
+            pizza.setPizzaName(pizzaName);
+        } else {
+            pizza.setPizzaName(getCustomer().getCustomerName() + "_" + getOrder_number());
+        }
     }
 }
