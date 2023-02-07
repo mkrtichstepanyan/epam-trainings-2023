@@ -5,14 +5,18 @@ import java.util.ArrayList;
 public class Pizza {
     private String name;
     private ArrayList<String> ingredients;
-    private boolean isCalzone;
     private int quantity;
+    private PizzaType pizzaType;
 
-    public Pizza(String name, ArrayList<String> ingredients, boolean isCalzone, int quantity) {
+    public Pizza(String name, ArrayList<String> ingredients,
+                 int quantity, PizzaType pizzaType) {
+        if (name == null) {
+            name = "Pizza" + (int) (Math.random() * 1000);
+        }
         this.name = name;
         this.ingredients = ingredients;
-        this.isCalzone = isCalzone;
         this.quantity = quantity;
+        this.pizzaType = pizzaType;
     }
 
     public String getName() {
@@ -23,16 +27,16 @@ public class Pizza {
         return this.ingredients;
     }
 
-    public boolean isCalzone() {
-        return this.isCalzone;
-    }
 
     public int getQuantity() {
         return this.quantity;
     }
 
+    public PizzaType getPizzaType() {
+        return pizzaType;
+    }
+
     public void setName(String name) {
         this.name = name;
-
     }
 }

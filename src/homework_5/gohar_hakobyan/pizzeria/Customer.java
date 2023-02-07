@@ -4,9 +4,9 @@ public class Customer {
     private String name;
     private String customerPhone;
 
-    public Customer(String name, String customerPhone) {
+    public Customer(String name) {
         this.name = name;
-        this.customerPhone = customerPhone;
+        this.customerPhone = String.valueOf(addRandomNumber());
     }
 
     public String getName() {
@@ -19,6 +19,11 @@ public class Customer {
 
     public String getCustomerPhone() {
         return customerPhone;
+    }
+
+    public int addRandomNumber() {
+        int customerNumber = (int) (Math.random() * 100000);
+        return customerNumber;
     }
 
 }

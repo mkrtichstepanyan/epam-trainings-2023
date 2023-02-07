@@ -9,6 +9,8 @@ public class Order {
     private Customer customer;
     private List<Pizza> pizzas;
     private LocalTime orderTime;
+    private PizzaType pizzaType;
+
 
     public Order(int orderNumber, Customer customer) {
         this.orderNumber = orderNumber;
@@ -22,11 +24,15 @@ public class Order {
         return LocalTime.now();
     }
 
-    public void addPizza(String name, ArrayList<String> ingredients, boolean isCalzone, int quantity) {
+    public void addPizza(String name, ArrayList<String> ingredients, int quantity, PizzaType pizzaType) {
+        if (name == null) {
+            System.out.println("Name can't be empty.");
+            return;
+        }
         if (name.length() < 4 || name.length() > 20) {
             name = "customer_name_" + pizzas.size();
         }
-        Pizza pizza = new Pizza(name, ingredients, isCalzone, quantity);
+        Pizza pizza = new Pizza(name, ingredients, quantity, pizzaType);
         pizzas.add(pizza);
     }
 
@@ -45,42 +51,31 @@ public class Order {
     }
 
     public void printCheck() {
-        double totalAmount = 0;
+        double totalAmount = 1;
         System.out.println("********************************");
         System.out.println("Order: " + orderNumber);
         System.out.println("Client: " + customer.getCustomerPhone());
         for (Pizza pizza : pizzas) {
             System.out.println("Name: " + pizza.getName());
             System.out.println("--------------------------------");
-            System.out.println("Pizza Base (Calzone) " + (pizza.isCalzone() ? "1.50 €" : "1.00 €"));
+            if (pizza.getPizzaType().equals(PizzaType.CLOSED)) {
+                totalAmount += 0.5;
+                System.out.println("Pizza Base (Calzone) " + totalAmount + " €");
+            } else {
+                System.out.println("Pizza Base (Regular) " + totalAmount + " €");
+            }
             for (String ingredient : pizza.getIngredients()) {
-                double price = 0;
-                switch (ingredient) {
-                    case "Tomato paste":
-                        price = 1;
-                        break;
-                    case "Cheese":
-                        price = 1;
-                        break;
-                    case "Salami":
-                        price = 1.5;
-                        break;
-                    case "Bacon":
-                        price = 1.2;
-                        break;
-                    case "Garlic":
-                        price = 0.3;
-                        break;
-                    case "Corn":
-                        price = 0.7;
-                        break;
-                    case "Pepperoni":
-                        price = 0.6;
-                        break;
-                    case "Olives":
-                        price = 0.5;
-                        break;
-                }
+                double price = switch (ingredient) {
+                    case "Tomato paste" -> 1;
+                    case "Cheese" -> 1;
+                    case "Salami" -> 1.5;
+                    case "Bacon" -> 1.2;
+                    case "Garlic" -> 0.3;
+                    case "Corn" -> 0.7;
+                    case "Pepperoni" -> 0.6;
+                    case "Olives" -> 0.5;
+                    default -> 0;
+                };
                 System.out.println(ingredient + " " + price + " €");
                 totalAmount += price;
             }
@@ -88,8 +83,9 @@ public class Order {
             System.out.println("Amount: " + totalAmount + " €");
             System.out.println("Quantity: " + pizza.getQuantity());
             System.out.println("--------------------------------");
-            totalAmount += totalAmount * pizza.getQuantity();
+            totalAmount = totalAmount * pizza.getQuantity();
         }
+
         System.out.println("Total amount: " + totalAmount + " €");
         System.out.println("********************************");
     }
