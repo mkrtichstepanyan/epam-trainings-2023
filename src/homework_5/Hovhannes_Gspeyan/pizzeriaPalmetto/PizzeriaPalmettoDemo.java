@@ -8,20 +8,20 @@ public class PizzeriaPalmettoDemo {
 
     public static void main(String[] args) {
         Order order1 = new Order(new Customer("John", 7717));
-        Pizza margarita = new Pizza("Margarita", "Calzone", 2);
+        Pizza margarita = new Pizza("Margarita", "Calzone", 1, order1.getCustomer());
         margarita.addIngredient("Tomato paste");
         margarita.addIngredient("Pepperoni");
         margarita.addIngredient("Garlic");
         margarita.addIngredient("Bacon");
 
-        Pizza pepperoniOro = new Pizza("PepperoniOro", "Calzone", 3);
+        Pizza pepperoniOro = new Pizza("PepperoniOr", "Calzone", 3, order1.getCustomer());
         pepperoniOro.addIngredient("Tomato paste");
         pepperoniOro.addIngredient("Cheese");
         pepperoniOro.addIngredient("Salami");
         pepperoniOro.addIngredient("Olives");
 
         Order order2 = new Order(new Customer("George", 4372));
-        Pizza BasePZZNoCalzoneAndPepper = new Pizza("BasePZZNoCalzoneAndPepper", "", 12,order2.getCustomer());
+        Pizza BasePZZNoCalzoneAndPepper = new Pizza("Bas", "", 9,order2.getCustomer());
         BasePZZNoCalzoneAndPepper.addIngredient("Bacon");
         BasePZZNoCalzoneAndPepper.addIngredient("Cheese");
         BasePZZNoCalzoneAndPepper.addIngredient("Garlic");
@@ -42,16 +42,6 @@ public class PizzeriaPalmettoDemo {
 
         order1.addPizza(pepperoniOro);
         order1.addPizza(margarita);
-
-//         order1.addPizza(pepperoniOro);
-//         order1.addPizza(pepperoniOro);
-//         order1.addPizza(pepperoniOro);
-//         order1.addPizza(pepperoniOro);
-//         order1.addPizza(pepperoniOro);
-//         order1.addPizza(pepperoniOro);
-//         order1.addPizza(pepperoniOro);
-//         order1.addPizza(pepperoniOro);
-//         order1.addPizza(pepperoniOro);
 
         order1.printCheck();
 
