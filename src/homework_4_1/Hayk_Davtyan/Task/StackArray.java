@@ -31,6 +31,7 @@ public class StackArray {
     private void expend(){
         int length = size();
         int newStack[] = new int[capacity * 2];
+        System.arraycopy(array,0,newStack,0,length);
         array = newStack;
         capacity *= 2;
     }

@@ -11,6 +11,7 @@ public class TestStackArray {
         stack.push(5);
         stack.push(5);
         stack.push(5);
+        stack.push(5);
         System.out.println(stack.size());
     }
 }
