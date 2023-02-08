@@ -2,16 +2,14 @@ package homework_5;
 
 import java.util.Scanner;
 
-import static java.lang.Long.sum;
-
 public class Task_1 {
 
     public static void main(String[] args) {
 //        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
-//        sumNumbers();                // Question 2
-//        factorialDemo1();            // Question 3
+//        sumNumbers(10);                // Question 2
+        factorialDemo1();            // Question 3
 //        powerDemo();                 // Question 4
- //       reverseNumber();             // Question 5
+        //       reverseNumber();             // Question 5
 //        readSetIntegers();           // Question 6
 //        testPrime();                 // Question 7
     }
@@ -21,16 +19,25 @@ public class Task_1 {
         Write a program to print numbers from 1 to given parameter.
     */
     public static void printNumbers(int count) {
-        // Todo write your code here ...
+        if (count <= 0) {
+            System.out.println("not a positive number");
+            return;
+        }
+        if (count > 1) {
+            printNumbers(count - 1);
+        }
+        System.out.println(count);
     }
 
     /* TODO: Question 2
         Write a program to calculate the sum of first 10 natural numbers.
     */
-    public static void sumNumbers() {
-        int sum = 0;
-
-        System.out.println("Sum: " + sum);
+    public static int sumNumbers(int sum) {
+        if (sum != 0) {
+            return sum + sumNumbers(sum - 1);
+        } else {
+            return sum;
+        }
     }
 
 
@@ -46,8 +53,12 @@ public class Task_1 {
         num = console.nextInt();
 
         // Todo write your code here ...
+        System.out.print("Enter any positive integer: ");
+        num = console.nextInt();
 
-        System.out.println("Factorial: " + fact);
+
+
+//        System.out.println("Factorial: " + fact);
     }
 
      /* TODO: Question 4
