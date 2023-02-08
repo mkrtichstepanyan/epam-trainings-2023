@@ -13,8 +13,10 @@ public class Customer {
         return name;
     }
 
+
     public int getCustomerNumber() {
         return customerNumber;
     }
+
 }
 

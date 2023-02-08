@@ -2,22 +2,24 @@ package homework_5.Diana_Melkonyan.pizza;
 
 public class TestPizza {
     public static void main(String[] args) {
-        Order order1 = new Order(new Customer("Vik", 7717));
-        Pizza margarita = new Pizza("Margarita", "Calzone", 2);
+
+        Customer customer = new Customer("Vika", 3345);
+        Order order1 = new Order(customer);
+        Pizza margarita = new Pizza("Margarita", "Calzone", 2,customer);
         margarita.addIngredient("Tomato paste");
         margarita.addIngredient("Garlic");
         margarita.addIngredient("Pepperoni");
         margarita.addIngredient(" Bacon");
 
-        Pizza pepperoniOro = new Pizza("PepperoniOro", "Calzone", 3);
+        Pizza pepperoniOro = new Pizza("PepperoniOro", "Calzone", 3,customer);
         pepperoniOro.addIngredient("Tomato paste");
         pepperoniOro.addIngredient("Cheese");
         pepperoniOro.addIngredient("Salami");
         pepperoniOro.addIngredient("Olives");
 
-
-        Order order2 = new Order(new Customer("Max", 4372));
-        Pizza basePZZ = new Pizza("BasePZZ", "Calzone", 12);
+        Customer customer2 = new Customer("Max", 3345);
+        Order order2 = new Order(customer);
+        Pizza basePZZ = new Pizza("BasePZZ", "Calzone", 12,customer2);
         basePZZ.addIngredient("Salami");
         basePZZ.addIngredient("Bacon");
         basePZZ.addIngredient("Corn");

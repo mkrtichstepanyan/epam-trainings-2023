@@ -5,8 +5,9 @@ public class Order {
     private  int index;
     private final int orderNumber;
     private static int nextNumber = 10000;
-
     private final Customer customer;
+
+
     private final Pizza[] pizzas = new Pizza[10];
     private final LocalDateTime orderTime;
 
@@ -21,9 +22,12 @@ public class Order {
         return index;
     }
 
+
+
     public void addPizza(Pizza pizza) {
         if (pizzas.length <= index) {
             System.out.println("You can't order 10 pizzas");
+
         }
         if (pizza == null) {
             System.out.println("You  choose pizza");
