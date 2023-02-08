@@ -3,7 +3,7 @@ package homework_5.Roza_Petrosyan.pizza;
 public class CheckPrint {
     private double amountOfIngredients;
 
-    public void printIngredients(Pizza pizza) {
+    private void printIngredients(Pizza pizza) {
         Ingredient[] ingredients = pizza.getIngredients();
         amountOfIngredients = 0;
 

@@ -48,7 +48,10 @@ public class Order {
     private void checkPizzaName(Pizza[] pizzas) {
         for (Pizza pizza : pizzas) {
             String pizzaName = pizza.getPizzaName();
-            if (pizza.getPizzaName() != null && pizza.getPizzaName().length() >= 4 && pizza.getPizzaName().length() <= 20 && pizza.getPizzaName().matches("\\p{IsLatin}+")) {
+            if (pizza.getPizzaName() != null
+                    && pizza.getPizzaName().length() >= 4
+                    && pizza.getPizzaName().length() <= 20
+                    && pizza.getPizzaName().matches("\\p{IsLatin}+")) {
                 pizza.setPizzaName(pizzaName);
             } else {
                 pizza.setPizzaName(getCustomer().getCustomerName() + "_" + getOrderNumber());
