@@ -1,4 +1,4 @@
-package homework_5.aram_mehrabyan.task1;
+package homework_5.task1;
 
 
 public class Factorial {
