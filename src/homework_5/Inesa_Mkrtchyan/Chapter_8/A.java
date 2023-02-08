@@ -1,4 +1,4 @@
-package Homework5.Inesa_Mkrtchyan.Chapter_8;
+package homework_5.Inesa_Mkrtchyan.Chapter_8;
 
 public class A {
     int i;

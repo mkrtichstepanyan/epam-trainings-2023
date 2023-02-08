@@ -1,4 +1,4 @@
-package Homework5.Inesa_Mkrtchyan.Pizzeria;
+package homework_5.Inesa_Mkrtchyan.Pizzeria;
 
 import static Homework5.Inesa_Mkrtchyan.Pizzeria.OrderingPizza.inp;
 

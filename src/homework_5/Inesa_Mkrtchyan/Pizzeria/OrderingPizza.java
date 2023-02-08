@@ -1,4 +1,4 @@
-package Homework5.Inesa_Mkrtchyan.Pizzeria;
+package homework_5.Inesa_Mkrtchyan.Chapter_8;
 
 import java.util.Scanner;
 

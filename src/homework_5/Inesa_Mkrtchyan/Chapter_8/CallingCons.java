@@ -1,4 +1,4 @@
-package Homework5.Chapter_8;
+package homework_5.Inesa_Mkrtchyan.Chapter_8;
 
 class A1 {
     A1() {

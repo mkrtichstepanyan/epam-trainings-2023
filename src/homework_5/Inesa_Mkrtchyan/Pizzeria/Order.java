@@ -1,4 +1,4 @@
-package Homework5.Inesa_Mkrtchyan.Pizzeria;
+package homework_5.Inesa_Mkrtchyan.Pizzeria;
 
 import java.util.ArrayList;
 import java.util.Random;
