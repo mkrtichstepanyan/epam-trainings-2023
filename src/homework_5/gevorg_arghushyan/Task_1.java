@@ -29,11 +29,11 @@ public class Task_1 {
 //        int number = scanner.nextInt();
 //        System.out.println(reverseNumber(number,0) );;
 //**********************************************************************************************************************
-        Scanner console = new Scanner(System.in);
-        System.out.print("Enter the positive integer ");
-        int number= console.nextInt();
-
-         System.out.println(testPrime(number,2));;                                               // Question 6
+//        Scanner console = new Scanner(System.in);                     // Question 6
+//        System.out.print("Enter the positive integer ");
+//        int number= console.nextInt();
+//
+//         System.out.println(testPrime(number,2));;
 
     }
     /* TODO: Question 1
