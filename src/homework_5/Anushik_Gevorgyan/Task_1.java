@@ -6,7 +6,7 @@ public class Task_1 {
 
     public static void main(String[] args) {
         //  printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
-        //sumNumbers ();                // Question 2
+       //sumNumbers ();                // Question 2
         // factorialDemo1();            // Question 3
         //  powerDemo();                 // Question 4
         //   reverseNumber();             // Question 5
@@ -19,11 +19,12 @@ public class Task_1 {
         Write a program to print numbers from 1 to given parameter.
     */
     public static void printNumbers(int count) {
-        if (count == 0) {
+        if (count <= 0) {
             return;
         }
-        System.out.println(count + " ");
-        printNumbers(--count);
+        printNumbers(count -1);
+        System.out.print(count + " ");
+
 
     }
 
@@ -36,7 +37,7 @@ public class Task_1 {
         System.out.println("Sum: " + sum);
     }
 
-    public static int sumNumbersCalculation(int n) {
+    private static int sumNumbersCalculation(int n) {
         if (n == 0) {
             return 0;
         } else {
@@ -55,16 +56,16 @@ public class Task_1 {
 
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
-        fact = calculatefactorialDemo1(num);
+        fact = calculateFactorialDemo1(num);
 
         System.out.println("Factorial: " + fact);
     }
 
-    public static int calculatefactorialDemo1(int n) {
+    public static int calculateFactorialDemo1(int n) {
         if (n <= 1) {
             return 1;
         } else {
-            return n * calculatefactorialDemo1(--n);
+            return n * calculateFactorialDemo1(--n);
         }
     }
 
@@ -87,16 +88,16 @@ public class Task_1 {
 
         System.out.print("Enter the power ");
         power = console.nextInt();
-        result = calculatepowerDemo(base, power);
+        result = calculatePowerDemo(base, power);
 
         System.out.println("Result: " + result);
     }
 
-    public static int calculatepowerDemo(int base, int power) {
+    public static int calculatePowerDemo(int base, int power) {
         if (power == 0) {
             return 1;
         }
-        return base * calculatepowerDemo(base, --power);
+        return base * calculatePowerDemo(base, --power);
     }
 
 
@@ -117,16 +118,16 @@ public class Task_1 {
         int temp = number;
 
         int remainder = 0;
-        reverse = calculatereverseNumber(number, remainder);
+        reverse = calculateReverseNumber(number, remainder);
 
         System.out.println("Reverse of " + number + " is " + reverse);
     }
 
-    public static int calculatereverseNumber(int number, int remainder) {
+    public static int calculateReverseNumber(int number, int remainder) {
         if (number < 10) {
             return remainder * 10 + number;
         } else
-            return calculatereverseNumber(number / 10, remainder * 10 + number % 10);
+            return calculateReverseNumber(number / 10, remainder * 10 + number % 10);
     }
 
 

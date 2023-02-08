@@ -5,14 +5,14 @@ import java.time.LocalDateTime;
 public class Order {
     private int index;
     private int orderNumber;
-    private static int nextorderNumber=10001;
+    private static int nextOrderNumber=10001;
 
     private Customer customer;
     private Pizza[] pizzas=new Pizza[10];
     private LocalDateTime orderTime;
     public Order(Customer customer){
         this.customer=customer;
-        this.orderNumber=nextorderNumber++;
+        this.orderNumber=nextOrderNumber++;
         this.orderTime=LocalDateTime.now();
     }
     public int getIndex(){
@@ -32,12 +32,14 @@ public class Order {
     }
     public void showPizzaAtributes(Pizza pizza){
         if(pizza!=null){
+            System.out.println("***********************");
             System.out.println("[" + orderNumber + ":" + customer.getCustomerNumber() + ":" + pizza.getName());
 
 
         }
     }
     public void printCheck(){
+        System.out.println("************************");
         System.out.println("Order date and time:" + orderTime);
         System.out.println("Order" + orderNumber);
         System.out.println("Customer" + customer.getCustomerNumber());
@@ -70,15 +72,17 @@ public class Order {
                 continue;
             }
             System.out.println("Name:" + pizza.getName());
+            System.out.println("***********************");
             double price=1;
             if(pizza.getType().equals("Calzone")){
                 price=price + 0.5;
             }
             System.out.println("Pizza price (" + pizza.getType() + ")" + price + "$");
             price=getPrice(pizza,price);
-            System.out.println();
+            System.out.println("**********************");
             System.out.println("Amount" + price + "$");
             System.out.println("Quantity" + pizza.getQuantity());
+            System.out.println("***********************");
             totalAmount=totalAmount+price* pizza.getQuantity();
         }
         return totalAmount;

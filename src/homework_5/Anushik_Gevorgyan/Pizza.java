@@ -40,6 +40,7 @@ public class Pizza {
         }
         for (int i = 0; i < ingredientCount; i++) {
             if(ingredients[i].equals(ingredient)){
+
                 System.out.println("Check the order");
                 return;
             }
@@ -58,6 +59,8 @@ public class Pizza {
     public String getName(){
         return name;
     }
+
+
     public void setName(String name){
         this.name=name;
     }
