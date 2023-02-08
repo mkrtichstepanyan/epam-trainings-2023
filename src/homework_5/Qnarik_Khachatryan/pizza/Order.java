@@ -2,6 +2,7 @@ package homework_5.Qnarik_Khachatryan.pizza;
 
 
 import java.util.Arrays;
+import java.time.LocalTime;
 
 public class Order {
     Pizza[] pizzas; //исходный массив из 10 элементов
@@ -13,13 +14,25 @@ public class Order {
     double totalAmount = 0;
     Customer customer;
     private int maxPizzasInOrder = 10;
-//
+    private final LocalTime orderTime;
+
 
     Order(Customer customer) {
         this.customer = customer;
         this.pizzas = new Pizza[maxPizzasInOrder]; //list of pizzas
         this.orderNumber = orderNumberNext++;
+        this.orderTime = getLocalTimeWithoutNanos();
 
+    }
+
+    LocalTime getLocalTimeWithoutNanos() {
+        LocalTime localTime = LocalTime.now();
+        long nanos = localTime.getNano();
+        return localTime.minusNanos(nanos);
+    }
+
+    public LocalTime getOrderTime() {
+        return orderTime;
     }
 
     void addPizza(Pizza pizza, int quantity) { // adding pizza to pizzas
@@ -50,6 +63,7 @@ public class Order {
 
 
     public void printCheck() {
+        System.out.println();
         System.out.println("********************************");
         System.out.println("Order: " + orderNumber);
         System.out.println("Client: " + customer.getNumber());
