@@ -58,20 +58,16 @@ public class Task_1 {
 
     public static void powerDemo() {
         Scanner console = new Scanner(System.in);
-
         int base;
         int power;
-        int result = 1;
-
         System.out.print("Enter the base number ");
         base = console.nextInt();
-
         System.out.print("Enter the power ");
         power = console.nextInt();
 
         // Todo write your code here ...
 
-        System.out.println("Result: " + result);
+        //System.out.println("Result: " + result);
     }
 
      /* TODO: Question 5
@@ -103,9 +99,7 @@ public class Task_1 {
     */
     public static void testPrime() {
         Scanner console = new Scanner(System.in);
-
         int number;
-
         System.out.print("Enter the positive integer ");
         number = console.nextInt();
 

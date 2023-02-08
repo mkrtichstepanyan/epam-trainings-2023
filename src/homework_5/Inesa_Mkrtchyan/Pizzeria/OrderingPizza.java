@@ -1,4 +1,8 @@
-package homework_5.Inesa_Mkrtchyan.Chapter_8;
+package homework_5.Inesa_Mkrtchyan.Pizzeria;
+
+import homework_5.Inesa_Mkrtchyan.Pizzeria.Ingredient;
+import homework_5.Inesa_Mkrtchyan.Pizzeria.Pizza;
+import homework_5.Inesa_Mkrtchyan.Pizzeria.PizzaType;
 
 import java.util.Scanner;
 
