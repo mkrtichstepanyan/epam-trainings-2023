@@ -7,8 +7,8 @@ public class Task_1 {
 //        System.out.println("Sum: " + sumNumbers(7));                // Question 2
 //        System.out.println("Factorial: " + factorialDemo1(3));            // Question 3
 //        System.out.println("Result: " + powerDemo(4, 2));                 // Question 4
-        reverseNumber(123454356);             // Question 5
-//        testPrime(18);                 // Question 7
+//        reverseNumber(12345435);             // Question 5
+//        testPrime(6);                 // Question 7
     }
 
 
@@ -83,6 +83,11 @@ public class Task_1 {
     */
 
     public static void testPrime(int number) {
+        if (number <= 1) {
+            System.out.println(number + " is not a prime number. " +
+                    "Please, enter a whole number greater than 1.");
+            return;
+        }
         boolean flag = isPrime(number, number / 2);
         if (flag) {
             System.out.println(number + " is a prime number.");
@@ -90,10 +95,11 @@ public class Task_1 {
             System.out.println(number + " is not a prime number.");
         }
     }
-    private static boolean isPrime (int num, int divisor) {
+
+    private static boolean isPrime(int num, int divisor) {
         if (divisor == 1) {
             return true;
-        }else if (num % divisor == 0) {
+        } else if (num % divisor == 0) {
             return false;
         } else {
             return isPrime(num, --divisor);
