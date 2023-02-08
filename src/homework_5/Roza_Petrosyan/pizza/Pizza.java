@@ -4,17 +4,17 @@ import java.util.*;
 
 public class Pizza {
     private String pizzaName;
-    private String pizzaType;
-    private int quantity;
-    private String[] ingredients = new String[1];
+    private final PizzaType pizzaType;
+    private final int quantity;
+    private Ingredient[] ingredients = new Ingredient[1];
 
-    public Pizza(String pizzaName, String pizzaType, int quantity) {
+    public Pizza(String pizzaName, PizzaType pizzaType, int quantity) {
         this.pizzaName = pizzaName;
         this.quantity = quantity;
         this.pizzaType = pizzaType;
     }
 
-    public boolean isDuplicate(String[] ingredients) {
+    public boolean isDuplicate(Ingredient[] ingredients) {
         boolean result = false;
         for (int i = 0; i < ingredients.length; i++) {
             for (int j = i + 1; j < ingredients.length; j++) {
@@ -24,12 +24,11 @@ public class Pizza {
         return result;
     }
 
-    public void addIngredient(String[] ingredients) {
+    public void addIngredient(Ingredient[] ingredients) {
         if (ingredients.length > 7) {
             System.out.println(pizzaName + " pizza is full");
         }
 
-        System.out.println(Arrays.toString(ingredients));
         this.ingredients = ingredients;
 
         if (isDuplicate(ingredients)) {
@@ -45,7 +44,7 @@ public class Pizza {
         return pizzaName;
     }
 
-    public String getPizzaType() {
+    public PizzaType getPizzaType() {
         return pizzaType;
     }
 
@@ -53,7 +52,7 @@ public class Pizza {
         return quantity;
     }
 
-    public String[] getIngredients() {
+    public Ingredient[] getIngredients() {
         return ingredients;
     }
 }

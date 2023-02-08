@@ -1,6 +1,6 @@
 package homework_5.Roza_Petrosyan.pizza;
 
-public enum Ingredients {
+public enum Ingredient {
     TOMATO_PASTE("Tomato paste", 1),
     CHEESE("Cheese", 1),
     SALAMI("Salami", 1.5),
@@ -14,7 +14,7 @@ public enum Ingredients {
     private final String name;
     private final double price;
 
-    Ingredients(String name, double price) {
+    Ingredient(String name, double price) {
         this.name = name;
         this.price = price;
     }
