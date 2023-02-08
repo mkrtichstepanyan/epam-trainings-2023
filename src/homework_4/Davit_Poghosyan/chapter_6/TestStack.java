@@ -1,4 +1,4 @@
-package homework_4.Davit_Poghosyan.Chapter_6;
+package homework_4.Davit_Poghosyan.chapter_6;
 
 public class TestStack {
     public static void main(String[] args) {
