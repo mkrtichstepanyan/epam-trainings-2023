@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Task_1 {
     public static void main(String[] args) {
 //        printNumbers(5);             // Question 1 -> try with different integer values instead of 10 only
-//        sumNumbers();                // Question 2
+        sumNumbers();                // Question 2
 //        factorialDemo1();            // Question 3
 //        powerDemo();                 // Question 4
 //        reverseNumber();             // Question 5
@@ -29,7 +29,9 @@ public class Task_1 {
     // This function  calculates the sum of first 10 natural numbers.
 
     public static void sumNumbers() {
-        int sum = sum(10);
+        System.out.println("Please enter a number");
+        Scanner console = new Scanner(System.in);
+        int sum = sum(console.nextInt());
         System.out.println("Sum: " + sum);
     }
 
