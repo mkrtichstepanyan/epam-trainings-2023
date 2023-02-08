@@ -1,6 +1,8 @@
 package homework_5.Hovhannes_Gspeyan.pizzeriaPalmetto;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class built to implement
@@ -22,7 +24,7 @@ public class Order {
     private final Customer customer;
 
     // array keeps pizza objects
-    private final Pizza[] pizzas = new Pizza[10];
+    private final List<Pizza> pizzas;
 
     // declares order date and time
     private final LocalDateTime orderTime;
@@ -32,6 +34,7 @@ public class Order {
     public Order(Customer customer) {
         this.customer = customer;
         this.orderNumber = nextOrderNumber++;
+        this.pizzas = new ArrayList<>();
         this.orderTime = LocalDateTime.now();
     }
 
@@ -45,18 +48,8 @@ public class Order {
         return customer;
     }
 
-    // allows order to add pizza objects
-    // if pizzas array length already full
-    // method gives message
     public void addPizza(Pizza pizza) {
-        if (pizzas.length <= index) {
-            System.out.println("sorry, you can't order up to 10 pizzas! ");
-            System.exit(1);
-        }
-        if (pizza == null) {
-            System.out.println("you haven't chosen any pizza! \n please add pizza to your order list");
-        }
-        pizzas[index++] = pizza;
+        this.pizzas.add(pizza);
     }
 
     // displays pizza attributes
