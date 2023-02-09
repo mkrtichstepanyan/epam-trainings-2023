@@ -5,6 +5,7 @@ public class MainPizzaTest {
         Customer customer = new Customer("Karen");
         Order order = new Order(customer);
         Pizza margarita = new Pizza("Margarita", "Calzone", 2, customer);
+        Pizza margarita2 = new Pizza("Margarita", "Calzone", 9, customer);
         margarita.addIngredient("Tomato paste");
         margarita.addIngredient("Pepperoni");
         margarita.addIngredient("Garlic");
