@@ -2,7 +2,7 @@ package homework_5.Varsik_Pijoyan.Pizza;
 
 public class MainPizzaTest {
     public static void main(String[] args) {
-        Customer customer = new Customer("Karen");
+        Customer customer = new Customer("Lisa");
         Order order = new Order(customer);
         Pizza margarita = new Pizza("Margarita", "Calzone", 2, customer);
         Pizza margarita2 = new Pizza("Margarita", "Calzone", 9, customer);
@@ -22,7 +22,7 @@ public class MainPizzaTest {
         order.printCheck();
         order.displayPizzaAttributes(margarita);
 
-        Customer customer1 = new Customer("Jack");
+        Customer customer1 = new Customer("Jon");
         Order order1 = new Order(customer1);
         Pizza basePZZ = new Pizza("BasePzz", "Calzone", 3, customer1);
         basePZZ.addIngredient("Bacon");
