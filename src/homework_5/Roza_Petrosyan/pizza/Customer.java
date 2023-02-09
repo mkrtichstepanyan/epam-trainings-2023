@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Customer {
     private final String CUSTOMER_NAME;
-    private final int customerNumber = ((1 + new Random(System.currentTimeMillis()).nextInt(2)) * 1000
+    private final int CUSTOMER_NUMBER = ((1 + new Random(System.currentTimeMillis()).nextInt(9)) * 1000
             + new Random(System.currentTimeMillis()).nextInt(1000));
 
     public Customer(String customerName) {
@@ -16,6 +16,6 @@ public class Customer {
     }
 
     public int getCustomerNumber() {
-        return customerNumber;
+        return CUSTOMER_NUMBER;
     }
 }

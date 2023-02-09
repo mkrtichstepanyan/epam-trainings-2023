@@ -18,7 +18,10 @@ public class Pizza {
         boolean result = false;
         for (int i = 0; i < ingredients.length; i++) {
             for (int j = i + 1; j < ingredients.length; j++) {
-                result = ingredients[i].equals(ingredients[j]);
+                if (ingredients[i].equals(ingredients[j])) {
+                    result = true;
+                    break;
+                }
             }
         }
         return result;

@@ -20,7 +20,7 @@ public class CheckPrint {
             System.out.println("Client: " + order.getCustomer().getCustomerNumber());
             double total_amount = 0;
             for (Pizza pizza : order.getPizzas()) {
-                if (pizza != null) {
+                if (pizza != null && !pizza.isDuplicate(pizza.getIngredients())) {
                     PizzaType pizzaType = pizza.getPizzaType();
                     System.out.println("Name: " + pizza.getPizzaName());
                     System.out.println("--------------------------------");

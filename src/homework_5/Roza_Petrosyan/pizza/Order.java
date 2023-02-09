@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 public class Order {
-    private final int ORDER_NUMBER = ((1 + new Random(System.currentTimeMillis()).nextInt(2)) * 10000
+    private final int ORDER_NUMBER = ((1 + new Random(System.currentTimeMillis()).nextInt(9)) * 10000
             + new Random(System.currentTimeMillis()).nextInt(10000));
 
     private final Customer customer;
