@@ -9,16 +9,13 @@ public class Order {
             + new Random(System.currentTimeMillis()).nextInt(10000));
 
     private final Customer customer;
-    private final Pizza[] pizzas;
+    private Pizza[] pizzas;
     private final LocalTime ORDER_TIME = LocalTime.parse(LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss")));
 
     public Order(Customer customer, Pizza[] pizzas) {
         this.customer = customer;
-        this.pizzas = pizzas;
-        if (getTotalQuantity(this.pizzas) > 10) {
-            System.out.println("You can not order more than 10 pizza!");
-        }
-        checkPizzaName(this.pizzas);
+        checkPizzaQuantity(pizzas);
+        checkPizzaName(pizzas);
     }
 
     public int getOrderNumber() {
@@ -39,32 +36,46 @@ public class Order {
 
     private int getTotalQuantity(Pizza[] pizzas) {
         int result = 0;
-        for (Pizza pizza : pizzas) {
-            result += pizza.getQuantity();
+        if(pizzas != null) {
+            for (Pizza pizza : pizzas) {
+                result += pizza.getQuantity();
+            }
         }
         return result;
     }
 
+    private void checkPizzaQuantity(Pizza[] pizzas){
+        if (getTotalQuantity(pizzas) > 10) {
+            this.pizzas = null;
+            System.out.println("You can not order more than 10 pizza!");
+        } else {
+            this.pizzas = pizzas;
+        }
+    }
     private void checkPizzaName(Pizza[] pizzas) {
-        for (Pizza pizza : pizzas) {
-            String pizzaName = pizza.getPizzaName();
-            if (pizza.getPizzaName() != null
-                    && pizza.getPizzaName().length() >= 4
-                    && pizza.getPizzaName().length() <= 20
-                    && pizza.getPizzaName().matches("\\p{IsLatin}+")) {
-                pizza.setPizzaName(pizzaName);
-            } else {
-                pizza.setPizzaName(getCustomer().getCustomerName() + "_" + getOrderNumber());
+        if(pizzas != null) {
+            for (Pizza pizza : pizzas) {
+                String pizzaName = pizza.getPizzaName();
+                if (pizza.getPizzaName() != null
+                        && pizza.getPizzaName().length() >= 4
+                        && pizza.getPizzaName().length() <= 20
+                        && pizza.getPizzaName().matches("\\p{IsLatin}+")) {
+                    pizza.setPizzaName(pizzaName);
+                } else {
+                    pizza.setPizzaName(getCustomer().getCustomerName() + "_" + getOrderNumber());
+                }
             }
         }
     }
 
     public void displayPizzaAttributes(Pizza[] pizzas) {
-        for (Pizza pizza : pizzas) {
-            System.out.println("[" + ORDER_NUMBER +
-                    ":" + getCustomer().getCustomerNumber() +
-                    ":" + pizza.getPizzaName() +
-                    ":" + pizza.getQuantity() + "]");
+        if(this.pizzas != null){
+            for (Pizza pizza : pizzas) {
+                System.out.println("[" + ORDER_NUMBER +
+                        ":" + getCustomer().getCustomerNumber() +
+                        ":" + pizza.getPizzaName() +
+                        ":" + pizza.getQuantity() + "]");
+            }
         }
     }
 }
