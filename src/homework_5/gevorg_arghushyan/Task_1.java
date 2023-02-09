@@ -29,11 +29,11 @@ public class Task_1 {
 //        int number = scanner.nextInt();
 //        System.out.println(reverseNumber(number,0) );;
 //**********************************************************************************************************************
-        Scanner console = new Scanner(System.in);
-        System.out.print("Enter the positive integer ");
-        int number= console.nextInt();
-
-         System.out.println(testPrime(number,2));;                                               // Question 6
+//        Scanner console = new Scanner(System.in);                     // Question 6
+//        System.out.print("Enter the positive integer ");
+//        int number= console.nextInt();
+//
+//         System.out.println(testPrime(number,2));;
 
     }
     /* TODO: Question 1
@@ -74,6 +74,7 @@ public class Task_1 {
         Write a program to find the factorial value of any number entered through the keyboard.
     */
 
+
     public static int factorialDemo1(int number) {
         if (number == 1) {
             return 1;
@@ -111,6 +112,7 @@ public class Task_1 {
         Write a program that prompts the user to input a positive integer.
         It should then output a message indicating whether the number is a prime number.
     */
+
     public static String testPrime(int number, int step) {
 
         if (number == step) {
