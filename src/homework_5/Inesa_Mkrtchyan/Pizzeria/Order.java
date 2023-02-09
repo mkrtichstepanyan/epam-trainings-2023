@@ -29,11 +29,19 @@ public class Order {
     public void PrintOrderInfo(){
         System.out.println("Order - " + this.number);
         System.out.println("Client - " + this.customer.number);
+        System.out.println("Client - " + this.customer.name);
+
+
+        System.out.println("__________________");
+        System.out.println("------------INGREDIENTS--------");
         for(Pizza p : pizzas){
             p.printPizzaInfo();
         }
         System.out.println("---------------------------------------");
         System.out.println("Total amount - " + quantity);
+    }
+    public void printCountOfPizza(){
+        System.out.println("Count of pizzas : " + pizzas.size());
     }
 
 }

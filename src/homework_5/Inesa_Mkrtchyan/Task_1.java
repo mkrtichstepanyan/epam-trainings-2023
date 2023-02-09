@@ -58,7 +58,7 @@ public class Task_1 {
         power = console.nextInt();
         System.out.println("Result: " + powerDemo(base, power));
     }
-    public static int powerDemo(int base, int power) {
+    private static int powerDemo(int base, int power) {
         if (power == 1) return base;
         return base * powerDemo(base, power - 1);
     }
@@ -89,7 +89,7 @@ public class Task_1 {
 
         System.out.println(Prime(number,number-1));
     }
-    public static boolean Prime(int num, int d) {
+    private static boolean Prime(int num, int d) {
         if (d == 1) return true;
         if (num % d == 0) return false;
 

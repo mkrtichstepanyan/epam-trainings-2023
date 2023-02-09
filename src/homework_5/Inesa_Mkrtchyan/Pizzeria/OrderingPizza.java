@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class OrderingPizza {
     public static Scanner inp = new Scanner(System.in);
+    public static Order order = new Order();
     public static Ingredient[] createIngridientList() {
         Ingredient[] listofIng = new Ingredient[8];
         listofIng[0] = new Ingredient("Tomato paste", 1);
@@ -48,6 +49,8 @@ public class OrderingPizza {
         String cont = inp.next();
         if (cont.charAt(0) != 'n'){
             pizza.pizzaName = cont;
+        }else{
+            pizza.pizzaName = order.customer.name + pizza.number;
         }
         while (true) {
             pizza.addIngredient(AddIngridient());

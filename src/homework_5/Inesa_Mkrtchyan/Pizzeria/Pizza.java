@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Pizza {
     public String pizzaName;
-    public ArrayList<Ingredient> ingridients;//+
+    public ArrayList<Ingredient> ingridients;
     public PizzaType pizzaType;
     public double quantity;
     public final int number;
@@ -36,10 +36,13 @@ public class Pizza {
         quantity += i.quantity;
     }
     public void printPizzaInfo(){
+        System.out.println("!!!!!!!!!!!!!!!!!");
+        System.out.println("Pizza Name: " + pizzaName);
         System.out.println("Pizza Base : " + pizzaType.name + " - " + pizzaType.quantity);
         for(Ingredient i : ingridients){
             i.printIngredient();
         }
         System.out.println("Price is : " + quantity);
+        System.out.println("!!!!!!!!!!!!!!!!!");
     }
 }
