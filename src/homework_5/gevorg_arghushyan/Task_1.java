@@ -74,6 +74,7 @@ public class Task_1 {
         Write a program to find the factorial value of any number entered through the keyboard.
     */
 
+
     public static int factorialDemo1(int number) {
         if (number == 1) {
             return 1;
