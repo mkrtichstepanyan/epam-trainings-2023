@@ -12,6 +12,7 @@ public class MainPizzaTest {
         margarita.addIngredient("Bacon");
         order.addPizza(margarita);
         order.addPizza(margarita2);
+        order.printCheck();
 
         Pizza pepperoniOro = new Pizza("PepperoniOro", "Calzone", 3, customer);
         pepperoniOro.addIngredient("Tomato paste");
