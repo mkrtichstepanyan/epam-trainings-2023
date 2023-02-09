@@ -1,6 +1,10 @@
 package homework_5.TatevKocharyan.pizza_palmetto;
 
+import java.util.Objects;
+
 public class Pizza {
+
+    String pizzaName;
     String type;
     private String tomatoPaste;
     private String cheese;
@@ -13,22 +17,30 @@ public class Pizza {
     private String pepper;
     int count;
 
-    public String getPepper() {
-        return pepper;
-    }
-
-    public void setPepper(String pepper) {
-        this.pepper = pepper;
-    }
-
-    public void setType(String type) {
+    public Pizza(String pizzaName, String type, int count) {
+        if (count>10){
+            System.out.println("You can only order up to 10");
+        }
+        this.pizzaName = pizzaName;
         this.type = type;
+        this.count = count;
+    }
+
+    public String getPizzaName() {
+        return pizzaName;
+    }
+
+    public void setPizzaName(String pizzaName) {
+        this.pizzaName = pizzaName;
     }
 
     public String getType() {
         return type;
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public String getTomatoPaste() {
         return tomatoPaste;
@@ -94,6 +106,14 @@ public class Pizza {
         this.olives = olives;
     }
 
+    public String getPepper() {
+        return pepper;
+    }
+
+    public void setPepper(String pepper) {
+        this.pepper = pepper;
+    }
+
     public int getCount() {
         return count;
     }
@@ -102,51 +122,92 @@ public class Pizza {
         this.count = count;
     }
 
-    void addIngredient(Pizza pizza, String ingredient) {
+    void addIngredient(String ingredient) {
 
         switch (ingredient) {
             case "Tomato Paste":
-                pizza.setTomatoPaste("Tomato Paste");
+                setTomatoPaste("Tomato Paste");
                 break;
-            case "Chees":
-                pizza.setCheese("Chees");
+            case "Cheese":
+                setCheese("Cheese");
                 break;
             case "Salami":
-                pizza.setSalami("Salami");
+                setSalami("Salami");
                 break;
             case "Bacon":
-                pizza.setBacon("Bacon");
+                setBacon("Bacon");
                 break;
             case "Garlic":
-                pizza.setGarlic("Garlic");
+                setGarlic("Garlic");
                 break;
             case "Corn":
-                pizza.setCorn("Corn");
+                setCorn("Corn");
                 break;
             case "Pepperoni":
-                pizza.setPepperoni("Pepperoni");
+                setPepperoni("Pepperoni");
                 break;
             case "Olives":
-                pizza.setOlives("Olives");
+                setOlives("Olives");
                 break;
             case "Pepper":
-                pizza.setPepper("Pepper");
+                setPepper("Pepper");
                 break;
         }
+    }
+
+    void makeMargarita() {
+        setTomatoPaste("Tomato Paste");
+        setPepper("Pepper");
+        setGarlic("Garlic");
+        setBacon("Bacon");
+    }
+
+    void makePepperoni() {
+        setTomatoPaste("Tomato Paste");
+        setCheese("Cheese");
+        setSalami("Salami");
+        setOlives("Olives");
+
+    }
+
+    void makeGreek() {
+        setOlives("Olives");
+        setCheese("Cheese");
+        setGarlic("Garlic");
+        setCorn("Corn");
+    }
+
+
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pizza pizza = (Pizza) o;
+        return count == pizza.count && Objects.equals(pizzaName, pizza.pizzaName) && Objects.equals(type, pizza.type) && Objects.equals(tomatoPaste, pizza.tomatoPaste) && Objects.equals(cheese, pizza.cheese) && Objects.equals(salami, pizza.salami) && Objects.equals(bacon, pizza.bacon) && Objects.equals(garlic, pizza.garlic) && Objects.equals(corn, pizza.corn) && Objects.equals(pepperoni, pizza.pepperoni) && Objects.equals(olives, pizza.olives) && Objects.equals(pepper, pizza.pepper);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pizzaName, type, tomatoPaste, cheese, salami, bacon, garlic, corn, pepperoni, olives, pepper, count);
     }
 
     @Override
     public String toString() {
         return "Pizza{" +
-                ", type=" + type +
+                "pizzaName='" + pizzaName + '\'' +
+                ", type='" + type + '\'' +
                 ", tomatoPaste='" + tomatoPaste + '\'' +
                 ", cheese='" + cheese + '\'' +
                 ", salami='" + salami + '\'' +
-                ", Bacon='" + bacon + '\'' +
-                ", Garlic='" + garlic + '\'' +
-                ", Corn='" + corn + '\'' +
-                ", Pepperoni='" + pepperoni + '\'' +
-                ", Olives='" + olives + '\'' +
+                ", bacon='" + bacon + '\'' +
+                ", garlic='" + garlic + '\'' +
+                ", corn='" + corn + '\'' +
+                ", pepperoni='" + pepperoni + '\'' +
+                ", olives='" + olives + '\'' +
+                ", pepper='" + pepper + '\'' +
                 ", count=" + count +
                 '}';
     }
