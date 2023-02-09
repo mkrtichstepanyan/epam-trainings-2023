@@ -5,10 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    private int orderNumber;
+    private final int orderNumber;
     private Customer customer;
     private List<Pizza> pizzas;
-    private LocalTime orderTime;
+    private final LocalTime orderTime;
+    private static final int MAX_INGREDIENTS = 7;
 
     public Order(int orderNumber, Customer customer) {
         this.orderNumber = orderNumber;
@@ -21,22 +22,19 @@ public class Order {
         return LocalTime.now();
     }
 
-    public void addPizza(String name, ArrayList<String> ingredients, int quantity, PizzaType pizzaType) {
-        if (name == null) {
-            System.out.println("Name can't be empty.");
-            return;
+    public void addPizza(String name, ArrayList<String> ingredients, int quantity, PizzaType pizzaType,
+                         Customer customer) {
+        if (name == null || name.length() < 4 || name.length() > 20) {
+            name = customer.getName() + pizzas.size();
         }
-        if (name.length() < 4 || name.length() > 20) {
-            name = "customer_name_" + pizzas.size();
-        }
-        Pizza pizza = new Pizza(name, ingredients, quantity, pizzaType);
+        Pizza pizza = new Pizza(name, ingredients, quantity, pizzaType, customer);
         pizzas.add(pizza);
     }
 
     public void addIngredient(String pizzaName, String ingredient) {
         for (Pizza pizza : pizzas) {
             if (pizza.getName().equals(pizzaName)) {
-                if (pizza.getIngredients().size() >= 7) {
+                if (pizza.getIngredients().size() >= MAX_INGREDIENTS) {
                     System.out.println("This pizza already contains 7 ingredients!");
                 } else if (pizza.getIngredients().contains(ingredient)) {
                     System.out.println("This ingredient is already added!");
@@ -48,42 +46,59 @@ public class Order {
     }
 
     public void printCheck() {
-        double totalAmount = 1;
         System.out.println("********************************");
+        System.out.println("Order date and time: " + orderTime);
         System.out.println("Order: " + orderNumber);
         System.out.println("Client: " + customer.getCustomerPhone());
+        double totalAmount = 0;
+        totalAmount = getTotalAmount(totalAmount);
+        System.out.println("Total amount: " + totalAmount + " $");
+    }
+
+
+    private double getPrice(Pizza pizza, double price) {
+        for (String ingredient : pizza.getIngredients()) {
+            double ingredientPrice = switch (ingredient) {
+                case "Tomato paste" -> 1;
+                case "Salami" -> 1.5;
+                case "Cheese" -> 1;
+                case "Bacon" -> 1.2;
+                case "Garlic" -> 0.3;
+                case "Corn" -> 0.7;
+                case "Pepperoni" -> 0.6;
+                case "Olives" -> 0.5;
+                default -> 0;
+            };
+            System.out.println(ingredient + " " + ingredientPrice + " $");
+            price += ingredientPrice;
+        }
+        return price;
+    }
+
+
+    private double getTotalAmount(double totalAmount) {
         for (Pizza pizza : pizzas) {
+            if (pizza == null) {
+                continue;
+            }
             System.out.println("Name: " + pizza.getName());
             System.out.println("--------------------------------");
-            if (pizza.getPizzaType().equals(PizzaType.CLOSED)) {
-                totalAmount += 0.5;
-                System.out.println("Pizza Base (Calzone) " + totalAmount + " €");
+            double basePrice = 1;
+            if (pizza.getPizzaType().equals(PizzaType.CALZONE)) {
+                basePrice += 0.5;
+                System.out.println("Pizza Base (Calzone) " + basePrice + " €");
             } else {
-                System.out.println("Pizza Base (Regular) " + totalAmount + " €");
+                System.out.println("Pizza Base (Regular) " + basePrice + " €");
             }
-            for (String ingredient : pizza.getIngredients()) {
-                double price = switch (ingredient) {
-                    case "Tomato paste" -> 1;
-                    case "Cheese" -> 1;
-                    case "Salami" -> 1.5;
-                    case "Bacon" -> 1.2;
-                    case "Garlic" -> 0.3;
-                    case "Corn" -> 0.7;
-                    case "Pepperoni" -> 0.6;
-                    case "Olives" -> 0.5;
-                    default -> 0;
-                };
-                System.out.println(ingredient + " " + price + " €");
-                totalAmount += price;
-            }
+            basePrice = getPrice(pizza, basePrice);
             System.out.println("--------------------------------");
-            System.out.println("Amount: " + totalAmount + " €");
+            System.out.println("Amount: " + basePrice + " $");
             System.out.println("Quantity: " + pizza.getQuantity());
             System.out.println("--------------------------------");
-            totalAmount = totalAmount * pizza.getQuantity();
+            totalAmount += basePrice * pizza.getQuantity();
         }
-        System.out.println("Total amount: " + totalAmount + " €");
-        System.out.println("********************************");
+        return totalAmount;
     }
+
 }
 
