@@ -7,9 +7,19 @@ public class CheckPrint {
         Ingredient[] ingredients = pizza.getIngredients();
         amountOfIngredients = 0;
 
-        for (Ingredient ingredient : ingredients) {
-            System.out.println(ingredient.getName() + " " + ingredient.getPrice() + "$");
-            amountOfIngredients += ingredient.getPrice();
+        for (int i = 0; i < ingredients.length; i++) {
+            boolean shouldPrint = true;
+            for (int j = i + 1; j < ingredients.length; j++) {
+                if (ingredients[i].equals(ingredients[j])) {
+                    shouldPrint = false;
+                    break;
+                }
+            }
+            if (shouldPrint) {
+                System.out.println(ingredients[i].getName() + " " + ingredients[i].getPrice() + "$");
+                amountOfIngredients += ingredients[i].getPrice();
+            }
+
         }
     }
 
@@ -20,7 +30,7 @@ public class CheckPrint {
             System.out.println("Client: " + order.getCustomer().getCustomerNumber());
             double total_amount = 0;
             for (Pizza pizza : order.getPizzas()) {
-                if (pizza != null && !pizza.isDuplicate(pizza.getIngredients())) {
+                if (pizza != null) {
                     PizzaType pizzaType = pizza.getPizzaType();
                     System.out.println("Name: " + pizza.getPizzaName());
                     System.out.println("--------------------------------");
