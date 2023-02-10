@@ -6,7 +6,7 @@ public class Pizza {
     private String pizzaName;
     private final PizzaType pizzaType;
     private final int quantity;
-    private Ingredient[] ingredients = new Ingredient[1];
+    private Ingredient[] ingredients = new Ingredient[7];
 
     public Pizza(String pizzaName, PizzaType pizzaType, int quantity) {
         this.pizzaName = pizzaName;
@@ -17,11 +17,15 @@ public class Pizza {
     public boolean isDuplicate(Ingredient[] ingredients) {
         boolean result = false;
         for (int i = 0; i < ingredients.length; i++) {
+            int count = 1;
             for (int j = i + 1; j < ingredients.length; j++) {
                 if (ingredients[i].equals(ingredients[j])) {
                     result = true;
-                    break;
+                    count++;
                 }
+            }
+            if(count == 1) {
+                this.ingredients[i] = ingredients[i];
             }
         }
         return result;
@@ -32,10 +36,10 @@ public class Pizza {
             System.out.println(pizzaName + " pizza is full");
         }
 
-        this.ingredients = ingredients;
-
         if (isDuplicate(ingredients)) {
             System.out.println("Please check your order again!");
+        } else {
+            this.ingredients = ingredients;
         }
     }
 

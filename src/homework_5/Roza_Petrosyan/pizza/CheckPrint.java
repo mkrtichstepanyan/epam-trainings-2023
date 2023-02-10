@@ -7,19 +7,11 @@ public class CheckPrint {
         Ingredient[] ingredients = pizza.getIngredients();
         amountOfIngredients = 0;
 
-        for (int i = 0; i < ingredients.length; i++) {
-            boolean shouldPrint = true;
-            for (int j = i + 1; j < ingredients.length; j++) {
-                if (ingredients[i].equals(ingredients[j])) {
-                    shouldPrint = false;
-                    break;
-                }
+        for (Ingredient ingredient:ingredients) {
+            if(ingredient != null) {
+                System.out.println(ingredient.getName() + " " + ingredient.getPrice() + "$");
+                amountOfIngredients += ingredient.getPrice();
             }
-            if (shouldPrint) {
-                System.out.println(ingredients[i].getName() + " " + ingredients[i].getPrice() + "$");
-                amountOfIngredients += ingredients[i].getPrice();
-            }
-
         }
     }
 
