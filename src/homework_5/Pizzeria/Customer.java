@@ -5,7 +5,7 @@ public class Customer {
     private final   int customerId;
     public Customer(String customerName){
         this.customerName=customerName;
-        this.customerId=(int)Math.random()*10000+10;
+        this.customerId=(int) (Math.random()*10000);
     }
     public String getCustomerName(){
         return customerName;
