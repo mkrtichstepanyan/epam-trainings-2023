@@ -21,7 +21,7 @@ public class Order {
         calculatePrice();
     }
 
-    public void calculatePrice() {
+    private void calculatePrice() {
 
         if (pizza.type == "Calzone" || pizza.type == "calzone") {
             pizza.price += 0.5;

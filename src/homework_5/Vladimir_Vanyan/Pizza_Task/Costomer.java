@@ -7,19 +7,20 @@ import java.util.Scanner;
 
 public class Costomer {
 
-    public  int costomerNumber;
-    public String costomerName;
-    public String pizzaName;
-    public String pizzaType;
-    int quantity;
+    private int costomerNumber;
+    private String costomerName;
+    private String pizzaName;
+    private String pizzaType;
+    private int quantity;
 
-    Costomer(String costomerName,String pizzaName,String pizzaType,int quantity) {
+    Costomer(String costomerName, String pizzaName, String pizzaType, int quantity) {
         this.costomerName = costomerName;
-        this.pizzaName=pizzaName;
-        this.pizzaType=pizzaType;
-        this.quantity=quantity;
+        this.pizzaName = pizzaName;
+        this.pizzaType = pizzaType;
+        this.quantity = quantity;
     }
-    Pizza orderInfo() {
+
+     Pizza orderInfo() {
         Scanner scanner = new Scanner(System.in);
         List<String> ingredients = new ArrayList<String>(7);
         String ingredient;
@@ -36,13 +37,12 @@ public class Costomer {
                 break;
             }
             if (choice == 'Y' || choice == 'y') {
-               continue;
-            }
-            else {
+                continue;
+            } else {
                 break;
             }
         }
-        Pizza pizza = new Pizza(pizzaName, pizzaType, ingredients,quantity,costomerName);
+        Pizza pizza = new Pizza(pizzaName, pizzaType, ingredients, quantity, costomerName);
         return pizza;
     }
 }
