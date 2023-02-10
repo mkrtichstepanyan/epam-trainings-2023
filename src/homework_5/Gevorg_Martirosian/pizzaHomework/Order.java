@@ -8,7 +8,7 @@ public class Order {
     private static int orderNumber = 10000;
     private final int orderID;
     private Customer customer;
-    private Pizza[] pizzas;
+    private final Pizza[] pizzas;
     private LocalDateTime orderTime;
     String formatDateTime;
 
@@ -54,10 +54,9 @@ public class Order {
             }
             String currentIngredient;
             System.out.println("ingredients:");
-            for (int i = 0; i < pizza.getIngredients().length; i++) {
-                currentIngredient = pizza.getIngredients()[i];
-                if (currentIngredient != null) {
-                    switch (currentIngredient.toLowerCase()) {
+            for (String ingredient : pizza.getIngredients()) {
+                if (ingredient != null) {
+                    switch (ingredient.toLowerCase()) {
                         case "tomato paste":
                             System.out.println("tomato paste: 1 €");
                             currentAmount += 1;
@@ -101,5 +100,12 @@ public class Order {
             currentAmount = 0.0;
         }
         System.out.println("total amount: " + totalAmount);
+    }
+
+    public void showPizzas() {
+        for (Pizza pizza : this.pizzas) {
+            System.out.println("[Order: " + this.orderNumber + " : " + this.customer.getCustomerNumber() + " : " +
+                    pizza.getName() + " : " + pizza.getCount() + "]");
+        }
     }
 }
