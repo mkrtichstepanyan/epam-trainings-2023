@@ -1,4 +1,4 @@
-package homework_5.Davit_Poghosyan.Pizza;
+package homework_5.Davit_Poghosyan.PizzaPizzeria;
 
 public class Main {
     public static void main(String[] args) {

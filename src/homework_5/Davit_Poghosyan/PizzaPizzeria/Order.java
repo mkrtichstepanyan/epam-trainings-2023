@@ -1,4 +1,4 @@
-package homework_5.Davit_Poghosyan.Pizza;
+package homework_5.Davit_Poghosyan.PizzaPizzeria;
 
 import java.time.LocalDateTime;
 import java.util.Random;

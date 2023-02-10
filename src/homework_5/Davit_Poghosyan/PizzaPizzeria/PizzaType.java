@@ -1,4 +1,4 @@
-package homework_5.Davit_Poghosyan.Pizza;
+package homework_5.Davit_Poghosyan.PizzaPizzeria;
 
 public class PizzaType {
     private static final String regular = "Regular";

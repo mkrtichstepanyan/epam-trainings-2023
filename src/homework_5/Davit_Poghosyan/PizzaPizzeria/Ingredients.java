@@ -1,10 +1,12 @@
-package homework_5.Davit_Poghosyan.Pizza;
+package homework_5.Davit_Poghosyan.PizzaPizzeria;
 
 public class Ingredients {
     private String ingredientName;
     private double ingredientValue;
 
+
     public Ingredients(){
+
     }
 
     public String getIngredientName() {
