@@ -17,14 +17,20 @@ public class Pizza {
 
 
     public Pizza(String name, Type type, int quantity, Customer customer) {
-        if (name.length() >= 4 && name.length() <= 20) {
-            this.name = name;
+        if (quantity <= 10) {
+            if (name.length() >= 4 && name.length() <= 20) {
+                this.name = name;
+            } else {
+                this.name = customer.getName() + "_" + customer.getCustomerNumber();
+            }
+            this.type = type;
+            this.quantity = quantity;
+            this.customer = customer;
         } else {
-          this.name = customer.getName() + "_" + customer.getCustomerNumber();
+            System.out.println("You cant order more than 10 pizzas");
+            System.exit(1);
         }
-        this.type = type;
-        this.quantity = quantity;
-        this.customer = customer;
+
     }
 
     public Pizza(String name, List<String> ingredients, Type type, int quantity, Customer customer) {
