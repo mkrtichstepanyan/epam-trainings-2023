@@ -1,12 +1,10 @@
 package homework_5.Roza_Petrosyan.pizza;
 
-import java.util.*;
-
 public class Pizza {
     private String pizzaName;
     private final PizzaType pizzaType;
     private final int quantity;
-    private Ingredient[] ingredients = new Ingredient[7];
+    private Ingredient[] ingredients;
 
     public Pizza(String pizzaName, PizzaType pizzaType, int quantity) {
         this.pizzaName = pizzaName;
@@ -14,8 +12,10 @@ public class Pizza {
         this.pizzaType = pizzaType;
     }
 
-    public boolean isDuplicate(Ingredient[] ingredients) {
+    private boolean isDuplicate(Ingredient[] ingredients) {
         boolean result = false;
+        int countOfIngredients = 0;
+        Ingredient[] temp = new Ingredient[ingredients.length];
         for (int i = 0; i < ingredients.length; i++) {
             int count = 1;
             for (int j = i + 1; j < ingredients.length; j++) {
@@ -25,21 +25,21 @@ public class Pizza {
                 }
             }
             if(count == 1) {
-                this.ingredients[i] = ingredients[i];
+                temp[i] = ingredients[i];
+                countOfIngredients++;
             }
+        }
+        this.ingredients = temp;
+
+        if (countOfIngredients > 7) {
+            System.out.println(pizzaName + " pizza is full");
         }
         return result;
     }
 
     public void addIngredient(Ingredient[] ingredients) {
-        if (ingredients.length > 7) {
-            System.out.println(pizzaName + " pizza is full");
-        }
-
         if (isDuplicate(ingredients)) {
             System.out.println("Please check your order again!");
-        } else {
-            this.ingredients = ingredients;
         }
     }
 
@@ -57,6 +57,10 @@ public class Pizza {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public void setIngredients(Ingredient[] ingredients) {
+        this.ingredients = ingredients;
     }
 
     public Ingredient[] getIngredients() {
