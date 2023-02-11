@@ -24,18 +24,11 @@ public class OrderDemo {
 
         // Part 2
         System.out.println("---------------Part 2---------------------");
-        Ingredient[] ingredients1 = new Ingredient[10];
+        Ingredient[] ingredients1 = new Ingredient[20];
         ingredients1[0] = Ingredient.TOMATO_PASTE;
         ingredients1[1] = Ingredient.GARLIC;
         ingredients1[2] = Ingredient.PEPPER;
-        ingredients1[3] = Ingredient.CHEESE;
-        ingredients1[4] = Ingredient.CORN;
-        ingredients1[5] = Ingredient.PEPPERONI;
         ingredients1[6] = Ingredient.BACON;
-        ingredients1[7] = Ingredient.BACON;
-        ingredients1[8] = Ingredient.BACON;
-        ingredients1[9] = Ingredient.SALAMI;
-        order.getPizzas()[0].setIngredients(ingredients1);
         order.getPizzas()[0].addIngredient(ingredients1);
 
         Ingredient[] ingredients2 = new Ingredient[4];
@@ -43,7 +36,6 @@ public class OrderDemo {
         ingredients2[1] = Ingredient.CHEESE;
         ingredients2[2] = Ingredient.PEPPERONI;
         ingredients2[3] = Ingredient.OLIVES;
-        order.getPizzas()[1].setIngredients(ingredients2);
         order.getPizzas()[1].addIngredient(ingredients2);
 
         Ingredient[] ingredients3 = new Ingredient[4];
@@ -51,14 +43,13 @@ public class OrderDemo {
         ingredients3[1] = Ingredient.CHEESE;
         ingredients3[2] = Ingredient.SALAMI;
         ingredients3[3] = Ingredient.OLIVES;
-        order.getPizzas()[2].setIngredients(ingredients3);
         order.getPizzas()[2].addIngredient(ingredients3);
 
         // Part 3
         System.out.println("---------------Part 3---------------------");
 
 
-        CheckPrint checkPrint = new CheckPrint();
+        Print checkPrint = new Print();
         checkPrint.printCheck(order);
 
         // Part 4

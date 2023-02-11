@@ -5,6 +5,7 @@ public class Pizza {
     private final PizzaType pizzaType;
     private final int quantity;
     private Ingredient[] ingredients;
+    private int maxCount;
 
     public Pizza(String pizzaName, PizzaType pizzaType, int quantity) {
         this.pizzaName = pizzaName;
@@ -12,35 +13,41 @@ public class Pizza {
         this.pizzaType = pizzaType;
     }
 
-    private boolean isDuplicate(Ingredient[] ingredients) {
+    public boolean isDuplicate(Ingredient[] ingredients) {
         boolean result = false;
-        int countOfIngredients = 0;
-        Ingredient[] temp = new Ingredient[ingredients.length];
-        for (int i = 0; i < ingredients.length; i++) {
-            int count = 1;
-            for (int j = i + 1; j < ingredients.length; j++) {
-                if (ingredients[i].equals(ingredients[j])) {
-                    result = true;
-                    count++;
+        if (ingredients != null) {
+            int countOfIngredients = 0;
+            for (int i = 0; i < ingredients.length; i++) {
+                int count = 1;
+                for (int j = i + 1; j < ingredients.length; j++) {
+                    if (ingredients[i] != null) {
+                        if (ingredients[i].equals(ingredients[j])) {
+                            result = true;
+                            count++;
+                        }
+                    }
+                }
+                if (count == 1) {
+                    if(ingredients[i] != null){
+                        countOfIngredients++;
+                    }
                 }
             }
-            if(count == 1) {
-                temp[i] = ingredients[i];
-                countOfIngredients++;
-            }
-        }
-        this.ingredients = temp;
-
-        if (countOfIngredients > 7) {
-            System.out.println(pizzaName + " pizza is full");
+            maxCount = countOfIngredients;
         }
         return result;
     }
 
     public void addIngredient(Ingredient[] ingredients) {
         if (isDuplicate(ingredients)) {
-            System.out.println("Please check your order again!");
+            System.out.println("Please check your order again. You have duplication of ingredients." +
+                    "\nThis pizza will not be included in your order list");
         }
+        if (maxCount > 7) {
+            System.out.println(pizzaName + " pizza is full." +
+                    "\nThis pizza will not be included in your order list");
+        }
+        this.ingredients = ingredients;
     }
 
     public void setPizzaName(String pizzaName) {
@@ -59,12 +66,12 @@ public class Pizza {
         return quantity;
     }
 
-    public void setIngredients(Ingredient[] ingredients) {
-        this.ingredients = ingredients;
-    }
-
     public Ingredient[] getIngredients() {
         return ingredients;
+    }
+
+    public int getMaxCount() {
+        return maxCount;
     }
 }
 
