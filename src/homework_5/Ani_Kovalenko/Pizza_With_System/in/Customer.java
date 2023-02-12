@@ -1,14 +1,14 @@
-package homework_5.Ani_Kovalenko.Pizza_Homework_2;
+package homework_5.Ani_Kovalenko.Pizza_With_System.in;
 
 public class Customer {
-    private static int customerId = 10000;
+    private static int customerId = 5001;
     private String name;
 
     public Customer(String name) {
         this.name = name;
     }
 
-    public int getId() {
+    public int getCustomerId() {
         return customerId++;
     }
 
@@ -16,15 +16,11 @@ public class Customer {
         return name;
     }
 
-    public void setId(int id) {
+    public void setCustomerId(int id) {
         this.customerId = id;
     }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    private int generateId() {
-        return this.customerId + 1;
-    }
 }
