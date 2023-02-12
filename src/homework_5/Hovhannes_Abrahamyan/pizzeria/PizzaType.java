@@ -1,4 +1,4 @@
-package homework_5.Hovhannes_Abrahamyan;
+package homework_5.Hovhannes_Abrahamyan.pizzeria;
 
 public enum PizzaType {
     REGULAR("Regular", 1),
