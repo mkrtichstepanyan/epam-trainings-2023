@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.SecondSuper;
+package chapter_8.Hovhannes_Abrahamyan.chapter_8.SecondSuper;
 
 public class UseSuper {
     public static void main(String[] args) {

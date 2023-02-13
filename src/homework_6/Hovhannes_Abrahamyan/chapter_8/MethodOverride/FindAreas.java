@@ -1,6 +1,6 @@
-package chapter_8.Hovhannes_Abrahamyan.MethodOverride;
+package chapter_8.Hovhannes_Abrahamyan.chapter_8.MethodOverride;
 
-import chapter_8.Hovhannes_Abrahamyan.MethodOverride.Figure;
+import chapter_8.Hovhannes_Abrahamyan.chapter_8.MethodOverride.Figure;
 
 public class FindAreas {
     public static void main(String[] args) {

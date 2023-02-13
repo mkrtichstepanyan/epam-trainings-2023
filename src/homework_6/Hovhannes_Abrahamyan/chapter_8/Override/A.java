@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.Override;
+package chapter_8.Hovhannes_Abrahamyan.chapter_8.Override;
 
 public class A {
     int i, j;

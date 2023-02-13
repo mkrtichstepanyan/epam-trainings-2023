@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.Multilevel;
+package chapter_8.Hovhannes_Abrahamyan.chapter_8.Multilevel;
 
 class BoxWeight extends Box {
     double weight;

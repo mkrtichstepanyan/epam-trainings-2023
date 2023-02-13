@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.Super;
+package chapter_8.Hovhannes_Abrahamyan.chapter_8.Super;
 
 public class Box {
     private double width;

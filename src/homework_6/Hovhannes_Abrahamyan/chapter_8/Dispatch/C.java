@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.Dispatch;
+package chapter_8.Hovhannes_Abrahamyan.chapter_8.Dispatch;
 
 class C extends A {
     @Override

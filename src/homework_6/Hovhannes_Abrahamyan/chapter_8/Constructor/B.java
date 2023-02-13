@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.Constructor;
+package chapter_8.Hovhannes_Abrahamyan.chapter_8.Constructor;
 
 class B extends A {
     B() {

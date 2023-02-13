@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.Basic;
+package chapter_8.Hovhannes_Abrahamyan.chapter_8.Basic;
 
 class B extends A {
     int k;

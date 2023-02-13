@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.Practical;
+package chapter_8.Hovhannes_Abrahamyan.chapter_8.Practical;
 
 class RefDemo {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.Access;
+package chapter_8.Hovhannes_Abrahamyan.chapter_8.Access;
 
 public class Access {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.Access;
+package chapter_8.Hovhannes_Abrahamyan.chapter_8.Access;
 
 // A's j is not accessible here
 class B extends A{

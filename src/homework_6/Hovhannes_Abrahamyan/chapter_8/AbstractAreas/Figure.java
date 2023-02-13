@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.AbstractAreas;
+package chapter_8.Hovhannes_Abrahamyan.chapter_8.AbstractAreas;
 
 abstract class Figure {
     double dim1;

@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.MethodOverride;
+package chapter_8.Hovhannes_Abrahamyan.chapter_8.MethodOverride;
 
 public class Figure {
     double dim1;
