@@ -3,13 +3,15 @@ package homework_5.shushanik_araqelyan.myTask;
 public class Task_1 {
 
     public static void main(String[] args) {
-        //       printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
-        //     sumNumbers( 10);                // Question 2
-        factorialDemo1(9);            // Question 3
-//        powerDemo();                 // Question 4
-//   //     reverseNumber();             // Question 5
+//        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
+        //     System.out.println(sumNumbers(4));// Question 2
+        // System.out.println(factorialDemo1(6));            // Question 3
+
+     //   System.out.println(powerDemo(6, 3));                // Question 4
+//        reverseNumber();             // Question 5
 //        readSetIntegers();           // Question 6
-//        testPrime();                 // Question 7
+
+       // System.out.println(testPrime(6));                 // Question 7
     }
 
 
@@ -29,24 +31,19 @@ public class Task_1 {
 
     }
 
-
     /* TODO: Question 2
         Write a program to calculate the sum of first 10 natural numbers.
     */
+    static int sum = 0;
+
     public static int sumNumbers(int number) {
-        int sum = 0;
-
         // Todo write your code here ...
-
         if (number > 0) {
-            int result = sumNumbers(number - 1);
-
-            sum = number;
-
-
+            sumNumbers(number - 1);
+            sum = number + sum;
+            return sum;
         }
-        System.out.println("Sum = " + sum);
-        return sum;
+        return 0;
     }
 
 
@@ -54,24 +51,12 @@ public class Task_1 {
         Write a program to find the factorial value of any number entered through the keyboard.
     */
     public static int factorialDemo1(int num) {
-
-        int fact = 1; // To hold factorial
-        int result;
         // Todo write your code here ...
-        if (num == 0 || num == 1) {
-        return 1;
-    
-        return num * factorialDemo1(num-1);
+        if (num == 1) {
+            return num;
+        }
+        return num * factorialDemo1(num - 1);
     }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -86,49 +71,57 @@ public class Task_1 {
          (Do not use Java built-in method)
      */
 
-        public static void powerDemo (int base, int power) {
+    public static int powerDemo(int base, int power) {
+ int result = 1;
+        // Todo write your code here ...
+if (power!=0){
+    return (base *  powerDemo(base, power -1));
+}
+        return  1;
+
+    }
 
 
-            int result = 1;
 
-
-            // Todo write your code here ...
-
-            System.out.println("Result: " + result);
-        return 0;
-        }
 
      /* TODO: Question 5
          Write a program that prompts the user to input an integer and then outputs the number with the digits reversed.
          For example, if the input is 12345, the output should be 54321.
      */
 
-        //public static void reverseNumber (int number) {
+    public static void reverseNumber(int number) {
 
 
-            int reverse = 0;
-            int temp = number;
-            int remainder = 0;
+        int reverse = 0;
+        int temp = number;
+        int remainder = 0;
 
-            // Todo write your code here ...
+        // Todo write your code here ...
 
-            System.out.println("Reverse of " + number + " is " + reverse);
+        System.out.println("Reverse of " + number + " is " + reverse);
+    }
+
+
+    // TODO: Question 6
+    //   Write a program that prompts the user to input a positive integer.
+    //  It should then output a message indicating whether the number is a prime number.
+
+    public static boolean testPrime(int number) {
+
+        // Todo write your code here ...
+        if (number % 2 == 0){
+            if (number <= 1)
+            testPrime(number);
+            return false;
+        }
+        return true;
         }
 
-
-    /* TODO: Question 6
-        Write a program that prompts the user to input a positive integer.
-        It should then output a message indicating whether the number is a prime number.
-    */
-        //public static void testPrime (int number) {
+    }
 
 
 
-           boolean flag = true;
 
-           // Todo write your code here ...
 
-       }
-  }
 
 
