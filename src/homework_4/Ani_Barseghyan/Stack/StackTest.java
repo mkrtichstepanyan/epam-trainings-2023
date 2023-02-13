@@ -8,37 +8,33 @@ public class StackTest {
 
 
         System.out.println("Stack 1");
-        for (int i = 1; i <= stack1.size; i++) {
+        for (int i = 1; i <= 10; i++) {
             stack1.push(i);
         }
-        for (int i = 1; i <= stack1.size; i++) {
-            System.out.println("The " + i + "th element in stack is " + stack1.pop());
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("The " + i + " element in stack is " + stack1.pop());
         }
-
 
         System.out.println();
         System.out.println("Stack 2");
-        for (int i = 1; i <= stack2.size; i++) {
+        for (int i = 1; i <= 5; i++) {
             stack2.push(i);
         }
-        for (int i = 1; i <= stack2.size; i++) {
-            System.out.println("The " + i + "th element in stack is " + stack2.pop());
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("The " + i + " element in stack is " + stack2.pop());
         }
-
 
         System.out.println();
         System.out.println("Stack 3");
-        for (int i = 1; i <= stack3.size; i++) {
-            stack3.pushDynamic(i);
+        for (int i = 1; i <= 3; i++) {
+            stack3.push(i);
         }
-
-        stack3.pushDynamic(11);
-        stack3.pushDynamic(12);
-        stack3.pushDynamic(13);
-        stack3.pushDynamic(14);
-
-        for (int i = 1; i <= stack3.elementCount; i++) {
-            System.out.println("The " + i + "element in stack is " + stack3.pop());
+        stack3.push(11);
+        stack3.push(12);
+        stack3.push(13);
+        stack3.push(14);
+        for (int i = 1; i <= 7; i++) {
+            System.out.println("The " + i + " element in stack is " + stack3.pop());
         }
     }
 }

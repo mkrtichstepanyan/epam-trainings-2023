@@ -1,8 +1,8 @@
 package homework_4.Yeghia_Ansuryan.Stack;
 
 public class DynamicStack {
-    int[] array;
-    int index;
+    private int[] array;
+    private int index;
 
     public DynamicStack(int size) {
         array = new int[size];
@@ -14,7 +14,7 @@ public class DynamicStack {
         index = -1;
     }
 
-    void push(int element) {
+    public void push(int element) {
         if (index >= array.length * 0.75) {
             int size = array.length * 2;
             int[] array1 = new int[size];
@@ -26,7 +26,7 @@ public class DynamicStack {
         array[++index] = element;
     }
 
-    int pop() {
+   public int pop() {
         if (index < 0) {
             System.out.println("The stack is empty!");
             return -1;
