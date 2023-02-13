@@ -1,16 +1,18 @@
 package homework_5.Roza_Petrosyan.pizza;
 
-public class CheckPrint {
+public class Print {
     private double amountOfIngredients;
 
     private void printIngredients(Pizza pizza) {
         Ingredient[] ingredients = pizza.getIngredients();
         amountOfIngredients = 0;
 
-        for (Ingredient ingredient:ingredients) {
-            if(ingredient != null) {
-                System.out.println(ingredient.getName() + " " + ingredient.getPrice() + "$");
-                amountOfIngredients += ingredient.getPrice();
+        if(ingredients != null) {
+            for (Ingredient ingredient : ingredients) {
+                if (ingredient != null) {
+                    System.out.println(ingredient.getName() + " " + ingredient.getPrice() + "$");
+                    amountOfIngredients += ingredient.getPrice();
+                }
             }
         }
     }
@@ -22,7 +24,7 @@ public class CheckPrint {
             System.out.println("Client: " + order.getCustomer().getCustomerNumber());
             double total_amount = 0;
             for (Pizza pizza : order.getPizzas()) {
-                if (pizza != null) {
+                if (!pizza.isDuplicate(pizza.getIngredients()) && pizza.getMaxCount() < 7) {
                     PizzaType pizzaType = pizza.getPizzaType();
                     System.out.println("Name: " + pizza.getPizzaName());
                     System.out.println("--------------------------------");
