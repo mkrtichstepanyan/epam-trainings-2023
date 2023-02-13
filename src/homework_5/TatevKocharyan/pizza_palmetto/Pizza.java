@@ -21,6 +21,9 @@ public class Pizza {
         if (count>10){
             System.out.println("You can only order up to 10");
         }
+        if (pizzaName.length()<4 || pizzaName.length()>20){
+
+        }
         this.pizzaName = pizzaName;
         this.type = type;
         this.count = count;

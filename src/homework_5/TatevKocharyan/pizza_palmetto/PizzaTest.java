@@ -13,5 +13,7 @@ public class PizzaTest {
         order.printCheck();
         order1.printCheck();
         System.out.println(pizza);
+        order1.displayPizzaAtributes();
+        System.out.println();
     }
 }

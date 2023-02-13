@@ -1,17 +1,22 @@
 package homework_5.TatevKocharyan.pizza_palmetto;
 
+import java.time.LocalTime;
 import java.util.Objects;
 
 public class Order {
     Pizza pizza;
     int orderNumber;
     Customer customer;
-    long localTime = System.currentTimeMillis();
+    LocalTime localTime = LocalTime.now();
 
     public Order(Customer customer, Pizza pizza) {
         this.customer = customer;
         this.pizza = pizza;
         this.orderNumber = (int) (Math.random() * 10);
+        if (pizza.getPizzaName().length()<4 || pizza.getPizzaName().length()>20){
+            pizza.setPizzaName(customer.name+orderNumber);
+
+        }
     }
 
     public Pizza getPizza() {
@@ -38,11 +43,11 @@ public class Order {
         this.customer = customer;
     }
 
-    public long getLocalTime() {
+    public LocalTime getLocalTime() {
         return localTime;
     }
 
-    public void setLocalTime(long localTime) {
+    public void setLocalTime(LocalTime localTime) {
         this.localTime = localTime;
     }
 
@@ -120,6 +125,12 @@ public class Order {
         }
         System.out.println("Amout: " + amout * pizza.count);
         System.out.println("Quantity: " + pizza.count);
+    }
+
+    void displayPizzaAtributes(){
+        System.out.println( " [ OrderNumber "+orderNumber+" : Customer "+customer.getName()+" : PizzaName "+pizza.getPizzaName()+" : Quantity "+ pizza.count+" ] ");
+
+
     }
 
 
