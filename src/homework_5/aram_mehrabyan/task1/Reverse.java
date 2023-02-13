@@ -1,4 +1,4 @@
-package homework_5.task1;
+package homework_5.aram_mehrabyan.task1;
 
 public class Reverse {
     public static void reverseNumber(int number) {

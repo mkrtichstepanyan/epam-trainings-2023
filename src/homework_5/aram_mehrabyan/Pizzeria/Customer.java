@@ -1,4 +1,4 @@
-package homework_5.Pizzeria;
+package homework_5.aram_mehrabyan.Pizzeria;
 
 public class Customer {
     private final String customerName;
