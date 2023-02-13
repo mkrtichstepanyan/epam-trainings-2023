@@ -25,7 +25,7 @@ public class Main {
 
         Customer customer2 = new Customer("Tom");
         Order order2 = new Order(customer2);
-        Pizza basPzz = new Pizza("Hamov pizza", "regular", 11,customer2);
+        Pizza basPzz = new Pizza("Hamov pizza", "regular", 8,customer2);
         basPzz.addIngredients("Tomato paste");
         basPzz.addIngredients("Cheese");
 

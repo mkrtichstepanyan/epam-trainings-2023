@@ -24,11 +24,11 @@ public class OrderDemo {
 
         // Part 2
         System.out.println("---------------Part 2---------------------");
-        Ingredient[] ingredients1 = new Ingredient[4];
+        Ingredient[] ingredients1 = new Ingredient[20];
         ingredients1[0] = Ingredient.TOMATO_PASTE;
         ingredients1[1] = Ingredient.GARLIC;
         ingredients1[2] = Ingredient.PEPPER;
-        ingredients1[3] = Ingredient.BACON;
+        ingredients1[6] = Ingredient.BACON;
         order.getPizzas()[0].addIngredient(ingredients1);
 
         Ingredient[] ingredients2 = new Ingredient[4];
@@ -49,7 +49,7 @@ public class OrderDemo {
         System.out.println("---------------Part 3---------------------");
 
 
-        CheckPrint checkPrint = new CheckPrint();
+        Print checkPrint = new Print();
         checkPrint.printCheck(order);
 
         // Part 4
