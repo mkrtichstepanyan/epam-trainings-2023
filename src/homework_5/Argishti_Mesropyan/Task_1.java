@@ -78,10 +78,14 @@ public class Task_1 {
 
     public static void powerDemo() {
         Scanner console = new Scanner(System.in);
+
         int base;
         int power;
+        int result = 1;
+
         System.out.print("Enter the base number ");
         base = console.nextInt();
+
         System.out.print("Enter the power ");
         power = console.nextInt();
 
@@ -89,7 +93,7 @@ public class Task_1 {
         result = recursionPower(base, power);
         // Todo write your code here ...
 
-        //System.out.println("Result: " + result);
+        System.out.println("Result: " + result);
     }
 
     private static int recursionPower(int base, int power) {
