@@ -14,6 +14,7 @@ public class Task_1 {
         testPrime();                 // Question 7
     }
 
+
     /* TODO: Question 1
         Write a program to print numbers from 1 to given parameter.
     */
