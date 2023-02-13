@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Random;
 
 public class Order {
-    private int orderNumber;
-    private Customer customer;
-    private List<Pizza> pizzaList;
-    Random r = new Random();
-    private int low = 10000;
-    private int high = 99999;
+      private final int orderNumber;
+      private final Customer customer;
+      private final List<Pizza> pizzaList;
+      Random r = new Random();
+      private final int low = 10000;
+      private final int high = 99999;
 
     public Order(Customer customer) {
         orderNumber = r.nextInt(high - low) + low;
