@@ -89,7 +89,7 @@ public class Helper {
         System.out.println("**********");
         System.out.println("Order - " + order.getOrderIndex());
         System.out.println("Client - " + order.getCustomer().getCustomerId());
-        System.out.println("Name of Customer - " + order.getCustomer().getName());
+       //System.out.println("Name of Customer - " + order.getCustomer().getName());
         for(Pizza pizza : order.getPizzas()){
             pizza.printPizzaInfo();
         }

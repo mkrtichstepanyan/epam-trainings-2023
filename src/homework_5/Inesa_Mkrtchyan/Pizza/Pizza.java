@@ -71,6 +71,8 @@ public class Pizza {
 
     public void printPizzaInfo(){
         System.out.println("----------------");
+        System.out.println("Name of Pizza : " + this.name);
+        System.out.println("----");
         if(pizzaType.equals("Calzone")){
             System.out.println("Pizza Base (" + this.pizzaType + ")  1.5 $");
         }else{
@@ -82,7 +84,6 @@ public class Pizza {
         System.out.println("~~~~~~~~~");
         System.out.println("Amount : " + this.amount);
         System.out.println("Quantity : " + this.quantity);
-        System.out.println("Name of Pizza : " + this.name);
         System.out.println("----------------");
     }
 }
