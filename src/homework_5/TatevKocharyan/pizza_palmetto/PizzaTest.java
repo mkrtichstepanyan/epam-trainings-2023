@@ -12,5 +12,6 @@ public class PizzaTest {
         System.out.println(order1);
         order.printCheck();
         order1.printCheck();
+        System.out.println(pizza);
     }
 }
