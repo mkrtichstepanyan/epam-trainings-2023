@@ -1,24 +1,27 @@
 package homework_5.aram_mehrabyan.Pizzeria;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    private  int orderId;
+    private int orderId;
 
-  private final   Customer customer;
+    private final Customer customer;
 
-    private final List<Pizza>pizzas;
+    private final List<Pizza> pizzas;
 
-    public Order(Customer customer){
-       this.orderId=(int)(orderId+Math.random()*10000);
-        this.customer=customer;
-        this.pizzas=new ArrayList<>();
+    public Order(Customer customer) {
+        this.orderId = (int) (orderId + Math.random() * 10000);
+        this.customer = customer;
+        this.pizzas = new ArrayList<>();
 
     }
-    public void addPizza(Pizza pizza){
+
+    public void addPizza(Pizza pizza) {
         this.pizzas.add(pizza);
     }
+
     public void printCheck() {
         System.out.println("-----------------------------------");
         System.out.println("Order: " + this.orderId);
@@ -65,14 +68,14 @@ public class Order {
         System.out.println("_______________________________");
     }
 
-    public void display(){
-      for(Pizza pizza:this.pizzas){
-          System.out.println("["+orderId+":"+customer.getCustomerName()+":"+pizza.getPizzaName()+":"+pizza.getQuantity()+"]");
-      }
-
+    public void display() {
+        for (Pizza pizza : this.pizzas) {
+            System.out.println("[" + orderId + ":" + customer.getCustomerName() + ":" + pizza.getPizzaName() + ":" + pizza.getQuantity() + "]");
         }
 
     }
+
+}
 
 
 
