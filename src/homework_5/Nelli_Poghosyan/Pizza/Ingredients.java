@@ -5,7 +5,7 @@ public class Ingredients {
     private double ingredientValue;
 
 
-    public Ingredients(){
+    public Ingredients() {
 
     }
 
@@ -44,13 +44,8 @@ public class Ingredients {
                 ingredientValue = 0.5;
                 break;
             default:
-                ingredientValue=0;
+                ingredientValue = 0;
         }
         return ingredientValue;
     }
-
-
-
-
-
 }

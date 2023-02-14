@@ -14,6 +14,7 @@ public class Pizza {
         this.quantity = quantity;
         ingredients = new Ingredients[size];
     }
+
     public Pizza(String pizzaName, String pizzaType, int quantity) {
         this.pizzaName = checkPizzaName(pizzaName);
         this.pizzaType = pizzaType;
@@ -26,7 +27,7 @@ public class Pizza {
     }
 
     public String checkPizzaName(String pizzaName) {
-        if (pizzaName.length() >= 4 && pizzaName.length() <= 20) {
+        if (pizzaName.length() >= 4 && pizzaName.length() <= 20 && pizzaName != null) {
             return pizzaName;
         } else {
             return Order.getCustomerNumber() + "_" + Order.getOrderNumber();
@@ -49,17 +50,18 @@ public class Pizza {
         if (top == 7) {
             System.out.println("It is possible to use not more 7 different ingredients");
         } else {
-                ingredients[++top] = checkIfExist(ingredient);
-             }
+            ingredients[++top] = checkIfExist(ingredient);
         }
-public Ingredients checkIfExist(Ingredients ingredient){
-        for (int i = 0; i < top; i++){
-           if(ingredient.getIngredientName().equals(ingredients[i].getIngredientName())){
+    }
+
+    public Ingredients checkIfExist(Ingredients ingredient) {
+        for (int i = 0; i < top; i++) {
+            if (ingredient.getIngredientName().equals(ingredients[i].getIngredientName())) {
                 System.out.println("Please check the order of ingredients again.");
-           }
+            }
         }
-    return ingredient;
-}
+        return ingredient;
+    }
 
     public Ingredients getIngredient() {
         if (top < 0) {

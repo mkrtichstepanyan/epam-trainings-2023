@@ -23,5 +23,4 @@ public class PizzaList {
             return pizzaList;
         }
     }
-
 }
