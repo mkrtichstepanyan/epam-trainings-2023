@@ -22,16 +22,17 @@ public class Order {
         return LocalTime.now();
     }
 
-    public void addPizza(String name, ArrayList<String> ingredients, int quantity, PizzaType pizzaType,
+    public void addPizza(String name, ArrayList<Ingredient> ingredients, int quantity, PizzaType pizzaType,
                          Customer customer) {
         if (name == null || name.length() < 4 || name.length() > 20) {
-            name = customer.getName() + pizzas.size();
+            int index = pizzas.size();
+            name = customer.getName() + index;
         }
         Pizza pizza = new Pizza(name, ingredients, quantity, pizzaType, customer);
         pizzas.add(pizza);
     }
 
-    public void addIngredient(String pizzaName, String ingredient) {
+    public void addIngredient(String pizzaName, Ingredient ingredient) {
         for (Pizza pizza : pizzas) {
             if (pizza.getName().equals(pizzaName)) {
                 if (pizza.getIngredients().size() >= MAX_INGREDIENTS) {
@@ -57,17 +58,15 @@ public class Order {
 
 
     private double getPrice(Pizza pizza, double price) {
-        for (String ingredient : pizza.getIngredients()) {
+        for (Ingredient ingredient : pizza.getIngredients()) {
             double ingredientPrice = switch (ingredient) {
-                case "Tomato paste" -> 1;
-                case "Salami" -> 1.5;
-                case "Cheese" -> 1;
-                case "Bacon" -> 1.2;
-                case "Garlic" -> 0.3;
-                case "Corn" -> 0.7;
-                case "Pepperoni" -> 0.6;
-                case "Olives" -> 0.5;
-                default -> 0;
+                case TOMATO_PASTE, CHEESE -> 1;
+                case SALAMI -> 1.5;
+                case BACON -> 1.2;
+                case GARLIC -> 0.3;
+                case CORN -> 0.7;
+                case PEPPERONI -> 0.6;
+                case OLIVES -> 0.5;
             };
             System.out.println(ingredient + " " + ingredientPrice + " $");
             price += ingredientPrice;

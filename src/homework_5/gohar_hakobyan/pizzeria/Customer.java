@@ -21,9 +21,9 @@ public class Customer {
         return customerPhone;
     }
 
-    public int addRandomNumber() {
-        int customerNumber = (int) (Math.random() * 100000);
-        return customerNumber;
+    //Method for generating customer's number randomly
+    private String addRandomNumber() {
+        return String.valueOf(Math.random() * 100000);
     }
 
 }

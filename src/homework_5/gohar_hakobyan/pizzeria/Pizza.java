@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Pizza {
     private String name;
-    private ArrayList<String> ingredients;
+    private ArrayList<Ingredient> ingredients;
     private int quantity;
     private PizzaType pizzaType;
     private List<Pizza> pizzas;
 
-    public Pizza(String name, ArrayList<String> ingredients,
+    public Pizza(String name, ArrayList<Ingredient> ingredients,
                  int quantity, PizzaType pizzaType, Customer customer) {
         if (name == null || name.length() < 4 || name.length() > 20) {
             name = customer.getName() + pizzas.size();
@@ -22,12 +22,16 @@ public class Pizza {
         this.pizzaType = pizzaType;
     }
 
+    public ArrayList<Ingredient> getIngredients() {
+        return this.ingredients;
+    }
+
     public String getName() {
         return this.name;
     }
 
-    public ArrayList<String> getIngredients() {
-        return this.ingredients;
+    public void setName(String name) {
+        this.name = name;
     }
 
 
@@ -39,7 +43,5 @@ public class Pizza {
         return pizzaType;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+
 }
