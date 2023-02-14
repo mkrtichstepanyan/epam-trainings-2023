@@ -2,7 +2,7 @@ package homework_5.Liana_gevorgyan.Pizzeria;
 
 public class Pizza {
     String type = "Regular";
-    String name = "BasePzz";
+    String name;
     int quantity = 1;
     String[] ingredients = new String[7];
     int ingredientIndex = 0;
@@ -18,11 +18,13 @@ public class Pizza {
         } else {
             System.out.println(type + " is unknown Pizza type provided, regular type will be used instead");
         }
-        if (quantity > 0) {
+        if (quantity > 0 && quantity <= 10) {
             this.quantity = quantity;
-
-        } else {
-            System.out.println("Quantity should be at least one");
+        } else if (quantity < 0){
+            System.out.println("Order quantity should be at least 1");
+        } else if (quantity >10) {
+            System.out.println("Order quantity could not be greater than 10");
+            this.quantity = 10;
         }
     }
 

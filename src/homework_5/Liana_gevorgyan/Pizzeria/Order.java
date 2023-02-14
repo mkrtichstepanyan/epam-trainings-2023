@@ -6,6 +6,7 @@ public class Order {
     int pizzaIndex=0;
     Pizza [] pizzaList = new Pizza[10];
 
+
     public Order(int orderId, int customerId) {
         if (orderId >= 10000 && orderId < 99999) {
             this.orderId = orderId;
@@ -15,11 +16,24 @@ public class Order {
         this.customerId = customerId;
     }
 
-    public void addPizza(Pizza pizza){
-        if(pizzaIndex<= 10){
-            pizzaList[pizzaIndex]= pizza;
-            pizzaIndex ++;
-        }else{
+    //This method creates a new Pizza based on provided name, type, quantity and ingedients list and added to the order
+    public void addPizza(String name, String type, int quantity, String[] ingredients) {
+        if (pizzaIndex <= 10) {
+
+            // name should not be shorter than 4 and longer than 20
+            // in such cases new name should be formulated by customer id and pizza index in the order
+            if (name.length() < 4 || name.length() > 20) {
+                name = customerId + "_" + pizzaIndex;
+            }
+
+            Pizza pizza = new Pizza(name, type, quantity);
+            for (int i = 0; i < ingredients.length; i++) {
+                pizza.addIngredient(ingredients[i]);
+            }
+
+            pizzaList[pizzaIndex] = pizza;
+            pizzaIndex++;
+        } else {
             System.out.println("Order is full, you can not order more then 10 pizzas");
         }
 

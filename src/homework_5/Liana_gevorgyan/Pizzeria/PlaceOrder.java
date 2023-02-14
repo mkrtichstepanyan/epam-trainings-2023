@@ -3,18 +3,14 @@ package homework_5.Liana_gevorgyan.Pizzeria;
 public class PlaceOrder {
     public static void main(String[] args) {
         Order  order1=  new Order(10001, 7717);
-        Pizza pizza1 = new Pizza("Margarita","Regular",2);
-        pizza1.addIngredient("Bacon");
-        pizza1.addIngredient("Salami");
-        pizza1.addIngredient("Olives");
-        pizza1.addIngredient("Tomato paste");
-        order1.addPizza(pizza1);
+        String[] ingredients1 = {"Bacon", "Salami", "Olives", "Tomato paste"};
 
-        Pizza pizza2 = new Pizza("Vegetarian", "Calzone", 1);
-        pizza2.addIngredient("Corn");
-        pizza2.addIngredient("Garlic");
-        pizza2.addIngredient("Corn");
-        order1.addPizza(pizza2);
+        //Provided to long name for checking that it would be replaced with a generated name
+        order1.addPizza("MargaritaMargaritaMargarita","Regular",2, ingredients1);
+        String[] ingredients2 = {"Corn", "Garlic", "Corn"};
+        //provides extra quantity for checking, if quantity is more than 10,
+        // then it will return Customer id and order index
+        order1.addPizza("Vegetarian", "Calzone", 20, ingredients2);
 
         System.out.println();
 
