@@ -3,7 +3,8 @@ package homework_6.Argishti_Mesropyan.chapter_8;
 public class A {
     int i;
     int j;
-    void showij(){
+
+    void showij() {
         System.out.println("i end j " + i + " " + j);
     }
 }
