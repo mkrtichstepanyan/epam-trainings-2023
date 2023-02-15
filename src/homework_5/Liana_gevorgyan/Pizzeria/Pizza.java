@@ -10,6 +10,7 @@ public class Pizza {
 
     public Pizza(String name, String type, int quantity) {
         this.name = name;
+        this.quantity = quantity;
 
         if (type.equals("Calzone") || type.equals("Regular")) {
             this.type = type;
@@ -18,14 +19,7 @@ public class Pizza {
         } else {
             System.out.println(type + " is unknown Pizza type provided, regular type will be used instead");
         }
-        if (quantity > 0 && quantity <= 10) {
-            this.quantity = quantity;
-        } else if (quantity < 0){
-            System.out.println("Order quantity should be at least 1");
-        } else if (quantity >10) {
-            System.out.println("Order quantity could not be greater than 10");
-            this.quantity = 10;
-        }
+
     }
 
     public void addIngredient(String ingredient) {
@@ -86,4 +80,5 @@ public class Pizza {
         System.out.println("Amount : " + price * quantity);
         System.out.println("Quantity: " + quantity);
     }
+
 }
