@@ -1,37 +1,64 @@
 package homework_5.Yeghia_Ansuryan.Palmetto;
 
 public class Pizza {
-    private String name;
-    private int index;
+    private String pizzaName;
+    private final PizzaType type;
+    private final int pizzaQuantity;
     private Ingredient[] ingredients;
-    private String pizzaType;
-    private int quantity;
+    private int ingredientIndex;
 
-    public Pizza(String name, String pizzaType, int quantity) {
-        this.name = name;
-        this.pizzaType = pizzaType;
-        this.quantity = quantity;
+    public Pizza(String pizzaName, PizzaType pizzaType, int pizzaQuantity) {
+        this.pizzaName = pizzaName;
+        this.type = pizzaType;
+        this.pizzaQuantity = pizzaQuantity;
+
     }
 
-    public String getName() {
-        return name;
+    public String getPizzaName() {
+        return pizzaName;
     }
 
-    public String getPizzaType() {
-        return pizzaType;
+    void setPizzaName(String pizzaName) {
+        this.pizzaName = pizzaName;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public PizzaType getType() {
+        return type;
     }
 
-    public Pizza(String name, int index) {
-        this.index = index;
-        if (name.length() >= 4 && name.length() <= 20) {
-            this.name = name;
-        } else {
-            this.name = "customer_" + index;
+    public int getPizzaQuantity() {
+        return pizzaQuantity;
+    }
+
+    public int getIngredientIndex() {
+        return ingredientIndex;
+    }
+
+    public Ingredient[] getIngredients() {
+        return ingredients;
+    }
+
+    public void addIngredient(Ingredient ingredient) {
+        if (ingredientIndex == 0) {
+            ingredients = new Ingredient[8];
         }
+        if (ingredientIndex <= 7) {
+            if (isDuplicate(ingredient)) {
+                System.out.println("You have already added that ingredient to the pizza");
+            } else {
+                ingredients[ingredientIndex++] = ingredient;
+            }
+        } else {
+            System.out.println("You can't add more than 8 ingredients to pizza");
+        }
+    }
 
+    private boolean isDuplicate(Ingredient ingredient) {
+        for (int i = 0; i < ingredientIndex; i++) {
+            if (ingredients[i].equals(ingredient)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

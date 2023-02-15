@@ -1,40 +1,30 @@
 package homework_5.Yeghia_Ansuryan.Palmetto;
 
-import java.util.ArrayList;
-
 public class MakePizza {
     public static void main(String[] args) {
 
-        Order order = new Order();
+        Customer customer = new Customer("Lena");
 
-        System.out.println(order.getOrderNumber());
-//        System.out.println(order.getOrderNumber());
+        Pizza pizza1 = new Pizza("Buffalo", PizzaType.getRegular(), 2);
 
-        System.out.println();
+        pizza1.addIngredient(Ingredient.salami());
+        pizza1.addIngredient(Ingredient.bacon());
+        pizza1.addIngredient(Ingredient.cheese());
+        pizza1.addIngredient(Ingredient.corn());
+        pizza1.addIngredient(Ingredient.garlic());
 
-        Customer customer = new Customer();
+        Pizza pizza2 = new Pizza("Hawaiian", PizzaType.getCalzone(), 4);
 
-        System.out.println(customer.getCustomerNumber());
-//        System.out.println(customer.getCustomerNumber());
+        pizza2.addIngredient(Ingredient.olives());
+        pizza2.addIngredient(Ingredient.garlic());
+        pizza2.addIngredient(Ingredient.corn());
+        pizza2.addIngredient(Ingredient.tomatoPaste());
 
+        Order order = new Order(customer);
+        order.addPizza(pizza1);
+        order.addPizza(pizza2);
 
-        Pizza pizza = new Pizza("Margarita", "regular", 2);
-        System.out.println(pizza.getName() + " " + pizza.getPizzaType() + " " + pizza.getQuantity());
-
-        Ingredient tomatoPaste = Ingredient.getTomatoPaste();
-        Ingredient cheese = Ingredient.getCheese();
-        Ingredient salami = Ingredient.getSalami();
-        Ingredient bacon = Ingredient.getBacon();
-        Ingredient garlic = Ingredient.getGarlic();
-        Ingredient corn = Ingredient.getCorn();
-        Ingredient pepperoni = Ingredient.getPepperoni();
-        Ingredient olives = Ingredient.getOlives();
-
-        System.out.println(tomatoPaste.getNameIngredient() + " " + tomatoPaste.getPrice());
-        System.out.println(pepperoni.getNameIngredient() + " " + pepperoni.getPrice());
-
-        System.out.println();
-
+        CheckPrinter.printCheck(order);
 
     }
 }
