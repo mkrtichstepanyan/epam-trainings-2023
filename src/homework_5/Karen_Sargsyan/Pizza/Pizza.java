@@ -2,54 +2,65 @@ package homework_5.Karen_Sargsyan.Pizza;
 
 public class Pizza {
 
+    private final int quantity;
+    private final PizzaType pizzaType;
     private String namePizza;
-    private String typeOfPizza;
-    private int quantity;
+    private Ingredient[] ingredients;
+    private int ingredientIndex;
 
-    public Pizza() {
+    public Pizza(String namePizza, PizzaType pizzaType, int quantity) {
+        this.pizzaType = pizzaType;
+        this.namePizza = namePizza;
+        this.quantity = quantity;
 
     }
 
-    public void checkPizzaName(int customer, String name, int index) {
-        if (name.length() < 4 || name.length() > 20) {
-            this.namePizza = name;
-            System.out.println(customer + "_" + name + "_" + index);
-        } else {
-            this.namePizza = name;
-            System.out.println(namePizza);
+    public void addIngredient(Ingredient ingredient) {
+        if (ingredientIndex == 0) {
+            ingredients = new Ingredient[8];
         }
+        if (ingredientIndex <= 7) {
+            if (isDuplicate(ingredient)) {
+                System.out.println("You have already added that ingredient to the pizza.");
+            } else {
+                ingredients[ingredientIndex++] = ingredient;
+            }
+        } else {
+            System.out.println("You can't add more than 8 ingredients to pizza.");
+        }
+    }
+
+    private boolean isDuplicate(Ingredient ingredient) {
+        for (int i = 0; i < ingredientIndex; i++) {
+            if (ingredients[i].equals(ingredient)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public String getNamePizza() {
         return namePizza;
     }
 
+    public void setNamePizza(String namePizza) {
+        this.namePizza = namePizza;
+    }
+
     public int getQuantity() {
         return quantity;
     }
 
-    public String getTypeOfPizza() {
-        return typeOfPizza;
+    public PizzaType getPizzaType() {
+        return pizzaType;
     }
 
-    public void displayingPizzaAttributes(int orderNumber, int customerNumber, String pizzaName, int quantity){
-        System.out.println("*********************************************");
-        System.out.println("Order: " + orderNumber);
-        System.out.println("Customer: " + customerNumber);
-        System.out.println("Name: " + pizzaName);
-        System.out.println("----------------------------");
-
-        System.out.println("Quantity: " + quantity);
+    public Ingredient[] getIngredients() {
+        return ingredients;
     }
 
-    public void addIngredient(){
-        Ingredient.getTomatoPaste();
-        Ingredient.getBacon();
-        Ingredient.getCheese();
-        Ingredient.getOlives();
-        Ingredient.getCorn();
-        Ingredient.getPepperoni();
-        Ingredient.getGarlic();
+    public int getIngredientIndex() {
+        return ingredientIndex;
     }
 
 }

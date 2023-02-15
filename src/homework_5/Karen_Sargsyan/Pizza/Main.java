@@ -1,36 +1,27 @@
 package homework_5.Karen_Sargsyan.Pizza;
 
 public class Main {
-
     public static void main(String[] args) {
-        Ingredient tomatoPaste = Ingredient.getTomatoPaste();
-        Ingredient cheese = Ingredient.getCheese();
-        Ingredient salami = Ingredient.getSalami();
-        Ingredient bacon = Ingredient.getBacon();
-        Ingredient garlic = Ingredient.getGarlic();
-        Ingredient corn = Ingredient.getCorn();
-        Ingredient pepperoni = Ingredient.getPepperoni();
-        Ingredient olives = Ingredient.getOlives();
+            Customer customer = new Customer("Karen");
 
+            Pizza pizza1 = new Pizza ("Margarita", PizzaType.getTypeOfPizzaClosed(), 3);
 
-//        System.out.println(tomatoPaste.getNameOfIngredient() + tomatoPaste.getPrice());
+            pizza1.addIngredient(Ingredient.getBacon());
+            pizza1.addIngredient(Ingredient.getTomatoPaste());
+            pizza1.addIngredient(Ingredient.getCheese());
 
-        Order order = new Order();
+            Pizza pizza2 = new Pizza("Pepperoni", PizzaType.getTypeOfPizzaRegular(), 2);
 
-        Customer customer = new Customer();
+            pizza2.addIngredient(Ingredient.getTomatoPaste());
+            pizza2.addIngredient(Ingredient.getPepperoni());
+            pizza2.addIngredient(Ingredient.getCheese());
 
-        Pizza pizza = new Pizza();
+            Order order = new Order(customer);
+            order.addPizza(pizza1);
+            order.addPizza(pizza2);
 
-        pizza.checkPizzaName(7717, "Vazgen", 45);
-
-
-
-        pizza.displayingPizzaAttributes(order.getOrderNumber(), 7717, "Margarita", 2);
-
-
-
-
-
+            CheckPrinter.printCheck(order);
 
     }
+
 }

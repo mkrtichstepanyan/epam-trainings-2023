@@ -1,7 +1,8 @@
 package homework_5.Karen_Sargsyan.Pizza;
 
-public class Ingredient {
+import java.util.Objects;
 
+public class Ingredient {
     private final String nameOfIngredient;
     private final double price;
 
@@ -42,7 +43,6 @@ public class Ingredient {
         return new Ingredient("Olives", 0.5);
     }
 
-
     public String getNameOfIngredient() {
         return nameOfIngredient;
     }
@@ -50,4 +50,27 @@ public class Ingredient {
     public double getPrice() {
         return price;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Ingredient that = (Ingredient) o;
+        return Double.compare(that.price, price) == 0 && Objects.equals(nameOfIngredient, that.nameOfIngredient);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameOfIngredient, price);
+    }
+
+    @Override
+    public String toString() {
+        return nameOfIngredient + " " + price;
+    }
+
 }
