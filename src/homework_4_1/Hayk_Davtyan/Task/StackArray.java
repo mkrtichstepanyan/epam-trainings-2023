@@ -4,7 +4,8 @@ public class StackArray {
     private int size;
     private int[] array;
     private int top;
-    private int capacity = 2;
+
+
 
     public StackArray(int s) {
         size = s;
@@ -12,28 +13,34 @@ public class StackArray {
         top = -1;
     }
 
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
     public boolean isEmpty()
     {
         return (top == -1);
     }
 
-    public int size(){
-        return top + 1;
-    }
+//a
 
     public void push(int a) {
-        if (size() == capacity) {
+        if (size-1 == top) {
             expend();
         }
         int i = ++top;
         array[i] = a;
     }
     private void expend(){
-        int length = size();
-        int newStack[] = new int[capacity * 2];
+        int length = size;
+        int newStack[] = new int[length+(length * 75 / 100)];
         System.arraycopy(array,0,newStack,0,length);
         array = newStack;
-        capacity *= 2;
+        size = newStack.length;
     }
 
     public int pop() {
