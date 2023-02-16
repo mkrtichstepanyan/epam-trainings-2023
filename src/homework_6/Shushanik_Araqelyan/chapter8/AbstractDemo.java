@@ -5,14 +5,14 @@ abstract  class A6{
         System.out.println(" This is a concrete method.");
     }
 }
-class B6 extends A6{
+class B7 extends A6{
     void callme(){
         System.out.println(" B's implementation of callme .");
     }
 }
 public class AbstractDemo {
     public static void main(String[] args) {
-        B6 b = new B6 ();
+        B7 b = new B7 ();
         b. callme();
         b. callmetoo();
     }
