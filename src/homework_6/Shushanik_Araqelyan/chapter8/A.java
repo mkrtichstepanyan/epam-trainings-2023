@@ -7,7 +7,6 @@ public class A {
         System.out.println("i and j: " + i + " " + j);
 
     }
-
      void show() {
 
     }
