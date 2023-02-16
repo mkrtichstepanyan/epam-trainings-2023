@@ -1,19 +1,19 @@
 package homework_5.Anushik_Gevorgyan;
 
 public class Customer {
-    private String name;
-    private int customerNumber;
+    private String customerName;
+    private final int CUSTOMER_NUMBER = (int) (Math.random() * 10000);
 
-    public Customer(String name, int customerNumber) {
-        this.name = name;
-        this.customerNumber = customerNumber;
+    public Customer(String customerName) {
+        this.customerName = customerName;
     }
 
-    public String getName() {
-        return name;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public int getCustomerNumber() {
-        return customerNumber;
+    public int getCostumerNumber() {
+        return CUSTOMER_NUMBER;
     }
+
 }

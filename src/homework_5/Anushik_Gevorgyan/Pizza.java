@@ -1,79 +1,88 @@
 package homework_5.Anushik_Gevorgyan;
 
 public class Pizza {
-    public static int MaxIngredients=7;
-    private int index;
+    private String pizzaName;
+    private PizzaType type;
+    private Ingredients[] ingredients;
+    private int count;
+    private int maxLength;
 
-    private String name;
-    private  String[]ingredients;
-    private int ingredientCount;
-    private String type;
+    public Pizza(String pizzaName, PizzaType type, int count) {
+        this.pizzaName = pizzaName;
+        this.type = type;
+        this.count = count;
 
-    public int quantity;
-
-
-
-    public Pizza(String name, String type,int quantity, int index, Customer customer){
-        if (name.length()<4 || name.length()>20){
-            this.index=index;
-            this.name=customer.getName() + "."+ index;
-        }else{
-            this.name=name;
-        }
-        this.type=type;
-        this.quantity=quantity;
-        this.ingredients=new String [MaxIngredients];
-        this.ingredientCount=0;
-    }
-    public Pizza(String name, String type,int quantity){
-        this.name=name;
-        this.type=type;
-        this.quantity=quantity;
-        this.ingredients=new String [MaxIngredients];
-        this.ingredientCount=0;
     }
 
-    public void addIngredient(String ingredient){
-        if(ingredientCount>=MaxIngredients){
-            System.out.println("The pizza has already full");
-            return;
-        }
-        for (int i = 0; i < ingredientCount; i++) {
-            if(ingredients[i].equals(ingredient)){
-
-                System.out.println("Check the order");
-                return;
+    public boolean isDuplicate(Ingredients[] ingredients) {
+        int countForLength = 0;
+        boolean result = false;
+        if (ingredients != null) {
+            for (int i = 0; i < ingredients.length; i++) {
+                int countForDuplicate = 1;
+                if (ingredients[i] != null) {
+                    for (int j = i + 1; j < ingredients.length; j++) {
+                        if (ingredients[j] != null) {
+                            if (ingredients[i].getIngredientName().equals(ingredients[j].getIngredientName())) {
+                                result = true;
+                                countForDuplicate++;
+                                break;
+                            }
+                        }
+                    }
+                    if (countForDuplicate == 1) {
+                        countForLength++;
+                    }
+                }
             }
-
         }
-        ingredients[ingredientCount++]=ingredient;
-    }
+        maxLength = countForLength;
+        return result;
 
-    public String[] getIngredients(){
-        int newLenght=ingredientCount;
-        String[] newIngredientArr=new String[newLenght];
-        System.arraycopy(ingredients,0,newIngredientArr,0,ingredientCount);
-        ingredients=newIngredientArr;
-        return ingredients;
-    }
-    public String getName(){
-        return name;
     }
 
 
-    public void setName(String name){
-        this.name=name;
+    public void addIngredients(Ingredients[] ingredients) {
+
+        if (isDuplicate(ingredients)) {
+            System.out.println("Please check the order again");
+        }
+        if (maxLength > 7) {
+            System.out.println("The pizza is already full");
+        }
+        this.ingredients = ingredients;
     }
-    public String getType(){
+
+
+    public String getPizzaName() {
+        return pizzaName;
+    }
+
+    public void setPizzaName(String pizzaName) {
+        this.pizzaName = pizzaName;
+    }
+
+    public PizzaType getType() {
         return type;
     }
-    public void setType(String type){
-        this.type=type;
+
+    public Ingredients[] getIngredients() {
+        return ingredients;
     }
-    public int getQuantity(){
-        return quantity;
+
+    public int getCount() {
+        return count;
     }
-    public int getIndex(){
-        return index;
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getMaxLength() {
+        return maxLength;
     }
 }
+
+
+
+

@@ -1,91 +1,76 @@
 package homework_5.Anushik_Gevorgyan;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class Order {
-    private int index;
-    private int orderNumber;
-    private static int nextOrderNumber=10001;
 
-    private Customer customer;
-    private Pizza[] pizzas=new Pizza[10];
-    private LocalDateTime orderTime;
-    public Order(Customer customer){
-        this.customer=customer;
-        this.orderNumber=nextOrderNumber++;
-        this.orderTime=LocalDateTime.now();
+    private final int ORDER_NUMBER = (int) (Math.random() * 100000) + 1;
+    private final Customer customer;
+
+    private Pizza[] pizzas;
+
+    private final LocalTime ORDER_TIME = LocalTime.parse(LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
+
+
+    public Order(Customer customer, Pizza[] pizzas) {
+        this.customer = customer;
+        this.pizzas = pizzas;
+        checkPizzaName(pizzas);
     }
-    public int getIndex(){
-        return index;
+
+    private void checkPizzaName(Pizza[] pizzas) {
+        for (Pizza pizza : pizzas) {
+            String pizzaName = pizza.getPizzaName();
+            if (pizzaName != null && pizzaName.length() >= 4 && pizzaName.length() <= 20 && pizzaName.matches("\\p{IsLatin}+")) {
+                pizza.setPizzaName(pizzaName);
+            } else {
+                pizza.setPizzaName(getCustomer().getCustomerName() + "_" + ORDER_NUMBER);
+            }
+        }
     }
-    public Customer getCustomer(){
+
+    private int getQuantity(Pizza[] pizzas) {
+        int sumOfCount = 0;
+        for (Pizza pizza : pizzas) {
+            sumOfCount += pizza.getCount();
+        }
+        return sumOfCount;
+    }
+
+    public void checkQuantity(Pizza[] pizzas) {
+        if (getQuantity(pizzas) >= 10) {
+            System.out.println("You can't order more then 10 pizzas");
+        }
+    }
+
+    public void displayingPizzaAttributes(Pizza[] pizzas) {
+        for (Pizza pizza : pizzas) {
+            System.out.println("[" + ORDER_NUMBER + ":" +
+                    getCustomer().getCostumerNumber() + ":" +
+                    pizza.getPizzaName() + ":" +
+                    pizza.getCount() + "]");
+        }
+    }
+
+    public int getOrderNumber() {
+        return ORDER_NUMBER;
+    }
+
+    public Customer getCustomer() {
         return customer;
     }
-    public void addPizza(Pizza pizza){
-        if(pizzas.length<=index){
-            System.out.println("You cannot order pizza up to 10");
-        }
-        if(pizza==null){
-            System.out.println("You cannot choose pizza");
-        }
-        pizzas[index++]=pizza;
-    }
-    public void showPizzaAtributes(Pizza pizza){
-        if(pizza!=null){
-            System.out.println("***********************");
-            System.out.println("[" + orderNumber + ":" + customer.getCustomerNumber() + ":" + pizza.getName());
 
-
-        }
-    }
-    public void printCheck(){
-        System.out.println("************************");
-        System.out.println("Order date and time:" + orderTime);
-        System.out.println("Order" + orderNumber);
-        System.out.println("Customer" + customer.getCustomerNumber());
-        double totalAmount=0;
-        totalAmount=getTotalAmount(totalAmount);
-        System.out.println("Total Amount:" + totalAmount + "$");
-    }
-    private double getPrice(Pizza pizza,double price){
-        for( String ingredient:pizza.getIngredients()){
-            double ingredientPrice = switch (ingredient){
-                case "Tomato paste"->1;
-                case "Cheese"->1;
-                case"Salami"->1.5;
-                case"Bacon"->1.2;
-                case"Garlic"->0.3;
-                case"Corn"->0.7;
-                case"Pepperoni"->0.6;
-                case"Olives"->0.5;
-                default ->0;
-
-            };
-            System.out.println(ingredient + " " + ingredientPrice + "$");
-            price=price+ingredientPrice;
-        }
-        return price;
-    }
-    private double getTotalAmount(double totalAmount){
-        for(Pizza pizza:pizzas){
-            if (pizza== null){
-                continue;
-            }
-            System.out.println("Name:" + pizza.getName());
-            System.out.println("***********************");
-            double price=1;
-            if(pizza.getType().equals("Calzone")){
-                price=price + 0.5;
-            }
-            System.out.println("Pizza price (" + pizza.getType() + ")" + price + "$");
-            price=getPrice(pizza,price);
-            System.out.println("**********************");
-            System.out.println("Amount" + price + "$");
-            System.out.println("Quantity" + pizza.getQuantity());
-            System.out.println("***********************");
-            totalAmount=totalAmount+price* pizza.getQuantity();
-        }
-        return totalAmount;
+    public Pizza[] getPizzas() {
+        return pizzas;
     }
 
+    public LocalTime getORDER_TIME() {
+        return ORDER_TIME;
+    }
 }
+
+
+
+
+
