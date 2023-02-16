@@ -5,7 +5,7 @@ public class Order {
     int customerId;
     int pizzaIndex = 0;
     int totalQuantity = 0;
-    Pizza [] pizzaList = new Pizza[10];
+    Pizza[] pizzaList = new Pizza[10];
 
 
     public Order(int orderId, int customerId) {
@@ -17,17 +17,18 @@ public class Order {
         this.customerId = customerId;
     }
 
-    //This method creates a new Pizza based on provided name, type, quantity and ingedients list and added to the order
+    //This method creates a new Pizza based on provided name, type,
+    // quantity and ingredients list and added to the order
     public void addPizza(String name, String type, int quantity, String[] ingredients) {
         if (totalQuantity < 10) {
 
-            if(quantity<1){
+            if (quantity < 1) {
                 System.out.println("Order quantity should be at least 1");
                 quantity = 1;
             }
-            if(totalQuantity + quantity > 10){
+            if (totalQuantity + quantity > 10) {
                 System.out.println("Total quantity in the order could not be greater than 10");
-                quantity = 10-totalQuantity;
+                quantity = 10 - totalQuantity;
 
             }
 
@@ -50,15 +51,16 @@ public class Order {
             System.out.println("Order is full, you can not order more then 10 pizzas");
         }
     }
-    public void print(){
+
+    public void print() {
         System.out.println("Order: " + orderId);
         System.out.println("Client: " + customerId);
         System.out.println("___________________");
 
         double totalAmount = 0;
-        for (int i = 0; i< pizzaIndex; i++){
+        for (int i = 0; i < pizzaIndex; i++) {
             pizzaList[i].print();
-            totalAmount = totalAmount + pizzaList[i].price*pizzaList[i].quantity;
+            totalAmount = totalAmount + pizzaList[i].price * pizzaList[i].quantity;
             System.out.println("***********************");
         }
 

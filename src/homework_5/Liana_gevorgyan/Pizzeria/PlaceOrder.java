@@ -10,7 +10,7 @@ public class PlaceOrder {
         String[] ingredients2 = {"Corn", "Garlic", "Corn"};
         //provides extra quantity for checking, if quantity is more than 10,
         // then it will return Customer id and order index
-        order1.addPizza("Vegetarian", "Calzone", 10, ingredients2);
+        order1.addPizza("Vegetarian", "Calzone", 9, ingredients2);
 
         System.out.println();
 

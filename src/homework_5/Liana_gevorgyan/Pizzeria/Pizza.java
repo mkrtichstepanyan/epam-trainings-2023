@@ -41,7 +41,7 @@ public class Pizza {
 
     }
 
-    private double getIngredientPrice(String ingredient){
+    private double getIngredientPrice(String ingredient) {
         switch (ingredient) {
             case "Tomato paste":
                 //Cheese and tomato has the same price, those will be handled in one case
@@ -73,7 +73,7 @@ public class Pizza {
         if (type.equals("Calzone"))
             basePrice = basePrice + 0.5;
         System.out.println("Pizza Base (" + type + ") " + basePrice + "$");
-        for (int i=0; i<ingredientIndex; i++ ){
+        for (int i = 0; i < ingredientIndex; i++) {
             System.out.println(ingredients[i] + " : " + getIngredientPrice(ingredients[i]) + "$");
         }
         System.out.println("____________________");
