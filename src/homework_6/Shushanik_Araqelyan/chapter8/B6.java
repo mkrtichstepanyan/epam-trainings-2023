@@ -5,12 +5,14 @@ public class B6 extends A {
     int k;
 
 
-        void show(){
-            super.show();
-            System.out.println(" k : " + k);
-        }
-        void sum(){
-            System.out.println(" i + j + k :" + (i + j + k));
-        }
+    void showk() {
+        super.show();
+        System.out.println(" k : " + k);
     }
+
+    void sum() {
+        System.out.println(" i + j + k :" + (i + j + k));
+
+    }
+}
 
