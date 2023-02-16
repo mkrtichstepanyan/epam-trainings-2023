@@ -1,73 +1,67 @@
-package homework_5.Robert_Nazaryan;
+package homework_5.Liana_gevorgyan;
 
 import java.util.Scanner;
 
-public class Task_1 {
-
+public class Recursion {
     public static void main(String[] args) {
-//        printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
-//       sumNumbers();                // Question 2
-//       factorialDemo1();            // Question 3
-//        powerDemo();                 // Question 4
-        reverseNumber();             // Question 5
-//        testPrime();                 // Question 6
-    }
+   //   printNumbers(10);            // Question 1 -> try with different integer values instead of 10 only
+   //     System.out.println("Sum: " + sumNumbers(4));                // Question 2
+    //   factorialDemo1();            // Question 3
+    //   powerDemo();                 // Question reverseNumber();             // Question 5
 
+        testPrime();                 // Question 7
+    }
 
     /* TODO: Question 1
         Write a program to print numbers from 1 to given parameter.
     */
     public static void printNumbers(int count) {
-        if (count == 0) {
-            return;
+        if (count == 1) {
+            System.out.print(count + " ");
+        } else {
+            printNumbers(count - 1);
+            System.out.print(count + " ");
         }
-        System.out.print(count + " ");
-        printNumbers(--count);
     }
 
     /* TODO: Question 2
         Write a program to calculate the sum of first 10 natural numbers.
     */
-    public static void sumNumbers() {
+    public static int sumNumbers(int count) {
         int sum = 0;
-        sum = sumNumbersRecursion(10);
-        System.out.println("Sum: " + sum);
-    }
-
-    private static int sumNumbersRecursion(int n) {
-        if (n == 0) {
-            return 0;
+        if (count == 1) {
+            sum = 1;
         } else {
-            return n + sumNumbersRecursion(--n);
+            sum = sumNumbers(count - 1) + count;
+
         }
+       // System.out.println(" sum " + sum);
+        return sum;
     }
 
 
     /* TODO: Question 3
         Write a program to find the factorial value of any number entered through the keyboard.
     */
-
     public static void factorialDemo1() {
         Scanner console = new Scanner(System.in);
         int num; // To hold number
-        int fact = 1; // To hold factorial
 
         System.out.print("Enter any positive integer: ");
         num = console.nextInt();
 
-        fact = factorialDemo1Recursion(num);
+        // Todo write your code here ...
 
-        System.out.println("Factorial: " + fact);
+        System.out.println("Factorial: " + factorialRec(num));
     }
-
-    private static int factorialDemo1Recursion(int n) {
-        if (n <= 1) {
+    public static int factorialRec(int number) {
+        if (number == 1){
             return 1;
-        } else {
-            return n * factorialDemo1Recursion(--n);
+        }else{
+            return factorialRec(number-1) * number;
         }
-    }
 
+    }
      /* TODO: Question 4
          Two numbers are entered through the keyboard.
          Write a program to find the value of one number raised to the power of another.
@@ -79,7 +73,6 @@ public class Task_1 {
 
         int base;
         int power;
-        int result = 1;
 
         System.out.print("Enter the base number ");
         base = console.nextInt();
@@ -87,15 +80,15 @@ public class Task_1 {
         System.out.print("Enter the power ");
         power = console.nextInt();
 
-        result = powerDemoRecursion(base, power);
-        System.out.println("Result: " + result);
+        System.out.println("Result: " + powerRec(base,power));
     }
-
-    private static int powerDemoRecursion(int b, int p) {
-        if (p == 0) {
-            return 1;
+    public static int powerRec(int base, int power){
+        if(power == 1){
+            return base;
+        }else {
+            return powerRec(base, power-1)*base;
         }
-        return b * powerDemoRecursion(b, --p);
+
     }
 
      /* TODO: Question 5
@@ -107,24 +100,19 @@ public class Task_1 {
         Scanner console = new Scanner(System.in);
 
         int number;
-        int reverse = 0;
 
         System.out.print("Enter the number ");
         number = console.nextInt();
 
-        int temp = number;
-        int remainder = 0;
-
-        reverse = reverseNumberRecursion(number, remainder);
-
-        System.out.println("Reverse of " + number + " is " + reverse);
+        reverseRec(number);
     }
-
-    private static int reverseNumberRecursion(int n, int r) {
-        if (n < 10) {
-            return r * 10 + n;
+    private static void reverseRec(int number){
+        if(number / 10 == 0){
+            System.out.print(number);
+        }else {
+            System.out.print(number % 10);
+            reverseRec(number / 10);
         }
-        return reverseNumberRecursion(n / 10, r * 10 + n % 10);
     }
 
 
@@ -142,23 +130,25 @@ public class Task_1 {
 
         boolean flag = true;
 
-        flag = testPrimeRecursion(number, --number);
-        if (flag) {
-            System.out.println("Prime");
-        } else {
-            System.out.println("Not Prime");
-        }
+       if (isPrimeRec(number,2 )){
+           System.out.println(" The number is prime ");
+       }else {
+           System.out.println(" Number is not prime ");
+       }
+
     }
-
-    private static boolean testPrimeRecursion(int num, int temp) {
-        if (temp == 1) {
+    private static boolean isPrimeRec( int number, int divider){
+        if (number==2){
             return true;
-        } else if (num % temp == 0) {
-            return false;
-        } else {
-            return testPrimeRecursion(num, --temp);
         }
-
+        if (number % divider == 0  ) {
+            return false;
+        }else if (divider > number/2) {
+            return true;
+        }else {
+            return isPrimeRec(number,divider + 1);
+        }
     }
 }
+
 

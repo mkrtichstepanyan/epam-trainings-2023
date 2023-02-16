@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class Task_2 {
 
     public static void main(String[] args) {
-        printNumbers(12);            // Question 1 -> try with different integer values instead of 10 only
-        sumNumbers();                // Question 2
-        table();                     // Question 3
-        factorialDemo1();            // Question 4
-        powerDemo();                 // Question 5
+     // printNumbers(12);            // Question 1 -> try with different integer values instead of 10 only
+     // sumNumbers();                // Question 2
+     // table();                     // Question 3
+     // factorialDemo1();            // Question 4
+     // powerDemo();                 // Question 5
         reverseNumber();             // Question 6
-        readSetIntegers();           // Question 6
-        testPrime();                 // Question 7
+        //readSetIntegers();           // Question 6
+       // testPrime();                 // Question 7
     }
 
 
