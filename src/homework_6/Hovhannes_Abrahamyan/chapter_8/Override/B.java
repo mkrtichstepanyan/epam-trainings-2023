@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.chapter_8.Override;
+package homework_6.Hovhannes_Abrahamyan.chapter_8.Override;
 
 class B extends A {
     int k;

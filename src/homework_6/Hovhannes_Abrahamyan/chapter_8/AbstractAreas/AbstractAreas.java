@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.chapter_8.AbstractAreas;
+package homework_6.Hovhannes_Abrahamyan.chapter_8.AbstractAreas;
 
 public class AbstractAreas {
     public static void main(String[] args) {

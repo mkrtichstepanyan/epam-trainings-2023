@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.chapter_8.Practical;
+package homework_6.Hovhannes_Abrahamyan.chapter_8.Practical;
 
 // here Box is extended to ed to include weight
 class BoxWeight extends Box {

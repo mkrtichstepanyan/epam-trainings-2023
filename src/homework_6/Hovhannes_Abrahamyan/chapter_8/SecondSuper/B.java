@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.chapter_8.SecondSuper;
+package homework_6.Hovhannes_Abrahamyan.chapter_8.SecondSuper;
 
 class B extends A {
     int i;

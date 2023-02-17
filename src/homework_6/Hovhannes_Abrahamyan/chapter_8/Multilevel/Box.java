@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.chapter_8.Multilevel;
+package homework_6.Hovhannes_Abrahamyan.chapter_8.Multilevel;
 
 public class Box {
     private double width;

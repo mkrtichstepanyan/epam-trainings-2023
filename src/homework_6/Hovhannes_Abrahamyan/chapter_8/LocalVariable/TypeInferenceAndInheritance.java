@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.chapter_8.LocalVariable;
+package homework_6.Hovhannes_Abrahamyan.chapter_8.LocalVariable;
 
 public class TypeInferenceAndInheritance {
     static MyClass getObj(int which){

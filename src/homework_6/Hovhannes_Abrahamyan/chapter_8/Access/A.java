@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.chapter_8.Access;
+package homework_6.Hovhannes_Abrahamyan.chapter_8.Access;
 
 public class A {
     int i; // default access

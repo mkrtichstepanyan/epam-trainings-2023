@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.chapter_8.Practical;
+package homework_6.Hovhannes_Abrahamyan.chapter_8.Practical;
 
 // This program uses inheritance to extend Box.
 public class Box {

@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.chapter_8.MethodOverride;
+package homework.Hovhannes_Abrahamyan.chapter_8.MethodOverride;
 
 class Triangle extends Figure {
     Triangle(double a, double b) {

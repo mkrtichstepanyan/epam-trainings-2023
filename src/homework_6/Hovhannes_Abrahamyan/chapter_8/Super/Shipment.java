@@ -1,4 +1,4 @@
-package chapter_8.Hovhannes_Abrahamyan.chapter_8.Super;
+package homework_6.Hovhannes_Abrahamyan.chapter_8.Super;
 
 class Shipment extends BoxWeight {
     double cost;

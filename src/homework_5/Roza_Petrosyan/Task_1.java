@@ -3,12 +3,12 @@ package homework_5.Roza_Petrosyan;
 public class Task_1 {
 
     public static void main(String[] args) {
-//        printNumbers(8);            // Question 1 -> try with different integer values instead of 10 only
-//        System.out.println(sumNumbers(10));                // Question 2
-//        System.out.println(factorialDemo1(4));             // Question 3
-//        System.out.println(powerDemo(5,4));                // Question 4
-//        System.out.println(reverseNumber(245782));         // Question 5
-//        System.out.println(isPrime(11));                   // Question 6
+//        printNumbers(6);            // Question 1 -> try with different integer values instead of 10 only
+//        System.out.println(sumNumbers(8));                // Question 2
+//        System.out.println(factorialDemo1(2));             // Question 3
+//        System.out.println(powerDemo(6,7));                // Question 4
+//        System.out.println(reverseNumber(13428));         // Question 5
+//        System.out.println(isPrime(9));                   // Question 6
     }
 
 
