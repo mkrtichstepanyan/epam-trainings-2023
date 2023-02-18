@@ -13,8 +13,8 @@ public class Printer {
                         "Client: " + order.getCustomer().getNumber());
     }
 
-    private void printPizzaInfo(Order order) {
-        for (Pizza pizza : order.getPizzas()) {
+    private void printPizzaInfo(Pizza[] pizzas) {
+        for (Pizza pizza : pizzas) {
             System.out.println(
                     "Name: " + pizza.getName() + "\n" +
                             "---------------------------" + "\n" +
@@ -48,7 +48,7 @@ public class Printer {
 
         printStartLine();
         printOrderInfo(order);
-        printPizzaInfo(order);
+        printPizzaInfo(order.getPizzas());
         printTotalAmount(order);
         printFinishLine();
 
