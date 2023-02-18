@@ -72,8 +72,6 @@ public class Order {
         return orderNumber;
     }
 
-
-
     public int getIndex() {
         return index;
     }
