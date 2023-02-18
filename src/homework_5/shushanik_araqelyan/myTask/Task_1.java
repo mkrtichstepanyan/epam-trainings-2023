@@ -7,11 +7,11 @@ public class Task_1 {
         //     System.out.println(sumNumbers(4));// Question 2
         // System.out.println(factorialDemo1(6));            // Question 3
 
-     //   System.out.println(powerDemo(6, 3));                // Question 4
+        //     System.out.println(powerDemo(2, 3));                // Question 4
 //        reverseNumber();             // Question 5
 //        readSetIntegers();           // Question 6
 
-       // System.out.println(testPrime(6));                 // Question 7
+  //      System.out.println(testPrime(21));                 // Question 7
     }
 
 
@@ -72,12 +72,12 @@ public class Task_1 {
      */
 
     public static int powerDemo(int base, int power) {
- int result = 1;
+        int result = 1;
         // Todo write your code here ...
-if (power!=0){
-    return (base *  powerDemo(base, power -1));
-}
-        return  1;
+        if (power != 0) {
+            return (base * powerDemo(base, power - 1));
+        }
+        return 1;
 
     }
 
@@ -109,15 +109,14 @@ if (power!=0){
     public static boolean testPrime(int number) {
 
         // Todo write your code here ...
-        if (number % 2 == 0){
-            if (number <= 1)
-            testPrime(number);
-            return false;
+      if(number % 2==0) {
+          return false;
+      }
+        testPrime(number-1);
+            return true;
         }
-        return true;
-        }
-
     }
+
 
 
 
