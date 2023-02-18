@@ -1,47 +1,46 @@
 package homework_5.garik_gharibyan.pizza;
 
 public class Pizza {
-
-    private final String name;
+    private final int MAX_INGREDIENT = 10;
+    private final int MIN_INGREDIENT = 1;
+    private String name;
     private final PizzaType pizzaType;
-    private final int quantity;
+    private int quantity;
     private int topElementIngredients = -1;
     private Ingredient[] ingredients = new Ingredient[0];
-    private final Customer customer;
 
 
-    public Pizza(String name, int quantity, PizzaType pizzaType, Customer customer) {
-        this.customer = customer;
-        if (name.length()<4 ||name.length()>20){
-            this.name = customer.getName() + "_" + customer.getNumber();
-        }else {
-            this.name = name;
-        }
-        if (quantity >= 10) {
-            this.quantity = 10;
-            System.out.println("We can make maximum 10 pizza");
-        } else if (quantity <= 1) {
-            this.quantity = 1;
-            System.out.println("As you want lass then 1 we will make 1 pizza");
-        } else {
-            this.quantity = quantity;
-        }
+    public Pizza(String name, int quantity, PizzaType pizzaType) {
+        this.name = name;
+        isValidQuantity(quantity);
         this.pizzaType = pizzaType;
     }
+
+
     public String getName() {
         return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public PizzaType getPizzaType() {
         return pizzaType;
     }
 
+    public Ingredient[] getIngredients() {
+        return ingredients;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
 
 
     public void addIngredient(Ingredient ingredient) {
 
-        boolean b = isExistIngredient(ingredient);
-        if (b == true) {
-            System.out.println(ingredient.getName() + " ingredient already exist");
+        if (isExistIngredient(ingredient)) {
             return;
         }
 
@@ -67,25 +66,26 @@ public class Pizza {
     private boolean isExistIngredient(Ingredient ingredient) {
         for (Ingredient i : ingredients) {
             if (i.getName().equals(ingredient.getName())) {
+                System.out.println("in Pizza " + name + " " + ingredient.getName() + "ingredient already exist");
                 return true;
             }
         }
         return false;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void printIngredients() {
-        for (Ingredient i : ingredients) {
-            System.out.println(i.getName() + " " + i.getPrice());
+    void isValidQuantity(int quantity) {
+        if (quantity >= MAX_INGREDIENT) {
+            this.quantity = MAX_INGREDIENT;
+            System.out.println("We can make maximum 10 pizza");
+        } else if (quantity <= MIN_INGREDIENT) {
+            this.quantity = MIN_INGREDIENT;
+            System.out.println("As you want lass then 1 we will make 1 pizza");
+        } else {
+            this.quantity = quantity;
         }
     }
+
 
     public double pizzaAmount() {
         double sum = pizzaType.getPizzaTypePrice();

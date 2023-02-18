@@ -5,12 +5,14 @@ public class Order {
     private final int orderNumber;
     private double totalAmount = 0;
     private final Pizza[] pizzas;
+    private final Customer customer;
 
-
-    private Order(Pizza[] pizzas, int orderNumber) {
-
+    private Order(Pizza[] pizzas, int orderNumber, Customer customer) {
         this.pizzas = pizzas;
         this.orderNumber = orderNumber;
+        this.customer = customer;
+        isValidPizzaName(pizzas);
+
     }
 
 
@@ -18,51 +20,46 @@ public class Order {
         return orderNumber;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
     public Pizza[] getPizzas() {
         return pizzas;
     }
 
-    public static Order makeOrder(Pizza[] pizzas) {
-        return new Order(pizzas, lastOrderNumber++);
+
+    public static Order makeOrder(Pizza[] pizzas, Customer customer) {
+        return new Order(pizzas, lastOrderNumber++, customer);
     }
 
     public void pizzaAttributes() {
-        System.out.println(
-                "Order: " + orderNumber + "\n" +
-                        "Customer number: " + pizzas[0].getCustomer().getNumber() + "\n" +
-                        "Pizza name: " + pizzas[0].getName() + "\n" +
-                        "Quantity: " + pizzas[0].getQuantity() + "\n"
-        );
-    }
-
-    public void printCheck() {
-
-        System.out.println(
-                "**************************************" + "\n" +
-                        "Order: " + getOrderNumber() + "\n" +
-                        "Client: " + pizzas[0].getCustomer().getNumber());
 
         for (Pizza pizza : pizzas) {
             System.out.println(
-                    "Name: " + pizza.getName() + "\n" +
-                            "---------------------------" + "\n" +
-                            "Pizza base: " + pizza.getPizzaType().getPizzaTypeName() + " " +
-                            pizza.getPizzaType().getPizzaTypePrice());
-
-            pizza.printIngredients();
-            System.out.println(
-                    "---------------------------" + "\n" +
-                            "Amount: " + pizza.pizzaAmount() + "\n" +
-                            "Quantity: " + pizza.getQuantity() + "\n" +
-                            "---------------------------");
+                    "Order: " + orderNumber + "\n" +
+                            "Customer number: " + customer.getNumber() + "\n" +
+                            "Pizza name: " + pizza.getName() + "\n" +
+                            "Quantity: " + pizza.getQuantity() + "\n"
+            );
         }
-        System.out.println("Total Amount: " + getTotalAmount() + "\n" +
-                "**************************************\n\n");
+
     }
+
     double getTotalAmount() {
         for (Pizza pizza : pizzas) {
             totalAmount = pizza.pizzaAmount() * pizza.getQuantity() + totalAmount;
         }
         return totalAmount;
     }
+
+    void isValidPizzaName(Pizza[] pizzas) {
+        for (int i = 0; i < pizzas.length; i++) {
+            if (pizzas[i].getName() == null || pizzas[i].getName().length() < 4 || pizzas[i].getName().length() > 20) {
+                pizzas[i].setName(customer.getName() + "_" + customer.getNumber());
+            }
+        }
+    }
+
+
 }
