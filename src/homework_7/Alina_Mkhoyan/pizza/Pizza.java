@@ -1,4 +1,4 @@
-package homework_7.sevak;
+package homework_7.Alina_Mkhoyan.pizza;
 
 // is a
 // has a
@@ -9,6 +9,7 @@ public class Pizza {
     private PizzaType pizzaType;
     private Ingredient[] ingredients;
     private int quantity;
+
 
     Pizza(String name, PizzaType pizzaType, int quantity) {
         this.name = name;
@@ -23,6 +24,7 @@ public class Pizza {
         this.quantity = quantity;
     }
 
+
     public double calculatePrice() {
         double ingredientPrice = 0.0;
         for (Ingredient ingredient : ingredients) {
@@ -33,7 +35,13 @@ public class Pizza {
 
     public void addIngredient(Ingredient ingredient) {
         // todo implement a method tht will add ingredient into the list.
+        if (quantity > MAX_ALLOWED_INGREDIENTS) {
+            System.out.println("No more ingredients allowed.");
+            return;
+        }
+        ingredients[quantity++] = ingredient;
     }
+
 
     public String getName() {
         return name;
@@ -42,5 +50,16 @@ public class Pizza {
     public int getQuantity() {
         return quantity;
     }
+
+    public PizzaType getPizzaType() {
+        return pizzaType;
+    }
+
+    public Ingredient[] getIngredients() {
+        return ingredients;
+    }
+
+
 }
+
 

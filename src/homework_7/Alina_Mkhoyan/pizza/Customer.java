@@ -1,4 +1,4 @@
-package homework_7.sevak;
+package homework_7.Alina_Mkhoyan.pizza;
 
 public class Customer {
     private static final int BASE_CUSTOMER_NUMBER = 1000;
@@ -26,5 +26,21 @@ public class Customer {
 
     public String getName() {
         return customerName;
+    }
+
+    public static int getInitialId() {
+        return initialId;
+    }
+
+    public int getCustomerNumber() {
+        return customerNumber;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 }

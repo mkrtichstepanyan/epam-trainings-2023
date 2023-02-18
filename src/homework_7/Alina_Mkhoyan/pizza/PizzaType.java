@@ -1,12 +1,12 @@
-package homework_7.sevak;
+package homework_7.Alina_Mkhoyan.pizza;
 
 public class PizzaType {
     private static final double BASE_PRICE = 1.0;
 
     public static final PizzaType REGULAR =
-            new PizzaType("regular", BASE_PRICE, 0);
+            new PizzaType("Regular", BASE_PRICE, 1);
     public static final PizzaType CALZONE =
-            new PizzaType("calzone", BASE_PRICE, 0.5);
+            new PizzaType("Calzone", BASE_PRICE, 1.5);
 
     private String name;
     private double price;
@@ -20,5 +20,13 @@ public class PizzaType {
 
     public double getPrice() {
         return price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getAdditionalPrice() {
+        return additionalPrice;
     }
 }

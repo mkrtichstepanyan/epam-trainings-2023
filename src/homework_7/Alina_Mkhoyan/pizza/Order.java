@@ -1,4 +1,4 @@
-package homework_7.sevak;
+package homework_7.Alina_Mkhoyan.pizza;
 
 public class Order {
     private static final int MAX_PIZZA_AMOUNT = 10;
@@ -30,10 +30,24 @@ public class Order {
     }
 
     public double calculateOrderPrice() {
+//            double orderPrice = 0.0d;
+//
+//            for (Pizza pizza : pizzas) {
+//                orderPrice += pizza.calculatePrice();
+//            }
+//            return orderPrice;
+//        }
+        double orderPrice = 0.0;
+        for (Pizza pizza : pizzas) {
+            if (pizza != null) {
+                orderPrice += pizza.calculatePrice();
+            }
+        }
+        return orderPrice;
+    }
 
         // todo calculate order total price
-        return 0;
-    }
+
 
 
     public void printOrderAttributes() {
@@ -52,5 +66,23 @@ public class Order {
 
     private boolean isValidPizzaName(String pizzaName) {
         return pizzaName != null && pizzaName.length() > 4 && pizzaName.length() < 20;
+    }
+
+    public int getOrderNumber() {
+        return orderNumber;
+    }
+
+
+
+    public int getIndex() {
+        return index;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public Pizza[] getPizzas() {
+        return pizzas;
     }
 }

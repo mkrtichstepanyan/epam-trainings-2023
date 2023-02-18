@@ -1,4 +1,4 @@
-package homework_7.sevak;
+package homework_7.Alina_Mkhoyan.pizza;
 
 public class PizzeriaPalmetto {
 
@@ -11,11 +11,11 @@ public class PizzeriaPalmetto {
         order.setCustomer(customer);
 
         Ingredient[] ingredients = {Ingredient.CHEESE, Ingredient.SALAMI, Ingredient.TOMATO_PASTE};
-
+        Ingredient[] ingredients1 = {Ingredient.CORN, Ingredient.OLIVES, Ingredient.PEPERONI, Ingredient.CHEESE};
         order.addPizza("MyPizza", PizzaType.CALZONE, ingredients, 10);
-        order.addPizza("MyPizza2", PizzaType.REGULAR, ingredients, 5);
-
+        order.addPizza("MyPizza2", PizzaType.REGULAR, ingredients1, 5);
 
         Printer.printCheck(order);
+
     }
 }
