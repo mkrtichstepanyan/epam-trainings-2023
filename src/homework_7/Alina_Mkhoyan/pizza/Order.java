@@ -1,5 +1,7 @@
 package homework_7.Alina_Mkhoyan.pizza;
 
+import java.util.Arrays;
+
 public class Order {
     private static final int MAX_PIZZA_AMOUNT = 10;
     private static final int BASE_ORDER_NUMBER = 10000;
@@ -8,7 +10,7 @@ public class Order {
     private int index;
     private int orderNumber;
     private Customer customer;
-    private Pizza[] pizzas = new Pizza[10];
+    private Pizza[] pizzas = new Pizza[2];
 
     Order() {
         orderNumber = initialId++;
@@ -46,13 +48,21 @@ public class Order {
         return orderPrice;
     }
 
-        // todo calculate order total price
-
+    // todo calculate order total price
 
 
     public void printOrderAttributes() {
         for (Pizza pizza : pizzas) {
-            System.out.println("[" + orderNumber + customer.getNumber() + pizza.getName() + pizza.getQuantity() + "]");
+            if (pizza != null) {
+                System.out.println("Pizza Name: " + pizza.getName() + "\n"
+                        + "Pizza Type: " + pizza.getPizzaType().getName() + " "
+                        + pizza.getPizzaType().getPrice() + " $" + "\n"
+                        + "Ingredients: " + Arrays.toString(pizza.getIngredients()) + "\n"
+                        + "Price: " + pizza.calculatePrice() + "\n"
+                        + "---------------------");
+            } else {
+                return;
+            }
         }
     }
 
