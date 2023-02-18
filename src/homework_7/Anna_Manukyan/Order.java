@@ -10,7 +10,8 @@ public class Order {
     private int index;
     private int orderNumber;
     private Customer customer;
-    private Pizza[] pizzas = new Pizza[10];
+    private Pizza[] pizzas = new Pizza[MAX_PIZZA_AMOUNT];
+
     public LocalTime orderTime = LocalTime.now();
 
 

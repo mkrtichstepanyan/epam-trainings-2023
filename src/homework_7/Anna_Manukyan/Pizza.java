@@ -1,10 +1,10 @@
 package homework_7.Anna_Manukyan;
 
-import java.util.List;
+
 
 // is a
 // has a
-public class Pizza {
+public class Pizza extends Food{
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
     private static final double BASE_COST = 1;
 

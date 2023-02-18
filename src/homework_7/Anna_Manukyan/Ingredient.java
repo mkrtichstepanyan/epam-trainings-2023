@@ -1,7 +1,7 @@
 package homework_7.Anna_Manukyan;
 
 public class Ingredient {
-    public static final Ingredient TOMATO_PASTE = new Ingredient("tomato paste", 1);
+    public static final Ingredient TOMATO_PASTE = new Ingredient("Tomato paste", 1);
     public static final Ingredient CHEESE = new Ingredient("Cheese", 1);
     public static final Ingredient SALAMI = new Ingredient("Salami", 1.5);
     public static final Ingredient BACON = new Ingredient("Bacon", 1.2);

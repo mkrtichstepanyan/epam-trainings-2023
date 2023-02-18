@@ -11,16 +11,18 @@ public class Printer {
         System.out.println("Client: " + order.getCustomer().getNumber());
         double totalSum = 0;
         for (Pizza pizza : order.getPizzas()) {
-            System.out.println("Name: " + pizza.getName());
-            delimiter();
-            System.out.println("Pizza base (" + pizza.getPizzaType().getName() + ") " + (pizza.calculateBasePrice()) + " €");
-            printPizzaIngredients(pizza);
-            delimiter();
-            double pizzaAmount = pizza.calculatePrice();
-            System.out.println("Amount: " + pizzaAmount + " €");
-            System.out.println("Quantity " + pizza.getQuantity());
-            delimiter();
-            totalSum += pizzaAmount * pizza.getQuantity();
+            if (pizza != null){
+                System.out.println("Name: " + pizza.getName());
+                delimiter();
+                System.out.println("Pizza base (" + pizza.getPizzaType().getName() + ") " + (pizza.calculateBasePrice()) + " €");
+                printPizzaIngredients(pizza);
+                delimiter();
+                double pizzaAmount = pizza.calculatePrice();
+                System.out.println("Amount: " + pizzaAmount + " €");
+                System.out.println("Quantity " + pizza.getQuantity());
+                delimiter();
+                totalSum += pizzaAmount * pizza.getQuantity();
+            }
         }
         delimiter();
         System.out.println("Total amount " + totalSum + " €");
@@ -38,7 +40,7 @@ public class Printer {
     }
 
     private static void delimiter() {
-        System.out.printf("---------------------------------------");
+        System.out.println("--------------------------");
     }
 
 

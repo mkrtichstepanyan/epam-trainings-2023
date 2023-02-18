@@ -16,6 +16,22 @@ public class PizzeriaPalmetto {
         order.addPizza("MyPizza2", PizzaType.REGULAR, ingredients, 5);
 
 
-        Printer.printCheck(order);
+//        Printer.printCheck(order);
+
+//        Scanner scanner = new Scanner(System.in);
+//        int quantity = scanner.nextInt();
+
+        Ingredient[] ingredientsForMargarita = {Ingredient.TOMATO_PASTE,Ingredient.GARLIC,Ingredient.BACON};
+        Ingredient[] ingredientsForPepperoniOro = {Ingredient.TOMATO_PASTE,Ingredient.CHEESE,Ingredient.SALAMI,Ingredient.OLIVES};
+
+        Pizza pizzaBasePZZ = new Pizza("BasePZZ", PizzaType.CALZONE, ingredientsForPepperoniOro, 12);
+
+        Customer customer1 = new Customer();
+        customer1.setName("First customer");
+        Order secondOrder = new Order();
+        secondOrder.setCustomer(customer1);
+        secondOrder.addPizza("Margarita", PizzaType.REGULAR, ingredientsForMargarita, 2);
+        secondOrder.addPizza("PepperoniOro", PizzaType.CALZONE, ingredientsForPepperoniOro, 3);
+        Printer.printCheck(secondOrder);
     }
 }
