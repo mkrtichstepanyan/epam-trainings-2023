@@ -11,15 +11,16 @@ public class Order {
     private int index;
     private int orderNumber;
     private Customer customer;
-    private List<Product> products = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();//stex me listm bdi pahes erkusi hamar.liste che masiv,bdi chexni
+    //product list u fsyo, u ira mej qces ham pizza ham xmmichq, vordev erkusnel product tipien, hasanq es toxin haskcanq or copy enel@ sxale.ba)
+    //es moment@ chisht kazmakerpe qezi petq che erku hat massiv, me hatm uneci Product tipi vori mej hangist kkrnanas save enes ham drink ham pizza
     private final Pizza[] pizzas = new Pizza[10];
 
     Order() {
         orderNumber = initialId++;
     }
 
-    public void addPizza(String pizzaName, PizzaType type,
-                         Ingredient[] ingredients, int quantity) {
+    public void addPizza(String pizzaName, PizzaType type, Ingredient[] ingredients, int quantity) {
         if (quantity > MAX_PIZZA_AMOUNT) {
             System.out.println("hop axper jan!!");
             return;
@@ -27,6 +28,8 @@ public class Order {
         int pizzaIndex = index++;
         String validPizzaName = getValidPizzaName(pizzaName, pizzaIndex);
         pizzas[pizzaIndex] = new Pizza(validPizzaName, type, ingredients, quantity, customer);
+        //gjva toxm verev pizzai anuna MyPizza nerqev@ arden joshe
+        addProduct(pizzas[pizzaIndex]);
     }
 
     public double calculateOrderPrice() {
@@ -49,7 +52,7 @@ public class Order {
 
 
     public void printOrderAttributes() {
-        for (Pizza pizza : pizzas) {
+        for (Product pizza : pizzas) {
             if (pizza != null) {
                 System.out.println("[" + orderNumber + ":" + customer.getNumber() + ":" + pizza.getName() + ":" + pizza.getQuantity() + "]");
             }
@@ -58,14 +61,16 @@ public class Order {
 
     private String getValidPizzaName(String pizzaName, int pizzaIndex) {
         String validPizzaName = pizzaName;
-        if (!isValidPizzaName(pizzaName)) {
-            validPizzaName = customer.getName() + "_" + pizzaIndex;
+        if (pizzaName!=null){
+            if (isValidPizzaName(pizzaName)) {
+                validPizzaName = customer.getName() + "_" + pizzaIndex;  //spasi
+            }
         }
         return validPizzaName;
     }
 
     private boolean isValidPizzaName(String pizzaName) {
-        return pizzaName != null && pizzaName.length() > 4 && pizzaName.length() < 20;
+        return  pizzaName.length() < 4 || pizzaName.length() > 20;
     }
 
     public void setCustomer(Customer customer) {

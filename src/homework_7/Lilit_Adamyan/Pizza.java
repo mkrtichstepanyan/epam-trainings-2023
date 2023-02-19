@@ -10,9 +10,11 @@ public class Pizza extends Product {
     private Ingredient[] ingredients;
     private int quantity;
 
+    private static int indexOf = 0;
+
     public Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity, Customer customer) {
         super(name, pizzaType.getPrice(), quantity);
-        if (name.length() >= 4 && name.length() <= 20) {
+        if (name.length() < 4 || name.length() > 20) {
             this.name = customer.getName() + "_" + quantity;
         } else {
             this.name = name;
@@ -24,8 +26,9 @@ public class Pizza extends Product {
             addIngredient(ingredient);
         }
     }
+
     public Pizza(String name, PizzaType pizzaType, int quantity) {
-        super(name, pizzaType.getPrice(),quantity);
+        super(name, pizzaType.getPrice(), quantity);
         this.name = name;
         this.pizzaType = pizzaType;
         this.quantity = quantity;
@@ -34,6 +37,8 @@ public class Pizza extends Product {
     public void addIngredient(Ingredient ingredient) {
         if (ingredients != null && ingredients.length == MAX_ALLOWED_INGREDIENTS) {
             System.out.println("Maximum number of ingredients has been reached.");
+            //Please each pizza add to ingredients.ok?before return. es comment@ izur chey grel
+            ingredients[indexOf++] = ingredient;
             return;
         }
         if (ingredients == null) {
@@ -45,7 +50,9 @@ public class Pizza extends Product {
             newIngredients[newIngredients.length - 1] = ingredient;
             ingredients = newIngredients;
         }
+        System.out.println(ingredient.getName() + " has been added to the ingredients.");
     }
+
 
     public double calculatePrice() {
         double ingredientPrice = 0.0;
@@ -86,6 +93,10 @@ public class Pizza extends Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public static int getIndexOf() {
+        return indexOf;
     }
 }
 
