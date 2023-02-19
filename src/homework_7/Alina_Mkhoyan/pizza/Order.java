@@ -1,6 +1,8 @@
 package homework_7.Alina_Mkhoyan.pizza;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Order {
     private static final int MAX_PIZZA_AMOUNT = 10;
@@ -11,13 +13,13 @@ public class Order {
     private int orderNumber;
     private Customer customer;
     private Pizza[] pizzas = new Pizza[2];
+    private List<Drink> drinks = new ArrayList<>();
 
     Order() {
         orderNumber = initialId++;
     }
 
-    public void addPizza(String pizzaName, PizzaType type,
-                         Ingredient[] ingredients, int quantity) {
+    public void addPizza(String pizzaName, PizzaType type,  Ingredient[] ingredients, int quantity) {
         if (quantity > MAX_PIZZA_AMOUNT) {
             System.out.println("hop axper jan!!");
             return;
@@ -25,6 +27,10 @@ public class Order {
         int pizzaIndex = index++;
         String validPizzaName = getValidPizzaName(pizzaName, pizzaIndex);
         pizzas[pizzaIndex] = new Pizza(validPizzaName, type, ingredients, quantity);
+    }
+
+    public void addDrink(Drink drink) {
+        drinks.add(drink);
     }
 
     public void setCustomer(Customer customer) {
@@ -60,6 +66,11 @@ public class Order {
                         + "Ingredients: " + Arrays.toString(pizza.getIngredients()) + "\n"
                         + "Price: " + pizza.calculatePrice() + "\n"
                         + "---------------------");
+                System.out.println("Drinks: ");
+                for (Drink drink : drinks) {
+                    drink.printProductDetails();
+                    System.out.println("- " + drink.getName() + " ($" + drink.calculatePrice() + ")");
+                }
             } else {
                 return;
             }

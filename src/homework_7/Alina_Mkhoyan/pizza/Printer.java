@@ -1,6 +1,5 @@
 package homework_7.Alina_Mkhoyan.pizza;
 
-import java.util.Arrays;
 
 public class Printer {
 
@@ -11,6 +10,11 @@ public class Printer {
 
         printDelimiter();
         order.printOrderAttributes();
+
+//        System.out.println("Drinks:");
+//        for (Drink drink : order.getDrinks()) {
+//            drink.printProductDetails();
+//        }
         System.out.println("Total amount : " + order.calculateOrderPrice() + " $");
         trainlingLine();
 
