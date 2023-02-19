@@ -1,6 +1,6 @@
 package homework_7.Roza_Petrosyan;
 
-public class Order extends Products {
+public class Order extends OrderedItems {
     private static final int MAX_PIZZA_AMOUNT = 10;
     private static final int BASE_ORDER_NUMBER = 10000;
     private static int initialId = BASE_ORDER_NUMBER;

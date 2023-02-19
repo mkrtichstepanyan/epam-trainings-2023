@@ -1,6 +1,6 @@
 package homework_7.Roza_Petrosyan;
 
-public abstract class Products {
+public abstract class OrderedItems {
     private Pizza[] pizzas = new Pizza[10];
     private Drink[] drinks = new Drink[10];
 
