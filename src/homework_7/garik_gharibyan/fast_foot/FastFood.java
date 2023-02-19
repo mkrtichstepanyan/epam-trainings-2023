@@ -26,8 +26,8 @@ public class FastFood {
         pizzaEuropa.addIngredient(Ingredient.salami);
         pizzaEuropa.addIngredient(Ingredient.olives);
 
-        Drink drinkCocaCola = new Drink(DrinkType.COCA_COLA,5);
-        Drink drinkPepsi = new Drink(DrinkType.PEPSI,3);
+        Drink drinkCocaCola = new Drink(DrinkType.COCA_COLA, 5);
+        Drink drinkPepsi = new Drink(DrinkType.PEPSI, 3);
 
         foods[0] = pizzaMargarita;
         foods[1] = pizzaEuropa;
@@ -41,7 +41,6 @@ public class FastFood {
         printer.printCheck(orderForJon);
 
 
-
         Customer customerJack = new Customer("Jack", 7717);
         Food[] foodsForJack = new Food[4];
 
@@ -51,9 +50,9 @@ public class FastFood {
         pizzaItaliano.addIngredient(Ingredient.garlic);
         pizzaItaliano.addIngredient(Ingredient.bacon);
 
-        Drink drinkFantaForJack = new Drink(DrinkType.FANTA,5);
-        Drink drinkPepsiForJack = new Drink(DrinkType.PEPSI,3);
-        Drink drinkCocaColaForJack = new Drink(DrinkType.COCA_COLA,10);
+        Drink drinkFantaForJack = new Drink(DrinkType.FANTA, 5);
+        Drink drinkPepsiForJack = new Drink(DrinkType.PEPSI, 3);
+        Drink drinkCocaColaForJack = new Drink(DrinkType.COCA_COLA, 10);
 
         foodsForJack[0] = pizzaItaliano;
         foodsForJack[1] = drinkFantaForJack;

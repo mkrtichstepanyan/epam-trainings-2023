@@ -17,21 +17,22 @@ public class Pizza extends Food {
     }
 
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
     public PizzaType getPizzaType() {
         return pizzaType;
     }
 
     public Ingredient[] getIngredients() {
         return ingredients;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

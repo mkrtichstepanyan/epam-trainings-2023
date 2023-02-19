@@ -7,7 +7,6 @@ import homework_7.garik_gharibyan.fast_foot.foots.pizza.Pizza;
 
 public class Printer {
 
-
     private void printStartLine() {
         System.out.println("**************************************\n");
     }
@@ -31,7 +30,7 @@ public class Printer {
 
 
     public void printTotalAmountByOrder(Order order) {
-        System.out.println(order.calculateTotalAmountByOrder());
+        System.out.println(order.calculateTotalAmountOfOrder());
     }
 
     private void printFinishLine() {
@@ -90,7 +89,7 @@ public class Printer {
         System.out.println("------------------------------");
         for (Food food : order.getFoods()) {
             System.out.print(
-                    "food name: " + food.getName() + " gin@: " + food.getPrice() + " qanak@: " + food.getQuantity() + "\n"
+                    "food name: " + food.getName() + " price: " + food.getPrice() + " quantity: " + food.getQuantity() + "\n"
             );
         }
     }

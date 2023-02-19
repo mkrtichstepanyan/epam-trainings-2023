@@ -4,7 +4,7 @@ public class Customer {
     private final String name;
     private final int number;
 
-    public Customer(String name,int phoneNumber){
+    public Customer(String name, int phoneNumber) {
         this.name = name;
         this.number = phoneNumber;
     }
