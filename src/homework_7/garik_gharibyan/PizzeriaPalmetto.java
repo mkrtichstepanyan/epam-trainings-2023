@@ -25,19 +25,16 @@ public class PizzeriaPalmetto {
         pizzaItaliano.addIngredient(Ingredient.TOMATO_PASTE);
         pizzaItaliano.addIngredient(Ingredient.CHEESE);
 
-        Pizza pizza3 = new Pizza("", PizzaType.CALZONE, 5);
-        pizza3.addIngredient(Ingredient.BACON);
-        pizza3.addIngredient(Ingredient.TOMATO_PASTE);
-
-
         Order order = new Order();
         order.setCustomer(customer);
 
 
         order.addFood(pizzaMargarita);
+        order.addFood(pizzaItaliano);
+
         order.addDrink(DrinkNonAlcoholic.COCA_COLA,2);
         order.addDrink(DrinkNonAlcoholic.PEPSI,4);
-        order.addDrink(DrinkNonAlcoholic.FANTA,2);
+
         order.addDrink(AlcoholicDrink.WINE,2);
         order.addDrink(AlcoholicDrink.VODKA,3);
 
