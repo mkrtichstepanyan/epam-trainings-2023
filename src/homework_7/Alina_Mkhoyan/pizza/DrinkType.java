@@ -1,20 +1,21 @@
 package homework_7.Alina_Mkhoyan.pizza;
 
-
 public class DrinkType {
 
-    public static final DrinkType COCA_COLA = new DrinkType("Coca-Cola", 1.5, 5);
-    public static final DrinkType PEPSI =   new DrinkType("Pepsi",  0.5, 3);
-    public static final DrinkType FANTA =   new DrinkType("Fanta",  2,  8);
-    public static final DrinkType SPRITE =   new DrinkType("Sprite",  1.5, 6);
+    public static final DrinkType COLA_SMALL = new DrinkType(1, 1);
+    public static final DrinkType COLA_MIDDLE = new DrinkType(1.5, 2);
+    public static final DrinkType COLA_LARGE = new DrinkType(2, 3);
+    public static final DrinkType FANTA_SMALL = new DrinkType(1, 1);
+    public static final DrinkType FANTA_MIDDLE = new DrinkType(1.5, 2);
+    public static final DrinkType FANTA_LARGE = new DrinkType(2, 3);
+    public static final DrinkType SPRITE_SMALL = new DrinkType(1, 1);
+    public static final DrinkType SPRITE_MIDDLE = new DrinkType(1.5, 2);
+    public static final DrinkType SPRITE_LARGE = new DrinkType(2, 3);
 
-    private String name;
     private double litre;
     private double price;
 
-
-    DrinkType(String name, double litre, double price) {
-        this.name = name;
+    DrinkType(double litre, double price) {
         this.litre = litre;
         this.price = price;
     }
@@ -26,9 +27,4 @@ public class DrinkType {
     public double getLitre() {
         return litre;
     }
-
-    public String getName() {
-        return name;
-    }
-
 }

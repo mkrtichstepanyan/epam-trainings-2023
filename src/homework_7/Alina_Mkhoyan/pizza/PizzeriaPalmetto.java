@@ -14,11 +14,10 @@ public class PizzeriaPalmetto {
         Ingredient[] ingredients1 = {Ingredient.CORN, Ingredient.OLIVES, Ingredient.PEPERONI, Ingredient.CHEESE};
         order.addPizza("MyPizza", PizzaType.CALZONE, ingredients, 2);
         order.addPizza("MyPizza2", PizzaType.REGULAR, ingredients1, 5);
-        order.addDrink("Sprite", DrinkType.SPRITE, 2);
-        order.addDrink("Coca-Cola", DrinkType.COCA_COLA, 5);
-        order.addDrink("Fanta", DrinkType.FANTA, 1);
+        order.addDrink("Sprite", DrinkType.SPRITE_LARGE, 8);
+        order.addDrink("Cola-Cola", DrinkType.COLA_MIDDLE, 5);
+        order.addDrink("Fanta", DrinkType.FANTA_SMALL, 3);
         Printer.printCheck(order);
     }
 }
-
 
