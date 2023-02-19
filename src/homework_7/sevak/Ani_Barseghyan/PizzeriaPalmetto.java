@@ -12,10 +12,9 @@ public class PizzeriaPalmetto {
         Ingredients[] ingredients = {Ingredients.TOMATO, Ingredients.CHEESE, Ingredients.SALAMI, addCorn, addTomato};
         order.addPizza("MyPizza", PizzaType.CALZONE, ingredients, 10);
         order.addPizza("MyPizza2", PizzaType.REGULAR, ingredients, 5);
+        order.addBeverage(BeveragesMenu.BEER, 2);
+        order.addBeverage(BeveragesMenu.SODA, 1);
         order.setCustomer(customer);
         Printer.printCheck(order);
-        order.getPizzas();
-
-
     }
 }

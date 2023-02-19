@@ -8,7 +8,7 @@ public class Printer {
         // todo print logic goes here.
         printOrderItem(order);
         printPizzas(order);
-
+        printBeverages(order);
         trailingLine();
     }
 
@@ -41,12 +41,25 @@ public class Printer {
             for (Ingredients ingredient : pizza.getIngredients()) {
                 System.out.println(ingredient.getName() + " " + ingredient.getPrice());
             }
+
             printDelimiter();
             System.out.println("Amount " + pizza.calculatePrice());
             System.out.println("Quantity " + pizza.getQuantity());
             printDelimiter();
-            totalPrice = pizza.calculatePrice() * pizza.getQuantity();
-            System.out.println("Total amount " + totalPrice);
+            totalPrice += pizza.calculatePrice() * pizza.getQuantity();
         }
+    }
+
+    private static void printBeverages(Order order) {
+        System.out.println("Beverages");
+        for (Beverages beverages : order.getBeverages()) {
+            if (beverages == null) {
+                continue;
+            }
+            System.out.println(beverages.getName() + " " + beverages.getPrice());
+            totalPrice += beverages.calculatePrice();
+        }
+        printDelimiter();
+        System.out.println("Total amount " + totalPrice);
     }
 }

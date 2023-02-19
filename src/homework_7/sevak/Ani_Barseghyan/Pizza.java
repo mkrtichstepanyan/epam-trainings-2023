@@ -1,6 +1,6 @@
 package homework_7.sevak.Ani_Barseghyan;
 
-public class Pizza {
+public class Pizza extends OrderItem {
     private static final int MAX_ALLOWED_INGREDIENTS = 8;
     private String name;
     private PizzaType pizzaType;
@@ -8,17 +8,14 @@ public class Pizza {
     private int quantity;
     private static int toppingCount;
 
-    Pizza(String name, PizzaType pizzaType, int quantity) {
-        this.name = name;
-        this.pizzaType = pizzaType;
-        this.quantity = quantity;
-    }
 
     Pizza(String name, PizzaType pizzaType, Ingredients[] ingredients, int quantity) {
+        super(name, quantity);
         this.name = name;
+        this.quantity = quantity;
         this.pizzaType = pizzaType;
         Pizza.ingredients = ingredients;
-        this.quantity = quantity;
+
     }
 
     public double calculatePrice() {
@@ -35,8 +32,8 @@ public class Pizza {
             return ingredient;
         }
         //if (!isExistingIngredient(ingredient)) {
-            ingredients[toppingCount++] = ingredient;
-     //   }
+        ingredients[toppingCount++] = ingredient;
+        //   }
         return ingredient;
     }
 

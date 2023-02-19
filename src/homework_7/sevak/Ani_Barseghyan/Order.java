@@ -4,11 +4,12 @@ public class Order {
     private static final int MAX_PIZZA_AMOUNT = 10;
     private static final int BASE_ORDER_NUMBER = 10000;
     private static int initialID = BASE_ORDER_NUMBER;
-    private int index;
+    private int pizzaIndex;
+    private int beverageIndex;
     private int orderNumber;
     private Customer customer;
     private Pizza[] pizzas = new Pizza[10];
-    private Pizza pizza;
+    private Beverages[] beverages = new Beverages[10];
 
     Order() {
         orderNumber = initialID++;
@@ -19,9 +20,14 @@ public class Order {
             System.out.println("Hop axper jan");
             return;
         }
-        int pizzaIndex = index++;
+        int index = pizzaIndex++;
         String validPizzaName = getValidPizzaName(pizzaName, pizzaIndex);
-        pizzas[pizzaIndex] = new Pizza(validPizzaName, type, ingredients, quantity);
+        pizzas[index] = new Pizza(validPizzaName, type, ingredients, quantity);
+    }
+
+    public void addBeverage(BeveragesMenu beverage, int quantity) {
+        int index = beverageIndex++;
+        beverages[index] = new Beverages(beverage, quantity);
     }
 
 
@@ -65,5 +71,9 @@ public class Order {
 
     public Pizza[] getPizzas() {
         return pizzas;
+    }
+
+    public Beverages[] getBeverages() {
+        return beverages;
     }
 }
