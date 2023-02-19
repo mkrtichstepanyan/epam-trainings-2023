@@ -1,17 +1,16 @@
 package homework_7.Anna_Manukyan;
 
-
-
 // is a
 // has a
-public class Pizza extends Food{
+public class Pizza extends Food {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
-    private static final double BASE_COST = 1;
 
-    private String name;
     private PizzaType pizzaType;
     private Ingredient[] ingredients;
-    private int quantity;
+
+    static {
+        BASE_COST = 1;
+    }
 
     Pizza(String name, PizzaType pizzaType, int quantity) {
         this.name = name;
@@ -19,11 +18,12 @@ public class Pizza extends Food{
         this.quantity = quantity;
     }
 
-    Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity) {
+    Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity, FoodType foodType) {
         this.name = name;
         this.pizzaType = pizzaType;
         this.ingredients = ingredients;
         this.quantity = quantity;
+        this.foodType = foodType;
     }
 
     public double calculatePrice() {

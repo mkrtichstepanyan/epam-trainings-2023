@@ -5,24 +5,16 @@ import static homework_7.Anna_Manukyan.Pizza.printPizzaIngredients;
 
 public class Printer {
 
+    private static double totalSum = 0;
     public static void printCheck(Order order) {
+        Food[] foods = order.getFoods();
         leadingLine();
         System.out.println("Order: " + order.getOrderNumber());
         System.out.println("Client: " + order.getCustomer().getNumber());
-        double totalSum = 0;
-        for (Pizza pizza : order.getPizzas()) {
-            if (pizza != null){
-                System.out.println("Name: " + pizza.getName());
-                delimiter();
-                System.out.println("Pizza base (" + pizza.getPizzaType().getName() + ") " + (pizza.calculateBasePrice()) + " €");
-                printPizzaIngredients(pizza);
-                delimiter();
-                double pizzaAmount = pizza.calculatePrice();
-                System.out.println("Amount: " + pizzaAmount + " €");
-                System.out.println("Quantity " + pizza.getQuantity());
-                delimiter();
-                totalSum += pizzaAmount * pizza.getQuantity();
-            }
+        for (Food food:foods) {
+                if (food != null && food.foodType.equals(FoodType.PIZZA)) {
+                    printPizzaCheck((Pizza)food);
+                }
         }
         delimiter();
         System.out.println("Total amount " + totalSum + " €");
@@ -43,5 +35,19 @@ public class Printer {
         System.out.println("--------------------------");
     }
 
+    private static void printPizzaCheck(Pizza food){
+            if (food != null){
+                System.out.println("Name: " + food.getName());
+                delimiter();
+                System.out.println("Pizza base (" + food.getPizzaType().getName() + ") " + (food.calculateBasePrice()) + " €");
+                printPizzaIngredients(food);
+                delimiter();
+                double pizzaAmount = food.calculatePrice();
+                System.out.println("Amount: " + pizzaAmount + " €");
+                System.out.println("Quantity " + food.getQuantity());
+                delimiter();
+                totalSum += pizzaAmount * food.getQuantity();
+            }
 
+    }
 }
