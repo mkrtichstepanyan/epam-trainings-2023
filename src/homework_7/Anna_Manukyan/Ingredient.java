@@ -22,7 +22,7 @@ public class Ingredient {
         return price;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 }

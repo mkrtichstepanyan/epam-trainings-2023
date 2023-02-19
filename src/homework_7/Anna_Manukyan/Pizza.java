@@ -4,18 +4,11 @@ package homework_7.Anna_Manukyan;
 // has a
 public class Pizza extends Food {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
-
     private PizzaType pizzaType;
     private Ingredient[] ingredients;
 
     static {
         BASE_COST = 1;
-    }
-
-    Pizza(String name, PizzaType pizzaType, int quantity) {
-        this.name = name;
-        this.pizzaType = pizzaType;
-        this.quantity = quantity;
     }
 
     Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity, FoodType foodType) {
@@ -79,6 +72,14 @@ public class Pizza extends Food {
 
     public PizzaType getPizzaType() {
         return pizzaType;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPizzaType(PizzaType pizzaType) {
+        this.pizzaType = pizzaType;
     }
 }
 

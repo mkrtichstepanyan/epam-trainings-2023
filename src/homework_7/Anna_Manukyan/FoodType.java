@@ -6,14 +6,17 @@ public class FoodType {
     public static final FoodType PIZZA =
             new FoodType("pizza", BASE_COST);
 
+    public static final FoodType SWEETS =
+            new FoodType("sweets", 0);
     private String name;
     private double price;
 
     FoodType(String name, double basePrice) {
         this.name = name;
-        this.price = basePrice ;
+        this.price = basePrice;
     }
 
-//    public static final FoodType SWEETS =
-//            new PizzaType("sweets",);
+    public String getName() {
+        return name;
+    }
 }
