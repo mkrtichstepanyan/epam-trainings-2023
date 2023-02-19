@@ -1,4 +1,4 @@
-package homework_7.garik_gharibyan.fast_foot.foots.drink;
+package homework_7.garik_gharibyan.drink;
 
 public class DrinkType {
 

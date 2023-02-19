@@ -1,10 +1,12 @@
-package homework_7.garik_gharibyan.fast_foot.foots.drink;
+package homework_7.garik_gharibyan.drink;
 
-import homework_7.garik_gharibyan.fast_foot.foots.Food;
 
-public class Drink extends Food {
+
+public class Drink {
 
     private final DrinkType type;
+
+    private final int quantity;
 
     public Drink(DrinkType drinkType, int quantity) {
         this.type = drinkType;
@@ -15,17 +17,15 @@ public class Drink extends Food {
         return type;
     }
 
-    @Override
+
     public double getPrice() {
         return type.getPrice();
     }
 
-    @Override
     public String getName() {
         return type.getName();
     }
 
-    @Override
     public int getQuantity() {
         return quantity;
     }

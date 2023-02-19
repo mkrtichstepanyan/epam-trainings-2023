@@ -1,4 +1,4 @@
-package homework_7.garik_gharibyan.fast_foot.foots;
+package homework_7.garik_gharibyan.food;
 
 public abstract class Food {
 
@@ -17,9 +17,7 @@ public abstract class Food {
 
     public abstract int getQuantity() ;
 
-    public abstract double getPrice();
-
-
+    public abstract double calculatePrice();
 
 
 }
