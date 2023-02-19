@@ -1,28 +1,22 @@
 package homework_7.rafik_pahlevanyan;
 
-public class Pizza {
-
+public class Pizza extends Product {
 
     public static final Pizza MARGARITA = new Pizza("Margarita", PizzaType.CALZONE, new Ingredient[]{Ingredient.CORN, Ingredient.BACON}, 1);
     public static final Pizza PEPPERONI = new Pizza("Pepperoni", PizzaType.REGULAR, new Ingredient[]{Ingredient.PEPPERONI, Ingredient.CHEESE}, 1);
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
-    private String name;
     private PizzaType pizzaType;
     private Ingredient[] ingredients = new Ingredient[MAX_ALLOWED_INGREDIENTS];
-    private int quantity;
     private int ingredientsCount = 0;
 
 
-    Pizza(String name, PizzaType pizzaType, int quantity) {
+    public Pizza(String name, PizzaType pizzaType, int quantity) {
         this.name = name;
         this.pizzaType = pizzaType;
         this.quantity = quantity;
     }
 
-    public Pizza() {
-    }
-
-    Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity) {
+    public Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity) {
 
         this.name = name;
         this.pizzaType = pizzaType;
@@ -57,10 +51,18 @@ public class Pizza {
     }
 
 
+
+    @Override
     public String getName() {
-        return name;
+        return super.getName();
     }
 
+    @Override
+    public void setName(String name) {
+        super.setName(name);
+    }
+
+    @Override
     public int getQuantity() {
         return quantity;
     }
