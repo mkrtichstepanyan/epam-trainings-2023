@@ -2,10 +2,11 @@ package homework_7.Alina_Mkhoyan.pizza;
 
 public class Drink extends Product {
     private double litre;
+    private DrinkType drinkType;
 
-    public Drink(String name, double price, double litre, int quantity) {
-        super(name, price, quantity);
-        this.litre = litre;
+    public Drink(String name, DrinkType drinkType, int quantity) {
+        super(name, drinkType.getPrice(), quantity);
+        this.drinkType = drinkType;
     }
 
     public double getLitre() {
@@ -17,11 +18,19 @@ public class Drink extends Product {
     }
 
     public double calculatePrice() {
-        return getPrice();
+        return getQuantity() * getPrice();
+    }
+
+    public DrinkType getDrinkType() {
+        return drinkType;
+    }
+
+    public void setDrinkType(DrinkType drinkType) {
+        this.drinkType = drinkType;
     }
 
     public void printProductDetails() {
-        System.out.println(getName() + " (" + getLitre() + getPrice() + ")");
-//        System.out.println("Price: $" + calculatePrice());
+        System.out.println(getName() + " (" + getLitre() + "L"
+                + " " + getPrice() + " $" + ")");
     }
 }

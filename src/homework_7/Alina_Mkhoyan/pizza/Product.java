@@ -18,9 +18,11 @@ public abstract class Product {
     public double getPrice() {
         return price;
     }
+
     public void addQuantity(int quantity) {
         this.quantity += quantity;
     }
+
     public int getQuantity() {
         return quantity;
     }

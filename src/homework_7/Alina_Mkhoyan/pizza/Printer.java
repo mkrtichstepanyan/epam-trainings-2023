@@ -10,19 +10,11 @@ public class Printer {
 
         printDelimiter();
         order.printOrderAttributes();
-
-//        System.out.println("Drinks:");
-//        for (Drink drink : order.getDrinks()) {
-//            drink.printProductDetails();
-//        }
         System.out.println("Total amount : " + order.calculateOrderPrice() + " $");
         trainlingLine();
-
-
     }
 
     // todo print logic goes here.
-
 
     private static void leadingLine() {
         System.out.println("********************");
@@ -35,6 +27,4 @@ public class Printer {
     private static void trainlingLine() {
         System.out.println("********************");
     }
-
-
 }

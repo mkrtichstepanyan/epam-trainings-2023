@@ -12,14 +12,14 @@ public class Order {
     private int index;
     private int orderNumber;
     private Customer customer;
-    private Pizza[] pizzas = new Pizza[2];
+    private Pizza[] pizzas = new Pizza[MAX_PIZZA_AMOUNT];
     private List<Drink> drinks = new ArrayList<>();
 
     Order() {
         orderNumber = initialId++;
     }
 
-    public void addPizza(String pizzaName, PizzaType type,  Ingredient[] ingredients, int quantity) {
+    public void addPizza(String pizzaName, PizzaType type, Ingredient[] ingredients, int quantity) {
         if (quantity > MAX_PIZZA_AMOUNT) {
             System.out.println("hop axper jan!!");
             return;
@@ -29,26 +29,25 @@ public class Order {
         pizzas[pizzaIndex] = new Pizza(validPizzaName, type, ingredients, quantity);
     }
 
-    public void addDrink(Drink drink) {
-        drinks.add(drink);
+    public void addDrink(String drinkName, DrinkType type, int quantity) {
+        drinks.add(new Drink(drinkName, type, quantity));
     }
+
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
     public double calculateOrderPrice() {
-//            double orderPrice = 0.0d;
-//
-//            for (Pizza pizza : pizzas) {
-//                orderPrice += pizza.calculatePrice();
-//            }
-//            return orderPrice;
-//        }
         double orderPrice = 0.0;
         for (Pizza pizza : pizzas) {
             if (pizza != null) {
                 orderPrice += pizza.calculatePrice();
+            }
+        }
+        for (Drink drink : drinks) {
+            if (drink != null) {
+                orderPrice += drink.calculatePrice();
             }
         }
         return orderPrice;
@@ -56,8 +55,8 @@ public class Order {
 
     // todo calculate order total price
 
-
     public void printOrderAttributes() {
+
         for (Pizza pizza : pizzas) {
             if (pizza != null) {
                 System.out.println("Pizza Name: " + pizza.getName() + "\n"
@@ -65,14 +64,18 @@ public class Order {
                         + pizza.getPizzaType().getPrice() + " $" + "\n"
                         + "Ingredients: " + Arrays.toString(pizza.getIngredients()) + "\n"
                         + "Price: " + pizza.calculatePrice() + "\n"
+                        + "Quantity: " + pizza.getQuantity() + "\n"
                         + "---------------------");
-                System.out.println("Drinks: ");
-                for (Drink drink : drinks) {
-                    drink.printProductDetails();
-                    System.out.println("- " + drink.getName() + " ($" + drink.calculatePrice() + ")");
-                }
-            } else {
-                return;
+            }
+        }
+        if (drinks != null) {
+            System.out.println("Drinks: ");
+            for (Drink drink : drinks) {
+                System.out.println("Drink Name: " + drink.getName() + "\n"
+                        + "Liter: " + drink.getDrinkType().getLitre() + " L" + "\n"
+                        + "Price: " + drink.calculatePrice() + " $" + "\n"
+                        + "Quantity: " + drink.getQuantity() + "\n"
+                        + "---------------------");
             }
         }
     }
