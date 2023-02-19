@@ -1,6 +1,6 @@
 package homework_7.garik_gharibyan;
 
-import homework_7.garik_gharibyan.drink.Drink;
+import homework_7.garik_gharibyan.drink.DrinkNonAlcoholic;
 import homework_7.garik_gharibyan.food.Food;
 import homework_7.garik_gharibyan.food.pizza.Ingredient;
 import homework_7.garik_gharibyan.food.pizza.Pizza;
@@ -14,11 +14,12 @@ public class Printer {
         printStartLine();
         printOrderInfo(order);
         printFoodsInfo(order.getFoods());
-        printDrinkInfo(order.getDrinks());
+        printDrinkInfo(order);
         printTotalPriceByOrder(order);
         printFinishLine();
 
     }
+
     public void printOrderAttributes(Order order) {
 
         System.out.println(
@@ -34,26 +35,25 @@ public class Printer {
             }
 
         }
-        for (Drink drink : order.getDrinks()) {
+        for (DrinkNonAlcoholic drink : order.getDrinks()) {
             if (drink != null) {
                 System.out.print(
-                        "drink name: " + drink.getName() + " price: " + drink.getPrice() + " quantity: " + drink.getQuantity() + "\n"
+                        "drink name: " + drink.getName() + " price: " + drink.getPrice() + " quantity: " + order.getQuantityDrink() + "\n"
                 );
             }
-
         }
     }
-
-
 
     private void printStartLine() {
         System.out.println("**************************************\n");
     }
+
     private void printOrderInfo(Order order) {
         System.out.println(
                 "Order: " + order.getOrderNumber() + "\n" +
                         "Client: " + order.getCustomer().getNumber());
     }
+
     private void printFoodsInfo(Food[] foods) {
         for (int i = 0; i < foods.length; i++) {
             if (foods[i] == null) {
@@ -65,8 +65,9 @@ public class Printer {
             }
         }
     }
-    private void printDrinkInfo(Drink[] drinks) {
-        for (Drink drink : drinks) {
+
+    private void printDrinkInfo(Order order) {
+        for (DrinkNonAlcoholic drink : order.getDrinks()) {
             if (drink == null) {
                 break;
             }
@@ -75,15 +76,17 @@ public class Printer {
                     "Name: " + drink.getName() + "\n" +
                             "---------------------------" + "\n" +
                             "Drink base: " + drink.getName() + " " + drink.getPrice() + "\n" +
-                            "Quantity: " + drink.getQuantity() + "\n" +
-                            "---------------------------" + "\n");
+                            "Quantity: " + order.getQuantityDrink() + "\n" +
+                            "---------------------------");
         }
 
 
     }
+
     private void printTotalPriceByOrder(Order order) {
         System.out.println("Total price: " + order.calculateTotalPriceOfOrder());
     }
+
     private void printFinishLine() {
         System.out.println("**************************************\n\n");
     }
@@ -104,6 +107,7 @@ public class Printer {
                         "---------------------------");
 
     }
+
     private void printIngredients(Ingredient[] ingredients) {
         for (Ingredient i : ingredients) {
             System.out.println(i.getName() + " " + i.getPrice());
@@ -111,11 +115,4 @@ public class Printer {
     }
 
 
-
-
-//    public void printOrderAttributes1(Order order) {
-//        for (Food food : order.getFoods()) {
-//            System.out.println("[" + order.getOrderNumber() + order.getCustomer().getNumber() + food.getName() + food.getQuantity() + "]");
-//        }
-//    }
 }

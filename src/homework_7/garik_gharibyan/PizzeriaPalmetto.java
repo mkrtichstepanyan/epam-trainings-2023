@@ -1,7 +1,7 @@
 package homework_7.garik_gharibyan;
 
-import homework_7.garik_gharibyan.drink.Drink;
-import homework_7.garik_gharibyan.drink.DrinkType;
+import homework_7.garik_gharibyan.drink.AlcoholicDrink;
+import homework_7.garik_gharibyan.drink.DrinkNonAlcoholic;
 import homework_7.garik_gharibyan.food.pizza.Ingredient;
 import homework_7.garik_gharibyan.food.pizza.Pizza;
 import homework_7.garik_gharibyan.food.pizza.PizzaType;
@@ -32,10 +32,14 @@ public class PizzeriaPalmetto {
 
         Order order = new Order();
         order.setCustomer(customer);
+
+
         order.addFood(pizzaMargarita);
-        order.addFood(pizzaItaliano);
-        order.addFood(pizza3);
-        order.addDrink(new Drink(DrinkType.COCA_COLA, 10));
+        order.addDrink(DrinkNonAlcoholic.COCA_COLA,2);
+        order.addDrink(DrinkNonAlcoholic.PEPSI,4);
+        order.addDrink(DrinkNonAlcoholic.FANTA,2);
+        order.addDrink(AlcoholicDrink.WINE,2);
+        order.addDrink(AlcoholicDrink.VODKA,3);
 
 
         printer.printOrderAttributes(order);

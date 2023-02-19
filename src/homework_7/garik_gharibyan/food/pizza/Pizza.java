@@ -9,9 +9,11 @@ public class Pizza extends Food {
     private final PizzaType pizzaType;
     private Ingredient[] ingredients = new Ingredient[0];
     private int topElementIngredients = -1;
+
     public PizzaType getPizzaType() {
         return pizzaType;
     }
+
     public Ingredient[] getIngredients() {
         return ingredients;
     }
@@ -30,7 +32,6 @@ public class Pizza extends Food {
         this.quantity = quantity;
     }
 
-
     public void addIngredient(Ingredient ingredient) {
         if (isExistIngredient(ingredient)) {
             return;
@@ -38,7 +39,7 @@ public class Pizza extends Food {
 
         if (ingredients.length > 6) {
             System.out.println(name + " pizza ingredient are full");
-        } else  {
+        } else {
             extendCapacityIngredient();
             ingredients[++topElementIngredients] = ingredient;
         }
@@ -61,7 +62,6 @@ public class Pizza extends Food {
         }
         return false;
     }
-
 
     @Override
     public String getName() {

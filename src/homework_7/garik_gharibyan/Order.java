@@ -1,6 +1,6 @@
 package homework_7.garik_gharibyan;
 
-import homework_7.garik_gharibyan.drink.Drink;
+import homework_7.garik_gharibyan.drink.DrinkNonAlcoholic;
 import homework_7.garik_gharibyan.food.Food;
 import homework_7.garik_gharibyan.food.pizza.Pizza;
 
@@ -13,8 +13,13 @@ public class Order {
     private final int orderNumber;
     private Customer customer;
     private final Food[] foods = new Food[10];
-    private final Drink[] drinks = new Drink[100];
+    private final DrinkNonAlcoholic[] drinks = new DrinkNonAlcoholic[100];
+    private int quantityDrink;
 
+
+    public int getQuantityDrink() {
+        return quantityDrink;
+    }
 
     public int getOrderNumber() {
         return orderNumber;
@@ -32,7 +37,7 @@ public class Order {
         return foods;
     }
 
-    public Drink[] getDrinks() {
+    public DrinkNonAlcoholic[] getDrinks() {
         return drinks;
     }
 
@@ -41,7 +46,8 @@ public class Order {
         orderNumber = initialId++;
     }
 
-    public void addDrink(Drink drink) {
+    public void addDrink(DrinkNonAlcoholic drink, int quantityDrink) {
+        this.quantityDrink = quantityDrink;
         drinks[drinkIndex++] = drink;
     }
 
@@ -72,11 +78,11 @@ public class Order {
 
     private double calculateDrinkPriceOfOrder() {
         double totalDrinkAmount = 0;
-        for (Drink drink : drinks) {
+        for (DrinkNonAlcoholic drink : drinks) {
             if (drink == null) {
                 break;
             }
-            totalDrinkAmount = drink.getPrice() * drink.getQuantity() + totalDrinkAmount;
+            totalDrinkAmount = drink.getPrice() * getQuantityDrink() + totalDrinkAmount;
         }
         return totalDrinkAmount;
     }
