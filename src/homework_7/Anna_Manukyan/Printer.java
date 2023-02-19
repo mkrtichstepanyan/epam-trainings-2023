@@ -4,13 +4,24 @@ package homework_7.Anna_Manukyan;
 import static homework_7.Anna_Manukyan.Pizza.printPizzaIngredients;
 
 public class Printer {
-
-    private double totalSum = 0;
-
-    public void printCheck(Order order) {
-        totalSum = 0;
-        Food[] foods = order.getFoods();
+    public static void printCheck(Order order) {
         leadingLine();
+        printOrderInformation(order);
+        delimiter();
+        System.out.println("Total amount " + order.calculateOrderAmount() + " €");
+        delimiter();
+        System.out.println("Order time " + order.orderTime.getHour() + ":" + order.orderTime.getMinute());
+        trailingLine();
+    }
+
+    public void printOrderAttributes(Order order) {
+        for (Food food : order.getFoods()) {
+            System.out.println("[" + order.getOrderNumber() + order.getCustomer().getNumber() + food.getName() + food.getQuantity() + "]");
+        }
+    }
+
+    private static void printOrderInformation(Order order) {
+        Food[] foods = order.getFoods();
         System.out.println("Order: " + order.getOrderNumber());
         System.out.println("Client: " + order.getCustomer().getNumber());
         for (Food food : foods) {
@@ -22,14 +33,9 @@ public class Printer {
                 }
             }
         }
-        delimiter();
-        System.out.println("Total amount " + totalSum + " €");
-        delimiter();
-        System.out.println("Order time " + order.orderTime.getHour() + ":" + order.orderTime.getMinute());
-        trailingLine();
     }
 
-    private void printSweetCheck(Sweets food) {
+    private static void printSweetCheck(Sweets food) {
         System.out.println("Name: " + food.getName());
         delimiter();
         System.out.println("Food type (" + food.getName() + ") ");
@@ -38,10 +44,9 @@ public class Printer {
         System.out.println("Amount: " + sweetsAmount + " €");
         System.out.println("Quantity " + food.getQuantity());
         delimiter();
-        totalSum += sweetsAmount * food.quantity;
     }
 
-    private void printPizzaCheck(Pizza food) {
+    private static void printPizzaCheck(Pizza food) {
         System.out.println("Name: " + food.getName());
         delimiter();
         System.out.println("Pizza base (" + food.getPizzaType().getName() + ") " + (food.calculateBasePrice()) + " €");
@@ -51,7 +56,6 @@ public class Printer {
         System.out.println("Amount: " + pizzaAmount + " €");
         System.out.println("Quantity " + food.getQuantity());
         delimiter();
-        totalSum += pizzaAmount * food.getQuantity();
     }
 
     private static void leadingLine() {

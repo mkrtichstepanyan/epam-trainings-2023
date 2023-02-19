@@ -50,10 +50,14 @@ public class Order {
         return pizzaName != null && pizzaName.length() > 4 && pizzaName.length() < 20;
     }
 
-    public void printOrderAttributes() {
+    public double calculateOrderAmount() {
+        double totalSum = 0;
         for (Food food : foods) {
-            System.out.println("[" + orderNumber + customer.getNumber() + food.getName() + food.getQuantity() + "]");
+            if (food!= null){
+                totalSum += food.calculatePrice() * food.getQuantity();
+            }
         }
+        return totalSum;
     }
 
     void setCustomer(Customer customer) {
