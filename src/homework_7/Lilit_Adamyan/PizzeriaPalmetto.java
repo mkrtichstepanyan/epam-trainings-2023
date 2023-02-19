@@ -15,7 +15,6 @@ public class PizzeriaPalmetto {
         order.setCustomer(customer);
         Ingredient[] ingredients = {Ingredient.CHEESE, Ingredient.SALAMI};
         order.addPizza("MyPizza", PizzaType.CALZONE, ingredients, 1);
-        //pizzai anunn@ paymanin bavarareg@ jon@ um dran shunne?
         order.printOrderAttributes();
         Printer.printCheck(order);
     }

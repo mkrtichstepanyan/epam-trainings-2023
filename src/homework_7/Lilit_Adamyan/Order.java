@@ -11,9 +11,7 @@ public class Order {
     private int index;
     private int orderNumber;
     private Customer customer;
-    private List<Product> products = new ArrayList<>();//stex me listm bdi pahes erkusi hamar.liste che masiv,bdi chexni
-    //product list u fsyo, u ira mej qces ham pizza ham xmmichq, vordev erkusnel product tipien, hasanq es toxin haskcanq or copy enel@ sxale.ba)
-    //es moment@ chisht kazmakerpe qezi petq che erku hat massiv, me hatm uneci Product tipi vori mej hangist kkrnanas save enes ham drink ham pizza
+    private List<Product> products = new ArrayList<>();
     private final Pizza[] pizzas = new Pizza[10];
 
     Order() {
@@ -28,7 +26,6 @@ public class Order {
         int pizzaIndex = index++;
         String validPizzaName = getValidPizzaName(pizzaName, pizzaIndex);
         pizzas[pizzaIndex] = new Pizza(validPizzaName, type, ingredients, quantity, customer);
-        //gjva toxm verev pizzai anuna MyPizza nerqev@ arden joshe
         addProduct(pizzas[pizzaIndex]);
     }
 

@@ -12,7 +12,7 @@ public class Printer {
     }
 
     public static void printPizza(Pizza[] pizzas) {
-//stex imast el chka ban enelu
+
         double totalAmount = 0;
         for (Pizza pizza : pizzas) {
             if (pizza != null) {
