@@ -1,4 +1,4 @@
-package homework_7_liana_gevorgyan;
+package homework_7.liana_gevorgyan;
 
 public class PizzeriaPalmetto {
 
