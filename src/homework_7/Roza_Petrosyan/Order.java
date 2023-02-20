@@ -1,6 +1,5 @@
 package homework_7.Roza_Petrosyan;
-
-public class Order extends OrderedItems {
+public class Order{
     private static final int MAX_PIZZA_AMOUNT = 10;
     private static final int BASE_ORDER_NUMBER = 10000;
     private static int initialId = BASE_ORDER_NUMBER;
@@ -9,26 +8,43 @@ public class Order extends OrderedItems {
     private int index2;
     private int orderNumber;
     private Customer customer;
+    private Pizza[] pizzas = new Pizza[10];
+    private Drink[] drinks = new Drink[10];
 
     Order() {
         orderNumber = initialId++;
     }
 
-    public void addPizza(String pizzaName, PizzaType type,
-                         Ingredient[] ingredients, int quantity) {
-        if (quantity > MAX_PIZZA_AMOUNT) {
+    public void addProduct(OrderItem orderItem, String type) {
+        if(type.equals("pizza")) {
+            if (orderItem.getQuantity() > MAX_PIZZA_AMOUNT) {
             System.out.println("You can not order more than 10 pizzas!");
             return;
         }
         int pizzaIndex = index++;
-        String validPizzaName = getValidPizzaName(pizzaName, pizzaIndex);
-        getPizzas()[pizzaIndex] = new Pizza(validPizzaName, type, ingredients, quantity);
+        String validPizzaName = getValidPizzaName(orderItem.getName(), pizzaIndex);
+        pizzas[pizzaIndex] = new Pizza(validPizzaName, orderItem.getPizzaType(), orderItem.getIngredients(), orderItem.getQuantity());
+        } else if (type.equals("drink")) {
+            int drinkIndex = index2++;
+            drinks[drinkIndex] = new Drink(orderItem.getName(),orderItem.getDrinkType(),orderItem.getQuantity());
+        }
     }
 
-    public void addDrink(String drinkName, DrinkType type, int quantity) {
-        int drinkIndex = index2++;
-        getDrinks()[drinkIndex] = new Drink(drinkName, type, quantity);
-    }
+//    public void addPizza(String pizzaName, PizzaType type,
+//                         Ingredient[] ingredients, int quantity) {
+//        if (quantity > MAX_PIZZA_AMOUNT) {
+//            System.out.println("You can not order more than 10 pizzas!");
+//            return;
+//        }
+//        int pizzaIndex = index++;
+//        String validPizzaName = getValidPizzaName(pizzaName, pizzaIndex);
+//        getPizzas()[pizzaIndex] = new Pizza(validPizzaName, type, ingredients, quantity);
+//    }
+//
+//    public void addDrink(String drinkName, DrinkType type, int quantity) {
+//        int drinkIndex = index2++;
+//        getDrinks()[drinkIndex] = new Drink(drinkName, type, quantity);
+//    }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
@@ -38,14 +54,14 @@ public class Order extends OrderedItems {
 
         // todo calculate order total price
         double totalPrice = 0;
-        for (Pizza pizza : getPizzas()) {
+        for (Pizza pizza : pizzas) {
             if (pizza != null) {
                 if (!pizza.isDuplicate(pizza.getIngredients()) && pizza.getMaxCount() < 7) {
                     totalPrice += pizza.calculatePrice() * pizza.getQuantity();
                 }
             }
         }
-        for (Drink drink : getDrinks()) {
+        for (Drink drink : drinks) {
             if (drink != null) {
                 totalPrice += drink.calculatePrice() * drink.getQuantity();
             }
@@ -55,7 +71,7 @@ public class Order extends OrderedItems {
 
 
     public void printOrderAttributes() {
-        for (Pizza pizza : getPizzas()) {
+        for (Pizza pizza : pizzas) {
             if (pizza != null) {
                 System.out.println("[" + orderNumber + ":"
                         + customer.getNumber() + ":"
@@ -63,7 +79,7 @@ public class Order extends OrderedItems {
                         + pizza.getQuantity() + "]");
             }
         }
-        for (Drink drink : getDrinks()) {
+        for (Drink drink : drinks) {
             if (drink != null) {
                 System.out.println("[" + orderNumber + ":"
                         + customer.getNumber()
@@ -91,5 +107,13 @@ public class Order extends OrderedItems {
 
     public Customer getCustomer() {
         return customer;
+    }
+
+    public Pizza[] getPizzas() {
+        return pizzas;
+    }
+
+    public Drink[] getDrinks() {
+        return drinks;
     }
 }

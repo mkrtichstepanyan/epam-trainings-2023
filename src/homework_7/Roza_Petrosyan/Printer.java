@@ -48,6 +48,7 @@ public class Printer {
         for (Drink drink : order.getDrinks()) {
             if (drink != null) {
                 printDrink(drink);
+                printDelimiter();
                 printDrinkAmountAndQuantity(drink);
                 printDelimiter();
             }

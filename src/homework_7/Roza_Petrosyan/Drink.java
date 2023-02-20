@@ -1,30 +1,12 @@
 package homework_7.Roza_Petrosyan;
 
-public class Drink extends Calculator {
-    private String name;
-    private int quantity;
-    private DrinkType drinkType;
-
+public class Drink extends OrderItem {
     public Drink(String name, DrinkType drinkType, int quantity) {
-        this.name = name;
-        this.drinkType = drinkType;
-        this.quantity = quantity;
+        super(name,drinkType, quantity);
     }
 
     @Override
     public double calculatePrice() {
         return drinkType.getPrice();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public DrinkType getDrinkType() {
-        return drinkType;
     }
 }
