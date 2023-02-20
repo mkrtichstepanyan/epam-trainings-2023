@@ -1,4 +1,4 @@
-package homework_7.garik_gharibyan.food.pizza;
+package homework_7.garik_gharibyan.product.food.pizza;
 
 public class Ingredient {
 

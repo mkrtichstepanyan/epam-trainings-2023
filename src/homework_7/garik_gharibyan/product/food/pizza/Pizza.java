@@ -1,6 +1,6 @@
-package homework_7.garik_gharibyan.food.pizza;
+package homework_7.garik_gharibyan.product.food.pizza;
 
-import homework_7.garik_gharibyan.food.Food;
+import homework_7.garik_gharibyan.product.food.Food;
 
 // is a
 // has a
@@ -19,17 +19,15 @@ public class Pizza extends Food {
     }
 
 
-    public Pizza(String name, PizzaType pizzaType, int quantity) {
-        this.name = name;
+    public Pizza(String name, PizzaType pizzaType) {
+        super(name);
         this.pizzaType = pizzaType;
-        this.quantity = quantity;
     }
 
-    public Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity) {
-        this.name = name;
+    public Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients) {
+        super(name);
         this.pizzaType = pizzaType;
         this.ingredients = ingredients;
-        this.quantity = quantity;
     }
 
     public void addIngredient(Ingredient ingredient) {
@@ -37,7 +35,7 @@ public class Pizza extends Food {
             return;
         }
 
-        if (ingredients.length > 6) {
+        if (ingredients.length > MAX_ALLOWED_INGREDIENTS - 1) {
             System.out.println(name + " pizza ingredient are full");
         } else {
             extendCapacityIngredient();
@@ -69,17 +67,13 @@ public class Pizza extends Food {
     }
 
     @Override
-    public int getQuantity() {
-        return quantity;
-    }
-
-    @Override
-    public double calculatePrice() {
+    public double getPrice() {
         double ingredientPrice = 0.0;
         for (Ingredient ingredient : ingredients) {
             ingredientPrice += ingredient.getPrice();
         }
         return this.pizzaType.getPrice() + ingredientPrice;
     }
+
 }
 

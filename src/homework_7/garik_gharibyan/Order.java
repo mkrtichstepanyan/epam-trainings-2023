@@ -1,24 +1,20 @@
 package homework_7.garik_gharibyan;
 
-import homework_7.garik_gharibyan.drink.Drink;
-import homework_7.garik_gharibyan.food.Food;
-import homework_7.garik_gharibyan.food.pizza.Pizza;
+import homework_7.garik_gharibyan.product.Product;
+import homework_7.garik_gharibyan.product.food.pizza.Pizza;
 
 public class Order {
     private static final int MAX_FOOD_AMOUNT = 10;
     private static final int BASE_ORDER_NUMBER = 10000;
     private static int initialId = BASE_ORDER_NUMBER;
-    private int pizzaIndex;
-    private int drinkIndex;
+    private int index;
     private final int orderNumber;
     private Customer customer;
-    private final Food[] foods = new Food[10];
-    private final Drink[] drinks = new Drink[100];
-    private int quantityDrink;
+    private final Product[] products = new Product[100];
 
 
-    public int getQuantityDrink() {
-        return quantityDrink;
+    public Product[] getProducts() {
+        return products;
     }
 
     public int getOrderNumber() {
@@ -33,73 +29,38 @@ public class Order {
         return customer;
     }
 
-    public Food[] getFoods() {
-        return foods;
-    }
 
-    public Drink[] getDrinks() {
-        return drinks;
-    }
-
-
-    Order() {
+    public Order() {
         orderNumber = initialId++;
     }
 
-    public void addDrink(Drink drink, int quantityDrink) {
-        this.quantityDrink = quantityDrink;
-        drinks[drinkIndex++] = drink;
-    }
 
-    public void addFood(Food food) {
-        int index = pizzaIndex++;
+    public void addProduct(Product product, int quantity) {
+        product.setQuantity(quantity);
+        int index = this.index++;
 
-        if (food.getClass() == Pizza.class){
-            Pizza pizza = (Pizza) food;
-
-            if (pizza.quantity > MAX_FOOD_AMOUNT) {
-                System.out.println("hop axper jan!!");
-                return;
-            }
-
-            String validPizzaName = getValidPizzaName(pizza.getName(), index);
-
-            foods[index] = new Pizza(
-                    validPizzaName, pizza.getPizzaType(),
-                    pizza.getIngredients(), pizza.getQuantity());
+        if (product.getClass() == Pizza.class) {
+            ProductIsPizza(product, quantity,index);
         }else {
-            foods[index] = food;
-        }
+            products[index] = product;
 
+        }
     }
 
-    public double calculateTotalPriceOfOrder() {
+    private void ProductIsPizza(Product product, int quantity ,int index) {
+        Pizza pizza = (Pizza) product;
 
-        return calculateDrinkPriceOfOrder() + calculateFoodPriceOfOrder();
-    }
-
-
-    private double calculateDrinkPriceOfOrder() {
-        double totalDrinkAmount = 0;
-        for (Drink drink : drinks) {
-            if (drink == null) {
-                break;
-            }
-            totalDrinkAmount = drink.getPrice() * getQuantityDrink() + totalDrinkAmount;
+        if (quantity > MAX_FOOD_AMOUNT) {
+            System.out.println("hop axper jan!!");
+            return;
         }
-        return totalDrinkAmount;
-    }
 
-    private double calculateFoodPriceOfOrder() {
+        String validPizzaName = getValidPizzaName(pizza.getName(), index);
 
-        double totalFoodAmount = 0;
-        for (Food food : foods) {
-            if (food == null) {
-                break;
-            }
-            totalFoodAmount = food.calculatePrice() * food.getQuantity() + totalFoodAmount;
-        }
-        return totalFoodAmount;
+        Pizza newPizza = new Pizza(validPizzaName, pizza.getPizzaType(), pizza.getIngredients());
+        newPizza.setQuantity(quantity);
+
+        products[index] = newPizza;
     }
 
     private String getValidPizzaName(String pizzaName, int pizzaIndex) {
@@ -113,4 +74,18 @@ public class Order {
     private boolean isValidPizzaName(String pizzaName) {
         return pizzaName != null && pizzaName.length() > 4 && pizzaName.length() < 20;
     }
+
+
+    public double calculateTotalPriceOfOrder() {
+
+        double totalProductPrice = 0;
+        for (Product product : products) {
+            if (product == null) {
+                break;
+            }
+            totalProductPrice = product.getPrice() * product.getQuantity() + totalProductPrice;
+        }
+        return totalProductPrice;
+    }
+
 }

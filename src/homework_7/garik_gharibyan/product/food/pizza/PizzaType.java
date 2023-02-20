@@ -1,4 +1,4 @@
-package homework_7.garik_gharibyan.food.pizza;
+package homework_7.garik_gharibyan.product.food.pizza;
 
 public class PizzaType {
     private static final double BASE_PRICE = 1.0;

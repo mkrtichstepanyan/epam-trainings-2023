@@ -1,48 +1,38 @@
 package homework_7.garik_gharibyan;
 
-import homework_7.garik_gharibyan.drink.Drink;
-import homework_7.garik_gharibyan.drink.NonAlcoholicDrink;
-import homework_7.garik_gharibyan.food.Food;
-import homework_7.garik_gharibyan.food.pizza.Ingredient;
-import homework_7.garik_gharibyan.food.pizza.Pizza;
+import homework_7.garik_gharibyan.product.Product;
+import homework_7.garik_gharibyan.product.food.pizza.Ingredient;
+import homework_7.garik_gharibyan.product.food.pizza.Pizza;
 
 public class Printer {
 
     private int index = 1;
-
-    public void printCheck(Order order) {
-
-        printStartLine();
-        printOrderInfo(order);
-        printFoodsInfo(order.getFoods());
-        printDrinkInfo(order);
-        printTotalPriceByOrder(order);
-        printFinishLine();
-
-    }
 
     public void printOrderAttributes(Order order) {
 
         System.out.println(
                 "Order: " + order.getOrderNumber() + "\n" +
                         "Customer number: " + order.getCustomer().getNumber() + "\n" +
-                        "All Quantity Order: " + order.getFoods().length);
+                        "All Quantity Order: " + order.getProducts().length);
         System.out.println("------------------------------");
-        for (Food food : order.getFoods()) {
-            if (food != null) {
+        for (Product product : order.getProducts()) {
+            if (product != null) {
                 System.out.print(
-                        "food name: " + food.getName() + " price: " + food.calculatePrice() + " quantity: " + food.getQuantity() + "\n"
+                        "Product name: " + product.getName() + " Price: " + product.getPrice() + " quantity: " + product.getQuantity() + "\n"
                 );
             }
 
         }
-        for (Drink drink : order.getDrinks()) {
-            if (drink != null) {
-                System.out.print(
-                        "drink name: " + drink.getName() + " price: " + drink.getPrice() + " quantity: " + order.getQuantityDrink() + "\n"
-                );
-            }
-        }
+    }
+
+    public void printCheck(Order order) {
+
+        printStartLine();
+        printOrderInfo(order);
+        printProductInfo(order.getProducts());
+        printTotalPriceOfOrder(order);
+        printFinishLine();
+
     }
 
     private void printStartLine() {
@@ -55,43 +45,32 @@ public class Printer {
                         "Client: " + order.getCustomer().getNumber());
     }
 
-    private void printFoodsInfo(Food[] foods) {
-        for (int i = 0; i < foods.length; i++) {
-            if (foods[i] == null) {
+    private void printProductInfo(Product[] products) {
+        for (int i = 0; i < products.length; i++) {
+            if (products[i] == null) {
                 break;
             }
             System.out.print((index++) + ". ");
-            if (foods[i].getClass() == Pizza.class) {
-                printPizzaInfo((Pizza) foods[i]);
+            if (products[i].getClass() == Pizza.class) {
+                printPizzaInfo((Pizza) products[i]);
+            } else {
+                System.out.println(
+                        "Name: " + products[i].getName() + "\n" +
+                                "---------------------------" + "\n" +
+                                "Drink base: " + products[i].getName() + " " + products[i].getPrice() + "\n" +
+                                "Quantity: " + products[i].getQuantity() + "\n" +
+                                "---------------------------");
             }
         }
     }
 
-    private void printDrinkInfo(Order order) {
-        for (Drink drink : order.getDrinks()) {
-            if (drink == null) {
-                break;
-            }
-            System.out.print((index++) + ". ");
-            System.out.println(
-                    "Name: " + drink.getName() + "\n" +
-                            "---------------------------" + "\n" +
-                            "Drink base: " + drink.getName() + " " + drink.getPrice() + "\n" +
-                            "Quantity: " + order.getQuantityDrink() + "\n" +
-                            "---------------------------");
-        }
-
-
-    }
-
-    private void printTotalPriceByOrder(Order order) {
+    private void printTotalPriceOfOrder(Order order) {
         System.out.println("Total price: " + order.calculateTotalPriceOfOrder());
     }
 
     private void printFinishLine() {
         System.out.println("**************************************\n\n");
     }
-
 
     private void printPizzaInfo(Pizza pizza) {
         System.out.println(
@@ -103,7 +82,7 @@ public class Printer {
         printIngredients(pizza.getIngredients());
         System.out.println(
                 "---------------------------" + "\n" +
-                        "Amount: " + pizza.calculatePrice() + "\n" +
+                        "Amount: " + pizza.getPrice() + "\n" +
                         "Quantity: " + pizza.getQuantity() + "\n" +
                         "---------------------------");
 
@@ -114,6 +93,5 @@ public class Printer {
             System.out.println(i.getName() + " " + i.getPrice());
         }
     }
-
 
 }

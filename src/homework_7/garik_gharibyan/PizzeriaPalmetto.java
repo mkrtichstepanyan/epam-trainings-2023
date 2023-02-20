@@ -1,10 +1,10 @@
 package homework_7.garik_gharibyan;
 
-import homework_7.garik_gharibyan.drink.AlcoholicDrink;
-import homework_7.garik_gharibyan.drink.NonAlcoholicDrink;
-import homework_7.garik_gharibyan.food.pizza.Ingredient;
-import homework_7.garik_gharibyan.food.pizza.Pizza;
-import homework_7.garik_gharibyan.food.pizza.PizzaType;
+import homework_7.garik_gharibyan.product.drink.AlcoholicDrink;
+import homework_7.garik_gharibyan.product.drink.NonAlcoholicDrink;
+import homework_7.garik_gharibyan.product.food.pizza.Ingredient;
+import homework_7.garik_gharibyan.product.food.pizza.Pizza;
+import homework_7.garik_gharibyan.product.food.pizza.PizzaType;
 
 public class PizzeriaPalmetto {
 
@@ -15,33 +15,36 @@ public class PizzeriaPalmetto {
         customer.setName("Sevak");
         customer.setPhoneNumber("+37498000000");
 
-        Pizza pizzaMargarita = new Pizza("Margarita", PizzaType.CALZONE, 5);
-        pizzaMargarita.addIngredient(Ingredient.BACON);
-        pizzaMargarita.addIngredient(Ingredient.TOMATO_PASTE);
+        Pizza pizzaMargarita = new Pizza("Margarita", PizzaType.CALZONE);
 
-        Pizza pizzaItaliano = new Pizza("Italiano", PizzaType.REGULAR, 2);
+        Pizza pizzaItaliano = new Pizza("Italiano", PizzaType.REGULAR);
         pizzaItaliano.addIngredient(Ingredient.CORN);
         pizzaItaliano.addIngredient(Ingredient.PEPERONI);
         pizzaItaliano.addIngredient(Ingredient.TOMATO_PASTE);
         pizzaItaliano.addIngredient(Ingredient.CHEESE);
+        pizzaItaliano.addIngredient(Ingredient.BACON);
+        pizzaItaliano.addIngredient(Ingredient.GARLIC);
 
         Order order = new Order();
         order.setCustomer(customer);
 
-
-        order.addFood(pizzaMargarita);
-        order.addFood(pizzaItaliano);
-
-        order.addDrink(NonAlcoholicDrink.COCA_COLA,2);
-        order.addDrink(NonAlcoholicDrink.PEPSI,4);
-        order.addDrink(NonAlcoholicDrink.ORANGE,4);
-
-        order.addDrink(AlcoholicDrink.WINE,2);
-        order.addDrink(AlcoholicDrink.VODKA,3);
-
+        order.addProduct(NonAlcoholicDrink.COCA_COLA,2);
+        order.addProduct(pizzaItaliano,2);
+        order.addProduct(pizzaMargarita,10);
+        order.addProduct(AlcoholicDrink.VODKA,2);
 
         printer.printOrderAttributes(order);
         printer.printCheck(order);
+
+
+//        for (Product product: order.getProducts()) {
+//            if (product == null){
+//                break;
+//            }
+//            System.out.println(product.getName() + " " +  product.getQuantity() + " * " +  product.getPrice());
+//        }
+//
+//        System.out.println(order.calculateTotalPriceOfOrder());
 
     }
 }
