@@ -1,6 +1,7 @@
 package homework_7.garik_gharibyan;
 
-import homework_7.garik_gharibyan.drink.DrinkNonAlcoholic;
+import homework_7.garik_gharibyan.drink.Drink;
+import homework_7.garik_gharibyan.drink.NonAlcoholicDrink;
 import homework_7.garik_gharibyan.food.Food;
 import homework_7.garik_gharibyan.food.pizza.Pizza;
 
@@ -13,7 +14,7 @@ public class Order {
     private final int orderNumber;
     private Customer customer;
     private final Food[] foods = new Food[10];
-    private final DrinkNonAlcoholic[] drinks = new DrinkNonAlcoholic[100];
+    private final Drink[] drinks = new Drink[100];
     private int quantityDrink;
 
 
@@ -37,7 +38,7 @@ public class Order {
         return foods;
     }
 
-    public DrinkNonAlcoholic[] getDrinks() {
+    public Drink[] getDrinks() {
         return drinks;
     }
 
@@ -46,19 +47,16 @@ public class Order {
         orderNumber = initialId++;
     }
 
-    public void addDrink(DrinkNonAlcoholic drink, int quantityDrink) {
+    public void addDrink(Drink drink, int quantityDrink) {
         this.quantityDrink = quantityDrink;
         drinks[drinkIndex++] = drink;
     }
 
-    public void addFood(Food food) {
-        if (food.quantity > MAX_FOOD_AMOUNT) {
+    public void addPizza(Pizza pizza) {
+        if (pizza.quantity > MAX_FOOD_AMOUNT) {
             System.out.println("hop axper jan!!");
             return;
         }
-
-        if (food.getClass() == Pizza.class) {
-            Pizza pizza = (Pizza) food;
 
             int index = pizzaIndex++;
             String validPizzaName = getValidPizzaName(pizza.getName(), index);
@@ -66,8 +64,6 @@ public class Order {
             foods[index] = new Pizza(
                     validPizzaName, pizza.getPizzaType(),
                     pizza.getIngredients(), pizza.getQuantity());
-
-        }
     }
 
     public double calculateTotalPriceOfOrder() {
@@ -78,7 +74,7 @@ public class Order {
 
     private double calculateDrinkPriceOfOrder() {
         double totalDrinkAmount = 0;
-        for (DrinkNonAlcoholic drink : drinks) {
+        for (Drink drink : drinks) {
             if (drink == null) {
                 break;
             }

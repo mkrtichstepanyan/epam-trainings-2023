@@ -1,7 +1,7 @@
 package homework_7.garik_gharibyan;
 
 import homework_7.garik_gharibyan.drink.AlcoholicDrink;
-import homework_7.garik_gharibyan.drink.DrinkNonAlcoholic;
+import homework_7.garik_gharibyan.drink.NonAlcoholicDrink;
 import homework_7.garik_gharibyan.food.pizza.Ingredient;
 import homework_7.garik_gharibyan.food.pizza.Pizza;
 import homework_7.garik_gharibyan.food.pizza.PizzaType;
@@ -29,11 +29,12 @@ public class PizzeriaPalmetto {
         order.setCustomer(customer);
 
 
-        order.addFood(pizzaMargarita);
-        order.addFood(pizzaItaliano);
+        order.addPizza(pizzaMargarita);
+        order.addPizza(pizzaItaliano);
 
-        order.addDrink(DrinkNonAlcoholic.COCA_COLA,2);
-        order.addDrink(DrinkNonAlcoholic.PEPSI,4);
+        order.addDrink(NonAlcoholicDrink.COCA_COLA,2);
+        order.addDrink(NonAlcoholicDrink.PEPSI,4);
+        order.addDrink(NonAlcoholicDrink.ORANGE,4);
 
         order.addDrink(AlcoholicDrink.WINE,2);
         order.addDrink(AlcoholicDrink.VODKA,3);

@@ -1,11 +1,12 @@
 package homework_7.garik_gharibyan.drink;
 
-public class AlcoholicDrink extends DrinkNonAlcoholic {
+public class AlcoholicDrink extends Drink {
 
    private final double alcohol_degree;
 
    private AlcoholicDrink(String name,double price,double alcohol_degree){
-      super(name,price);
+      this.name = name;
+      this.price = price;
       this.alcohol_degree = alcohol_degree;
    }
 
@@ -15,4 +16,14 @@ public class AlcoholicDrink extends DrinkNonAlcoholic {
 
    public static AlcoholicDrink WINE = new AlcoholicDrink("Wine",5,10);
    public static AlcoholicDrink VODKA = new AlcoholicDrink("Vodka",7,40);
+
+   @Override
+   public String getName() {
+      return this.name;
+   }
+
+   @Override
+   public double getPrice() {
+      return this.price;
+   }
 }

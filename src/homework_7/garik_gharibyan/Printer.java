@@ -1,6 +1,7 @@
 package homework_7.garik_gharibyan;
 
-import homework_7.garik_gharibyan.drink.DrinkNonAlcoholic;
+import homework_7.garik_gharibyan.drink.Drink;
+import homework_7.garik_gharibyan.drink.NonAlcoholicDrink;
 import homework_7.garik_gharibyan.food.Food;
 import homework_7.garik_gharibyan.food.pizza.Ingredient;
 import homework_7.garik_gharibyan.food.pizza.Pizza;
@@ -35,7 +36,7 @@ public class Printer {
             }
 
         }
-        for (DrinkNonAlcoholic drink : order.getDrinks()) {
+        for (Drink drink : order.getDrinks()) {
             if (drink != null) {
                 System.out.print(
                         "drink name: " + drink.getName() + " price: " + drink.getPrice() + " quantity: " + order.getQuantityDrink() + "\n"
@@ -67,7 +68,7 @@ public class Printer {
     }
 
     private void printDrinkInfo(Order order) {
-        for (DrinkNonAlcoholic drink : order.getDrinks()) {
+        for (Drink drink : order.getDrinks()) {
             if (drink == null) {
                 break;
             }
