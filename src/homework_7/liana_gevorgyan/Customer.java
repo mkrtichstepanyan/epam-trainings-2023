@@ -1,4 +1,4 @@
-package homework_7_liana_gevorgyan;
+package homework_7.liana_gevorgyan;
 
 public class Customer {
     private static final int BASE_CUSTOMER_NUMBER = 1000;
