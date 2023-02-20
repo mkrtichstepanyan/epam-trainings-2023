@@ -8,7 +8,7 @@ public class Task_1 {
         // System.out.println(factorialDemo1(6));            // Question 3
 
         //     System.out.println(powerDemo(2, 3));                // Question 4
-//        reverseNumber();             // Question 5
+        reverseNumber(5647);             // Question 5
 //        readSetIntegers();           // Question 6
 
   //      System.out.println(testPrime(21));                 // Question 7
@@ -88,17 +88,33 @@ public class Task_1 {
          Write a program that prompts the user to input an integer and then outputs the number with the digits reversed.
          For example, if the input is 12345, the output should be 54321.
      */
-
+     static  int  reverse = 0;
     public static void reverseNumber(int number) {
 
-
-        int reverse = 0;
         int temp = number;
         int remainder = 0;
 
+            if(number!= 0){
+                if(reverse==0){
+                    reverse =number%10;
+                    reverseNumber(number/10);
+                    return;
+                }
+                temp = number % 10;
+                reverse = reverse * 10 + temp;
+                reverseNumber(number/10);
+return;
+
+            }
+        System.out.println(reverse);
+
+
+
+
         // Todo write your code here ...
 
-        System.out.println("Reverse of " + number + " is " + reverse);
+
+
     }
 
 
