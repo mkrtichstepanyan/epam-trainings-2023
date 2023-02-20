@@ -1,8 +1,8 @@
-package homework_7.sevak.Diana_Melkonyan;
+package homework_7.Diana_Melkonyan;
 
 // is a
 // has a
-public class Pizza {
+public class Pizza extends Item {
     public static final Pizza MARGARITA = new Pizza("Margarita", PizzaType.CALZONE, new Ingredient[]{
             Ingredient.CHEESE, Ingredient.CORN}, 3);
     public static final Pizza PEPPERONI = new Pizza("Pepperoni", PizzaType.REGULAR, new Ingredient[]{
@@ -40,6 +40,7 @@ public class Pizza {
         // todo implement a method tht will add ingredient into the list.
         if(ingredientCount>=MAX_ALLOWED_INGREDIENTS){
             System.out.println("Pizza iz full");
+            return;
         }
         for (int i = 0; i < ingredientCount; i++) {
             if (ingredients[i].equals(ingredient)) {
@@ -51,19 +52,20 @@ public class Pizza {
         ingredients[ingredientCount++] = ingredient;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
     public Ingredient[] getIngredients() {
         return ingredients;
     }
     public PizzaType getPizzaType(){
         return pizzaType;
+    }
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public int getQuantity() {
+        return quantity;
     }
 }
 

@@ -1,14 +1,17 @@
-package homework_7.sevak.Diana_Melkonyan;
+package homework_7.Diana_Melkonyan;
 
-public class Order extends Item {
+public class Order  {
     private static final int MAX_PIZZA_AMOUNT = 10;
+    private static final int MAX_DRINK_AMOUNT=5;
     private static final int BASE_ORDER_NUMBER = 10000;
     private static int initialId = BASE_ORDER_NUMBER;
 
-    private int index;
+    private int PizzaIndex;
+    private int DrinkIndex;
     private int orderNumber;
     private Customer customer;
     private Pizza[] pizzas = new Pizza[10];
+    private Drink[] drinks = new Drink[MAX_DRINK_AMOUNT];
 
     Order() {
         orderNumber = initialId++;
@@ -20,13 +23,15 @@ public class Order extends Item {
             System.out.println("hop axper jan!!");
             return;
         }
-        int pizzaIndex = index++;
+        int pizzaIndex = PizzaIndex++;
         String validPizzaName = getValidPizzaName(pizzaName, pizzaIndex);
         pizzas[pizzaIndex] = new Pizza(validPizzaName, type, ingredients, quantity);
     }
-    public void addDrink(String drinkName, int quantity){
-       int DrinkIndex = index++;
-       getDrink()[DrinkIndex]= new Drink(drinkName, quantity );
+
+
+    public void addDrink(String drinkName, DrinkType drinkType, int quantity){
+       int drinkIndex = DrinkIndex++;
+       drinks[drinkIndex]= new Drink(drinkName,drinkType, quantity );
 
     }
 
@@ -43,8 +48,12 @@ public class Order extends Item {
                 price = price + pizza.calculatePrice();
             }
         }
+        for (Drink drink:drinks) {
+            if(drink !=null){
+                price = price + drink.calculatePrice();
+            }
 
-
+        }
         return price;
     }
 
@@ -78,4 +87,7 @@ public class Order extends Item {
         return pizzas;
     }
 
+    public Drink[] getDrinks() {
+        return drinks;
+    }
 }

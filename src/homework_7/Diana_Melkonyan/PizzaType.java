@@ -1,4 +1,4 @@
-package homework_7.sevak.Diana_Melkonyan;
+package homework_7.Diana_Melkonyan;
 
 public class PizzaType {
     private static final double BASE_PRICE = 1.0;

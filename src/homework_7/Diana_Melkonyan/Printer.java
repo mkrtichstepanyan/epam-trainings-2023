@@ -1,4 +1,4 @@
-package homework_7.sevak.Diana_Melkonyan;
+package homework_7.Diana_Melkonyan;
 
 public class Printer {
 
@@ -9,7 +9,7 @@ public class Printer {
         printDelimiter();
         printPizza(order.getPizzas());
         printOrderPrice(order);
-        printDrink(order.getDrink());
+printDrink(order.getDrinks());
 
         trainlingLine();
     }
@@ -38,10 +38,17 @@ private static void printPizza(Pizza[] pizzas){
 
     }
 }
+
 private static void printDrink(Drink[] drinks){
+
         for(Drink drink: drinks){
             if(drink !=null){
+
                 System.out.println("Name: " + drink.getName());
+                printDelimiter();
+                System.out.println("Quantity: " +drink.getQuantity());
+                System.out.println("Amount :" + drink.calculatePrice() + "$");
+                printDelimiter();
             }
         }
 }
