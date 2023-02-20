@@ -1,7 +1,6 @@
 package homework_7.garik_gharibyan;
 
 import homework_7.garik_gharibyan.drink.Drink;
-import homework_7.garik_gharibyan.drink.NonAlcoholicDrink;
 import homework_7.garik_gharibyan.food.Food;
 import homework_7.garik_gharibyan.food.pizza.Pizza;
 
@@ -52,18 +51,26 @@ public class Order {
         drinks[drinkIndex++] = drink;
     }
 
-    public void addPizza(Pizza pizza) {
-        if (pizza.quantity > MAX_FOOD_AMOUNT) {
-            System.out.println("hop axper jan!!");
-            return;
-        }
+    public void addFood(Food food) {
+        int index = pizzaIndex++;
 
-            int index = pizzaIndex++;
+        if (food.getClass() == Pizza.class){
+            Pizza pizza = (Pizza) food;
+
+            if (pizza.quantity > MAX_FOOD_AMOUNT) {
+                System.out.println("hop axper jan!!");
+                return;
+            }
+
             String validPizzaName = getValidPizzaName(pizza.getName(), index);
 
             foods[index] = new Pizza(
                     validPizzaName, pizza.getPizzaType(),
                     pizza.getIngredients(), pizza.getQuantity());
+        }else {
+            foods[index] = food;
+        }
+
     }
 
     public double calculateTotalPriceOfOrder() {

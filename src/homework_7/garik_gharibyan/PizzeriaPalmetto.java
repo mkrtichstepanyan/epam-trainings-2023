@@ -29,8 +29,8 @@ public class PizzeriaPalmetto {
         order.setCustomer(customer);
 
 
-        order.addPizza(pizzaMargarita);
-        order.addPizza(pizzaItaliano);
+        order.addFood(pizzaMargarita);
+        order.addFood(pizzaItaliano);
 
         order.addDrink(NonAlcoholicDrink.COCA_COLA,2);
         order.addDrink(NonAlcoholicDrink.PEPSI,4);
