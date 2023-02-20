@@ -1,4 +1,4 @@
-package homework_7.sevak;
+package homework_7_Hovhannes_Gspeyan.palmetto.menu;
 
 public class PizzaType {
     private static final double BASE_PRICE = 1.0;
@@ -20,5 +20,9 @@ public class PizzaType {
 
     public double getPrice() {
         return price;
+    }
+
+    public String getName() {
+        return name;
     }
 }
