@@ -38,10 +38,12 @@ public class Printer {
             printDelimiter();
             System.out.print("Pizza Base (" + pizza.getPizzaTypeName() + ") ");
             System.out.println(pizza.getPizzaTypePrice());
-            for (Ingredients ingredient : pizza.getIngredients()) {
-                System.out.println(ingredient.getName() + " " + ingredient.getPrice());
+            Ingredients[] ing = pizza.getIngredients();
+            for (Ingredients ingredient : ing) {
+                if (ingredient != null) {
+                    System.out.println(ingredient.getName() + " " + ingredient.getPrice());
+                }
             }
-
             printDelimiter();
             System.out.println("Amount " + pizza.calculatePrice());
             System.out.println("Quantity " + pizza.getQuantity());

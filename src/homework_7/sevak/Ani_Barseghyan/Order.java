@@ -25,6 +25,17 @@ public class Order {
         pizzas[index] = new Pizza(validPizzaName, type, ingredients, quantity);
     }
 
+    public void addPizza(Pizza pizza) {
+        if (pizza.getQuantity() > MAX_PIZZA_AMOUNT) {
+            System.out.println("Hop axper jan");
+            return;
+        }
+        int index = pizzaIndex++;
+        String validPizzaName = getValidPizzaName(pizza.getName(), pizzaIndex);
+        Ingredients[] ing = pizza.getIngredients();
+        pizzas[index] = new Pizza(validPizzaName, pizza.getPizzaType(), ing, pizza.getQuantity());
+    }
+
     public void addBeverage(BeveragesMenu beverage, int quantity) {
         int index = beverageIndex++;
         beverages[index] = new Beverages(beverage, quantity);

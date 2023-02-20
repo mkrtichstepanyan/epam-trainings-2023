@@ -4,48 +4,55 @@ public class Pizza extends OrderItem {
     private static final int MAX_ALLOWED_INGREDIENTS = 8;
     private String name;
     private PizzaType pizzaType;
-    private static Ingredients[] ingredients = new Ingredients[10];
+    private Ingredients[] ingredients = new Ingredients[10];
     private int quantity;
     private static int toppingCount;
 
+    Pizza(String name, PizzaType pizzaType, int quantity) {
+        super(name, quantity);
+        this.name = name;
+        this.quantity = quantity;
+        this.pizzaType = pizzaType;
+        this.ingredients = new Ingredients[MAX_ALLOWED_INGREDIENTS];
+    }
 
     Pizza(String name, PizzaType pizzaType, Ingredients[] ingredients, int quantity) {
         super(name, quantity);
         this.name = name;
         this.quantity = quantity;
         this.pizzaType = pizzaType;
-        Pizza.ingredients = ingredients;
+        this.ingredients = ingredients;
 
     }
 
     public double calculatePrice() {
         double ingredientPrice = 0.0;
         for (Ingredients ingredient : ingredients) {
-            ingredientPrice += ingredient.getPrice();
+            if (ingredient != null) {
+                ingredientPrice += ingredient.getPrice();
+            }
         }
         return this.pizzaType.getPrice() + ingredientPrice;
     }
 
-    public static Ingredients addIngredients(Ingredients ingredient) {
+    public void addIngredients(Ingredients ingredient) {
         if (toppingCount > MAX_ALLOWED_INGREDIENTS) {
             System.out.println("Pizza is full");
-            return ingredient;
         }
-        //if (!isExistingIngredient(ingredient)) {
-        ingredients[toppingCount++] = ingredient;
-        //   }
-        return ingredient;
+        if (!isExistingIngredient(ingredient)) {
+            ingredients[toppingCount++] = ingredient;
+        }
     }
 
-//    private static boolean isExistingIngredient(Ingredients ingredient) {
-//        for (Ingredients ing : ingredients) {
-//            if (ingredient != null && ing.getName().equals(ingredient.getName())) {
-//                System.out.println("Ingredient " + ingredient.getName() + " already exists in Pizza");
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+    private boolean isExistingIngredient(Ingredients ingredient) {
+        for (Ingredients ing : ingredients) {
+            if (ingredient != null && ingredient.equals(ing)) {
+                System.out.println("Ingredient " + ingredient.getName() + " already exists in Pizza");
+                return true;
+            }
+        }
+        return false;
+    }
 
     public String getName() {
         return name;
@@ -69,5 +76,9 @@ public class Pizza extends OrderItem {
             ingredients[toppingCount] = Ingredients.TOMATO;
         }
         return ingredients;
+    }
+
+    public PizzaType getPizzaType() {
+        return pizzaType;
     }
 }
