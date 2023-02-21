@@ -29,8 +29,13 @@ public class Order {
     }
 
     public void addDrink(DrinkType drinkType, String drinkName, int quantity) {
+        if (quantity > MAX_DRINK_AMOUNT) {
+            System.out.println("hop axper jan!!");
+            return;
+        }
         int drinkIndex = startDrinkIndex++;
-        drinks[drinkIndex] = new Drink(drinkType, drinkName, quantity);
+        String validDrinkName = getValidDrinkName(drinkName, drinkIndex);
+        drinks[drinkIndex] = new Drink(drinkType, validDrinkName, quantity);
 
     }
 
@@ -84,7 +89,19 @@ public class Order {
         return validPizzaName;
     }
 
+    private String getValidDrinkName(String drinkName, int drinkIndex) {
+        String validDrinkName = drinkName;
+        if (!isValidDrinkName(drinkName)) {
+            validDrinkName = customer.getName() + "_" + drinkIndex;
+        }
+        return validDrinkName;
+    }
+
     private boolean isValidPizzaName(String pizzaName) {
         return pizzaName != null && pizzaName.length() > 4 && pizzaName.length() < 20;
+    }
+
+    private boolean isValidDrinkName(String drinkName) {
+        return drinkName != null && drinkName.length() > 4 && drinkName.length() < 20;
     }
 }
