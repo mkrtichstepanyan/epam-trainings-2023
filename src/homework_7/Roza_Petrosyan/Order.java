@@ -40,10 +40,14 @@ public class Order {
         double totalPrice = 0;
         for (Product product : products) {
             if (product != null) {
-//                if (!product.isDuplicate(product.getIngredients()) && product.getMaxCount() < 7) {
-//                    totalPrice += product.calculatePrice() * product.getQuantity();
-//                }
-                totalPrice += product.calculatePrice() * product.getQuantity();
+                if (product.getClass().getSimpleName().equals("Pizza")) {
+                    Pizza pizza = (Pizza) product;
+                    if(!pizza.isDuplicate(pizza.getIngredients()) && pizza.getMaxCount() < 7){
+                        totalPrice += pizza.calculatePrice() * pizza.getQuantity();
+                    }
+                }else {
+                    totalPrice += product.calculatePrice() * product.getQuantity();
+                }
             }
         }
         return totalPrice;

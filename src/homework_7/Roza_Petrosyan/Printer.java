@@ -34,13 +34,25 @@ public class Printer {
     private static void printBody(Order order) {
         for (Product product : order.getProducts()) {
             if (product != null) {
-                printName(product);
-                printDelimiter();
-                printProductType(product);
-                printIngredients(product);
-                printDelimiter();
-                printAmountAndQuantity(product);
-                printDelimiter();
+                if (product.getClass().getSimpleName().equals("Pizza")) {
+                    Pizza pizza = (Pizza) product;
+                    if(!pizza.isDuplicate(pizza.getIngredients()) && pizza.getMaxCount() < 7) {
+                        printName(product);
+                        printDelimiter();
+                        printProductType(product);
+                        printIngredients(product);
+                        printDelimiter();
+                        printAmountAndQuantity(product);
+                        printDelimiter();
+                    }
+                } else {
+                    printName(product);
+                    printDelimiter();
+                    printProductType(product);
+                    printDelimiter();
+                    printAmountAndQuantity(product);
+                    printDelimiter();
+                }
             }
         }
     }
