@@ -48,15 +48,14 @@ public class Order {
         int index = this.index++;
 
         if (product.getClass() == Pizza.class) {
-            ProductIsPizza(product, quantity, index);
+            productIsPizza((Pizza) product, quantity, index);
         } else {
             products[index] = product;
 
         }
     }
 
-    private void ProductIsPizza(Product product, int quantity, int index) {
-        Pizza pizza = (Pizza) product;
+    private void productIsPizza(Pizza pizza, int quantity, int index) {
 
         if (quantity > MAX_FOOD_AMOUNT) {
             System.out.println("hop axper jan!!");

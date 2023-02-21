@@ -2,6 +2,8 @@ package homework_7.garik_gharibyan.product.food.pizza;
 
 import homework_7.garik_gharibyan.product.food.Food;
 
+import java.util.Arrays;
+
 // is a
 // has a
 public class Pizza extends Food {
@@ -73,6 +75,16 @@ public class Pizza extends Food {
             ingredientPrice += ingredient.getPrice();
         }
         return this.pizzaType.getPrice() + ingredientPrice;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pizza pizza)) return false;
+
+        if (!getPizzaType().equals(pizza.getPizzaType())) return false;
+        // Probably incorrect - comparing Object[] arrays with Arrays.equals
+        return Arrays.equals(getIngredients(), pizza.getIngredients());
     }
 
 }
