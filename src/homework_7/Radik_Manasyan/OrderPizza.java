@@ -88,7 +88,4 @@ public class OrderPizza{
     public int getOrderNumber() {
         return orderNumber;
     }
-
-
-
 }
