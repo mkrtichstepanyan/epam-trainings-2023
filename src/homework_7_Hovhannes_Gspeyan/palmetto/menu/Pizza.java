@@ -1,8 +1,5 @@
 package homework_7_Hovhannes_Gspeyan.palmetto.menu;
-
 import homework_7_Hovhannes_Gspeyan.palmetto.Customer;
-
-import java.util.Arrays;
 
 // is a
 // has a
@@ -12,12 +9,16 @@ public class Pizza extends MenuItem {
     private static final int MAX_PIZZA_AMOUNT = 10;
     private int index;
     private Customer customer;
-
     private PizzaType pizzaType;
     private Ingredient[] ingredients;
-    private Pizza[] pizzas = new Pizza[10];
+    private final Pizza[] pizzas = new Pizza[10];
     private int quantity;
-    Pizza(String name, PizzaType pizzaType, int quantity) {
+
+    public Pizza() {
+
+    }
+
+    public Pizza(String name, PizzaType pizzaType, int quantity) {
         this.name = name;
         this.pizzaType = pizzaType;
         this.quantity = quantity;
@@ -29,10 +30,11 @@ public class Pizza extends MenuItem {
         this.ingredients = ingredients;
         this.quantity = quantity;
     }
+
     private String getValidPizzaName(String pizzaName, int pizzaIndex) {
         String validPizzaName = pizzaName;
         if (!isValidPizzaName(pizzaName)) {
-            validPizzaName = customer.getName() + "_" + pizzaIndex;
+            validPizzaName = this.customer.getName() + "_" + pizzaIndex;
         }
         return validPizzaName;
     }
@@ -40,6 +42,7 @@ public class Pizza extends MenuItem {
     private boolean isValidPizzaName(String pizzaName) {
         return pizzaName != null && pizzaName.length() > 4 && pizzaName.length() < 20;
     }
+
     public void addPizza(String pizzaName, PizzaType type,
                          Ingredient[] ingredients, int quantity) {
         if (quantity > MAX_PIZZA_AMOUNT) {
@@ -56,33 +59,41 @@ public class Pizza extends MenuItem {
         for (Ingredient ingredient : ingredients) {
             ingredientPrice += ingredient.getPrice();
         }
-        return this.pizzaType.getPrice() + ingredientPrice;
+        return (pizzaType.getPrice() + ingredientPrice) * quantity;
     }
-
     public void addIngredient(Ingredient ingredient) {
-        if(ingredients == null || ingredients.length == MAX_ALLOWED_INGREDIENTS){
-            System.out.println("You can not add more ingredients! ");
+        if (ingredients.length >= MAX_ALLOWED_INGREDIENTS) {
+            System.out.println("The " + getName() + " is already full! You cannot add more ingredients! ");
             return;
         }
-        for (int i = 0; i < ingredients.length; i++) {
-            if(ingredients[i] == ingredients[i + 1]){
-                System.out.println("you can not add the same ingredient twice! ");
+        for (Ingredient value : ingredients) {
+            if (value.equals(ingredient)) {
+                System.out.println("The " + ingredient.getName() + " already exists in " + getName() + "!, Please remove it ");
                 return;
             }
         }
-        Arrays.fill(ingredients, ingredient);
-        // todo implement a method tht will add ingredient into the list.
+        Ingredient[] newIngredients = new Ingredient[ingredients.length + 1];
+        System.arraycopy(ingredients, 0, newIngredients, 0, ingredients.length);
+        newIngredients[ingredients.length] = ingredient;
+        ingredients = newIngredients;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public String getName() {
-        return name;
+        return getValidPizzaName(name, index);
     }
+
     public int getQuantity() {
         return quantity;
     }
+
     public PizzaType getPizzaType() {
         return pizzaType;
     }
+
     public Ingredient[] getIngredients() {
         return ingredients;
     }

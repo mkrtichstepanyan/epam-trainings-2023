@@ -8,8 +8,8 @@ public class PizzaType {
     public static final PizzaType CALZONE =
             new PizzaType("calzone", BASE_PRICE, 0.5);
 
-    private String name;
-    private double price;
+    private final String name;
+    private final double price;
 
     private double additionalPrice;
 

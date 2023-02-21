@@ -1,5 +1,6 @@
 package homework_7_Hovhannes_Gspeyan.palmetto;
 
+import homework_7_Hovhannes_Gspeyan.palmetto.menu.Drink;
 import homework_7_Hovhannes_Gspeyan.palmetto.menu.Ingredient;
 import homework_7_Hovhannes_Gspeyan.palmetto.menu.MenuItem;
 import homework_7_Hovhannes_Gspeyan.palmetto.menu.Pizza;
@@ -10,11 +11,11 @@ import java.time.format.DateTimeFormatter;
 public class Printer {
 
 
-    public static void printCheck(Order order,Pizza pizza) {
+    public static void printCheck(Order order) {
         // todo print logic goes here.
         leadingLine(order);
         printOrderInfo(order);
-        printTotalInfo(order.getItems(),pizza);
+        printTotalInfo(order.getItems());
         printOrderPrice(order);
         footerLine();
 
@@ -24,6 +25,7 @@ public class Printer {
         System.out.println("*******************************");
         System.out.println("Order Time: " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm ")));
         order.printOrderAttributes();
+        System.out.println();
         System.out.println("-------------------------------");
     }
 
@@ -33,24 +35,29 @@ public class Printer {
         System.out.println("*****************************");
     }
 
-    private static void printTotalInfo(MenuItem[] items, Pizza pizza) {
+    private static void printTotalInfo(MenuItem[] items) {
         for (MenuItem item : items) {
             if (item == null) {
                 continue;
             }
-            if(item instanceof Pizza){
+            if (item instanceof Drink) {
                 System.out.println("Name: " + item.getName());
                 System.out.println("Quantity: " + item.getQuantity());
-                System.out.println("Price: " + item.calculatePrice());
+                System.out.println("Price: " + Drink.getDrinkType().getPrice());
+                System.out.println("Amount: " + item.calculatePrice());
+                System.out.println("--------------------------------");
+            } else {
+                Pizza pizza = (Pizza) item;
+                System.out.println("Name: " + item.getName());
+                System.out.println("Quantity: " + item.getQuantity());
+                System.out.println("Price: " + pizza.getPizzaType().getPrice());
                 printIngredients(pizza);
+                System.out.println("Amount: " + item.calculatePrice());
                 System.out.println("--------------------------------");
             }
-            System.out.println("Name: " + item.getName());
-            System.out.println("Quantity: " + item.getQuantity());
-            System.out.println("Price: " + item.calculatePrice());
-            System.out.println("--------------------------------");
         }
     }
+
     private static void printIngredients(Pizza pizza) {
         Ingredient[] ingredients = pizza.getIngredients();
         for (Ingredient ingredient : ingredients) {

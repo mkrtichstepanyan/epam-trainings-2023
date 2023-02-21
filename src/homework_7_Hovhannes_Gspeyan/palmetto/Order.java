@@ -31,17 +31,20 @@ public class Order {
         double amount = 0.0;
         for (MenuItem item : items) {
             if (item != null) {
-                amount += item.getQuantity() * item.calculatePrice();
+                amount += item.calculatePrice();
             }
         }
         return amount;
     }
 
     public void printOrderAttributes() {
+        System.out.print("[ " + initialId + ", " + customer.getNumber() + ", ");
         for (MenuItem item : items) {
-            System.out.println("[" + " " + Order.initialId + ", " +  customer.getNumber() + " , " + item.getName()
-                    + ", " +  item.getQuantity() + " " + "]");
+            System.out.print(item.getName() + "-" + item.getQuantity());
+
+                System.out.print(", ");
         }
+        System.out.print("]");
     }
     public int getOrderNumber() {
         return orderNumber = initialId++;

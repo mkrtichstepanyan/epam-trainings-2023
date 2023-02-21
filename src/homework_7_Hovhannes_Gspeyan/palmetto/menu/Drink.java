@@ -1,12 +1,16 @@
 package homework_7_Hovhannes_Gspeyan.palmetto.menu;
 
 public class Drink extends MenuItem {
-    private DrinkType drinkType;
+    private static DrinkType drinkType;
 
     public Drink(DrinkType drinkType, int quantity) {
-        this.drinkType = drinkType;
+        Drink.drinkType = drinkType;
         this.quantity = quantity;
         this.name = drinkType.getName();
+    }
+
+    public static DrinkType getDrinkType() {
+        return drinkType;
     }
 
     @Override
@@ -16,7 +20,7 @@ public class Drink extends MenuItem {
 
     @Override
     public double calculatePrice() {
-        return this.drinkType.getPrice();
+        return drinkType.getPrice() * quantity;
     }
 
     public int getQuantity() {

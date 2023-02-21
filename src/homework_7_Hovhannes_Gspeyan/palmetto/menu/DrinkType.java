@@ -16,8 +16,8 @@ public class DrinkType {
             new DrinkType("Mineral", BASE_PRICE,1.5);
 
 
-    private String name;
-    private double price;
+    private final String name;
+    private final double price;
 
     private double additionalPrice;
 
