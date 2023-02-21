@@ -1,4 +1,4 @@
-package Vardan_Mkrtchyan.tasks;
+package homework_3.Vardan_Mkrtchyan.tasks;
 import java.util.Scanner;
 public class task_3 {
     public static void main(String[] args) {
