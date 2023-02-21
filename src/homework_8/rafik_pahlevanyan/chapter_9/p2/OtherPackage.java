@@ -1,7 +1,7 @@
 package homework_8.rafik_pahlevanyan.chapter_9.p2;
 
 
-import chapters.chapter_9.p1.Protection;
+import homework_8.rafik_pahlevanyan.chapter_9.p1.Protection;
 
 public class OtherPackage {
 
