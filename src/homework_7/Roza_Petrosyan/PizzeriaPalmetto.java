@@ -14,20 +14,18 @@ public class PizzeriaPalmetto {
         Ingredient[] ingredients2 = {};
 
 
-        Pizza pizza1 = new Pizza("MyPizza", PizzaType.CALZONE, ingredients, 10);
-        Pizza pizza2 = new Pizza("MyPizza2", PizzaType.REGULAR, ingredients2, 5);
+        order.addProduct("Margarita", PizzaType.CALZONE, ingredients, 1);
+        order.addProduct("MyPizza2", PizzaType.REGULAR, ingredients2, 5);
 
-        order.addProduct(pizza1,"pizza");
-        order.addProduct(pizza2, "pizza");
+        Pizza pizza2 = (Pizza) order.getProducts()[1];
 
 
-        order.getPizzas()[1].addIngredient(Ingredient.Corn);
-        order.getPizzas()[1].addIngredient(Ingredient.Pepperoni);
-        order.getPizzas()[1].addIngredient(Ingredient.Olives);
+        pizza2.addIngredient(Ingredient.Corn);
+        pizza2.addIngredient(Ingredient.Pepperoni);
+        pizza2.addIngredient(Ingredient.Olives);
 
-        Drink drink1 = new Drink("Sprite", DrinkType.FIZZY, 2);
 
-        order.addProduct(drink1, "drink");
+        order.addProduct("Sprite", DrinkType.FIZZY, null, 2);
         order.printOrderAttributes();
 
 

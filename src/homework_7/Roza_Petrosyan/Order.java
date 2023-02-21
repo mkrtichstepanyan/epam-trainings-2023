@@ -1,50 +1,34 @@
 package homework_7.Roza_Petrosyan;
-public class Order{
+
+public class Order {
     private static final int MAX_PIZZA_AMOUNT = 10;
     private static final int BASE_ORDER_NUMBER = 10000;
     private static int initialId = BASE_ORDER_NUMBER;
 
     private int index;
-    private int index2;
     private int orderNumber;
     private Customer customer;
-    private Pizza[] pizzas = new Pizza[10];
-    private Drink[] drinks = new Drink[10];
+    private Product[] products = new Product[10];
 
     Order() {
         orderNumber = initialId++;
     }
 
-    public void addProduct(OrderItem orderItem, String type) {
-        if(type.equals("pizza")) {
-            if (orderItem.getQuantity() > MAX_PIZZA_AMOUNT) {
+    public void addProduct(String productName, ProductType productType, Ingredient[] ingredients, int quantity) {
+        int productIndex = 0;
+        if (quantity > MAX_PIZZA_AMOUNT) {
             System.out.println("You can not order more than 10 pizzas!");
             return;
         }
-        int pizzaIndex = index++;
-        String validPizzaName = getValidPizzaName(orderItem.getName(), pizzaIndex);
-        pizzas[pizzaIndex] = new Pizza(validPizzaName, orderItem.getPizzaType(), orderItem.getIngredients(), orderItem.getQuantity());
-        } else if (type.equals("drink")) {
-            int drinkIndex = index2++;
-            drinks[drinkIndex] = new Drink(orderItem.getName(),orderItem.getDrinkType(),orderItem.getQuantity());
+        if (productType.getClass().getSimpleName().equals("PizzaType")) {
+            productIndex = index++;
+            String validPizzaName = getValidPizzaName(productName, productIndex);
+            products[productIndex] = new Pizza(validPizzaName, productType, ingredients, quantity);
+        } else if (productType.getClass().getSimpleName().equals("DrinkType")) {
+            productIndex = index++;
+            products[productIndex] = new Drink(productName, productType, quantity);
         }
     }
-
-//    public void addPizza(String pizzaName, PizzaType type,
-//                         Ingredient[] ingredients, int quantity) {
-//        if (quantity > MAX_PIZZA_AMOUNT) {
-//            System.out.println("You can not order more than 10 pizzas!");
-//            return;
-//        }
-//        int pizzaIndex = index++;
-//        String validPizzaName = getValidPizzaName(pizzaName, pizzaIndex);
-//        getPizzas()[pizzaIndex] = new Pizza(validPizzaName, type, ingredients, quantity);
-//    }
-//
-//    public void addDrink(String drinkName, DrinkType type, int quantity) {
-//        int drinkIndex = index2++;
-//        getDrinks()[drinkIndex] = new Drink(drinkName, type, quantity);
-//    }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
@@ -54,16 +38,12 @@ public class Order{
 
         // todo calculate order total price
         double totalPrice = 0;
-        for (Pizza pizza : pizzas) {
-            if (pizza != null) {
-                if (!pizza.isDuplicate(pizza.getIngredients()) && pizza.getMaxCount() < 7) {
-                    totalPrice += pizza.calculatePrice() * pizza.getQuantity();
-                }
-            }
-        }
-        for (Drink drink : drinks) {
-            if (drink != null) {
-                totalPrice += drink.calculatePrice() * drink.getQuantity();
+        for (Product product : products) {
+            if (product != null) {
+//                if (!product.isDuplicate(product.getIngredients()) && product.getMaxCount() < 7) {
+//                    totalPrice += product.calculatePrice() * product.getQuantity();
+//                }
+                totalPrice += product.calculatePrice() * product.getQuantity();
             }
         }
         return totalPrice;
@@ -71,20 +51,12 @@ public class Order{
 
 
     public void printOrderAttributes() {
-        for (Pizza pizza : pizzas) {
-            if (pizza != null) {
+        for (Product product : products) {
+            if (product != null) {
                 System.out.println("[" + orderNumber + ":"
                         + customer.getNumber() + ":"
-                        + pizza.getName() + ":"
-                        + pizza.getQuantity() + "]");
-            }
-        }
-        for (Drink drink : drinks) {
-            if (drink != null) {
-                System.out.println("[" + orderNumber + ":"
-                        + customer.getNumber()
-                        + ":" + drink.getName()
-                        + ":" + drink.getQuantity() + "]");
+                        + product.getName() + ":"
+                        + product.getQuantity() + "]");
             }
         }
     }
@@ -109,11 +81,7 @@ public class Order{
         return customer;
     }
 
-    public Pizza[] getPizzas() {
-        return pizzas;
-    }
-
-    public Drink[] getDrinks() {
-        return drinks;
+    public Product[] getProducts() {
+        return products;
     }
 }

@@ -2,12 +2,17 @@ package homework_7.Roza_Petrosyan;
 
 // is a
 // has a
-public class Pizza extends OrderItem {
+public class Pizza extends Product {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
+
+    private ProductType productType;
+    public Ingredient[] ingredients;
     private int maxCount;
 
-    Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity) {
-        super(name, pizzaType, ingredients,quantity);
+    Pizza(String name, ProductType productType, Ingredient[] ingredients, int quantity) {
+        super(name, quantity);
+        this.productType = productType;
+        this.ingredients = ingredients;
     }
 
     public double calculatePrice() {
@@ -17,13 +22,13 @@ public class Pizza extends OrderItem {
                 ingredientPrice += ingredient.getPrice();
             }
         }
-        return pizzaType.getPrice() + ingredientPrice;
+        return productType.getPrice() + ingredientPrice;
     }
 
     public void addIngredient(Ingredient ingredient) {
         // todo implement a method that will add ingredient into the list.
         int newSize = 0;
-        if(getIngredients() != null) {
+        if (getIngredients() != null) {
             newSize = getIngredients().length;
         }
         Ingredient[] newIngredients = new Ingredient[++newSize];
@@ -39,7 +44,7 @@ public class Pizza extends OrderItem {
         }
 
 
-        ingredients = newIngredients;
+        this.ingredients = newIngredients;
 
         if (isDuplicate(ingredients)) {
             System.out.println("Please check your order again!");
@@ -76,8 +81,16 @@ public class Pizza extends OrderItem {
         return result;
     }
 
+    public Ingredient[] getIngredients() {
+        return ingredients;
+    }
+
     public int getMaxCount() {
         return maxCount;
+    }
+
+    public ProductType getProductType() {
+        return productType;
     }
 }
 
