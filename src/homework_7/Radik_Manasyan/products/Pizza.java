@@ -1,25 +1,15 @@
-package homework_7.Radik_Manasyan;
+package homework_7.Radik_Manasyan.products;
 
 
-public class Pizza {
+import homework_7.Radik_Manasyan.products.productType.ProductType;
+
+public class Pizza extends Products {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
-
-    private String name;
-    private PizzaType pizzaType;
     private Ingredient[] ingredients;
-    private int quantity;
 
-    Pizza(String name, PizzaType pizzaType, int quantity) {
-        this.name = name;
-        this.pizzaType = pizzaType;
-        this.quantity = quantity;
-    }
-
-    Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity) {
-        this.name = name;
-        this.pizzaType = pizzaType;
+    public Pizza(String name, ProductType productType, Ingredient[] ingredients, int quantity) {
+        super(name, productType, quantity);
         this.ingredients = ingredients;
-        this.quantity = quantity;
     }
 
     public double calculatePrice() {
@@ -27,7 +17,7 @@ public class Pizza {
         for (Ingredient ingredient : ingredients) {
             ingredientPrice += ingredient.getPrice();
         }
-        return this.pizzaType.getPrice() + ingredientPrice;
+        return getProductType().getPrice() + ingredientPrice;
     }
 
     public void addIngredient(Ingredient ingredient) {
@@ -48,20 +38,8 @@ public class Pizza {
         }
     }
 
-    public String getName() {
-        return name;
-    }
-
     public Ingredient[] getIngredients() {
         return ingredients;
     }
 
-    public PizzaType getPizzaType() {
-        return pizzaType;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
 }
-

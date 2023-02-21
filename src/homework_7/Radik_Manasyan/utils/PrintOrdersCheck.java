@@ -1,8 +1,12 @@
-package homework_7.Radik_Manasyan;
+package homework_7.Radik_Manasyan.utils;
 
-public class Printer {
+import homework_7.Radik_Manasyan.orders.Order;
+import homework_7.Radik_Manasyan.products.Ingredient;
+import homework_7.Radik_Manasyan.products.Products;
 
-    public static void printCheck(OrderPizza order) {
+public class PrintOrdersCheck {
+
+    public static void printCheck(Order order) {
         order.printOrderAttributes();
 
         leadingLine();
@@ -18,31 +22,31 @@ public class Printer {
         System.out.println("********************");
     }
 
-    private static void orderClientPizzaInfo(OrderPizza order) {
+    private static void orderClientPizzaInfo(Order order) {
         System.out.println("Order: " + order.getOrderNumber() + "\nClient: " + order.getCustomer().getNumber());
     }
 
-    private static void bodyCheck(OrderPizza order) {
-        for (Pizza pizza : order.getPizzas()) {
-            if (pizza != null) {
+    private static void bodyCheck(Order order) {
+        for (Products product : order.getOrder()) {
+            if (product != null) {
 
-                System.out.println("Name: " + pizza.getName() + "\n-------------------------");
-                System.out.println(pizza.getPizzaType().getName() + " " +
-                        String.format("%.2f", pizza.getPizzaType().getPrice()) + " " +
+                System.out.println("Name: " + product.getName() + "\n-------------------------");
+                System.out.println(product.getProductType().getName() + " " +
+                        String.format("%.2f", product.getProductType().getPrice()) + " " +
                         order.getCustomer().getCurrency());
-                for (Ingredient ingredient : pizza.getIngredients()) {
+                for (Ingredient ingredient : product.getIngredients()) {
                     System.out.println(ingredient.getName() + " " + String.format("%.2f", ingredient.getPrice()) + " " +
                             order.getCustomer().getCurrency());
                 }
                 System.out.println("--------------------------------\n" +
-                        "Amount: " + String.format("%.2f", pizza.calculatePrice()) + " " + order.getCustomer().getCurrency() +
-                        "\nQuantity: " + pizza.getQuantity() +
+                        "Amount: " + String.format("%.2f", product.calculatePrice()) + " " + order.getCustomer().getCurrency() +
+                        "\nQuantity: " + product.getQuantity() +
                         "\n--------------------------------");
             }
         }
     }
 
-    private static void totalCoast(OrderPizza order) {
+    private static void totalCoast(Order order) {
         String totalAmount = String.format("%.2f", order.calculateOrderPrice());
         System.out.println("Total Amount: " + totalAmount + " " + order.getCustomer().getCurrency());
     }

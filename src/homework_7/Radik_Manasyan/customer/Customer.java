@@ -1,4 +1,4 @@
-package homework_7.Radik_Manasyan;
+package homework_7.Radik_Manasyan.customer;
 
 public class Customer {
     private static final int BASE_CUSTOMER_NUMBER = 1000;
@@ -10,7 +10,7 @@ public class Customer {
 
     private String currency;
 
-    Customer() {
+    public Customer() {
         customerNumber = initialId++;
     }
 
