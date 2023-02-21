@@ -1,7 +1,7 @@
 package homework_7.Araksya_Ghazaryan;
 
 public class Pizza {
-    public static final Pizza Italiano = new Pizza("Italiano", PizzaType.REGULAR, new Ingredient[]{Ingredient.TOMATO_PASTE, Ingredient.SALAMI}, 2);
+    public static final Pizza ITALIANO = new Pizza("Italiano", PizzaType.REGULAR, new Ingredient[]{Ingredient.TOMATO_PASTE, Ingredient.SALAMI}, 2);
     public static final Pizza MARGARITA = new Pizza("Margarita", PizzaType.CALZONE, new Ingredient[]{Ingredient.CHEESE, Ingredient.BACON}, 1);
     public static final Pizza PEPPERONI = new Pizza("Pepperoni", PizzaType.REGULAR, new Ingredient[]{Ingredient.PEPPERONI, Ingredient.CHEESE}, 1);
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
