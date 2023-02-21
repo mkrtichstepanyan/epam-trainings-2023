@@ -36,18 +36,26 @@ public class Order {
 
 
     public void addProduct(Product product, int quantity) {
+
+        for (Product product1 : products) {
+            if (product.equals(product1)) {
+                product1.setQuantity(product1.getQuantity() + quantity);
+                return;
+            }
+        }
+
         product.setQuantity(quantity);
         int index = this.index++;
 
         if (product.getClass() == Pizza.class) {
-            ProductIsPizza(product, quantity,index);
-        }else {
+            ProductIsPizza(product, quantity, index);
+        } else {
             products[index] = product;
 
         }
     }
 
-    private void ProductIsPizza(Product product, int quantity ,int index) {
+    private void ProductIsPizza(Product product, int quantity, int index) {
         Pizza pizza = (Pizza) product;
 
         if (quantity > MAX_FOOD_AMOUNT) {

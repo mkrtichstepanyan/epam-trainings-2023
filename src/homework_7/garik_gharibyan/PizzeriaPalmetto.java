@@ -28,23 +28,15 @@ public class PizzeriaPalmetto {
         Order order = new Order();
         order.setCustomer(customer);
 
-        order.addProduct(NonAlcoholicDrink.COCA_COLA,2);
-        order.addProduct(pizzaItaliano,2);
-        order.addProduct(pizzaMargarita,10);
-        order.addProduct(AlcoholicDrink.VODKA,2);
+        order.addProduct(NonAlcoholicDrink.COCA_COLA, 10);
+        order.addProduct(NonAlcoholicDrink.COCA_COLA, 7);
+        order.addProduct(NonAlcoholicDrink.FANTA, 7);
+        order.addProduct(pizzaItaliano, 2);
+        order.addProduct(pizzaMargarita, 10);
+        order.addProduct(AlcoholicDrink.VODKA, 4);
 
         printer.printOrderAttributes(order);
         printer.printCheck(order);
-
-
-//        for (Product product: order.getProducts()) {
-//            if (product == null){
-//                break;
-//            }
-//            System.out.println(product.getName() + " " +  product.getQuantity() + " * " +  product.getPrice());
-//        }
-//
-//        System.out.println(order.calculateTotalPriceOfOrder());
 
     }
 }
