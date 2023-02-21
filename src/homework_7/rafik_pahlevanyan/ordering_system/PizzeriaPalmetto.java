@@ -30,11 +30,6 @@ public class PizzeriaPalmetto {
         order.addDrink(Juice.FANTA,10);
 
 
-
-
-
-
-
         Printer.printCheck(order);
         order.printOrderAttributes();
     }
