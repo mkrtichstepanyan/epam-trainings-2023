@@ -30,7 +30,9 @@ public class PizzeriaPalmetto {
 
         order.addProduct(NonAlcoholicDrink.COCA_COLA, 10);
         order.addProduct(NonAlcoholicDrink.COCA_COLA, 7);
-        order.addProduct(NonAlcoholicDrink.FANTA, 7);
+        order.addProduct(NonAlcoholicDrink.PEPSI, 2);
+        order.addProduct(NonAlcoholicDrink.APPLE, 1);
+        order.addProduct(NonAlcoholicDrink.ORANGE, 1);
         order.addProduct(pizzaItaliano, 2);
         order.addProduct(pizzaItaliano, 2);
         order.addProduct(pizzaMargarita, 10);

@@ -2,7 +2,7 @@ package homework_7.garik_gharibyan.product;
 
 public abstract class Product {
     protected int quantity;
-    protected String name;
+    protected final String name;
     protected double price;
 
     protected Product(String name,double price){
