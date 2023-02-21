@@ -1,4 +1,4 @@
-package Vardan_Mkrtchyan.tasks;
+package homework_3.Vardan_Mkrtchyan.tasks;
 
 public class task_1 {
     public static void main(String[] args) {
