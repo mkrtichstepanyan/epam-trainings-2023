@@ -1,26 +1,18 @@
-package homework_7.sevak.Ani_Barseghyan;
+package homework_7.Ani_Barseghyan;
 
-public class Pizza extends OrderItem {
+public class Pizza extends Product {
     private static final int MAX_ALLOWED_INGREDIENTS = 8;
-    private String name;
-    private PizzaType pizzaType;
-    private Ingredients[] ingredients = new Ingredients[10];
-    private int quantity;
+    private static Ingredients[] ingredients;
     private static int toppingCount;
 
-    Pizza(String name, PizzaType pizzaType, int quantity) {
-        super(name, quantity);
-        this.name = name;
-        this.quantity = quantity;
-        this.pizzaType = pizzaType;
+
+    Pizza(String name, ProductType productType, int quantity) {
+        super(name, productType, quantity);
         this.ingredients = new Ingredients[MAX_ALLOWED_INGREDIENTS];
     }
 
-    Pizza(String name, PizzaType pizzaType, Ingredients[] ingredients, int quantity) {
-        super(name, quantity);
-        this.name = name;
-        this.quantity = quantity;
-        this.pizzaType = pizzaType;
+    Pizza(String name, ProductType productType, Ingredients[] ingredients, int quantity) {
+        super(name, productType, quantity);
         this.ingredients = ingredients;
 
     }
@@ -32,7 +24,7 @@ public class Pizza extends OrderItem {
                 ingredientPrice += ingredient.getPrice();
             }
         }
-        return this.pizzaType.getPrice() + ingredientPrice;
+        return super.getProductType().getPrice() + ingredientPrice;
     }
 
     public void addIngredients(Ingredients ingredient) {
@@ -54,23 +46,8 @@ public class Pizza extends OrderItem {
         return false;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public String getPizzaTypeName() {
-        return pizzaType.getName();
-    }
-
-    public double getPizzaTypePrice() {
-        return pizzaType.getPrice();
-    }
-
-    public Ingredients[] getIngredients() {
+    public static Ingredients[] getIngredients() {
         if (ingredients == null) {
             System.out.println("You need at least one topping on the pizza");
             ingredients[toppingCount] = Ingredients.TOMATO;
@@ -78,7 +55,7 @@ public class Pizza extends OrderItem {
         return ingredients;
     }
 
-    public PizzaType getPizzaType() {
-        return pizzaType;
+    public ProductType getProductType() {
+        return super.getProductType();
     }
 }
