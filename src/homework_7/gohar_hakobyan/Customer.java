@@ -1,15 +1,14 @@
 package homework_7.gohar_hakobyan;
 
 public class Customer {
-    private static final int BASE_CUSTOMER_NUMBER = 1000;
-    private static int initialId = BASE_CUSTOMER_NUMBER;
+    private static int baseId = 10000;
 
     private int customerNumber;
     private String customerName;
     private String phoneNumber;
 
     Customer() {
-        customerNumber = initialId++;
+        customerNumber = baseId++;
     }
 
     public void setName(String customerName) {

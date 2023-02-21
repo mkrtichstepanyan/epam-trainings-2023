@@ -17,11 +17,11 @@ public class PizzeriaPalmetto {
 
         Ingredient[] ingredients = {Ingredient.CHEESE, Ingredient.SALAMI, Ingredient.TOMATO_PASTE};
         Pizza pizza = new Pizza("Margarita", PizzaType.CALZONE, ingredients, 10);
-        Pizza PepperoniOro = new Pizza("PepperoniOro", PizzaType.REGULAR, ingredients, 5);
+        Pizza pepperoniOro = new Pizza("PepperoniOro", PizzaType.REGULAR, ingredients, 5);
 
         Drink drink = new Drink(DrinkType.PEPSI, 2);
         products[0] = pizza;
-        products[1] = PepperoniOro;
+        products[1] = pepperoniOro;
         products[2] = drink;
 
         Order order = Order.makeOrder(products, customer);
