@@ -1,9 +1,9 @@
 package homework_7.Diana_Melkonyan;
 
 public class DrinkType {
-   // private static final DrinkType COLA= new DrinkType("Cola",  0);
+
    public static final DrinkType Coca_Cola =
-           new DrinkType("Coca_Cola", 1);
+           new DrinkType("Coca_Cola", 2);
 
     private String name;
     private double price;

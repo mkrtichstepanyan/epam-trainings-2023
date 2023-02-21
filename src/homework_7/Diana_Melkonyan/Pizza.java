@@ -9,16 +9,14 @@ public class Pizza extends Item {
             Ingredient.OLIVES, Ingredient.PEPPERONI}, 5);
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
 
-    private String name;
     private PizzaType pizzaType;
     private Ingredient[] ingredients;
-    private int quantity;
     private int ingredientCount = 0;
 
     Pizza(String name, PizzaType pizzaType, int quantity) {
-        this.name = name;
+        super.name = name;
         this.pizzaType = pizzaType;
-        this.quantity = quantity;
+        super.quantity = quantity;
     }
 
     Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity) {
@@ -33,7 +31,7 @@ public class Pizza extends Item {
         for (Ingredient ingredient : ingredients) {
             ingredientPrice += ingredient.getPrice();
         }
-        return this.pizzaType.getPrice() + ingredientPrice;
+        return this.pizzaType.getPrice() + ingredientPrice * getQuantity();
     }
 
     public void addIngredient(Ingredient ingredient) {

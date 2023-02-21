@@ -6,10 +6,11 @@ public class Order  {
     private static final int BASE_ORDER_NUMBER = 10000;
     private static int initialId = BASE_ORDER_NUMBER;
 
-    private int PizzaIndex;
-    private int DrinkIndex;
+    private int index;
+
     private int orderNumber;
     private Customer customer;
+
     private Pizza[] pizzas = new Pizza[10];
     private Drink[] drinks = new Drink[MAX_DRINK_AMOUNT];
 
@@ -23,14 +24,14 @@ public class Order  {
             System.out.println("hop axper jan!!");
             return;
         }
-        int pizzaIndex = PizzaIndex++;
+        int pizzaIndex = index++;
         String validPizzaName = getValidPizzaName(pizzaName, pizzaIndex);
         pizzas[pizzaIndex] = new Pizza(validPizzaName, type, ingredients, quantity);
     }
 
 
     public void addDrink(String drinkName, DrinkType drinkType, int quantity){
-       int drinkIndex = DrinkIndex++;
+       int drinkIndex = index++;
        drinks[drinkIndex]= new Drink(drinkName,drinkType, quantity );
 
     }

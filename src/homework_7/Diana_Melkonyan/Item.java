@@ -1,13 +1,18 @@
 package homework_7.Diana_Melkonyan;
 
 abstract class Item {
-    public String name;
-   public int quantity;
+    protected String name;
+   protected int quantity;
 
 
-    public abstract String getName();
+    public String getName(){
+        return name;
+    }
 
-    public abstract int getQuantity();
+    public int getQuantity(){
+
+        return quantity;
+    };
     public abstract double calculatePrice();
 
 }
