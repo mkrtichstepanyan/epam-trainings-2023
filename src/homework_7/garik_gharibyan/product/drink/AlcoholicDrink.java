@@ -8,8 +8,4 @@ public class AlcoholicDrink extends Drink {
 
     public static final AlcoholicDrink VODKA = new AlcoholicDrink("Vodka", 7);
 
-    @Override
-    public double getPrice() {
-        return this.price;
-    }
 }

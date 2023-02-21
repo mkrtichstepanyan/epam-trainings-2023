@@ -14,7 +14,6 @@ public class Customer {
     }
 
 
-
     public int getNumber() {
         return number;
     }
@@ -32,9 +31,6 @@ public class Customer {
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
-
-
 
 
 }

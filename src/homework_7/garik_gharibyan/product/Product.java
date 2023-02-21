@@ -16,7 +16,9 @@ public abstract class Product {
         return name;
     }
 
-    public abstract double getPrice();
+    public double getPrice(){
+        return price;
+    };
 
     public int getQuantity(){
         return quantity;
