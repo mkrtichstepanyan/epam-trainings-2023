@@ -1,4 +1,4 @@
-package homework_7.rafik_pahlevanyan;
+package homework_7.rafik_pahlevanyan.ordering_system.model;
 
 public class Customer {
     private static final int BASE_CUSTOMER_NUMBER = 1000;
@@ -8,7 +8,7 @@ public class Customer {
     private String customerName;
     private String phoneNumber;
 
-    Customer() {
+    public Customer() {
         customerNumber = initialId++;
     }
 

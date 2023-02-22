@@ -1,4 +1,4 @@
-package homework_7.rafik_pahlevanyan;
+package homework_7.rafik_pahlevanyan.ordering_system.pizza;
 
 public class Ingredient {
     public static final Ingredient TOMATO_PASTE = new Ingredient("Tomato Paste", 1);

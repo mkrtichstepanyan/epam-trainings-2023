@@ -1,25 +1,36 @@
-package homework_7.rafik_pahlevanyan;
+package homework_7.rafik_pahlevanyan.ordering_system.pizza;
+
+import homework_7.rafik_pahlevanyan.ordering_system.product.Product;
+import homework_7.rafik_pahlevanyan.ordering_system.product.ProductType;
 
 public class Pizza extends Product {
+
 
     public static final Pizza MARGARITA = new Pizza("Margarita", PizzaType.CALZONE, new Ingredient[]{Ingredient.CORN, Ingredient.BACON}, 1);
     public static final Pizza PEPPERONI = new Pizza("Pepperoni", PizzaType.REGULAR, new Ingredient[]{Ingredient.PEPPERONI, Ingredient.CHEESE}, 1);
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
-    private PizzaType pizzaType;
+
+    public ProductType getProductType() {
+        return productType;
+    }
+
+    private ProductType productType;
     private Ingredient[] ingredients = new Ingredient[MAX_ALLOWED_INGREDIENTS];
     private int ingredientsCount = 0;
 
 
-    public Pizza(String name, PizzaType pizzaType, int quantity) {
+    public Pizza(String name, ProductType productType, int quantity) {
         this.name = name;
-        this.pizzaType = pizzaType;
+        this.productType = productType;
         this.quantity = quantity;
+
     }
 
-    public Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity) {
+
+    public Pizza(String name, ProductType productType, Ingredient[] ingredients, int quantity) {
 
         this.name = name;
-        this.pizzaType = pizzaType;
+        this.productType = productType;
         this.ingredients = ingredients;
         this.quantity = quantity;
     }
@@ -32,7 +43,7 @@ public class Pizza extends Product {
                 ingredientPrice += ingredient.getPrice();
             }
         }
-        return (this.pizzaType.getPrice() + ingredientPrice) * quantity;
+        return (this.productType.getPrice() + ingredientPrice) * quantity;
     }
 
     public void addIngredient(Ingredient ingredient) {
@@ -51,7 +62,6 @@ public class Pizza extends Product {
     }
 
 
-
     @Override
     public String getName() {
         return super.getName();
@@ -67,9 +77,6 @@ public class Pizza extends Product {
         return quantity;
     }
 
-    public PizzaType getPizzaType() {
-        return pizzaType;
-    }
 
     public Ingredient[] getIngredients() {
         return ingredients;
