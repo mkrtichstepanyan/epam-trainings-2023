@@ -1,4 +1,6 @@
-package homework_7.Roza_Petrosyan;
+package homework_7.Roza_Petrosyan.product;
+
+import homework_7.Roza_Petrosyan.productType.ProductType;
 
 public class Drink extends Product {
     private ProductType productType;

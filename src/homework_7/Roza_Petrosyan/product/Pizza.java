@@ -1,4 +1,7 @@
-package homework_7.Roza_Petrosyan;
+package homework_7.Roza_Petrosyan.product;
+
+import homework_7.Roza_Petrosyan.ingredient.Ingredient;
+import homework_7.Roza_Petrosyan.productType.ProductType;
 
 // is a
 // has a
@@ -9,7 +12,7 @@ public class Pizza extends Product {
     public Ingredient[] ingredients;
     private int maxCount;
 
-    Pizza(String name, ProductType productType, Ingredient[] ingredients, int quantity) {
+    public Pizza(String name, ProductType productType, Ingredient[] ingredients, int quantity) {
         super(name, quantity);
         this.productType = productType;
         this.ingredients = ingredients;

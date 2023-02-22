@@ -1,5 +1,9 @@
 package homework_7.Roza_Petrosyan;
 
+import homework_7.Roza_Petrosyan.ingredient.*;
+import homework_7.Roza_Petrosyan.product.*;
+import homework_7.Roza_Petrosyan.productType.*;
+
 public class Order {
     private static final int MAX_PIZZA_AMOUNT = 10;
     private static final int BASE_ORDER_NUMBER = 10000;

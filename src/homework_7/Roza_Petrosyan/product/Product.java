@@ -1,4 +1,4 @@
-package homework_7.Roza_Petrosyan;
+package homework_7.Roza_Petrosyan.product;
 
 public abstract class Product {
     private String name;

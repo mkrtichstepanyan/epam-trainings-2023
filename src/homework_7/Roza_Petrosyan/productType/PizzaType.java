@@ -1,4 +1,4 @@
-package homework_7.Roza_Petrosyan;
+package homework_7.Roza_Petrosyan.productType;
 
 public class PizzaType extends ProductType {
     private static final double BASE_PRICE = 1.0;

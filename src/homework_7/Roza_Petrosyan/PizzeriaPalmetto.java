@@ -1,5 +1,10 @@
 package homework_7.Roza_Petrosyan;
 
+import homework_7.Roza_Petrosyan.ingredient.*;
+import homework_7.Roza_Petrosyan.printer.*;
+import homework_7.Roza_Petrosyan.productType.*;
+import homework_7.Roza_Petrosyan.product.*;
+
 public class PizzeriaPalmetto {
 
     public static void main(String[] args) {
@@ -10,7 +15,7 @@ public class PizzeriaPalmetto {
         Order order = new Order();
         order.setCustomer(customer);
 
-        Ingredient[] ingredients = {Ingredient.TOMATO_PASTE, Ingredient.Bacon, Ingredient.Garlic};
+        Ingredient[] ingredients = {PizzaIngredient.TOMATO_PASTE, PizzaIngredient.Bacon, PizzaIngredient.Garlic};
         Ingredient[] ingredients2 = {};
 
 
@@ -20,9 +25,9 @@ public class PizzeriaPalmetto {
         Pizza pizza2 = (Pizza) order.getProducts()[1];
 
 
-        pizza2.addIngredient(Ingredient.Corn);
-        pizza2.addIngredient(Ingredient.Pepperoni);
-        pizza2.addIngredient(Ingredient.Olives);
+        pizza2.addIngredient(PizzaIngredient.Corn);
+        pizza2.addIngredient(PizzaIngredient.Pepperoni);
+        pizza2.addIngredient(PizzaIngredient.Olives);
 
 
         order.addProduct("Sprite", DrinkType.FIZZY, null, 2);
