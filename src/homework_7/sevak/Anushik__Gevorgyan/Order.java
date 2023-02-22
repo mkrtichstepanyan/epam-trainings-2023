@@ -16,15 +16,15 @@ public class Order {
         orderNumber = initialId++;
     }
 
-    public void addPizza(String pizzaName, PizzaType type,
+    public void addProduct(String productName, PizzaType type,
                          Ingredient[] ingredients, int quantity) {
         if (quantity > MAX_PIZZA_AMOUNT) {
             System.out.println("hop axper jan!!");
             return;
         }
         int pizzaIndex = index++;
-        String validPizzaName = getValidPizzaName(pizzaName, pizzaIndex);
-        pizzas[pizzaIndex] = new Pizza(validPizzaName, type, ingredients, quantity);
+        String validPizzaName = getValidPizzaName(productName, pizzaIndex);
+       pizzas[pizzaIndex] = new Pizza(validPizzaName, type, ingredients, quantity);
     }
 
     private String getValidPizzaName(String pizzaName, int pizzaIndex) {
@@ -58,8 +58,8 @@ public class Order {
 
 
     public void printOrderAttributes() {
-        for (Pizza pizza : pizzas) {
-            System.out.println("[" + orderNumber + customer.getNumber() + pizza.getName() + pizza.getQuantity() + "]");
+        for (Product product : pizzas) {
+            System.out.println("[" + orderNumber + customer.getNumber() + product.getName() + product.getQuantity() + "]");
         }
     }
 
@@ -71,7 +71,7 @@ public class Order {
         return customer;
     }
 
-    public Pizza[] getPizzas() {
+    public Pizza[] getProduct() {
         return pizzas;
     }
 

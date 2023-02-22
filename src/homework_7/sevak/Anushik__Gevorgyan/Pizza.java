@@ -1,7 +1,7 @@
 package homework_7.sevak.Anushik__Gevorgyan;
 
 
-public class Pizza {
+public class Pizza extends Product {
     public static final Pizza MARGARITA = new Pizza("Margarita", PizzaType.CALZONE, new Ingredient[]{
             Ingredient.CHEESE, Ingredient.GARLIC}, 3);
     public static final Pizza PEPPERONI = new Pizza("Pepperoni", PizzaType.REGULAR, new Ingredient[]{

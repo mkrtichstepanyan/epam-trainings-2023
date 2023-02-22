@@ -16,11 +16,11 @@ public class PizzeriaPalmetto {
 
         Order order = new Order();
         order.setCustomer(customer);
-        order.addPizza(pizza.getName(), pizza.getPizzaType(), pizza.ingredients(), pizza.getQuantity());
+        order.addProduct(pizza.getName(), pizza.getPizzaType(), pizza.ingredients(), pizza.getQuantity());
 
 
-        order.addPizza(Pizza.PEPPERONI.getName(), Pizza.PEPPERONI.getPizzaType(), Pizza.PEPPERONI.ingredients(), Pizza.PEPPERONI.getQuantity());
-        order.addPizza(Pizza.MARGARITA.getName(), Pizza.MARGARITA.getPizzaType(), Pizza.MARGARITA.ingredients(), Pizza.MARGARITA.getQuantity());
+        order.addProduct(Pizza.PEPPERONI.getName(), Pizza.PEPPERONI.getPizzaType(), Pizza.PEPPERONI.ingredients(), Pizza.PEPPERONI.getQuantity());
+        order.addProduct(Pizza.MARGARITA.getName(), Pizza.MARGARITA.getPizzaType(), Pizza.MARGARITA.ingredients(), Pizza.MARGARITA.getQuantity());
 
 
         Printer.printCheck(order);

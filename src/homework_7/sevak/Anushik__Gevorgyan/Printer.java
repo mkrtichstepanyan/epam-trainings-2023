@@ -1,14 +1,12 @@
 package homework_7.sevak.Anushik__Gevorgyan;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class Printer {
 
     public static void printCheck(Order order) {
         printHeader();
         printOrderInfo(order);
-        printPizzaInfo(order.getPizzas());
+        printPizzaInfo(order.getProduct());
         printOrderPrice(order);
         printFooter();
 
@@ -19,7 +17,7 @@ public class Printer {
 
     private static void printHeader() {
         System.out.println("*******************************");
-        System.out.println("Order Time: " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/mm/yyyy hh:mm")));
+
     }
 
     private static void printOrderInfo(Order order) {
