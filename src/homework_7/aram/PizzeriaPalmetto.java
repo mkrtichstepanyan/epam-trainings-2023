@@ -6,19 +6,17 @@ public class PizzeriaPalmetto {
         Customer customer = new Customer();
         customer.setName("Sevak");
         customer.setPhoneNumber("+37498000000");
+        Ingredient[] ingredients1 = {Ingredient.CHEESE, Ingredient.SALAMI, Ingredient.TOMATO_PASTE};
+        Ingredient[] ingredients2 = {Ingredient.TOMATO_PASTE};
+        Pizza pizza1 = new Pizza("MyPizza1", PizzaType.CALZONE, ingredients1, 1);
+        pizza1.addIngredient(Ingredient.PEPPERONI);
+        pizza1.addIngredient(Ingredient.OLIVES);
+        Pizza pizza2 = new Pizza("MyPizza2", PizzaType.CALZONE, ingredients2, 2);
 
         Order order = new Order();
         order.setCustomer(customer);
-        Pizza pizza1=new Pizza("MyPizza1",PizzaType.CALZONE,1);
-        pizza1.addIngredient(Ingredient.PEPPERONI);
-        pizza1.addIngredient(Ingredient.OLIVES);
-
-        Pizza pizza2=new Pizza("MyPizza2",PizzaType.REGULAR,6);
-        pizza2.addIngredient(Ingredient.TOMATO_PASTE);
-        pizza2.addIngredient(Ingredient.CHEESE);
-        pizza2.addIngredient(Ingredient.PEPPERONI);
-        order.addPizza(pizza1.getName(),pizza1.getPizzaType(),pizza1.getIngredients(), pizza1.getQuantity());
-        order.addPizza(pizza2.getName(),pizza2.getPizzaType(),pizza2.getIngredients(), pizza2.getQuantity());
+        order.addPizza(pizza1.getName(), pizza1.getPizzaType(), pizza1.getIngredients(), pizza1.getQuantity());
+        order.addPizza(pizza2.getName(), pizza2.getPizzaType(), pizza2.getIngredients(), pizza2.getQuantity());
         Printer.printCheck(order);
     }
 }

@@ -31,10 +31,13 @@ public class Order {
 
     public double calculateOrderPrice() {
         // todo calculate order total price
-        double total=0;
-        for (Pizza pizza : pizzas)
-            total+=pizza.calculatePrice()*pizza.getQuantity();
+        double total = 0.0;
+        for (Pizza pizza : pizzas) {
+            if (pizza != null) {
+                total += pizza.calculatePrice() * pizza.getQuantity();
+            }
 
+        }
 
         return total;
     }
@@ -57,15 +60,21 @@ public class Order {
     private boolean isValidPizzaName(String pizzaName) {
         return pizzaName != null && pizzaName.length() > 4 && pizzaName.length() < 20;
     }
-    public int getOrderNumber(){
+
+    public int getOrderNumber() {
         return orderNumber;
     }
 
 
     public Pizza[] getPizzas() {
-        return pizzas;
+        Pizza[] temp = new Pizza[index];
+        for (int i = 0; i < index; i++) {
+            temp[i] = pizzas[i];
+        }
+        return temp;
     }
-    public String getCustomerName(){
+
+    public String getCustomerName() {
         return customer.getName();
     }
 }

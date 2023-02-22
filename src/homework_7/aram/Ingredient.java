@@ -21,5 +21,8 @@ public class Ingredient {
     public double getPrice() {
         return price;
     }
-    public  String getName(){return name;}
+
+    public String getName() {
+        return name;
+    }
 }

@@ -3,13 +3,13 @@ package homework_7.aram;
 // is a
 // has a
 public class Pizza {
-    private static final int MAX_ALLOWED_INGREDIENTS = 7;
+    private static final int MAX_ALLOWED_INGREDIENTS = 10;
 
     private String name;
     private PizzaType pizzaType;
-    private  Ingredient[] ingredients=new Ingredient[10];
+    private Ingredient[] ingredients;
     private int quantity;
-    private  int ingredientIndex;
+    private int ingredientIndex;
 
     Pizza(String name, PizzaType pizzaType, int quantity) {
         this.name = name;
@@ -32,16 +32,17 @@ public class Pizza {
         return this.pizzaType.getPrice() + ingredientPrice;
     }
 
-    public  void addIngredient(Ingredient ingredient) {
+    public void addIngredient(Ingredient ingredient) {
         // todo implement a method tht will add ingredient into the list.
-        if(ingredientIndex>MAX_ALLOWED_INGREDIENTS){
+        if (ingredientIndex > MAX_ALLOWED_INGREDIENTS) {
             System.out.println("The pizza is already full");
-            return ;
+
         }
-        ingredients[ingredientIndex++]=ingredient;
+        ingredients[ingredientIndex++] = ingredient;
 
     }
-    public Ingredient[] getIngredients(){
+
+    public Ingredient[] getIngredients() {
         return ingredients;
     }
 
@@ -52,13 +53,16 @@ public class Pizza {
     public int getQuantity() {
         return quantity;
     }
-    public PizzaType getPizzaType(){
+
+    public PizzaType getPizzaType() {
         return pizzaType;
     }
-    public String getPizzaTypeName(){
+
+    public String getPizzaTypeName() {
         return pizzaType.getName();
     }
-    public double getPizzaTypePrice(){
+
+    public double getPizzaTypePrice() {
         return pizzaType.getPrice();
     }
 }
