@@ -3,13 +3,14 @@ package homework_7.gohar_hakobyan;
 import homework_7.gohar_hakobyan.product.Product;
 
 public class Order {
-    private static int baseId = 10000;
+    private static final int BASE_ORDER_NUMBER = 10000;
+    private static int initialId = BASE_ORDER_NUMBER;
     private static int orderNumber;
     private Customer customer;
     private Product[] products = new Product[10];
 
     Order() {
-        orderNumber = baseId++;
+        orderNumber = initialId++;
     }
 
     public Order(Product[] products, int orderNumber, Customer customer) {

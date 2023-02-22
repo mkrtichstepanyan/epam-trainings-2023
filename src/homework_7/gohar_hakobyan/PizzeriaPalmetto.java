@@ -27,8 +27,6 @@ public class PizzeriaPalmetto {
         Order order = Order.makeOrder(products, customer);
         order.setCustomer(customer);
 
-
-
         Printer.printCheck(order);
     }
 }

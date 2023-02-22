@@ -1,6 +1,8 @@
 package homework_7.gohar_hakobyan.pizza;
 
-public class PizzaType {
+import homework_7.gohar_hakobyan.product.ProductType;
+
+public class PizzaType extends ProductType {
     private static final double BASE_PRICE = 1.0;
 
     public static final PizzaType REGULAR =
@@ -8,8 +10,6 @@ public class PizzaType {
     public static final PizzaType CALZONE =
             new PizzaType("calzone", BASE_PRICE, 0.5);
 
-    private String name;
-    private double price;
 
     private double additionalPrice;
 

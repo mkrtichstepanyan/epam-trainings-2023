@@ -27,9 +27,5 @@ public class Drink extends Product {
         return quantity;
     }
 
-
-    public String getDrinkType() {
-        return drinkType.getName();
-    }
 }
 

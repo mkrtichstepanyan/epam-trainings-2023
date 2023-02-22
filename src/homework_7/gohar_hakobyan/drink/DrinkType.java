@@ -1,6 +1,8 @@
 package homework_7.gohar_hakobyan.drink;
 
-public class DrinkType {
+import homework_7.gohar_hakobyan.product.ProductType;
+
+public class DrinkType extends ProductType {
     private static final double BASE_PRICE = 0.5;
 
     public static final DrinkType MINERAL =
@@ -10,8 +12,6 @@ public class DrinkType {
     public static final DrinkType PEPSI =
             new DrinkType("Pepsi", BASE_PRICE, 1.5);
 
-    private String name;
-    private double price;
 
     private double additionalPrice;
 
