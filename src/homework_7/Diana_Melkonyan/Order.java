@@ -46,12 +46,14 @@ public class Order  {
         double price = 0.0;
         for (Pizza pizza : pizzas) {
             if (pizza != null) {
-                price = price + pizza.calculatePrice();
+
+                price += pizza.getQuantity()* pizza.calculatePrice();
             }
+
         }
         for (Drink drink:drinks) {
             if(drink !=null){
-                price = price + drink.calculatePrice();
+                price +=  drink.calculatePrice()* drink.getQuantity();
             }
 
         }

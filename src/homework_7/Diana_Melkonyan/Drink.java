@@ -12,7 +12,10 @@ public class Drink extends Item {
 
     @Override
     public double calculatePrice() {
-        return drinkType.getPrice() * getQuantity();
+        return drinkType.getPrice();
     }
 
+    public DrinkType getDrinkType() {
+        return drinkType;
+    }
 }

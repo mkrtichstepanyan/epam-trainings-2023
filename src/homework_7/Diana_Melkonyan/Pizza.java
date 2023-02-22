@@ -20,18 +20,20 @@ public class Pizza extends Item {
     }
 
     Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity) {
-        this.name = name;
+        super.name = name;
         this.pizzaType = pizzaType;
         this.ingredients = ingredients;
-        this.quantity = quantity;
+        super.quantity = quantity;
 
     }
     public double calculatePrice() {
         double ingredientPrice = 0.0;
         for (Ingredient ingredient : ingredients) {
-            ingredientPrice += ingredient.getPrice();
+            if (ingredient != null) {
+                ingredientPrice += ingredient.getPrice();
+            }
         }
-        return this.pizzaType.getPrice() + ingredientPrice * getQuantity();
+        return  ingredientPrice;
     }
 
     public void addIngredient(Ingredient ingredient) {

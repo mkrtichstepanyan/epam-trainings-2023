@@ -18,8 +18,8 @@ public class PizzeriaPalmetto {
         order.addPizza(Pizza.MARGARITA.getName(), Pizza.MARGARITA.getPizzaType(), Pizza.MARGARITA.getIngredients(),
                 Pizza.MARGARITA.getQuantity());
 
-        order.addPizza(Pizza.PEPPERONI.getName(), Pizza.PEPPERONI.getPizzaType(), Pizza.PEPPERONI.getIngredients(),
-                Pizza.PEPPERONI.getQuantity());
+       order.addPizza(Pizza.PEPPERONI.getName(), Pizza.PEPPERONI.getPizzaType(), Pizza.PEPPERONI.getIngredients(),
+               Pizza.PEPPERONI.getQuantity());
         order.addDrink("Cola",DrinkType.Coca_Cola,2);
         Printer.printCheck(order);
 
