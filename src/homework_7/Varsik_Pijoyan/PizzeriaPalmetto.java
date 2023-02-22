@@ -10,12 +10,12 @@ public class PizzeriaPalmetto {
         Order order = new Order();
         order.setCustomer(customer);
 
-        Ingredient[] ingredients = {Ingredient.CHEESE, Ingredient.SALAMI, Ingredient.TOMATO_PASTE,
-                Ingredient.PEPPERONI, Ingredient.OLIVES,Ingredient.CORN,Ingredient.BACON};
+        Ingredient[] ingredients = {Ingredient.CHEESE, Ingredient.SALAMI, Ingredient.TOMATO_PASTE};
 
         order.addPizza("MyPizza", PizzaType.CALZONE, ingredients, 10);
         order.addPizza("MyPizza2", PizzaType.REGULAR, ingredients, 5);
 
+        order.calculateOrderPrice();
         Printer.printCheck(order);
     }
 }
