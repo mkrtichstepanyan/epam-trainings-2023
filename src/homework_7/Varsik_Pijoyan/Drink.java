@@ -13,7 +13,6 @@ public class Drink extends Product{
     }
 
 
-
     public double calculatePrice() {
         double drinkPrice = drinkType.getPrice();
         return drinkPrice;

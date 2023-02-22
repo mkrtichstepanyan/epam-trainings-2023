@@ -2,7 +2,7 @@ package homework_7.Varsik_Pijoyan;
 
 // is a
 // has a
-public class Pizza extends Product{
+public class Pizza extends Product {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
     public static final Pizza MARGARITA = new Pizza("Margarita",
             PizzaType.CALZONE, new Ingredient[]{Ingredient.TOMATO_PASTE, Ingredient.BACON}, 1);
