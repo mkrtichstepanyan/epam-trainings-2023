@@ -5,7 +5,7 @@ public class Printer {
     public static void printCheck(Order order) {
         printLeadingLine();
         printerForOrder(order);
-        printForPizza(order.getPizzas());
+        printerForPizza(order.getPizzas());
         printTrainlingLine();
     }
 
@@ -20,14 +20,13 @@ public class Printer {
         System.out.println("*****************************");
     }
 
-    private static void printForPizza(Pizza[] pizzas) {
+    private static void printerForPizza(Pizza[] pizzas) {
         for (int i = 0; i < pizzas.length; i++) {
             Pizza pizza = pizzas[i];
             if (pizza != null) {
                 System.out.println("Name: " + pizza.getName());
                 System.out.println("------------------------");
-                System.out.println("Pizza Base: " + pizza.getPizzaType().getName() + " "
-                        + pizza.getPizzaType().getPrice() + " $");
+                System.out.println("Pizza Base: " + pizza.getPizzaType().getName() + " " + pizza.getPizzaType().getPrice() + " $");
                 printIngredients(pizza.getIngredients());
                 System.out.println("------------------------");
                 System.out.println("Quantity: " + pizza.getQuantity());
@@ -41,9 +40,10 @@ public class Printer {
         System.out.println("******************************");
     }
 
-    private static void printIngredients(Ingredient[] ingredients) {
+    public static void printIngredients(Ingredient[] ingredients) {
 
         for (Ingredient ingredient : ingredients) {
+            System.out.println(ingredient);
             if (ingredient != null) {
                 System.out.println(ingredient.getName() + " " + ingredient.getPrice() + " $");
             }
