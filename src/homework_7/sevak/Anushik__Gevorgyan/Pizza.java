@@ -1,7 +1,5 @@
 package homework_7.sevak.Anushik__Gevorgyan;
-
-
-public class Pizza extends Product {
+class Pizza extends Product {
     public static final Pizza MARGARITA = new Pizza("Margarita", PizzaType.CALZONE, new Ingredient[]{
             Ingredient.CHEESE, Ingredient.GARLIC}, 3);
     public static final Pizza PEPPERONI = new Pizza("Pepperoni", PizzaType.REGULAR, new Ingredient[]{
@@ -9,6 +7,7 @@ public class Pizza extends Product {
 
 
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
+
 
     private String name;
     private PizzaType pizzaType;
@@ -23,9 +22,7 @@ public class Pizza extends Product {
         this.quantity = quantity;
     }
 
-    public Pizza() {
 
-    }
 
     Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity) {
         this.name = name;
@@ -63,7 +60,10 @@ public class Pizza extends Product {
     }
 
     public String getName() {
-        return name;
+        return super.getName();
+    }
+    public void setName(String name){
+        super.setName(name);
     }
 
     public int getQuantity() {

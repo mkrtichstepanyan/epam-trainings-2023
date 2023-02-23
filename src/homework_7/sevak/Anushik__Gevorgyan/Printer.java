@@ -54,6 +54,7 @@ public class Printer {
 
     }
 
+
     private static void printIngredients(Ingredient[] ingredients) {
         for (Ingredient ingredient : ingredients) {
             if (ingredient != null) {

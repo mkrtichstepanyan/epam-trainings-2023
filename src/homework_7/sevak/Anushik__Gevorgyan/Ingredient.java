@@ -26,4 +26,5 @@ public class Ingredient {
 
         return price;
     }
+
 }

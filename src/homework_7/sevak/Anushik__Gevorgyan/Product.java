@@ -3,6 +3,13 @@ package homework_7.sevak.Anushik__Gevorgyan;
 public  abstract class Product {
     private String name;
     private int quantity;
+    private double price;
+
+
+    public ProductType productType;
+
+    public abstract double calculateprice();
+
 
 
     public void setName(String name){
@@ -15,6 +22,16 @@ public  abstract class Product {
         this.quantity=quantity;
     }
     public int getQuantity(){
+
         return quantity;
     }
+    public void setPrice(double price ){
+        this.price=price;
+    }
+    public double getPrice(){
+        return price;
+    }
 }
+
+
+
