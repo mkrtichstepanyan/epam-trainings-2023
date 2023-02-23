@@ -30,9 +30,20 @@ public class Pizza extends Product {
 
     public void addIngredient(Ingredient ingredient) {
         if (ingredients.length >= MAX_ALLOWED_INGREDIENTS) {
-            System.out.println("The pizza is already full.");
-        } else {
-            ingredientExists(ingredient);
+            System.out.println("The pizza's ingredients maximum number has already completed!");
+            return;
+        }
+        for (Ingredient existingIngredient : ingredients) {
+            if (existingIngredient.equals(ingredient)) {
+                System.out.println("This ingredient is already exists, please remove! ");
+                break;
+            }
+            Ingredient[] newIngredients = new Ingredient[ingredients.length + 1];
+            for (int i = 0; i < ingredients.length; i++) {
+                newIngredients[i] = ingredients[i];
+                newIngredients[ingredients.length] = ingredient;
+            }
+            ingredients = newIngredients;
         }
     }
 
@@ -43,17 +54,6 @@ public class Pizza extends Product {
         }
     }
 
-    private boolean ingredientExists(Ingredient ingredient) {
-        for (int i = 0; i < ingredients.length; i++) {
-            if (ingredient.equals(ingredients[i])) {
-                System.out.println("This ingredient is already exist!");
-                return false;
-            } else {
-                ingredients[i++] = ingredient;
-            }
-        }
-        return true;
-    }
 
     public String getName() {
         return name;

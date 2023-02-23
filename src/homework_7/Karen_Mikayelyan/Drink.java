@@ -3,9 +3,7 @@ package homework_7.Karen_Mikayelyan;
 public class Drink extends Product {
     private double litre;
     private DrinkType drinkType;
-    private Drink[] drinks;
-
-    public Drink(String name, DrinkType drinkType, int quantity) {
+        public Drink(String name, DrinkType drinkType, int quantity) {
         super(name, drinkType.getPrice(), quantity, ProductType.DRINK);
         this.drinkType = drinkType;
     }

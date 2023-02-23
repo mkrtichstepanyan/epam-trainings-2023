@@ -19,7 +19,7 @@ public class PizzeriaPalmetto {
 
         Printer.printCheck(order);
 
-        Ingredient[] ingredientsForMargarita = {Ingredient.TOMATO_PASTE, Ingredient.PEPPERONI, Ingredient.GARLIC, Ingredient.BACON,};
+        Ingredient[] ingredientsForMargarita = {Ingredient.TOMATO_PASTE, Ingredient.PEPPERONI, Ingredient.GARLIC, Ingredient.BACON};
         Ingredient[] ingredientsForPepperoniOro = {Ingredient.TOMATO_PASTE, Ingredient.CHEESE, Ingredient.SALAMI, Ingredient.OLIVES};
         Ingredient[] ingredientsForBasePZZ = {Ingredient.CHEESE, Ingredient.GARLIC, Ingredient.CORN, Ingredient.OLIVES};
 
