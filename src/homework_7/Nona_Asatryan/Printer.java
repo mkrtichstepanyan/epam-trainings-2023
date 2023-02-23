@@ -38,8 +38,6 @@ public class Printer {
     private static void printDrinkCheck(Drink product) {
         System.out.println("Name: " + product.getName());
         delimiter();
-        System.out.println("Food type (" + product.getName() + ") ");
-        delimiter();
         double drinksAmount = product.calculatePrice();
         System.out.println("Amount: " + drinksAmount + " €");
         System.out.println("Quantity " + product.getQuantity());

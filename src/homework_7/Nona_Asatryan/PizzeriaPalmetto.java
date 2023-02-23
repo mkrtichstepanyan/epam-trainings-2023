@@ -12,11 +12,10 @@ public class PizzeriaPalmetto {
 
         Ingredient[] ingredients = {Ingredient.CHEESE, Ingredient.SALAMI, Ingredient.TOMATO_PASTE};
 
-        Pizza pizza = new Pizza("MyPizza", PizzaType.CALZONE, ingredients, 10, ProductType.PIZZA);
-        Pizza pizza1 = new Pizza("MyPizza2", PizzaType.REGULAR, ingredients, 5, ProductType.PIZZA);
+        Product pizza = new Pizza("MyPizza", PizzaType.CALZONE, ingredients, 10, ProductType.PIZZA);
+        Product pizza1 = new Pizza("MyPizza2", PizzaType.REGULAR, ingredients, 5, ProductType.PIZZA);
         order.addProduct(pizza);
         order.addProduct(pizza1);
-
 
         Printer.printCheck(order);
 
@@ -28,12 +27,12 @@ public class PizzeriaPalmetto {
         customer1.setName("First Customer");
         Order firstOrder = new Order();
         firstOrder.setCustomer(customer1);
-        Pizza margarita = new Pizza("Margarita", PizzaType.CALZONE, ingredientsForMargarita, 2, ProductType.PIZZA);
-        Pizza pepperoniOro = new Pizza("PepperoniOro", PizzaType.CALZONE, ingredientsForPepperoniOro, 3, ProductType.PIZZA);
-        Pizza basePZZ = new Pizza("BasePZZ", PizzaType.REGULAR, ingredientsForBasePZZ, 9, ProductType.PIZZA);
-        firstOrder.addProduct(margarita);
-        firstOrder.addProduct(pepperoniOro);
-        firstOrder.addProduct(basePZZ);
+        Product pizza2 = new Pizza("Margarita", PizzaType.CALZONE, ingredientsForMargarita, 2, ProductType.PIZZA);
+        Product pizza3 = new Pizza("PepperoniOro", PizzaType.CALZONE, ingredientsForPepperoniOro, 3, ProductType.PIZZA);
+        Product pizza4 = new Pizza("BasePZZ", PizzaType.REGULAR, ingredientsForBasePZZ, 9, ProductType.PIZZA);
+        firstOrder.addProduct(pizza2);
+        firstOrder.addProduct(pizza3);
+        firstOrder.addProduct(pizza4);
         Printer.printCheck(firstOrder);
 
 

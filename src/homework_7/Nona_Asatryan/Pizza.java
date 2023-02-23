@@ -2,7 +2,7 @@ package homework_7.Nona_Asatryan;
 
 // is a
 // has a
-public class Pizza extends Product {
+public class Pizza extends Product implements Ingredients {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
 
     private String name;
@@ -29,6 +29,7 @@ public class Pizza extends Product {
         return this.pizzaType.getPrice() + ingredientPrice;
     }
 
+    @Override
     public void addIngredient(Ingredient ingredient) {
         if (ingredients.length >= MAX_ALLOWED_INGREDIENTS) {
             System.out.println("The pizza is already full.");
