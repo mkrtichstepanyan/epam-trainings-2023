@@ -1,14 +1,15 @@
-package homework_7.sevak;
+package homework_7_Hovhannes_Gspeyan.palmetto;
 
 public class Customer {
+
     private static final int BASE_CUSTOMER_NUMBER = 1000;
     private static int initialId = BASE_CUSTOMER_NUMBER;
 
-    private int customerNumber;
+    private final int customerNumber;
     private String customerName;
     private String phoneNumber;
 
-    Customer() {
+    public Customer() {
         customerNumber = initialId++;
     }
 
