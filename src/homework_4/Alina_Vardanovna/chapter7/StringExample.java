@@ -6,7 +6,7 @@ public class StringExample {
 
     public static void main(String[] args) {
 
-        String name = "    A lina  ";
+        String name = "    A.java lina  ";
         System.out.println(name);
 
         String trimName = name.trim();

@@ -2,7 +2,7 @@ package homework_6.Vladimir_Vanyan.Chapter_8.Constructor;
 
 public class A {
     A() {
-        System.out.println("Inside A's constructor.");
+        System.out.println("Inside A.java's constructor.");
     }
 
 }

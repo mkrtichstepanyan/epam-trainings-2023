@@ -2,7 +2,7 @@ package homework_6.garik_gharibyan.chapter_8;
 
 class A3 {
     A3() {
-        System.out.println("inside A's constructor.");
+        System.out.println("inside A.java's constructor.");
     }
 }
 class B3 extends A3 {

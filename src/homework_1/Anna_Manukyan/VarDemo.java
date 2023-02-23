@@ -1,6 +1,6 @@
 package homework_1.Anna_Manukyan;
 
-//A simple demonstration of variable type inference
+//A.java simple demonstration of variable type inference
 public class VarDemo {
     public static void main(String[] args) {
         var avg = 10.0;

@@ -3,7 +3,7 @@ package homework_6.gohar_hakobyan.chapter_8;
 public class D extends A {
     int i;
     D(int a, int b) {
-        super.i = a; // i in A
+        super.i = a; // i in A.java
         i = b; // i in C
     }
 

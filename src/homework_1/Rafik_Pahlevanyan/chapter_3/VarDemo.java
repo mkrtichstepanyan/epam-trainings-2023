@@ -1,6 +1,6 @@
 package homework_1.Rafik_Pahlevanyan.chapter_3;
 
-//A simple demonstration of local variable type inference
+//A.java simple demonstration of local variable type inference
 public class VarDemo {
     public static void main(String[] args) {
 

@@ -1,7 +1,7 @@
 package homework_6.Hovhannes_Gspeyan.chapter_8;
 
 /**
- * A complete implementation of BoxWeight
+ * A.java complete implementation of BoxWeight
  */
 public class Box1 {
     private double width;

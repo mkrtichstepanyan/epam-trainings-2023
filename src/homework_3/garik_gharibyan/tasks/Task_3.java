@@ -71,11 +71,11 @@ public class Task_3 {
 
             System.out.println("number1 + number2 = " + sum);
 
-            System.out.println("if want again click a and A");
+            System.out.println("if want again click a and A.java");
             choice = console.next().charAt(0);
             System.out.println();
 
-        } while (choice == 'a' || choice == 'A');
+        } while (choice == 'a' || choice == 'A.java');
     }
 
 
@@ -136,11 +136,11 @@ public class Task_3 {
         min = number;
 
         char choice;
-        System.out.print("if you went continue click 'a' and 'A'");
+        System.out.print("if you went continue click 'a' and 'A.java'");
         choice = console.next().charAt(0);
 
 
-        while (choice == 'a' || choice == 'A') {
+        while (choice == 'a' || choice == 'A.java') {
             System.out.print("write the number: ");
             number = console.nextInt();
             if (number >= max) {
@@ -149,7 +149,7 @@ public class Task_3 {
                 min = number;
             }
 
-            System.out.print("if you went continue click 'a' and 'A'");
+            System.out.print("if you went continue click 'a' and 'A.java'");
             choice = console.next().charAt(0);
         }
 

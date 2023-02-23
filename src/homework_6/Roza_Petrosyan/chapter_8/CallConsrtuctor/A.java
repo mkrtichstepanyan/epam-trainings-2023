@@ -2,7 +2,7 @@ package homework_6.Roza_Petrosyan.chapter_8.CallConsrtuctor;
 
 public class A {
     A() {
-        System.out.println("Inside A's constructor");
+        System.out.println("Inside A.java's constructor");
     }
 }
 

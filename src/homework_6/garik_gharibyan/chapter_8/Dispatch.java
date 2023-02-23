@@ -1,7 +1,7 @@
 package homework_6.garik_gharibyan.chapter_8;
 class A6{
     void callMe(){
-        System.out.println("Inside A's callMe method");
+        System.out.println("Inside A.java's callMe method");
     }
 }
 class  B6 extends A6{

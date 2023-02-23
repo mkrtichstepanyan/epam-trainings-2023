@@ -3,7 +3,7 @@ package homework_6.Inesa_Mkrtchyan.Chapter_8;
 class B3 extends A3{
     int i;
     B3(int a, int b) {
-        super.i = a; // i in A
+        super.i = a; // i in A.java
         i = b; // i in B
     }
     void show() {

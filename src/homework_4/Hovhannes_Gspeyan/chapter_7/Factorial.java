@@ -1,7 +1,7 @@
 package homework_4.Hovhannes_Gspeyan.chapter_7;
 
 /**
- * A simple example
+ * A.java simple example
  * of recursion
  */
 public class Factorial {

@@ -6,7 +6,7 @@ public class A {
     int j;  //private modifier will give an error!
 
     A() {
-        System.out.println("Inside A's constructor.");
+        System.out.println("Inside A.java's constructor.");
     }
 
     A(int a, int b) {
@@ -28,7 +28,7 @@ public class A {
     }
 
     void callme() {
-        System.out.println("Inside A's callme method");
+        System.out.println("Inside A.java's callme method");
     }
 
     final void meth() {

@@ -1,7 +1,7 @@
 package homework_4.Rafik_Pahlevanyan.chapter_6;
 
 /*
-A program that use the Box class.
+A.java program that use the Box class.
 Call this file BoxDemo.java
  */
 public class Box {

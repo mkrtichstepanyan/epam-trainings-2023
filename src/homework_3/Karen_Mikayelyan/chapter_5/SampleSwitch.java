@@ -1,6 +1,6 @@
 package homework_3.Karen_Mikayelyan.chapter_5;
 
-// A simple example of the switch.
+// A.java simple example of the switch.
 public class SampleSwitch {
     public static void main(String[] args) {
         for (int i = 0; i < 6; i++) {

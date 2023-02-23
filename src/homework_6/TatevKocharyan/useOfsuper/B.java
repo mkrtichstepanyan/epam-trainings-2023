@@ -1,7 +1,7 @@
 package homework_6.TatevKocharyan.useOfsuper;
 
 public class B  extends A{
-    int i; //hides the i in A
+    int i; //hides the i in A.java
     B(int a,int b){
         super.i=a;
         i=b;

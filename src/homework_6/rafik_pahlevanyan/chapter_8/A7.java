@@ -1,6 +1,6 @@
 package homework_6.rafik_pahlevanyan.chapter_8;
 
-//A simple demonstration of abstract.
+//A.java simple demonstration of abstract.
 abstract class A7 {
     abstract void callme();
 

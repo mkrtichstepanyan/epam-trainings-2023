@@ -1,5 +1,5 @@
 package homework_4.Liana_gevorgyan.Chapter_7;
-//A sample example of recursion
+//A.java sample example of recursion
 class Factorial {
     //this is a recursive method
     int fact(int n)

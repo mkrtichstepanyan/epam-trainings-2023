@@ -1,6 +1,6 @@
 package homework_8.rafik_pahlevanyan.chapter_9;
 
-//This class must implement all of A and B
+//This class must implement all of A.java and B
 public class MyClass implements B1 {
     public void meth1(){
         System.out.println("Implement meth1(): ");

@@ -1,7 +1,7 @@
 package homework_6.Roza_Petrosyan.chapter_8.Basic;
 
 
-// Create a subclass by extending class A
+// Create a subclass by extending class A.java
 class B extends A {
     int k;
 

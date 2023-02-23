@@ -1,6 +1,6 @@
 package homework_6.rafik_pahlevanyan.chapter_8;
 
-//A simple example of inheritance
+//A.java simple example of inheritance
 public class A {
     int i, j;
 

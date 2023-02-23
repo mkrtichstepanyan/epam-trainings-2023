@@ -7,9 +7,9 @@ package homework_6.Liana_Gevorgyan.Chapter_8.Using_Super;
 }
 //create a subclass by extending class A1.
 class B1 extends A1{
-     int i; // this i hides the i in A
+     int i; // this i hides the i in A.java
     B1(int a, int b){
-        super.i = a;//i in A
+        super.i = a;//i in A.java
         i=b; //i in B
     }
     void show()

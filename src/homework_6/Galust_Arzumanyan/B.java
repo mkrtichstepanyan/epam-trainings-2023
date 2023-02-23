@@ -10,7 +10,7 @@ class B extends A {
     public void showk() {
         System.out.println("k is: " + k);
     }
-    // A's is not accessible here
+    // A.java's is not accessible here
     /**
     void sumiz(){
         total = i + z;

@@ -8,9 +8,9 @@ class B extends A {
         k = c;
     }
 
-    // display k - this overrides show() in A
+    // display k - this overrides show() in A.java
     void show() {
-        super.show(); //A's show
+        super.show(); //A.java's show
         System.out.println("k: " + k);
     }
 }

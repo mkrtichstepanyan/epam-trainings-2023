@@ -2,7 +2,7 @@ package homework_6.Samvel_Hakobyan.Chapter_8;
 
 public class A6 {
     void callme() {
-        System.out.println("Inside A`s callme method ");
+        System.out.println("Inside A.java`s callme method ");
     }
 }
 
