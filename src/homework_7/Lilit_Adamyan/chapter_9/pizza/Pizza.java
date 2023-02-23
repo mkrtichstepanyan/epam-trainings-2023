@@ -1,4 +1,4 @@
-package homework_7.Lilit_Adamyan;
+package homework_7.Lilit_Adamyan.chapter_9.pizza;
 
 // is a
 // has a

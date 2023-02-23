@@ -1,4 +1,4 @@
-package homework_7.Lilit_Adamyan;
+package homework_7.Lilit_Adamyan.chapter_9.pizza;
 
 import java.util.ArrayList;
 import java.util.List;
