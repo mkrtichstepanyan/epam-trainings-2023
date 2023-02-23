@@ -1,6 +1,6 @@
 package homework_7.Ani_Barseghyan;
 
-public class Pizza extends Product {
+public class Pizza extends Product implements AddIngredient {
     private static final int MAX_ALLOWED_INGREDIENTS = 8;
     private static Ingredients[] ingredients;
     private static int toppingCount;
@@ -8,12 +8,12 @@ public class Pizza extends Product {
 
     Pizza(String name, ProductType productType, int quantity) {
         super(name, productType, quantity);
-        this.ingredients = new Ingredients[MAX_ALLOWED_INGREDIENTS];
+        ingredients = new Ingredients[MAX_ALLOWED_INGREDIENTS];
     }
 
     Pizza(String name, ProductType productType, Ingredients[] ingredients, int quantity) {
         super(name, productType, quantity);
-        this.ingredients = ingredients;
+        Pizza.ingredients = ingredients;
 
     }
 
@@ -27,6 +27,7 @@ public class Pizza extends Product {
         return super.getProductType().getPrice() + ingredientPrice;
     }
 
+    @Override
     public void addIngredients(Ingredients ingredient) {
         if (toppingCount > MAX_ALLOWED_INGREDIENTS) {
             System.out.println("Pizza is full");

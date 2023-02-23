@@ -12,9 +12,9 @@ public class PizzeriaPalmetto {
 
         Pizza pizza1 = new Pizza("MyPizza3", PizzaType.REGULAR, 2);
         Product beverage1 = new Beverage("Beer", BeverageType.ALCOHOLIC, 2);
-        pizza1.addIngredients(Ingredients.CORN);
-        pizza1.addIngredients(Ingredients.TOMATO);
-        pizza1.addIngredients(Ingredients.TOMATO);
+        pizza1.addIngredients(PizzaIngredients.CORN);
+        pizza1.addIngredients(PizzaIngredients.TOMATO);
+        pizza1.addIngredients(PizzaIngredients.TOMATO);
         order.addProduct(pizza1);
         order.addProduct(beverage1);
         Printer.printCheck(order);
