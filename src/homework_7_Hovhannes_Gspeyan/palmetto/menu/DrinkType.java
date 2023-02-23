@@ -1,7 +1,6 @@
 package homework_7_Hovhannes_Gspeyan.palmetto.menu;
 
-public class DrinkType {
-
+public class DrinkType{
     private static final double BASE_PRICE = 0.0;
 
     public static final DrinkType WATER_DRINK =

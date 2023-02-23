@@ -1,6 +1,7 @@
 package homework_7_Hovhannes_Gspeyan.palmetto.menu;
 
 public class Ingredient {
+
     public static final Ingredient TOMATO_PASTE = new Ingredient("tomato paste", 1);
     public static final Ingredient CHEESE = new Ingredient("Cheese", 1);
     public static final Ingredient SALAMI = new Ingredient("Salami", 1.5);

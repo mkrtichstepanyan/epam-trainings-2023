@@ -10,7 +10,6 @@ import java.time.format.DateTimeFormatter;
 
 public class Printer {
 
-
     public static void printCheck(Order order) {
         // todo print logic goes here.
         leadingLine(order);

@@ -1,16 +1,10 @@
 package homework_7_Hovhannes_Gspeyan.palmetto.menu;
 
-public abstract class MenuItem {
+public interface MenuItem {
 
-    public String name;
+    String getName();
 
-    public int quantity;
+    double calculatePrice();
 
-    public double price;
-
-    public abstract String getName();
-
-    public abstract double calculatePrice();
-
-    public abstract int getQuantity();
+    int getQuantity();
 }
