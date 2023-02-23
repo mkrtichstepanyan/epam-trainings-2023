@@ -10,47 +10,65 @@ public class Printer {
         printLocalTime();
         orderInformation(order);
         pizzaInformation(order.getPizzas());
+        drinkInformation(order.getDrinks());
         orderPrice(order);
         trainlingLine();
 
     }
 
 
-
     private static void leadingLine() {
         System.out.println("********************");
     }
 
-    private static void printLocalTime(){
+    private static void printLocalTime() {
         System.out.println("Local Time: " + LocalTime.now());
     }
 
 
-    private static void orderInformation(Order order){
+    private static void orderInformation(Order order) {
         System.out.println("Order: " + order.getOrderNumber());
         System.out.println("Client: " + order.getCustomer().getNumber());
         System.out.println("***********************");
     }
 
-    private static void pizzaInformation(Pizza[] pizzas){
-        for (int i = 0; i< pizzas.length; i++) {
+    private static void pizzaInformation(Pizza[] pizzas) {
+        for (int i = 0; i < pizzas.length; i++) {
             Pizza pizza = pizzas[i];
-            if (pizza != null){
+            if (pizza != null) {
                 System.out.println("Name: " + pizza.getName());
-                System.out.println("--------------------------");
+                printLines();
                 System.out.println("Pizza Base: " + pizza.getPizzaType().getName() + " "
                         + pizza.getPizzaType().getPrice() + "$");
-                pizzaIngredients(pizza.getIngredients());
-                System.out.println("----------------------------");
-                System.out.println("Quantity: " + pizza.getQuantity());
-                System.out.println("Amount: " + pizza.calculatePrice() + "$");
-                System.out.println("-------------------------------");
+                for (int j = 0; j < pizza.getIngredients().length; j++) {
+                    Ingredient[] ingredients = pizza.getIngredients();
+                    if (ingredients[j] != null) {
+                        System.out.println(ingredients[j].getName() + " " + ingredients[j].getPrice() + " €");
+                    }
+                }
+                printLines();
+                printPizzaQuantity(pizzas[i]);
+                printPizzaAmount(pizzas[i]);
+                printLines();
+            }
+        }
+    }
+
+    private static void drinkInformation(Drink[] drinks) {
+        for (int i = 0; i < drinks.length; i++) {
+            Drink drink = drinks[i];
+            if (drink != null) {
+                System.out.println("Name: " + drink.getName());
+                printLines();
+                printDrinkQuantity(drinks[i]);
+                printDrinkAmount(drinks[i]);
+                printLines();
             }
         }
     }
 
 
-    private static void orderPrice(Order order){
+    private static void orderPrice(Order order) {
         System.out.println("Total amount: " + order.calculateOrderPrice() + "$");
     }
 
@@ -58,9 +76,30 @@ public class Printer {
         System.out.println("********************");
     }
 
-    private static void pizzaIngredients(Ingredient[] ingredients){
+    private static void printLines() {
+        System.out.println("---------------------");
+    }
+
+    private static void printPizzaAmount(Pizza pizza) {
+        System.out.println("Amount: " + pizza.calculatePrice() + "$");
+    }
+
+    private static void printPizzaQuantity(Pizza pizza) {
+        System.out.println("Quantity: " + pizza.getQuantity());
+    }
+
+    private static void printDrinkAmount(Drink drink) {
+        System.out.println("Amount: " + drink.calculatePrice() + " €");
+    }
+
+    private static void printDrinkQuantity(Drink drink) {
+        System.out.println("Quantity: " + drink.getQuantity());
+    }
+
+
+    private static void pizzaIngredients(Ingredient[] ingredients) {
         for (Ingredient ingredient : ingredients) {
-            if(ingredient != null){
+            if (ingredient != null) {
                 System.out.println(ingredient.getName() + " " + ingredient.getPrice() + "$");
             }
         }

@@ -4,16 +4,15 @@ package homework_7.Varsik_Pijoyan;
 // has a
 public class Pizza extends Product {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
-    public static final Pizza MARGARITA = new Pizza("Margarita",
-            PizzaType.CALZONE, new Ingredient[]{Ingredient.TOMATO_PASTE, Ingredient.BACON}, 1);
-    public static final Pizza PEPPERONI = new Pizza("Pepperoni",
-            PizzaType.REGULAR, new Ingredient[]{Ingredient.OLIVES, Ingredient.CHEESE}, 1);
+    public static final Pizza MARGARITA = new Pizza("Margarita", PizzaType.CALZONE, new Ingredient[]
+            {Ingredient.TOMATO_PASTE, Ingredient.PEPPERONI, Ingredient.GARLIC, Ingredient.BACON}, 1);
+    public static final Pizza PEPPERONI = new Pizza("Pepperoni", PizzaType.REGULAR, new Ingredient[]
+            {Ingredient.TOMATO_PASTE, Ingredient.CHEESE, Ingredient.PEPPERONI, Ingredient.OLIVES}, 1);
 
-    private String name;
+
     private PizzaType pizzaType;
-    private Ingredient[] ingredients;
-    private final int quantity;
-    private int ingCount = 0;
+    private Ingredient[] ingredients = new Ingredient[10];
+
 
 
     Pizza(String name, PizzaType pizzaType, int quantity) {
@@ -29,6 +28,7 @@ public class Pizza extends Product {
         this.quantity = quantity;
     }
 
+
     public double calculatePrice() {
         double ingredientPrice = 0.0;
         for ( Ingredient ingredient : ingredients) {
@@ -37,35 +37,45 @@ public class Pizza extends Product {
         return this.pizzaType.getPrice() + ingredientPrice;
     }
 
-    public void addIngredient( Ingredient ingredient) {
+
+    public void addIngredient(Ingredient ingredient) {
         // todo implement a method tht will add ingredient into the list.
-        if (ingCount  == MAX_ALLOWED_INGREDIENTS) {
+        if (ingredients.length == MAX_ALLOWED_INGREDIENTS) {
             System.out.println("Pizza is full");
-            return;
-        }
-        for (int i = 0; i < ingCount; i++) {
-            if (ingredient.getName().equals(ingredient.getName())) {
-                System.out.println("This ingredient is already exist!");
-                return;
-            }
-            ingredients[ingCount++] = ingredient;
+        } else {
+            isExistInPizza(ingredient);
         }
     }
 
+    private boolean isExistInPizza(Ingredient ingredient) {
+        for (int i = 0; i < ingredients.length; i++) {
+            if (ingredient.equals(ingredients[i])) {
+                System.out.println("This ingredient is already exist!");
+                return false;
+            } else {
+                ingredients[i++] = ingredient;
+            }
+        }
+        return true;
+    }
+
+
+    public Ingredient[] getIngredients() {
+        return ingredients;
+    }
+    public PizzaType getPizzaType(){
+        return pizzaType;
+    }
+
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public int getQuantity() {
         return quantity;
     }
 
-    public Ingredient[] getIngredients(){
-        return ingredients;
-    }
-
-    public PizzaType getPizzaType(){
-        return pizzaType;
-    }
 }
 
