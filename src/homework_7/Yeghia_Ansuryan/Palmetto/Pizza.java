@@ -1,7 +1,6 @@
 package homework_7.Yeghia_Ansuryan.Palmetto;
 
-// is a
-// has a
+
 public class Pizza extends Product {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
     private static final int MAX_PIZZA_AMOUNT = 10;
@@ -11,7 +10,7 @@ public class Pizza extends Product {
     private int indexOfIngredients = 0;
 
     Pizza(String name, PizzaType pizzaType, IngredientPizza[] ingredients, int quantity) {
-        super(Order.PRODUCT_PIZZA, name, quantity);
+        super(Order.PRODUCT_PIZZA, name, pizzaType, quantity);
         if (quantity > MAX_PIZZA_AMOUNT) {
             System.out.println("You may not order more then 10 Pizzas !");
             return;
@@ -25,10 +24,10 @@ public class Pizza extends Product {
         if (indexOfIngredients < MAX_ALLOWED_INGREDIENTS) {
             for (int i = 0; i <= indexOfIngredients; i++) {
                 if (ingredients[indexOfIngredients] != null) {
-                    String tempIngr = ingredients[i].getName();
+                    String tempIngredient = ingredients[i].getName();
                     for (int j = 0; j <= indexOfIngredients; j++) {
-                        if (ingredients[j].getName().equals(tempIngr) && j != i) {
-                            System.out.println(tempIngr + "  already this ingredient there is in your list !!");
+                        if (ingredients[j].getName().equals(tempIngredient) && j != i) {
+                            System.out.println(tempIngredient + "  already this ingredient there is in your list !!");
                             return;
                         }
                     }

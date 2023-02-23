@@ -10,7 +10,7 @@ public class PizzeriaPalmetto {
         Order order = new Order(customer);
 
         IngredientPizza[] ingredients = {IngredientPizza.CHEESE, IngredientPizza.SALAMI, IngredientPizza.TOMATO_PASTE};
-        Product pizza = new Pizza("Hawaiian",PizzaType.CALZONE, ingredients, 4);
+        Product pizza = new Pizza("Ha",PizzaType.CALZONE, ingredients, 4);
         order.addProduct(pizza);
 
         Printer.printCheck(order);

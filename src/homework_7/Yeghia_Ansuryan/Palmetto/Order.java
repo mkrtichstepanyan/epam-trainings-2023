@@ -23,7 +23,7 @@ public class Order {
             System.out.println(" You are not allowed to arder more than 10 productes!!");
             return;
         }
-        getValidProductName(product.getName(), index);
+        product.setName(getValidProductName(product.getName(), index));
         products[index++] = product;
     }
 
@@ -39,11 +39,14 @@ public class Order {
         return pizzaName != null && pizzaName.length() > 4 && pizzaName.length() < 20;
     }
 
-    public void calculateOrderPrice() {
-        for (int i = 0; i <= products.length; i++) {
-            double eachProductPrice = products[i].calculatePrice() * products[i].getQuantity();
-            this.totalPrice += eachProductPrice;
+    public double calculateOrderPrice(Product[] products) {
+        for (int i = 0; i <= index; i++) {
+            if (products[i] !=null){
+                double eachProductPrice = products[i].calculatePrice() * products[i].getQuantity();
+                this.totalPrice += eachProductPrice;
+            }
         }
+        return totalPrice;
     }
 
     public void printOrderAttributes() {

@@ -27,4 +27,8 @@ public class Customer {
     public String getName() {
         return customerName;
     }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 }

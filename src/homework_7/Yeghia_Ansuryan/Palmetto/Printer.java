@@ -6,6 +6,7 @@ public class Printer {
         leadingLine();
         System.out.println("Order: " + order.getOrderNumber());
         System.out.println("Customer: " + order.getCustomer().getNumber());
+        System.out.println("Phone Number: " + order.getCustomer().getPhoneNumber());
         for (int j = 0; j < order.getProducts().length; j++) {
             Product product = order.getProducts()[j];
             if (product != null) {
@@ -13,11 +14,11 @@ public class Printer {
                 System.out.println("Name:  " + product.getName());
                 deliminator();
                 System.out.println(product.getProductType().getName() + " " +
-                product.getProductType().getPrice() + "$");
+                        product.getProductType().getPrice() + "$");
                 if (product instanceof Pizza) {
-                    for (int i = 0; i < ((Pizza) product).getIngredients().length; i++){
-                        System.out.println(((Pizza)product).getIngredients()[i].getName() + " " +
-                                ((Pizza) product).getIngredients()[i].getPrice() + "$");
+                    for (int i = 0; i < ((Pizza) product).getIngredients().length; i++) {
+                            System.out.println(((Pizza) product).getIngredients()[i].getName() + " " +
+                                    ((Pizza) product).getIngredients()[i].getPrice() + "$");
                     }
                 }
                 deliminator();
@@ -26,7 +27,7 @@ public class Printer {
                 deliminator();
             }
         }
-        System.out.println("Total Amount: " + order.getTotalPrice());
+        System.out.println("Total Amount: " + order.calculateOrderPrice(order.getProducts()));
         trainlingLine();
     }
 

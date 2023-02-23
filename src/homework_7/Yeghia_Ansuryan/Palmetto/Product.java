@@ -8,10 +8,11 @@ public abstract class Product {
     private int quantity;
     private String name;
 
-    public Product(String product, String name, int quantity) {
+    public Product(String product, String name, ProductType productType, int quantity) {
         this.product = product;
         this.name = name;
         this.quantity = quantity;
+        this.productType = productType;
     }
 
     abstract double calculatePrice();
@@ -34,6 +35,10 @@ public abstract class Product {
 
     public Ingredient getIngredient() {
         return ingredient;
+    }
+
+    void setName(String name) {
+        this.name=name;
     }
 
     public Pizza getPizza() {
