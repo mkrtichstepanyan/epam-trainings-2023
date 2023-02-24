@@ -1,6 +1,6 @@
 package homework_8.gohar_hakobyan.p2;
 
-import chapters.chapter9.p1.Protection;
+import homework_8.gohar_hakobyan.p1.Protection;
 
 public class OtherPackage {
     OtherPackage() {
