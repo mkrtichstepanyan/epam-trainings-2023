@@ -3,12 +3,12 @@ package homework_5.Zara_Avetyan;
 import java.util.Scanner;
 
 public class Ingredients {
-    String ingredients;
-    double price;
-    boolean c = true;
-    int[] choose = new int[8];
+    private String ingredients;
+    private double price;
+    private boolean c = true;
+    private int[] choose = new int[8];
 
-    static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
     public Ingredients(String ingredients, double price) {
         this.ingredients = ingredients;
@@ -16,6 +16,22 @@ public class Ingredients {
     }
 
     public Ingredients() {
+    }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public int[] chooseIngredients() {
@@ -51,5 +67,7 @@ public class Ingredients {
             }
         } while (c);
         return choose;
+
+
     }
 }
