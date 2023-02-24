@@ -1,6 +1,6 @@
 package homework_8.Ofelya_Khachatryan.chapter_9.packs.p2;
 
-import chapter_9.packs.p1.Protection;
+import homework_8.Ofelya_Khachatryan.chapter_9.packs.p1.Protection;
 
 public class Protection2 extends Protection {
     Protection2() {

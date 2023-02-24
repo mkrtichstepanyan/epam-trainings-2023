@@ -1,7 +1,8 @@
 package homework_8.Ofelya_Khachatryan.chapter_9.packs.p2;
+
 public class OtherPackage {
     OtherPackage() {
-        chapter_9.packs.p1.Protection p = new chapter_9.packs.p1.Protection();
+        homework_8.Ofelya_Khachatryan.chapter_9.packs.p1.Protection p = new homework_8.Ofelya_Khachatryan.chapter_9.packs.p1.Protection();
         System.out.println("other package constructor");
 
 //        class or package only
