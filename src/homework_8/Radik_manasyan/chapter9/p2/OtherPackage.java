@@ -1,10 +1,10 @@
 package homework_8.Radik_manasyan.chapter9.p2;
 
-import chapter9.p1.Protection;
+import homework_8.Hovhannes_Gspeyan.chapter_9.p1.Protection;
 
 public class OtherPackage {
     OtherPackage() {
-        chapter9.p1.Protection p = new Protection();
+        Protection p = new Protection();
         System.out.println("Конструктор из другого пакета");
         //доступно только для данного класса или пакета
         //System.out.println("n = " + p.n);
