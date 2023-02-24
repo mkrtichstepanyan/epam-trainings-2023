@@ -1,13 +1,12 @@
 package homework_7.Hovhannes_Abrahamyan;
 
-// is a
-// has a
 public class Pizza {
     private static final int MAX_ALLOWED_INGREDIENTS = 10;
 
     private String name;
     private PizzaType pizzaType;
-    private Ingredient[] ingredients;
+    private Ingredient[] ingredients = new Ingredient[10];
+    private int currentIngredientIndex = 0;
     private int quantity;
 
     Pizza(String name, PizzaType pizzaType, int quantity) {
@@ -21,22 +20,34 @@ public class Pizza {
         this.pizzaType = pizzaType;
         this.ingredients = ingredients;
         this.quantity = quantity;
+
+        for (int i = 1; i < ingredients.length; i++){
+            this.addIngredient(ingredients[i]);
+        }
     }
 
     public double calculatePrice() {
         double ingredientPrice = 0.0;
-        for (Ingredient ingredient : ingredients) {
-            ingredientPrice += ingredient.getPrice();
+        for (int i = 0; i < currentIngredientIndex; i++) {
+            ingredientPrice += ingredients[i].getPrice();
         }
         return this.pizzaType.getPrice() + ingredientPrice;
     }
 
     public void addIngredient(Ingredient ingredient) {
-        if (quantity > MAX_ALLOWED_INGREDIENTS) {
+        if (currentIngredientIndex == ingredients.length) {
             System.out.println("No more ingredients allowed.");
             return;
         }
-        ingredients[quantity++] = ingredient;
+        for (int i = 0; i < currentIngredientIndex; i++) {
+            if (ingredients[i] == ingredient) {
+                System.out.println("Please, select another ingredient, this one already in use");
+                return;
+            }
+        }
+
+        ingredients[currentIngredientIndex] = ingredient;
+        currentIngredientIndex++;
     }
 
     public String getName() {
@@ -46,5 +57,20 @@ public class Pizza {
     public int getQuantity() {
         return quantity;
     }
-}
 
+    public String getType() {
+        return pizzaType.getName();
+    }
+
+    public double getBasePrice() {
+        return pizzaType.getPrice();
+    }
+
+    public int getIngredineQty() {
+        return currentIngredientIndex;
+    }
+
+    public Ingredient[] getIngredients() {
+        return ingredients;
+    }
+}

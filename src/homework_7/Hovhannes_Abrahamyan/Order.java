@@ -9,6 +9,8 @@ public class Order {
     private int orderNumber;
     private Customer customer;
     private Pizza[] pizzas = new Pizza[10];
+    private String customerId;
+    public int getPizzasQuinty;
 
     Order() {
         orderNumber = initialId++;
@@ -41,7 +43,6 @@ public class Order {
 
     public void printOrderAttributes() {
         for (Pizza pizza : pizzas) {
-            System.out.println("[" + orderNumber + customer.getNumber() + pizza.getName() + pizza.getQuantity() + "]");
         }
     }
 
@@ -56,7 +57,17 @@ public class Order {
     private boolean isValidPizzaName(String pizzaName) {
         return pizzaName != null && pizzaName.length() > 4 && pizzaName.length() < 20;
     }
-    public Customer getCustomer() {
-        return customer;
+    public int getNumber() {
+        return orderNumber;
+    }
+    public int getCustoerId() {
+        return customer.getNumber();
+    }
+    public Pizza[] getPizzas() {
+        return pizzas;
+    }
+
+    public String getCustomerId() {
+        return customerId;
     }
 }
