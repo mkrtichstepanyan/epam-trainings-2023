@@ -1,4 +1,4 @@
-package homework_7_Hovhannes_Gspeyan.palmetto.menu;
+package homework_7.homework_7_Hovhannes_Gspeyan.palmetto.menu;
 
 public class Ingredient {
 
