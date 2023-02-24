@@ -44,13 +44,14 @@ public class Pizza extends Product implements Ingredients {
             if (ingredientExists) {
                 System.out.println("The ingredient already exists, please check the order again.");
             } else {
-                for (int i = 0; i < ingredients.length; i++) {
-                    if (ingredients[i] == null) {
-                        ingredients[i] = ingredient;
-                        System.out.println("Added " + ingredient.getName() + " to the pizza.");
-                        break;
-                    }
-                }
+                addIngredients(new Ingredient[]{ingredient});
+//                for (int i = 0; i < ingredients.length; i++) {
+//                    if (ingredients[i] == null) {
+//                        ingredients[i] = ingredient;
+//                        System.out.println("Added " + ingredient.getName() + " to the pizza.");
+//                        break;
+//                    }
+//                }
             }
         }
     }

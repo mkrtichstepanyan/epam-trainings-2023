@@ -27,9 +27,12 @@ public class PizzeriaPalmetto {
         customer1.setName("First Customer");
         Order firstOrder = new Order();
         firstOrder.setCustomer(customer1);
-        Product pizza2 = new Pizza("Margarita", PizzaType.CALZONE, ingredientsForMargarita, 2, ProductType.PIZZA);
-        Product pizza3 = new Pizza("PepperoniOro", PizzaType.CALZONE, ingredientsForPepperoniOro, 3, ProductType.PIZZA);
-        Product pizza4 = new Pizza("BasePZZ", PizzaType.REGULAR, ingredientsForBasePZZ, 9, ProductType.PIZZA);
+        Pizza pizza2 = new Pizza("Margarita", PizzaType.CALZONE, ingredientsForMargarita, 2, ProductType.PIZZA);
+        Pizza pizza3 = new Pizza("PepperoniOro", PizzaType.CALZONE, ingredientsForPepperoniOro, 3, ProductType.PIZZA);
+        Pizza pizza4 = new Pizza("BasePZZ", PizzaType.REGULAR, ingredientsForBasePZZ, 9, ProductType.PIZZA);
+        pizza2.addIngredient(Ingredient.OLIVES);
+        pizza3.addIngredient(Ingredient.GARLIC);
+        pizza4.addIngredient(Ingredient.CORN);
         firstOrder.addProduct(pizza2);
         firstOrder.addProduct(pizza3);
         firstOrder.addProduct(pizza4);
