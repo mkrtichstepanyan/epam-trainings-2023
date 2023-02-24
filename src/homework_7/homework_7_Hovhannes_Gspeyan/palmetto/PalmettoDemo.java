@@ -1,6 +1,6 @@
-package homework_7_Hovhannes_Gspeyan.palmetto;
+package homework_7.homework_7_Hovhannes_Gspeyan.palmetto;
 
-import homework_7_Hovhannes_Gspeyan.palmetto.menu.*;
+import homework_7.homework_7_Hovhannes_Gspeyan.palmetto.menu.*;
 
 public class PalmettoDemo {
     public static void main(String[] args) {

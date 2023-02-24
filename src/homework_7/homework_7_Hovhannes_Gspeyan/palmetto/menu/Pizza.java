@@ -1,6 +1,6 @@
-package homework_7_Hovhannes_Gspeyan.palmetto.menu;
+package homework_7.homework_7_Hovhannes_Gspeyan.palmetto.menu;
 
-import homework_7_Hovhannes_Gspeyan.palmetto.Customer;
+import homework_7.homework_7_Hovhannes_Gspeyan.palmetto.Customer;
 
 public class Pizza implements MenuItem {
 
