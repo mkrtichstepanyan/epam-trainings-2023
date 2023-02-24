@@ -1,7 +1,6 @@
-package homework_7_Hovhannes_Gspeyan.palmetto.menu;
+package homework_7.Varsik_Pijoyan;
 
-public class PizzaType{
-
+public class PizzaType {
     private static final double BASE_PRICE = 1.0;
 
     public static final PizzaType REGULAR =
@@ -9,8 +8,8 @@ public class PizzaType{
     public static final PizzaType CALZONE =
             new PizzaType("calzone", BASE_PRICE, 0.5);
 
-    private final String name;
-    private final double price;
+    private String name;
+    private double price;
 
     private double additionalPrice;
 
@@ -18,12 +17,12 @@ public class PizzaType{
         this.name = name;
         this.price = basePrice + additionalPrice;
     }
+
     public double getPrice() {
         return price;
     }
 
-    public String getName() {
+    public String getName(){
         return name;
     }
-
 }

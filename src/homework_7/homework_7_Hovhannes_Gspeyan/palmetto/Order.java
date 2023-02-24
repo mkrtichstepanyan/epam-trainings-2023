@@ -1,7 +1,7 @@
-package homework_7_Hovhannes_Gspeyan.palmetto;
+package homework_7.homework_7_Hovhannes_Gspeyan.palmetto;
 
-import homework_7_Hovhannes_Gspeyan.palmetto.menu.MenuItem;
-import homework_7_Hovhannes_Gspeyan.palmetto.menu.Pizza;
+import homework_7.homework_7_Hovhannes_Gspeyan.palmetto.menu.MenuItem;
+import homework_7.homework_7_Hovhannes_Gspeyan.palmetto.menu.Pizza;
 
 public class Order {
     private static final int MAX_AMOUNT = 10;
