@@ -19,7 +19,7 @@ public class PizzeriaPalmetto {
 
         Printer.printCheck(order);
 
-        Ingredient[] ingredientsForMargarita = {Ingredient.TOMATO_PASTE, Ingredient.PEPPERONI, Ingredient.GARLIC, Ingredient.BACON, };
+        Ingredient[] ingredientsForMargarita = {Ingredient.TOMATO_PASTE, Ingredient.PEPPERONI, Ingredient.GARLIC, Ingredient.BACON};
         Ingredient[] ingredientsForPepperoniOro = {Ingredient.TOMATO_PASTE, Ingredient.CHEESE, Ingredient.SALAMI, Ingredient.OLIVES};
         Ingredient[] ingredientsForBasePZZ = {Ingredient.CHEESE, Ingredient.GARLIC, Ingredient.CORN, Ingredient.OLIVES};
 
@@ -30,9 +30,9 @@ public class PizzeriaPalmetto {
         Pizza pizza2 = new Pizza("Margarita", PizzaType.CALZONE, ingredientsForMargarita, 2, ProductType.PIZZA);
         Pizza pizza3 = new Pizza("PepperoniOro", PizzaType.CALZONE, ingredientsForPepperoniOro, 3, ProductType.PIZZA);
         Pizza pizza4 = new Pizza("BasePZZ", PizzaType.REGULAR, ingredientsForBasePZZ, 9, ProductType.PIZZA);
-        pizza2.addIngredient(Ingredient.OLIVES);
-        pizza3.addIngredient(Ingredient.GARLIC);
-        pizza4.addIngredient(Ingredient.CORN);
+        pizza2.addIngredient(Ingredient.CHEESE);
+        pizza3.addIngredient(Ingredient.CORN);
+        pizza4.addIngredient(Ingredient.GARLIC);
         firstOrder.addProduct(pizza2);
         firstOrder.addProduct(pizza3);
         firstOrder.addProduct(pizza4);

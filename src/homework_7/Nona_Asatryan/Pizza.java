@@ -32,28 +32,19 @@ public class Pizza extends Product implements Ingredients {
     @Override
     public void addIngredient(Ingredient ingredient) {
         if (ingredients.length >= MAX_ALLOWED_INGREDIENTS) {
-            System.out.println("The pizza is already full.");
-        } else {
-            boolean ingredientExists = false;
-            for (Ingredient i : ingredients) {
-                if (i != null && i.equals(ingredient)) {
-                    ingredientExists = true;
-                    break;
-                }
-            }
-            if (ingredientExists) {
-                System.out.println("The ingredient already exists, please check the order again.");
-            } else {
-                addIngredients(new Ingredient[]{ingredient});
-//                for (int i = 0; i < ingredients.length; i++) {
-//                    if (ingredients[i] == null) {
-//                        ingredients[i] = ingredient;
-//                        System.out.println("Added " + ingredient.getName() + " to the pizza.");
-//                        break;
-//                    }
-//                }
+            System.out.println("The pizza is already full!");
+            return;
+        }
+        for (Ingredient value : ingredients) {
+            if (value.equals(ingredient)) {
+                System.out.println("The " + ingredient.getName() + " already exists in");
+                return;
             }
         }
+        Ingredient[] newIngredients = new Ingredient[ingredients.length + 1];
+        System.arraycopy(ingredients, 0, newIngredients, 0, ingredients.length);
+        newIngredients[ingredients.length] = ingredient;
+        ingredients = newIngredients;
     }
 
     public static void printIngredients(Pizza pizza) {
