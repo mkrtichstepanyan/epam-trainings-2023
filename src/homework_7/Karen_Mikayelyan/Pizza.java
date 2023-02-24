@@ -31,7 +31,6 @@ public class Pizza extends Product {
     public void addIngredient(Ingredient ingredient) {
         if (ingredients.length >= MAX_ALLOWED_INGREDIENTS) {
             System.out.println("The pizza's ingredients maximum number has already completed!");
-            return;
         }
         for (Ingredient existingIngredient : ingredients) {
             if (existingIngredient.equals(ingredient)) {

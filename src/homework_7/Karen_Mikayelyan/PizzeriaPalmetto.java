@@ -10,10 +10,11 @@ public class PizzeriaPalmetto {
         Order order = new Order();
         order.setCustomer(customer);
 
-        Ingredient[] ingredients = {Ingredient.CHEESE, Ingredient.SALAMI, Ingredient.TOMATO_PASTE};
+        Ingredient[] ingredients = {Ingredient.CHEESE, Ingredient.SALAMI, Ingredient.TOMATO_PASTE, Ingredient.CHEESE, Ingredient.OLIVES, Ingredient.CORN, Ingredient.GARLIC, Ingredient.PEPPERONI};
 
         Pizza pizza = new Pizza("MyPizza", PizzaType.CALZONE, ingredients, 10, ProductType.PIZZA);
         Pizza pizza1 = new Pizza("MyPizza2", PizzaType.REGULAR, ingredients, 5, ProductType.PIZZA);
+        pizza.addIngredient(Ingredient.CHEESE);
         order.addProduct(pizza);
         order.addProduct(pizza1);
 
@@ -34,6 +35,8 @@ public class PizzeriaPalmetto {
         firstOrder.addProduct(pepperoniOro);
         firstOrder.addProduct(basePZZ);
         Printer.printCheck(firstOrder);
+        margarita.addIngredient(Ingredient.GARLIC);
+        basePZZ.addIngredient(Ingredient.CHEESE);
 
         Customer customer2 = new Customer();
         customer2.setName("Jack");
