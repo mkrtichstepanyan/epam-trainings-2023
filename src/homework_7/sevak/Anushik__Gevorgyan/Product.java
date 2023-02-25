@@ -8,7 +8,7 @@ public  abstract class Product {
 
     public ProductType productType;
 
-    public abstract double calculateprice();
+    public abstract double calculatePrice();
 
 
 
