@@ -1,5 +1,7 @@
 package homework_8.shushanik_araqelyan_chapter9;
 
+import homework_8.shushanik_araqelyan_chapter9.mypack.Balance;
+
 public class AccountBalance {
     public static void main(String[] args) {
         Balance[] current = new Balance[3];

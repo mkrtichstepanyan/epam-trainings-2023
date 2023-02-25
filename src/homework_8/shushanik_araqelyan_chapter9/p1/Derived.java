@@ -1,6 +1,8 @@
-package homework_8.shushanik_araqelyan_chapter9;
+package homework_8.shushanik_araqelyan_chapter9.p1;
 
-public class Derived extends  Protection{
+import homework_8.shushanik_araqelyan_chapter9.p1.Protection;
+
+public class Derived extends Protection {
     Derived(){
         System.out.println("derived constructor");
         System.out.println(" n = " + n);

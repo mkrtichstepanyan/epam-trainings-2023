@@ -1,4 +1,4 @@
-package Shushanik_araqelyan_pizza;
+package homework_7.Shushanik_araqelyan_pizza;
 
 public class Customer {
     private static final int BASE_CUSTOMER_NUMBER = 1000;

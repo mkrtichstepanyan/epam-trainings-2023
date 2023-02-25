@@ -1,5 +1,8 @@
 package homework_8.shushanik_araqelyan_chapter9;
-
+interface IntStack{
+    void push(int item);
+    int pop();
+}
 public class FixedStack {
     private int[] stck;
     private int tos;
@@ -15,12 +18,13 @@ public class FixedStack {
 
             stck[++tos] = item;
         }
-        // public int pop(){
-        if (tos < 0) {
-            System.out.println("Stack underflow.");
-            return 0;
-        } else
-            return stck[tos--];
+      // public int pop () {
+            if (tos < 0) {
+                System.out.println("Stack underflow.");
+                return 0;
+            } else
+                return stck[tos--];
+        }
     }
-}
+//}
 

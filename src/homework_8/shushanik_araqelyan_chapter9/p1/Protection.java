@@ -1,4 +1,4 @@
-package homework_8.shushanik_araqelyan_chapter9;
+package homework_8.shushanik_araqelyan_chapter9.p1;
 
 public class Protection {
     int n = 1;

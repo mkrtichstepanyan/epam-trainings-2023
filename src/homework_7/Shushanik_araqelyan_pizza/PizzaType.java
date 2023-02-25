@@ -1,4 +1,4 @@
-package Shushanik_araqelyan_pizza;
+package homework_7.Shushanik_araqelyan_pizza;
 
 public class PizzaType {
     private static final double BASE_PRICE = 1.0;

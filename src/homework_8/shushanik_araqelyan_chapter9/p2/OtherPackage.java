@@ -1,4 +1,6 @@
-package homework_8.shushanik_araqelyan_chapter9;
+package homework_8.shushanik_araqelyan_chapter9.p2;
+
+import homework_8.shushanik_araqelyan_chapter9.p1.Protection;
 
 public class OtherPackage {
     OtherPackage(){
