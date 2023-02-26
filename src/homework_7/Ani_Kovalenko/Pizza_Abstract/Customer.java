@@ -1,4 +1,4 @@
-package homework_7.Ani_Kovalenko;
+package homework_7.Ani_Kovalenko.Pizza_Abstract;
 
 public class Customer {
     private static final int BASE_CUSTOMER_NUMBER = 1000;

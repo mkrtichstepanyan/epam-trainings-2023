@@ -1,4 +1,9 @@
-package homework_7.Ani_Kovalenko;
+package homework_7.Ani_Kovalenko.Pizza_Abstract;
+
+import homework_7.Ani_Kovalenko.Pizza_Abstract.IngredientPizza;
+import homework_7.Ani_Kovalenko.Pizza_Abstract.Item;
+import homework_7.Ani_Kovalenko.Pizza_Abstract.Order;
+import homework_7.Ani_Kovalenko.Pizza_Abstract.PizzaType;
 
 public class Pizza extends Item {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
