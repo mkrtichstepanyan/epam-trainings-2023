@@ -5,7 +5,7 @@ import homework_9.garik_gharibyan.assignment.annotations.Length;
 import homework_9.garik_gharibyan.assignment.annotations.Max;
 import homework_9.garik_gharibyan.assignment.annotations.Min;
 
-public class CustomerDto {
+public class CustomerDto{
 
     @Length
     private String name;
