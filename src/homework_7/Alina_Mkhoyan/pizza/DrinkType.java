@@ -1,23 +1,31 @@
 package homework_7.Alina_Mkhoyan.pizza;
 
-public class DrinkType {
+public enum DrinkType {
 
-    public static final DrinkType COLA_SMALL = new DrinkType(1, 1);
-    public static final DrinkType COLA_MIDDLE = new DrinkType(1.5, 2);
-    public static final DrinkType COLA_LARGE = new DrinkType(2, 3);
-    public static final DrinkType FANTA_SMALL = new DrinkType(1, 1);
-    public static final DrinkType FANTA_MIDDLE = new DrinkType(1.5, 2);
-    public static final DrinkType FANTA_LARGE = new DrinkType(2, 3);
-    public static final DrinkType SPRITE_SMALL = new DrinkType(1, 1);
-    public static final DrinkType SPRITE_MIDDLE = new DrinkType(1.5, 2);
-    public static final DrinkType SPRITE_LARGE = new DrinkType(2, 3);
+    COLA_SMALL("Coca-Cola small", 1, 1),
 
+    COLA_LARGE("Coca-Cola large",2,3),
+
+    FANTA_SMALL ("Fanta small",1,1),
+
+    FANTA_LARGE ("Fanta large",2,3),
+
+    SPRITE_SMALL ("Sprite small",1,1),
+
+    SPRITE_LARGE ("Sprite large",2,3);
+
+    private final String name;
     private double litre;
     private double price;
 
-    DrinkType(double litre, double price) {
+    DrinkType(String name, double litre, double price) {
+        this.name = name;
         this.litre = litre;
         this.price = price;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public double getPrice() {
