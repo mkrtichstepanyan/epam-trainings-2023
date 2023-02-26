@@ -17,6 +17,7 @@ public class Printer {
             p.printProductSpecialInfo();
             printIngredients(p.getIngredients());
             System.out.println("Amount - " + (p.calculatePrice()*p.quantity));
+            System.out.println("Quantity - " + p.quantity);
             printLine();
         }
     }
