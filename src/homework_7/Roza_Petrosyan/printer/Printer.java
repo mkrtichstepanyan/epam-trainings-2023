@@ -1,7 +1,7 @@
 package homework_7.Roza_Petrosyan.printer;
 
+import homework_7.Roza_Petrosyan.Ingredient;
 import homework_7.Roza_Petrosyan.Order;
-import homework_7.Roza_Petrosyan.ingredient.*;
 import homework_7.Roza_Petrosyan.productType.*;
 import homework_7.Roza_Petrosyan.product.*;
 

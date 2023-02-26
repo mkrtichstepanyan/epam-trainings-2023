@@ -1,6 +1,5 @@
 package homework_7.Roza_Petrosyan;
 
-import homework_7.Roza_Petrosyan.ingredient.*;
 import homework_7.Roza_Petrosyan.product.*;
 import homework_7.Roza_Petrosyan.productType.*;
 

@@ -1,11 +1,12 @@
 package homework_7.Roza_Petrosyan.product;
 
-import homework_7.Roza_Petrosyan.ingredient.Ingredient;
+import homework_7.Roza_Petrosyan.HasIngredient;
+import homework_7.Roza_Petrosyan.Ingredient;
 import homework_7.Roza_Petrosyan.productType.ProductType;
 
 // is a
 // has a
-public class Pizza extends Product {
+public class Pizza extends Product implements HasIngredient {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
 
     private ProductType productType;
@@ -28,6 +29,7 @@ public class Pizza extends Product {
         return productType.getPrice() + ingredientPrice;
     }
 
+    @Override
     public void addIngredient(Ingredient ingredient) {
         // todo implement a method that will add ingredient into the list.
         int newSize = 0;
