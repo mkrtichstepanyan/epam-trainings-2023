@@ -1,6 +1,6 @@
 package homework_8.shushanik_araqelyan_chapter9;
 
-public class AskMe {
+public class AskMe implements SharedConstants {
     static void answer(int result){
         switch(result){
             case NO:

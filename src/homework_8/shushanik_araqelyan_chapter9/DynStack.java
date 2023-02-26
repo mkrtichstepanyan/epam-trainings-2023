@@ -1,6 +1,6 @@
 package homework_8.shushanik_araqelyan_chapter9;
 
-public class DynStack {
+public class DynStack  implements IntStack {
     private int[] stck;
     private int tos;
     DynStack(int size){

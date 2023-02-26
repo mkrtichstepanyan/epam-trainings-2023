@@ -4,9 +4,8 @@ public class Balance {
     String name;
     double bal;
 
-    {
-        String n;
-        Balance(String n; double b){
+
+        Balance(String n, double b){
         name = n;
         bal = b;
     }
@@ -17,5 +16,5 @@ public class Balance {
         }
     }
     }
-}
+
 

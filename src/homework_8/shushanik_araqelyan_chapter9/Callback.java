@@ -1,10 +1,5 @@
 package homework_8.shushanik_araqelyan_chapter9;
 
-public class Callback {
-    public void callback(int p){
-        System.out.println("callback called with " + p);
+public interface Callback {
+    void callback(int param);
     }
-    void nonIfaceMeth(){
-        System.out.println("Classes that implement interfaces " + "may also define other members too.");
-    }
-}
