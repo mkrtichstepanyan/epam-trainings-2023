@@ -1,4 +1,4 @@
-package homework_8.Varsik_Pijoyan.chapter_8.PackagesAndInheritances.IntStack;
+package homework_8.Varsik_Pijoyan.chapter_9.PackagesAndInheritances.IntStack;
 
 public class DynStack implements IntStack{
     private int [] stck;

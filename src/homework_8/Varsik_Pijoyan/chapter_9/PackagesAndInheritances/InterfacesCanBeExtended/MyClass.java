@@ -1,4 +1,4 @@
-package homework_8.Varsik_Pijoyan.chapter_8.PackagesAndInheritances.InterfacesCanBeExtended;
+package homework_8.Varsik_Pijoyan.chapter_9.PackagesAndInheritances.InterfacesCanBeExtended;
 
 public class MyClass implements B1{
     public void meth1(){

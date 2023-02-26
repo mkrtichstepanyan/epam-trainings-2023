@@ -1,6 +1,6 @@
-package homework_8.Varsik_Pijoyan.chapter_8.PackagesAndInheritances.p2;
+package homework_8.Varsik_Pijoyan.chapter_9.PackagesAndInheritances.p2;
 
-import homework_8.Varsik_Pijoyan.chapter_8.PackagesAndInheritances.p1.Protection;
+import homework_8.Varsik_Pijoyan.chapter_9.PackagesAndInheritances.p1.Protection;
 
 public class OtherPackage {
     OtherPackage(){

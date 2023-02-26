@@ -1,4 +1,4 @@
-package homework_8.Varsik_Pijoyan.chapter_8.PackagesAndInheritances.p1;
+package homework_8.Varsik_Pijoyan.chapter_9.PackagesAndInheritances.p1;
 
 public class Demo {
     public static void main(String[] args) {

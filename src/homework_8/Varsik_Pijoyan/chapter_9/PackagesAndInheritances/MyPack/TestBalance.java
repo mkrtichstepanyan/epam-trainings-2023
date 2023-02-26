@@ -1,4 +1,4 @@
-package homework_8.Varsik_Pijoyan.chapter_8.PackagesAndInheritances.MyPack;
+package homework_8.Varsik_Pijoyan.chapter_9.PackagesAndInheritances.MyPack;
 
 public class TestBalance {
     public static void main(String[] args) {
