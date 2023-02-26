@@ -9,10 +9,18 @@ public abstract class  Product {
 
     public abstract Ingredient[] getIngredients();
 
-    public abstract String getName();
+    public String getName(){
+        return name;
+    }
 
-    public abstract void setName(String name);
+    public void setName(String name){
+        this.name = name;
+    }
 
-    public abstract int getQuantity();
-    public abstract void setQuantity(int quantity);
+    public int getQuantity(){
+        return quantity;
+    }
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
 }

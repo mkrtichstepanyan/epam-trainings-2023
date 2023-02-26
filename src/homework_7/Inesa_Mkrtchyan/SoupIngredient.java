@@ -9,12 +9,4 @@ public class SoupIngredient extends Ingredient{
         this.name = name;
         this.price = price;
     }
-    public double getPrice() {
-        return 0;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
 }

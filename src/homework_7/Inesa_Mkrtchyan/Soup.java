@@ -5,7 +5,7 @@ public class Soup extends Product{
     public Soup(String name,Ingredient[] ingredients, int quantity){
         this.quantity = quantity;
         this.name = name;
-        this.ingredients = new Ingredient[MAX_ALLOWED_INGREDIENTS];
+        this.ingredients = new SoupIngredient[MAX_ALLOWED_INGREDIENTS];
         for(int i = 0; i < MAX_ALLOWED_INGREDIENTS; i++){
             this.ingredients[i] = ingredients[i];
         }

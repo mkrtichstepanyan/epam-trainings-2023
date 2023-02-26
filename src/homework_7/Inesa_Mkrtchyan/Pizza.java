@@ -7,14 +7,14 @@ public class Pizza extends Product {
     private PizzaType pizzaType;
 
     Pizza(String name, PizzaType pizzaType, int quantity) {
-        this.ingredients = new Ingredient[MAX_ALLOWED_INGREDIENTS];
+        this.ingredients = new PizzaIngredient[MAX_ALLOWED_INGREDIENTS];
         this.name = name;
         this.pizzaType = pizzaType;
         this.quantity = quantity;
     }
 
     Pizza(String name, PizzaType pizzaType, PizzaIngredient[] ingredients, int quantity) {
-        this.ingredients = new Ingredient[MAX_ALLOWED_INGREDIENTS];
+        this.ingredients = new PizzaIngredient[MAX_ALLOWED_INGREDIENTS];
         for (int i = 0; i < ingredients.length; i++) {
             this.ingredients[i] = ingredients[i];
         }
@@ -41,26 +41,6 @@ public class Pizza extends Product {
         return ing;
     }
 
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public int getQuantity() {
-        return quantity;
-    }
-
-    @Override
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 
     public double calculatePrice() {
         double ingredientPrice = 0.0;

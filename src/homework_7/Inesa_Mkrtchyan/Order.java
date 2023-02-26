@@ -23,15 +23,18 @@ public class Order {
         products[pizzaIndex] = new Pizza(validPizzaName, type, ingredients, quantity);
     }
 
+    public int getOrderNumber() {
+        return orderNumber;
+    }
+
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
     public double calculateOrderPrice() {
-        // todo calculate order total price
         int price = 0;
         for (Product p : products) {
-            if(p != null) price += p.calculatePrice();
+            if(p != null) price += p.calculatePrice() * p.quantity;
         }
         return price;
     }

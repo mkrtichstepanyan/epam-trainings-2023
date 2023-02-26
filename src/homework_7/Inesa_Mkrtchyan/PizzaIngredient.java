@@ -14,12 +14,4 @@ public class PizzaIngredient extends Ingredient {
         this.name = name;
         this.price = price;
     }
-    public double getPrice() {
-        return price;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
 }
