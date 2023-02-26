@@ -1,4 +1,7 @@
-package homework_7.Ani_Kovalenko;
+package homework_7.Ani_Kovalenko.Pizza_Abstract;
+
+import homework_7.Ani_Kovalenko.Pizza_Abstract.Customer;
+import homework_7.Ani_Kovalenko.Pizza_Abstract.Item;
 
 public class Order {
     public static final String PRODUCT_PIZZA = "Pizza";
@@ -16,20 +19,6 @@ public class Order {
         this.customer = customer;
         orderNumber = initialId++;
     }
-
-//    public void addBurger(String product, String burgerName, BurgerBreadType breadType,
-//                          IngredientBurger[] ingredients, int quantity) {
-//        String validBurgerName = getValidItemName(burgerName, index);
-//        Item item = new Burger(product, validBurgerName, breadType, ingredients, quantity);
-//        addItem(item);
-//    }
-//
-//    public void addPizza(String product, String pizzaName, PizzaType type,
-//                         IngredientPizza[] ingredients, int quantity) {
-//        String validPizzaName = getValidItemName(pizzaName, index);
-//        Item item = new Pizza(product, validPizzaName, type, ingredients, quantity);
-//        addItem(item);
-//    }
 
     void addItem(Item item) {
         if (index > MAX_PIZZA_AMOUNT) {

@@ -1,4 +1,4 @@
-package homework_7.Ani_Kovalenko;
+package homework_7.Ani_Kovalenko.Pizza_Abstract;
 
 abstract class Item {
     private ItemType itemType;

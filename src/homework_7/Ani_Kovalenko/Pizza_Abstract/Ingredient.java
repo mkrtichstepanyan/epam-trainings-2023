@@ -1,4 +1,4 @@
-package homework_7.Ani_Kovalenko;
+package homework_7.Ani_Kovalenko.Pizza_Abstract;
 
 public abstract class Ingredient {
     private String name;
