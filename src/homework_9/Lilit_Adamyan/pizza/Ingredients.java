@@ -9,8 +9,9 @@ public enum Ingredients implements EnumInterface {
         price = p;
     }
 
+
     @Override
-    public Ingredient getPrice() {
-        return price;
+    public Ingredients getPrice() {
+        return null;
     }
 }
