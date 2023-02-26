@@ -18,7 +18,7 @@ public class Order {
         orderNumber = initialId++;
     }
 
-    public void addPizza(String pizzaName, PizzaType type, Ingredient[] ingredients, int quantity) {
+    public void addPizza(String pizzaName, PizzaType type, Ingredients ingredients, int quantity) {
         if (quantity > MAX_PIZZA_AMOUNT) {
             System.out.println("hop axper jan!!");
             return;

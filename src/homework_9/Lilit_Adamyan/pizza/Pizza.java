@@ -27,7 +27,7 @@ public class Pizza extends Product {
         }
     }
 
-    public Pizza(String name, PizzaType pizzaType, int quantity) {
+    public Pizza(String name, PizzaType pizzaType, Ingredients ingredients, int quantity, Customer customer) {
         super(name, pizzaType.getPrice(), quantity);
         this.name = name;
         this.pizzaType = pizzaType;
