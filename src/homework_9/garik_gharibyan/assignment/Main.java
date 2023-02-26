@@ -2,6 +2,8 @@ package homework_9.garik_gharibyan.assignment;
 
 import homework_9.garik_gharibyan.assignment.annotations.Email;
 import homework_9.garik_gharibyan.assignment.annotations.Length;
+import homework_9.garik_gharibyan.assignment.annotations.Max;
+import homework_9.garik_gharibyan.assignment.annotations.Min;
 
 import java.lang.reflect.Field;
 import java.util.regex.Matcher;
@@ -12,35 +14,19 @@ public class Main {
         CustomerDto customerDto = new CustomerDto();
         customerDto.setName("Jack");
         customerDto.setEmail("Jack@gmail.com");
+        customerDto.setDiscountRate(37);
 
-        if(isValidNameLength(customerDto)){
-            System.out.println(customerDto.getName()+ " - valid name");
+        if (isValidNameLength(customerDto)) {
+            System.out.println(customerDto.getName() + " - valid name");
         }
 
-        if (isValidEmail(customerDto)){
+        if (isValidEmail(customerDto)) {
             System.out.println(customerDto.getEmail() + " - valid email");
         }
 
-    }
-
-    static boolean isValidEmail(CustomerDto customerDto) throws IllegalAccessException {
-        Field[] declaredFields = customerDto.getClass().getDeclaredFields();
-        for (Field field:declaredFields) {
-            if (field.isAnnotationPresent(Email.class)){
-                field.setAccessible(true);
-
-                String regex = field.getAnnotation(Email.class).email();
-                String email = (String) field.get(customerDto);
-                Pattern pattern = Pattern.compile(regex);
-                Matcher matcher = pattern.matcher(email);
-                boolean isMatch = matcher.find();
-                if (!isMatch){
-                    System.out.println(email + " - invalid email");
-                    return false;
-                }
-            }
+        if (isValidDiscountRate(customerDto)) {
+            System.out.println(customerDto.getDiscountRate() + " - valid discount rate");
         }
-        return true;
     }
 
     static boolean isValidNameLength(CustomerDto customerDto) throws IllegalAccessException {
@@ -66,5 +52,43 @@ public class Main {
         }
         return true;
     }
+
+    static boolean isValidEmail(CustomerDto customerDto) throws IllegalAccessException {
+        Field[] declaredFields = customerDto.getClass().getDeclaredFields();
+        for (Field field : declaredFields) {
+            if (field.isAnnotationPresent(Email.class)) {
+                field.setAccessible(true);
+
+                String regex = field.getAnnotation(Email.class).email();
+                String email = (String) field.get(customerDto);
+                Pattern pattern = Pattern.compile(regex);
+                Matcher matcher = pattern.matcher(email);
+                boolean isMatch = matcher.find();
+                if (!isMatch) {
+                    System.out.println(email + " - invalid email");
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    static boolean isValidDiscountRate(CustomerDto customerDto) throws IllegalAccessException {
+        Field[] declaredFields = customerDto.getClass().getDeclaredFields();
+        for (Field field : declaredFields) {
+            if (field.isAnnotationPresent(Max.class) && field.isAnnotationPresent(Min.class)) {
+                field.setAccessible(true);
+                int rate = (int) field.get(customerDto);
+                int min = field.getAnnotation(Min.class).min();
+                int max = field.getAnnotation(Max.class).max();
+                if (rate < min || rate > max) {
+                    System.out.println("Discount rate can be in rate " + min + " - " + max);
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 
 }
