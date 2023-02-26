@@ -10,7 +10,7 @@ public enum Ingredients implements EnumInterface {
     }
 
     @Override
-    public double getPrice() {
+    public Ingredient getPrice() {
         return price;
     }
 }
