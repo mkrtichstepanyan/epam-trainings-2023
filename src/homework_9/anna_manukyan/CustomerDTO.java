@@ -6,10 +6,10 @@ import java.time.LocalDate;
 
 public class CustomerDTO {
 
-    @Length(min=2, max=30)
+    @Length(min = 2, max = 30)
     private String name;
 
-    @Email
+    @Email(message = "Please provide a valid email address")
     private String email;
 
     @Adulthood
