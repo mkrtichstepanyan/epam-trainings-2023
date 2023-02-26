@@ -1,14 +1,14 @@
 package homework_7.rafik_pahlevanyan.ordering_system.pizza;
 
-public class Ingredient {
-    public static final Ingredient TOMATO_PASTE = new Ingredient("Tomato Paste", 1);
-    public static final Ingredient CHEESE = new Ingredient("Cheese", 1);
-    public static final Ingredient SALAMI = new Ingredient("Salami", 1.5);
-    public static final Ingredient BACON = new Ingredient("Bacon", 1.2);
-    public static final Ingredient GARLIC = new Ingredient("Garlic", 0.3);
-    public static final Ingredient CORN = new Ingredient("Corn", 0.7);
-    public static final Ingredient PEPPERONI = new Ingredient("Pepperoni", 0.6);
-    public static final Ingredient OLIVES = new Ingredient("Olives", 0.5);
+public enum Ingredient {
+    TOMATO_PASTE ("Tomato Paste", 1),
+    CHEESE ("Cheese", 1),
+    SALAMI ("Salami", 1.5),
+    BACON ("Bacon", 1.2),
+    GARLIC ("Garlic", 0.3),
+    CORN ("Corn", 0.7),
+    PEPPERONI ("Pepperoni", 0.6),
+    OLIVES ("Olives", 0.5);
 
     public String getName() {
         return name;
@@ -17,7 +17,7 @@ public class Ingredient {
     private String name;
     private double price;
 
-    public Ingredient(String name, double price) {
+    Ingredient(String name, double price) {
         this.name = name;
         this.price = price;
     }
