@@ -1,10 +1,8 @@
 package homework_7.Davit_Poghosyan;
 
-import homework_5.Nelli_Poghosyan.Pizza.Ingredients;
-
 // is a
 // has a
-public class Pizza extends FoodMenu {
+public class Pizza extends Product {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
 
     private PizzaType pizzaType;

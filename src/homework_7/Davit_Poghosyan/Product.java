@@ -1,15 +1,15 @@
 package homework_7.Davit_Poghosyan;
 
-public abstract class FoodMenu {
+public abstract class Product {
     private int quantity;
     private String name;
 
-    public FoodMenu(String name, int quantity) {
+    public Product(String name, int quantity) {
         this.name = name;
         this.quantity = quantity;
 
     }
-    public FoodMenu(int quantity){
+    public Product(int quantity){
         this.quantity = quantity;
     }
 

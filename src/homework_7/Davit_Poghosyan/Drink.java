@@ -1,6 +1,6 @@
 package homework_7.Davit_Poghosyan;
 
-public class Drink extends FoodMenu {
+public class Drink extends Product {
     DrinkType drink;
 
     public Drink(DrinkType drink, int quantity){
