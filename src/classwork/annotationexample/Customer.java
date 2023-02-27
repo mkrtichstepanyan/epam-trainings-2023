@@ -2,7 +2,10 @@ package classwork.annotationexample;
 
 public class Customer {
     private static final int BASE_CUSTOMER_NUMBER = 1000;
-    @MinValue(1001)
+    @Constraint(10)
+    @Constraint(15)
+    @Constraint(20)
+    @Constraint(25)
     private int customerNumber;
     private String customerName;
     private String phoneNumber;
