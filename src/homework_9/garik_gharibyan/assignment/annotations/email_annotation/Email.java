@@ -1,4 +1,4 @@
-package homework_9.garik_gharibyan.assignment.annotations;
+package homework_9.garik_gharibyan.assignment.annotations.email_annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
