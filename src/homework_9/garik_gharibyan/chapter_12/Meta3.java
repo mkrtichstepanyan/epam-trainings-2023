@@ -3,11 +3,11 @@ package homework_9.garik_gharibyan.chapter_12;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
-@What(description = "An annotation test class")
+@What1(description = "An annotation test class")
 
 @MyAnno(str = "Meta3", val = 99)
 public class Meta3 {
-    @What(description = "An annotation test method")
+    @What1(description = "An annotation test method")
     @MyAnno(str = "Testing", val = 100)
     public static void myMeth() {
         Meta3 ob = new Meta3();
