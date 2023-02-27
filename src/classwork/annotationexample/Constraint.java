@@ -4,6 +4,8 @@ import java.lang.annotation.*;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(value = {ElementType.FIELD})
-public @interface MinValue {
-    int value () default 1000;
+@Repeatable(value = Constraints.class)
+public @interface Constraint {
+
+    int value() default 0;
 }
