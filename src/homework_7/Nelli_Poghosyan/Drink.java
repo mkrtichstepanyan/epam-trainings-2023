@@ -1,14 +1,18 @@
 package homework_7.Nelli_Poghosyan;
 
-public class Drink extends FoodMenu {
-    DrinkType drink;
+public class Drink extends Product {
+    DrinkType drinkType;
 
-    public Drink(DrinkType drink, int quantity){
+    public Drink(DrinkType drinkType, int quantity) {
         super(quantity);
-        this.drink = drink;
-    }
-    public DrinkType getDrink(){
-        return drink;
+        this.drinkType = drinkType;
     }
 
+    public DrinkType getDrinkType() {
+        return drinkType;
+    }
+
+    public double calculatePrice() {
+        return getDrinkType().getPrice();
+    }
 }

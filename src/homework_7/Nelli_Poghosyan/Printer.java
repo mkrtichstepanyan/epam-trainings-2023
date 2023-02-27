@@ -7,7 +7,6 @@ public class Printer {
         order.printOrderNumberAndClientNumber();
         order.printPizzaAttributes();
         printDelimiter();
-        order.printDrinkAttributes();
         order.printTotalPrice();
         trailingLine();
     }
@@ -16,7 +15,7 @@ public class Printer {
         System.out.println("********************");
     }
 
-    private static void trailingLine() {
+    public static void trailingLine() {
         System.out.println("********************");
     }
 

@@ -12,11 +12,11 @@ public class PizzeriaPalmetto {
 
         Ingredient[] ingredients = {Ingredient.CHEESE, Ingredient.SALAMI, Ingredient.TOMATO_PASTE};
 
-        order.addPizza("MyPizza", PizzaType.CALZONE, ingredients, 10);
-        order.addPizza("MyPizza2", PizzaType.REGULAR, ingredients, 5);
+        order.addProduct(new Pizza("MyPizza", PizzaType.CALZONE, ingredients, 10));
+        order.addProduct(new Pizza("MyPizza2", PizzaType.REGULAR, ingredients, 5));
+        order.addProduct(new Drink(DrinkType.VINE_IJEVAN_SWEET, 1));
+        order.addProduct(new Drink(DrinkType.VINE_CAGOR_SWEET, 3));
 
-        order.addDrink(DrinkType.VINE_ARMENIA_DRY, 1);
-        order.addDrink(DrinkType.VINE_CAGOR_SWEET, 2);
         Printer.printCheck(order);
     }
 }
