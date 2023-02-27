@@ -1,4 +1,4 @@
-package homework_9.assignment.Ani_Kovalenko.Pizza_Enum_Interface;
+package homework_9.Ani_Kovalenko.Pizza_Enum_Interface;
 
 public class Pizza extends Item implements AddIngredient {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
