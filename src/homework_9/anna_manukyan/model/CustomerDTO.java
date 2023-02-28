@@ -1,6 +1,7 @@
-package homework_9.anna_manukyan;
+package homework_9.anna_manukyan.model;
 
-import homework_9.anna_manukyan.myAnnotations.*;
+
+import homework_9.anna_manukyan.annotations.*;
 
 import java.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package homework_9.anna_manukyan.myAnnotations;
+package homework_9.anna_manukyan.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,8 +7,6 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface Length {
-    int min() default 2;
-
-    int max() default 9;
+public @interface Max {
+    int value() default 1000;
 }

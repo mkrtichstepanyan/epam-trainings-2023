@@ -1,4 +1,4 @@
-package homework_9.anna_manukyan.myAnnotations;
+package homework_9.anna_manukyan.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

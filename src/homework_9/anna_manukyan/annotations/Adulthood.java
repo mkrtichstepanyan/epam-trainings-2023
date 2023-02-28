@@ -1,4 +1,4 @@
-package homework_9.anna_manukyan.myAnnotations;
+package homework_9.anna_manukyan.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,6 +7,6 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface Max {
-    int value() default 1000;
+public @interface Adulthood {
+    int value() default 18;
 }
