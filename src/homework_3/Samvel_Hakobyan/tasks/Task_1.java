@@ -3,13 +3,13 @@ package homework_3.Samvel_Hakobyan.tasks;
 public class Task_1 {
 
     public static void main(String[] args) {
-//        drawLeftUpTriangle(4);
-//        drawRightUpTriangle(5);
-//        drawLeftBottomTriangle(4);
-//        drawRightBottomTriangle(4);
+        drawLeftUpTriangle(4);
+        drawRightUpTriangle(5);
+        drawLeftBottomTriangle(4);
+        drawRightBottomTriangle(4);
         drawRhombus(5);
         drawIsoscelesTriangle(5);
-//        drawBottomIsoscelesTriangle(5);
+        drawBottomIsoscelesTriangle(5);
 
     }
 
