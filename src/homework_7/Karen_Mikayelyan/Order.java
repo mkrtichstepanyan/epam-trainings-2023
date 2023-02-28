@@ -32,7 +32,7 @@ public class Order {
         if (productType == ProductType.DRINK) {
             Drink drinks = (Drink) product;
             int drinksIndex = index++;
-            products[drinksIndex] = new Drink(drinks.getName(), drinks.getDrinkType(), drinks.getQuantity());
+            products[drinksIndex] = new Drink(drinks.getName(), drinks.getDrinkType(), drinks.getQuantity(),productType);
         }
     }
 
