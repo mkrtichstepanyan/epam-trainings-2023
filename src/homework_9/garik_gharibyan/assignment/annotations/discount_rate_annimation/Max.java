@@ -1,4 +1,4 @@
-package homework_9.garik_gharibyan.assignment.annotations;
+package homework_9.garik_gharibyan.assignment.annotations.discount_rate_annimation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,9 +7,6 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface Length {
-    int min() default 2;
-
-    int max() default 30;
-
+public @interface Max {
+    int max() default 100;
 }
