@@ -1,18 +1,18 @@
-package homework_9.Roza_Petrosyan.Dto;
+package homework_9.Roza_Petrosyan.annotation_task.dto;
 
-import homework_9.Roza_Petrosyan.Annotation.*;
+import homework_9.Roza_Petrosyan.annotation_task.annotations.*;
 
 import java.time.LocalDate;
 
 public class CustomerDto {
-    @NotNull(message = "Customer name can not be null")
+    @NotNull
     @Length(min = 2, max = 30)
     private String name;
-    @NotNull(message = "Customer email can not be null")
+    @NotNull
     @Email
     private String email;
 
-    @Adulthood
+    @Adulthood(age = 20)
     private LocalDate birthDay;
 
     @Min(value = 0)

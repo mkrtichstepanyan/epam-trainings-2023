@@ -1,4 +1,4 @@
-package homework_9.Roza_Petrosyan.Annotation;
+package homework_9.Roza_Petrosyan.annotation_task.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,8 +7,8 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface Max {
-    int value();
+public @interface Length {
+    int min();
+    int max();
 
-    String message() default "Discount rate can not be more than 100";
 }
