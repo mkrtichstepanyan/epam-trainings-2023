@@ -1,7 +1,7 @@
 package homework_9.Alina_Mkhoyan.assignment;
 import java.time.LocalDate;
 
-public class CustomerDto extends Dto {
+public class CustomerDto {
 
     @Length(min = 2, max = 30)
     private String name;
