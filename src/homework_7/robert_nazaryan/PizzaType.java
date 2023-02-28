@@ -11,8 +11,6 @@ public class PizzaType {
     private String name;
     private double price;
 
-    private double additionalPrice;
-
     PizzaType(String name, double basePrice, double additionalPrice) {
         this.name = name;
         this.price = basePrice + additionalPrice;
