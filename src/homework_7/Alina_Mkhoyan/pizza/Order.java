@@ -63,7 +63,7 @@ public class Order {
                         + "Pizza Type: " + pizza.getPizzaType().getName() + " "
                         + pizza.getPizzaType().getPrice() + " $" + "\n"
                         + "Ingredients: " + Arrays.toString(pizza.getIngredients()) + "\n"
-                        + "Price: " + pizza.calculatePrice() + "\n"
+                        + "Price: " + pizza.calculatePrice() + " $" + "\n"
                         + "Quantity: " + pizza.getQuantity() + "\n"
                         + "---------------------");
             }
