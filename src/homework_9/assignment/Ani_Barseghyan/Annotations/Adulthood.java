@@ -1,9 +1,0 @@
-package homework_9.assignment.Ani_Barseghyan.Annotations;
-
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-
-@Retention(RetentionPolicy.RUNTIME)
-public @interface Adulthood {
-    String warningMessage() default "Customer should be adult";
-}
