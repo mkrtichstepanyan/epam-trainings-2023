@@ -43,9 +43,9 @@ public class PizzeriaPalmetto {
         Order secondOrder = new Order();
         secondOrder.setCustomer(customer2);
         Pizza margarita1 = new Pizza("Margarita", PizzaType.CALZONE, ingredientsForMargarita, 2, ProductType.PIZZA);
-        Product drink1 = new Drink("Juice", DrinkType.JUICE, 3,ProductType.DRINK);
-        Product drink2 = new Drink("Beer", DrinkType.BEER, 1,ProductType.DRINK);
-        Product drink3 = new Drink("Coca Cola", DrinkType.COCA_COLA, 1,ProductType.DRINK);
+        Product drink1 = new Drink("Juice", DrinkType.JUICE, 3);
+        Product drink2 = new Drink("Beer", DrinkType.BEER, 1);
+        Product drink3 = new Drink("Coca Cola", DrinkType.COCA_COLA, 1);
         secondOrder.addProduct(margarita1);
         secondOrder.addProduct(drink1);
         secondOrder.addProduct(drink2);
