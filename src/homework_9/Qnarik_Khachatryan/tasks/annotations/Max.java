@@ -1,4 +1,4 @@
-package homework_9.Qnarik_Khachatryan.tasks;
+package homework_9.Qnarik_Khachatryan.tasks.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,6 +7,6 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-@interface Email {
-    String value();
+public @interface Max {
+    int value();
 }

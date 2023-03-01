@@ -1,24 +1,28 @@
 package homework_9.Qnarik_Khachatryan.tasks;
 
 
+import homework_9.Qnarik_Khachatryan.tasks.annotations.*;
+
+import java.time.LocalDate;
+
 class CustomerDTO {
-    @Length
-    private static String name;
+    @Length(min = 2, max = 30)
+    private String name;
 
     @Email("")
-    private static String email;
+    private String email;
 
     @Adulthood
-    private static int age;
+    private LocalDate birthday;
 
     @Min(0)
     @Max(100)
     private int discountRate;
 
 
-    CustomerDTO(String name, String email, int age, int discountRate){
+    CustomerDTO(String name, String email, LocalDate birthday, int discountRate) {
         this.name = name;
-        this.age = age;
+        this.birthday = birthday;
         this.email = email;
         this.discountRate = discountRate;
     }
