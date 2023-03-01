@@ -1,4 +1,6 @@
-package homework_9.Karen_Sargsyan.Chapter_12;
+package homework_9.Karen_Sargsyan.Chapter_12.enum_demo;
+
+import homework_9.Karen_Sargsyan.Chapter_12.enum_demo2.Apple;
 
 public class EnumDemo {
     public static void main(String[] args) {
