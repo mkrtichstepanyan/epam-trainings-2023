@@ -13,8 +13,8 @@ public class PizzeriaPalmetto {
         Product pizza1 = new Pizza("MyPizza3", PizzaType.REGULAR, 2);
         Product beverage1 = new Beverage("Beer", BeverageType.ALCOHOLIC, 2);
 
-        Ingredients tomato = PizzaIngredients.TOMATO;
-        Ingredients cheese = PizzaIngredients.CHEESE;
+        Ingredients tomato = Ingredients.TOMATO;
+        Ingredients cheese = Ingredients.CHEESE;
 
         ((Pizza) pizza1).addIngredient(tomato);
         ((Pizza) pizza1).addIngredient(cheese);

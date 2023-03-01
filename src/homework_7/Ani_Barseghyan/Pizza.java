@@ -51,7 +51,7 @@ public class Pizza extends Product implements Ingredient {
     public static Ingredients[] getIngredients() {
         if (ingredients == null) {
             System.out.println("You need at least one topping on the pizza");
-            ingredients[toppingCount] = PizzaIngredients.TOMATO;
+            ingredients[toppingCount] = Ingredients.TOMATO;
         }
         return ingredients;
     }
