@@ -10,17 +10,19 @@ public class EmailAnnotationProcessor extends AnnotationProcessor {
     @Override
     public Error processAnnotation(Object customer, Field field) throws IllegalAccessException {
         Object o = field.get(customer);
-        if (field.isAnnotationPresent(Email.class)) {
+        if (o instanceof String && field.isAnnotationPresent(Email.class)) {
             String email = o.toString();
             if (!validateEmail(email)) {
                 return new Error("Email field  is not valid", field.getName());
             }
+        } else {
+            return new Error("Wrong usage error", field.getName());
         }
         return null;
     }
 
 
-    private boolean validateEmail(String email) {
+    private static boolean validateEmail(String email) {
         String regex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
         Pattern p = Pattern.compile(regex);
         return p.matcher(email).matches();

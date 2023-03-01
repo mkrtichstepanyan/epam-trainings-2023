@@ -15,16 +15,18 @@ public class CustomerValidator implements Validator {
         Field[] declaredFields = obj.getClass().getDeclaredFields();
         for (Field field : declaredFields) {
             field.setAccessible(true);
-            if (field.isAnnotationPresent(Adulthood.class) || field.isAnnotationPresent(Length.class)
-                    || field.isAnnotationPresent(Email.class) || field.isAnnotationPresent(Min.class)
-                    || field.isAnnotationPresent(Max.class)) {
-                EmailAnnotationProcessor emailProcessor = new EmailAnnotationProcessor();
-                LengthAnnotationProcessor nameProcessor = new LengthAnnotationProcessor();
+            if (field.isAnnotationPresent(Adulthood.class)) {
                 AdulthoodAnnotationProcessor ageProcessor = new AdulthoodAnnotationProcessor();
-                DiscountProcessor discountProcessor = new DiscountProcessor();
-                errors.addError(emailProcessor.processAnnotation(obj, field));
-                errors.addError(nameProcessor.processAnnotation(obj, field));
                 errors.addError(ageProcessor.processAnnotation(obj, field));
+            } else if (field.isAnnotationPresent(Length.class)) {
+                LengthAnnotationProcessor nameProcessor = new LengthAnnotationProcessor();
+                errors.addError(nameProcessor.processAnnotation(obj, field));
+            } else if (field.isAnnotationPresent(Email.class)) {
+                EmailAnnotationProcessor emailProcessor = new EmailAnnotationProcessor();
+                errors.addError(emailProcessor.processAnnotation(obj, field));
+            } else if (field.isAnnotationPresent(Min.class)
+                    || field.isAnnotationPresent(Max.class)) {
+                DiscountProcessor discountProcessor = new DiscountProcessor();
                 errors.addError(discountProcessor.processAnnotation(obj, field));
             }
         }
