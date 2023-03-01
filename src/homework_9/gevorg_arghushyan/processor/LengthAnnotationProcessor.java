@@ -1,8 +1,8 @@
 package homework_9.gevorg_arghushyan.processor;
 
-import gevorg_arghushyan.anotation.Length;
-import gevorg_arghushyan.dto.CustomerDto;
-import gevorg_arghushyan.error.Error;
+import homework_9.gevorg_arghushyan.anotation.Length;
+import homework_9.gevorg_arghushyan.dto.CustomerDto;
+import homework_9.gevorg_arghushyan.error.Error;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;

@@ -1,9 +1,8 @@
 package homework_9.gevorg_arghushyan.validator;
-
-import gevorg_arghushyan.anotation.*;
-import gevorg_arghushyan.dto.CustomerDto;
-import gevorg_arghushyan.error.Errors;
-import gevorg_arghushyan.processor.*;
+import  homework_9.gevorg_arghushyan.anotation.*;
+import  homework_9.gevorg_arghushyan.dto.CustomerDto;
+import  homework_9.gevorg_arghushyan.error.Errors;
+import  homework_9.gevorg_arghushyan.processor.*;
 
 import java.lang.reflect.Field;
 

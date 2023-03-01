@@ -1,6 +1,7 @@
 package homework_9.gevorg_arghushyan.validator;
 
-import gevorg_arghushyan.error.Errors;
+
+import homework_9.gevorg_arghushyan.error.Errors;
 
 public interface Validator {
 

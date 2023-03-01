@@ -1,9 +1,7 @@
 package homework_9.gevorg_arghushyan.processor;
-
-import gevorg_arghushyan.anotation.Max;
-import gevorg_arghushyan.anotation.Min;
-import gevorg_arghushyan.dto.CustomerDto;
-import gevorg_arghushyan.error.Error;
+import homework_9.gevorg_arghushyan.anotation.Min;
+import homework_9.gevorg_arghushyan.dto.CustomerDto;
+import homework_9.gevorg_arghushyan.error.Error;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;

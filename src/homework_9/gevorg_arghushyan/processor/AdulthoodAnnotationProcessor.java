@@ -1,8 +1,6 @@
 package homework_9.gevorg_arghushyan.processor;
-
-import gevorg_arghushyan.anotation.Adulthood;
-import gevorg_arghushyan.error.Error;
-
+import homework_9.gevorg_arghushyan.anotation.Adulthood;
+import homework_9.gevorg_arghushyan.error.Error;
 import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.time.Period;

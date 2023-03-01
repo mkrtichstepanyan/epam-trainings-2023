@@ -1,7 +1,6 @@
 package homework_9.gevorg_arghushyan;
-
-import gevorg_arghushyan.dto.CustomerDto;
-import gevorg_arghushyan.validator.CustomerValidator;
+import  homework_9.gevorg_arghushyan.dto.CustomerDto;
+import  homework_9.gevorg_arghushyan.validator.CustomerValidator;
 
 import java.time.LocalDate;
 
