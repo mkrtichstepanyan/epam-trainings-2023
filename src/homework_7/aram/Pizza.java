@@ -2,21 +2,26 @@ package homework_7.aram;
 
 // is a
 // has a
-public class Pizza extends Product  {
+public class Pizza {
     private static final int MAX_ALLOWED_INGREDIENTS = 10;
 
     private String name;
     private PizzaType pizzaType;
     private Ingredient[] ingredients;
     private int quantity;
+    private int ingredientIndex;
 
+    Pizza(String name, PizzaType pizzaType, int quantity) {
+        this.name = name;
+        this.pizzaType = pizzaType;
+        this.quantity = quantity;
+    }
 
-
-
-    Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity,ProductType productType) {
-        super(name, pizzaType.getPrice(), quantity, productType);
+    Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity) {
+        this.name = name;
         this.pizzaType = pizzaType;
         this.ingredients = ingredients;
+        this.quantity = quantity;
     }
 
     public double calculatePrice() {
@@ -29,29 +34,12 @@ public class Pizza extends Product  {
 
     public void addIngredient(Ingredient ingredient) {
         // todo implement a method tht will add ingredient into the list.
-        if (ingredients.length >= MAX_ALLOWED_INGREDIENTS) {
+        if (ingredientIndex > MAX_ALLOWED_INGREDIENTS) {
             System.out.println("The pizza is already full");
 
         }
-        for (Ingredient existingIngredient : ingredients) {
-            if (existingIngredient.equals(ingredient)) {
-                System.out.println("This ingredient is already exists, please remove! ");
-                break;
-            }
-            Ingredient[] newIngredients = new Ingredient[ingredients.length + 1];
-            for (int i = 0; i < ingredients.length; i++) {
-                newIngredients[i] = ingredients[i];
-                newIngredients[ingredients.length] = ingredient;
-            }
-            ingredients = newIngredients;
-        }
+        ingredients[ingredientIndex++] = ingredient;
 
-    }
-    public static void printPizzaIngredients(Pizza pizza) {
-        Ingredient[] pizzaIngredients = pizza.getIngredients();
-        for (Ingredient ingredient : pizzaIngredients) {
-            System.out.println(ingredient.getName() + " " + ingredient.getPrice() + " €");
-        }
     }
 
     public Ingredient[] getIngredients() {
@@ -70,8 +58,11 @@ public class Pizza extends Product  {
         return pizzaType;
     }
 
+    public String getPizzaTypeName() {
+        return pizzaType.getName();
+    }
 
-
-
+    public double getPizzaTypePrice() {
+        return pizzaType.getPrice();
+    }
 }
-
