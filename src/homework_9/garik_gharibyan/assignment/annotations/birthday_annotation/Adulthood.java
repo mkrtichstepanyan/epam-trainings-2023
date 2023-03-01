@@ -1,4 +1,4 @@
-package homework_9.garik_gharibyan.assignment.annotations;
+package homework_9.garik_gharibyan.assignment.annotations.birthday_annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,6 +7,6 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface Max {
-    int max() default 100;
+public @interface Adulthood {
+    int age() default 18;
 }

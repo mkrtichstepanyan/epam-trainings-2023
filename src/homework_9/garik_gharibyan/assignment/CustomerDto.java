@@ -1,20 +1,24 @@
 package homework_9.garik_gharibyan.assignment;
 
-import homework_9.garik_gharibyan.assignment.annotations.Email;
-import homework_9.garik_gharibyan.assignment.annotations.Length;
-import homework_9.garik_gharibyan.assignment.annotations.Max;
-import homework_9.garik_gharibyan.assignment.annotations.Min;
+import homework_9.garik_gharibyan.assignment.annotations.birthday_annotation.Adulthood;
+import homework_9.garik_gharibyan.assignment.annotations.email_annotation.Email;
+import homework_9.garik_gharibyan.assignment.annotations.name_annotatuion.Length;
+import homework_9.garik_gharibyan.assignment.annotations.discount_rate_annimation.Max;
+import homework_9.garik_gharibyan.assignment.annotations.discount_rate_annimation.Min;
 
-public class CustomerDto{
+import java.time.LocalDate;
 
-    @Length
+public class CustomerDto {
+
+    @Length(min = 3, max = 15)
     private String name;
-    @Email
+    @Email()
     private String email;
 
-    private LocalData birthday;
-    @Min
-    @Max
+    @Adulthood()
+    private LocalDate birthday;
+    @Min()
+    @Max()
     private int discountRate;
 
     public String getName() {
@@ -31,6 +35,14 @@ public class CustomerDto{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
     }
 
     public int getDiscountRate() {
