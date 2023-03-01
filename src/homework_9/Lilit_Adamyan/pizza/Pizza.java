@@ -7,22 +7,22 @@ public class Pizza extends Product {
 
     private String name;
     private PizzaType pizzaType;
-    private Ingredient[] ingredients;
+    private Ingredients[] ingredients;
     private int quantity;
 
     private static int indexOf = 0;
 
-    public Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity, Customer customer) {
+    public Pizza(String name, PizzaType pizzaType, Ingredients[] ingredients, int quantity, Customer customer) {
         super(name, pizzaType.getPrice(), quantity);
         if (name.length() < 4 || name.length() > 20) {
             this.name = customer.getName() + "_" + quantity;
         } else {
             this.name = name;
         }
-        this.ingredients = new Ingredient[MAX_ALLOWED_INGREDIENTS];
+        this.ingredients = new Ingredients[MAX_ALLOWED_INGREDIENTS];
         this.pizzaType = pizzaType;
         this.quantity = quantity;
-        for (Ingredient ingredient : ingredients) {
+        for (Ingredients ingredient : ingredients) {
             addIngredient(ingredient);
         }
     }
@@ -34,30 +34,29 @@ public class Pizza extends Product {
         this.quantity = quantity;
     }
 
-    public void addIngredient(Ingredient ingredient) {
+    public void addIngredient(Ingredients ingredient) {
         if (ingredients != null && ingredients.length == MAX_ALLOWED_INGREDIENTS) {
             System.out.println("Maximum number of ingredients has been reached.");
-            //Please each pizza add to ingredients.ok?before return. es comment@ izur chey grel
             ingredients[indexOf++] = ingredient;
             return;
         }
         if (ingredients == null) {
-            ingredients = new Ingredient[1];
+            ingredients = new Ingredients[1];
             ingredients[0] = ingredient;
         } else {
-            Ingredient[] newIngredients = new Ingredient[ingredients.length + 1];
+            Ingredients[] newIngredients = new Ingredients[ingredients.length + 1];
             System.arraycopy(ingredients, 0, newIngredients, 0, ingredients.length);
             newIngredients[newIngredients.length - 1] = ingredient;
             ingredients = newIngredients;
         }
-        System.out.println(ingredient.getName() + " has been added to the ingredients.");
+        System.out.println(ingredient.getName()+ " has been added to the ingredients.");
     }
 
 
     public double calculatePrice() {
         double ingredientPrice = 0.0;
-        for (Ingredient ingredient : ingredients) {
-            ingredientPrice += ingredient.getPrice();
+        for (Ingredients ingredient : ingredients) {
+            ingredientPrice = ingredientPrice + ingredient.getPrice();
         }
         return super.calculatePrice() + this.pizzaType.getPrice() + ingredientPrice;
 
@@ -79,11 +78,11 @@ public class Pizza extends Product {
         this.pizzaType = pizzaType;
     }
 
-    public Ingredient[] getIngredients() {
+    public Ingredients[] getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(Ingredient[] ingredients) {
+    public void setIngredients(Ingredients[] ingredients) {
         this.ingredients = ingredients;
     }
 

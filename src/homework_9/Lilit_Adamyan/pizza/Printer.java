@@ -21,7 +21,7 @@ public class Printer {
 
                 double pizzaAmount = 0;
                 for (int i = 0; i < Pizza.getIndexOf(); i++) {
-                    Ingredient ingredient = pizza.getIngredients()[i];
+                    Ingredients ingredient = pizza.getIngredients()[i];
                     if (ingredient != null) {
                         double ingredientPrice = ingredient.getPrice();
                         System.out.println(ingredient.getName() + " " + ingredientPrice + " €");
