@@ -3,6 +3,7 @@ package classwork.annotationhomework;
 import classwork.annotationhomework.annotations.Adulthood;
 import classwork.annotationhomework.annotations.procesors.AdulthoodAnnotationProcessor;
 import classwork.annotationhomework.error.Errors;
+import homework_9.assignment.Diana_Melkonyan.Length;
 
 import java.lang.reflect.Field;
 
@@ -18,6 +19,10 @@ public class CustomerValidator implements Validator {
             if (field.isAnnotationPresent(Adulthood.class)) {
                 errors.addError(AdulthoodAnnotationProcessor.processAnnotation(obj, field));
             }
+            if (field.isAnnotationPresent(Length.class)) {
+                errors.addError(AdulthoodAnnotationProcessor.processAnnotation(obj, field));
+            }
+
         }
 
         return errors;
