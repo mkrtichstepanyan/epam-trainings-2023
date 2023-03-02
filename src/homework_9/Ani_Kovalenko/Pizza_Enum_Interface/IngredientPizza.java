@@ -1,6 +1,6 @@
 package homework_9.Ani_Kovalenko.Pizza_Enum_Interface;
 
-public enum IngredientPizza implements BasicIngredient {
+public enum IngredientPizza implements Basic {
     TOMATO_PASTE("Tomato paste", 1),
     CHEESE("Cheese", 1),
     SALAMI("Salami", 1.5),
@@ -11,7 +11,8 @@ public enum IngredientPizza implements BasicIngredient {
     OLIVES("Olives", 0.5);
     private String name;
     private double price;
-    IngredientPizza(String name, double price){
+
+    IngredientPizza(String name, double price) {
         this.name = name;
         this.price = price;
     }

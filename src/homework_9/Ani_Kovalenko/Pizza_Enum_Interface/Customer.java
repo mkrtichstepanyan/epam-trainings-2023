@@ -13,6 +13,7 @@ public class Customer {
         this.phoneNumber = phoneNumber;
         customerNumber = initialId++;
     }
+
     public int getNumber() {
         return customerNumber;
     }

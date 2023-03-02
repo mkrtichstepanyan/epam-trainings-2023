@@ -1,8 +1,8 @@
 package homework_9.Ani_Kovalenko.Pizza_Enum_Interface;
 
-public enum PizzaType implements BasicType {
+public enum PizzaType implements Basic {
 
-    REGULAR ("Regular", 1), CALZONE ("Calzone",1.5);
+    REGULAR("Regular", 1), CALZONE("Calzone", 1.5);
     private String name;
     private double price;
 

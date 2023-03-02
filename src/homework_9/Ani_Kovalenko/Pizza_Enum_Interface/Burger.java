@@ -1,13 +1,13 @@
 package homework_9.Ani_Kovalenko.Pizza_Enum_Interface;
 
-public class Burger extends Item implements AddIngredient{
+public class Burger extends Item implements AddIngredient {
     public static final int MAX_ALLOWED_INGREDIENTS = 7;
     private BurgerBreadType breadType;
     private IngredientBurger[] ingredients = new IngredientBurger[7];
     private int index = 0;
 
     Burger(String name, BurgerBreadType breadType, IngredientBurger[] ingredients, int quantity) {
-        super(Order.PRODUCT_BURGER,breadType, name, quantity);
+        super(Order.PRODUCT_BURGER, breadType, name, quantity);
         this.breadType = breadType;
         addIngredients(ingredients);
     }

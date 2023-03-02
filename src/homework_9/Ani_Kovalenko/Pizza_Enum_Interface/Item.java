@@ -1,15 +1,15 @@
 package homework_9.Ani_Kovalenko.Pizza_Enum_Interface;
 
 abstract class Item {
-    private BasicType basicType;
-    private BasicIngredient basicIngredient;
+    private Basic basicType;
+    private Basic basicIngredient;
     private Pizza pizza;
     private Burger burger;
     private String product;
     private int quantity;
     private String name;
 
-    public Item(String product, BasicType basicType, String name, int quantity) {
+    public Item(String product, Basic basicType, String name, int quantity) {
         this.product = product;
         this.basicType = basicType;
         this.name = name;
@@ -34,11 +34,11 @@ abstract class Item {
         this.name = name;
     }
 
-    public BasicType getItemType() {
+    public Basic getItemType() {
         return basicType;
     }
 
-    public BasicIngredient getIngredient() {
+    public Basic getIngredient() {
         return basicIngredient;
     }
 

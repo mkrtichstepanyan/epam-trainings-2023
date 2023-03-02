@@ -1,4 +1,5 @@
 package homework_9.Ani_Kovalenko.Pizza_Enum_Interface;
+
 public class Printer {
 
     public static void printCheck(Order order) {
