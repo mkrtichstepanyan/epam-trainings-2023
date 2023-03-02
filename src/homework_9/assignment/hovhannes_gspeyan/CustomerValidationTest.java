@@ -1,27 +1,20 @@
 package homework_9.assignment.hovhannes_gspeyan;
 
 import homework_9.assignment.hovhannes_gspeyan.model.CustomerDto;
-import homework_9.assignment.hovhannes_gspeyan.validation.Validator;
+import homework_9.assignment.hovhannes_gspeyan.validation.CustomerValidator;
 
 import java.time.LocalDate;
 
 
 public class CustomerValidationTest {
     public static void main(String[] args) throws IllegalAccessException, NoSuchFieldException {
-        CustomerDto dto = new CustomerDto();
-        dto.setName("John");
-        dto.setEmail("johnexam@gcgh.ru");
-        dto.setBirthday(LocalDate.of(2018, 1, 1));
-        dto.setDiscountRate(300);
+        CustomerDto customerDto = new CustomerDto();
+        customerDto.setName("pod");
+        customerDto.setEmail("pod89");
+        customerDto.setBirthday(LocalDate.of(2018,12,12));
+        customerDto.setDiscountRate(50.0);
 
-        String[] errors = Validator.validate(dto);
-
-        for (String error : errors) {
-            if(error != null){
-                System.out.println("error: " + error);
-            }else {
-                System.out.println("validation process has successfully passed ");
-            }
-        }
+        CustomerValidator customerValidator = new CustomerValidator();
+        System.out.println(customerValidator.validate(customerDto));
     }
 }
