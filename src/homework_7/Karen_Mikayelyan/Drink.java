@@ -3,12 +3,10 @@ package homework_7.Karen_Mikayelyan;
 public class Drink extends Product {
     private double litre;
     private DrinkType drinkType;
-    public Drink(String name, DrinkType drinkType, int quantity) {
-        super(name, drinkType.getPrice(), quantity, ProductType.DRINK);
+        public Drink(String name, DrinkType drinkType, int quantity,ProductType productType) {
+        super(name, drinkType.getPrice(), quantity,productType );
         this.drinkType = drinkType;
-        }
-
-
+    }
 
     public double getLitre() {
         return litre;
