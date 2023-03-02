@@ -1,4 +1,4 @@
-package homework_9.assignment.hovhannes_gspeyan.constraint;
+package homework_9.assignment.hovhannes_gspeyan.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,5 +10,5 @@ import java.lang.annotation.Target;
 public @interface Email {
 
     String regex() default "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
-    String message() default "Invalid email address";
+
 }
