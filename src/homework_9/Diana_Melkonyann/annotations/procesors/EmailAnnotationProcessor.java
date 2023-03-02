@@ -6,14 +6,14 @@ import homework_9.Diana_Melkonyann.error.Error;
 import java.lang.reflect.Field;
 import java.util.regex.Pattern;
 public class EmailAnnotationProcessor {
+
         public static Error processAnnotation(Object customer, Field field) throws IllegalAccessException {
             Object o = field.get(customer);
             // pattern matching
             if (o instanceof String email) {
 
-                Email annotation = field.getAnnotation(Email.class);
-                Pattern regex = Pattern.compile(annotation.email());
-                if (!regex.matcher(email).matches()) {
+                if (!email.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\" +
+                        ".[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")){
                     return new Error("The invalid email", field.getName());
                 }
             } else {

@@ -5,18 +5,12 @@ import homework_9.Diana_Melkonyann.annotations.*;
 import java.time.LocalDate;
 
 public class CustomerDto {
-    @Email(email = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:" +
-            "\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
+    @Email("")
     private String email;
     @Length(min = 2, max = 30)
     private String name;
     @Adulthood()
     private LocalDate birthDay;
-
-    public String getName() {
-        return name;
-    }
-
     @Min(0)
     @Max(100)
     private int discountRate;
