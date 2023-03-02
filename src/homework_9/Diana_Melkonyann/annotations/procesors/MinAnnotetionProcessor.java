@@ -11,7 +11,7 @@ public class MinAnnotetionProcessor {
         if (o instanceof Integer discountRate) {
 
             Min annotation = field.getAnnotation(Min.class);
-            if (discountRate < annotation.value()) {
+            if (discountRate < annotation.min()) {
                 return new Error("number is less than the value specified in the parameter", field.getName());
             }
         } else {

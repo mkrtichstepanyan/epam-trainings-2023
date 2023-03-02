@@ -1,7 +1,6 @@
 package homework_9.Diana_Melkonyann.annotations;
 
 
-import homework_1.Gohar_Hakobyan.Double;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,7 +10,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface Length {
-    int min();
+    int min() default 2;
 
-    int max();
+    int max() default 30;
 }

@@ -12,7 +12,7 @@ public class MaxAnnotetionProcessor {
         if (o instanceof Integer discountRate) {
 
             Max annotation = field.getAnnotation(Max.class);
-            if (discountRate > annotation.value()) {
+            if (discountRate > annotation.max()) {
                 return new Error("number is more than the value specified in the parameter", field.getName());
             }
         } else {

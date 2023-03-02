@@ -7,12 +7,12 @@ import java.time.LocalDate;
 public class CustomerDto {
     @Email
     private String email;
-    @Length(min = 2, max = 30)
+    @Length(min = 3, max = 20)
     private String name;
     @Adulthood()
     private LocalDate birthDay;
-    @Min(0)
-    @Max(100)
+    @Min()
+    @Max()
     private int discountRate;
     public CustomerDto(String email, String name, LocalDate birthDay, int discountRate) {
         this.email = email;
