@@ -61,7 +61,7 @@ public class Printer {
         Ingredient[] ingredients = pizza.getIngredients();
         for (Ingredient ingredient : ingredients) {
             if (ingredient != null) {
-                System.out.println(ingredient.getName() + " " + ingredient.getPrice() + " $");
+                System.out.println(ingredient + " " + ingredient.getPrice() + " $");
             }
         }
     }

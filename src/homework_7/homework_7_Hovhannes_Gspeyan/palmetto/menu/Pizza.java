@@ -55,7 +55,7 @@ public class Pizza implements MenuItem {
         }
         for (Ingredient value : ingredients) {
             if (value.equals(ingredient)) {
-                System.out.println("The " + ingredient.getName() + " already exists in " + getName() + "!, Please remove it ");
+                System.out.println("The " + ingredient + " already exists in " + getName() + "!, Please remove it ");
                 return;
             }
         }

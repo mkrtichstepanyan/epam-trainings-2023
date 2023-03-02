@@ -1,4 +1,4 @@
-package homework_9.assignment.hovhannes_gspeyan.constraint;
+package homework_9.assignment.hovhannes_gspeyan.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,5 +10,5 @@ import java.lang.annotation.Target;
 public @interface Max {
 
     double maxValue() default Double.MAX_VALUE;
-    String message() default "Value is greater than the maximum";
+
 }

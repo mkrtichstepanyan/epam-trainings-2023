@@ -1,4 +1,4 @@
-package homework_9.assignment.hovhannes_gspeyan.constraint;
+package homework_9.assignment.hovhannes_gspeyan.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,8 +7,9 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(value = {ElementType.FIELD})
-public @interface Min {
+public @interface Length {
 
-    double minValue() default Double.MIN_VALUE;
-    String message() default "Value is less than the minimum";
+    int min() default 0;
+    int max() default Integer.MAX_VALUE;
+
 }
