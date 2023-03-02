@@ -1,6 +1,5 @@
 package homework_9.Alina_Mkhoyan.assignment;
 
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

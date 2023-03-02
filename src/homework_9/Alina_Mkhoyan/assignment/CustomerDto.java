@@ -13,7 +13,6 @@ public class CustomerDto {
     @Max(100)
     private int discountRate;
 
-
     public CustomerDto(String name, String email, LocalDate birthday, int discountRate) {
         this.name = name;
         this.email = email;

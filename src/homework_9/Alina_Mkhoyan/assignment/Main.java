@@ -1,6 +1,5 @@
 package homework_9.Alina_Mkhoyan.assignment;
 
-
 import java.time.LocalDate;
 
 public class Main {
@@ -9,7 +8,5 @@ public class Main {
         CustomerDto customerDto = new CustomerDto("A", "argmail.com", birthdate, -1);
         Validator<CustomerDto> customerDtoValidator = new Validator<>();
         System.out.println(customerDtoValidator.validate(customerDto));
-
-
     }
 }
