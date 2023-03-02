@@ -1,5 +1,7 @@
 package homework_7.aram;
 
+
+
 public class Order {
     private static final int MAX_PIZZA_AMOUNT = 10;
     private static final int BASE_ORDER_NUMBER = 10000;

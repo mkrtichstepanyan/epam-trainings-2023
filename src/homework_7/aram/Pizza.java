@@ -66,4 +66,3 @@ public class Pizza {
         return pizzaType.getPrice();
     }
 }
-
