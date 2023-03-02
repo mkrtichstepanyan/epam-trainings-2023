@@ -6,6 +6,4 @@ import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Min {
     int value();
-
-    String warningMessage() default "Discount rate can not be less than 0";
 }

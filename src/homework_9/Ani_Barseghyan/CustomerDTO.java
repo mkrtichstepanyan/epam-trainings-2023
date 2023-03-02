@@ -9,7 +9,7 @@ public class CustomerDTO {
     private String name;
     @Email
     private String email;
-    @Adulthood(age = 20)
+    @Adulthood()
     private LocalDate birthday;
     @Min(0)
     @Max(100)

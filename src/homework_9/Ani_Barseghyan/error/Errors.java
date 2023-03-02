@@ -1,7 +1,7 @@
 package homework_9.Ani_Barseghyan.error;
 
 public class Errors {
-    private Error[] errors = new Error[10];
+    private final Error[] errors = new Error[10];
     private int index = 0;
 
 

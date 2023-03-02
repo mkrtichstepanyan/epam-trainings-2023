@@ -16,10 +16,9 @@ public class AdulthoodAnnotationProcessor {
             Adulthood annotation = field.getAnnotation(Adulthood.class);
             if (diff < annotation.age()) {
                 return new Error("The customer has not reached required age", field.getName());
-            } else {
-                return new Error("Wrong usage error", field.getName());
             }
         }
+        System.out.println("Validation is passed for " + field.getName());
         return null;
     }
 }
