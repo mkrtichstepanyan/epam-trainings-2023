@@ -1,6 +1,6 @@
 package homework_9.Lilit_Adamyan.pizza;
 
-public class PizzaType {
+public class PizzaType extends ProductType{
     private static final double BASE_PRICE = 1.0;
 
     public static final PizzaType REGULAR =

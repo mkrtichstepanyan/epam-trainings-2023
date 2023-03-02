@@ -15,7 +15,7 @@ public class PizzeriaPalmetto {
 
         Order order = new Order();
         order.setCustomer(customer);
-        order.addPizza("MyPizza", PizzaType.CALZONE, Ingredients.BACON, 1);
+        order.addProduct("MyPizza", PizzaType.CALZONE, Ingredients.BACON, 2);
         order.printOrderAttributes();
         Printer.printCheck(order);
 

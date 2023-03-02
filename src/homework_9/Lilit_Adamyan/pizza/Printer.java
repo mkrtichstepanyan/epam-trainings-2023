@@ -28,7 +28,7 @@ public class Printer {
                         pizzaAmount += ingredientPrice;
                     }
                 }
-                pizzaAmount += (pizza.getPizzaType().equals("Pizza Base (Calzone)") ? 1.5 : 1);
+                pizzaAmount += (pizza.getProductType().equals("Pizza Base (Calzone)") ? 1.5 : 1);
                 printLine();
                 System.out.println("Amount: " + pizzaAmount + " €");
                 System.out.println("Quantity: " + pizza.getQuantity());

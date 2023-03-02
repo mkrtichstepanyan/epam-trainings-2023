@@ -15,7 +15,7 @@ public enum Ingredients implements EnumInterface {
 
     Ingredients(String name,double p) {
         this.name = name;
-        price = p;
+        this.price = p;
     }
 
     public String getName() {

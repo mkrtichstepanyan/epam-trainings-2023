@@ -6,31 +6,31 @@ public class Pizza extends Product {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
 
     private String name;
-    private PizzaType pizzaType;
+    private ProductType productType;
     private Ingredients[] ingredients;
     private int quantity;
 
     private static int indexOf = 0;
 
-    public Pizza(String name, PizzaType pizzaType, Ingredients[] ingredients, int quantity, Customer customer) {
-        super(name, pizzaType.getPrice(), quantity);
+    public Pizza(String name, ProductType productType, Ingredients[] ingredients, int quantity, Customer customer) {
+        super(name, productType.getPrice(), quantity);
         if (name.length() < 4 || name.length() > 20) {
             this.name = customer.getName() + "_" + quantity;
         } else {
             this.name = name;
         }
         this.ingredients = new Ingredients[MAX_ALLOWED_INGREDIENTS];
-        this.pizzaType = pizzaType;
+        this.productType = productType;
         this.quantity = quantity;
         for (Ingredients ingredient : ingredients) {
             addIngredient(ingredient);
         }
     }
 
-    public Pizza(String name, PizzaType pizzaType, Ingredients ingredients, int quantity, Customer customer) {
-        super(name, pizzaType.getPrice(), quantity);
+    public Pizza(String name, ProductType productType, Ingredients ingredients, int quantity, Customer customer) {
+        super(name, productType.getPrice(), quantity);
         this.name = name;
-        this.pizzaType = pizzaType;
+        this.productType = productType;
         this.quantity = quantity;
     }
 
@@ -58,7 +58,7 @@ public class Pizza extends Product {
         for (Ingredients ingredient : ingredients) {
             ingredientPrice = ingredientPrice + ingredient.getPrice();
         }
-        return super.calculatePrice() + this.pizzaType.getPrice() + ingredientPrice;
+        return super.calculatePrice() + this.productType.getPrice() + ingredientPrice;
 
     }
 
@@ -70,12 +70,12 @@ public class Pizza extends Product {
         this.name = name;
     }
 
-    public PizzaType getPizzaType() {
-        return pizzaType;
+    public ProductType getProductType() {
+        return productType;
     }
 
-    public void setPizzaType(PizzaType pizzaType) {
-        this.pizzaType = pizzaType;
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
     }
 
     public Ingredients[] getIngredients() {

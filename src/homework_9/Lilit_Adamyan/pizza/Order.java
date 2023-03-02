@@ -11,22 +11,22 @@ public class Order {
     private int index;
     private int orderNumber;
     private Customer customer;
-    private List<Product> products = new ArrayList<>();
-    private final Pizza[] pizzas = new Pizza[10];
+
+    private final Product[] products = new Product[10];
 
     Order() {
         orderNumber = initialId++;
     }
 
-    public void addPizza(String pizzaName, PizzaType type, Ingredients ingredients, int quantity) {
+    public void addProduct(String productName, PizzaType type, Ingredients ingredients, int quantity) {
         if (quantity > MAX_PIZZA_AMOUNT) {
             System.out.println("hop axper jan!!");
             return;
         }
         int pizzaIndex = index++;
-        String validPizzaName = getValidPizzaName(pizzaName, pizzaIndex);
-        pizzas[pizzaIndex] = new Pizza(validPizzaName, type, ingredients, quantity, customer);
-        addProduct(pizzas[pizzaIndex]);
+        String validPizzaName = getValidPizzaName(productName, pizzaIndex);
+        products[pizzaIndex] = new Pizza(validPizzaName, type, ingredients, quantity, customer);
+        addProduct(products[pizzaIndex]);
     }
 
     public double calculateOrderPrice() {
@@ -38,20 +38,25 @@ public class Order {
     }
 
     public void addProduct(Product product) {
-        for (Product p : products) {
-            if (p.getName().equals(product.getName())) {
-                p.addQuantity(product.getQuantity());
+        for (int i = 0; i < products.length; i++) {
+            if (products[i] != null && products[i].getName().equals(product.getName())) {
+                products[i].addQuantity(product.getQuantity());
                 return;
             }
         }
-        products.add(product);
+        for (int i = 0; i < products.length; i++) {
+            if (products[i] == null) {
+                products[i] = product;
+                return;
+            }
+        }
+        System.out.println("Maximum number of products has been reached.");
     }
 
-
     public void printOrderAttributes() {
-        for (Product pizza : pizzas) {
-            if (pizza != null) {
-                System.out.println("[" + orderNumber + ":" + customer.getNumber() + ":" + pizza.getName() + ":" + pizza.getQuantity() + "]");
+        for (Product product : products) {
+            if (product != null) {
+                System.out.println("[" + orderNumber + ":" + customer.getNumber() + ":" + product.getName() + ":" + product.getQuantity() + "]");
             }
         }
     }
@@ -64,6 +69,15 @@ public class Order {
             }
         }
         return validPizzaName;
+    }
+    public Pizza[] getPizzas() {
+        List<Pizza> pizzas = new ArrayList<>();
+        for (Product product : products) {
+            if (product instanceof Pizza) {
+                pizzas.add((Pizza) product);
+            }
+        }
+        return pizzas.toArray(new Pizza[0]);
     }
 
     private boolean isValidPizzaName(String pizzaName) {
@@ -90,7 +104,7 @@ public class Order {
         return customer;
     }
 
-    public Pizza[] getPizzas() {
-        return pizzas;
+    public Product[] getProducts() {
+        return products;
     }
 }
