@@ -9,5 +9,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface Email {
-String value();
+    String regex() default "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:" +
+            "\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
 }

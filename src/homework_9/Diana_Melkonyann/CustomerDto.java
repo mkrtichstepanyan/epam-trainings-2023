@@ -5,7 +5,7 @@ import homework_9.Diana_Melkonyann.annotations.*;
 import java.time.LocalDate;
 
 public class CustomerDto {
-    @Email("")
+    @Email
     private String email;
     @Length(min = 2, max = 30)
     private String name;

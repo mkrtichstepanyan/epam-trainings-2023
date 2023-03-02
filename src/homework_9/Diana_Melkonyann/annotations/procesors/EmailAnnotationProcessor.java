@@ -12,13 +12,15 @@ public class EmailAnnotationProcessor {
             // pattern matching
             if (o instanceof String email) {
 
-                if (!email.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\" +
-                        ".[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")){
+                Email annotation = field.getAnnotation(Email.class);
+                String regex= annotation.regex();
+                if (email.matches(regex)){
                     return new Error("The invalid email", field.getName());
                 }
             } else {
                 return new Error("Wrong usage error", field.getName());
             }
+
             return null;
         }
     }
