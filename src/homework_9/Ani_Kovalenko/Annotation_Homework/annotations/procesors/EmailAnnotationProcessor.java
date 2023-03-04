@@ -1,6 +1,5 @@
 package homework_9.Ani_Kovalenko.Annotation_Homework.annotations.procesors;
 
-import homework_9.Ani_Kovalenko.Annotation_Homework.annotations.Email;
 import homework_9.Ani_Kovalenko.Annotation_Homework.error.Error;
 
 import java.lang.reflect.Field;
@@ -14,7 +13,6 @@ public class EmailAnnotationProcessor {
     public static Error processAnnotation(Object customer, Field field) throws IllegalAccessException {
         Object o = field.get(customer);
         if (o instanceof String email) {
-            Email annotation = field.getAnnotation(Email.class);
             if (!isValid(email)) {
                 return new Error("The email address is not valid", field.getName());
             }
@@ -27,7 +25,17 @@ public class EmailAnnotationProcessor {
     public static boolean isValid(String email) {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(email);
+        String domain = email.substring(email.indexOf('@'));
+        isValidDomain(domain);
         return matcher.matches();
     }
 
+    public static boolean isValidDomain(String domain) {
+        for (int i = 0; i < EmailDomain.values().length; i++) {
+            if (!domain.equals(EmailDomain.values()[i].getDomConstant())) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
