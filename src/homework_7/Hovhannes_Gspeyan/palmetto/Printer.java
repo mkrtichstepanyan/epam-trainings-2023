@@ -1,9 +1,9 @@
-package homework_7_Hovhannes_Gspeyan.palmetto;
+package homework_7.Hovhannes_Gspeyan.palmetto;
 
-import homework_7_Hovhannes_Gspeyan.palmetto.menu.Drink;
-import homework_7_Hovhannes_Gspeyan.palmetto.menu.Ingredient;
-import homework_7_Hovhannes_Gspeyan.palmetto.menu.MenuItem;
-import homework_7_Hovhannes_Gspeyan.palmetto.menu.Pizza;
+import homework_7.Hovhannes_Gspeyan.palmetto.menu.Drink;
+import homework_7.Hovhannes_Gspeyan.palmetto.menu.Ingredient;
+import homework_7.Hovhannes_Gspeyan.palmetto.menu.MenuItem;
+import homework_7.Hovhannes_Gspeyan.palmetto.menu.Pizza;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

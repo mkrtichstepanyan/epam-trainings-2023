@@ -1,4 +1,4 @@
-package homework_7_Hovhannes_Gspeyan.palmetto.menu;
+package homework_7.Hovhannes_Gspeyan.palmetto.menu;
 
 public class DrinkType{
     private static final double BASE_PRICE = 0.0;

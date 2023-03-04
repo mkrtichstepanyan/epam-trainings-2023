@@ -1,4 +1,4 @@
-package homework_7_Hovhannes_Gspeyan.palmetto;
+package homework_7.Hovhannes_Gspeyan.palmetto;
 
 public class Customer {
 
