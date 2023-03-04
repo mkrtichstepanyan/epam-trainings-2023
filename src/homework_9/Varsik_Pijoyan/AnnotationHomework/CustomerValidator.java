@@ -6,6 +6,8 @@ import homework_9.Varsik_Pijoyan.AnnotationHomework.errors.Errors;
 
 import java.lang.reflect.Field;
 
+import static homework_9.Varsik_Pijoyan.AnnotationHomework.annotations.processors.AdulthoodAnnotationProcessor.processAnnotation;
+
 public class CustomerValidator implements Validator{
     Errors errors = new Errors();
 
@@ -16,7 +18,7 @@ public class CustomerValidator implements Validator{
         for (Field field : declaredFields) {
             field.setAccessible(true);
             if (field.isAnnotationPresent(Adulthood.class)) {
-                errors.addError(AdulthoodAnnotationProcessor.processAnnotation(dto, field));
+                errors.addError(processAnnotation(dto, field));
             }
             if (field.isAnnotationPresent(Email.class)) {
                 errors.addError(EmailAnnotationProcessor.processAnnotation(dto, field));
