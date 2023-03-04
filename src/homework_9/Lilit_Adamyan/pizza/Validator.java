@@ -74,7 +74,7 @@ public class Validator {
         }
     }
 
-    public static String[]validate(CustomerDTO dto) {
+    public static String[]validate(CustomerDTO dto) throws RuntimeException {
         ArrayList<String> errors = new ArrayList<>();
         Field[] fields = dto.getClass().getDeclaredFields();
         for (Field field : fields) {
@@ -90,6 +90,8 @@ public class Validator {
                     checkMin(field, dto, errors);
                 } else if (annotation.annotationType() == Max.class) {
                     checkMax(field, dto, errors);
+                }else{
+                    throw new RuntimeException("Unexpected annotation type: " + annotation.annotationType().getSimpleName());
                 }
 
             }
