@@ -1,4 +1,4 @@
-package homework_9.rafik_pahlevanyan.chapter_10;
+package homework_10.rafik_pahlevanyan.chapter_10;
 
 class ExceptionDemo {
     static void compute(int a) throws MyException {
