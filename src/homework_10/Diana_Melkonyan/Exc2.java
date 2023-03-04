@@ -1,4 +1,4 @@
-package homework_10_Diana_Melkonyan;
+package homework_10.Diana_Melkonyan;
 
 public class Exc2 {
     public static void main(String[] args) {

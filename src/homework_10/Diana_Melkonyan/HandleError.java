@@ -1,4 +1,4 @@
-package homework_10_Diana_Melkonyan;
+package homework_10.Diana_Melkonyan;
 
 import java.util.Random;
 
