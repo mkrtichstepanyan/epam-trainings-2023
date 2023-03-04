@@ -1,5 +1,7 @@
 package homework_7.garik_gharibyan;
 
+import homework_7.garik_gharibyan.exceptions.NameException;
+import homework_7.garik_gharibyan.exceptions.PhoneNumberException;
 import homework_7.garik_gharibyan.product.drink.AlcoholicDrink;
 import homework_7.garik_gharibyan.product.drink.NonAlcoholicDrink;
 import homework_7.garik_gharibyan.product.food.pizza.Ingredient;
@@ -12,8 +14,18 @@ public class PizzeriaPalmetto {
         Printer printer = new Printer();
 
         Customer customer = new Customer();
-        customer.setName("Sevak");
-        customer.setPhoneNumber("+37498000000");
+        try {
+            customer.setName("Sevak");
+            System.out.println("CustomerName: " + customer.getName());
+        }catch (NameException e){
+            System.out.println(e);
+        }
+        try {
+            customer.setPhoneNumber("+37498000000");
+            System.out.println("Phone number: " + customer.getPhoneNumber());
+        }catch (PhoneNumberException e){
+            System.out.println(e);
+        }
 
         Pizza pizzaMargarita = new Pizza("Margarita", PizzaType.CALZONE);
 
