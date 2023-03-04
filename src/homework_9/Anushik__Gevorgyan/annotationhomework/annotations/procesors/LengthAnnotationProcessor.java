@@ -1,10 +1,7 @@
 package homework_9.Anushik__Gevorgyan.annotationhomework.annotations.procesors;
 
-
-
-
-import homework_9.Qnarik_Khachatryan.tasks.annotations.Length;
-import homework_9.Qnarik_Khachatryan.tasks.error.Error;
+import homework_9.Anushik__Gevorgyan.annotationhomework.annotations.Length;
+import homework_9.Anushik__Gevorgyan.annotationhomework.error.Error;
 
 import java.lang.reflect.Field;
 

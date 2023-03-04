@@ -2,7 +2,8 @@ package homework_9.Anushik__Gevorgyan.annotationhomework.annotations.procesors;
 
 
 
-import homework_9.Qnarik_Khachatryan.tasks.error.Error;
+import homework_9.Anushik__Gevorgyan.annotationhomework.annotations.Email;
+import homework_9.Anushik__Gevorgyan.annotationhomework.error.Error;
 
 import java.lang.reflect.Field;
 
@@ -13,13 +14,16 @@ public class EmailAnnotationProcessor {
         Object o = field.get(customer);
 
         if (o instanceof String email) {
-            if (!email.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}" +
-                    "[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")) {
+            Email annotation=field.getAnnotation(Email.class);
+            String regex=annotation.emailRegex();
+            if(!email.matches(regex)) {
+
                 return new Error("Incorrect email address!", field.getName());
             }
         } else {
             return new Error("Wrong usage error", field.getName());
         }
+        System.out.println("Validation process has successfully passed " + field.getName());
         return null;
     }
 }

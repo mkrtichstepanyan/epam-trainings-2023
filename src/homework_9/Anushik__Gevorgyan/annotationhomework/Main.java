@@ -4,10 +4,13 @@ import java.time.LocalDate;
 
 public class Main {
 
-    public static void main(String[] args) throws IllegalAccessException {
-        CustomerDto customer = new CustomerDto("myemail@gmail.com", "myname",
-                LocalDate.of(2000, 12, 12), 10);
-        CustomerValidator validator = new CustomerValidator();
-        System.out.println(validator.validate(customer));
+    public static void main(String[] args) throws IllegalAccessException, NoSuchFieldException {
+        CustomerDto customerDto = new CustomerDto();
+        customerDto.setName("N");
+        customerDto.setEmail("email@gmail.com");
+        customerDto.setBirthday(LocalDate.of(2000,07,11));
+        CustomerValidator customerValidator=new CustomerValidator();
+        System.out.println(customerValidator.validate(customerDto));
     }
+
 }

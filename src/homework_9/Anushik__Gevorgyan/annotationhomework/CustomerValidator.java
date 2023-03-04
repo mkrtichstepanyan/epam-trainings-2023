@@ -1,39 +1,33 @@
 package homework_9.Anushik__Gevorgyan.annotationhomework;
 
-import homework_9.Qnarik_Khachatryan.tasks.Validator;
-import homework_9.Qnarik_Khachatryan.tasks.annotations.Adulthood;
-import homework_9.Qnarik_Khachatryan.tasks.annotations.Email;
-import homework_9.Qnarik_Khachatryan.tasks.annotations.Length;
-import homework_9.Qnarik_Khachatryan.tasks.annotations.Min;
-import homework_9.Qnarik_Khachatryan.tasks.annotations.Max;
-import homework_9.Qnarik_Khachatryan.tasks.annotations.processors.*;
-import homework_9.Qnarik_Khachatryan.tasks.error.Errors;
+
+import homework_9.Anushik__Gevorgyan.annotationhomework.annotations.Adulthood;
+import homework_9.Anushik__Gevorgyan.annotationhomework.annotations.Email;
+import homework_9.Anushik__Gevorgyan.annotationhomework.annotations.Length;
+import homework_9.Anushik__Gevorgyan.annotationhomework.annotations.Max;
+import homework_9.Anushik__Gevorgyan.annotationhomework.annotations.procesors.AdulthoodAnnotationProcessor;
+import homework_9.Anushik__Gevorgyan.annotationhomework.annotations.procesors.EmailAnnotationProcessor;
+import homework_9.Anushik__Gevorgyan.annotationhomework.annotations.procesors.LengthAnnotationProcessor;
+import homework_9.Anushik__Gevorgyan.annotationhomework.annotations.procesors.MaxAnnotationProcessor;
+import homework_9.Anushik__Gevorgyan.annotationhomework.error.Errors;
 
 import java.lang.reflect.Field;
 
+public class CustomerValidator implements Validator {
+    private final Errors errors = new Errors();
 
-class CustomerValidator implements Validator {
-
-    private Errors errors = new Errors();
-
-    public Errors validate(Object obj) throws IllegalAccessException {
-        Field[] declaredFields = obj.getClass().getDeclaredFields();
-        for (Field field : declaredFields) {
+    public Errors validate(Object obj) throws IllegalAccessException, NoSuchFieldException {
+        Field[] fields = obj.getClass().getDeclaredFields();
+        for (Field field : fields) {
             field.setAccessible(true);
-            if (field.isAnnotationPresent(Adulthood.class)) {
-                errors.addError(AdulthoodAnnotationProcessor.processAnnotation(obj, field));
-            }
-            if (field.isAnnotationPresent(Email.class)) {
-                errors.addError(EmailAnnotationProcessor.processAnnotation(obj, field));
-            }
             if (field.isAnnotationPresent(Length.class)) {
-                errors.addError(LengthAnnotationProcessor.processAnnotation(obj, field));
-            }
-            if (field.isAnnotationPresent(Min.class)) {
-                errors.addError(MinAnnotationProcessor.processAnnotation(obj, field));
-            }
-            if (field.isAnnotationPresent(Max.class)) {
-                errors.addError(MaxAnnotationProcessor.processAnnotation(obj, field));
+                errors.addError(LengthAnnotationProcessor.processAnnotation(obj,field));
+            } else if (field.isAnnotationPresent(Email.class)) {
+                errors.addError(EmailAnnotationProcessor.processAnnotation(obj,field));
+            } else if (field.isAnnotationPresent(Adulthood.class)) {
+                errors.addError(AdulthoodAnnotationProcessor.processAnnotation(obj,field));
+            } else if (field.isAnnotationPresent(Max.class)) {
+                errors.addError(MaxAnnotationProcessor.processAnnotation(obj,field));
             }
         }
         return errors;

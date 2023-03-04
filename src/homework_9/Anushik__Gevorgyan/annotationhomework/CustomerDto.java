@@ -5,22 +5,41 @@ import homework_9.Anushik__Gevorgyan.annotationhomework.annotations.*;
 import java.time.LocalDate;
 
 public class CustomerDto {
-    @Email(" ")
-    private String email;
-    @Length(min=0,max=10)
+    @Length(min = 4, max = 20)
     private String name;
-    @Adulthood(age = 20)
-    private LocalDate birthDay;
-    @Max(10)
-    @Min(0)
+    @Email
+    private String email;
+    @Adulthood(age  = 20)
+    private LocalDate birthday;
+    @Min(minValue= 1)
+    @Max(maxValue = 100)
     private int discountRate;
 
-
-
-    public CustomerDto(String email, String name, LocalDate birthDay, int discountRate) {
-        this.email = email;
+    public void setName(String name) {
         this.name = name;
-        this.birthDay = birthDay;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public void setDiscountRate(int discountRate) {
         this.discountRate = discountRate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public double getDiscountRate() {
+        return discountRate;
     }
 }

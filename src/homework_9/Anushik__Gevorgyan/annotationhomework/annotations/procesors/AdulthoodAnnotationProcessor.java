@@ -22,6 +22,7 @@ public class AdulthoodAnnotationProcessor {
         } else {
             return new Error("Wrong usage error", field.getName());
         }
+        System.out.println("Validation process has successfully passed " + field.getName());
         return null;
     }
 
