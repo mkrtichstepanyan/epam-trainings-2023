@@ -15,21 +15,21 @@ public class CustomerValidator implements Validator{
         Field[] declaredFields = dto.getClass().getDeclaredFields();
         for (Field field : declaredFields) {
             field.setAccessible(true);
-            if (field.isAnnotationPresent(Adulthood.class)) {
-                errors.addError(AdulthoodAnnotationProcessor.processAnnotation(dto, field));
-            }
-            if (field.isAnnotationPresent(Email.class)) {
-                errors.addError(EmailAnnotationProcessor.processAnnotation(dto, field));
-            }
-            if (field.isAnnotationPresent(Length.class)) {
-                errors.addError(LengthAnnotationProcessor.processAnnotation(dto, field));
-            }
-            if (field.isAnnotationPresent(Max.class)) {
-                errors.addError(MaxAnnotationProcessor.processAnnotation(dto, field));
-            }
-            if (field.isAnnotationPresent(Min.class)) {
-                errors.addError(MinAnnotationProcessor.processAnnotation(dto, field));
-            }
+//            if (field.isAnnotationPresent(Adulthood.class)) {
+//                errors.addError(AdulthoodAnnotationProcessor.processAnnotation(dto, field));
+//            }
+//            if (field.isAnnotationPresent(Email.class)) {
+//                errors.addError(EmailAnnotationProcessor.processAnnotation(dto, field));
+//            }
+//            if (field.isAnnotationPresent(Length.class)) {
+//                errors.addError(LengthAnnotationProcessor.processAnnotation(dto, field));
+//            }
+//            if (field.isAnnotationPresent(Max.class)) {
+//                errors.addError(MaxAnnotationProcessor.processAnnotation(dto, field));
+//            }
+//            if (field.isAnnotationPresent(Min.class)) {
+//                errors.addError(MinAnnotationProcessor.processAnnotation(dto, field));
+//            }
         }
 
         return errors;
