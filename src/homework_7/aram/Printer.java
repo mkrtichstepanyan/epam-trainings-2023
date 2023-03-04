@@ -1,5 +1,6 @@
 package homework_7.aram;
 
+
 public class Printer {
 
     public static void printCheck(Order order) {

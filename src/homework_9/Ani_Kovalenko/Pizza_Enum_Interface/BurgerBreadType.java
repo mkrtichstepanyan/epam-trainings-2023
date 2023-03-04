@@ -1,6 +1,6 @@
 package homework_9.Ani_Kovalenko.Pizza_Enum_Interface;
 
-public enum BurgerBreadType implements BasicType {
+public enum BurgerBreadType implements Basic {
     BLACK_BREAD("Black Bread", 0.5), WHITE_BREAD("White Bread", 0.3);
     private String name;
     private double price;

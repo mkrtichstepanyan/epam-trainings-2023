@@ -1,8 +1,8 @@
 package homework_7.Hovhannes_Gspeyan.palmetto.menu;
 
-import homework_7.Hovhannes_Gspeyan.Customer;
+import homework_7.Hovhannes_Gspeyan.palmetto.Customer;
 
-public class Pizza extends MenuItem {
+public class Pizza implements MenuItem {
 
     private static final int MAX_PIZZA_AMOUNT = 10;
     private String name;
@@ -55,7 +55,7 @@ public class Pizza extends MenuItem {
         }
         for (Ingredient value : ingredients) {
             if (value.equals(ingredient)) {
-                System.out.println("The " + ingredient + " already exists in " + getName() + "!, Please remove it ");
+                System.out.println("The " + ingredient.getName() + " already exists in " + getName() + "!, Please remove it ");
                 return;
             }
         }
