@@ -1,5 +1,6 @@
 package homework_9.Karen_Sargsyan.annotation_homework.annotations.procesors;
 
+import homework_9.Karen_Sargsyan.annotation_homework.annotations.Min;
 import homework_9.Karen_Sargsyan.annotation_homework.error.Error;
 import homework_9.Karen_Sargsyan.annotation_homework.annotations.Max;
 

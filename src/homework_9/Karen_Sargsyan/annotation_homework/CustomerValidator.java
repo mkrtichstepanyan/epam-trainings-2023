@@ -1,10 +1,10 @@
 package homework_9.Karen_Sargsyan.annotation_homework;
 
-import homework_9.Karen_Sargsyan.annotation_homework.annotations.Adulthood;
-import homework_9.Karen_Sargsyan.annotation_homework.annotations.Email;
-import homework_9.Karen_Sargsyan.annotation_homework.annotations.Length;
-import homework_9.Karen_Sargsyan.annotation_homework.annotations.Max;
-import homework_9.Karen_Sargsyan.annotation_homework.annotations.procesors.*;
+import homework_9.Karen_Sargsyan.annotation_homework.annotations.*;
+import homework_9.Karen_Sargsyan.annotation_homework.annotations.procesors.AdulthoodAnnotationProcessor;
+import homework_9.Karen_Sargsyan.annotation_homework.annotations.procesors.EmailAnnotationProcessor;
+import homework_9.Karen_Sargsyan.annotation_homework.annotations.procesors.LengthAnnotationProcessor;
+import homework_9.Karen_Sargsyan.annotation_homework.annotations.procesors.MinMaxAnnotationProcessor;
 import homework_9.Karen_Sargsyan.annotation_homework.error.Errors;
 
 import java.lang.reflect.Field;

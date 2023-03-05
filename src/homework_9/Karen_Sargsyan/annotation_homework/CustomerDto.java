@@ -1,10 +1,6 @@
 package homework_9.Karen_Sargsyan.annotation_homework;
 
-import homework_9.Karen_Sargsyan.annotation_homework.annotations.Adulthood;
-import homework_9.Karen_Sargsyan.annotation_homework.annotations.Email;
-import homework_9.Karen_Sargsyan.annotation_homework.annotations.Length;
-import homework_9.Karen_Sargsyan.annotation_homework.annotations.Max;
-import homework_9.Karen_Sargsyan.annotation_homework.annotations.procesors.Min;
+import homework_9.Karen_Sargsyan.annotation_homework.annotations.*;
 
 import java.time.LocalDate;
 

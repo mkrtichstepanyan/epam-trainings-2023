@@ -1,4 +1,4 @@
-package homework_9.Karen_Sargsyan.annotation_homework.annotations.procesors;
+package homework_9.Karen_Sargsyan.annotation_homework.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
