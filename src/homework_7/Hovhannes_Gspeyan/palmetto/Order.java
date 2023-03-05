@@ -1,5 +1,8 @@
 package homework_7.Hovhannes_Gspeyan.palmetto;
 
+import homework_7.Hovhannes_Gspeyan.palmetto.exception.Error;
+import homework_7.Hovhannes_Gspeyan.palmetto.exception.ItemSizeOutOfBoundsException;
+import homework_7.Hovhannes_Gspeyan.palmetto.exception.PizzaQuantityFullException;
 import homework_7.Hovhannes_Gspeyan.palmetto.menu.MenuItem;
 import homework_7.Hovhannes_Gspeyan.palmetto.menu.Pizza;
 
@@ -21,10 +24,20 @@ public class Order {
     }
 
     public static Order createOrder(MenuItem[] items, Customer customer) {
+        try{
+            for (int i = 0; i < items.length; i++) {
+                if(items[i] == null){
+                    throw new ItemSizeOutOfBoundsException(Error.MENU_ITEM_IS_EMPTY);
+                }
+            }
+        }catch (ItemSizeOutOfBoundsException e){
+            System.out.println(e.getMessage());
+        }
+
         return new Order(items, customer);
     }
 
-    public void addPizza(Pizza pizza, int quantity) {
+    public void addPizza(Pizza pizza, int quantity) throws PizzaQuantityFullException {
         if (quantity > MAX_AMOUNT) {
             System.out.println("The max number of " + pizza.getName() + "'s" + " can't be more than 10! "+ "so we will add only 10");
             pizza.setQuantity(10);
@@ -47,15 +60,23 @@ public class Order {
     }
 
     public void printOrderAttributes() {
-        System.out.print("[ " + initialId + ", " + customer.getNumber() + ", ");
-        for (int i = 0; i < items.length; i++) {
-            MenuItem item = items[i];
-            System.out.print(item.getName() + "-" + item.getQuantity());
-            if (i < items.length - 1) {
-                System.out.print(", ");
+        try{
+            System.out.print("[ " + initialId + ", " + customer.getNumber() + ", ");
+            for (int i = 0; i < items.length; i++) {
+                MenuItem item = items[i];
+                if(item == null){
+                    throw new ItemSizeOutOfBoundsException(Error.MENU_ITEM_IS_EMPTY);
+                }
+                System.out.print(item.getName() + "-" + item.getQuantity());
+                if (i < items.length - 1) {
+                    System.out.print(", ");
+                }
             }
+        }catch (ItemSizeOutOfBoundsException e){
+            System.out.print(e.getMessage());
         }
-        System.out.print(" ]");
+
+        System.out.print("]");
     }
 
     public int getOrderNumber() {
