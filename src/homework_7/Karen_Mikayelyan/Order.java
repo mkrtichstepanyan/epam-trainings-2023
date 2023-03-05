@@ -20,8 +20,7 @@ public class Order {
     public void addProduct(Product product) {
         ProductType productType = product.productType;
         if (product.getQuantity() > MAX_ITEM_AMOUNT) {
-            System.out.println("hop axper jan!!");
-            return;
+            throw new ItemSizeOutOfBoundsException();
         }
         if (productType == ProductType.PIZZA) {
             Pizza pizza = (Pizza) product;
