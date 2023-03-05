@@ -2,6 +2,9 @@ package homework_7.gohar_hakobyan;
 
 import homework_7.gohar_hakobyan.drink.Drink;
 import homework_7.gohar_hakobyan.drink.DrinkType;
+import homework_7.gohar_hakobyan.exception.NameFormatException;
+import homework_7.gohar_hakobyan.exception.ObjectNotFoundException;
+import homework_7.gohar_hakobyan.exception.PhoneNumberFormatException;
 import homework_7.gohar_hakobyan.pizza.Ingredient;
 import homework_7.gohar_hakobyan.pizza.Pizza;
 import homework_7.gohar_hakobyan.pizza.PizzaType;
@@ -11,8 +14,19 @@ public class PizzeriaPalmetto {
 
     public static void main(String[] args) {
         Customer customer = new Customer();
-        customer.setName("Sevak");
-        customer.setPhoneNumber("+37498000000");
+
+        try {
+            customer.setName("Sevak");
+        } catch (NameFormatException e) {
+            System.out.println(e);
+        }
+
+        try {
+            customer.setPhoneNumber("+37488888888");
+        } catch (PhoneNumberFormatException p) {
+            System.out.println(p);
+        }
+
         Product[] products = new Product[3];
 
         Ingredient[] ingredients = {Ingredient.CHEESE, Ingredient.SALAMI, Ingredient.TOMATO_PASTE};
@@ -27,6 +41,10 @@ public class PizzeriaPalmetto {
         Order order = Order.makeOrder(products, customer);
         order.setCustomer(customer);
 
-        Printer.printCheck(order);
+        try {
+            Printer.printCheck(order);
+        } catch (ObjectNotFoundException e) {
+            System.out.println(e);
+        }
     }
 }
