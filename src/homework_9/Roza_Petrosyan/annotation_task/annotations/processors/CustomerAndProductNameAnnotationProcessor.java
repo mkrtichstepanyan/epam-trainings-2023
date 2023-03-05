@@ -13,16 +13,26 @@ public class CustomerAndProductNameAnnotationProcessor implements ProcessAnnotat
         Length length = field.getAnnotation(Length.class);
         // pattern matching
         if (obj instanceof CustomerDto customerDto) {
-            if (customerDto.getName().length() < length.min() || customerDto.getName().length() > length.max()) {
-                return new Error("The customer name can not be less than " +
-                        length.min() + " and more than " + length.max() + " characters",
-                        field.getName());
+            if (customerDto.getName() == null) {
+                return new Error("The customer name can not be null", field.getName());
+
+            } else {
+                if (customerDto.getName().length() < length.min() || customerDto.getName().length() > length.max()) {
+                    return new Error("The customer name can not be less than " +
+                            length.min() + " and more than " + length.max() + " characters",
+                            field.getName());
+                }
             }
         } else if (obj instanceof ProductDto productDto) {
-            if (productDto.getName().length() < length.min() || productDto.getName().length() > length.max()) {
-                return new Error("The product name can not be less than " +
-                        length.min() + " and more than " + length.max() + " characters",
-                        field.getName());
+            if (productDto.getName() == null) {
+                return new Error("The product name can not be null", field.getName());
+
+            } else {
+                if (productDto.getName().length() < length.min() || productDto.getName().length() > length.max()) {
+                    return new Error("The product name can not be less than " +
+                            length.min() + " and more than " + length.max() + " characters",
+                            field.getName());
+                }
             }
         }
 

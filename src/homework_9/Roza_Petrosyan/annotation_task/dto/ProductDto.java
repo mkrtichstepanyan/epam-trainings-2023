@@ -3,10 +3,8 @@ package homework_9.Roza_Petrosyan.annotation_task.dto;
 import homework_9.Roza_Petrosyan.annotation_task.annotations.Length;
 import homework_9.Roza_Petrosyan.annotation_task.annotations.Max;
 import homework_9.Roza_Petrosyan.annotation_task.annotations.Min;
-import homework_9.Roza_Petrosyan.annotation_task.annotations.NotNull;
 
 public class ProductDto {
-    @NotNull
     @Length(min = 4, max = 20)
     private String name;
 

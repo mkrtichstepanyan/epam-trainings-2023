@@ -16,18 +16,14 @@ public class CustomerValidator implements Validator {
         Field[] declaredFields = obj.getClass().getDeclaredFields();
         for (Field field : declaredFields) {
             field.setAccessible(true);
-            if (field.isAnnotationPresent(NotNull.class)) {
-                errors.addError(new NotNullAnnotationProcess().processAnnotation(obj, field));
-            } else {
-                if (field.isAnnotationPresent(Adulthood.class)) {
-                    errors.addError(new AdulthoodAnnotationProcessor().processAnnotation(obj, field));
-                } else if (field.isAnnotationPresent(Email.class)) {
-                    errors.addError(new EmailAnnotationProcessor().processAnnotation(obj, field));
-                } else if (field.isAnnotationPresent(Length.class)) {
-                    errors.addError(new CustomerAndProductNameAnnotationProcessor().processAnnotation(obj, field));
-                } else if (field.isAnnotationPresent(Min.class) || field.isAnnotationPresent(Max.class)) {
-                    errors.addError(new DiscountRateAndQuantityAnnotationProcess().processAnnotation(obj, field));
-                }
+            if (field.isAnnotationPresent(Adulthood.class)) {
+                errors.addError(new AdulthoodAnnotationProcessor().processAnnotation(obj, field));
+            } else if (field.isAnnotationPresent(Email.class)) {
+                errors.addError(new EmailAnnotationProcessor().processAnnotation(obj, field));
+            } else if (field.isAnnotationPresent(Length.class)) {
+                errors.addError(new CustomerAndProductNameAnnotationProcessor().processAnnotation(obj, field));
+            } else if (field.isAnnotationPresent(Min.class) || field.isAnnotationPresent(Max.class)) {
+                errors.addError(new DiscountRateAndQuantityAnnotationProcess().processAnnotation(obj, field));
             }
         }
 

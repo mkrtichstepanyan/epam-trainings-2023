@@ -5,10 +5,8 @@ import homework_9.Roza_Petrosyan.annotation_task.annotations.*;
 import java.time.LocalDate;
 
 public class CustomerDto {
-    @NotNull
     @Length(min = 2, max = 30)
     private String name;
-    @NotNull
     @Email
     private String email;
 
