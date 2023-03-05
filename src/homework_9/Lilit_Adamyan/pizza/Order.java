@@ -18,10 +18,13 @@ public class Order {
         orderNumber = initialId++;
     }
 
-    public void addProduct(String productName, PizzaType type, Ingredients ingredients, int quantity) {
+    public void addProduct(String productName, PizzaType type, Ingredients ingredients, int quantity) throws IllegalArgumentException{
+        if(quantity == 0){
+            throw new IllegalArgumentException("Cannot add a null pizza");
+        }
         if (quantity > MAX_PIZZA_AMOUNT) {
-            System.out.println("hop axper jan!!");
-            return;
+            throw new IllegalArgumentException("Cannot add more than " +MAX_PIZZA_AMOUNT + " pizzas");
+
         }
         int pizzaIndex = index++;
         String validPizzaName = getValidPizzaName(productName, pizzaIndex);
