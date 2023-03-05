@@ -2,6 +2,8 @@ package homework_7.Roza_Petrosyan.product;
 
 import homework_7.Roza_Petrosyan.HasIngredient;
 import homework_7.Roza_Petrosyan.Ingredient;
+import homework_7.Roza_Petrosyan.exceptions.product_exceptions.FullPizzaException;
+import homework_7.Roza_Petrosyan.exceptions.product_exceptions.IngredientDuplicationException;
 import homework_7.Roza_Petrosyan.productType.ProductType;
 
 // is a
@@ -32,36 +34,16 @@ public class Pizza extends Product implements HasIngredient {
     @Override
     public void addIngredient(Ingredient ingredient) {
         // todo implement a method that will add ingredient into the list.
-        int newSize = 0;
-        if (getIngredients() != null) {
-            newSize = getIngredients().length;
-        }
-        Ingredient[] newIngredients = new Ingredient[++newSize];
-        if (getIngredients().length == 0) {
-            for (int i = 0; i < newIngredients.length; i++) {
-                newIngredients[newIngredients.length - 1] = ingredient;
-            }
-        } else {
-            for (int i = 0; i < getIngredients().length; i++) {
-                newIngredients[i] = getIngredients()[i];
-                newIngredients[newIngredients.length - 1] = ingredient;
-            }
-        }
-
-
+        Ingredient[] newIngredients = new Ingredient[ingredients.length + 1];
+        System.arraycopy(ingredients, 0, newIngredients, 0, ingredients.length);
+        newIngredients[ingredients.length] = ingredient;
         this.ingredients = newIngredients;
 
-        if (isDuplicate(ingredients)) {
-            System.out.println("Please check your order again!");
-            return;
-        }
+        checkIngredientDuplication(ingredients);
 
-        if (maxCount > MAX_ALLOWED_INGREDIENTS) {
-            System.out.println("Pizza is full!");
-        }
     }
 
-    public boolean isDuplicate(Ingredient[] ingredients) {
+    private boolean isDuplicate(Ingredient[] ingredients) {
         boolean result = false;
         if (ingredients != null) {
             int countOfIngredients = 0;
@@ -86,12 +68,23 @@ public class Pizza extends Product implements HasIngredient {
         return result;
     }
 
-    public Ingredient[] getIngredients() {
-        return ingredients;
+    private void checkIngredientDuplication(Ingredient[] ingredients) {
+        try {
+            if (isDuplicate(ingredients)) {
+                throw new IngredientDuplicationException();
+            }
+            if (maxCount > MAX_ALLOWED_INGREDIENTS) {
+                throw new FullPizzaException();
+            }
+
+        } catch (IngredientDuplicationException | FullPizzaException e) {
+            System.out.println(e.getMessage());
+            System.exit(-1);
+        }
     }
 
-    public int getMaxCount() {
-        return maxCount;
+    public Ingredient[] getIngredients() {
+        return ingredients;
     }
 
     public ProductType getProductType() {

@@ -1,5 +1,7 @@
 package homework_7.Roza_Petrosyan;
 
+import homework_7.Roza_Petrosyan.exceptions.product_exceptions.PizzaNameException;
+import homework_7.Roza_Petrosyan.exceptions.product_exceptions.ProductQuantityException;
 import homework_7.Roza_Petrosyan.product.*;
 import homework_7.Roza_Petrosyan.productType.*;
 
@@ -19,8 +21,12 @@ public class Order {
 
     public void addProduct(String productName, ProductType productType, Ingredient[] ingredients, int quantity) {
         int productIndex = 0;
-        if (quantity > MAX_PIZZA_AMOUNT) {
-            System.out.println("You can not order more than 10 pizzas!");
+        try {
+            if (quantity > MAX_PIZZA_AMOUNT) {
+                throw new ProductQuantityException();
+            }
+        } catch (ProductQuantityException e){
+            System.out.println(e.getMessage());
             return;
         }
         if (productType.getClass().getSimpleName().equals("PizzaType")) {
@@ -45,10 +51,8 @@ public class Order {
             if (product != null) {
                 if (product.getClass().getSimpleName().equals("Pizza")) {
                     Pizza pizza = (Pizza) product;
-                    if(!pizza.isDuplicate(pizza.getIngredients()) && pizza.getMaxCount() < 7){
-                        totalPrice += pizza.calculatePrice() * pizza.getQuantity();
-                    }
-                }else {
+                    totalPrice += pizza.calculatePrice() * pizza.getQuantity();
+                } else {
                     totalPrice += product.calculatePrice() * product.getQuantity();
                 }
             }
@@ -77,7 +81,22 @@ public class Order {
     }
 
     private boolean isValidPizzaName(String pizzaName) {
-        return pizzaName != null && pizzaName.length() > 4 && pizzaName.length() < 20;
+        boolean result = false;
+        try {
+            if (pizzaName != null) {
+                if (pizzaName.length() > 4 && pizzaName.length() < 20 && pizzaName.matches("\\p{IsLatin}+")) {
+                   result = true;
+                } else {
+                    throw new PizzaNameException();
+                }
+            } else {
+                throw new NullPointerException("Pizza name can not be null.");
+            }
+
+        } catch (PizzaNameException | NullPointerException e) {
+            System.out.println(e.getMessage());
+        }
+        return result;
     }
 
     public int getOrderNumber() {
