@@ -5,14 +5,14 @@ public class PizzeriaPalmetto {
     public static void main(String[] args) {
         Customer customer = new Customer();
         try {
-            customer.setName("2147");
+            customer.setName("21472");
             System.out.println(customer.getName());
         } catch (NameException n) {
             System.out.println(n);
         }
 
         try {
-            customer.setPhoneNumber("0000");
+            customer.setPhoneNumber("00000");
             System.out.println(customer.getPhoneNumber());
         } catch (PhoneNumberException p) {
             System.out.println(p);

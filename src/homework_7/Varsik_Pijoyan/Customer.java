@@ -15,7 +15,7 @@ public class Customer {
     public void setName(String customerName) {
         if (customerName.matches("[A-Z][a-z]+")){
             this.customerName = customerName;
-        }else throw new NameException();
+        } else throw new NameException();
     }
 
     public void setPhoneNumber(String phoneNumber) throws PhoneNumberException {
