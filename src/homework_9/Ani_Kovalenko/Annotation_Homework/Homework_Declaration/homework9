@@ -1,0 +1,18 @@
+An annotation based DTO validation mechanism needs to be developed.
+Execution order
+For Customer DTO
+see the img.png file in the same directory
+
+1. Need to create the following annotations:
+   Length - check that the length of the field matches the specified range (min, max)
+   Email - check that this field contains an email address. For validation
+   email addresses can use regex:
+   ^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}
+   [a-zA-Z0-9])?)*$
+   Optional - Adulthood - checking that the client has reached the age of majority.
+   Min - check that the number is not less than the limit specified in the parameter.
+   Max - check that the number does not exceed the limit specified in the parameter
+2. Create a Validator class with a single validate method that accepts as input dto and returns a list of errors
+   found during the validation process. The class should work with any type of DTO.
+3. When reading annotations from dto fields, it is necessary to validate each field depending on the annotation
+   placed above it. In case of an error, add it to the resulting list
