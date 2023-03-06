@@ -13,7 +13,6 @@ public class Pizza extends Product implements HasIngredient {
 
     private ProductType productType;
     public Ingredient[] ingredients;
-    private int maxCount;
 
     public Pizza(String name, ProductType productType, Ingredient[] ingredients, int quantity) {
         super(name, quantity);
@@ -34,52 +33,39 @@ public class Pizza extends Product implements HasIngredient {
     @Override
     public void addIngredient(Ingredient ingredient) {
         // todo implement a method that will add ingredient into the list.
+        try {
+            checkIngredientDuplication(ingredient);
+        } catch (IngredientDuplicationException | FullPizzaException e) {
+            System.out.println(e.getMessage());
+            return;
+        }
+
         Ingredient[] newIngredients = new Ingredient[ingredients.length + 1];
         System.arraycopy(ingredients, 0, newIngredients, 0, ingredients.length);
         newIngredients[ingredients.length] = ingredient;
         this.ingredients = newIngredients;
 
-        checkIngredientDuplication(ingredients);
-
     }
 
-    private boolean isDuplicate(Ingredient[] ingredients) {
+    private boolean isDuplicate(Ingredient addedIngredient) {
         boolean result = false;
         if (ingredients != null) {
-            int countOfIngredients = 0;
-            for (int i = 0; i < ingredients.length; i++) {
-                if (ingredients[i] != null) {
-                    int countOfDuplication = 1;
-                    for (int j = i + 1; j < ingredients.length; j++) {
-                        if (ingredients[j] != null) {
-                            if (ingredients[i].getName().equals(ingredients[j].getName())) {
-                                result = true;
-                                countOfDuplication++;
-                            }
-                        }
-                    }
-                    if (countOfDuplication == 1) {
-                        countOfIngredients++;
-                    }
+            for (Ingredient ingredient : ingredients) {
+                if (ingredient.getName().equals(addedIngredient.getName())) {
+                    result = true;
+                    break;
                 }
             }
-            maxCount = countOfIngredients;
         }
         return result;
     }
 
-    private void checkIngredientDuplication(Ingredient[] ingredients) {
-        try {
-            if (isDuplicate(ingredients)) {
-                throw new IngredientDuplicationException();
-            }
-            if (maxCount > MAX_ALLOWED_INGREDIENTS) {
-                throw new FullPizzaException();
-            }
-
-        } catch (IngredientDuplicationException | FullPizzaException e) {
-            System.out.println(e.getMessage());
-            System.exit(-1);
+    private void checkIngredientDuplication(Ingredient ingredient) {
+        if (isDuplicate(ingredient)) {
+            throw new IngredientDuplicationException();
+        }
+        if (ingredients.length >= MAX_ALLOWED_INGREDIENTS) {
+            throw new FullPizzaException();
         }
     }
 

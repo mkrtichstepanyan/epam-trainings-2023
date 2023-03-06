@@ -75,7 +75,9 @@ public class Order {
     private String getValidPizzaName(String pizzaName, int pizzaIndex) {
         String validPizzaName = pizzaName;
         if (!isValidPizzaName(pizzaName)) {
-            validPizzaName = customer.getName() + "_" + pizzaIndex;
+            if(customer.getName() != null) {
+                validPizzaName = customer.getName() + "_" + pizzaIndex;
+            }
         }
         return validPizzaName;
     }
