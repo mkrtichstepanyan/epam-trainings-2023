@@ -5,7 +5,7 @@ public class PizzeriaPalmetto {
     public static void main(String[] args) {
         Customer customer = new Customer();
         try {
-            customer.setName("214738");
+            customer.setName("21473");
             System.out.println(customer.getName());
         } catch (NameException n) {
             System.out.println(n);
