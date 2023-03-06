@@ -4,8 +4,20 @@ public class PizzeriaPalmetto {
 
     public static void main(String[] args) {
         Customer customer = new Customer();
-        customer.setName("Varsik");
-        customer.setPhoneNumber("+37498000000");
+        try {
+            customer.setName("21472");
+            System.out.println(customer.getName());
+        } catch (NameException n) {
+            System.out.println(n);
+        }
+
+        try {
+            customer.setPhoneNumber("00000");
+            System.out.println(customer.getPhoneNumber());
+        } catch (PhoneNumberException p) {
+            System.out.println(p);
+        }
+
 
         Order order = new Order();
         order.setCustomer(customer);
