@@ -13,11 +13,15 @@ public class Customer {
     }
 
     public void setName(String customerName) {
-        this.customerName = customerName;
+        if (customerName.matches("[A-Z][a-z]+")){
+            this.customerName = customerName;
+        }else throw new NameException();
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhoneNumber(String phoneNumber) throws PhoneNumberException {
+        if (phoneNumber.length() < 11){
+            throw new PhoneNumberException();
+        }else this.phoneNumber = phoneNumber;
     }
 
     public int getNumber() {
@@ -26,5 +30,9 @@ public class Customer {
 
     public String getName() {
         return customerName;
+    }
+
+    public String getPhoneNumber(){
+        return phoneNumber;
     }
 }
