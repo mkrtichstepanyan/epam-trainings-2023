@@ -17,21 +17,26 @@ public class Order {
         orderNumber = initialId++;
     }
 
-    public void addProduct(Product product) {
-        ProductType productType = product.productType;
-        if (product.getQuantity() > MAX_ITEM_AMOUNT) {
-            throw new ItemSizeOutOfBoundsException();
-        }
-        if (productType == ProductType.PIZZA) {
-            Pizza pizza = (Pizza) product;
-            int pizzaIndex = index++;
-            String validPizzaName = getValidPizzaName(pizza.getName(), pizzaIndex);
-            products[pizzaIndex] = new Pizza(validPizzaName, pizza.getPizzaType(), pizza.getIngredients(), pizza.getQuantity(), productType);
-        }
-        if (productType == ProductType.DRINK) {
-            Drink drinks = (Drink) product;
-            int drinksIndex = index++;
-            products[drinksIndex] = new Drink(drinks.getName(), drinks.getDrinkType(), drinks.getQuantity());
+    public void addProduct(Product product) throws ItemSizeOutOfBoundsException {
+        try {
+            ProductType productType = product.productType;
+            if (product.getQuantity() > MAX_ITEM_AMOUNT) {
+                throw new ItemSizeOutOfBoundsException();
+            }
+
+            if (productType == ProductType.PIZZA) {
+                Pizza pizza = (Pizza) product;
+                int pizzaIndex = index++;
+                String validPizzaName = getValidPizzaName(pizza.getName(), pizzaIndex);
+                products[pizzaIndex] = new Pizza(validPizzaName, pizza.getPizzaType(), pizza.getIngredients(), pizza.getQuantity(), productType);
+            }
+            if (productType == ProductType.DRINK) {
+                Drink drinks = (Drink) product;
+                int drinksIndex = index++;
+                products[drinksIndex] = new Drink(drinks.getName(), drinks.getDrinkType(), drinks.getQuantity());
+            }
+        } catch (ItemSizeOutOfBoundsException e) {
+            System.out.println("The max number of " + product.getName() + " can not be more than 10! " + " and we will add only 10");
         }
     }
 
