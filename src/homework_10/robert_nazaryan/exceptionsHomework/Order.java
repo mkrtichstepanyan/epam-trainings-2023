@@ -1,6 +1,7 @@
 package homework_10.robert_nazaryan.exceptionsHomework;
 
 import homework_10.robert_nazaryan.exceptionsHomework.exceptions.InvalidNameException;
+import homework_10.robert_nazaryan.exceptionsHomework.exceptions.InvalidPizzaNameException;
 import homework_10.robert_nazaryan.exceptionsHomework.exceptions.PizzaAmountException;
 
 public class Order {
@@ -77,9 +78,10 @@ public class Order {
         if (!isValidPizzaName(pizzaName)) {
             validPizzaName = customer.getName() + "_" + pizzaIndex;
             try {
-                throw new InvalidNameException();
-            } catch (InvalidNameException e){
-                System.out.println(e.getMessage());
+                throw new InvalidPizzaNameException();
+            } catch (InvalidPizzaNameException e) {
+                System.out.println(e.toString());
+                System.out.println("Pizza name changed to:" + validPizzaName);
             }
         }
         return validPizzaName;
