@@ -7,8 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class EmailAnnotationProcessor {
-    private static final String regex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA" +
-            "-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
+    private static final String regex = "^([a-zA-Z0-9\\.]{2,20})(@)([A-Za-z]{2,10})(\\.)([a-z]{2,5})$";
 
     public static Error processAnnotation(Object customer, Field field) throws IllegalAccessException {
         Object o = field.get(customer);
@@ -22,20 +21,8 @@ public class EmailAnnotationProcessor {
         return null;
     }
 
-    public static boolean isValid(String email) {
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(email);
-        String domain = email.substring(email.indexOf('@'));
-        isValidDomain(domain);
-        return matcher.matches();
+    public static boolean isValid(String email){
+        return email.matches(regex);
     }
 
-    public static boolean isValidDomain(String domain) {
-        for (int i = 0; i < EmailDomain.values().length; i++) {
-            if (!domain.equals(EmailDomain.values()[i].getDomConstant())) {
-                return false;
-            }
-        }
-        return true;
-    }
 }
