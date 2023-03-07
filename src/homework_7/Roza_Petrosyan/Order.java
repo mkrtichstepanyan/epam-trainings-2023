@@ -21,9 +21,8 @@ public class Order {
 
     public void addProduct(String productName, ProductType productType, Ingredient[] ingredients, int quantity) {
         int productIndex = 0;
-        if (quantity > MAX_PIZZA_AMOUNT) {
-            throw new ProductQuantityException();
-        }
+        validateProductQuantity(quantity);
+
         if (productType.getClass().getSimpleName().equals("PizzaType")) {
             productIndex = index++;
             String validPizzaName = getValidPizzaName(productName, productIndex);
@@ -87,6 +86,12 @@ public class Order {
             }
         }
         return result;
+    }
+
+    private void validateProductQuantity(int quantity){
+        if (quantity > MAX_PIZZA_AMOUNT) {
+            throw new ProductQuantityException();
+        }
     }
 
     public int getOrderNumber() {
