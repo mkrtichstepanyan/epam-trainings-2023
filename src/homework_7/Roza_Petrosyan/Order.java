@@ -21,13 +21,8 @@ public class Order {
 
     public void addProduct(String productName, ProductType productType, Ingredient[] ingredients, int quantity) {
         int productIndex = 0;
-        try {
-            if (quantity > MAX_PIZZA_AMOUNT) {
-                throw new ProductQuantityException();
-            }
-        } catch (ProductQuantityException e){
-            System.out.println(e.getMessage());
-            return;
+        if (quantity > MAX_PIZZA_AMOUNT) {
+            throw new ProductQuantityException();
         }
         if (productType.getClass().getSimpleName().equals("PizzaType")) {
             productIndex = index++;
@@ -75,7 +70,7 @@ public class Order {
     private String getValidPizzaName(String pizzaName, int pizzaIndex) {
         String validPizzaName = pizzaName;
         if (!isValidPizzaName(pizzaName)) {
-            if(customer.getName() != null) {
+            if (customer.getName() != null) {
                 validPizzaName = customer.getName() + "_" + pizzaIndex;
             }
         }
@@ -84,19 +79,12 @@ public class Order {
 
     private boolean isValidPizzaName(String pizzaName) {
         boolean result = false;
-        try {
-            if (pizzaName != null) {
-                if (pizzaName.length() > 4 && pizzaName.length() < 20 && pizzaName.matches("\\p{IsLatin}+")) {
-                   result = true;
-                } else {
-                    throw new PizzaNameException();
-                }
+        if (pizzaName != null) {
+            if (pizzaName.length() > 4 && pizzaName.length() < 20 && pizzaName.matches("\\p{IsLatin}+")) {
+                result = true;
             } else {
-                throw new NullPointerException("Pizza name can not be null.");
+                throw new PizzaNameException();
             }
-
-        } catch (PizzaNameException | NullPointerException e) {
-            System.out.println(e.getMessage());
         }
         return result;
     }

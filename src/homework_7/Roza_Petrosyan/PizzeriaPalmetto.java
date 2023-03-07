@@ -8,8 +8,8 @@ public class PizzeriaPalmetto {
 
     public static void main(String[] args) {
         Customer customer = new Customer();
-        customer.setName("12");
-        customer.setPhoneNumber("+3749800000011");
+        customer.setName("Sevak");
+        customer.setPhoneNumber("+37498000000");
 
         Order order = new Order();
         order.setCustomer(customer);
@@ -18,7 +18,7 @@ public class PizzeriaPalmetto {
         Ingredient[] ingredients2 = {Ingredient.BACON};
 
 
-        order.addProduct("Mar", PizzaType.CALZONE, ingredients, 1);
+        order.addProduct("Margarita", PizzaType.CALZONE, ingredients, 1);
         order.addProduct("MyPizza", PizzaType.REGULAR, ingredients2, 5);
 
         Pizza pizza2 = (Pizza) order.getProducts()[1];

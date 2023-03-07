@@ -33,12 +33,7 @@ public class Pizza extends Product implements HasIngredient {
     @Override
     public void addIngredient(Ingredient ingredient) {
         // todo implement a method that will add ingredient into the list.
-        try {
-            checkIngredientDuplication(ingredient);
-        } catch (IngredientDuplicationException | FullPizzaException e) {
-            System.out.println(e.getMessage());
-            return;
-        }
+        checkIngredientDuplication(ingredient);
 
         Ingredient[] newIngredients = new Ingredient[ingredients.length + 1];
         System.arraycopy(ingredients, 0, newIngredients, 0, ingredients.length);
