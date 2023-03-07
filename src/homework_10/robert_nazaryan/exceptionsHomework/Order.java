@@ -80,7 +80,7 @@ public class Order {
             try {
                 throw new InvalidPizzaNameException();
             } catch (InvalidPizzaNameException e) {
-                System.out.println(e.getMessage());
+                System.out.println(e);
                 System.out.println("Pizza name changed to:" + validPizzaName);
             }
         }
