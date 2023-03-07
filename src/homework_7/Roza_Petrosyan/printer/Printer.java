@@ -1,5 +1,6 @@
 package homework_7.Roza_Petrosyan.printer;
 
+import homework_7.Roza_Petrosyan.HasIngredient;
 import homework_7.Roza_Petrosyan.Ingredient;
 import homework_7.Roza_Petrosyan.Order;
 import homework_7.Roza_Petrosyan.productType.*;
@@ -10,10 +11,14 @@ public class Printer {
     public static void printCheck(Order order) {
         leadingLine();
         // todo print logic goes here.
-        if (order.getProducts() != null) {
-            printHeader(order);
-            printBody(order);
-            printTotalAmount(order);
+        try {
+            if (order.getProducts() != null) {
+                printHeader(order);
+                printBody(order);
+                printTotalAmount(order);
+            }
+        } catch (NullPointerException | ClassCastException e) {
+            System.out.println(e.getMessage());
         }
 
         trainlingLine();
@@ -39,17 +44,14 @@ public class Printer {
     private static void printBody(Order order) {
         for (Product product : order.getProducts()) {
             if (product != null) {
-                if (product.getClass().getSimpleName().equals("Pizza")) {
-                    Pizza pizza = (Pizza) product;
-                    if(!pizza.isDuplicate(pizza.getIngredients()) && pizza.getMaxCount() < 7) {
-                        printName(product);
-                        printDelimiter();
-                        printProductType(product);
-                        printIngredients(product);
-                        printDelimiter();
-                        printAmountAndQuantity(product);
-                        printDelimiter();
-                    }
+                if (product instanceof HasIngredient) {
+                    printName(product);
+                    printDelimiter();
+                    printProductType(product);
+                    printIngredients(product);
+                    printDelimiter();
+                    printAmountAndQuantity(product);
+                    printDelimiter();
                 } else {
                     printName(product);
                     printDelimiter();
