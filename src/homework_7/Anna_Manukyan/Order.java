@@ -53,7 +53,7 @@ public class Order {
     public double calculateOrderAmount() {
         double totalSum = 0;
         for (Food food : foods) {
-            if (food!= null){
+            if (food != null) {
                 totalSum += food.calculatePrice() * food.getQuantity();
             }
         }
