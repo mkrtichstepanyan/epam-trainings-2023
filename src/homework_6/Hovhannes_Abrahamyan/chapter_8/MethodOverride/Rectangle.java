@@ -1,4 +1,4 @@
-package homework.Hovhannes_Abrahamyan.chapter_8.MethodOverride;
+package homework_6.Hovhannes_Abrahamyan.chapter_8.MethodOverride;
 
 class Rectangle extends Figure {
     Rectangle(double a, double b) {

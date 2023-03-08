@@ -1,15 +1,14 @@
 package homework_6.Hovhannes_Abrahamyan.chapter_8.Dispatch;
 
+import homework_6.Hovhannes_Abrahamyan.chapter_8.Abstract.A;
+
 public class Dispatch {
     public static void main(String[] args) {
-        A a7 = new A();
         B b7 = new B();
         C c7 = new C();
 
         A r;
 
-        r = a7;
-        a7.callMe();
 
         r = b7;
         b7.callMe();

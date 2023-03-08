@@ -1,7 +1,5 @@
 package homework_6.Hovhannes_Abrahamyan.chapter_8.Basic;
 
-import chapter_8.Hovhannes_Abrahamyan.Basic.A;
-
 public class SimpleInheritance {
     public static void main(String[] args) {
         A superOb = new A();

@@ -1,5 +1,7 @@
 package homework_6.Hovhannes_Abrahamyan.chapter_8.AbstractAreas;
 
+import homework_6.Hovhannes_Abrahamyan.chapter_8.MethodOverride.*;
+
 public class AbstractAreas {
     public static void main(String[] args) {
         Rectangle r = new Rectangle(8, 5);
@@ -9,7 +11,7 @@ public class AbstractAreas {
         figRef = r;
         System.out.println("Area is: " + figRef.area());
 
-        figRef = t;
+
         System.out.println("Area is: " + figRef.area());
 
     }

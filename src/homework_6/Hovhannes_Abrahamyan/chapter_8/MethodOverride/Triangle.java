@@ -1,7 +1,7 @@
-package homework.Hovhannes_Abrahamyan.chapter_8.MethodOverride;
+package homework_6.Hovhannes_Abrahamyan.chapter_8.MethodOverride;
 
-class Triangle extends Figure {
-    Triangle(double a, double b) {
+public class Triangle extends Figure {
+    public Triangle(double a, double b) {
         super(a, b);
     }
 
