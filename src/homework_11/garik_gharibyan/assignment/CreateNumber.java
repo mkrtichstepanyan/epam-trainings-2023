@@ -4,7 +4,7 @@ public class CreateNumber {
 
     public static String[] generatePhoneNumbers(String code) {
         String firstNumber = "000000";
-        String[] phoneNumberArray = new String[100];
+        String[] phoneNumberArray = new String[1000000];
 
         String firstNumberString = code + firstNumber;
         int firstNumberInt = Integer.parseInt(firstNumberString);
