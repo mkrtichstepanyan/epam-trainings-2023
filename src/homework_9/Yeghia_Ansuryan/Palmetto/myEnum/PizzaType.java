@@ -1,6 +1,8 @@
-package homework_9.Yeghia_Ansuryan.Palmetto;
+package homework_9.Yeghia_Ansuryan.Palmetto.myEnum;
 
-public enum PizzaType implements Basic {
+import homework_9.Yeghia_Ansuryan.Palmetto.myInterface.ProductComponent;
+
+public enum PizzaType implements ProductComponent {
 
     REGULAR("Regular", 1),
 

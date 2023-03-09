@@ -1,21 +1,24 @@
-package homework_9.Yeghia_Ansuryan.Palmetto;
+package homework_9.Yeghia_Ansuryan.Palmetto.myAbstract;
+
+import homework_9.Yeghia_Ansuryan.Palmetto.differentClasses.Pizza;
+import homework_9.Yeghia_Ansuryan.Palmetto.myInterface.ProductComponent;
 
 public abstract class Product {
-    private Basic basicType;
-    private Basic basicIngredient;
+    private ProductComponent basicType;
+    private ProductComponent basicIngredient;
     private Pizza pizza;
     private String product;
     private int quantity;
     private String name;
 
-    public Product(String product, Basic basicType, String name, int quantity) {
+    public Product(String product, ProductComponent basicType, String name, int quantity) {
         this.product = product;
         this.basicType = basicType;
         this.name = name;
         this.quantity = quantity;
     }
 
-    abstract double calculatePrice();
+    public abstract double calculatePrice();
 
     public String getProduct() {
         return product;
@@ -29,15 +32,15 @@ public abstract class Product {
         return quantity;
     }
 
-    public Basic getBasicType() {
+    public ProductComponent getBasicType() {
         return basicType;
     }
 
-    public Basic getBasicIngredient() {
+    public ProductComponent getBasicIngredient() {
         return basicIngredient;
     }
 
-    void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 

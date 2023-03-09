@@ -1,5 +1,9 @@
-package homework_9.Yeghia_Ansuryan.Palmetto;
+package homework_9.Yeghia_Ansuryan.Palmetto.differentClasses;
 
+
+import homework_9.Yeghia_Ansuryan.Palmetto.myAbstract.Product;
+import homework_9.Yeghia_Ansuryan.Palmetto.myEnum.IngredientPizza;
+import homework_9.Yeghia_Ansuryan.Palmetto.myEnum.PizzaType;
 
 public class Pizza extends Product {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;

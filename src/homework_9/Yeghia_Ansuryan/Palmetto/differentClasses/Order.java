@@ -1,4 +1,6 @@
-package homework_9.Yeghia_Ansuryan.Palmetto;
+package homework_9.Yeghia_Ansuryan.Palmetto.differentClasses;
+
+import homework_9.Yeghia_Ansuryan.Palmetto.myAbstract.Product;
 
 public class Order {
     public static final String PRODUCT_PIZZA = "Pizza";
@@ -20,7 +22,7 @@ public class Order {
 
     public void addProduct(Product product) {
         if (index > MAX_PIZZA_AMOUNT) {
-            System.out.println(" You are not allowed to arder more than 10 productes!!");
+            System.out.println(" You are not allowed to order more than 10 products !!");
             return;
         }
         product.setName(getValidProductName(product.getName(), index));
