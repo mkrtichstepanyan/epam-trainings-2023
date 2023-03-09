@@ -3,9 +3,6 @@ package homework_11.rafik_pahlevanyan.io_homework;
 import java.io.*;
 
 public class FileReadAndWrite {
-
-
-
     public static void write(String fileName, String data) {
         if (fileName.endsWith(".txt") || fileName.endsWith(".csv") || fileName.endsWith(".json")) {
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))) {
@@ -19,7 +16,6 @@ public class FileReadAndWrite {
             System.exit(1);
         }
     }
-
 
     public static String read(String fileName) {
         if (fileName.endsWith(".txt") || fileName.endsWith(".csv") || fileName.endsWith(".json")) {

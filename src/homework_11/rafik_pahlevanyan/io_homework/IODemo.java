@@ -4,8 +4,6 @@ import java.util.List;
 
 public class IODemo {
     public static final String FILE_PAT = "/D:/javaexample/example.txt";
-
-
     public static void main(String[] args) {
         List<String> phoneNumbers = PhoneNumbersCreator.generatePhoneNumbers("093");
         PhoneNumbersCreator.WriteToFile(phoneNumbers, FILE_PAT);
