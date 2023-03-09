@@ -3,7 +3,7 @@ package homework_11.anna_manukyan.assignment_1;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, FileFormatException {
         String filename="anna.txt";
         DataProcess dataProcess = new DataProcess();
         String s = dataProcess.readFile(filename);
