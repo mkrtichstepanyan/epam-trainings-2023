@@ -9,7 +9,7 @@ public class Main {
         String s = dataProcess.readFile(filename);
         System.out.println(s);
         printLine();
-        String data = "Barev dzez";
+        String data = randomText();
         dataProcess.writeFile("newFile",data);
         printLine();
         String modifiedData = dataProcess.processData(data);
@@ -18,5 +18,14 @@ public class Main {
 
     private  static void printLine(){
         System.out.println("*******************");
+    }
+
+    private static String randomText(){
+        String text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n" +
+                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when\n" +
+                "an unknown printer took a galley of type and scrambled it to make a type specimen book.\n" +
+                "It has survived not only five centuries, but also the leap into electronic typesetting,\n" +
+                "remaining essentially unchanged.";
+        return text;
     }
 }

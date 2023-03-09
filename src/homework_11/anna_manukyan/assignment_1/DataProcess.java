@@ -8,7 +8,7 @@ public class DataProcess {
     private File outputFile;
     private String inputData = "";
 
-    private static final String BASE_PATH = "C:\\Users\\annam\\OneDrive\\Рабочий стол\\";
+    private static final String BASE_PATH = "src\\homework_11\\anna_manukyan\\assignment_1\\";
 
     public String readFile(String fileName) {
         String data;
