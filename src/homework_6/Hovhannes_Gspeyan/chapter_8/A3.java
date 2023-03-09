@@ -6,6 +6,6 @@ package homework_6.Hovhannes_Gspeyan.chapter_8;
 public class A3 {
 
     void callMe(){
-        System.out.println("Inside A's call me method");
+        System.out.println("Inside A.java's call me method");
     }
 }

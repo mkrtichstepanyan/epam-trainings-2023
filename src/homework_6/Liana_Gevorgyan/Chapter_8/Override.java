@@ -28,7 +28,7 @@ class Override {
             k = c;
         }
 
-        // display k – this overrides show() in A
+        // display k – this overrides show() in A.java
         void show() {
             System.out.println("k: " + k);
         }

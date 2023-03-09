@@ -1,6 +1,6 @@
 package homework_1.Nelli_Poghosyan;
 
-//A simple demo of local variable type inference
+//A.java simple demo of local variable type inference
 public class VarDemo {
     public static void main(String[] args) {
         var avg = 10.0;

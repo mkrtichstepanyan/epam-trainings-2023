@@ -1,7 +1,7 @@
 package homework_6.Hovhannes_Gspeyan.chapter_8;
 
 /**
- * Demonstrates A and B classes
+ * Demonstrates A.java and B classes
  */
 public class SimpleInheritance {
 

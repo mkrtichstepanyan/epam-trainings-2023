@@ -1,6 +1,6 @@
 package homework_4.Roza_Petrosyan.chapter_7;
 
-// A simple example of recursion
+// A.java simple example of recursion
 public class Factorial {
     // this is a recursive method
     int fact(int n) {

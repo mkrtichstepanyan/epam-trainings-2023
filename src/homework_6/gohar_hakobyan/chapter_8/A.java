@@ -4,11 +4,11 @@ public class A {
     int i, j;
 
     A() {
-        System.out.println("B in constructor A");
+        System.out.println("B in constructor A.java");
     }
 
     void callme() {
-        System.out.println("In method callme from A class");
+        System.out.println("In method callme from A.java class");
     }
 //  private   int total; This program will not compile
 

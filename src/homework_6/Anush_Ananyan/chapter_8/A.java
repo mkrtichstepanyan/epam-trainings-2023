@@ -12,7 +12,7 @@ public class A {
         l = y;
     }
     A() {
-        System.out.println("Inside A's constructor.");
+        System.out.println("Inside A.java's constructor.");
     }
     A(int a, int b) {
         i = a;
@@ -22,6 +22,6 @@ public class A {
         System.out.println("i and j: " + i + " " + j );
     }
     void callme() {
-        System.out.println("Inside A's callme method");
+        System.out.println("Inside A.java's callme method");
     }
 }

@@ -1,5 +1,5 @@
 package homework_6.Qnarik_Khachatryan.chapter_8.access;
-//A's j is not accessible here
+//A.java's j is not accessible here
 
 class B extends A {
     int total;

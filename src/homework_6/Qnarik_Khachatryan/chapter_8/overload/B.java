@@ -9,7 +9,7 @@ class B extends A {
     }
 
     // overload, because The version of show( ) in B takes a string parameter. This
-    //makes its type signature different from the one in A, which takes no parameters
+    //makes its type signature different from the one in A.java, which takes no parameters
     void show(String msg) {
         System.out.println(msg + k);
     }

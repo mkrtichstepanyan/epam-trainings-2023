@@ -9,6 +9,6 @@ class CharDemo2 {
         System.out.println("ch1 is now " +ch1);
         //In the program, ch1 is first given the value X. Next, ch1 is incremented. This
         //results in ch1 containing Y, the next character in the ASCII (and Unicode)
-        //sequence. For ch1 A values ch1++ will be B
+        //sequence. For ch1 A.java values ch1++ will be B
     }
 }

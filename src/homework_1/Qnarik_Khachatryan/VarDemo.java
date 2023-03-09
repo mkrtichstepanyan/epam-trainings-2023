@@ -1,6 +1,6 @@
 package homework_1.Qnarik_Khachatryan;
 
-// A simple demonstration of local variable type inference
+// A.java simple demonstration of local variable type inference
 class VarDemo {
     public static void main(String[] args) {
         //Use type inference to determine the type of the variable named avg. In this case, double is inferred.

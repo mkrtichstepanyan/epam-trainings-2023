@@ -5,7 +5,7 @@ package homework_6.Qnarik_Khachatryan.chapter_8.access;
 //private members remain private to their class
 class A {
     int i; //default access
-    private int j; //private to A
+    private int j; //private to A.java
 
     void setij(int x, int y) {
         i = x;

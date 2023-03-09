@@ -1,6 +1,6 @@
 package homework_6.Qnarik_Khachatryan.chapter_8.box_weight_super;
 
-//A complete implementation of BoxWeight
+//A.java complete implementation of BoxWeight
 class Box {
 
     private double width;

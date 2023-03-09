@@ -11,7 +11,7 @@ class AbstractAreas {
         System.out.println("Area is " + figref.area());
     }
 }
-// A Simple demonstration of abstract.
+// A.java Simple demonstration of abstract.
 abstract class A {
     abstract void callme();
     // concrete methods are still allowed in abstract classes

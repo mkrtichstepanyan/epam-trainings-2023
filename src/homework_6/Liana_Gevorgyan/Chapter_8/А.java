@@ -1,13 +1,13 @@
 package homework_6.Liana_Gevorgyan.Chapter_8;
 
-// A simple example of inheritance.
+// A.java simple example of inheritance.
 // Create a superclass.
 class A {
     int i, j;
     void showij() {
         System.out.println("i and j: " + i + " " + j);
     } }
-// Create a subclass by extending class A.
+// Create a subclass by extending class A.java.
 class B extends A {
     int k;
     void showk() {

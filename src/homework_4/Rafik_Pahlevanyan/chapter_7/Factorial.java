@@ -1,6 +1,6 @@
 package homework_4.Rafik_Pahlevanyan.chapter_7;
 
-//A simple example of recursion
+//A.java simple example of recursion
 public class Factorial {
 
     //this is a recursive ve method

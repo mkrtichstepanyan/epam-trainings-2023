@@ -1,6 +1,6 @@
 package homework_4.Roza_Petrosyan.chapter_6;
 
-/* A program that uses a Box class.
+/* A.java program that uses a Box class.
   Call this file BoxDemo.java
   This program includes a method inside the box class
   Here Box uses a constructor to initialize the dimension of a box.

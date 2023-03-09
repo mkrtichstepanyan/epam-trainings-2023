@@ -7,7 +7,7 @@ public class A {
     int i, j;
 
     A(){
-        System.out.println("Insides A's constructor ");
+        System.out.println("Insides A.java's constructor ");
     }
 
     void show(){
@@ -22,7 +22,7 @@ public class A {
 }
 
 /**
- * B subclass of A
+ * B subclass of A.java
  */
 class B extends A{
     int k;

@@ -19,7 +19,7 @@ class A4 {
         System.out.println("i and j: " + i + " " + j);
     }
 }
-// Create a subclass by extending class A.
+// Create a subclass by extending class A.java.
 class B4 extends A4 {
     int k;
     B4(int a, int b, int c) {
