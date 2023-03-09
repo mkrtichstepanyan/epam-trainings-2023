@@ -10,23 +10,27 @@ public class DataProcess {
 
     private static final String BASE_PATH = "src\\homework_11\\anna_manukyan\\assignment_1\\";
 
-    public String readFile(String fileName) {
+    public String readFile(String fileName) throws FileFormatException {
         String data;
         inputFile = new File(BASE_PATH + fileName);
-        if (inputFile.exists() && isValidExtension(fileName)) {
-            try {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(inputFile));
-                while ((data = bufferedReader.readLine()) != null) {
-                    inputData = inputData + "\n" + data;
+        if (inputFile.exists()) {
+            if (isValidExtension(fileName)) {
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new FileReader(inputFile));
+                    while ((data = bufferedReader.readLine()) != null) {
+                        inputData = inputData + "\n" + data;
+                    }
+                } catch (FileNotFoundException e) {
+                    System.out.println("Can not read this file.");
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            } catch (FileNotFoundException e) {
-                System.out.println("Can not read this file.");
-            } catch (IOException e) {
-                e.printStackTrace();
+                return inputData;
+            } else {
+                throw new FileFormatException();
             }
-            return inputData;
         }
-        return "File with this name is not exist or !";
+        return "File with this name is not exist";
     }
 
     public void writeFile(String fileName, String data) {
