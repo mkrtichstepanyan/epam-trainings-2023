@@ -1,7 +1,7 @@
 package homework_9.Davit_Poghosyan.Annotation.Processors;
 
-import homework_9.Nelli_Poghosyan.Annotation.Email;
-import homework_9.Nelli_Poghosyan.Dto.CustomerDto;
+import homework_9.Davit_Poghosyan.Annotation.Email;
+import homework_9.Davit_Poghosyan.Dto.CustomerDto;
 
 import java.lang.reflect.Field;
 

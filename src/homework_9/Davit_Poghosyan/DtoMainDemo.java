@@ -1,8 +1,8 @@
 package homework_9.Davit_Poghosyan;
 
-import homework_9.Nelli_Poghosyan.Dto.CustomerDto;
-import homework_9.Nelli_Poghosyan.Dto.ProductDto;
-import homework_9.Nelli_Poghosyan.Validation.Validation;
+import homework_9.Davit_Poghosyan.Dto.CustomerDto;
+import homework_9.Davit_Poghosyan.Dto.ProductDto;
+import homework_9.Davit_Poghosyan.Validation.Validation;
 
 import java.time.LocalDate;
 import java.time.Month;

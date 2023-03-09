@@ -1,11 +1,11 @@
 package homework_9.Davit_Poghosyan.Validation;
 
-import homework_9.Nelli_Poghosyan.Annotation.*;
-import homework_9.Nelli_Poghosyan.Annotation.Processors.AdultHoodProcessor;
-import homework_9.Nelli_Poghosyan.Annotation.Processors.CustomerNameLengthProcessor;
-import homework_9.Nelli_Poghosyan.Annotation.Processors.DiscountRateProcessor;
-import homework_9.Nelli_Poghosyan.Annotation.Processors.EmailProcessor;
-import homework_9.Nelli_Poghosyan.Dto.CustomerDto;
+import homework_9.Davit_Poghosyan.Annotation.*;
+import homework_9.Davit_Poghosyan.Annotation.Processors.AdultHoodProcessor;
+import homework_9.Davit_Poghosyan.Annotation.Processors.CustomerNameLengthProcessor;
+import homework_9.Davit_Poghosyan.Annotation.Processors.DiscountRateProcessor;
+import homework_9.Davit_Poghosyan.Annotation.Processors.EmailProcessor;
+import homework_9.Davit_Poghosyan.Dto.CustomerDto;
 
 import java.lang.reflect.Field;
 import java.time.LocalDate;

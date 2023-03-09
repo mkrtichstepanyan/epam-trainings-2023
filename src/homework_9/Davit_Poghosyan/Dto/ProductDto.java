@@ -1,8 +1,8 @@
 package homework_9.Davit_Poghosyan.Dto;
 
-import homework_9.Nelli_Poghosyan.Annotation.Length;
-import homework_9.Nelli_Poghosyan.Annotation.Max;
-import homework_9.Nelli_Poghosyan.Annotation.Min;
+import homework_9.Davit_Poghosyan.Annotation.Length;
+import homework_9.Davit_Poghosyan.Annotation.Max;
+import homework_9.Davit_Poghosyan.Annotation.Min;
 
 public class ProductDto {
 

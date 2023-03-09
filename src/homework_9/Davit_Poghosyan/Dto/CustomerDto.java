@@ -1,6 +1,5 @@
 package homework_9.Davit_Poghosyan.Dto;
 
-import homework_9.Nelli_Poghosyan.Annotation.*;
 import java.time.LocalDate;
 
 public class CustomerDto {
