@@ -1,15 +1,10 @@
-package homework_10.Yeghia_Ansuryan.Palmetto;
+package homework_10.Yeghia_Ansuryan.Palmetto.myAbstract;
 
-public enum PizzaType implements Basic {
-
-    REGULAR("Regular", 1),
-
-    CALZONE("Calzone", 1.5);
-
+public abstract class ProductType {
     private String name;
     private double price;
 
-    PizzaType(String name, double price) {
+    ProductType(String name, double price) {
         this.name = name;
         this.price = price;
     }

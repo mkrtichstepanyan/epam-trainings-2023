@@ -1,6 +1,6 @@
 package homework_10.Yeghia_Ansuryan.Palmetto.myExceptions;
 
-public class DoubleIngredientException extends Exception {
+public class DoubleIngredientException extends RuntimeException {
     String massage;
 
     public DoubleIngredientException(String massage) {
@@ -8,7 +8,7 @@ public class DoubleIngredientException extends Exception {
     }
 
     @Override
-    public String toString() {
+    public String getMessage() {
         return massage;
     }
 }

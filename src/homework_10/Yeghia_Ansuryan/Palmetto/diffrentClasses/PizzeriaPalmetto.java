@@ -1,5 +1,8 @@
-package homework_10.Yeghia_Ansuryan.Palmetto;
+package homework_10.Yeghia_Ansuryan.Palmetto.diffrentClasses;
 
+import homework_10.Yeghia_Ansuryan.Palmetto.myAbstract.Product;
+import homework_10.Yeghia_Ansuryan.Palmetto.myEnum.IngredientPizza;
+import homework_10.Yeghia_Ansuryan.Palmetto.myEnum.PizzaType;
 import homework_10.Yeghia_Ansuryan.Palmetto.myExceptions.DoubleIngredientException;
 import homework_10.Yeghia_Ansuryan.Palmetto.myExceptions.LatinNameException;
 import homework_10.Yeghia_Ansuryan.Palmetto.myExceptions.PhoneNumberException;
@@ -22,8 +25,8 @@ public class PizzeriaPalmetto {
 
             Printer.printCheck(order);
         } catch (DoubleIngredientException | LatinNameException | PhoneNumberException e) {
-            System.err.println(e);
-            System.err.println("Pleas retry and enter a correct information !");
+            e.printStackTrace();
+            System.err.println("Please retry and enter a correct information !");
         }
     }
 }

@@ -1,15 +1,18 @@
-package homework_10.Yeghia_Ansuryan.Palmetto;
+package homework_10.Yeghia_Ansuryan.Palmetto.diffrentClasses;
 
-import homework_10.Yeghia_Ansuryan.Palmetto.myExceptions.DoubleIngredientException;
+import homework_10.Yeghia_Ansuryan.Palmetto.myAbstract.Product;
+import homework_10.Yeghia_Ansuryan.Palmetto.myEnum.IngredientPizza;
+import homework_10.Yeghia_Ansuryan.Palmetto.myEnum.PizzaType;
+import homework_10.Yeghia_Ansuryan.Palmetto.myInterface.DoubleIngredientExistence;
 
-public class Pizza extends Product implements CheckIngredient {
+public class Pizza extends Product implements DoubleIngredientExistence {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
     private static final int MAX_PIZZA_AMOUNT = 10;
 
     private IngredientPizza[] ingredients = new IngredientPizza[7];
     private int indexOfIngredients = 0;
 
-    Pizza(String name, PizzaType pizzaType, IngredientPizza[] ingredients, int quantity) throws DoubleIngredientException {
+    Pizza(String name, PizzaType pizzaType, IngredientPizza[] ingredients, int quantity) {
         super(Order.PRODUCT_PIZZA, pizzaType, name, quantity);
         if (quantity > MAX_PIZZA_AMOUNT) {
             System.out.println("You may not order more then 10 Pizzas !");
@@ -18,7 +21,7 @@ public class Pizza extends Product implements CheckIngredient {
         addIngredient(ingredients);
     }
 
-    public void addIngredient(IngredientPizza[] ingredients) throws DoubleIngredientException {
+    public void addIngredient(IngredientPizza[] ingredients) {
         indexOfIngredients = ingredients.length - 1;
         if (indexOfIngredients < MAX_ALLOWED_INGREDIENTS) {
             isDuplicate(ingredients);

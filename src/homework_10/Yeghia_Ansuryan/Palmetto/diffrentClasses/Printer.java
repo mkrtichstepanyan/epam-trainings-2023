@@ -1,4 +1,6 @@
-package homework_10.Yeghia_Ansuryan.Palmetto;
+package homework_10.Yeghia_Ansuryan.Palmetto.diffrentClasses;
+
+import homework_10.Yeghia_Ansuryan.Palmetto.myAbstract.Product;
 
 public class Printer {
 

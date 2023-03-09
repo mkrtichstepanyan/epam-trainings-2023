@@ -1,9 +1,9 @@
-package homework_10.Yeghia_Ansuryan.Palmetto;
+package homework_10.Yeghia_Ansuryan.Palmetto.myInterface;
 
 import homework_10.Yeghia_Ansuryan.Palmetto.myExceptions.DoubleIngredientException;
 
-public interface CheckIngredient {
-    default void isDuplicate(Basic[] ingredients) throws DoubleIngredientException {
+public interface DoubleIngredientExistence {
+    default void isDuplicate(ProductComponent[] ingredients) throws DoubleIngredientException {
         int indexOfIngredients = ingredients.length - 1;
         for (int i = 0; i <= indexOfIngredients; i++) {
             if (ingredients[indexOfIngredients] != null) {

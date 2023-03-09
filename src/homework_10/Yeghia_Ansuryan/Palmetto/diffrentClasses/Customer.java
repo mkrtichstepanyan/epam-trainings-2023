@@ -1,9 +1,7 @@
-package homework_10.Yeghia_Ansuryan.Palmetto;
+package homework_10.Yeghia_Ansuryan.Palmetto.diffrentClasses;
 
 import homework_10.Yeghia_Ansuryan.Palmetto.myExceptions.LatinNameException;
 import homework_10.Yeghia_Ansuryan.Palmetto.myExceptions.PhoneNumberException;
-
-import javax.swing.text.StyleConstants;
 
 public class Customer {
     private static final int BASE_CUSTOMER_NUMBER = 1000;
@@ -17,7 +15,7 @@ public class Customer {
         customerNumber = initialId++;
     }
 
-    public void setName(String customerName) throws LatinNameException {
+    public void setName(String customerName) {
         if (!customerName.matches("[A-Z][a-z]+[\s][A-Z][a-z]+")) {
             throw new LatinNameException();
         } else {
@@ -25,7 +23,7 @@ public class Customer {
         }
     }
 
-    public void setPhoneNumber(String phoneNumber) throws PhoneNumberException {
+    public void setPhoneNumber(String phoneNumber) {
         if (phoneNumber.charAt(0) != '+') {
             throw new PhoneNumberException();
         } else {

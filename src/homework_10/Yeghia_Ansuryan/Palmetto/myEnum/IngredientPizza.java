@@ -1,6 +1,8 @@
-package homework_10.Yeghia_Ansuryan.Palmetto;
+package homework_10.Yeghia_Ansuryan.Palmetto.myEnum;
 
-public enum IngredientPizza implements Basic {
+import homework_10.Yeghia_Ansuryan.Palmetto.myInterface.ProductComponent;
+
+public enum IngredientPizza implements ProductComponent {
     TOMATO_PASTE("Tomato paste", 1),
     CHEESE("Cheese", 1),
     SALAMI("Salami", 1.5),
