@@ -1,16 +1,14 @@
 package homework_11.Roza_Petrosyan.task.assignment_one.input_output;
 
 import homework_11.Roza_Petrosyan.task.assignment_one.exception.FileExtensionException;
-
 import java.io.*;
 
 public class ReadAndWriteFile {
     public String readFile(String fileName) {
-
         String data = "";
-        String line;
-        if (isFileExtension(fileName)) {
-            try (BufferedReader fr = new BufferedReader(new java.io.FileReader(fileName))) {
+        if (isAllowedFileExtension(fileName)) {
+            String line;
+            try (BufferedReader fr = new BufferedReader(new FileReader(fileName))) {
                 while ((line = fr.readLine()) != null) {
                     data += line + "\n";
                 }
@@ -22,24 +20,17 @@ public class ReadAndWriteFile {
         } else {
             throw new FileExtensionException();
         }
-
-
         return data;
     }
 
     public void writeFile(String fileName, String data) {
-
         char[] buf = new char[data.length()];
         data.getChars(0, data.length(), buf, 0);
-
-        if (isFileExtension(fileName)) {
-
+        if (isAllowedFileExtension(fileName)) {
             try (BufferedWriter fw = new BufferedWriter(new FileWriter(fileName))) {
-
                 for (char c : buf) {
                     fw.write(c);
                 }
-
             } catch (IOException e) {
                 System.out.println("An I/O error occurred: " + e.getMessage());
             }
@@ -49,21 +40,11 @@ public class ReadAndWriteFile {
     }
 
     public String processData(String data) {
-        String result = "";
-        if (data != null) {
-            result = data.toUpperCase();
-        }
-        return result;
+        return data != null ? data.toUpperCase() : "";
     }
 
-    private boolean isFileExtension(String fileName) {
-        boolean result = false;
+    private boolean isAllowedFileExtension(String fileName) {
         String extension = fileName.substring(fileName.lastIndexOf("."));
-
-        if (extension.equals(".json") || extension.equals(".csv") || extension.equals(".txt")) {
-            result = true;
-        }
-
-        return result;
+        return extension.equals(".json") || extension.equals(".csv") || extension.equals(".txt");
     }
 }
