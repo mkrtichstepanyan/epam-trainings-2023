@@ -29,7 +29,7 @@ public class CharArrayWriterDemo {
 
         System.out.println("\nTo an OutputStream");
 
-        try (FileWriter f2 = new FileWriter("/Users/user/Desktop/RD/epam-trainings-2023/src/homework_11/Roza_Petrosyan/chapter_22/char_array_writer/test.txt")) {
+        try (FileWriter f2 = new FileWriter("src/homework_11/Roza_Petrosyan/chapter_22/char_array_writer/test.txt")) {
             f.writeTo(f2);
         } catch (IOException e) {
             System.out.println("I/O error: " + e);

@@ -28,7 +28,7 @@ public class ByteArrayOutputStreamDemo {
 
         System.out.println("\nTo an OutputStream");
 
-        try (FileOutputStream f2 = new FileOutputStream("/Users/user/Desktop/RD/epam-trainings-2023/src/homework_11/Roza_Petrosyan/chapter_22/byte_array_output_stream/test.txt")) {
+        try (FileOutputStream f2 = new FileOutputStream("src/homework_11/Roza_Petrosyan/chapter_22/byte_array_output_stream/test.txt")) {
             f.writeTo(f2);
         } catch (IOException e) {
             System.out.println("I/O error: " + e);

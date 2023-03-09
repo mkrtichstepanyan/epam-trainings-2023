@@ -5,15 +5,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class GenerateAndWritePhoneNumber {
-    public String[] generatePhoneNumber(String code) {
-        String numStr = "000000";
+    public String[] generatePhoneNumbers(String code) {
         String[] allNums = new String[1000000];
+        int numInt = 0;
 
-        int numInt = Integer.parseInt(numStr);
-        allNums[0] = code + " " + String.format("%06d", numInt) + "\n";
-        for (int i = 1; i < allNums.length; i++) {
-            numInt++;
+        for (int i = 0; i < allNums.length; i++) {
             allNums[i] = code + " " + String.format("%06d", numInt) + "\n";
+            numInt++;
         }
         return allNums;
     }

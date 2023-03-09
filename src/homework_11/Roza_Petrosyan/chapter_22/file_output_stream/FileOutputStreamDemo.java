@@ -15,9 +15,9 @@ public class FileOutputStreamDemo {
         FileOutputStream f2 = null;
 
         try {
-            f0 = new FileOutputStream("/Users/user/Desktop/RD/epam-trainings-2023/src/homework_11/Roza_Petrosyan/chapter_22/file_output_stream/file1.txt");
-            f1 = new FileOutputStream("/Users/user/Desktop/RD/epam-trainings-2023/src/homework_11/Roza_Petrosyan/chapter_22/file_output_stream/file2.txt");
-            f2 = new FileOutputStream("/Users/user/Desktop/RD/epam-trainings-2023/src/homework_11/Roza_Petrosyan/chapter_22/file_output_stream/file3.txt");
+            f0 = new FileOutputStream("src/homework_11/Roza_Petrosyan/chapter_22/file_output_stream/file1.txt");
+            f1 = new FileOutputStream("src/homework_11/Roza_Petrosyan/chapter_22/file_output_stream/file2.txt");
+            f2 = new FileOutputStream("src/homework_11/Roza_Petrosyan/chapter_22/file_output_stream/file3.txt");
 
             for (int i = 0; i < buf.length; i += 2) {
                 f0.write(buf[i]);

@@ -12,9 +12,9 @@ public class FileWriterDemo {
         char[] buf = new char[source.length()];
         source.getChars(0, source.length(), buf, 0);
 
-        try (FileWriter f0 = new FileWriter("/Users/user/Desktop/RD/epam-trainings-2023/src/homework_11/Roza_Petrosyan/chapter_22/file_writer/file1.txt");
-             FileWriter f1 = new FileWriter("/Users/user/Desktop/RD/epam-trainings-2023/src/homework_11/Roza_Petrosyan/chapter_22/file_writer/file2.txt");
-             FileWriter f2 = new FileWriter("/Users/user/Desktop/RD/epam-trainings-2023/src/homework_11/Roza_Petrosyan/chapter_22/file_writer/file3.txt");) {
+        try (FileWriter f0 = new FileWriter("src/homework_11/Roza_Petrosyan/chapter_22/file_writer/file1.txt");
+             FileWriter f1 = new FileWriter("src/homework_11/Roza_Petrosyan/chapter_22/file_writer/file2.txt");
+             FileWriter f2 = new FileWriter("src/homework_11/Roza_Petrosyan/chapter_22/file_writer/file3.txt");) {
 
             for (int i = 0; i < buf.length; i += 2) {
                 f0.write(buf[i]);

@@ -10,9 +10,9 @@ public class SequenceInputStreamDemo {
         int c;
         Vector<String> files = new Vector<String>();
 
-        files.addElement("/Users/user/Desktop/RD/epam-trainings-2023/src/homework_11/Roza_Petrosyan/chapter_22/enumeration_input_stream/file1.txt");
-        files.addElement("/Users/user/Desktop/RD/epam-trainings-2023/src/homework_11/Roza_Petrosyan/chapter_22/enumeration_input_stream/file2.txt");
-        files.addElement("/Users/user/Desktop/RD/epam-trainings-2023/src/homework_11/Roza_Petrosyan/chapter_22/enumeration_input_stream/file3.txt");
+        files.addElement("src/homework_11/Roza_Petrosyan/chapter_22/enumeration_input_stream/file1.txt");
+        files.addElement("src/homework_11/Roza_Petrosyan/chapter_22/enumeration_input_stream/file2.txt");
+        files.addElement("src/homework_11/Roza_Petrosyan/chapter_22/enumeration_input_stream/file3.txt");
         InputStreamEnumerator ise = new InputStreamEnumerator(files);
         try {
             InputStream input = new SequenceInputStream(ise);

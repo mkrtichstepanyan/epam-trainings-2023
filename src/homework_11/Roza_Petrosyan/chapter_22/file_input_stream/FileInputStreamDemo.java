@@ -7,7 +7,7 @@ public class FileInputStreamDemo {
     public static void main(String[] args) {
         int size;
 
-        try (FileInputStream f = new FileInputStream("/Users/user/Desktop/RD/epam-trainings-2023/src/homework_11/Roza_Petrosyan/chapter_22/file_input_stream/FileInputStreamDemo.java")) {
+        try (FileInputStream f = new FileInputStream("src/homework_11/Roza_Petrosyan/chapter_22/file_input_stream/FileInputStreamDemo.java")) {
             System.out.println("Total Available Bytes: " + (size = f.available()));
 
             int n = size / 40;
