@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PhoneNumbersCreator {
-
-
     public static List<String> generatePhoneNumbers(String code) {
         List<String> phoneNumbers = new ArrayList<>();
         for (int i = 0; i < 1000000; i++) {
