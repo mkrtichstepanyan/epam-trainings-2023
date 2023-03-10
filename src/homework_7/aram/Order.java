@@ -63,6 +63,13 @@ public class Order {
         return pizzaName != null && pizzaName.length() > 4 && pizzaName.length() < 20;
     }
 
+    public void setOrderNumber(int orderNumber) throws OrderNumberException {
+        if(orderNumber<10000){
+            throw new OrderNumberException();
+        }
+        this.orderNumber = orderNumber;
+    }
+
     public int getOrderNumber() {
         return orderNumber;
     }
