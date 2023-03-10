@@ -1,5 +1,10 @@
 package homework_9.Karen_Sargsyan.pizza;
 
+import homework_9.Karen_Sargsyan.pizza.barbecueEnum.BarbecueMeatType;
+import homework_9.Karen_Sargsyan.pizza.barbecueEnum.IngredientBarbecue;
+import homework_9.Karen_Sargsyan.pizza.pizzaEnum.IngredientPizza;
+import homework_9.Karen_Sargsyan.pizza.pizzaEnum.PizzaType;
+
 public class PizzeriaPalmetto {
 
     public static void main(String[] args) {

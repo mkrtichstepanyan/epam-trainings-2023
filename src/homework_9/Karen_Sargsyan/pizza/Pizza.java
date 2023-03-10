@@ -1,5 +1,8 @@
 package homework_9.Karen_Sargsyan.pizza;
 
+import homework_9.Karen_Sargsyan.pizza.pizzaEnum.IngredientPizza;
+import homework_9.Karen_Sargsyan.pizza.pizzaEnum.PizzaType;
+
 public class Pizza extends Item {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
     private static final int MAX_PIZZA_AMOUNT = 10;

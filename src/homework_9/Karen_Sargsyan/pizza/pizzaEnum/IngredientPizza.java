@@ -1,6 +1,8 @@
-package homework_9.Karen_Sargsyan.pizza;
+package homework_9.Karen_Sargsyan.pizza.pizzaEnum;
 
-public enum IngredientPizza implements Basic {
+import homework_9.Karen_Sargsyan.pizza.myInterface.ProductComponent;
+
+public enum IngredientPizza implements ProductComponent {
     TOMATO_PASTE("Tomato Paste", 1),
     CHEESE("Cheese", 1),
     SALAMI("Salami", 1.5),

@@ -1,6 +1,8 @@
-package homework_9.Karen_Sargsyan.pizza;
+package homework_9.Karen_Sargsyan.pizza.pizzaEnum;
 
-public enum PizzaType implements Basic {
+import homework_9.Karen_Sargsyan.pizza.myInterface.ProductComponent;
+
+public enum PizzaType implements ProductComponent {
 
     REGULAR("Regular", 1),
     CALZONE("Calzone", 1.5);

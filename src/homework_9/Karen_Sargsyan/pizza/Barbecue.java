@@ -1,5 +1,9 @@
 package homework_9.Karen_Sargsyan.pizza;
 
+import homework_9.Karen_Sargsyan.pizza.barbecueEnum.BarbecueMeatType;
+import homework_9.Karen_Sargsyan.pizza.barbecueEnum.IngredientBarbecue;
+import homework_9.Karen_Sargsyan.pizza.myInterface.AddIngredient;
+
 public class Barbecue extends Item implements AddIngredient {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
     private BarbecueMeatType barbecueMeatType;

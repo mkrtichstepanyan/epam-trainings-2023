@@ -1,6 +1,8 @@
-package homework_9.Karen_Sargsyan.pizza;
+package homework_9.Karen_Sargsyan.pizza.barbecueEnum;
 
-public enum IngredientBarbecue implements Basic {
+import homework_9.Karen_Sargsyan.pizza.myInterface.ProductComponent;
+
+public enum IngredientBarbecue implements ProductComponent {
     BREAD("Bread", 0.8),
     ONION("Onion", 0.7),
     TOMATO_PASTE("Tomato Paste", 1);

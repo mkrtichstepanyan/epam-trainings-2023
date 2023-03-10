@@ -1,7 +1,7 @@
-package homework_9.Karen_Sargsyan.pizza;
+package homework_9.Karen_Sargsyan.pizza.myInterface;
 
 public interface AddIngredient {
-    default void isDuplicate(Basic[] ingredients) {
+    default void isDuplicate(ProductComponent[] ingredients) {
         int indexOfIngredients = ingredients.length - 1;
         for (int i = 0; i <= indexOfIngredients; i++) {
             if (ingredients[indexOfIngredients] != null) {

@@ -1,23 +1,25 @@
 package homework_9.Karen_Sargsyan.pizza;
 
+import homework_9.Karen_Sargsyan.pizza.myInterface.ProductComponent;
+
 public abstract class Item {
 
-    private Basic basicType;
-    private Basic basicIngredient;
+    private ProductComponent basicType;
+    private ProductComponent basicIngredient;
     private Pizza pizza;
     private Barbecue barbecue;
     private String product;
     private int quantity;
     private String name;
 
-    public Item(String product, Basic basicType, String name, int quantity) {
+    public Item(String product, ProductComponent basicType, String name, int quantity) {
         this.product = product;
         this.basicType = basicType;
         this.name = name;
         this.quantity = quantity;
     }
 
-    public Item(String product, Basic basicType, int quantity) {
+    public Item(String product, ProductComponent basicType, int quantity) {
         this.product = product;
         this.basicType = basicType;
         this.quantity = quantity;
@@ -41,11 +43,11 @@ public abstract class Item {
         return quantity;
     }
 
-    public Basic getBasicType() {
+    public ProductComponent getBasicType() {
         return basicType;
     }
 
-    public Basic getBasicIngredient() {
+    public ProductComponent getBasicIngredient() {
         return basicIngredient;
     }
 
