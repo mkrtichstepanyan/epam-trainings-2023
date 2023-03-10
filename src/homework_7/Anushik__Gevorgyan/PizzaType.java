@@ -1,4 +1,4 @@
-package homework_7.sevak.Anushik__Gevorgyan;
+package homework_7.Anushik__Gevorgyan;
 
 public class PizzaType extends ProductType {
     private static final double BASE_PRICE = 1.0;

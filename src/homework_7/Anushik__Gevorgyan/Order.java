@@ -1,4 +1,4 @@
-package homework_7.sevak.Anushik__Gevorgyan;
+package homework_7.Anushik__Gevorgyan;
 
 public class Order {
     private static final int MAX_PIZZA_AMOUNT = 10;

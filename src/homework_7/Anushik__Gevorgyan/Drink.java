@@ -1,4 +1,4 @@
-package homework_7.sevak.Anushik__Gevorgyan;
+package homework_7.Anushik__Gevorgyan;
 
 public class Drink extends Product {
     public static final Drink MARTINI=new Drink("Martini",6.0);

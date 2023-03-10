@@ -1,4 +1,4 @@
-package homework_7.sevak.Anushik__Gevorgyan;
+package homework_7.Anushik__Gevorgyan;
 
 public class Ingredient {
     public static final Ingredient TOMATO_PASTE = new Ingredient("tomato paste", 1);
