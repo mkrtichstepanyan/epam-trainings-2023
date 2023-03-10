@@ -1,8 +1,8 @@
-package homework_9.Karen_Sargsyan.annotation_homework.annotations.procesors;
+package homework_9.Karen_Sargsyan.annotation_homework.procesors;
 
+import homework_9.Karen_Sargsyan.annotation_homework.annotations.Max;
 import homework_9.Karen_Sargsyan.annotation_homework.annotations.Min;
 import homework_9.Karen_Sargsyan.annotation_homework.error.Error;
-import homework_9.Karen_Sargsyan.annotation_homework.annotations.Max;
 
 import java.lang.reflect.Field;
 public class MinMaxAnnotationProcessor {

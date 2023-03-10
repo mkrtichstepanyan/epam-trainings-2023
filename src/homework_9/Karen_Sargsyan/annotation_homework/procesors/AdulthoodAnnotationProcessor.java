@@ -1,4 +1,4 @@
-package homework_9.Karen_Sargsyan.annotation_homework.annotations.procesors;
+package homework_9.Karen_Sargsyan.annotation_homework.procesors;
 
 import homework_9.Karen_Sargsyan.annotation_homework.annotations.Adulthood;
 import homework_9.Karen_Sargsyan.annotation_homework.error.Error;
