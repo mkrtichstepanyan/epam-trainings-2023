@@ -4,8 +4,8 @@ import java.io.*;
 
 public class FileIOExample {
 
-    private static final String INPUT  = "C:\\Users\\HP\\IdeaProjects\\epam-trainings-2023\\src\\homework_11\\gevorg_arghushyan\\tasck_1\\input.txt";
-    private static final String OUTPUT = "C:\\Users\\HP\\IdeaProjects\\epam-trainings-2023\\src\\homework_11\\gevorg_arghushyan\\tasck_1\\output.txt";
+    private static final String INPUT  = "src/homework_11/gevorg_arghushyan/tasck_1/input.txt";
+    private static final String OUTPUT = "src/homework_11/gevorg_arghushyan/tasck_1/output.txt";
     public static void main(String[] args) {
         try {
             String data = readFile(INPUT);

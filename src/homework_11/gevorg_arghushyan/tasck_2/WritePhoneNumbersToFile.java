@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class WritePhoneNumbersToFile {
 
-    private static final String PHONE_NUMBER = "C:\\Users\\HP\\IdeaProjects\\epam-trainings-2023\\src\\homework_11\\gevorg_arghushyan\\tasck_2\\phone_numbers.txt";
+    private static final String PHONE_NUMBER = "src/homework_11/gevorg_arghushyan/tasck_2/phone_numbers.txt";
 
     public static void main(String[] args) {
 
