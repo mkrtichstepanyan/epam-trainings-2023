@@ -1,4 +1,4 @@
-package homework_10.Yeghia_Ansuryan.Palmetto.myExceptions;
+package homework_10.Yeghia_Ansuryan.Palmetto.exceptions;
 
 public class LatinNameException extends RuntimeException {
 

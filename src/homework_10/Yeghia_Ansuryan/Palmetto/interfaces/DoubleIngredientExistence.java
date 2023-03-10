@@ -1,6 +1,7 @@
-package homework_10.Yeghia_Ansuryan.Palmetto.myInterface;
+package homework_10.Yeghia_Ansuryan.Palmetto.interfaces;
 
-import homework_10.Yeghia_Ansuryan.Palmetto.myExceptions.DoubleIngredientException;
+import homework_10.Yeghia_Ansuryan.Palmetto.exceptions.DoubleIngredientException;
+import homework_10.Yeghia_Ansuryan.Palmetto.product.component.ProductComponent;
 
 public interface DoubleIngredientExistence {
     default void isDuplicate(ProductComponent[] ingredients) throws DoubleIngredientException {

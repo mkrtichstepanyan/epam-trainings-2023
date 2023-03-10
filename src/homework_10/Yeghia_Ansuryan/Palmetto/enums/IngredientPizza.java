@@ -1,6 +1,6 @@
-package homework_10.Yeghia_Ansuryan.Palmetto.myEnum;
+package homework_10.Yeghia_Ansuryan.Palmetto.enums;
 
-import homework_10.Yeghia_Ansuryan.Palmetto.myInterface.ProductComponent;
+import homework_10.Yeghia_Ansuryan.Palmetto.product.component.ProductComponent;
 
 public enum IngredientPizza implements ProductComponent {
     TOMATO_PASTE("Tomato paste", 1),

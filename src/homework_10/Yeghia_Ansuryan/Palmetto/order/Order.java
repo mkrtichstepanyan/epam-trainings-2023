@@ -1,6 +1,7 @@
-package homework_10.Yeghia_Ansuryan.Palmetto.diffrentClasses;
+package homework_10.Yeghia_Ansuryan.Palmetto.order;
 
-import homework_10.Yeghia_Ansuryan.Palmetto.myAbstract.Product;
+import homework_10.Yeghia_Ansuryan.Palmetto.customer.Customer;
+import homework_10.Yeghia_Ansuryan.Palmetto.product.entities.Product;
 
 public class Order {
     public static final String PRODUCT_PIZZA = "Pizza";
@@ -15,7 +16,7 @@ public class Order {
 
     private double totalPrice = 0.0;
 
-    Order(Customer customer) {
+    public Order(Customer customer) {
         this.customer = customer;
         orderNumber = initialId++;
     }

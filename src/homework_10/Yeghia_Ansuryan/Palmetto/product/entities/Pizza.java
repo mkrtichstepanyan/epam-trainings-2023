@@ -1,9 +1,9 @@
-package homework_10.Yeghia_Ansuryan.Palmetto.diffrentClasses;
+package homework_10.Yeghia_Ansuryan.Palmetto.product.entities;
 
-import homework_10.Yeghia_Ansuryan.Palmetto.myAbstract.Product;
-import homework_10.Yeghia_Ansuryan.Palmetto.myEnum.IngredientPizza;
-import homework_10.Yeghia_Ansuryan.Palmetto.myEnum.PizzaType;
-import homework_10.Yeghia_Ansuryan.Palmetto.myInterface.DoubleIngredientExistence;
+import homework_10.Yeghia_Ansuryan.Palmetto.order.Order;
+import homework_10.Yeghia_Ansuryan.Palmetto.enums.IngredientPizza;
+import homework_10.Yeghia_Ansuryan.Palmetto.enums.PizzaType;
+import homework_10.Yeghia_Ansuryan.Palmetto.interfaces.DoubleIngredientExistence;
 
 public class Pizza extends Product implements DoubleIngredientExistence {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
@@ -12,7 +12,7 @@ public class Pizza extends Product implements DoubleIngredientExistence {
     private IngredientPizza[] ingredients = new IngredientPizza[7];
     private int indexOfIngredients = 0;
 
-    Pizza(String name, PizzaType pizzaType, IngredientPizza[] ingredients, int quantity) {
+    public Pizza(String name, PizzaType pizzaType, IngredientPizza[] ingredients, int quantity) {
         super(Order.PRODUCT_PIZZA, pizzaType, name, quantity);
         if (quantity > MAX_PIZZA_AMOUNT) {
             System.out.println("You may not order more then 10 Pizzas !");

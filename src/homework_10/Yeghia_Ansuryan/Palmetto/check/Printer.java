@@ -1,6 +1,8 @@
-package homework_10.Yeghia_Ansuryan.Palmetto.diffrentClasses;
+package homework_10.Yeghia_Ansuryan.Palmetto.check;
 
-import homework_10.Yeghia_Ansuryan.Palmetto.myAbstract.Product;
+import homework_10.Yeghia_Ansuryan.Palmetto.order.Order;
+import homework_10.Yeghia_Ansuryan.Palmetto.product.entities.Pizza;
+import homework_10.Yeghia_Ansuryan.Palmetto.product.entities.Product;
 
 public class Printer {
 

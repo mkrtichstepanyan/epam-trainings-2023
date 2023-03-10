@@ -1,4 +1,4 @@
-package homework_10.Yeghia_Ansuryan.Palmetto.myAbstract;
+package homework_10.Yeghia_Ansuryan.Palmetto.product.component;
 
 public abstract class ProductType {
     private String name;
