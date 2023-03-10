@@ -1,6 +1,6 @@
 package homework_10.Karen_Sargsyan.pizza;
 
-import homework_10.Karen_Sargsyan.pizza.myInterface.ProductComponent;
+import homework_10.Karen_Sargsyan.pizza.productInterface.ProductComponent;
 
 public abstract class Item {
 

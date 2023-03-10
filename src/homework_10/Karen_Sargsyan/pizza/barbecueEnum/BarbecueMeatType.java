@@ -1,6 +1,6 @@
-package homework_10.Karen_Sargsyan.pizza.myEnum;
+package homework_10.Karen_Sargsyan.pizza.barbecueEnum;
 
-import homework_10.Karen_Sargsyan.pizza.myInterface.ProductComponent;
+import homework_10.Karen_Sargsyan.pizza.productInterface.ProductComponent;
 
 public enum BarbecueMeatType implements ProductComponent {
     PIG_MEAT("Pig Meat", 7),

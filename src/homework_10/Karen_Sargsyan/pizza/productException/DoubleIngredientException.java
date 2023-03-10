@@ -1,4 +1,4 @@
-package homework_10.Karen_Sargsyan.pizza.myException;
+package homework_10.Karen_Sargsyan.pizza.productException;
 
 public class DoubleIngredientException extends RuntimeException {
     String massage;

@@ -1,4 +1,4 @@
-package homework_10.Karen_Sargsyan.pizza.myInterface;
+package homework_10.Karen_Sargsyan.pizza.productInterface;
 
 public interface DoubleIngredientExistence {
     default void isDuplicate(ProductComponent[] ingredients) {

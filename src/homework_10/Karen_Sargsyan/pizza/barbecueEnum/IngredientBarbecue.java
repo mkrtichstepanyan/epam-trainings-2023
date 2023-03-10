@@ -1,6 +1,6 @@
-package homework_10.Karen_Sargsyan.pizza.myEnum;
+package homework_10.Karen_Sargsyan.pizza.barbecueEnum;
 
-import homework_10.Karen_Sargsyan.pizza.myInterface.ProductComponent;
+import homework_10.Karen_Sargsyan.pizza.productInterface.ProductComponent;
 
 public enum IngredientBarbecue implements ProductComponent {
     BREAD("Bread", 0.8),

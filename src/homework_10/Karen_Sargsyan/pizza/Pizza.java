@@ -1,8 +1,8 @@
 package homework_10.Karen_Sargsyan.pizza;
 
-import homework_10.Karen_Sargsyan.pizza.myEnum.IngredientPizza;
-import homework_10.Karen_Sargsyan.pizza.myEnum.PizzaType;
-import homework_10.Karen_Sargsyan.pizza.myInterface.DoubleIngredientExistence;
+import homework_10.Karen_Sargsyan.pizza.pizzaEnum.IngredientPizza;
+import homework_10.Karen_Sargsyan.pizza.pizzaEnum.PizzaType;
+import homework_10.Karen_Sargsyan.pizza.productInterface.DoubleIngredientExistence;
 
 public class Pizza extends Item implements DoubleIngredientExistence {
     private static final int MAX_ALLOWED_INGREDIENTS = 7;
