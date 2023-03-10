@@ -2,15 +2,25 @@ package homework_11.Diana_Melkonyan;
 
 import java.util.List;
 
-public class Main  {
-    public static  String path= "C:\\Users\\37455\\Desktop\\RD\\epam-trainings-2023\\src\\homework_11\\Diana_Melkonyan\\readFile.txt";
+public class Main {
+
 
     public static void main(String[] args) {
+        String readFile = "src\\homework_11\\Diana_Melkonyan\\readFile.txt";
+        String writeFile = "src\\homework_11\\Diana_Melkonyan\\writeFile.txt";
+        String phoneFile = "src\\homework_11\\Diana_Melkonyan\\phoneFile.txt";
 
-        Process.writeFile(path, "Diana");
-        System.out.println(Process.readFile(path));
-        System.out.println(Process.processData("Diana"));
 
+        String data = Process.readFile(readFile);
+        System.out.println(data);
+
+        String processData = Process.processData(data);
+        System.out.println(processData);
+
+        Process.writeFile(writeFile,processData);
+
+        List<String> phoneNumber = PhoneNumber.generatePhoneNumbers("093");
+        PhoneNumber.writeToFile(phoneNumber, phoneFile);
 
     }
 }
