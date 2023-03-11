@@ -1,16 +1,28 @@
 package homework_11.Roza_Petrosyan.task.assignment_one.input_output;
 
 import homework_11.Roza_Petrosyan.task.assignment_one.exception.FileExtensionException;
-import java.io.*;
 
-public class ReadAndWriteFile {
+import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+
+public class ReadAndWriteFileWithNIO {
     public String readFile(String fileName) {
         StringBuilder data = new StringBuilder();
         if (isAllowedFileExtension(fileName)) {
-            String line;
-            try (BufferedReader fr = new BufferedReader(new FileReader(fileName))) {
-                while ((line = fr.readLine()) != null) {
-                    data.append(line).append("\n");
+            try (FileChannel fileChannel = FileChannel.open(Path.of(fileName),
+                    StandardOpenOption.READ)) {
+                ByteBuffer buffer = ByteBuffer.allocate(1024);
+                int bytesRead = fileChannel.read(buffer);
+                while (bytesRead != -1) {
+                    buffer.flip();
+                    while (buffer.hasRemaining()) {
+                        data.append((char) buffer.get());
+                    }
+                    buffer.clear();
+                    bytesRead = fileChannel.read(buffer);
                 }
             } catch (FileNotFoundException e) {
                 System.out.println("File not found: " + e.getMessage());
@@ -24,13 +36,13 @@ public class ReadAndWriteFile {
     }
 
     public void writeFile(String fileName, String data) {
-        char[] buf = new char[data.length()];
-        data.getChars(0, data.length(), buf, 0);
+        byte[] byteArray = data.getBytes();
+        ByteBuffer byteBuffer = ByteBuffer.wrap(byteArray);
         if (isAllowedFileExtension(fileName)) {
-            try (BufferedWriter fw = new BufferedWriter(new FileWriter(fileName))) {
-                for (char c : buf) {
-                    fw.write(c);
-                }
+            try (FileChannel fileChannel = FileChannel.open(Path.of(fileName),
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.WRITE)) {
+                fileChannel.write(byteBuffer);
             } catch (IOException e) {
                 System.out.println("An I/O error occurred: " + e.getMessage());
             }

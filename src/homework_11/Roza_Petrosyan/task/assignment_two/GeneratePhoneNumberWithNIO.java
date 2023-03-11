@@ -1,10 +1,12 @@
 package homework_11.Roza_Petrosyan.task.assignment_two;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 
-public class GenerateAndWritePhoneNumber {
+public class GeneratePhoneNumberWithNIO {
     public String[] generatePhoneNumbers(String code) {
         String[] allNums = new String[1000000];
         for (int i = 0; i < allNums.length; i++) {
@@ -14,9 +16,13 @@ public class GenerateAndWritePhoneNumber {
     }
 
     public void writeToFile(String[] phoneNumbers, String fileName) {
-        try (BufferedWriter fw = new BufferedWriter(new FileWriter(fileName))) {
+        try (FileChannel fileChannel = FileChannel.open(Path.of(fileName),
+                StandardOpenOption.CREATE,
+                StandardOpenOption.WRITE)) {
             for (String phoneNumber : phoneNumbers) {
-                fw.write(phoneNumber);
+                byte[] byteArray = phoneNumber.getBytes();
+                ByteBuffer byteBuffer = ByteBuffer.wrap(byteArray);
+                fileChannel.write(byteBuffer);
             }
         } catch (IOException e) {
             System.out.println("An I/O error occurred: " + e.getMessage());
