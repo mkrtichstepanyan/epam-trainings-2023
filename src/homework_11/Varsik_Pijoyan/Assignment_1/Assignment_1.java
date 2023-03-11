@@ -3,7 +3,7 @@ package homework_11.Varsik_Pijoyan.Assignment_1;
 import java.io.*;
 
 public class Assignment_1 {
-    public static final String FILE = "src\\homework_11\\Varsik_Pijoyan\\files\\test/txt";
+    public static final String FILE = "src/homework_11/Varsik_Pijoyan/files/test/txt";
 
     public static String readFile(String fileName) throws IOException{
         File file = new File(fileName);
