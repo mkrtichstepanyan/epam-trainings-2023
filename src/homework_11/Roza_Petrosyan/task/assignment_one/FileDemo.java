@@ -1,6 +1,7 @@
 package homework_11.Roza_Petrosyan.task.assignment_one;
 
 import homework_11.Roza_Petrosyan.task.assignment_one.input_output.ReadAndWriteFile;
+
 public class FileDemo {
     public static void main(String[] args) {
         String fileName = "src/homework_11/Roza_Petrosyan/task/assignment_one/file1.txt";
@@ -11,8 +12,7 @@ public class FileDemo {
 
         ReadAndWriteFile file = new ReadAndWriteFile();
         file.writeFile(fileName, data);
-        file.readFile(fileName);
-        String modifiedData = file.processData(data);
+        String modifiedData = file.processData(file.readFile(fileName));
         file.writeFile(fileName, modifiedData);
     }
 }
