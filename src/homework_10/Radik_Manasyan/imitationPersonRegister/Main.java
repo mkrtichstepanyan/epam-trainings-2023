@@ -11,6 +11,6 @@ public class Main {
 
         person.setName("Name of");
         person.setPhoneNumber("+374-77-12-34-56");
-        person.setEmail("Radikmanasyan@gmail.co");
+        person.setEmail("Radikmanasyan@gmail.com");
     }
 }
