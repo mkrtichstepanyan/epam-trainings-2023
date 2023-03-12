@@ -6,7 +6,11 @@ public class PizzeriaPalmetto {
     public static void main(String[] args) {
         Pizza firstCustomer = new Pizza("regular", PizzaType.REGULAR, 2);
         Customer customer = new Customer();
-        customer.setName("Sevak");
+        try {
+            customer.setName("zz524");
+        } catch (MyNameException name) {
+            System.out.println(name);
+        }
         customer.setPhoneNumber("+37498000000");
 
         Order order = new Order();

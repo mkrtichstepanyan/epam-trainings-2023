@@ -1,11 +1,23 @@
 package homework_7.Qnarik_Khachatryan;
 
+import homework_7.Qnarik_Khachatryan.exceptions.NameException;
+import homework_7.Qnarik_Khachatryan.exceptions.PhoneNumberException;
+
 public class PizzeriaPalmetto {
 
     public static void main(String[] args) {
         Customer customer = new Customer();
-        customer.setName("Sevak");
-        customer.setPhoneNumber("+37498000000");
+        try {
+            customer.setName("125");
+        } catch (NameException n){
+            System.out.println(n);
+        }
+        try {
+            customer.setPhoneNumber("+0");
+        } catch (PhoneNumberException p){
+            System.out.println(p);
+        };
+
 
         Order order = new Order();
         order.setCustomer(customer);

@@ -34,20 +34,27 @@ public class Pizza extends Product {
         this.quantity = quantity;
     }
 
-    public void addIngredient(Ingredients ingredient) throws IllegalArgumentException {
+    public void addIngredient(Ingredients ingredient) throws IllegalArgumentException{
+        if (ingredients != null && ingredients.length == MAX_ALLOWED_INGREDIENTS) {
+            System.out.println("Maximum number of ingredients has been reached.");
+            ingredients[indexOf++] = ingredient;
+            return;
+        }
         if (ingredient == null) {
             throw new IllegalArgumentException("Cannot add a null ingredient");
         }
         if (indexOf >= MAX_ALLOWED_INGREDIENTS) {
             throw new IllegalArgumentException("Cannot add more than " + MAX_ALLOWED_INGREDIENTS + " ingredients");
         }
-        ingredients[indexOf] = ingredient;
-        indexOf++;
-
-        Ingredients[] newIngredients = new Ingredients[ingredients.length + 1];
-        System.arraycopy(ingredients, 0, newIngredients, 0, ingredients.length);
-        newIngredients[newIngredients.length - 1] = ingredient;
-        ingredients = newIngredients;
+        if (ingredients == null) {
+            ingredients = new Ingredients[1];
+            ingredients[0] = ingredient;
+        } else {
+            Ingredients[] newIngredients = new Ingredients[ingredients.length + 1];
+            System.arraycopy(ingredients, 0, newIngredients, 0, ingredients.length);
+            newIngredients[newIngredients.length - 1] = ingredient;
+            ingredients = newIngredients;
+        }
         System.out.println(ingredient.getName()+ " has been added to the ingredients.");
     }
 
