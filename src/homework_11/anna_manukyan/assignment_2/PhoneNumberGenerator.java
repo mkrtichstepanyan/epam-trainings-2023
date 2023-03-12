@@ -12,37 +12,9 @@ public class PhoneNumberGenerator {
 
     public List<String> generatePhoneNumbers(String code) {
         String tmpNumber = "";
-        int i = 0;
-        while (i < 10) {
-            tmpNumber = code + "00000" + i;
+        for (int i = 0; i < 1000000; i++) {
+            tmpNumber = code + String.format("%06d", i);
             phoneNumbers.add(tmpNumber);
-            i++;
-        }
-        ;
-        while (i >= 10 && i < 100) {
-            tmpNumber = code + "0000" + i;
-            phoneNumbers.add(tmpNumber);
-            i++;
-        }
-        while (i >= 100 && i < 1000) {
-            tmpNumber = code + "000" + i;
-            phoneNumbers.add(tmpNumber);
-            i++;
-        }
-        while (i >= 1000 && i < 10000) {
-            tmpNumber = code + "00" + i;
-            phoneNumbers.add(tmpNumber);
-            i++;
-        }
-        while (i >= 10000 && i < 100000) {
-            tmpNumber = code + "0" + i;
-            phoneNumbers.add(tmpNumber);
-            i++;
-        }
-        while (i >= 100000 && i < 1000000) {
-            tmpNumber = code + i;
-            phoneNumbers.add(tmpNumber);
-            i++;
         }
         return phoneNumbers;
     }
