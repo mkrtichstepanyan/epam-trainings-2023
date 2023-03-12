@@ -1,7 +1,14 @@
 package homework_7.Hovhannes_Gspeyan.palmetto.menu;
 
-public class Drink extends MenuItem {
+public class Drink implements MenuItem {
+
+    private  String name;
+
+    private int quantity;
     private static DrinkType drinkType;
+
+    public Drink() {
+    }
 
     public Drink(DrinkType drinkType, int quantity) {
         Drink.drinkType = drinkType;
@@ -20,11 +27,10 @@ public class Drink extends MenuItem {
 
     @Override
     public double calculatePrice() {
-        return drinkType.getPrice() * quantity;
+        return drinkType.getPrice() * getQuantity();
     }
 
     public int getQuantity() {
         return quantity;
     }
-
 }

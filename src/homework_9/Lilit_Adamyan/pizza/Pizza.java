@@ -34,11 +34,17 @@ public class Pizza extends Product {
         this.quantity = quantity;
     }
 
-    public void addIngredient(Ingredients ingredient) {
+    public void addIngredient(Ingredients ingredient) throws IllegalArgumentException{
         if (ingredients != null && ingredients.length == MAX_ALLOWED_INGREDIENTS) {
             System.out.println("Maximum number of ingredients has been reached.");
             ingredients[indexOf++] = ingredient;
             return;
+        }
+        if (ingredient == null) {
+            throw new IllegalArgumentException("Cannot add a null ingredient");
+        }
+        if (indexOf >= MAX_ALLOWED_INGREDIENTS) {
+            throw new IllegalArgumentException("Cannot add more than " + MAX_ALLOWED_INGREDIENTS + " ingredients");
         }
         if (ingredients == null) {
             ingredients = new Ingredients[1];

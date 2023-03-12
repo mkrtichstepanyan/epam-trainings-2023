@@ -9,7 +9,7 @@ public class Derived extends Protection{
         //class only
       //  System.out.println("n_pri = " + n_pri);
 
-        System.out.println("n_pro = " + n_pro);
-        System.out.println("n_pub = " + n_pub);
+        System.out.println("n_pro = " + nPro);
+        System.out.println("n_pub = " + nPub);
     }
 }

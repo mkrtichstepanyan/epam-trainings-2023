@@ -1,8 +1,15 @@
 package homework_7.Hovhannes_Gspeyan.palmetto.menu;
 
-import homework_7.Hovhannes_Gspeyan.Customer;
+import homework_7.Hovhannes_Gspeyan.palmetto.Customer;
+import homework_7.Hovhannes_Gspeyan.palmetto.exception.Error;
+import homework_7.Hovhannes_Gspeyan.palmetto.exception.IngredientDuplicateException;
+import homework_7.Hovhannes_Gspeyan.palmetto.exception.IngredientFullException;
+import homework_7.Hovhannes_Gspeyan.palmetto.exception.PizzaQuantityFullException;
 
-public class Pizza extends MenuItem {
+import static homework_7.Hovhannes_Gspeyan.palmetto.exception.Error.INGREDIENT_DUPLICATION;
+import static homework_7.Hovhannes_Gspeyan.palmetto.exception.Error.MAX_INGREDIENT_QUANTITY;
+
+public class Pizza implements MenuItem {
 
     private static final int MAX_PIZZA_AMOUNT = 10;
     private String name;
@@ -10,20 +17,19 @@ public class Pizza extends MenuItem {
     private Customer customer;
     private PizzaType pizzaType;
     private int index;
-    private Ingredient[] ingredients;
+    private Ingredient[] ingredients = new Ingredient[MAX_ALLOWED_INGREDIENTS];
     private int quantity;
 
     public Pizza() {
 
     }
 
-    public Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity) {
+    public Pizza(String name, PizzaType pizzaType, Ingredient[] ingredients, int quantity) throws PizzaQuantityFullException {
         this.ingredients = ingredients;
         this.name = name;
         this.pizzaType = pizzaType;
         if (quantity > MAX_PIZZA_AMOUNT) {
-            this.quantity = MAX_PIZZA_AMOUNT;
-            System.out.println("You can't order more than 10 " + getName() + "'s!, " + "so we will add only 10");
+            throw new PizzaQuantityFullException(Error.INVALID_NUMBER_OF_PIZZAS);
         } else {
             this.quantity = quantity;
         }
@@ -48,15 +54,13 @@ public class Pizza extends MenuItem {
         return quantity;
     }
 
-    public void addIngredient(Ingredient ingredient) {
+    public void addIngredient(Ingredient ingredient) throws IngredientFullException, IngredientDuplicateException {
         if (ingredients.length >= MAX_ALLOWED_INGREDIENTS) {
-            System.out.println("The " + getName() + " is already full! You cannot add more ingredients! ");
-            return;
+            throw new IngredientFullException(MAX_INGREDIENT_QUANTITY);
         }
         for (Ingredient value : ingredients) {
             if (value.equals(ingredient)) {
-                System.out.println("The " + ingredient + " already exists in " + getName() + "!, Please remove it ");
-                return;
+                throw new IngredientDuplicateException(INGREDIENT_DUPLICATION);
             }
         }
         Ingredient[] newIngredients = new Ingredient[ingredients.length + 1];
