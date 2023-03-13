@@ -9,7 +9,7 @@ import java.lang.reflect.Field;
 public class DiscountRateAnnotationProcess {
     public static Error processAnnotation(Object customer, Field field) throws IllegalAccessException {
         Object o = field.get(customer);
-        if (o instanceof Double value) {
+        if (o instanceof Integer value) {
             Min minAnnotation = field.getAnnotation(Min.class);
             Max maxAnnotation = field.getAnnotation(Max.class);
             if (value < minAnnotation.value() || value > maxAnnotation.value()) {
