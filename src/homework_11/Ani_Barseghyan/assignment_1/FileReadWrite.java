@@ -7,21 +7,19 @@ public class FileReadWrite extends FileNameCheck {
     static FileNameCheck checkName = new FileNameCheck();
 
     public static String readFile(String fileName) {
+        StringBuilder stringBuilder = new StringBuilder();
         if (checkName.accept(new File(fileName))) {
-            String data = null;
             String line;
             try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-                data = reader.readLine() + "\n";
                 while ((line = reader.readLine()) != null) {
-                    data += line + "\n";
+                    stringBuilder.append(line).append("\n");
                 }
-
             } catch (FileNotFoundException e) {
                 System.out.println(String.format("FileReadWrite not found: %s", fileName));
             } catch (IOException e) {
                 System.out.println("Error writing to file " + fileName);
             }
-            return data;
+            return stringBuilder.toString();
         } else {
             System.out.println("Only the following extensions are supported: " + Arrays.toString(checkName.extensions));
         }
