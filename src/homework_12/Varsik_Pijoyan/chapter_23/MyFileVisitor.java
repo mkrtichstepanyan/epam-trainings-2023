@@ -10,6 +10,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 public class MyFileVisitor extends SimpleFileVisitor<Path> {
     public FileVisitResult visitFile(Path path, BasicFileAttributes attributes) throws IOException{
         System.out.println(path);
+        System.out.println("adding test line");
         return FileVisitResult.CONTINUE;
     }
 }
