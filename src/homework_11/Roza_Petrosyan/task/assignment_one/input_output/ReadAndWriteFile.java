@@ -5,12 +5,12 @@ import java.io.*;
 
 public class ReadAndWriteFile {
     public String readFile(String fileName) {
-        String data = "";
+        StringBuilder data = new StringBuilder();
         if (isAllowedFileExtension(fileName)) {
             String line;
             try (BufferedReader fr = new BufferedReader(new FileReader(fileName))) {
                 while ((line = fr.readLine()) != null) {
-                    data += line + "\n";
+                    data.append(line).append("\n");
                 }
             } catch (FileNotFoundException e) {
                 System.out.println("File not found: " + e.getMessage());
@@ -20,7 +20,7 @@ public class ReadAndWriteFile {
         } else {
             throw new FileExtensionException();
         }
-        return data;
+        return data.toString();
     }
 
     public void writeFile(String fileName, String data) {
