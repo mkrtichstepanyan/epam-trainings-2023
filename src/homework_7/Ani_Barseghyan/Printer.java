@@ -7,8 +7,7 @@ public class Printer {
         leadingLine();
         // todo print logic goes here.
         printOrderItem(order);
-        printPizzas(order);
-//        printBeverages(order);
+        printOrder(order);
         trailingLine();
     }
 
@@ -30,7 +29,7 @@ public class Printer {
         printDelimiter();
     }
 
-    private static void printPizzas(Order order) {
+    private static void printOrder(Order order) {
         for (Product product : order.getProducts()) {
             if (product == null) {
                 continue;

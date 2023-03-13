@@ -19,7 +19,7 @@ public class PizzeriaPalmetto {
 
 
         order.addProduct("Margarita", PizzaType.CALZONE, ingredients, 1);
-        order.addProduct("MyPizza2", PizzaType.REGULAR, ingredients2, 5);
+        order.addProduct("MyPizza", PizzaType.REGULAR, ingredients2, 5);
 
         Pizza pizza2 = (Pizza) order.getProducts()[1];
 

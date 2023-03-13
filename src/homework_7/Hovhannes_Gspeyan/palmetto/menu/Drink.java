@@ -2,10 +2,13 @@ package homework_7.Hovhannes_Gspeyan.palmetto.menu;
 
 public class Drink implements MenuItem {
 
-    private final String name;
+    private  String name;
 
-    private final int quantity;
+    private int quantity;
     private static DrinkType drinkType;
+
+    public Drink() {
+    }
 
     public Drink(DrinkType drinkType, int quantity) {
         Drink.drinkType = drinkType;

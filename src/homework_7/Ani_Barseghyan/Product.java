@@ -25,6 +25,4 @@ public abstract class Product {
     public ProductType getProductType() {
         return productType;
     }
-
-
 }
