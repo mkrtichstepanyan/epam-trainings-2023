@@ -1,9 +1,11 @@
 package homework_9.Davit_Poghosyan.Dto;
 
+import homework_9.Davit_Poghosyan.Annotation.*;
+
 import java.time.LocalDate;
 
 public class CustomerDto {
-    @Length(min=3,max=30)
+    @Length(min=3, max=30)
     private String name;
 
     @Email
