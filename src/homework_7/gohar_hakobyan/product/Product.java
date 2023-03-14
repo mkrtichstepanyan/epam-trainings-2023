@@ -1,6 +1,8 @@
 package homework_7.gohar_hakobyan.product;
 
 
+import homework_7.gohar_hakobyan.exception.ObjectNotFoundException;
+
 public abstract class Product {
 
     public String name;
@@ -14,7 +16,7 @@ public abstract class Product {
 
     public abstract double calculatePrice();
 
-    public abstract int getQuantity();
+    public abstract int getQuantity() throws ObjectNotFoundException;
 
 
 }
