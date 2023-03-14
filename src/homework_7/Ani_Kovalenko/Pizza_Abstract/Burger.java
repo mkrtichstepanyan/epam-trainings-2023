@@ -1,7 +1,5 @@
 package homework_7.Ani_Kovalenko.Pizza_Abstract;
 
-import homework_7.Ani_Kovalenko.Item;
-
 public class Burger extends Item {
     public static final int MAX_ALLOWED_INGREDIENTS = 7;
     private BurgerBreadType breadType;

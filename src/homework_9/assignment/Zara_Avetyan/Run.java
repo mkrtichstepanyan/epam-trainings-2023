@@ -1,14 +1,17 @@
-package homework_9.assignment.Zara_Avetyan.Homework;
+package homework_9.assignment.Zara_Avetyan;
 
-import homework_5.Sofya_Ghazaryan.Task_Pizza.model.Customer;
+
+import homework_9.assignment.Zara_Avetyan.Homework.CustomerDto;
+import homework_9.assignment.Zara_Avetyan.Homework.Errors;
+import homework_9.assignment.Zara_Avetyan.Homework.Validator;
 
 import java.time.LocalDate;
 
 public class Run {
     public static void main(String[] args) throws IllegalAccessException {
-        CustomerDto customerDto = new CustomerDto("Zara",
-                "zara.avetyan.2004@mail.ru",
-                LocalDate.of(2004, 4, 23),
+        CustomerDto customerDto = new CustomerDto("Name",
+                "name.surname@gmail.com",
+                LocalDate.of(1785, 3, 14),
                 50);
         Validator validator = new Validator(customerDto);
         Errors.print();

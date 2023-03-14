@@ -21,7 +21,7 @@ public class CustomerDto {
     @Max(100)
     private int discountRate;
 
-    CustomerDto(String name, String email, LocalDate birthDay, int discountRate) {
+    public CustomerDto(String name, String email, LocalDate birthDay, int discountRate) {
         this.name = name;
         this.email = email;
         this.birthDay = birthDay;

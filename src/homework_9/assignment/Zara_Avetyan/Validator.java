@@ -8,7 +8,7 @@ import homework_9.assignment.Zara_Avetyan.Homework.processors.EmailAnnotationPro
 import homework_9.assignment.Zara_Avetyan.Homework.processors.NameAnnotationProcess;
 
 public class Validator {
-    Validator(Object customer) throws IllegalAccessException {
+    public Validator(Object customer) throws IllegalAccessException {
         for (Field field : customer.getClass().getDeclaredFields()) {
             field.setAccessible(true);
             if (field.isAnnotationPresent(Length.class)) {
