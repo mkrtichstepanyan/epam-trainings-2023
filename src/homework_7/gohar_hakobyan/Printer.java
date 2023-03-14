@@ -1,12 +1,13 @@
 package homework_7.gohar_hakobyan;
 
+import homework_7.gohar_hakobyan.exception.ObjectNotFoundException;
 import homework_7.gohar_hakobyan.product.Product;
 
 import java.time.LocalTime;
 
 public class Printer {
 
-    public static void printCheck(Order order) {
+    public static void printCheck(Order order) throws ObjectNotFoundException {
         leadingLine();
         printOrderDetails(order);
         printProductDetails(order.getProducts());
@@ -14,13 +15,13 @@ public class Printer {
         trailingLine();
     }
 
-    private static void printOrderDetails(Order order) {
+    private static void printOrderDetails(Order order) throws ObjectNotFoundException {
         System.out.println("Order date and time: " + LocalTime.now());
         System.out.println(order.getOrderNumber());
         System.out.println(order.getCustomerNumber());
     }
 
-    private static void printProductDetails(Product[] products) {
+    private static void printProductDetails(Product[] products) throws ObjectNotFoundException {
         for (Product product : products) {
             if (product == null) {
                 continue;
@@ -32,7 +33,7 @@ public class Printer {
         }
     }
 
-    private static void printOrderTotalAmount(Order order) {
+    private static void printOrderTotalAmount(Order order) throws ObjectNotFoundException {
         System.out.println("Total amount " +
                 order.calculateOrderAmount() + " €");
     }
