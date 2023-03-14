@@ -4,19 +4,36 @@ public class PizzeriaPalmetto {
 
     public static void main(String[] args) {
         Customer customer = new Customer();
-        customer.setName("Sevak");
-        customer.setPhoneNumber("+37498000000");
-
+        try {
+            customer.setName("Sevak");
+        } catch (InvalidNameException n) {
+            System.out.println(n);
+        }
+        try {
+            customer.setPhoneNumber("+37498000000");
+        } catch (InvalidPhoneNumberException p) {
+            System.out.println(p);
+        }
         Order order = new Order();
         order.setCustomer(customer);
 
         Ingredient[] ingredients = {Ingredient.CHEESE, Ingredient.SALAMI, Ingredient.TOMATO_PASTE, Ingredient.CHEESE, Ingredient.OLIVES, Ingredient.CORN, Ingredient.GARLIC, Ingredient.PEPPERONI};
 
-        Pizza pizza = new Pizza("MyPizza", PizzaType.CALZONE, ingredients, 10, ProductType.PIZZA);
-        Pizza pizza1 = new Pizza("MyPizza2", PizzaType.REGULAR, ingredients, 5, ProductType.PIZZA);
-        pizza.addIngredient(Ingredient.CHEESE);
-        order.addProduct(pizza);
-        order.addProduct(pizza1);
+        try {
+            Pizza pizza = new Pizza("MyPizza", PizzaType.CALZONE, ingredients, 11, ProductType.PIZZA);
+            Pizza pizza1 = new Pizza("MyPizza2", PizzaType.REGULAR, ingredients, 5, ProductType.PIZZA);
+            order.addProduct(pizza);
+            order.addProduct(pizza1);
+            try {
+                pizza.addIngredient(Ingredient.CHEESE);
+                pizza.addIngredient(Ingredient.CHEESE);
+            } catch (IngredientDuplicateException e) {
+                System.out.println(e);
+            }
+        } catch (IngredientQuantityException e) {
+            System.out.println(e);
+        }
+
 
         Printer.printCheck(order);
 
@@ -28,15 +45,23 @@ public class PizzeriaPalmetto {
         customer1.setName("Karen");
         Order firstOrder = new Order();
         firstOrder.setCustomer(customer1);
-        Pizza margarita = new Pizza("Margarita", PizzaType.CALZONE, ingredientsForMargarita, 2, ProductType.PIZZA);
-        Pizza pepperoniOro = new Pizza("PepperoniOro", PizzaType.CALZONE, ingredientsForPepperoniOro, 3, ProductType.PIZZA);
-        Pizza basePZZ = new Pizza("BasePZZ", PizzaType.REGULAR, ingredientsForBasePZZ, 7, ProductType.PIZZA);
-        firstOrder.addProduct(margarita);
-        firstOrder.addProduct(pepperoniOro);
-        firstOrder.addProduct(basePZZ);
-        Printer.printCheck(firstOrder);
-        margarita.addIngredient(Ingredient.GARLIC);
-        basePZZ.addIngredient(Ingredient.CHEESE);
+        try {
+            Pizza margarita = new Pizza("Margarita", PizzaType.CALZONE, ingredientsForMargarita, 2, ProductType.PIZZA);
+            Pizza pepperoniOro = new Pizza("PepperoniOro", PizzaType.CALZONE, ingredientsForPepperoniOro, 3, ProductType.PIZZA);
+            Pizza basePZZ = new Pizza("BasePZZ", PizzaType.REGULAR, ingredientsForBasePZZ, 7, ProductType.PIZZA);
+            firstOrder.addProduct(margarita);
+            firstOrder.addProduct(pepperoniOro);
+            firstOrder.addProduct(basePZZ);
+            Printer.printCheck(firstOrder);
+            try {
+                margarita.addIngredient(Ingredient.GARLIC);
+                basePZZ.addIngredient(Ingredient.CHEESE);
+            } catch (IngredientDuplicateException e) {
+                System.out.println(e);
+            }
+        } catch (IngredientQuantityException e) {
+            System.out.println(e);
+        }
 
         Customer customer2 = new Customer();
         customer2.setName("Jack");

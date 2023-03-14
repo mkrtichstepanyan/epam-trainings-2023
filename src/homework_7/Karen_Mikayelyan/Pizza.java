@@ -28,21 +28,27 @@ public class Pizza extends Product {
         return this.pizzaType.getPrice() + ingredientPrice;
     }
 
-    public void addIngredient(Ingredient ingredient) {
-        if (ingredients.length >= MAX_ALLOWED_INGREDIENTS) {
-            System.out.println("The pizza's ingredients maximum number has already completed!");
-        }
-        for (Ingredient existingIngredient : ingredients) {
-            if (existingIngredient.equals(ingredient)) {
-                System.out.println("This ingredient is already exists, please remove! ");
-                break;
+    public void addIngredient(Ingredient ingredient) throws IngredientQuantityException, IngredientDuplicateException{
+        try {
+            if (ingredients.length >= MAX_ALLOWED_INGREDIENTS) {
+                System.out.println("The pizza's ingredients maximum number has already completed!");
+                throw new IngredientQuantityException();
             }
+            for (Ingredient existingIngredient : ingredients) {
+                if (existingIngredient.equals(ingredient)) {
+                    System.out.println("This ingredient is already exists, please remove! ");
+                    throw new IngredientDuplicateException();
+                }
+            }
+
             Ingredient[] newIngredients = new Ingredient[ingredients.length + 1];
             for (int i = 0; i < ingredients.length; i++) {
                 newIngredients[i] = ingredients[i];
                 newIngredients[ingredients.length] = ingredient;
             }
             ingredients = newIngredients;
+        } catch (IngredientQuantityException | IngredientDuplicateException e) {
+            System.out.println(e);
         }
     }
 

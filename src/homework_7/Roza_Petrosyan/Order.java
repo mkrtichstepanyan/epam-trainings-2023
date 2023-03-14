@@ -1,5 +1,7 @@
 package homework_7.Roza_Petrosyan;
 
+import homework_7.Roza_Petrosyan.exceptions.product_exceptions.PizzaNameException;
+import homework_7.Roza_Petrosyan.exceptions.product_exceptions.ProductQuantityException;
 import homework_7.Roza_Petrosyan.product.*;
 import homework_7.Roza_Petrosyan.productType.*;
 
@@ -19,10 +21,8 @@ public class Order {
 
     public void addProduct(String productName, ProductType productType, Ingredient[] ingredients, int quantity) {
         int productIndex = 0;
-        if (quantity > MAX_PIZZA_AMOUNT) {
-            System.out.println("You can not order more than 10 pizzas!");
-            return;
-        }
+        validateProductQuantity(quantity);
+
         if (productType.getClass().getSimpleName().equals("PizzaType")) {
             productIndex = index++;
             String validPizzaName = getValidPizzaName(productName, productIndex);
@@ -45,10 +45,8 @@ public class Order {
             if (product != null) {
                 if (product.getClass().getSimpleName().equals("Pizza")) {
                     Pizza pizza = (Pizza) product;
-                    if(!pizza.isDuplicate(pizza.getIngredients()) && pizza.getMaxCount() < 7){
-                        totalPrice += pizza.calculatePrice() * pizza.getQuantity();
-                    }
-                }else {
+                    totalPrice += pizza.calculatePrice() * pizza.getQuantity();
+                } else {
                     totalPrice += product.calculatePrice() * product.getQuantity();
                 }
             }
@@ -71,13 +69,29 @@ public class Order {
     private String getValidPizzaName(String pizzaName, int pizzaIndex) {
         String validPizzaName = pizzaName;
         if (!isValidPizzaName(pizzaName)) {
-            validPizzaName = customer.getName() + "_" + pizzaIndex;
+            if (customer.getName() != null) {
+                validPizzaName = customer.getName() + "_" + pizzaIndex;
+            }
         }
         return validPizzaName;
     }
 
     private boolean isValidPizzaName(String pizzaName) {
-        return pizzaName != null && pizzaName.length() > 4 && pizzaName.length() < 20;
+        boolean result = false;
+        if (pizzaName != null) {
+            if (pizzaName.length() > 4 && pizzaName.length() < 20 && pizzaName.matches("\\p{IsLatin}+")) {
+                result = true;
+            } else {
+                throw new PizzaNameException();
+            }
+        }
+        return result;
+    }
+
+    private void validateProductQuantity(int quantity){
+        if (quantity > MAX_PIZZA_AMOUNT) {
+            throw new ProductQuantityException();
+        }
     }
 
     public int getOrderNumber() {
