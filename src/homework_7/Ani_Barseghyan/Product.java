@@ -22,6 +22,10 @@ public abstract class Product {
         return quantity;
     }
 
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     public ProductType getProductType() {
         return productType;
     }
