@@ -1,5 +1,6 @@
 package homework_7.gohar_hakobyan;
 
+import homework_7.gohar_hakobyan.exception.ObjectNotFoundException;
 import homework_7.gohar_hakobyan.product.Product;
 
 public class Order {
@@ -14,9 +15,9 @@ public class Order {
     }
 
     public Order(Product[] products, int orderNumber, Customer customer) {
-        this.products =products;
-        this.orderNumber= orderNumber;
-        this.customer= customer;
+        this.products = products;
+        this.orderNumber = orderNumber;
+        this.customer = customer;
     }
 
 
@@ -24,17 +25,18 @@ public class Order {
         return new Order(products, orderNumber++, customer);
     }
 
-    public double calculateOrderAmount() {
+    public double calculateOrderAmount() throws ObjectNotFoundException {
         double amount = 0.0;
         for (Product product : products) {
             if (product != null) {
                 amount += product.getQuantity() * product.calculatePrice();
             }
+            throw new ObjectNotFoundException();
         }
         return amount;
     }
 
-    public void printOrderAttributes() {
+    public void printOrderAttributes() throws ObjectNotFoundException {
         for (Product product : products) {
             System.out.println("[" + orderNumber + customer.getNumber() + product.getName()
                     + product.getQuantity() + "]");
@@ -42,7 +44,10 @@ public class Order {
     }
 
 
-    public int getOrderNumber() {
+    public int getOrderNumber() throws ObjectNotFoundException {
+        if (orderNumber == 0) {
+            throw new ObjectNotFoundException();
+        }
         return orderNumber;
     }
 
