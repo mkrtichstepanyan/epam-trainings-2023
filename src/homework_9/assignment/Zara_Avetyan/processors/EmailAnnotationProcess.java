@@ -1,7 +1,6 @@
-package homework_9.assignment.Zara_Avetyan.Homework.processors;
+package homework_9.assignment.Zara_Avetyan.processors;
 
-import homework_9.assignment.Zara_Avetyan.Homework.Email;
-import homework_9.assignment.Zara_Avetyan.Homework.Length;
+import homework_9.assignment.Zara_Avetyan.Email;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

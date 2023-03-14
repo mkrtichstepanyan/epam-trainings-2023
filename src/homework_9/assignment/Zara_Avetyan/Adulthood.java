@@ -1,4 +1,4 @@
-package homework_9.assignment.Zara_Avetyan.Homework;
+package homework_9.assignment.Zara_Avetyan;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

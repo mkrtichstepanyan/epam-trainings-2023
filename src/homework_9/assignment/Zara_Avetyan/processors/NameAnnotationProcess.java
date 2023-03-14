@@ -1,7 +1,7 @@
-package homework_9.assignment.Zara_Avetyan.Homework.processors;
+package homework_9.assignment.Zara_Avetyan.processors;
 
-import homework_9.assignment.Zara_Avetyan.Homework.CustomerDto;
-import homework_9.assignment.Zara_Avetyan.Homework.Length;
+
+import homework_9.assignment.Zara_Avetyan.Length;
 
 import java.lang.reflect.Field;
 

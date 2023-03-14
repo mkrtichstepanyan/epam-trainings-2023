@@ -1,9 +1,6 @@
 package homework_9.assignment.Zara_Avetyan;
 
 
-import homework_9.assignment.Zara_Avetyan.Homework.CustomerDto;
-import homework_9.assignment.Zara_Avetyan.Homework.Errors;
-import homework_9.assignment.Zara_Avetyan.Homework.Validator;
 
 import java.time.LocalDate;
 

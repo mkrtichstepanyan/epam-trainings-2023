@@ -1,11 +1,9 @@
-package homework_9.assignment.Zara_Avetyan.Homework.processors;
+package homework_9.assignment.Zara_Avetyan.processors;
 
-import homework_9.assignment.Zara_Avetyan.Homework.Adulthood;
-import homework_9.assignment.Zara_Avetyan.Homework.Max;
-import homework_9.assignment.Zara_Avetyan.Homework.Min;
+import homework_9.assignment.Zara_Avetyan.Max;
+import homework_9.assignment.Zara_Avetyan.Min;
 
 import java.lang.reflect.Field;
-import java.time.LocalDate;
 
 public class DiscountRateAnnotationProcess {
     public static boolean Validator(Object obj, Field field) throws IllegalAccessException {

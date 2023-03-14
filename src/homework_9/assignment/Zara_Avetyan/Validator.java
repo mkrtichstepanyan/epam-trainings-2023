@@ -1,11 +1,11 @@
-package homework_9.assignment.Zara_Avetyan.Homework;
+package homework_9.assignment.Zara_Avetyan;
 
 import java.lang.reflect.*;
 
-import homework_9.assignment.Zara_Avetyan.Homework.processors.AdulthoodAnnotationProcess;
-import homework_9.assignment.Zara_Avetyan.Homework.processors.DiscountRateAnnotationProcess;
-import homework_9.assignment.Zara_Avetyan.Homework.processors.EmailAnnotationProcess;
-import homework_9.assignment.Zara_Avetyan.Homework.processors.NameAnnotationProcess;
+import homework_9.assignment.Zara_Avetyan.processors.AdulthoodAnnotationProcess;
+import homework_9.assignment.Zara_Avetyan.processors.DiscountRateAnnotationProcess;
+import homework_9.assignment.Zara_Avetyan.processors.EmailAnnotationProcess;
+import homework_9.assignment.Zara_Avetyan.processors.NameAnnotationProcess;
 
 public class Validator {
     public Validator(Object customer) throws IllegalAccessException {

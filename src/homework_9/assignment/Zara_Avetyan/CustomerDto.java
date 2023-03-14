@@ -1,8 +1,6 @@
-package homework_9.assignment.Zara_Avetyan.Homework;
+package homework_9.assignment.Zara_Avetyan;
 
-import homework_9.assignment.Zara_Avetyan.Homework.*;
 
-import java.lang.reflect.Field;
 import java.time.LocalDate;
 
 

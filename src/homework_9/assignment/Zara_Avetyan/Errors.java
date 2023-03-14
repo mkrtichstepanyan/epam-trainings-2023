@@ -1,4 +1,4 @@
-package homework_9.assignment.Zara_Avetyan.Homework;
+package homework_9.assignment.Zara_Avetyan;
 
 public class Errors {
     private static int index = 0;
