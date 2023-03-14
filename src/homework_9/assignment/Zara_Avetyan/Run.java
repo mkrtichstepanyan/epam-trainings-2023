@@ -11,7 +11,7 @@ public class Run {
     public static void main(String[] args) throws IllegalAccessException {
         CustomerDto customerDto = new CustomerDto("Name",
                 "name.surname@gmail.com",
-                LocalDate.of(1785, 3, 14),
+                LocalDate.of(1836, 3, 14),
                 50);
         Validator validator = new Validator(customerDto);
         Errors.print();
