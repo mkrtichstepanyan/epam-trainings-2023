@@ -22,6 +22,7 @@ public class NioPhoneNumberGenerator {
         return numbers;
     }
 
+
     public static void writeToFile(List<String> phoneNumbers, String fileName) {
         try {
             Path path = Paths.get(fileName);
