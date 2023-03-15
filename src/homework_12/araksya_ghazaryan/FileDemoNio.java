@@ -1,17 +1,18 @@
-package homework_11.araksya_ghazaryan;
+package homework_12.araksya_ghazaryan;
 
 import java.io.*;
-import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-public class FileDemo {
+public class FileDemoNio {
     public static String readFile (String fileName) {
         if (fileName.endsWith(".txt") || fileName.endsWith(".csv") || fileName.endsWith(".json")) {
-            StringBuilder result = new StringBuilder();
-            try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-                String data;
-                while ((data = reader.readLine()) != null) {
-                    result.append(data).append("\n");
-                }
+            Path path = Paths.get(fileName);
+            try  {
+                byte[] bytes = Files.readAllBytes(path);
+                return new String(bytes, StandardCharsets.UTF_8);
             } catch (FileNotFoundException e) {
                 System.out.println("File not found: %s ");
             } catch (IOException e) {
@@ -24,8 +25,9 @@ public class FileDemo {
 
     public static String writeFile (String fileName, String data) {
         if (fileName.endsWith(".txt") || fileName.endsWith(".csv") || fileName.endsWith(".json")) {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-                writer.write(data);
+            Path path = Paths.get(fileName);
+            try {
+                Files.write(path, data.getBytes(StandardCharsets.UTF_8));
             } catch (IOException e) {
                 System.out.println("Error!!!Can`t write into file");
             }
