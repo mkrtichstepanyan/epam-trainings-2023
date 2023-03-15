@@ -1,5 +1,7 @@
 package homework_7.Ani_Barseghyan;
 
+import homework_7.Ani_Barseghyan.exceptions.ProductQuantityException;
+
 public class Order {
     private static final int MAX_AMOUNT = 10;
     private static final int BASE_ORDER_NUMBER = 10000;
@@ -14,10 +16,10 @@ public class Order {
     }
 
 
-    public void addProduct(Product product) {
+    public void addProduct(Product product) throws ProductQuantityException {
         if (product.getQuantity() > MAX_AMOUNT) {
-            System.out.println("Hop axper jan");
-            return;
+            product.setQuantity(MAX_AMOUNT);
+            throw new ProductQuantityException();
         }
         String validName = getValidName(product.getName(), index);
         if (product.getProductType().getType().equals("pizza")) {
