@@ -45,7 +45,7 @@ public class FileDemo {
         String filename="f1.txt";
         if (filename.endsWith(".txt")||filename.endsWith(".csv")||filename.endsWith(".json")) {
             String data=readFile(filename);
-            processData(data);
+
             writeFile("f2.txt",processData(data));
         }
         else
