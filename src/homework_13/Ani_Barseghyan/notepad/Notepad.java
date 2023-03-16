@@ -1,4 +1,4 @@
-package homework_13.Ani_Barseghyan;
+package homework_13.Ani_Barseghyan.notepad;
 
 import javax.swing.*;
 import java.awt.*;
