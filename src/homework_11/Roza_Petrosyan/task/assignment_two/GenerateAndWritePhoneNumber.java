@@ -7,11 +7,8 @@ import java.io.IOException;
 public class GenerateAndWritePhoneNumber {
     public String[] generatePhoneNumbers(String code) {
         String[] allNums = new String[1000000];
-        int numInt = 0;
-
         for (int i = 0; i < allNums.length; i++) {
-            allNums[i] = code + " " + String.format("%06d", numInt) + "\n";
-            numInt++;
+            allNums[i] = code + " " + String.format("%06d", i) + "\n";
         }
         return allNums;
     }
