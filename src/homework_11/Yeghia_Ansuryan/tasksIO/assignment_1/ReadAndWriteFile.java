@@ -37,8 +37,7 @@ public class ReadAndWriteFile {
     }
 
     public static String processData(String data) {
-        writeFile("/epam-training-2023/src/homework_11/Yeghia_Ansuryan/" +
-                "tasksIO/assignment_1/file.txt", data.toUpperCase());
+        writeFile("src/homework_11/Yeghia_Ansuryan/tasksIO/assignment_1/file.txt", data.toUpperCase());
         return data;
     }
 }
