@@ -59,7 +59,7 @@ public class FileDemo {
         String filename = "test.txt";
         if (filename.endsWith(".txt") || filename.endsWith(".csv") || filename.endsWith(".json")) {
             String data = readFile(filename);
-             processData(data);
+
              writeFile("test1.txt",processData(data));
         } else
             System.out.println("Wrong file format!");
