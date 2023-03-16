@@ -1,13 +1,9 @@
-package classwork.io.notepad;
+package homework_13.Ani_Kovalenko.notepad;
 
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
@@ -15,12 +11,13 @@ import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
 public class Notepad extends JFrame {
 
     private JTextArea textArea;
-
     private File currentFile;
+
 
     public Notepad() {
         currentFile = new File("Result.txt");
         textArea = new JTextArea();
+        textArea.setRows(100);
         JScrollPane jScrollPane = new JScrollPane(textArea);
         jScrollPane.setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_AS_NEEDED);
         jScrollPane.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -35,7 +32,7 @@ public class Notepad extends JFrame {
     }
 
     class NotepadMenuBar extends JMenuBar {
-
+        private String text;
         private final JMenu file;
         private final JMenuItem newFile;
         private final JMenuItem openFile;
@@ -71,26 +68,69 @@ public class Notepad extends JFrame {
             language.add(amLang);
             language.add(ruLang);
 
+
             add(file);
             add(language);
 
+            setTitle(currentFile.getName());
+            this.text = textArea.getText();
             close.addActionListener(this::onCloseActionPerformed);
             save.addActionListener(this::onSaveActionPerformed);
             openFile.addActionListener(this::onOpenActionPerformed);
+            saveAs.addActionListener(this::onSaveActionPerformed);
+            newFile.addActionListener(this::onNewActionPerformed);
 
+        }
+
+        private void onNewActionPerformed(ActionEvent actionEvent) {
+            if (!this.text.equals(textArea.getText())) {
+                int option = JOptionPane.showConfirmDialog(this, "Do you want to save your changes?");
+                if (option == JOptionPane.YES_OPTION) {
+                    onSaveActionPerformed(actionEvent);
+                    textArea.setText("");
+                } else if (option == JOptionPane.NO_OPTION) {
+                    textArea.setText("");
+                }
+            }
+            setTitle("New File");
         }
 
         private void onOpenActionPerformed(ActionEvent actionEvent) {
             JFileChooser fileChooser = new JFileChooser();
             int choice = fileChooser.showOpenDialog(this);
-            if (choice == JFileChooser.APPROVE_OPTION){
-                System.out.println("File is opened");
+            if (choice == JFileChooser.APPROVE_OPTION) {
+                if (!this.text.equals(textArea.getText())) {
+                    int option = JOptionPane.showConfirmDialog(this, "Do you want to save your changes?");
+                    if (option == JOptionPane.YES_OPTION) {
+                        onSaveActionPerformed(actionEvent);
+                    }
+                }
+                openSelectedFile(fileChooser);
+            }
+        }
+
+        private void openSelectedFile(JFileChooser fileChooser) {
+            textArea.setText("");
+            BufferedReader readSelectedFile;
+            File selectedFile = fileChooser.getSelectedFile();
+            try {
+                readSelectedFile = new BufferedReader(new FileReader(selectedFile));
+                setTitle(selectedFile.getName());
+                String line;
+                while ((line = readSelectedFile.readLine()) != null) {
+                    textArea.append(line + "\n");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
 
         private void onSaveActionPerformed(ActionEvent actionEvent) {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.showSaveDialog(this);
+            File selectedFile = fileChooser.getSelectedFile();
             String text = textArea.getText();
-            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(currentFile))){
+            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(selectedFile))) {
                 bufferedWriter.write(text);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -98,17 +138,22 @@ public class Notepad extends JFrame {
         }
 
         private void onCloseActionPerformed(ActionEvent e) {
-            int option = JOptionPane.showConfirmDialog(this, "Do you want to save?");
-            if (option == JOptionPane.YES_OPTION){
-                onSaveActionPerformed(e);
-                System.exit(0);
-            }
-            if (option == JOptionPane.NO_OPTION){
+            if (!this.text.equals(textArea.getText())) {
+                int option = JOptionPane.showConfirmDialog(this, "Do you want to save your changes?");
+                if (option == JOptionPane.YES_OPTION) {
+                    onSaveActionPerformed(e);
+                    System.exit(0);
+                }
+                if (option == JOptionPane.NO_OPTION) {
+                    System.exit(0);
+                }
+            } else {
                 System.exit(0);
             }
         }
-
     }
 
-
+    public static void main(String[] args) {
+        new Notepad();
+    }
 }
