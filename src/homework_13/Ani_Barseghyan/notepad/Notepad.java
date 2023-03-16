@@ -1,8 +1,12 @@
 package homework_13.Ani_Barseghyan.notepad;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.*;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
@@ -41,6 +45,8 @@ public class Notepad extends JFrame {
         private final JMenuItem amLang;
         private final JMenuItem enLang;
         private final JMenuItem ruLang;
+        private static boolean isModified = false;
+
 
         public NotepadMenuBar() {
             file = new JMenu("File");
@@ -67,14 +73,53 @@ public class Notepad extends JFrame {
             add(file);
             add(language);
 
+
+            if (!isTextModified(textArea)) {
+                save.setEnabled(false);
+            }
+
+            textArea.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    if (isTextModified(textArea)) {
+                        save.setEnabled(true);
+                    }
+                }
+            });
+
             close.addActionListener(this::onCloseActionPerformed);
-            save.addActionListener(this::onSaveActionPerformed);
             openFile.addActionListener(this::onOpenActionPerformed);
             newFile.addActionListener(this::onNewActionPerformed);
             saveAs.addActionListener(this::onSaveAsActionPerformed);
+            save.addActionListener(this::onSaveActionPerformed);
+
         }
 
+        private static boolean isTextModified(JTextArea textArea) {
+            textArea.getDocument().addDocumentListener(new DocumentListener() {
+                @Override
+                public void insertUpdate(DocumentEvent e) {
+                    isModified = true;
+                }
+
+                @Override
+                public void removeUpdate(DocumentEvent e) {
+                    isModified = true;
+                }
+
+                @Override
+                public void changedUpdate(DocumentEvent e) {
+                    isModified = true;
+                }
+            });
+            return isModified;
+        }
+
+
         private void onCloseActionPerformed(ActionEvent event) {
+            if (textArea.getText().equals("") || !isTextModified(textArea)) {
+                System.exit(0);
+            }
             int option = JOptionPane.showConfirmDialog(this, "Do you want to save?");
             if (option == JOptionPane.YES_OPTION) {
                 onSaveActionPerformed(event);
@@ -99,16 +144,12 @@ public class Notepad extends JFrame {
             String text = textArea.getText();
             int choice = fileChooser.showSaveDialog(this);
             if (choice == JFileChooser.APPROVE_OPTION) {
-                String newFIle = fileChooser.getCurrentDirectory().getPath();
+                File newFIle = new File(fileChooser.getSelectedFile() + ".txt");
                 try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(newFIle))) {
                     if (!textArea.getText().equals("")) {
-                        int option = JOptionPane.showConfirmDialog(this, "Do you want to save the changes?");
-                        if (option == JOptionPane.YES_OPTION) {
-                            fileChooser.showSaveDialog(this);
-                            bufferedWriter.write(text);
-                            onSaveActionPerformed(event);
-                            System.exit(0);
-                        }
+                        bufferedWriter.write(text);
+                        onSaveActionPerformed(event);
+                        System.exit(0);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -118,29 +159,29 @@ public class Notepad extends JFrame {
 
         private void onOpenActionPerformed(ActionEvent event) {
             JFileChooser fileChooser = new JFileChooser();
-            if (!textArea.getText().equals("")) {
+            if (textArea.getText().equals("")) {
+                int choice = fileChooser.showOpenDialog(this);
+                if (choice == JFileChooser.APPROVE_OPTION) {
+                    File chosenFile = fileChooser.getSelectedFile();
+                    try (BufferedReader bufferedReader = new BufferedReader(new FileReader(chosenFile))) {
+                        StringBuilder stringBuilder = new StringBuilder();
+                        String line;
+                        while ((line = bufferedReader.readLine()) != null) {
+                            stringBuilder.append(line).append("\n");
+                        }
+                        textArea.setText(stringBuilder.toString());
+                        setTitle(chosenFile.getName());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("File is opened");
+                }
+            } else {
                 int option = JOptionPane.showConfirmDialog(this, "Do you want to save the changes?");
                 if (option == JOptionPane.YES_OPTION) {
                     fileChooser.showSaveDialog(this);
                     onSaveActionPerformed(event);
                     System.exit(0);
-                } else {
-                    int choice = fileChooser.showOpenDialog(this);
-                    if (choice == JFileChooser.APPROVE_OPTION) {
-                        File chosenFile = fileChooser.getSelectedFile();
-                        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(chosenFile))) {
-                            StringBuilder stringBuilder = new StringBuilder();
-                            String line;
-                            while ((line = bufferedReader.readLine()) != null) {
-                                stringBuilder.append(line).append("\n");
-                            }
-                            textArea.setText(stringBuilder.toString());
-                            setTitle(chosenFile.getName());
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        System.out.println("File is opened");
-                    }
                 }
             }
         }
