@@ -4,17 +4,19 @@ import java.io.File;
 
 public class FileSearcher {
 
+    private static File[] result = new File[2];
+
     private static int index = 0;
 
     public static File[] searchFiles(String fileNamePattern, String directory) {
-        if (fileNamePattern == null || fileNamePattern.equals("")){
+        if (fileNamePattern == null || fileNamePattern.equals("")) {
             System.out.println("fileNamePattern can not be null or empty");
             return new File[0];
         }
 
-        if (directory == null || directory.equals("")){
+        if (directory == null || directory.equals("")) {
             System.out.println("directory name can not be null or empty");
-           return new File[0];
+            return new File[0];
         }
 
 //        File[] result = new File[2]; //TODO: update when learn collections
@@ -24,7 +26,6 @@ public class FileSearcher {
     }
 
     private static File[] searchRecursively(File currentDirectory, String fileNamePattern) {
-        File[] result = new File[2];
 
         if (currentDirectory.isDirectory()) {
             File[] files = currentDirectory.listFiles();
@@ -33,22 +34,22 @@ public class FileSearcher {
                     if (file.isDirectory()) {
                         searchRecursively(file, fileNamePattern);
                     } else if (matchesPattern(fileNamePattern, file.getName())) {
-                        if (index == result.length){
+                        if (index == result.length) {
                             File[] newResult = extendCapacity(result);
                             newResult[index++] = file;
                             result = newResult;
-                        }else {
+                        } else {
                             result[index++] = file;
                         }
                     }
                 }
             }
-        }else if (matchesPattern(fileNamePattern, currentDirectory.getName())){
-            if (index == result.length){
+        } else if (matchesPattern(fileNamePattern, currentDirectory.getName())) {
+            if (index == result.length) {
                 File[] newRes = extendCapacity(result);
                 newRes[index++] = currentDirectory;
                 result = newRes;
-            }else{
+            } else {
                 result[index++] = currentDirectory;
             }
         }
@@ -70,19 +71,19 @@ public class FileSearcher {
             int starIndex = fileNamePattern.indexOf("*");
             String part1 = fileNamePattern.substring(0, starIndex);
             String part2 = fileNamePattern.substring(starIndex + 1);
-            if (part2.contains("*")){
+            if (part2.contains("*")) {
                 int starIndexPart2 = part2.indexOf("*");
-                String part2_1 = part2.substring(0,starIndexPart2);
+                String part2_1 = part2.substring(0, starIndexPart2);
                 String part2_2 = part2.substring(starIndexPart2 + 1);
                 return fileName.startsWith(part1) && fileName.contains(part2_1) && fileName.endsWith(part2_2);
-            }else {
+            } else {
                 return fileName.startsWith(part1) && fileName.endsWith(part2);
             }
         }
     }
 
-    private static File[] extendCapacity(File[] files){
-        File[] newFiles = new File[files.length*2];
+    private static File[] extendCapacity(File[] files) {
+        File[] newFiles = new File[files.length * 2];
         for (int i = 0; i < files.length; i++) {
             newFiles[i] = files[i];
         }
