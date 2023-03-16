@@ -12,12 +12,13 @@ import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
 
 public class Notepad extends JFrame {
 
-    private JTextArea textArea;
+    private static final String APP_NAME = "Notepad";
 
+    String currentText;
+    private JTextArea textArea;
     private File currentFile;
 
     public Notepad() {
-        currentFile = new File("src/homework_13/garik_gharibyan/notepad/Result.txt");
         textArea = new JTextArea();
         JScrollPane jScrollPane = new JScrollPane(textArea);
         jScrollPane.setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -29,6 +30,7 @@ public class Notepad extends JFrame {
         add(menuBar, BorderLayout.NORTH);
         setSize(800, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setTitle(APP_NAME);
         setVisible(true);
     }
 
@@ -81,29 +83,33 @@ public class Notepad extends JFrame {
         }
 
         private void onSaveAsActionPerformed(ActionEvent actionEvent) {
-            String currentText = textArea.getText();
-            JFileChooser fileChooser = new JFileChooser();
-            openSaveDialog(fileChooser, currentText);
+            currentText = textArea.getText();
+            openSaveDialog(currentText);
         }
 
         private void onOpenActionPerformed(ActionEvent actionEvent) {
-            onNewActionPerformed(actionEvent);
+            if (!(currentText != null && currentText.equals(textArea.getText()))) {
+                System.out.println("nun@ che e");
+                onNewActionPerformed(actionEvent);
+            }
+
+
             JFileChooser fileChooser = new JFileChooser();
             int choice = fileChooser.showOpenDialog(this);
             if (choice == JFileChooser.APPROVE_OPTION) {
-                System.out.println("File is opened");
-                String text = "";
+                onFileSelected(fileChooser.getSelectedFile());
+                currentText = "";
 
                 try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileChooser.getSelectedFile()))) {
                     int c = bufferedReader.read();
                     while (c != -1) {
-                        text = text + (char) c;
+                        currentText = currentText + (char) c;
                         c = bufferedReader.read();
                     }
                 } catch (IOException e) {
                     System.out.println(e);
                 }
-                textArea.setText(text);
+                textArea.setText(currentText);
 
             } else if (choice == JFileChooser.CANCEL_OPTION) {
                 System.out.println("you click: CANCEL");
@@ -111,17 +117,16 @@ public class Notepad extends JFrame {
         }
 
         private void onSaveActionPerformed(ActionEvent actionEvent) {
-            String currentText = textArea.getText();
+            currentText = textArea.getText();
             if (currentFile != null) {
                 writer(currentFile, currentText);
             } else {
-                JFileChooser fileChooser = new JFileChooser();
-                openSaveDialog(fileChooser, currentText);
+                openSaveDialog(currentText);
             }
         }
 
         private void onCloseActionPerformed(ActionEvent e) {
-            String currentText = textArea.getText();
+            currentText = textArea.getText();
             if (!currentText.isEmpty()) {
                 onNewActionPerformed(e);
                 System.exit(0);
@@ -132,22 +137,20 @@ public class Notepad extends JFrame {
         }
 
         private void onNewActionPerformed(ActionEvent actionEvent) {
-            String currentText = textArea.getText();
+            currentText = textArea.getText();
             if (!currentText.isEmpty()) {
 
                 int i = JOptionPane.showConfirmDialog(this, "Do you want to save your changes?");
+
                 if (i == JOptionPane.NO_OPTION) {
                     System.out.println("you click: NO");
                     textArea.setText("");
                 } else if (i == JOptionPane.YES_OPTION) {
                     System.out.println("you click: YES");
-
-                    JFileChooser fileChooser = new JFileChooser();
-                    openSaveDialog(fileChooser, currentText);
+                    openSaveDialog(currentText);
 
                 } else {
                     System.out.println("You click: CANCEL");
-                    textArea.setText(currentText);
                 }
 
             }
@@ -161,18 +164,23 @@ public class Notepad extends JFrame {
             }
         }
 
-        private void openSaveDialog(JFileChooser fileChooser, String text) {
+        private void openSaveDialog(String text) {
+            JFileChooser fileChooser = new JFileChooser();
             int choice = fileChooser.showSaveDialog(this);
             if (choice == JFileChooser.CANCEL_OPTION) {
                 System.out.println("You click: CANCEL");
-                textArea.setText("");
-            } else if (choice == 0) {
+            } else if (choice == JFileChooser.APPROVE_OPTION) {
                 System.out.println("You click: SAVE");
-                writer(fileChooser.getSelectedFile(), text);
-                textArea.setText("");
+                onFileSelected(fileChooser.getSelectedFile());
+                writer(currentFile, text);
             }
         }
 
+        private void onFileSelected(File file) {
+            currentFile = file;
+            System.out.println("On file selected: " + file.getName());
+            setTitle(currentFile.getName() + " " + APP_NAME);
+        }
     }
 
     public static void main(String[] args) {
