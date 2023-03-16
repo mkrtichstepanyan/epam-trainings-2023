@@ -9,8 +9,8 @@ public class ProductDto {
     @Length(min=4,max=30)
     private String name;
 
-    @Min(10)
-    @Max(50)
+    @Min()
+    @Max()
     private double price;
 
     public ProductDto(String name, double price){

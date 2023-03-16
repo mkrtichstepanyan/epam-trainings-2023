@@ -10,11 +10,11 @@ public class CustomerDto {
     @Email
     private String email;
 
-    @AdultHood
+    @AdultHood()
     private LocalDate birthday;
 
-    @Min(value = 0)
-    @Max(value = 100)
+    @Min()
+    @Max()
     private int discountRate;
 
     public CustomerDto(String name, String email, LocalDate birthday, int discountRate){

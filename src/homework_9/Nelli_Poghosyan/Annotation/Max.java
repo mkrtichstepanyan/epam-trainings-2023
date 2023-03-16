@@ -10,6 +10,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 
 public @interface Max {
-    int value();
+    int value() default 100;
     String message() default "The discount rate can't be more than 100%";
 }

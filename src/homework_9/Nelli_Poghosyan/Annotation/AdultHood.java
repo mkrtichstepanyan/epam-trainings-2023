@@ -10,5 +10,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 
 public @interface AdultHood {
+    int age() default 18;
     String message() default "The customer should be an adult";
 }

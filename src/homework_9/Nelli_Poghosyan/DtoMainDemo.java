@@ -6,22 +6,16 @@ import homework_9.Nelli_Poghosyan.Validation.Validation;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Arrays;
 
 public class DtoMainDemo {
     public static void main(String[] args) throws IllegalAccessException {
-        CustomerDto customerDto = new CustomerDto("John", "john@gmail.com", LocalDate.of(2011, Month.DECEMBER, 12), 20);
-        ProductDto productDto = new ProductDto("Product1", 15.5);
-        Validation validate = new Validation();
-        Error[] customerErrors = validate.getErrors(customerDto);
-        Error[] productErrors = validate.getErrors(productDto);
-        for (int i = 0; i < customerErrors.length; i++) {
-            System.out.println(customerErrors[i]);
+        CustomerDto customerDto = new CustomerDto("John", "john@gmail.com", LocalDate.of(2009, Month.DECEMBER, 12), 5);
+        Validation validator = new Validation();
+        System.out.println(validator.validate(customerDto));
         }
-        for (int i = 0; i < productErrors.length; i++) {
-            System.out.println(productErrors[i]);
 
-        }
     }
 
 
-}
+

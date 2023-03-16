@@ -10,6 +10,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 
 public @interface Min {
-    int value();
-    String message() default "Discount rate can't be less than 0%";
+    int value() default 0;
+    String message() default "Discount rate can't be less than 0";
 }

@@ -1,19 +1,26 @@
 package homework_9.Nelli_Poghosyan.Annotation.Processors;
 
+import homework_9.Nelli_Poghosyan.Annotation.AdultHood;
 import homework_9.Nelli_Poghosyan.Annotation.Length;
 import homework_9.Nelli_Poghosyan.Dto.CustomerDto;
+import homework_9.Nelli_Poghosyan.Validation.Error;
 
 import java.lang.reflect.Field;
+import java.time.LocalDate;
+import java.time.Period;
 
 public class CustomerNameLengthProcessor {
-    public static Error checkNameIsValid(Field field, CustomerDto customer) throws IllegalAccessException {
+    public static Error processAnnotation(Object customer, Field field) throws IllegalAccessException {
         Object o = field.get(customer);
-        Length length = field.getAnnotation(Length.class);
-        if (customer.getName().length() < length.min() || customer.getName().length() > length.max()) {
-            return new Error(length.message());
+        // pattern matching
+        if (o instanceof String name) {
+            Length annotation = field.getAnnotation(Length.class);
+            if (name.length() < annotation.min() || name.length() > annotation.max()) {
+                return new Error(annotation.message(), field.getName());
+            }
         } else {
-            System.out.println("Customer name is valid");
+            return new Error("Wrong usage error", field.getName());
         }
-        return new Error("Wrong usage "+field.getName());
+        return null;
     }
 }
