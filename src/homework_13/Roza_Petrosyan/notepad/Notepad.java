@@ -6,8 +6,6 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
@@ -33,30 +31,9 @@ public class Notepad extends JFrame implements DocumentListener {
         add(menuBar, BorderLayout.NORTH);
         setSize(800, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-        boolean isFileExistsInDirectory = new File("src/homework_13/Roza_Petrosyan/notepad/",
-                currentFile.getName()).exists();
-
-        if (isFileExistsInDirectory) {
-            textArea.append(readFile());
-        }
         textArea.getDocument().addDocumentListener(this);
         setVisible(true);
     }
-
-    public String readFile() {
-        StringBuilder stringBuilder = new StringBuilder();
-        String line;
-        try (BufferedReader fr = new BufferedReader(new FileReader(currentFile))) {
-            while ((line = fr.readLine()) != null) {
-                stringBuilder.append(line).append("\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return stringBuilder.toString();
-    }
-
     @Override
     public void insertUpdate(DocumentEvent e) {
         changed = true;
@@ -120,23 +97,17 @@ public class Notepad extends JFrame implements DocumentListener {
 
         private void onNewActionPerformed(ActionEvent actionEvent) {
             if (!textArea.getText().isEmpty()) {
-                if (readFile().equals(textArea.getText())) {
+                if (!changed) {
                     textArea.setText("");
                 } else {
                     int option = JOptionPane.showConfirmDialog(this, "Do you want to save your changes?");
                     if (option == JOptionPane.YES_OPTION) {
-                        JFileChooser fileChooser = new JFileChooser();
-                        int choice = fileChooser.showSaveDialog(this);
-                        if (choice == JFileChooser.APPROVE_OPTION) {
-                            onSaveActionPerformed(actionEvent);
-                        }
+                        onSaveActionPerformed(actionEvent);
                     }
                     if (option == JOptionPane.NO_OPTION) {
                         textArea.setText("");
                     }
                 }
-            } else {
-                onSaveActionPerformed(actionEvent);
             }
         }
 
@@ -187,6 +158,7 @@ public class Notepad extends JFrame implements DocumentListener {
                     File selectedFile = fileChooser.getSelectedFile();
                     try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(selectedFile))) {
                         bufferedWriter.write(text);
+                        changed = false;
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -194,6 +166,7 @@ public class Notepad extends JFrame implements DocumentListener {
             } else {
                 try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(currentFile))) {
                     bufferedWriter.write(text);
+                    changed = false;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
