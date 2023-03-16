@@ -1,6 +1,7 @@
 package homework_11.araksya_ghazaryan;
 
 import java.io.*;
+import java.nio.ByteBuffer;
 
 public class FileDemo {
     public static String readFile (String fileName) {
