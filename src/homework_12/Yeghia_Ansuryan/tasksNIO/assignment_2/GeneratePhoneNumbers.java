@@ -10,7 +10,7 @@ public class GeneratePhoneNumbers {
     public String[] generatePhoneNumbers(String code) {
         String[] numbers = new String[1000000];
         for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = code + "  " + String.format("%06d", i) + "\n";
+            numbers[i] = code + String.format("%06d", i) + "\n";
         }
         return numbers;
     }

@@ -40,8 +40,7 @@ public class ReadAndWriteFile implements FilenameFilter {
     }
 
     public static String processData(String data) {
-        writeFile("Users/yeghia.ansuryan/epam-training-2023/src/homework_11/Yeghia_Ansuryan/" +
-                "tasksNIO/assignment_1/nioFile.txt", data.toUpperCase());
+        writeFile("src/homework_11/Yeghia_Ansuryan/tasksNIO/assignment_1/nioFile.txt", data.toUpperCase());
         return data;
     }
 
