@@ -1,6 +1,7 @@
 package homework_13.melo_tutkhalyan.notepad;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.*;
@@ -74,7 +75,29 @@ public class Notepad extends JFrame {
             save.addActionListener(this::onSaveActionPerformed);
             openFile.addActionListener(this::onOpenActionPerformed);
             newFile.addActionListener(this::onNewActionPerformed);
+            saveAs.addActionListener(this::onSaveAsActionPerformed);
 
+        }
+
+        private void onSaveAsActionPerformed(ActionEvent actionEvent) {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setDialogTitle("Save File");
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("File Type (*.txt)", "txt");
+            fileChooser.setFileFilter(filter);
+            int userSelection = fileChooser.showSaveDialog(this);
+            if (userSelection == JFileChooser.APPROVE_OPTION) {
+                String fileName = fileChooser.getSelectedFile().toString();
+                String extension = filter.getExtensions()[0];
+                if (!fileName.endsWith("." + extension)) {
+                    fileName += "." + extension;
+                }
+                String text = textArea.getText();
+                try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName))) {
+                    bufferedWriter.write(text);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         private void onNewActionPerformed(ActionEvent actionEvent) {
