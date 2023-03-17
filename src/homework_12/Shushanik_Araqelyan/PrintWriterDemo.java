@@ -8,7 +8,7 @@ public class PrintWriterDemo {
         pw.println("This is a string");
         int i = -7;
         pw.println(i);
-        double d = 4.5e -7;
+        double d = 4*5e-7;
         pw.println(d);
     }
 }
