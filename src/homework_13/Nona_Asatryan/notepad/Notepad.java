@@ -11,7 +11,6 @@ public class Notepad extends JFrame {
 
     public Notepad() {
 
-        currentFile = new File("Result.txt");
         textArea = new JTextArea();
         JScrollPane jScrollPane = new JScrollPane(textArea);
         jScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
