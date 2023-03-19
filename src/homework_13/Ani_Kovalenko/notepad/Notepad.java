@@ -79,7 +79,6 @@ public class Notepad extends JFrame {
             openFile.addActionListener(this::onOpenActionPerformed);
             saveAs.addActionListener(this::onSaveActionPerformed);
             newFile.addActionListener(this::onNewActionPerformed);
-
         }
 
         private void onNewActionPerformed(ActionEvent actionEvent) {
