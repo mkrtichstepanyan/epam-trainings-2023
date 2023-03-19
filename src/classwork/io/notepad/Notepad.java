@@ -53,7 +53,7 @@ public class Notepad extends JFrame {
         private JMenuItem ruLang;
 
         public NotepadMenuBar() {
-            init(LanguageType.EN);
+            init();
 
             file.add(newFile);
             file.add(openFile);
@@ -73,13 +73,11 @@ public class Notepad extends JFrame {
             openFile.addActionListener(this::onOpenActionPerformed);
 
             amLang.addActionListener(e -> loadMenuLabels(LanguageType.AM));
-
             ruLang.addActionListener(e -> loadMenuLabels(LanguageType.RU));
-
             enLang.addActionListener(e -> loadMenuLabels(LanguageType.EN));
         }
 
-        private void init(LanguageType languageType) {
+        private void init() {
             file = new JMenu();
             newFile = new JMenuItem();
             openFile = new JMenuItem();
@@ -92,7 +90,7 @@ public class Notepad extends JFrame {
             amLang = new JMenuItem();
             ruLang = new JMenuItem();
 
-            loadMenuLabels(languageType);
+            loadMenuLabels(LanguageType.EN);
         }
 
         private void loadMenuLabels(LanguageType languageType) {
