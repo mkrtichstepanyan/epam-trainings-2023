@@ -1,6 +1,6 @@
 package homework_3.Roza_Petrosyan.chapter_5;
 
-// The target of a loop can be empty.
+// The target.txt of a loop can be empty.
 public class NoBody {
     public static void main(String[] args) {
         int i, j;
