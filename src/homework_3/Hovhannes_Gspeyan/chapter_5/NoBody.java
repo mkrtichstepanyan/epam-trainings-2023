@@ -1,7 +1,7 @@
 package homework_3.Hovhannes_Gspeyan.chapter_5;
 
 /**
- * this class shows the target.txt
+ * this class shows the target
  * of loop can be empty
  */
 public class NoBody {
