@@ -21,6 +21,7 @@ public class Generator {
             writer = new BufferedWriter(new FileWriter(fileName));
             for (String phoneNumber : phoneNumbers) {
                 writer.write(phoneNumber);
+                writer.newLine();
             }
         } catch (IOException e) {
             throw new IOException("An ERROR occurred during file writing. ");
