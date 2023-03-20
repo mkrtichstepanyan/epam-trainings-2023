@@ -1,8 +1,10 @@
 package homework_13.aram_mehrabyan.notepad;
 
 import javax.swing.*;
-
+import java.util.Properties;
 import java.awt.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.awt.event.ActionEvent;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
@@ -22,7 +24,7 @@ public class Notepad extends JFrame {
 
 
     public Notepad() {
-        currentFile = new File("/Users/PC/Desktop/RD/epam-trainings-2023/src/homework_13/aram_mehrabyan/notepad/Result.txt");
+        currentFile = new File("src/homework_13/aram_mehrabyan/notepad/Result.txt");
         textArea = new JTextArea();
         JScrollPane jScrollPane = new JScrollPane(textArea);
         jScrollPane.setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -82,7 +84,64 @@ public class Notepad extends JFrame {
             openFile.addActionListener(this::onOpenActionPerformed);
             newFile.addActionListener(this::onNewActionPerformed);
             saveAs.addActionListener(this::onSaveAsActionPerformed);
+            enLang.addActionListener(this::onEnLangActionPerformed);
+            amLang.addActionListener(this::onAmLangActionPerformed);
+            ruLang.addActionListener(this::onRuLangActionPerformed);
+            loadMenuLables(LabelKey.EN);
 
+        }
+        private void onEnLangActionPerformed(ActionEvent actionEvent) {
+            loadMenuLables(LabelKey.EN);
+        }
+
+        private void onAmLangActionPerformed(ActionEvent actionEvent) {
+            loadMenuLables(LabelKey.HY);
+        }
+
+        private void onRuLangActionPerformed(ActionEvent actionEvent) {
+            loadMenuLables(LabelKey.RU);
+        }
+
+        private void loadMenuLables(LabelKey labelKey) {
+            Properties properties = loadMessages(labelKey);
+            loadMenuLables(properties);
+        }
+        private void loadMenuLables(Properties properties) {
+            file.setText(properties.getProperty("file.menu.name"));
+            newFile.setText(properties.getProperty("newFile.menu.name"));
+            openFile.setText(properties.getProperty("openFile.menu.name"));
+            save.setText(properties.getProperty("save.menu.name"));
+            saveAs.setText(properties.getProperty("saveAs.menu.name"));
+            close.setText(properties.getProperty("close.menu.name"));
+
+            language.setText(properties.getProperty("language.menu.name"));
+            enLang.setText(properties.getProperty("enLang.menu.name"));
+            amLang.setText(properties.getProperty("amLang.menu.name"));
+            ruLang.setText(properties.getProperty("ruLang.menu.name"));
+        }
+
+        private Properties loadMessages(LabelKey labelKey) {
+            InputStream inputStream;
+            String path = "";
+            switch (labelKey.getLabel()) {
+                case "hy":
+                    path = "i18n/label_hy.properties";
+                    break;
+                case "ru":
+                    path = "i18n/label_ru.properties";
+                    break;
+                default:
+                    path = "i18n/label.properties";
+            }
+            inputStream = getClass().getClassLoader().getResourceAsStream(path);
+
+            Properties properties = new Properties();
+            try {
+                properties.load(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return properties;
         }
 
         private void onNewActionPerformed(ActionEvent actionEvent) {
@@ -199,7 +258,19 @@ public class Notepad extends JFrame {
                 System.exit(0);
             }
         }
+        public enum LabelKey {
+            HY("hy"),
+            RU("ru"),
+            EN("en");
+            private final String label;
+            LabelKey(String label){
+                this.label = label;
+            }
 
+            public String getLabel() {
+                return label;
+            }
+        }
     }
 
     public static void main(String[] args) {
