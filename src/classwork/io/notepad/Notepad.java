@@ -3,13 +3,7 @@ package classwork.io.notepad;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
@@ -96,9 +90,9 @@ public class Notepad extends JFrame {
         private void loadMenuLabels(LanguageType languageType) {
             InputStream inputStream;
             String path = switch (languageType.getLabel()) {
-                case "hy" -> "i18n/label_hy.properties";
-                case "ru" -> "i18n/label_ru.properties";
-                default -> "i18n/label.properties";
+                case "hy" -> "i18n/notepad_hy.properties";
+                case "ru" -> "i18n/notepad_ru.properties";
+                default -> "i18n/notepad.properties";
             };
 
             inputStream = getClass().getClassLoader().getResourceAsStream(path);
