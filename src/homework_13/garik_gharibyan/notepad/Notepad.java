@@ -3,9 +3,14 @@ package homework_13.garik_gharibyan.notepad;
 import homework_6.Karen_Mikayelyan.chapter_8.simpleInheritane.B;
 
 import javax.swing.*;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Properties;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
@@ -79,6 +84,10 @@ public class Notepad extends JFrame {
             openFile.addActionListener(this::onOpenActionPerformed);
             newFile.addActionListener(this::onNewActionPerformed);
             saveAs.addActionListener(this::onSaveAsActionPerformed);
+
+            amLang.addActionListener(e -> loadMenuLabels(LanguageType.AM));
+            enLang.addActionListener(e -> loadMenuLabels(LanguageType.EN));
+            ruLang.addActionListener(e -> loadMenuLabels(LanguageType.RU));
 
         }
 
@@ -181,6 +190,55 @@ public class Notepad extends JFrame {
             System.out.println("On file selected: " + file.getName());
             setTitle(currentFile.getName() + " " + APP_NAME);
         }
+
+
+
+        enum LanguageType{
+            AM("hy"),
+            RU("ru"),
+            EN("en");
+            final String label;
+            LanguageType(String label){
+                this.label = label;
+            }
+
+            public String getLabel() {
+                return label;
+            }
+        }
+
+        private void loadMenuLabels(LanguageType languageType){
+            InputStream inputStream;
+            String path = switch (languageType.getLabel()) {
+                case "hy" -> "i18n/notepad_hy.properties";
+                case "ru" -> "i18n/notepad_ru.properties";
+                default -> "i18n/notepad.properties";
+            };
+
+            inputStream = getClass().getClassLoader().getResourceAsStream(path);
+            Properties properties = new Properties();
+            try( Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
+                properties.load(reader);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            loadMenuLabels(properties);
+        }
+
+        private void loadMenuLabels(Properties properties){
+            file.setText(properties.getProperty("file.menu.name"));
+            newFile.setText(properties.getProperty("create.menu.item.name"));
+            save.setText(properties.getProperty("save.menu.item.name"));
+            saveAs.setText(properties.getProperty("saveas.menu.name"));
+            openFile.setText(properties.getProperty("open.menu.item.name"));
+            close.setText(properties.getProperty("close.menu.item.name"));
+            language.setText(properties.getProperty("lang.menu.name"));
+            enLang.setText(properties.getProperty("lang.en.menu.item.name"));
+            amLang.setText(properties.getProperty("lang.am.menu.item.name"));
+            ruLang.setText(properties.getProperty("lang.ru.menu.item.name"));
+        }
+
+
     }
 
     public static void main(String[] args) {
