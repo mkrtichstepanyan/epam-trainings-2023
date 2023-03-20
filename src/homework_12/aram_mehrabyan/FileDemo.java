@@ -9,7 +9,7 @@ public class FileDemo {
 
     public static String readFile(String filename) {
         String data = null;
-        String path = "/Desktop/RD/epam-trainings-2023/src/homework_12/aram_mehrabyan/" + filename;
+        String path = "src/homework_12/aram_mehrabyan/" + filename;
         try (FileChannel fchan = (FileChannel) Files.newByteChannel(Path.of(path))) {
             int fsize = (int) fchan.size();
             //char[] str = new char[fsize];
@@ -35,7 +35,7 @@ public class FileDemo {
 
 
     public static void writeFile(String filename,String data){
-        String path = "/Desktop/RD/epam-trainings-2023/src/homework_12/aram_mehrabyan/" + filename;
+        String path = "src/homework_12/aram_mehrabyan/" + filename;
         try(FileChannel fchan=(FileChannel) Files.newByteChannel(Path.of(path),
                 StandardOpenOption.WRITE,
                 StandardOpenOption.READ,
