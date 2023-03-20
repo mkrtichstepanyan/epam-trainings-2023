@@ -134,7 +134,7 @@ public class Notepad extends JFrame {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                         choice = fileChooser.showOpenDialog(this);
+                        choice = fileChooser.showOpenDialog(this);
                         if (choice == JFileChooser.APPROVE_OPTION) {
                             try (BufferedReader reader = new BufferedReader(new FileReader(fileChooser.getSelectedFile()))) {
                                 String line = reader.readLine();

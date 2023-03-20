@@ -7,14 +7,14 @@ public class FileSearcher {
     private static int index = 0;
 
     public static File[] searchFiles(String fileNamePattern, String directory) {
-        if (fileNamePattern == null || fileNamePattern.equals("")){
+        if (fileNamePattern == null || fileNamePattern.equals("")) {
             System.out.println("fileNamePattern can not be null or empty");
             return new File[0];
         }
 
-        if (directory == null || directory.equals("")){
+        if (directory == null || directory.equals("")) {
             System.out.println("directory name can not be null or empty");
-           return new File[0];
+            return new File[0];
         }
 
         File[] result = new File[1000]; //TODO: update when learn collections
@@ -48,36 +48,35 @@ public class FileSearcher {
      * fileNamePattern -> Arthur*Doel
      */
     private static boolean matchesPattern(String fileNamePattern, String fileName) {
-        int starCount=0;
-       char [] ch= fileNamePattern.toCharArray();
-       for(int i=0;i<ch.length;i++){
-           if (ch[i]=='*')
-               starCount++;
-       }
+        int starCount = 0;
+        char[] ch = fileNamePattern.toCharArray();
+        for (int i = 0; i < ch.length; i++) {
+            if (ch[i] == '*')
+                starCount++;
+        }
         if (!fileNamePattern.contains("*")) {
             return fileNamePattern.equals(fileName);
-        } else if (starCount==1){
+        } else if (starCount == 1) {
             int starIndex = fileNamePattern.indexOf("*");
             String prefix = fileNamePattern.substring(0, starIndex);
             String suffix = fileNamePattern.substring(starIndex + 1);
             return fileName.startsWith(prefix) && fileName.endsWith(suffix);
-        }
-            else{
-           int starIndex = fileNamePattern.indexOf("*");
+        } else {
+            int starIndex = fileNamePattern.indexOf("*");
             String suffix = fileNamePattern.substring(starIndex + 1);
-            int starIndex2=suffix.indexOf("*");
-            String middlePart=suffix.substring(starIndex,starIndex2);
+            int starIndex2 = suffix.indexOf("*");
+            String middlePart = suffix.substring(starIndex, starIndex2);
             return fileName.contains(middlePart);
         }
 
 
-        }
+    }
 
 
-   // public static void main(String[] args) {
-      // System.out.println(matchesPattern("Arthur*","Arthur Conan Doel"));
-      // System.out.println(matchesPattern("*Conan Doel","Arthur Conan Doel"));
-      //  System.out.println(matchesPattern("*Conan*","Arthur Conan Doel"));
-      // System.out.println(matchesPattern("Arthur*Doel","Arthur Conan Doel"));
+    // public static void main(String[] args) {
+    // System.out.println(matchesPattern("Arthur*","Arthur Conan Doel"));
+    // System.out.println(matchesPattern("*Conan Doel","Arthur Conan Doel"));
+    //  System.out.println(matchesPattern("*Conan*","Arthur Conan Doel"));
+    // System.out.println(matchesPattern("Arthur*Doel","Arthur Conan Doel"));
     //}
 }
