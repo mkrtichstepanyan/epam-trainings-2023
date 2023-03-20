@@ -9,17 +9,18 @@ public class FileDemo {
 
     public static String readFile(String filename) {
         String data = null;
-        String path = "/Users/Ashot Farmanyan/Desktop/RD/epam-trainings-2023/src/homework_11/aram_mehrabyan/" + filename;
+        String path = "/Desktop/RD/epam-trainings-2023/src/homework_12/aram_mehrabyan/" + filename;
         try (FileChannel fchan = (FileChannel) Files.newByteChannel(Path.of(path))) {
             int fsize = (int) fchan.size();
-            char[] str = new char[fsize];
+            //char[] str = new char[fsize];
             MappedByteBuffer mbuf = fchan.map(FileChannel.MapMode.READ_ONLY, 0, fsize);
             StringBuilder sb = new StringBuilder();
 
             for (int i = 0; i < fsize; i++)
-                str[i] = (char) mbuf.get();
-            for(char chars:str)
-                sb.append(chars);
+              //  str[i] = (char) mbuf.get();
+                sb.append(mbuf.get());
+           // for(char chars:str)
+                //sb.append(chars);
             data = sb.toString();
 
         } catch (InvalidPathException e) {
@@ -34,7 +35,7 @@ public class FileDemo {
 
 
     public static void writeFile(String filename,String data){
-        String path = "/Users/Ashot Farmanyan/Desktop/RD/epam-trainings-2023/src/homework_11/aram_mehrabyan/" + filename;
+        String path = "/Desktop/RD/epam-trainings-2023/src/homework_12/aram_mehrabyan/" + filename;
         try(FileChannel fchan=(FileChannel) Files.newByteChannel(Path.of(path),
                 StandardOpenOption.WRITE,
                 StandardOpenOption.READ,
