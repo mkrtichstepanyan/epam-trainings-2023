@@ -18,9 +18,13 @@ public class Notepad implements ActionListener {
     private JMenuItem help;
     private JTextArea txt;
     private JScrollPane jsp;
-    public JMenuItem about, copy, cut, Paste, del;
+    public JMenuItem about, copy, cut, paste, del;
     public JMenuItem copy1, cut1, Paste1, del1;
-
+    private StringSelection select;
+    private Clipboard clipboard = jframe.getToolkit().getSystemClipboard();
+    private static File fileOpen = null;
+    private static File fileSave = null;
+    private static BufferedReader bufferedReader = null;
 
     public Notepad() {
         menuBar = new JMenuBar();
@@ -36,7 +40,7 @@ public class Notepad implements ActionListener {
         exit = new JMenuItem("Exit ");
         copy = new JMenuItem("Copy (ctrl+c)");
         cut = new JMenuItem("Cut (ctrl+x)");
-        Paste = new JMenuItem("Paste (ctrl+v)");
+        paste = new JMenuItem("Paste (ctrl+v)");
         del = new JMenuItem("Delete ");
 
         file.addActionListener(this);
@@ -49,9 +53,8 @@ public class Notepad implements ActionListener {
         exit.addActionListener(this);
         copy.addActionListener(this);
         cut.addActionListener(this);
-        Paste.addActionListener(this);
+        paste.addActionListener(this);
         del.addActionListener(this);
-
 
         about = new JMenuItem("About ");
         about.addActionListener(this);
@@ -59,41 +62,32 @@ public class Notepad implements ActionListener {
         help = new JMenuItem("Help ");
         help.addActionListener(this);
 
-
         txt = new JTextArea();
         txt.setBackground(Color.white);
         txt.setFont(new Font("Monospaced", Font.PLAIN, 19));
         txt.setForeground(Color.black);
         txt.setLineWrap(true);
 
-
         txt.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
-                if ((e.getKeyCode() == KeyEvent.VK_S) && (e.isControlDown())) {// ctrl+s
-                    sava();
-                }
-                if ((e.getKeyCode() == KeyEvent.VK_O) && (e.isControlDown())) {// ctrl+o
-                    openFile();
-                }
-                if ((e.getKeyCode() == KeyEvent.VK_N) && (e.isControlDown())) {// ctrl+n
-                    newFile();
-                }
-                if ((e.getKeyCode() == KeyEvent.VK_D) && (e.isControlDown())) {// ctrl+d
-                    del();
+                if (e.isControlDown()) {
+                    switch (e.getKeyCode()) {
+                        case KeyEvent.VK_S -> save();
+                        case KeyEvent.VK_O -> openFile();
+                        case KeyEvent.VK_N -> newFile();
+                        case KeyEvent.VK_D -> delete();
+                    }
                 }
             }
         });
     }
 
-
     public void add() {
-
         jframe.setTitle("Notepad");
         jframe.setSize(680, 560);
         jframe.setResizable(true);
         jframe.setLocationRelativeTo(null);
         jframe.setJMenuBar(menuBar);
-
         jsp = new JScrollPane(txt);
         jframe.getContentPane().add(jsp);
 
@@ -107,7 +101,7 @@ public class Notepad implements ActionListener {
         edit.addSeparator();
         edit.add(cut);
         edit.addSeparator();
-        edit.add(Paste);
+        edit.add(paste);
         edit.addSeparator();
         edit.add(del);
 
@@ -129,26 +123,22 @@ public class Notepad implements ActionListener {
         });
     }
 
-    private static StringSelection stsel = null;
-
-    private Clipboard clipboard = jframe.getToolkit().getSystemClipboard();
-
     public void copy() {
         String tempText = txt.getSelectedText();
-        stsel = new StringSelection(tempText);
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stsel, stsel);
+        select = new StringSelection(tempText);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(select, select);
     }
 
     public void cut() {
         String tempText = txt.getSelectedText();
         StringSelection editText = new StringSelection(tempText);
-        clipboard.setContents(editText, null);
         int start = txt.getSelectionStart();
         int end = txt.getSelectionEnd();
+        clipboard.setContents(editText, null);
         txt.replaceRange("", start, end);
     }
 
-    public void Paste() {
+    public void paste() {
         Transferable contents = clipboard.getContents(this);
         DataFlavor flavor = DataFlavor.stringFlavor;
         if (contents.isDataFlavorSupported(flavor)) {
@@ -162,57 +152,51 @@ public class Notepad implements ActionListener {
         }
     }
 
-    public void del() {
+    public void delete() {
         int start = txt.getSelectionStart();
         int end = txt.getSelectionEnd();
         txt.replaceRange("", start, end);
     }
 
-    private static File OpenFile = null;
-    private static File SavaFile = null;
-    private static BufferedReader br = null;
-
-
     public void newFile() {
         new Notepad().add();
     }
 
-
     public void openFile() {
         int result;
-        StringBuilder str = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         String temp;
         JFileChooser fileChooser = new JFileChooser(".");
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         result = fileChooser.showOpenDialog(null);
 
         if (JFileChooser.APPROVE_OPTION == result) {
-            OpenFile = new File(fileChooser.getSelectedFile().getPath());
+            fileOpen = new File(fileChooser.getSelectedFile().getPath());
             try {
-                br = new BufferedReader(new FileReader(OpenFile));
-                while ((temp = br.readLine()) != null) {
-                    str.append(temp).append("\r\n");
+                bufferedReader = new BufferedReader(new FileReader(fileOpen));
+                while ((temp = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(temp).append("\r\n");
                 }
-                br.close();
-                txt.setText(str.toString());
+                bufferedReader.close();
+                txt.setText(stringBuilder.toString());
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void sava() {
+    public void save() {
         int result = 0;
         String temp = txt.getText();
         JFileChooser fileChooser = new JFileChooser();
 
         result = fileChooser.showSaveDialog(null);
         if (JFileChooser.APPROVE_OPTION == result) {
-            SavaFile = new File(fileChooser.getSelectedFile().getPath());
+            fileSave = new File(fileChooser.getSelectedFile().getPath());
             boolean isWrite = true;
-            if (SavaFile.exists()) {
+            if (fileSave.exists()) {
                 int verifyValue = JOptionPane.showConfirmDialog(null,
-                        SavaFile + "The file already exists, it is overwritten?", "Save", JOptionPane.YES_NO_OPTION,
+                        fileSave + "The file already exists, it is overwritten?", "Save", JOptionPane.YES_NO_OPTION,
                         JOptionPane.WARNING_MESSAGE);
                 if (verifyValue != JOptionPane.YES_OPTION) {
                     isWrite = false;
@@ -225,7 +209,6 @@ public class Notepad implements ActionListener {
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-
                 for (int i = 0; i < temp.length(); i++) {
                     char c = temp.charAt(i);
                     try {
@@ -258,7 +241,7 @@ public class Notepad implements ActionListener {
                     "Save", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             if (verifyValue == JOptionPane.YES_OPTION) {
                 isCloseIng = true;
-                sava();
+                save();
             } else {
                 this.jframe.dispose();
             }
@@ -280,6 +263,7 @@ public class Notepad implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         if (e.getSource() == newFile) {
             newFile();
         }
@@ -287,10 +271,10 @@ public class Notepad implements ActionListener {
             openFile();
         }
         if (e.getSource() == savaFile) {
-            sava();
+            save();
         }
         if (e.getSource() == newSave) {
-            sava();
+            save();
         }
         if (e.getSource() == exit) {
             exit();
@@ -307,16 +291,16 @@ public class Notepad implements ActionListener {
         if (e.getSource() == cut || e.getSource() == cut1) {
             cut();
         }
-        if (e.getSource() == Paste || e.getSource() == Paste1) {
-            Paste();
+        if (e.getSource() == paste || e.getSource() == Paste1) {
+            paste();
         }
         if (e.getSource() == del || e.getSource() == del1) {
-            del();
+            delete();
         }
+        System.out.println(" option selected.");
     }
 
     public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
-        UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
         new Notepad().add();
     }
 }
