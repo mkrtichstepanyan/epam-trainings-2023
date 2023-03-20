@@ -141,7 +141,7 @@ public class Notepad extends JFrame {
                         String currentFileAbsolutePath = fileChooser.getSelectedFile().getAbsolutePath();
                         String currentFileName = fileChooser.getSelectedFile().getName();
                         File current = new File(currentFileAbsolutePath);
-                        if (current.equals(currentFile)) {
+                        if (!current.equals(currentFile)) {
                             currentFile = current;
                             onSaveActionPerformed(actionEvent);
                         } else if (current.exists() && current.isFile()) {
