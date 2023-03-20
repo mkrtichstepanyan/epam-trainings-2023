@@ -27,7 +27,7 @@ public class Order {
     }
 
 
-    public void addProduct(String myDrink, DrinkType type, int quantity) {
+    public void addProduct (String myDrink, DrinkType type, int quantity)  {
         if (quantity > MAX_AMOUNT) {
             System.out.println("You can't order more than 10 ");
             return;
