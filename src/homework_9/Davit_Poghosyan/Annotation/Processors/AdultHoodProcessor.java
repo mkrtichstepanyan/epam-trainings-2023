@@ -23,6 +23,6 @@ public class AdultHoodProcessor {
                 System.out.println("Customer age is more 18");
             }
         }
-    return new Error("Wrong usage "+field.getName());
+    return new Error();
     }
 }

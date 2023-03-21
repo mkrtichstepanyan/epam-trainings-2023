@@ -15,6 +15,6 @@ public class EmailProcessor {
         } else {
             return new Error(email.message());
         }
-        return new Error("Wrong usage "+field.getName());
+        return new Error();
     }
 }
