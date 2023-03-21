@@ -24,7 +24,7 @@ public class Notepad extends JFrame {
 
 
     public Notepad() {
-        currentFile = new File("src/homework_13/aram_mehrabyan/notepad/Result.txt");
+        currentFile = new File("/Users/PC/Desktop/RD/epam-trainings-2023/src/homework_13/aram_mehrabyan/notepad/Result.txt");
         textArea = new JTextArea();
         JScrollPane jScrollPane = new JScrollPane(textArea);
         jScrollPane.setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -160,7 +160,7 @@ public class Notepad extends JFrame {
 
 
                 }
-
+                textArea.setText("");
 
             }
         }
