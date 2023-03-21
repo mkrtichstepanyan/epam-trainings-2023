@@ -73,6 +73,7 @@ public class Notepad extends JFrame {
             close.addActionListener(this::onCloseActionPerformed);
             save.addActionListener(this::onSaveActionPerformed);
             openFile.addActionListener(this::onOpenActionPerformed);
+            saveAs.addActionListener(e -> onSaveAsActionPerformed(e));
 
         }
 
@@ -103,6 +104,15 @@ public class Notepad extends JFrame {
         }
 
         private void onSaveActionPerformed(ActionEvent actionEvent) {
+            String text = textArea.getText();
+            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(currentFile))) {
+                bufferedWriter.write(text);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        private void onSaveAsActionPerformed(ActionEvent actionEvent) {
             String text = textArea.getText();
             JFileChooser fileChooser = new JFileChooser();
             int userSelection = fileChooser.showSaveDialog(null);
