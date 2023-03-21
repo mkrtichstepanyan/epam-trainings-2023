@@ -1,18 +1,22 @@
 package homework_12.Inesa_Mkrtchyan;
 
 import java.io.*;
+import java.util.Objects;
 
 public class Assigment1 {
-    public static void main(String[] args) {
-        String File = "src\\homework_12\\Inesa_Mkrtchyan\\Text.txt";
-        String JsonFile = "src\\homework_12\\Inesa_Mkrtchyan\\Test.json";
-        String inputText = readFile(JsonFile);
+    public static void main(String[] args) throws Exception {
+        String file = "src\\homework_12\\Inesa_Mkrtchyan\\Text.txt";
+        String jsonFile = "src\\homework_12\\Inesa_Mkrtchyan\\Test.json";
+        String inputText = readFile(jsonFile);
         String modifiedData = processData(inputText);
-        writeFile(JsonFile, modifiedData );
+        writeFile(jsonFile, modifiedData );
 
     }
 
-    public static String readFile(String fileName) {
+    public static String readFile(String fileName) throws Exception {
+        if(!isValidFile(fileName)) {
+            throw new Exception("File name is not valid!! \n I can work only with json csv or txt files");
+        }
         StringBuilder sb = new StringBuilder();
         try {
             BufferedReader br = new BufferedReader(new FileReader(fileName));
@@ -27,7 +31,10 @@ public class Assigment1 {
         return sb.toString();
     }
 
-    public static void writeFile(String fileName, String data) {
+    public static void writeFile(String fileName, String data) throws Exception {
+        if(!isValidFile(fileName)) {
+            throw new Exception("File name is not valid \n I can work only with json csv or txt files");
+        }
         try {
             //String dataForFile = readFile(fileName) + data;
             BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
@@ -43,9 +50,6 @@ public class Assigment1 {
         return data.toUpperCase();
     }
     private static boolean isValidFile(String fileName) {
-        if(fileName == "csv" || fileName == "txt" || fileName == "json"){
-            return true;
-        }
-        return false;
+        return fileName.contains("csv") || fileName.contains("txt") || fileName.contains("json");
     }
 }
