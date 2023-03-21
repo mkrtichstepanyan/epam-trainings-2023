@@ -135,16 +135,16 @@ public class Notepad extends JFrame implements DocumentListener {
 
         private Properties loadMessages(LabelKey labelKey) {
             String path = switch (labelKey.getLabel()) {
-                case "hy" -> "/roza_petrosyan/i18n/label_hy.properties";
-                case "ru" -> "/roza_petrosyan/i18n/label_ru.properties";
-                default -> "/roza_petrosyan/i18n/label.properties";
+                case "hy" -> "/roza_petrosyan/i18n/notepad_hy.properties";
+                case "ru" -> "/roza_petrosyan/i18n/notepad_ru.properties";
+                default -> "/roza_petrosyan/i18n/notepad.properties";
             };
 
             Properties properties = new Properties();
             InputStream inputStream = getClass().getResourceAsStream(path);
 
             if (inputStream != null) {
-                try (InputStreamReader reader = new InputStreamReader(inputStream, "UTF-8")) {
+                try (InputStreamReader reader = new InputStreamReader(inputStream)) {
                     properties.load(reader);
                 } catch (IOException e) {
                     e.printStackTrace();
