@@ -4,12 +4,12 @@ public class FileReadWriteExample {
     public static void main(String[] args) {
         try {
             // create a file object
-            File file = new File("test.txt");
+            String file = String.valueOf(new File("src/homework_12/Argishti_Mesropyan/test.txt"));
 
             // create a file writer object
             FileWriter writer = new FileWriter(file);
-
             // write some text to the file
+
             writer.write("Hello, World!\n");
             writer.write("This is a test file.\n");
 

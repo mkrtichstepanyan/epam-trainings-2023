@@ -1,7 +1,5 @@
 package homework_13.Varsik_Pijoyan.searcher;
 
-import classwork.io.search.FileSearcher;
-
 import java.io.File;
 
 public class Main {
