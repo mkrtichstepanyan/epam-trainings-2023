@@ -135,13 +135,13 @@ public class Notepad extends JFrame {
             String path = "";
             switch (labelKey.getLabel()) {
                 case "hy":
-                    path = "i18n/label_hy.properties";
+                    path = "nona_asatryan/i18n/label_hy.properties";
                     break;
                 case "ru":
-                    path = "i18n/label_ru.properties";
+                    path = "nona_asatryan/i18n/label_ru.properties";
                     break;
                 default:
-                    path = "i18n/label.properties";
+                    path = "nona_asatryan/i18n/label.properties";
             }
             inputStream = getClass().getClassLoader().getResourceAsStream(path);
             Properties properties = new Properties();
