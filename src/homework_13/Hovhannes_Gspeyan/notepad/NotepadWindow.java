@@ -6,11 +6,9 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 import static homework_13.Hovhannes_Gspeyan.notepad.NotepadWindow.LabelKey.*;
-import static java.nio.charset.StandardCharsets.UTF_8;
 import static javax.swing.JFileChooser.APPROVE_OPTION;
 import static javax.swing.JOptionPane.NO_OPTION;
 import static javax.swing.JOptionPane.YES_OPTION;
@@ -139,9 +137,9 @@ public class NotepadWindow extends JFrame {
         private Properties loadMessage(LabelKey labelKey) {
             InputStream inputStream;
             String path = switch (labelKey.getLabel()) {
-                case "hy" -> "i18n/label_hy.properties";
-                case "ru" -> "i18n/label_ru.properties";
-                default -> "i18n/label.properties";
+                case "hy" -> "Yeghia_Ansuryan/i18n/label_hy.properties";
+                case "ru" -> "Yeghia_Ansuryan/i18n/label_ru.properties";
+                default -> "Yeghia_Ansuryan/i18n/label.properties";
             };
             inputStream = getClass().getClassLoader().getResourceAsStream(path);
             Properties properties = new Properties();

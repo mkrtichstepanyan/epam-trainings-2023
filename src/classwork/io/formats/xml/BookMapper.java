@@ -37,6 +37,6 @@ public class BookMapper {
         book.setAuthor("Levon");
         book.setBookTitle("Levon-1");
         book.setAuthorNames(authors);
-        mapper.writeValue(file,book);
+        mapper.writeValue(file, book);
     }
 }
