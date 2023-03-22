@@ -25,13 +25,13 @@ public class PhoneNumberGenerator {
                 bufferedWriter.write("\n");
             }
         } catch (IOException e) {
-            System.out.println("I/O error" + e);
+            System.out.println("I/O error " + e);
         }
     }
 
     public static void main(String[] args) {
         String[] numbers = generatePhoneNumbers("094");
-        String fileName = "epam-trainings-2023/src/homework_11/Nelli_Poghosyan/Assignment_2/PhoneNumber.txt";
+        String fileName = "src/homework_11/Nelli_Poghosyan/Assignment_2/PhoneNumbers.txt";
         writePhoneNumbers(numbers, fileName);
     }
 }
