@@ -1,9 +1,13 @@
 package homework_13.anna_manukyan.notepad;
 
+import homework_13.anna_manukyan.notepad.enums.Language;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Properties;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
@@ -52,12 +56,14 @@ public class Notepad extends JFrame {
         private final JMenuItem ruLang;
 
         public NotepadMenuBar() {
-            file = new JMenu("File");
-            newFile = new JMenuItem("New");
-            openFile = new JMenuItem("Open");
-            save = new JMenuItem("Save");
-            saveAs = new JMenuItem("Save as");
-            close = new JMenuItem("Close");
+
+
+            file = new JMenu();
+            newFile = new JMenuItem();
+            openFile = new JMenuItem();
+            save = new JMenuItem();
+            saveAs = new JMenuItem();
+            close = new JMenuItem();
 
             file.add(newFile);
             file.add(openFile);
@@ -65,10 +71,10 @@ public class Notepad extends JFrame {
             file.add(saveAs);
             file.add(close);
 
-            language = new JMenu("Language");
-            enLang = new JMenuItem("English");
-            amLang = new JMenuItem("Armenian");
-            ruLang = new JMenuItem("Russian");
+            language = new JMenu();
+            enLang = new JMenuItem();
+            amLang = new JMenuItem();
+            ruLang = new JMenuItem();
 
             language.add(enLang);
             language.add(amLang);
@@ -76,7 +82,7 @@ public class Notepad extends JFrame {
 
             add(file);
             add(language);
-
+            loadMenuLabels(Language.EN);
 
             close.addActionListener(this::onCloseActionPerformed);
             save.addActionListener(this::onSaveActionPerformed);
@@ -84,6 +90,9 @@ public class Notepad extends JFrame {
             openFile.addActionListener(this::onOpenActionPerformed);
             newFile.addActionListener(this::onNewActionPerformed);
 
+            amLang.addActionListener(e -> loadMenuLabels(Language.AM));
+            ruLang.addActionListener(e -> loadMenuLabels(Language.RU));
+            enLang.addActionListener(e -> loadMenuLabels(Language.EN));
         }
 
         private void onSaveAsActionPerformed(ActionEvent actionEvent) {
@@ -124,6 +133,38 @@ public class Notepad extends JFrame {
             if (option == JOptionPane.NO_OPTION) {
                 System.exit(0);
             }
+        }
+
+        private void loadMenuLabels(Language language) {
+            InputStream inputStream;
+            String path = switch (language.getName()) {
+                case "hy" -> "i18n/notepad_hy.properties";
+                case "ru" -> "i18n/notepad_ru.properties";
+                default -> "i18n/notepad.properties";
+            };
+            inputStream = getClass().getClassLoader().getResourceAsStream(path);
+            Properties properties = new Properties();
+            try {
+                Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+                properties.load(reader);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            loadMenuLabels(properties);
+        }
+
+        private void loadMenuLabels(Properties properties) {
+            file.setText(properties.getProperty("file.menu.name"));
+            newFile.setText(properties.getProperty("new.menu.item.name"));
+            save.setText(properties.getProperty("save.menu.item.name"));
+            saveAs.setText(properties.getProperty("saveAs.menu.name"));
+            openFile.setText(properties.getProperty("open.menu.item.name"));
+            close.setText(properties.getProperty("close.menu.item.name"));
+
+            language.setText(properties.getProperty("lang.menu.name"));
+            enLang.setText(properties.getProperty("lang.en.menu.item.name"));
+            amLang.setText(properties.getProperty("lang.am.menu.item.name"));
+            ruLang.setText(properties.getProperty("lang.ru.menu.item.name"));
         }
 
         @Override
@@ -172,9 +213,5 @@ public class Notepad extends JFrame {
                 e.printStackTrace();
             }
         }
-    }
-
-    public static void main(String[] args) {
-        new Notepad();
     }
 }
