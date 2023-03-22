@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.*;
+import java.util.Properties;
 
 public class Notepad extends JFrame {
     private JTextArea textArea;
@@ -40,12 +41,12 @@ public class Notepad extends JFrame {
         private final JMenuItem engLang;
 
         public NotepadMenuBar() {
-            file = new JMenu("File");
-            newFile = new JMenuItem("New");
-            openFile = new JMenuItem("Open");
-            save = new JMenuItem("Save");
-            saveAs = new JMenuItem("Save as");
-            close = new JMenuItem("Close");
+            file = new JMenu();
+            newFile = new JMenuItem();
+            openFile = new JMenuItem();
+            save = new JMenuItem();
+            saveAs = new JMenuItem();
+            close = new JMenuItem();
 
             file.add(newFile);
             file.add(openFile);
@@ -53,10 +54,10 @@ public class Notepad extends JFrame {
             file.add(saveAs);
             file.add(close);
 
-            language = new JMenu("Language");
-            engLang = new JMenuItem("English");
-            armLang = new JMenuItem("Armenian");
-            rusLang = new JMenuItem("Russian");
+            language = new JMenu();
+            engLang = new JMenuItem();
+            armLang = new JMenuItem();
+            rusLang = new JMenuItem();
 
             language.add(engLang);
             language.add(armLang);
@@ -70,8 +71,27 @@ public class Notepad extends JFrame {
             save.addActionListener(this::onSaveActionPerformed);
             saveAs.addActionListener(this::onSaveAsActionPerformed);
             close.addActionListener(this::onCloseActionPerformed);
+
+            loadMenuLabels(LabelKey.HY);
+            loadMenuLabels(LabelKey.RU);
+            loadMenuLabels(LabelKey.EN);
+
+            armLang.addActionListener(this::onArmLangActionPerformed);
+            rusLang.addActionListener(this::onRusLangActionPerformed);
+            engLang.addActionListener(this::onEngLangActionPerformed);
         }
 
+        private void onArmLangActionPerformed(ActionEvent actionEvent) {
+            loadMenuLabels(LabelKey.HY);
+        }
+
+        private void onRusLangActionPerformed(ActionEvent actionEvent) {
+            loadMenuLabels(LabelKey.RU);
+        }
+
+        private void onEngLangActionPerformed(ActionEvent actionEvent) {
+            loadMenuLabels(LabelKey.EN);
+        }
 
         private void newFileActionPerformed(ActionEvent actionevent) {
             if (textArea.getText().isEmpty()) {
@@ -89,6 +109,48 @@ public class Notepad extends JFrame {
                 }
             }
 
+        }
+
+        private void loadMenuLabels(LabelKey labelKey) {
+            Properties properties = loadMessages(labelKey);
+            loadMenuLabels(properties);
+        }
+
+        private void loadMenuLabels(Properties properties) {
+            file.setText(properties.getProperty("file.menu.name"));
+            newFile.setText(properties.getProperty("new.menu.name"));
+            openFile.setText(properties.getProperty("open.menu.name"));
+            save.setText(properties.getProperty("save.menu.name"));
+            saveAs.setText(properties.getProperty("saveAs.menu.name"));
+            close.setText(properties.getProperty("close.menu.name"));
+
+            language.setText(properties.getProperty("language.menu.name"));
+            armLang.setText(properties.getProperty("hy.menu.name"));
+            rusLang.setText(properties.getProperty("ru.menu.name"));
+            engLang.setText(properties.getProperty("en.menu.name"));
+        }
+
+        private Properties loadMessages(LabelKey labelKey) {
+            InputStream inputStream;
+            String path = "";
+            switch (labelKey.getLabel()) {
+                case "hy":
+                    path = "i18n/label_hy.properties";
+                    break;
+                case "ru":
+                    path = "i18n/label_ru.properties";
+                    break;
+                default:
+                    path = "i18n/label.properties";
+            }
+            inputStream = getClass().getClassLoader().getResourceAsStream(path);
+            Properties properties = new Properties();
+            try {
+                properties.load(inputStream);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return properties;
         }
 
         private void onOpenActionPerformed(ActionEvent actionEvent) {
