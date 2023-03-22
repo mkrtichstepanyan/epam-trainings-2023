@@ -1,9 +1,0 @@
-<Book>
-    <author>Levon</author>
-    <title>Levon-1</title>
-    <authors>
-        <authors>author1</authors>
-        <authors>author2</authors>
-        <authors>author3</authors>
-    </authors>
-</Book>
