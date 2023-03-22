@@ -18,29 +18,28 @@ class FileCreator {
                     StandardOpenOption.CREATE, StandardOpenOption.WRITE)) {
                 channel.write(buffer);
                 readBuffer = ByteBuffer.allocate(1024);
-                try (FileChannel channel2 = FileChannel.open(Paths.get(fileNameToRead), StandardOpenOption.READ)) {
-                    channel2.read(readBuffer);
-                    readBuffer.flip();
-                    this.readBuffer = readBuffer;
-                    String content = new String(readBuffer.array()).trim();
-                    return content;
-                } catch (FileNotFoundException e) {
-                    System.err.println("File Not Found !");
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    System.err.println("Failed to create the file which is needed to read !");
-                }
+                return readFromTheCreatedFile(fileNameToRead, readBuffer);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
-            try {
-                throw new NonAcceptableFileFormatException();
-            } catch (NonAcceptableFileFormatException e) {
-                System.err.println(e.getMessage());
-                System.err.println("Unable to create the file for reading");
-                e.printStackTrace();
-            }
+            callingNonAcceptableFileFormatException();
+        }
+        return null;
+    }
+
+    private String readFromTheCreatedFile(String fileNameToRead, ByteBuffer readBuffer) {
+        try (FileChannel channel2 = FileChannel.open(Paths.get(fileNameToRead), StandardOpenOption.READ)) {
+            channel2.read(readBuffer);
+            readBuffer.flip();
+            this.readBuffer = readBuffer;
+            String content = new String(readBuffer.array()).trim();
+            return content;
+        } catch (FileNotFoundException e) {
+            System.err.println("File Not Found !");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.err.println("Failed to create the file which is needed to read !");
         }
         return null;
     }
@@ -75,13 +74,17 @@ class FileCreator {
                 }
             }
         } else {
-            try {
-                throw new NonAcceptableFileFormatException();
-            } catch (NonAcceptableFileFormatException e) {
-                System.err.println(e.getMessage());
-                System.err.println("Unable to create the file for writing");
-                e.printStackTrace();
-            }
+            callingNonAcceptableFileFormatException();
+        }
+    }
+
+    private void callingNonAcceptableFileFormatException() {
+        try {
+            throw new NonAcceptableFileFormatException();
+        } catch (NonAcceptableFileFormatException e) {
+            System.err.println(e.getMessage());
+            System.err.println("Unable to create the file");
+            e.printStackTrace();
         }
     }
 
@@ -95,4 +98,5 @@ class FileCreator {
         }
         return false;
     }
+
 }
