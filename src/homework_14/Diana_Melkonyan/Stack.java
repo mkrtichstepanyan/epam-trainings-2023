@@ -2,37 +2,46 @@ package homework_14.Diana_Melkonyan;
 
 public class Stack<T> {
 
-    private int size;
+
     private T[] stackAr;
     private int index;
 
     public Stack(int size) {
-        this.size = size;
-        stackAr = (T[])new Object[size];
+        stackAr = (T[]) new Object[size];
         index = -1;
     }
 
-    public void push(T value) {
-        if (isFull()) {
-            System.out.println("Cannot push "+value+", Stack is full");
+    public void push(T item) {
+        if (index >= (stackAr.length * 75) / 100) {
+            extendCapacity();
         }
-        stackAr[++index] = value;
+        stackAr[++index] = item;
     }
+
+    private void extendCapacity() {
+        T[] newArr = (T[]) new Object[2 * stackAr.length];
+        for (int i = 0; i < stackAr.length; i++) {
+            newArr[i] = stackAr[i];
+        }
+        stackAr = newArr;
+    }
+
 
     public T pop() {
-        if (isEmpty()) {
-            System.out.println("Stack is empty");
+        if (index < 0) {
+            System.out.println("The stack is empty!");
+            return null;
+        } else {
+
+            T curentElement = stackAr[index];
+            stackAr[index] = null;
+            index--;
+            return curentElement;
         }
-        return stackAr[index--];
     }
 
-
-    public boolean isFull() {
-        return (index == size - 1);
-    }
-
-    public boolean isEmpty() {
-        return (index == -1);
+    public int getIndex() {
+        return index;
     }
 
 }
