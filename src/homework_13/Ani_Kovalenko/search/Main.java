@@ -20,7 +20,7 @@ public class Main {
      */
 
     public static void main(String[] args) {
-        File[] files = FileSearcher.searchFiles("test_file", "src/homework_13/Ani_Kovalenko/search/Files");
+        File[] files = FileSearcher.searchFiles("*st_fi*", "src/homework_13/Ani_Kovalenko/search/Files");
         for (File file : files) {
             if (file != null) {
                 System.out.println(file.getName() + " --> " + file.getParentFile().getName());
