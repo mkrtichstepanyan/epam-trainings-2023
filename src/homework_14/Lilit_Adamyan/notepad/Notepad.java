@@ -1,20 +1,20 @@
-package homework_13.Lilit_Adamyan.notepad;
+package homework_14.Lilit_Adamyan.notepad;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Locale;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
 public class Notepad extends JFrame {
-    private ResourceBundle resourceBundle;
     private JTextArea textArea;
     private File currentFile;
 
-
     public Notepad() {
-        resourceBundle = ResourceBundle.getBundle("resources/i18n/Notepad");
 
         currentFile = new File("Result.txt");
         textArea = new JTextArea();
@@ -29,28 +29,29 @@ public class Notepad extends JFrame {
         setSize(800, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
+
     }
 
     class NotepadMenuBar extends JMenuBar {
-        private JMenu file;
-        private JMenuItem newFile;
-        private  JMenuItem openFile;
-        private  JMenuItem save;
-        private  JMenuItem saveAs;
-        private  JMenuItem close;
+        private final JMenu file;
+        private final JMenuItem newFile;
+        private final JMenuItem openFile;
+        private final JMenuItem save;
+        private final JMenuItem saveAs;
+        private final JMenuItem close;
 
-        private  JMenu language;
-        private  JMenuItem armLang;
-        private  JMenuItem rusLang;
-        private  JMenuItem engLang;
+        private final JMenu language;
+        private final JMenuItem armLang;
+        private final JMenuItem rusLang;
+        private final JMenuItem engLang;
 
         public NotepadMenuBar() {
-            file = new JMenu(resourceBundle.getString("menu.file"));
-            newFile = new JMenuItem(resourceBundle.getString("menu.new"));
-            openFile = new JMenuItem(resourceBundle.getString("menu.open"));
-            save = new JMenuItem(resourceBundle.getString("menu.save"));
-            saveAs = new JMenuItem(resourceBundle.getString("menu.saveAs"));
-            close = new JMenuItem(resourceBundle.getString("menu.close"));
+            file = new JMenu("File");
+            newFile = new JMenuItem("New");
+            openFile = new JMenuItem("Open");
+            save = new JMenuItem("Save");
+            saveAs = new JMenuItem("Save as");
+            close = new JMenuItem("Close");
 
             file.add(newFile);
             file.add(openFile);
@@ -58,10 +59,10 @@ public class Notepad extends JFrame {
             file.add(saveAs);
             file.add(close);
 
-            language = new JMenu(resourceBundle.getString("menu.language"));
-            engLang = new JMenuItem(resourceBundle.getString("menu.english"));
-            armLang = new JMenuItem(resourceBundle.getString("menu.armenian"));
-            rusLang = new JMenuItem(resourceBundle.getString("menu.russian"));
+            language = new JMenu("Language");
+            engLang = new JMenuItem("English");
+            armLang = new JMenuItem("Armenian");
+            rusLang = new JMenuItem("Russian");
 
             language.add(engLang);
             language.add(armLang);
@@ -76,55 +77,46 @@ public class Notepad extends JFrame {
             saveAs.addActionListener(this::onSaveAsActionPerformed);
             close.addActionListener(this::onCloseActionPerformed);
 
-            armLang.addActionListener(e -> updateLocale(LabelKey.AM));
-            rusLang.addActionListener(e -> updateLocale(LabelKey.RU));
-            engLang.addActionListener(e -> updateLocale(LabelKey.EN));
+            armLang.addActionListener(e -> loadMenuLabels(LabelKey.AM));
+            rusLang.addActionListener(e -> loadMenuLabels(LabelKey.RU));
+            engLang.addActionListener(e -> loadMenuLabels(LabelKey.EN));
 
         }
 
-        private void updateLocale(LabelKey labelKey) {
-            loadMessages(labelKey);
-            updateMenuText();
 
+        private void updateMenuText(Properties properties) {
+            file.setText(properties.getProperty("file.menu.name"));
+            newFile.setText(properties.getProperty("create.menu.item.name"));
+            openFile.setText(properties.getProperty("open.menu.item.name"));
+            save.setText(properties.getProperty("save.menu.item.name"));
+            saveAs.setText(properties.getProperty("saveAs.menu.name"));
+            close.setText(properties.getProperty("close.menu.item.name"));
+
+            language.setText(properties.getProperty("lang.menu.name"));
+            engLang.setText(properties.getProperty("lang.en.menu.item.name"));
+            armLang.setText(properties.getProperty("lang.am.menu.item.name"));
+            rusLang.setText(properties.getProperty("lang.ru.menu.item.name"));
         }
 
-        private void updateMenuText() {
-            file.setText(resourceBundle.getString("menu.file"));
-            newFile.setText(resourceBundle.getString("menu.new"));
-            openFile.setText(resourceBundle.getString("menu.open"));
-            save.setText(resourceBundle.getString("menu.save"));
-            saveAs.setText(resourceBundle.getString("menu.saveAs"));
-            close.setText(resourceBundle.getString("menu.close"));
-
-            language.setText(resourceBundle.getString("menu.language"));
-            engLang.setText(resourceBundle.getString("menu.english"));
-            armLang.setText(resourceBundle.getString("menu.armenian"));
-            rusLang.setText(resourceBundle.getString("menu.russian"));
-        }
-        private Properties loadMessages(LabelKey labelKey){
+        private void loadMenuLabels(LabelKey labelKey) {
             InputStream inputStream;
-            String path = "";
-            switch ((labelKey.getLabel())){
-                case "am":
-                    path = "i18n/Notepad_arm.properties";
-                    break;
-                case "ru":
-                    path ="i18n/Notepad_ru.properties";
-                    break;
-                default:
-                    path= "i18n/Notepad.properties";
-                    break;
+            String path = switch (labelKey.getLabel()) {
+                case "hy" -> "i18n/notepad_hy.properties";
+                case "ru" -> "i18n/notepad_ru.properties";
+                default -> "i18n/notepad.properties";
 
-            }
-            inputStream = getClass().getResourceAsStream(path);
+            };
+            inputStream = getClass().getClassLoader().getResourceAsStream(path);
             Properties properties = new Properties();
             try {
-                properties.load(inputStream);
+                Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+                properties.load(reader);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            return properties;
+            updateMenuText(properties);
         }
+
 
         private void newFileActionPerformed(ActionEvent actionevent) {
             if (textArea.getText().isEmpty()) {
@@ -224,10 +216,11 @@ public class Notepad extends JFrame {
     }
 
 
-    enum LabelKey{
-        AM("am"),RU("ru"),EN("en");
+    enum LabelKey {
+        AM("hy"), RU("ru"), EN("en");
         private String label;
-        LabelKey(String label){
+
+        LabelKey(String label) {
             this.label = label;
         }
 
@@ -241,6 +234,9 @@ public class Notepad extends JFrame {
     }
 
 }
+
+
+
 
 
 
