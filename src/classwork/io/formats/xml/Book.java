@@ -1,5 +1,6 @@
 package classwork.io.formats.xml;
 
+/*
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 import java.util.Arrays;
@@ -45,3 +46,4 @@ public class Book {
         this.authorNames = authorNames;
     }
 }
+*/

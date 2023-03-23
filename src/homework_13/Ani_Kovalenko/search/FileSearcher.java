@@ -20,7 +20,6 @@ public class FileSearcher {
         File[] result = new File[1000]; //TODO: update when learn collections
         File currentDirectory = new File(directory);
         searchRecursively(currentDirectory, fileNamePattern, result);
-
         return result;
     }
 
