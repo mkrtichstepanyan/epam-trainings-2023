@@ -27,7 +27,6 @@ public class Assignment2 {
             System.out.println("An I/O Error Occurred: " + e.getMessage());
         }
     }
-
     public static void main(String[] args) {
         String fileName = "src/homework_12/Varsik_Pijoyan/NIO/file/phoneNumber.txt";
 

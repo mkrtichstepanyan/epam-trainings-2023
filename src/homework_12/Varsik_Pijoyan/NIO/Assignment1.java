@@ -58,5 +58,4 @@ public class Assignment1 {
         writeFile("src/homework_12/Varsik_Pijoyan/NIO/" +
                 "file/test.txt", modifiedData);
     }
-
 }
