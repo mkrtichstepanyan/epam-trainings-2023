@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Properties;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
@@ -49,12 +51,12 @@ public class Notepad extends JFrame {
 
 
         public NotepadMenuBar() {
-            file = new JMenu("File");
-            newFile = new JMenuItem("New");
-            openFile = new JMenuItem("Open");
-            save = new JMenuItem("Save");
-            saveAs = new JMenuItem("Save As");
-            close = new JMenuItem("Close");
+            file = new JMenu();
+            newFile = new JMenuItem();
+            openFile = new JMenuItem();
+            save = new JMenuItem();
+            saveAs = new JMenuItem();
+            close = new JMenuItem();
 
             file.add(newFile);
             file.add(openFile);
@@ -62,10 +64,10 @@ public class Notepad extends JFrame {
             file.add(saveAs);
             file.add(close);
 
-            language = new JMenu("Language");
-            enLang = new JMenuItem("English");
-            amLang = new JMenuItem("Armenian");
-            ruLang = new JMenuItem("Russian");
+            language = new JMenu();
+            enLang = new JMenuItem();
+            amLang = new JMenuItem();
+            ruLang = new JMenuItem();
 
             language.add(enLang);
             language.add(amLang);
@@ -93,6 +95,73 @@ public class Notepad extends JFrame {
             saveAs.addActionListener(this::onSaveAsActionPerformed);
             save.addActionListener(this::onSaveActionPerformed);
 
+            loadMenuLabels(LabelKey.EN);
+
+            enLang.addActionListener(this::onEnLangActionPerformed);
+            amLang.addActionListener(this::onAmLangActionPerformed);
+            ruLang.addActionListener(this::onRuLangActionPerformed);
+
+
+        }
+
+
+        private void loadMenuLabels(LabelKey labelKey) {
+            Properties properties = loadMessages(labelKey);
+            loadMenuLabels(properties);
+
+        }
+
+        private void loadMenuLabels(Properties properties) {
+            file.setText(properties.getProperty("file.menu.name"));
+            newFile.setText(properties.getProperty("new.menu.name"));
+            openFile.setText(properties.getProperty("open.menu.name"));
+            save.setText(properties.getProperty("save.menu.name"));
+            saveAs.setText(properties.getProperty("saveAs.menu.name"));
+            close.setText(properties.getProperty("close.menu.name"));
+            language.setText(properties.getProperty("language.menu.name"));
+            enLang.setText(properties.getProperty("eng.menu.name"));
+            amLang.setText(properties.getProperty("arm.menu.name"));
+            ruLang.setText(properties.getProperty("ru.menu.name"));
+        }
+
+        private Properties loadMessages(LabelKey labelKey) {
+            InputStream inputStream;
+            String path = "";
+            switch (labelKey.getLabel()) {
+                case "hy":
+                    path = "i18n/label_hy.properties";
+                    break;
+                case "ru":
+                    path = "i18n/label_ru.properties";
+                    break;
+                default:
+                    path = "i18n/label.properties";
+            }
+            inputStream = getClass().getClassLoader().getResourceAsStream(path);
+
+            Properties properties = new Properties();
+            try {
+                properties.load(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return properties;
+        }
+
+        enum LabelKey {
+            AM("hy"),
+            EN("en"),
+            RU("ru");
+
+            private String label;
+
+            LabelKey(String label) {
+                this.label = label;
+            }
+
+            public String getLabel() {
+                return label;
+            }
         }
 
         private static boolean isTextModified(JTextArea textArea) {
@@ -199,6 +268,20 @@ public class Notepad extends JFrame {
                 }
             }
         }
+
+        private void onAmLangActionPerformed(ActionEvent event) {
+            loadMenuLabels(LabelKey.AM);
+        }
+
+        private void onRuLangActionPerformed(ActionEvent event) {
+            loadMenuLabels(LabelKey.RU);
+        }
+
+        private void onEnLangActionPerformed(ActionEvent event) {
+            loadMenuLabels(LabelKey.EN);
+        }
+
+
     }
 
     public static void main(String[] args) {
