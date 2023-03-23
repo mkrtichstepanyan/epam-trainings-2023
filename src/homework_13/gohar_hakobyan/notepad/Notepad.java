@@ -30,7 +30,7 @@ public class Notepad extends JFrame {
 
         add(jScrollPane);
         add(menuBar, BorderLayout.NORTH);
-        setSize(800, 500);
+        setSize(1200, 1200);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }
@@ -58,18 +58,12 @@ public class Notepad extends JFrame {
             file.add(saveAs);
             file.add(close);
 
-            language = new JMenu();
-            enLang = new JMenuItem();
-            amLang = new JMenuItem();
-            ruLang = new JMenuItem();
-
             language.add(enLang);
             language.add(amLang);
             language.add(ruLang);
 
             add(file);
             add(language);
-            loadMenuLabels(LanguageType.EN);
 
             newFile.addActionListener(this::onNewFileActionPerformed);
             close.addActionListener(this::onCloseActionPerformed);
@@ -207,9 +201,9 @@ public class Notepad extends JFrame {
         private void loadMenuLabels(LanguageType languageType) {
             InputStream inputStream;
             String path = switch (languageType.getLabel()) {
-                case "hy" -> "i18n/notepad_hy.properties";
-                case "ru" -> "i18n/notepad_ru.properties";
-                default -> "i18n/notepad.properties";
+                case "hy" -> "gohar_hakobyan/i18n/notepad_hy.properties";
+                case "ru" -> "gohar_hakobyan/i18n/notepad_ru.properties";
+                default -> "gohar_hakobyan/i18n/notepad.properties";
             };
             inputStream = getClass().getClassLoader().getResourceAsStream(path);
             Properties properties = new Properties();
@@ -230,7 +224,6 @@ public class Notepad extends JFrame {
             save.setText(properties.getProperty("save.menu.item.name"));
             saveAs.setText(properties.getProperty("saveas.menu.name"));
             close.setText(properties.getProperty("close.menu.item.name"));
-
             language.setText(properties.getProperty("lang.menu.name"));
             enLang.setText(properties.getProperty("lang.en.menu.item.name"));
             ruLang.setText(properties.getProperty("lang.ru.menu.item.name"));
