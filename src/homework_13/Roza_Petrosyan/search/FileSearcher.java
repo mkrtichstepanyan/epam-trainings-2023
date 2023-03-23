@@ -1,6 +1,7 @@
 package homework_13.Roza_Petrosyan.search;
 
 import java.io.File;
+import java.util.Arrays;
 
 public class FileSearcher {
 
@@ -55,11 +56,19 @@ public class FileSearcher {
             int starLastIndex = fileNamePattern.lastIndexOf("*");
             String prefix = fileNamePattern.substring(0, starStartIndex);
             String suffix = fileNamePattern.substring(starStartIndex + 1);
+            boolean result = false;
             if(starStartIndex == starLastIndex) {
                 return fileName.startsWith(prefix) && fileName.endsWith(suffix);
             } else {
                 String middle = fileNamePattern.substring(starStartIndex + 1, starLastIndex);
-                return fileName.contains(middle) && !fileName.startsWith(middle) && !fileName.endsWith(middle);
+                String withoutExtensionFileName = fileName.replace(".txt","");
+                if(fileName.contains(middle)) {
+                    String[] splitList = withoutExtensionFileName.split(middle);
+                    if(splitList.length == 0 || (!splitList[0].isEmpty() && !splitList[splitList.length-1].isEmpty())){
+                        result = true;
+                    }
+                }
+                return result;
             }
         }
     }

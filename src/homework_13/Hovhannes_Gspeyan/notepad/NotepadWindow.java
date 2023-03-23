@@ -6,7 +6,14 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Properties;
 
+import static homework_13.Hovhannes_Gspeyan.notepad.NotepadWindow.LabelKey.*;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static javax.swing.JFileChooser.APPROVE_OPTION;
+import static javax.swing.JOptionPane.NO_OPTION;
+import static javax.swing.JOptionPane.YES_OPTION;
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
 
@@ -62,22 +69,24 @@ public class NotepadWindow extends JFrame {
         private final JMenuItem ruLang;
 
         public NotepadMenuBar() {
-            file = new JMenu("File");
-            newFile = new JMenuItem("new file");
-            openFile = new JMenuItem("open file");
-            saveFile = new JMenuItem("save file");
-            saveAs = new JMenuItem("save as");
-            close = new JMenuItem("close");
+            file = new JMenu();
+            newFile = new JMenuItem();
+            openFile = new JMenuItem();
+            saveFile = new JMenuItem();
+            saveAs = new JMenuItem();
+            close = new JMenuItem();
+
             file.add(newFile);
             file.add(openFile);
             file.add(saveFile);
             file.add(saveAs);
             file.add(close);
 
-            language = new JMenu("Language");
-            amLang = new JMenuItem("Armenian");
-            enLang = new JMenuItem("English");
-            ruLang = new JMenuItem("Russian");
+            language = new JMenu();
+            amLang = new JMenuItem();
+            enLang = new JMenuItem();
+            ruLang = new JMenuItem();
+
             language.add(amLang);
             language.add(enLang);
             language.add(ruLang);
@@ -90,6 +99,58 @@ public class NotepadWindow extends JFrame {
             openFile.addActionListener(this::onOpenActionPerformed);
             newFile.addActionListener(this::onNewFileActionPerformed);
             saveAs.addActionListener(this::onSaveAsActionPerformed);
+
+            loadMenuLabels(ENGLISH);
+
+            enLang.addActionListener(this::onEnLangActionPerformed);
+            amLang.addActionListener(this::onAmLangActionPerformed);
+            ruLang.addActionListener(this::onRuLangActionPerformed);
+        }
+
+        private void onRuLangActionPerformed(ActionEvent actionEvent) {
+            loadMenuLabels(RUSSIAN);
+        }
+
+        private void onAmLangActionPerformed(ActionEvent actionEvent) {
+            loadMenuLabels(ARMENIAN);
+        }
+
+        private void onEnLangActionPerformed(ActionEvent actionEvent) {
+            loadMenuLabels(ENGLISH);
+        }
+
+        private void loadMenuLabels(LabelKey labelKey){
+            Properties properties = loadMessage(labelKey);
+            loadMenuLabels(properties);
+        }
+        private void loadMenuLabels(Properties properties) {
+            file.setText(properties.getProperty("file.menu.name"));
+            newFile.setText(properties.getProperty("new.menu.name"));
+            openFile.setText(properties.getProperty("open.menu.name"));
+            saveFile.setText(properties.getProperty("save.menu.name"));
+            saveAs.setText(properties.getProperty("saveAs.menu.name"));
+            close.setText(properties.getProperty("close.menu.name"));
+
+            language.setText(properties.getProperty("language.menu.name"));
+            enLang.setText(properties.getProperty("en.menu.name"));
+            amLang.setText(properties.getProperty("hy.menu.name"));
+            ruLang.setText(properties.getProperty("ru.menu.name"));
+        }
+        private Properties loadMessage(LabelKey labelKey) {
+            InputStream inputStream;
+            String path = switch (labelKey.getLabel()) {
+                case "hy" -> "i18n/label_hy.properties";
+                case "ru" -> "i18n/label_ru.properties";
+                default -> "i18n/label.properties";
+            };
+            inputStream = getClass().getClassLoader().getResourceAsStream(path);
+            Properties properties = new Properties();
+            try {
+                properties.load(inputStream);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return properties;
         }
 
         private void onSaveAsActionPerformed(ActionEvent actionEvent) {
@@ -121,7 +182,7 @@ public class NotepadWindow extends JFrame {
                 textArea.setText("");
             } else if (unsavedChanges) {
                 int choice = JOptionPane.showConfirmDialog(this, "do you want to save? ");
-                if (choice == JOptionPane.YES_OPTION) {
+                if (choice == YES_OPTION) {
                     onSaveFileActionPerformed(actionEvent);
                 }
                 currentFile = null;
@@ -139,7 +200,7 @@ public class NotepadWindow extends JFrame {
             int choice = fileChooser.showOpenDialog(this);
             String lineContent;
             StringBuilder fullContent = new StringBuilder();
-            if (choice == JFileChooser.APPROVE_OPTION) {
+            if (choice == APPROVE_OPTION) {
                 try (BufferedReader reader = new BufferedReader(new FileReader(fileChooser.getSelectedFile()))) {
                     while ((lineContent = reader.readLine()) != null) {
                         textArea.setText(String.valueOf(fullContent.append(lineContent).append("\n")));
@@ -161,19 +222,37 @@ public class NotepadWindow extends JFrame {
         }
 
         private void onCloseActionPerformed(ActionEvent e) {
-            if(textArea.getText().isEmpty()){
+            if (textArea.getText().isEmpty()) {
                 System.exit(0);
             } else if (unsavedChanges) {
                 int option = JOptionPane.showConfirmDialog(this, "do you want to save? ");
-                if (option == JOptionPane.YES_OPTION) {
+                if (option == YES_OPTION) {
                     onSaveFileActionPerformed(e);
                     System.exit(0);
-                }if(option == JOptionPane.NO_OPTION){
+                }
+                if (option == NO_OPTION) {
                     System.exit(0);
                 }
-            }else {
+            } else {
                 System.exit(0);
             }
+        }
+    }
+
+    enum LabelKey {
+
+        ARMENIAN("hy"),
+        ENGLISH("en"),
+        RUSSIAN("ru");
+
+        private String label;
+
+        LabelKey(String label) {
+            this.label = label;
+        }
+
+        public String getLabel() {
+            return label;
         }
     }
 

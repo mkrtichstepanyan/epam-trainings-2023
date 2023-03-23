@@ -6,6 +6,7 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.*;
+import java.util.*;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
@@ -34,6 +35,7 @@ public class Notepad extends JFrame implements DocumentListener {
         textArea.getDocument().addDocumentListener(this);
         setVisible(true);
     }
+
     @Override
     public void insertUpdate(DocumentEvent e) {
         changed = true;
@@ -62,12 +64,12 @@ public class Notepad extends JFrame implements DocumentListener {
         private final JMenuItem ruLang;
 
         public NotepadMenuBar() {
-            file = new JMenu("File");
-            newFile = new JMenuItem("New");
-            openFile = new JMenuItem("Open");
-            save = new JMenuItem("Save");
-            saveAs = new JMenuItem("Save as");
-            close = new JMenuItem("Close");
+            file = new JMenu();
+            newFile = new JMenuItem();
+            openFile = new JMenuItem();
+            save = new JMenuItem();
+            saveAs = new JMenuItem();
+            close = new JMenuItem();
 
             file.add(newFile);
             file.add(openFile);
@@ -75,10 +77,10 @@ public class Notepad extends JFrame implements DocumentListener {
             file.add(saveAs);
             file.add(close);
 
-            language = new JMenu("Language");
-            enLang = new JMenuItem("English");
-            amLang = new JMenuItem("Armenian");
-            ruLang = new JMenuItem("Russian");
+            language = new JMenu();
+            enLang = new JMenuItem();
+            amLang = new JMenuItem();
+            ruLang = new JMenuItem();
 
             language.add(enLang);
             language.add(amLang);
@@ -93,6 +95,63 @@ public class Notepad extends JFrame implements DocumentListener {
             saveAs.addActionListener(this::onSaveAsActionPerformed);
             close.addActionListener(this::onCloseActionPerformed);
 
+            enLang.addActionListener(this::onEnLanguageActionPerformed);
+            amLang.addActionListener(this::onAmLanguageActionPerformed);
+            ruLang.addActionListener(this::onRuLanguageActionPerformed);
+
+            loadMenuLables(LabelKey.EN);
+        }
+
+        private void onEnLanguageActionPerformed(ActionEvent actionEvent) {
+            loadMenuLables(LabelKey.EN);
+        }
+
+        private void onAmLanguageActionPerformed(ActionEvent actionEvent) {
+            loadMenuLables(LabelKey.HY);
+        }
+
+        private void onRuLanguageActionPerformed(ActionEvent actionEvent) {
+            loadMenuLables(LabelKey.RU);
+        }
+
+        private void loadMenuLables(LabelKey labelKey) {
+            Properties properties = loadMessages(labelKey);
+            loadMenuLables(properties);
+        }
+
+        private void loadMenuLables(Properties properties) {
+            file.setText(properties.getProperty("file.menu.name").formatted("UTF-8"));
+            newFile.setText(properties.getProperty("newFile.menu.name"));
+            openFile.setText(properties.getProperty("openFile.menu.name"));
+            save.setText(properties.getProperty("save.menu.name"));
+            saveAs.setText(properties.getProperty("saveAs.menu.name"));
+            close.setText(properties.getProperty("close.menu.name"));
+
+            language.setText(properties.getProperty("language.menu.name"));
+            enLang.setText(properties.getProperty("enLang.menu.name"));
+            amLang.setText(properties.getProperty("amLang.menu.name"));
+            ruLang.setText(properties.getProperty("ruLang.menu.name"));
+        }
+
+        private Properties loadMessages(LabelKey labelKey) {
+            String path = switch (labelKey.getLabel()) {
+                case "hy" -> "/roza_petrosyan/i18n/notepad_hy.properties";
+                case "ru" -> "/roza_petrosyan/i18n/notepad_ru.properties";
+                default -> "/roza_petrosyan/i18n/notepad.properties";
+            };
+
+            Properties properties = new Properties();
+            InputStream inputStream = getClass().getResourceAsStream(path);
+
+            if (inputStream != null) {
+                try (InputStreamReader reader = new InputStreamReader(inputStream)) {
+                    properties.load(reader);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            return properties;
         }
 
         private void onNewActionPerformed(ActionEvent actionEvent) {
@@ -175,10 +234,17 @@ public class Notepad extends JFrame implements DocumentListener {
         }
 
         private void onSaveAsActionPerformed(ActionEvent actionEvent) {
+            String text = textArea.getText();
             JFileChooser fileChooser = new JFileChooser();
             int choice = fileChooser.showSaveDialog(this);
             if (choice == JFileChooser.APPROVE_OPTION) {
-                onSaveActionPerformed(actionEvent);
+                File selectedFile = fileChooser.getSelectedFile();
+                try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(selectedFile))) {
+                    bufferedWriter.write(text);
+                    changed = false;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
 
@@ -196,10 +262,5 @@ public class Notepad extends JFrame implements DocumentListener {
                 System.exit(0);
             }
         }
-
-    }
-
-    public static void main(String[] args) {
-        new Notepad();
     }
 }

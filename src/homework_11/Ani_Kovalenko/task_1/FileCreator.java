@@ -14,6 +14,11 @@ class FileCreator {
     StringBuilder stringBuilder;
 
     void createFile(String fileNameToRead, String fileNameToWrite) {
+        createReadFile(fileNameToRead);
+        createWriteFile(fileNameToWrite);
+    }
+
+    private void createReadFile(String fileNameToRead) {
         if (isAllowedFileFormat(fileNameToRead)) {
             this.fileNameToRead = fileNameToRead;
             fileToRead = new File(fileToReadPath.concat(fileNameToRead));
@@ -25,14 +30,21 @@ class FileCreator {
                 System.err.println("Failed to create the file which is needed to read !");
             }
         } else {
-            try {
-                throw new NonAcceptableFileFormatException();
-            } catch (NonAcceptableFileFormatException e) {
-                System.err.println(e.getMessage());
-                System.err.println("Unable to create the file for reading");
-                e.printStackTrace();
-            }
+            callingNonAcceptableFileFormatException();
         }
+    }
+
+    private void callingNonAcceptableFileFormatException() {
+        try {
+            throw new NonAcceptableFileFormatException();
+        } catch (NonAcceptableFileFormatException e) {
+            System.err.println(e.getMessage());
+            System.err.println("Unable to create the file");
+            e.printStackTrace();
+        }
+    }
+
+    private void createWriteFile(String fileNameToWrite) {
         if (isAllowedFileFormat(fileNameToWrite)) {
             this.fileNameToWrite = fileNameToWrite;
             try {
@@ -42,13 +54,7 @@ class FileCreator {
                 System.err.println("Failed to create the file in which is needed to write !");
             }
         } else {
-            try {
-                throw new NonAcceptableFileFormatException();
-            } catch (NonAcceptableFileFormatException e) {
-                System.err.println(e.getMessage());
-                System.err.println("Unable to create the file for writing");
-                e.printStackTrace();
-            }
+            callingNonAcceptableFileFormatException();
         }
     }
 
