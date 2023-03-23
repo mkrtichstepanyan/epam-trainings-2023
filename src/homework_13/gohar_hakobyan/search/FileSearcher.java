@@ -47,16 +47,17 @@ public class FileSearcher {
      * fileNamePattern -> Arthur*Doel
      */
     private static boolean matchesPattern(String fileNamePattern, String fileName) {
+        if (fileNamePattern.startsWith("*") && fileNamePattern.endsWith("*")) {
+            String middlePart = fileNamePattern.substring(1, fileNamePattern.length() - 1);
+            return fileName.contains(middlePart);
+        }
         if (!fileNamePattern.contains("*")) {
             return fileNamePattern.equals(fileName);
         } else {
             int starIndex = fileNamePattern.indexOf("*");
-            int secondStarIndex = fileNamePattern.lastIndexOf("*");
             String prefix = fileNamePattern.substring(0, starIndex);
             String suffix = fileNamePattern.substring(starIndex + 1);
-            String middlePart = fileNamePattern.substring(starIndex + 1, secondStarIndex);
-            return fileName.startsWith(prefix) && fileName.endsWith(suffix)
-                    || fileName.contains(middlePart);
+            return fileName.startsWith(prefix) && fileName.endsWith(suffix);
         }
     }
 }
