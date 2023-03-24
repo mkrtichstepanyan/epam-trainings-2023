@@ -1,7 +1,7 @@
 package homework_14.Yeghia_Ansuryan.stack;
 
-public class Stack<V extends Object> {
-    Object[] vardushner = new Object[10];
+public class Stack<V> {
+    V[] vardushner = (V[]) new Object[10];
     int index = -1;
 
     public void push(V vardush) {
