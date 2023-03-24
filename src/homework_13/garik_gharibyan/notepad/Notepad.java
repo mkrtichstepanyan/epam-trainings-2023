@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Properties;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
@@ -79,6 +81,11 @@ public class Notepad extends JFrame {
             openFile.addActionListener(this::onOpenActionPerformed);
             newFile.addActionListener(this::onNewActionPerformed);
             saveAs.addActionListener(this::onSaveAsActionPerformed);
+
+            amLang.addActionListener(e -> loadMenuLabels(LanguageType.AM));
+            enLang.addActionListener(e -> loadMenuLabels(LanguageType.EN));
+            ruLang.addActionListener(e -> loadMenuLabels(LanguageType.RU));
+
 
         }
 
@@ -180,6 +187,53 @@ public class Notepad extends JFrame {
             currentFile = file;
             System.out.println("On file selected: " + file.getName());
             setTitle(currentFile.getName() + " " + APP_NAME);
+        }
+
+        private void loadMenuLabels(LanguageType languageType) {
+            InputStream inputStream;
+            String path = switch (languageType.getLabel()) {
+                case "hy" -> "garik_gharibyan/notepad_hy.properties";
+                case "ru" -> "garik_gharibyan/notepad_ru.properties";
+                default -> "garik_gharibyan/notepad.properties";
+            };
+
+            inputStream = getClass().getClassLoader().getResourceAsStream(path);
+            Properties properties = new Properties();
+            try (Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
+                properties.load(reader);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            loadMenuLabels(properties);
+        }
+
+        private void loadMenuLabels(Properties properties) {
+            file.setText(properties.getProperty("file.menu.name"));
+            newFile.setText(properties.getProperty("create.menu.item.name"));
+            save.setText(properties.getProperty("save.menu.item.name"));
+            saveAs.setText(properties.getProperty("saveas.menu.name"));
+            openFile.setText(properties.getProperty("open.menu.item.name"));
+            close.setText(properties.getProperty("close.menu.item.name"));
+            language.setText(properties.getProperty("lang.menu.name"));
+            enLang.setText(properties.getProperty("lang.en.menu.item.name"));
+            amLang.setText(properties.getProperty("lang.am.menu.item.name"));
+            ruLang.setText(properties.getProperty("lang.ru.menu.item.name"));
+        }
+
+
+        enum LanguageType {
+            AM("hy"),
+            RU("ru"),
+            EN("en");
+            final String label;
+
+            LanguageType(String label) {
+                this.label = label;
+            }
+
+            public String getLabel() {
+                return label;
+            }
         }
     }
 
