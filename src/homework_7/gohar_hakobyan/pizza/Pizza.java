@@ -1,6 +1,7 @@
 package homework_7.gohar_hakobyan.pizza;
 
 import homework_7.gohar_hakobyan.Customer;
+import homework_7.gohar_hakobyan.exception.ObjectNotFoundException;
 import homework_7.gohar_hakobyan.product.Product;
 
 // is a
@@ -80,10 +81,12 @@ public class Pizza extends Product {
         return name;
     }
 
-    public int getQuantity() {
+    public int getQuantity() throws ObjectNotFoundException {
+        if (quantity == 0) {
+            throw new ObjectNotFoundException();
+        }
         return quantity;
     }
-
 
     public PizzaType getPizzaType() {
         return pizzaType;

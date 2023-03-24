@@ -3,14 +3,14 @@ package homework_11.Roza_Petrosyan.task.assignment_one.input_output;
 import homework_11.Roza_Petrosyan.task.assignment_one.exception.FileExtensionException;
 import java.io.*;
 
-public class ReadAndWriteFile {
+public class ReadAndWriteFile implements FilenameFilter{
     public String readFile(String fileName) {
-        String data = "";
+        StringBuilder stringBuilder = new StringBuilder();
         if (isAllowedFileExtension(fileName)) {
             String line;
             try (BufferedReader fr = new BufferedReader(new FileReader(fileName))) {
                 while ((line = fr.readLine()) != null) {
-                    data += line + "\n";
+                    stringBuilder.append(line).append("\n");
                 }
             } catch (FileNotFoundException e) {
                 System.out.println("File not found: " + e.getMessage());
@@ -20,7 +20,7 @@ public class ReadAndWriteFile {
         } else {
             throw new FileExtensionException();
         }
-        return data;
+        return stringBuilder.toString();
     }
 
     public void writeFile(String fileName, String data) {
@@ -46,5 +46,10 @@ public class ReadAndWriteFile {
     private boolean isAllowedFileExtension(String fileName) {
         String extension = fileName.substring(fileName.lastIndexOf("."));
         return extension.equals(".json") || extension.equals(".csv") || extension.equals(".txt");
+    }
+
+    @Override
+    public boolean accept(File dir, String name) {
+        return name.endsWith(".json") || name.endsWith(".csv") || name.endsWith(".txt");
     }
 }
