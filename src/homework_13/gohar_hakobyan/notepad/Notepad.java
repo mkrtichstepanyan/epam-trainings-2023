@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.*;
+import java.util.Properties;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
@@ -79,6 +80,22 @@ public class Notepad extends JFrame {
             openFile.addActionListener(this::onOpenActionPerformed);
             saveAs.addActionListener(this::onSaveUsActionPerformed);
 
+            amLang.addActionListener(this::onAmLanguageActionPerformed);
+            ruLang.addActionListener(this::onRuLanguageActionPerformed);
+            enLang.addActionListener(this::onEnLanguageActionPerformed);
+
+        }
+
+        private void onRuLanguageActionPerformed(ActionEvent event) {
+            loadMenuLabels(LanguageType.RU);
+        }
+
+        private void onAmLanguageActionPerformed(ActionEvent event) {
+            loadMenuLabels(LanguageType.AM);
+        }
+
+        private void onEnLanguageActionPerformed(ActionEvent event) {
+            loadMenuLabels(LanguageType.EN);
         }
 
         private void onNewFileActionPerformed(ActionEvent event) {
@@ -183,5 +200,47 @@ public class Notepad extends JFrame {
                 System.exit(0);
             }
         }
+
+
+
+        private Properties loadMessages(LanguageType languageType) {
+            InputStream inputStream;
+            String path = switch (languageType.getLabel()) {
+                case "hy" -> "/i18n/notepad_hy.properties";
+                case "ru" -> "/i18n/notepad_ru.properties";
+                default -> "/i18n/notepad.properties";
+            };
+            inputStream = getClass().getClassLoader().getResourceAsStream(path);
+            Properties properties = new Properties();
+
+            if (inputStream != null) {
+                try (InputStreamReader reader = new InputStreamReader(inputStream)) {
+                    properties.load(inputStream);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return properties;
+        }
+        
+
+        private void loadMenuLabels(LanguageType languageType){
+            Properties properties = loadMessages(languageType);
+            loadMenuLabels(properties);
+        }
+
+        private void loadMenuLabels(Properties properties) {
+            file.setText(properties.getProperty("file.menu.name"));
+            newFile.setText(properties.getProperty("create.menu.item.name"));
+            openFile.setText(properties.getProperty("open.menu.item.name"));
+            save.setText(properties.getProperty("save.menu.item.name"));
+            saveAs.setText(properties.getProperty("saveas.menu.name"));
+            close.setText(properties.getProperty("close.menu.item.name"));
+            language.setText(properties.getProperty("lang.menu.name"));
+            enLang.setText(properties.getProperty("lang.en.menu.item.name"));
+            ruLang.setText(properties.getProperty("lang.ru.menu.item.name"));
+            amLang.setText(properties.getProperty("lang.am.menu.item.name"));
+        }
     }
+
 }

@@ -4,12 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.*;
+import java.util.Properties;
+import java.util.ResourceBundle;
 
 public class Notepad extends JFrame {
+    private ResourceBundle resourceBundle;
     private JTextArea textArea;
     private File currentFile;
 
-    public Notepad(){
+
+    public Notepad() {
+        resourceBundle = ResourceBundle.getBundle("resources/i18n/Notepad");
 
         currentFile = new File("Result.txt");
         textArea = new JTextArea();
@@ -21,31 +26,31 @@ public class Notepad extends JFrame {
 
         add(jScrollPane);
         add(menuBar, BorderLayout.NORTH);
-        setSize(800,500);
+        setSize(800, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
-
     }
-    class NotepadMenuBar extends JMenuBar{
-        private final JMenu file;
-        private final JMenuItem newFile;
-        private final JMenuItem openFile;
-        private final JMenuItem save;
-        private final JMenuItem saveAs;
-        private final JMenuItem close;
 
-        private final JMenu language;
-        private final JMenuItem armLang;
-        private final JMenuItem rusLang;
-        private final JMenuItem engLang;
+    class NotepadMenuBar extends JMenuBar {
+        private JMenu file;
+        private JMenuItem newFile;
+        private  JMenuItem openFile;
+        private  JMenuItem save;
+        private  JMenuItem saveAs;
+        private  JMenuItem close;
 
-        public  NotepadMenuBar() {
-            file = new JMenu("File");
-            newFile = new JMenuItem("New");
-            openFile = new JMenuItem("Open");
-            save = new JMenuItem("Save");
-            saveAs = new JMenuItem("Save as");
-            close = new JMenuItem("Close");
+        private  JMenu language;
+        private  JMenuItem armLang;
+        private  JMenuItem rusLang;
+        private  JMenuItem engLang;
+
+        public NotepadMenuBar() {
+            file = new JMenu(resourceBundle.getString("menu.file"));
+            newFile = new JMenuItem(resourceBundle.getString("menu.new"));
+            openFile = new JMenuItem(resourceBundle.getString("menu.open"));
+            save = new JMenuItem(resourceBundle.getString("menu.save"));
+            saveAs = new JMenuItem(resourceBundle.getString("menu.saveAs"));
+            close = new JMenuItem(resourceBundle.getString("menu.close"));
 
             file.add(newFile);
             file.add(openFile);
@@ -53,10 +58,10 @@ public class Notepad extends JFrame {
             file.add(saveAs);
             file.add(close);
 
-            language = new JMenu("Language");
-            engLang = new JMenuItem("English");
-            armLang = new JMenuItem("Armenian");
-            rusLang = new JMenuItem("Russian");
+            language = new JMenu(resourceBundle.getString("menu.language"));
+            engLang = new JMenuItem(resourceBundle.getString("menu.english"));
+            armLang = new JMenuItem(resourceBundle.getString("menu.armenian"));
+            rusLang = new JMenuItem(resourceBundle.getString("menu.russian"));
 
             language.add(engLang);
             language.add(armLang);
@@ -69,9 +74,57 @@ public class Notepad extends JFrame {
             openFile.addActionListener(this::onOpenActionPerformed);
             save.addActionListener(this::onSaveActionPerformed);
             saveAs.addActionListener(this::onSaveAsActionPerformed);
-           close.addActionListener(this::onCloseActionPerformed);
+            close.addActionListener(this::onCloseActionPerformed);
+
+            armLang.addActionListener(e -> updateLocale(LabelKey.AM));
+            rusLang.addActionListener(e -> updateLocale(LabelKey.RU));
+            engLang.addActionListener(e -> updateLocale(LabelKey.EN));
+
         }
 
+        private void updateLocale(LabelKey labelKey) {
+            loadMessages(labelKey);
+            updateMenuText();
+
+        }
+
+        private void updateMenuText() {
+            file.setText(resourceBundle.getString("menu.file"));
+            newFile.setText(resourceBundle.getString("menu.new"));
+            openFile.setText(resourceBundle.getString("menu.open"));
+            save.setText(resourceBundle.getString("menu.save"));
+            saveAs.setText(resourceBundle.getString("menu.saveAs"));
+            close.setText(resourceBundle.getString("menu.close"));
+
+            language.setText(resourceBundle.getString("menu.language"));
+            engLang.setText(resourceBundle.getString("menu.english"));
+            armLang.setText(resourceBundle.getString("menu.armenian"));
+            rusLang.setText(resourceBundle.getString("menu.russian"));
+        }
+        private Properties loadMessages(LabelKey labelKey){
+            InputStream inputStream;
+            String path = "";
+            switch ((labelKey.getLabel())){
+                case "am":
+                    path = "i18n/Notepad_arm.properties";
+                    break;
+                case "ru":
+                    path ="i18n/Notepad_ru.properties";
+                    break;
+                default:
+                    path= "i18n/Notepad.properties";
+                    break;
+
+            }
+            inputStream = getClass().getResourceAsStream(path);
+            Properties properties = new Properties();
+            try {
+                properties.load(inputStream);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return properties;
+        }
 
         private void newFileActionPerformed(ActionEvent actionevent) {
             if (textArea.getText().isEmpty()) {
@@ -85,7 +138,7 @@ public class Notepad extends JFrame {
                 if (choice == JOptionPane.YES_OPTION) {
                     onSaveActionPerformed(actionevent);
                 } else if (choice == JOptionPane.NO_OPTION) {
-                   textArea.setText("");
+                    textArea.setText("");
                 }
             }
 
@@ -121,6 +174,7 @@ public class Notepad extends JFrame {
                 }
             }
         }
+
         private void onSaveActionPerformed(ActionEvent actionEvent) {
             if (currentFile == null) {
                 onSaveAsActionPerformed(actionEvent);
@@ -135,6 +189,7 @@ public class Notepad extends JFrame {
                 }
             }
         }
+
         private void onSaveAsActionPerformed(ActionEvent actionEvent) {
             JFileChooser fileChooser = new JFileChooser();
             int result = fileChooser.showSaveDialog(this);
@@ -154,22 +209,38 @@ public class Notepad extends JFrame {
 
         private void onCloseActionPerformed(ActionEvent actionEvent) {
             int option = JOptionPane.showConfirmDialog(this, "Do you want to save?");
-            if (option == JOptionPane.YES_OPTION){
+            if (option == JOptionPane.YES_OPTION) {
                 onSaveActionPerformed(actionEvent);
                 System.exit(0);
             }
-            if (option == JOptionPane.NO_OPTION){
+            if (option == JOptionPane.NO_OPTION) {
                 System.exit(0);
             }
         }
-        }
+    }
+
     public static void main(String[] args) {
         new Notepad();
     }
+
+
+    enum LabelKey{
+        AM("am"),RU("ru"),EN("en");
+        private String label;
+        LabelKey(String label){
+            this.label = label;
+        }
+
+        public String getLabel() {
+            return label;
+        }
+
+        public void setLabel(String label) {
+            this.label = label;
+        }
+    }
+
 }
-
-
-
 
 
 
