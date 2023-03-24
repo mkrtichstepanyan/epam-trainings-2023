@@ -3,14 +3,12 @@ package homework_14.robert_nazaryan;
 public class TestStack {
 
     public static void main(String[] args) {
-        Stack stack1 = new Stack();
+        Stack<String> stack1 = new Stack<String>();
 
         stack1.push("1");
-        stack1.push(2);
-        stack1.push('@');
-        stack1.push(true);
-        stack1.push(5);
-        stack1.push(5.9);
+        stack1.push("daa");
+        stack1.push("@3");
+        stack1.push("true");
 
 
         System.out.println(stack1.pop());
