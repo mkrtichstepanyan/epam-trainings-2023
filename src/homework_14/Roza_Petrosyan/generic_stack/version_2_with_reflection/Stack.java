@@ -28,10 +28,10 @@ public class Stack<T> {
     }
 
     private void extendCapacity() {
-        int double_size = stack.length * 2;
-        T[] double_stack = (T[]) Array.newInstance(classType, double_size);
-        System.arraycopy(stack, 0, double_stack, 0, stack.length);
-        stack = double_stack;
+        int doubleSize = stack.length * 2;
+        T[] doubleStack = (T[]) Array.newInstance(classType, doubleSize);
+        System.arraycopy(stack, 0, doubleStack, 0, stack.length);
+        stack = doubleStack;
     }
 
     public T pop() {
