@@ -1,6 +1,9 @@
 package homework_14.garik_gharibyan.stack_generic;
 
-public class Stack<T>{
+import java.util.ArrayList;
+import java.util.List;
+
+public class Stack<T> {
 
     private static final int DEFAULT_SIZE = 10;
 
@@ -9,12 +12,12 @@ public class Stack<T>{
     private T[] arrayStack;
 
     public Stack() {
-        arrayStack =(T[]) new Object[DEFAULT_SIZE];
+        arrayStack = (T[]) new Object[DEFAULT_SIZE];
         topItem = -1;
     }
 
     public Stack(int arraySize) {
-        arrayStack =(T[]) new Object[arraySize];
+        arrayStack = (T[]) new Object[arraySize];
         topItem = -1;
     }
 
