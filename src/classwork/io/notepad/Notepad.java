@@ -90,9 +90,9 @@ public class Notepad extends JFrame {
         private void loadMenuLabels(LanguageType languageType) {
             InputStream inputStream;
             String path = switch (languageType.getLabel()) {
-                case "hy" -> "Yeghia_Ansuryan/i18n/notepad_hy.properties";
-                case "ru" -> "Yeghia_Ansuryan/i18n/notepad_ru.properties";
-                default -> "Yeghia_Ansuryan/i18n/notepad.properties";
+                case "hy" -> "i18n/notepad_hy.properties";
+                case "ru" -> "i18n/notepad_ru.properties";
+                default -> "i18n/notepad.properties";
             };
 
             inputStream = getClass().getClassLoader().getResourceAsStream(path);
