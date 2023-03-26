@@ -10,8 +10,8 @@ public class ByteArrayInputStreamDemo {
     public static void main(String[] args) {
         String tmp = "abcdeghijklmnopqrstuvwxyz";
         byte[] b= tmp.getBytes();
-        ByteArrayOutputStream input1 = new ByteArrayOutputStream(b);
-        ByteArrayInputStream input2 = new ByteArrayInputStream( b, 0, 3);
+        ByteArrayInputStream input1 = new ByteArrayInputStream(b);
+        ByteArrayInputStream input2 = new ByteArrayInputStream(b,0,3);
 
     }
 }

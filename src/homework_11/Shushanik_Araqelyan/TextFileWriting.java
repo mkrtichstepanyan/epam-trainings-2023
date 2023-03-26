@@ -7,9 +7,9 @@ import java.io.IOException;
 public class TextFileWriting {
     public static void main(String[] args) {
         try{
-            FileWriter writer= new FileWriter("MyFile.txt",true);
+            FileWriter writer= new FileWriter("src/homework_11/Shushanik_Araqelyan/TextFileWriting.java",true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
-            bufferedWriter.write("Hello World");
+            bufferedWriter.write(" Hi ");
             bufferedWriter.newLine();
             bufferedWriter.write("Nice to meet you!");
                     bufferedWriter.close();
@@ -19,3 +19,5 @@ public class TextFileWriting {
         }
     }
 }
+ Hi 
+Nice to meet you!

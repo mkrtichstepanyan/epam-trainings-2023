@@ -8,7 +8,7 @@ import java.io.Reader;
 public class TextFileReading {
     public static void main(String[] args) {
         try{
-            FileReader reader = new FileReader("MyFile.txt");
+            FileReader reader = new FileReader("src/homework_11/Shushanik_Araqelyan/My Files/MyFile.txt");
             BufferedReader bufferedReader = new BufferedReader(reader);
             String line;
             while((line = bufferedReader.readLine())!=null){

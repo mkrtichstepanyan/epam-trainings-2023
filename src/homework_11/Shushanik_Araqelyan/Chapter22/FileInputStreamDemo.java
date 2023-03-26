@@ -2,8 +2,8 @@ package homework_11.Shushanik_Araqelyan.Chapter22;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-
-public class FileInputStreamDemo {
+import java.io.*;
+ class FileInputStreamDemo {
     public static void main(String[] args) {
         int size;
         try(FileInputStream f = new FileInputStream("FileInputStreamDemo.java")){
@@ -26,10 +26,10 @@ public class FileInputStreamDemo {
             f.skip(size/2);
             System.out.println("Still Available:" + f.available());
             System.out.println("Reading " +n/2 + " bytes.");
-        }
-        System.out.println(new String(b,0,b.length));
-        System.out.println("\nStill Available :" + f.available());
-    }catch(IOException e){
-        System.out.println("I/O Error:" + e);
+        }catch(IOException e){
+            System.out.println("I/O Error:" + e);
+      //  System.out.println(new String(b,0,b.length));
+      //  System.out.println("\nStill Available :" + f.available());
+    }
     }
 }
