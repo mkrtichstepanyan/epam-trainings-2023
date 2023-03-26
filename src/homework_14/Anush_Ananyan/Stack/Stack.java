@@ -12,7 +12,7 @@ public class Stack<T> {
 
     public void push(T item) {
         if (tos == stack.length * 75 / 100) {
-            extendVolume(item);
+            extendVolume();
         }
         stack[++tos] = item;
     }
@@ -26,15 +26,7 @@ public class Stack<T> {
         }
     }
 
-//    private void extendVolume() {
-//        Object[] newStack = new Object[stack.length * 2];
-//        for (int i = 0; i < stack.length; i++) {
-//            newStack[i] = stack[i];
-//        }
-//        stack =(T[]) newStack;
-//    }
-
-    private void extendVolume(T item) {
+    private void extendVolume() {
         Object[] newStack = new Object[stack.length * 2];
         System.arraycopy(stack, 0, newStack, 0, stack.length);
         stack = (T[]) newStack;
