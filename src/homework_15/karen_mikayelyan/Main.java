@@ -11,7 +11,8 @@ public class Main {
 
 //        printArray(sortBubble(array));
 //        printArray(SelectionSort.sortSelection(array));
-        printArray(InsertionSort.sortInsertion(array));
+//        printArray(InsertionSort.sortInsertion(array));
+        printArray(MergeSort.sortMerge(array));
 
     }
 }
