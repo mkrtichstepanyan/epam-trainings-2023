@@ -9,7 +9,7 @@ public class SelectionSort {
     static int[] sortArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             int min_id = i;
-            for (int j = i +1; j < arr.length; j++) {
+            for (int j = i + 1; j < arr.length; j++) {
                 if (arr[j] < arr[min_id]) {
                     min_id = j;
                 }
