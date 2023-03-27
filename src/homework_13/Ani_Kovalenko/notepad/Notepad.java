@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Properties;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
@@ -17,7 +19,6 @@ public class Notepad extends JFrame {
     public Notepad() {
         currentFile = new File("Result.txt");
         textArea = new JTextArea();
-        textArea.setRows(100);
         JScrollPane jScrollPane = new JScrollPane(textArea);
         jScrollPane.setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_AS_NEEDED);
         jScrollPane.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -33,25 +34,20 @@ public class Notepad extends JFrame {
 
     class NotepadMenuBar extends JMenuBar {
         private String text;
-        private final JMenu file;
-        private final JMenuItem newFile;
-        private final JMenuItem openFile;
-        private final JMenuItem save;
-        private final JMenuItem saveAs;
-        private final JMenuItem close;
+        private JMenu file;
+        private JMenuItem newFile;
+        private JMenuItem openFile;
+        private JMenuItem save;
+        private JMenuItem saveAs;
+        private JMenuItem close;
 
-        private final JMenu language;
-        private final JMenuItem amLang;
-        private final JMenuItem enLang;
-        private final JMenuItem ruLang;
+        private JMenu language;
+        private JMenuItem amLang;
+        private JMenuItem enLang;
+        private JMenuItem ruLang;
 
         public NotepadMenuBar() {
-            file = new JMenu("File");
-            newFile = new JMenuItem("New");
-            openFile = new JMenuItem("Open");
-            save = new JMenuItem("Save");
-            saveAs = new JMenuItem("Save as");
-            close = new JMenuItem("Close");
+            init();
 
             file.add(newFile);
             file.add(openFile);
@@ -59,26 +55,74 @@ public class Notepad extends JFrame {
             file.add(saveAs);
             file.add(close);
 
-            language = new JMenu("Language");
-            enLang = new JMenuItem("English");
-            amLang = new JMenuItem("Armenian");
-            ruLang = new JMenuItem("Russian");
-
             language.add(enLang);
             language.add(amLang);
             language.add(ruLang);
-
 
             add(file);
             add(language);
 
             setTitle(currentFile.getName());
             this.text = textArea.getText();
+
             close.addActionListener(this::onCloseActionPerformed);
             save.addActionListener(this::onSaveActionPerformed);
             openFile.addActionListener(this::onOpenActionPerformed);
             saveAs.addActionListener(this::onSaveActionPerformed);
             newFile.addActionListener(this::onNewActionPerformed);
+
+            amLang.addActionListener(e -> loadMenuLabels(LanguageType.HY));
+            ruLang.addActionListener(e -> loadMenuLabels(LanguageType.RU));
+            enLang.addActionListener(e -> loadMenuLabels(LanguageType.EN));
+        }
+
+        private void init() {
+            file = new JMenu();
+            newFile = new JMenuItem();
+            openFile = new JMenuItem();
+            save = new JMenuItem();
+            saveAs = new JMenuItem();
+            close = new JMenuItem();
+
+            language = new JMenu("Language");
+            enLang = new JMenuItem("English");
+            amLang = new JMenuItem("Armenian");
+            ruLang = new JMenuItem("Russian");
+
+            loadMenuLabels(LanguageType.EN);
+
+        }
+
+        private void loadMenuLabels(LanguageType langType) {
+            InputStream inputStream;
+            String path = switch (langType.getLabel()) {
+                case "hy" -> "Ani_Kovalenko/i18n/label_hy.properties";
+                case "ru" -> "Ani_Kovalenko/i18n/label_ru.properties";
+                default -> "Ani_Kovalenko/i18n/label.properties";
+            };
+            inputStream = getClass().getClassLoader().getResourceAsStream(path);
+            Properties properties = new Properties();
+            if (inputStream != null) {
+                try (Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
+                    properties.load(reader);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            loadMenuLabels(properties);
+        }
+
+        private void loadMenuLabels(Properties properties) {
+            file.setText(properties.getProperty("file.menu.name"));
+            newFile.setText(properties.getProperty("create.menu.item.name"));
+            save.setText(properties.getProperty("save.menu.item.name"));
+            saveAs.setText(properties.getProperty("saveAs.menu.name"));
+            openFile.setText(properties.getProperty("open.menu.item.name"));
+            close.setText(properties.getProperty("close.menu.item.name"));
+            language.setText(properties.getProperty("lang.menu.name"));
+            enLang.setText(properties.getProperty("lang.en.menu.item.name"));
+            amLang.setText(properties.getProperty("lang.am.menu.item.name"));
+            ruLang.setText(properties.getProperty("lang.ru.menu.item.name"));
         }
 
         private void onNewActionPerformed(ActionEvent actionEvent) {

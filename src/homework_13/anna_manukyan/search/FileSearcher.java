@@ -64,7 +64,7 @@ public class FileSearcher {
                 String prefix = fileNamePattern.substring(firstStarIndex + 1);
                 int secondStarIndex = prefix.indexOf("*");
                 String suffix = prefix.substring(0, secondStarIndex);
-                return fileName.contains(suffix);
+                return fileName.contains(suffix) && !fileName.startsWith(suffix) && !fileName.endsWith(suffix);
             }
         }
         return false;
