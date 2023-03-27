@@ -15,7 +15,7 @@ public class NotePad extends JFrame {
     private File currentFile;
 
     public NotePad() {
-        currentFile = new File("Result.txt");
+        currentFile = new File("ResultFile.txt");
         NotePadMenuBar menuBar = new NotePadMenuBar();
         textArea = new JTextArea();
         JScrollPane jScrollPane = new JScrollPane(textArea);
@@ -65,9 +65,9 @@ public class NotePad extends JFrame {
             saveAs.addActionListener(this::onSaveAsActionPerformed);
             close.addActionListener(this::onCloseActionPerformed);
 
-            amLang.addActionListener(e -> loadMenuLabels(Languagetype.AM));
-            ruLang.addActionListener(e -> loadMenuLabels(Languagetype.RU));
-            enLang.addActionListener(e -> loadMenuLabels(Languagetype.EN));
+            amLang.addActionListener(e -> loadMenuLabels(LanguageType.AM));
+            ruLang.addActionListener(e -> loadMenuLabels(LanguageType.RU));
+            enLang.addActionListener(e -> loadMenuLabels(LanguageType.EN));
 
         }
         private void init(){
@@ -81,10 +81,10 @@ public class NotePad extends JFrame {
             amLang = new JMenuItem();
             enLang = new JMenuItem();
             ruLang = new JMenuItem();
-            loadMenuLabels(Languagetype.EN);
+            loadMenuLabels(LanguageType.EN);
         }
 
-        private void loadMenuLabels(Languagetype languagetype) {
+        private void loadMenuLabels(LanguageType languagetype) {
             String path = switch (languagetype.getLabel()) {
                 case "hy" -> "tatev_kocharyan\\i18n\\notepad_hy.properties";
                 case "ru" -> "tatev_kocharyan\\i18n\\notepad_ru.properties";
@@ -92,10 +92,9 @@ public class NotePad extends JFrame {
             };
             InputStream inputStream =  getClass().getClassLoader().getResourceAsStream(path);
             Properties properties = new Properties();
-            try {
-                Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+            try (Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)){
                 properties.load(reader);
-                reader.close();
+
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -185,13 +184,13 @@ public class NotePad extends JFrame {
         }
     }
 
-    enum Languagetype {
+    enum LanguageType {
         AM("hy"),
         EN("en"),
         RU("ru");
         private String label;
 
-        Languagetype(String label) {
+        LanguageType(String label) {
             this.label = label;
         }
 
