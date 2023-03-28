@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Properties;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
@@ -28,43 +30,33 @@ public class Notepad extends JFrame {
 
         add(jScrollPane);
         add(menuBar, BorderLayout.NORTH);
-        setSize(800, 500);
+        setSize(1200, 1200);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }
 
     class NotepadMenuBar extends JMenuBar {
 
-        private final JMenu file;
-        private final JMenuItem newFile;
-        private final JMenuItem openFile;
-        private final JMenuItem save;
-        private final JMenuItem saveAs;
-        private final JMenuItem close;
+        private JMenu file;
+        private JMenuItem newFile;
+        private JMenuItem openFile;
+        private JMenuItem save;
+        private JMenuItem saveAs;
+        private JMenuItem close;
 
-        private final JMenu language;
-        private final JMenuItem amLang;
-        private final JMenuItem enLang;
-        private final JMenuItem ruLang;
+        private JMenu language;
+        private JMenuItem amLang;
+        private JMenuItem enLang;
+        private JMenuItem ruLang;
 
         public NotepadMenuBar() {
-            file = new JMenu("File");
-            newFile = new JMenuItem("New");
-            openFile = new JMenuItem("Open");
-            save = new JMenuItem("Save");
-            saveAs = new JMenuItem("Save as");
-            close = new JMenuItem("Close");
+            init();
 
             file.add(newFile);
             file.add(openFile);
             file.add(save);
             file.add(saveAs);
             file.add(close);
-
-            language = new JMenu("Language");
-            enLang = new JMenuItem("English");
-            amLang = new JMenuItem("Armenian");
-            ruLang = new JMenuItem("Russian");
 
             language.add(enLang);
             language.add(amLang);
@@ -79,7 +71,28 @@ public class Notepad extends JFrame {
             openFile.addActionListener(this::onOpenActionPerformed);
             saveAs.addActionListener(this::onSaveUsActionPerformed);
 
+            amLang.addActionListener(e -> loadMenuLabels(LanguageType.AM));
+            ruLang.addActionListener(e -> loadMenuLabels(LanguageType.RU));
+            enLang.addActionListener(e -> loadMenuLabels(LanguageType.EN));
+
         }
+
+        private void init() {
+            file = new JMenu();
+            newFile = new JMenuItem();
+            openFile = new JMenuItem();
+            save = new JMenuItem();
+            saveAs = new JMenuItem();
+            close = new JMenuItem();
+
+            language = new JMenu();
+            enLang = new JMenuItem();
+            amLang = new JMenuItem();
+            ruLang = new JMenuItem();
+
+            loadMenuLabels(LanguageType.EN);
+        }
+
 
         private void onNewFileActionPerformed(ActionEvent event) {
             int choice = JOptionPane.showConfirmDialog(this, "Do you want to save your changes?",
@@ -183,5 +196,39 @@ public class Notepad extends JFrame {
                 System.exit(0);
             }
         }
+
+
+        private void loadMenuLabels(LanguageType languageType) {
+            InputStream inputStream;
+            String path = switch (languageType.getLabel()) {
+                case "hy" -> "gohar_hakobyan/i18n/notepad_hy.properties";
+                case "ru" -> "gohar_hakobyan/i18n/notepad_ru.properties";
+                default -> "gohar_hakobyan/i18n/notepad.properties";
+            };
+            inputStream = getClass().getClassLoader().getResourceAsStream(path);
+            Properties properties = new Properties();
+
+            try (Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
+                properties.load(reader);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            loadMenuLabels(properties);
+        }
+
+
+        private void loadMenuLabels(Properties properties) {
+            file.setText(properties.getProperty("file.menu.name"));
+            newFile.setText(properties.getProperty("create.menu.item.name"));
+            openFile.setText(properties.getProperty("open.menu.item.name"));
+            save.setText(properties.getProperty("save.menu.item.name"));
+            saveAs.setText(properties.getProperty("saveas.menu.name"));
+            close.setText(properties.getProperty("close.menu.item.name"));
+            language.setText(properties.getProperty("lang.menu.name"));
+            enLang.setText(properties.getProperty("lang.en.menu.item.name"));
+            ruLang.setText(properties.getProperty("lang.ru.menu.item.name"));
+            amLang.setText(properties.getProperty("lang.am.menu.item.name"));
+        }
     }
+
 }

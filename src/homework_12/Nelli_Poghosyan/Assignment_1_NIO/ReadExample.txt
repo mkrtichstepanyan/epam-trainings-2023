@@ -1,0 +1,8 @@
+When can this happen?
+One situation that can cause this to happen
+is if you're using modules and you manually
+delete the module out directory. For example,
+if I have a module named "foo", there should
+be a directory named foo under out/production.
+If you manually delete it, the build system may
+not know that it needs to be rebuilt.

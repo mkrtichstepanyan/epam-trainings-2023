@@ -27,6 +27,7 @@ public class PhoneNumbersCreator {
             for (String phoneNumber : phoneNumbers) {
                 lines.add(phoneNumber);
             }
+
             Files.write(path, lines, StandardCharsets.UTF_8);
         } catch (IOException e) {
             System.err.println("Can't write into file");
