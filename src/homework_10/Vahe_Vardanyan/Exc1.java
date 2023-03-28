@@ -2,7 +2,7 @@ package homework_10.Vahe_Vardanyan;
 
 public class Exc1 {
     static void subroutine(){
-        int d = 0;
+        int d = 1;
         int a = 10 / d;
     }
 
