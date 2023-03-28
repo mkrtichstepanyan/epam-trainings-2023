@@ -6,7 +6,7 @@ public class ThrowsDemo {
         try {
             throw new IllegalAccessException("demo");
         } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
+           // throw new RuntimeException(e);
         }
     }
 
