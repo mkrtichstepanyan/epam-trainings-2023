@@ -7,7 +7,7 @@ import java.io.IOException;
 public class TextFileWriting {
     public static void main(String[] args) {
         try{
-            FileWriter writer= new FileWriter("/Users/hayksarukhanyan/IdeaProjects/epam-trainings-2023/src/homework_11/Shushanik_Araqelyan/My Files/Write.txt",true);
+            FileWriter writer= new FileWriter("src/homework_11/Shushanik_Araqelyan/My Files/Write.txt",true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             bufferedWriter.write(" Hi ");
             bufferedWriter.newLine();
