@@ -6,53 +6,53 @@ public class MergeSort {
         printArray(merged);
     }
 
-    public static int[] mergeTwoSortedArrays(int[] first, int[] second) {
-        int[] sorted = new int[first.length + second.length];
+    public static int[] mergeTwoSortedArrays(int[] left, int[] right) {
+        int[] sortedArray = new int[left.length + right.length];
         int i = 0, j = 0, k = 0;
 
-        while (i < first.length && j < second.length) {
-            if (first[i] < second[j]) {
-                sorted[k] = first[i];
+        while (i < left.length && j < right.length) {
+            if (left[i] < right[j]) {
+                sortedArray[k] = left[i];
                 k++;
                 i++;
             } else {
-                sorted[k] = second[j];
+                sortedArray[k] = right[j];
                 k++;
                 j++;
             }
         }
 
-        if (i == first.length) {
-            while (j < second.length) {
-                sorted[k] = second[j];
+        if (i == left.length) {
+            while (j < right.length) {
+                sortedArray[k] = right[j];
                 k++;
                 j++;
             }
         }
 
-        if (j == second.length) {
-            while (i < first.length) {
-                sorted[k] = first[i];
+        if (j == right.length) {
+            while (i < left.length) {
+                sortedArray[k] = left[i];
                 k++;
                 i++;
             }
         }
-        return sorted;
+        return sortedArray;
     }
 
-    public static int[] sort(int[] arr, int lo, int hi) {
-        if (lo == hi) {
-            int[] br = new int[1];
-            br[0] = arr[lo];
-            return br;
+    public static int[] sort(int[] array, int startIndex, int lastIndex) {
+        if (startIndex == lastIndex) {
+            int[] singleItemArray = new int[1];
+            singleItemArray[0] = array[startIndex];
+            return singleItemArray;
         }
 
-        int mid = (lo + hi) / 2;
-        int[] left = sort(arr, lo, mid);
-        int[] right = sort(arr, mid + 1, hi);
-        int[] merged = mergeTwoSortedArrays(left, right);
+        int middle = (startIndex + lastIndex) / 2;
+        int[] left = sort(array, startIndex, middle);
+        int[] right = sort(array, middle + 1, lastIndex);
+        int[] mergedArray = mergeTwoSortedArrays(left, right);
 
-        return merged;
+        return mergedArray;
     }
 
     public static void printArray(int[] array) {
