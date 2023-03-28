@@ -9,7 +9,7 @@ public class Order {
     private int orderNumber;
     private Customer customer;
     private Pizza[] pizzas = new Pizza[10];
-
+private Product[] products = new Product[20];
     Order() {
         orderNumber = initialId++;
     }
@@ -32,8 +32,14 @@ public class Order {
     public double calculateOrderPrice() {
 
         // todo calculate order total price
+        double wholeAmount=0.0;
+        for(Product product: products){
+        wholeAmount+= calculateOrderPrice() * product.getQuantity();
 
-        return 0;
+        }
+
+
+        return wholeAmount;
     }
 
 
