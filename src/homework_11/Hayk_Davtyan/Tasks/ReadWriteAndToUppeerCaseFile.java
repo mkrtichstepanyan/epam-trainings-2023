@@ -4,9 +4,9 @@ import java.io.*;
 
 public class ReadWriteAndToUppeerCaseFile {
     public static void main(String[] args) {
-        readFile("C:\\Users\\ASUS\\Desktop\\homefile.txt");
-        writeFile("C:\\Users\\ASUS\\Desktop\\homefile.txt","Hello");
-        processData("C:\\Users\\ASUS\\Desktop\\homefile.txt");
+       readFile("src/homework_11/Hayk_Davtyan/Tasks/homefile.txt");
+        writeFile("src/homework_11/Hayk_Davtyan/Tasks/homefile.txt","Hello");
+        processData("src/homework_11/Hayk_Davtyan/Tasks/homefile.txt");
     }
 public static String readFile(String fileName){
 
