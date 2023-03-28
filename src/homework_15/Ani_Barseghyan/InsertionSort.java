@@ -8,7 +8,7 @@ public class InsertionSort {
 
     public static int[] sort(int[] array) {
         int count = 0;
-        for (int i = 1; i < array.length - 1; i++) {
+        for (int i = 1; i < array.length; i++) {
             count++;
             swap(array, i);
         }
@@ -28,7 +28,7 @@ public class InsertionSort {
 
     public static void printArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + ", ");
+            System.out.print(array[i] + " ");
         }
     }
 }
