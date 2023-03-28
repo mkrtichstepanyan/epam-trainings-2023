@@ -4,7 +4,7 @@ public class Homework_3 {
     public static void main(String[] args) {
      /* homework_3.Homework
         1. Create package with your <name_surname> in "src/homework_3" package (see example with my name in "scr/homework_3")
-        2. Crate package homework_3.Arsen_Kazaryan.chapter_5 inside your package and write all book examples in Chapter 5
+        2. Crate package chapter_5 inside your package and write all book examples in Chapter 5
         3. Create separate classes if there is need
         4. Copy "src/homework_3/tasks" package into your package and write solutions inside
         5. Task_1 and Task_2 have high priority please do them at first
