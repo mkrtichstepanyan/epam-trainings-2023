@@ -9,6 +9,8 @@ public class Main {
         Printer.printArray(Sort.insertion(array));
         Printer.printArray(Sort.bubble(array));
 
+        Printer.printArray(MergeSort.sort(array));
+
 
     }
 }
