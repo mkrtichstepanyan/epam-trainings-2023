@@ -8,13 +8,13 @@ public class SelectionSort {
             int minValueIndex = i;
             for (int j = i + 1; j < array.length; j++) {
                 count++;
-                if (array[j] < array[minValueIndex]) {
+                if (array[minValueIndex]> array[j] ) {
                     minValueIndex = j;
                 }
             }
-            int temp = array[minValueIndex];
-            array[minValueIndex] = array[i];
-            array[i] = temp;
+            int temp = array[i];
+            array[i] = array[minValueIndex];
+            array[minValueIndex] = temp;
         }
         System.out.println("Count: " + count);
         return array;
