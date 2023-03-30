@@ -6,56 +6,70 @@ public class Order {
     private static int initialId = BASE_ORDER_NUMBER;
 
     private int index;
-
     private int orderNumber;
     private Customer customer;
-    private Pizza[] pizzas = new Pizza[MAX_PIZZA_AMOUNT];
-
-
-    private String pizzaName;
+    private Pizza[] pizzas = new Pizza[10];
 
     Order() {
         orderNumber = initialId++;
     }
 
-    public void addPizza(String pizzaName, PizzaType type, Ingredient[] ingredients, int quantity) {
+    public void addPizza(String pizzaName, PizzaType type,
+                         Ingredient[] ingredients, int quantity) {
         if (quantity > MAX_PIZZA_AMOUNT) {
-            System.out.println("hop axper jan!!!");
+            System.out.println("hop axper jan!!");
             return;
         }
         int pizzaIndex = index++;
-        String validPizzaName;
-        if (pizzaName != null && pizzaName.length() > 4 && pizzaName.length() < 20) {
-            validPizzaName = pizzaName;
-        } else {
-            validPizzaName = customer.getName() + "_" + pizzaIndex;
-        }
+        String validPizzaName = getValidPizzaName(pizzaName, pizzaIndex);
         pizzas[pizzaIndex] = new Pizza(validPizzaName, type, ingredients, quantity);
     }
-
-
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
-    public double calculateOrderPrice(){
-        double orderPrice = 0.0;
-        for(Pizza pizza : pizzas){
-            if(pizza != null){
-                orderPrice +=pizza.calculatePrice();
-            }
+    public double calculateOrderPrice() {
+        double totalPrice = 0.0;
+        for (int i = 0; i < index; i++) {
+            totalPrice = totalPrice + pizzas[i].calculatePrice() * pizzas[i].getQuantity();
         }
-        // todo calculate order total  price.
 
-        return orderPrice;
+        return totalPrice;
     }
-    public void printOrderAttributes() {
-        for (int i = 0; i < pizzas.length; i++) {
-            Pizza pizza = pizzas[i];
-            System.out.println("[" + orderNumber + customer.getNumber()
-                    + pizza.getName() + pizza.getQuantity() + "]");
 
+
+    public void printOrderAttributes() {
+        for (int i= 0; i < index; i++ ) {
+            System.out.println("[" + orderNumber + customer.getNumber() + pizzas[i].getName() + pizzas[i].getQuantity() + "]");
         }
+    }
+
+    private String getValidPizzaName(String pizzaName, int pizzaIndex) {
+        String validPizzaName = pizzaName;
+        if (!isValidPizzaName(pizzaName)) {
+            validPizzaName = customer.getName() + "_" + pizzaIndex;
+        }
+        return validPizzaName;
+    }
+
+    private boolean isValidPizzaName(String pizzaName) {
+        return pizzaName != null && pizzaName.length() > 4 && pizzaName.length() < 20;
+    }
+
+    public int getNumber() {
+        return orderNumber;
+    }
+
+    public int getCustomerId() {
+        return  customer.getNumber();
+    }
+
+    public int getPizzasQuty() {
+        return index;
+    }
+
+    public Pizza[] getPizzas() {
+        return pizzas;
     }
 }
