@@ -5,19 +5,19 @@ public class SortingAlgorithms {
         int[] array = new int[]{2, 1, 8, 3, 5, 5, -26, 9, 10, 12, -16};
         System.out.println("Initial Array: 2,1,8,3,5,5,-26,9,10,12,-16 ");
         System.out.println("------------------------------------------");
-        sortByBubbleSorting(array);
-        print(array);
-        System.out.println();
+//        sortByBubbleSorting(array);
+//        print(array);
+//        System.out.println();
         sortBySelectionSorting(array);
         print(array);
         System.out.println();
-        sortByInsertionSorting(array);
-        print(array);
-        System.out.println();
-        sortByMergeSorting(array);
-        System.out.print("Merge sort--->");
-        print(array);
-        System.out.println();
+//        sortByInsertionSorting(array);
+//        print(array);
+//        System.out.println();
+//        sortByMergeSorting(array);
+//        System.out.print("Merge sort--->");
+//        print(array);
+//        System.out.println();
     }
 
     public static void sortByBubbleSorting(int[] array) {
@@ -34,12 +34,13 @@ public class SortingAlgorithms {
     public static void sortBySelectionSorting(int[] array) {
         for (int i = 0; i < array.length; i++) {
             int minIndex = i;
-            for (int j = i + 1; j < array.length; j++) {
+            for (int j = i; j < array.length; j++) {
                 if (array[j] < array[minIndex]) {
                     minIndex = j;
                 }
             }
-        }
+            swap(array, minIndex, i);
+            }
         System.out.print("Selection Sorting--->");
     }
 
