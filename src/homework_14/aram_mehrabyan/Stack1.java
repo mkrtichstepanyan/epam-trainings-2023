@@ -1,6 +1,6 @@
 package homework_14.aram_mehrabyan;
 
-public class Stack1 <T extends Object>{
+public class Stack1 <T>{
     T []stck;
     int tos;
     Stack1(){
