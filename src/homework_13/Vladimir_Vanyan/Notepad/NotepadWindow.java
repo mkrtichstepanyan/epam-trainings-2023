@@ -64,12 +64,12 @@ public class NotepadWindow extends JFrame {
         private final JMenuItem ruLang;
 
         public NotepadMenuBar() {
-            file = new JMenu();
-            newFile = new JMenuItem();
-            openFile = new JMenuItem();
-            saveFile = new JMenuItem();
-            saveAs = new JMenuItem();
-            close = new JMenuItem();
+            file = new JMenu("File");
+            newFile = new JMenuItem("New File");
+            openFile = new JMenuItem("Open File");
+            saveFile = new JMenuItem("Save File");
+            saveAs = new JMenuItem("Save as");
+            close = new JMenuItem("Close");
 
             file.add(newFile);
             file.add(openFile);
@@ -77,10 +77,10 @@ public class NotepadWindow extends JFrame {
             file.add(saveAs);
             file.add(close);
 
-            language = new JMenu();
-            amLang = new JMenuItem();
-            ruLang = new JMenuItem();
-            enLang = new JMenuItem();
+            language = new JMenu("Languages");
+            amLang = new JMenuItem("Armenian");
+            ruLang = new JMenuItem("Russian");
+            enLang = new JMenuItem("English");
 
             language.add(amLang);
             language.add(ruLang);
