@@ -29,7 +29,7 @@ public class GenericStack <T>{
             System.out.println("The stack is empty!");
             return null;
         } else {
-            return (T)myStack[index - 1];
+            return (T)myStack[--index];
         }
     }
 }
