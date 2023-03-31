@@ -1,4 +1,4 @@
-package Vladimir_Vanyan;
+package homework_14.Vladimir_Vanyan;
 
 public class Main {
     public static void main(String[] args) {
