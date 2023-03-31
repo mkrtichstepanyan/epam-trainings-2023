@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.*;
+import java.util.Properties;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
@@ -29,6 +30,7 @@ public class Nodepad extends JFrame {
         add(menuBar, BorderLayout.NORTH);
         setSize(800, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+
         setVisible(true);
     }
 
@@ -48,11 +50,11 @@ public class Nodepad extends JFrame {
 
         public NotepadMenuBar() {
             file = new JMenu("File");
-            newFile = new JMenuItem("New");
-            openFile = new JMenuItem("Open");
-            save = new JMenuItem("Save");
-            saveAs = new JMenuItem("Save as");
-            close = new JMenuItem("Close");
+            newFile = new JMenuItem();
+            openFile = new JMenuItem();
+            save = new JMenuItem();
+            saveAs = new JMenuItem();
+            close = new JMenuItem();
 
             file.add(newFile);
             file.add(openFile);
@@ -60,10 +62,10 @@ public class Nodepad extends JFrame {
             file.add(saveAs);
             file.add(close);
 
-            language = new JMenu("Language");
-            enLang = new JMenuItem("English");
-            amLang = new JMenuItem("Armenian");
-            ruLang = new JMenuItem("Russian");
+            language = new JMenu();
+            enLang = new JMenuItem();
+            amLang = new JMenuItem();
+            ruLang = new JMenuItem();
 
             language.add(enLang);
             language.add(amLang);
@@ -78,6 +80,70 @@ public class Nodepad extends JFrame {
             saveAs.addActionListener(this::onSaveAsActionPerformed);
             newFile.addActionListener(this::onNewActionPerformed);
 
+            enLang.addActionListener(this::onEnLangActionPerformed);
+            amLang.addActionListener(this::onAmLangActionPerformed);
+            ruLang.addActionListener(this::onRuLangActionPerformed);
+
+            loadMenuLabels(LabelKey.EN);
+
+        }
+
+        private void onEnLangActionPerformed(ActionEvent actionEvent) {
+            loadMenuLabels(LabelKey.EN);
+        }
+
+        private void onAmLangActionPerformed(ActionEvent actionEvent) {
+            loadMenuLabels(LabelKey.HY);
+        }
+
+        private void onRuLangActionPerformed(ActionEvent actionEvent) {
+            loadMenuLabels(LabelKey.RU);
+        }
+
+        private void loadMenuLabels(LabelKey labelKey){
+            Properties properties = loadMessages(labelKey);
+            loadMenuLabels(properties);
+        }
+
+        private void loadMenuLabels(Properties properties){
+            file.setText(properties.getProperty("file.menu.name"));
+            newFile.setText(properties.getProperty("newFile.menu.name"));
+            openFile.setText(properties.getProperty("openFile.menu.name"));
+            save.setText(properties.getProperty("save.menu.name"));
+            saveAs.setText(properties.getProperty("saveAs.menu.name"));
+            close.setText(properties.getProperty("close.menu.name"));
+
+            language.setText(properties.getProperty("language.menu.name"));
+            enLang.setText(properties.getProperty("enLang.menu.name"));
+            amLang.setText(properties.getProperty("amLang.menu.name"));
+            ruLang.setText(properties.getProperty("ruLang.menu.name"));
+
+        }
+
+        private Properties loadMessages(LabelKey labelKey) {
+            String path = "";
+            switch (labelKey.getLabel()) {
+                case "hy":
+                    path = "/Qnarik_Khachatryan/i18n/label_hy.properties";
+                    break;
+                case "ru":
+                    path = "/Qnarik_Khachatryan/i18n/label_ru.properties";
+                    break;
+                default:
+                    path = "/Qnarik_Khachatryan/i18n/label.properties";
+            };
+
+            Properties properties = new Properties();
+
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(path);
+            if (inputStream!= null) {
+                try (InputStreamReader reader = new InputStreamReader(inputStream)){
+                    properties.load(reader);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return properties;
         }
 
         private void onOpenActionPerformed(ActionEvent actionEvent) {
@@ -112,10 +178,10 @@ public class Nodepad extends JFrame {
             JFileChooser fileChooser = new JFileChooser();
             File currentFile = fileChooser.getSelectedFile();
             String currentText = textArea.getText();
-            if (currentFile!=null){
+            if (currentFile != null) {
                 System.out.println(currentFile.getName());
 
-                if (!isChanged(currentText, currentFile)){
+                if (!isChanged(currentText, currentFile)) {
                     textArea.setText("");
                 } else {
                     int option = JOptionPane.showConfirmDialog(this, "Do you want to save?");
@@ -128,8 +194,8 @@ public class Nodepad extends JFrame {
                     }
                 }
             }
-            if (currentFile==null){ // new file
-                if(currentText.length() > 0) {
+            if (currentFile == null) { // new file
+                if (currentText.length() > 0) {
                     int option = JOptionPane.showConfirmDialog(this, "Do you want to save?");
                     if (option == JOptionPane.YES_OPTION) {
                         onSaveAsActionPerformed(actionEvent);
@@ -224,6 +290,22 @@ public class Nodepad extends JFrame {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(this, "Error opening file", "Error", JOptionPane.ERROR_MESSAGE);
             }
+        }
+    }
+
+    enum LabelKey {
+        HY("hy"),
+        RU("ru"),
+        EN("en");
+
+        private String label;
+
+        LabelKey(String label) {
+            this.label = label;
+        }
+
+        public String getLabel() {
+            return label;
         }
     }
 
