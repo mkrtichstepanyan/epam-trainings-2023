@@ -1,7 +1,4 @@
 package homework_16.Roza_Petrosyan.dynamic_array_task;
-
-import java.util.Arrays;
-
 public class Test {
     public static void main(String[] args) {
         DynamicArray myDynamicArray = new DynamicArray(5);
@@ -46,7 +43,7 @@ public class Test {
         System.out.println();
 
         System.out.println("Dynamic array after subList(9,11) method:");
-        System.out.println(Arrays.toString(myDynamicArray.subList(9,11)));
+        System.out.println(myDynamicArray.subList(9,11));
         System.out.println();
 
         System.out.println("Dynamic array after set(3, -111) method:");
@@ -64,14 +61,14 @@ public class Test {
         System.out.println(myDynamicArray);
         System.out.println();
 
-        System.out.println("Dynamic array after replaceAll(4,555) method:");
-        myDynamicArray.replaceAll(4, 555);
+        System.out.println("Dynamic array after replaceAll(e->e+100) method:");
+        myDynamicArray.replaceAll(e->e+100);
         System.out.println(myDynamicArray);
         System.out.println();
 
 
-        System.out.println("Dynamic array after removeAll(new int[]{9, -7, 3, 15, 78})) method:");
-        System.out.println(myDynamicArray.removeAll(new int[]{9, -7, 3, 15, 78}));
+        System.out.println("Dynamic array after removeAll(new int[]{-11,93,12})) method:");
+        System.out.println(myDynamicArray.removeAll(new int[]{-11,93,12}));
         System.out.println(myDynamicArray);
         System.out.println();
 

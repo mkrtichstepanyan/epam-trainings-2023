@@ -1,5 +1,6 @@
 package homework_16.Roza_Petrosyan.dynamic_array_task;
 
+import java.util.function.UnaryOperator;
 public class DynamicArray {
     private int[] array;
     private int size = 0;
@@ -33,12 +34,6 @@ public class DynamicArray {
             throw new ArrayIndexOutOfBoundsException("Wrong index");
         }
         return array[index];
-    }
-
-    private void extend() {
-        int[] newArray = new int[array.length * 2];
-        System.arraycopy(array, 0, newArray, 0, array.length);
-        array = newArray;
     }
 
     public boolean addAll(int[] addedArray) {
@@ -109,7 +104,9 @@ public class DynamicArray {
                 if (array[i] == value) {
                     remove(i);
                     result = true;
-                    i--;
+                    if(i > 0) {
+                        i--;
+                    }
                 }
             }
         }
@@ -120,12 +117,14 @@ public class DynamicArray {
         return size == 0;
     }
 
-    public int[] subList(int fromIndex, int toIndex) {
-        int[] newArray = new int[toIndex - fromIndex];
-        for (int i = 0, k = 0; i < size; i++) {
+    public DynamicArray subList(int fromIndex, int toIndex) {
+        if(fromIndex < 0 || toIndex > size || fromIndex > toIndex) {
+            throw new IllegalArgumentException();
+        }
+        DynamicArray newArray = new DynamicArray();
+        for (int i = 0; i < size; i++) {
             if (i >= fromIndex && i < toIndex) {
-                newArray[k] = array[i];
-                k++;
+                newArray.add(array[i]);
             }
         }
         return newArray;
@@ -183,11 +182,9 @@ public class DynamicArray {
         }
     }
 
-    public void replaceAll(int value, int replacement) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == value) {
-                array[i] = replacement;
-            }
+    public void replaceAll(UnaryOperator<Integer> operator) {
+        for (int i = 0; i < size; i++) {
+            array[i] = operator.apply(array[i]);
         }
     }
 
@@ -206,5 +203,11 @@ public class DynamicArray {
             }
         }
         return sb.append("]").toString();
+    }
+
+    private void extend() {
+        int[] newArray = new int[array.length * 2];
+        System.arraycopy(array, 0, newArray, 0, array.length);
+        array = newArray;
     }
 }
