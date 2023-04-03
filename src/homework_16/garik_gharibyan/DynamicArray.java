@@ -70,11 +70,18 @@ public class DynamicArray {
 
     public boolean remove(int index) {
         if (index < 0 || index >= size) {
-            throw new IllegalArgumentException("The index must be in to range of 0-" + size);
+            throw new IllegalArgumentException("The index must be in to range of 0-" + (size - 1));
         }
         int[] newArray = new int[size - 1];
-        System.arraycopy(array, 0, newArray, 0, index);
-        System.arraycopy(array, index + 1, newArray, index, size - (index + 1));
+        for (int i = 0; i < index; i++) {
+            newArray[i] = array[i];
+        }
+        for (int i = index+1; i < size; i++) {
+            newArray[i-1] = array[i];
+        }
+
+//        System.arraycopy(array, 0, newArray, 0, index);
+//        System.arraycopy(array, index + 1, newArray, index, size - (index + 1));
         array = newArray;
         size = size - 1;
         return true;
@@ -92,20 +99,32 @@ public class DynamicArray {
         }
         int[] newArray = new int[size - (toIndex - fromIndex)];
 
+        for (int i = 0; i < fromIndex; i++) {
+            newArray[i] = array[i];
+        }
+        int temp = fromIndex;
+        for (int i = toIndex; i < size; i++) {
+            newArray[temp++] = array[i];
+        }
 
-        System.arraycopy(array, 0, newArray, 0, fromIndex);
-        System.arraycopy(array, toIndex, newArray, fromIndex, size - toIndex);
-
+//        System.arraycopy(array, 0, newArray, 0, fromIndex);
+//        System.arraycopy(array, toIndex, newArray, fromIndex, size - toIndex);
 
         array = newArray;
         size = size - (toIndex - fromIndex);
     }
 
-    public void removeInt(int i){
-        for (int j = 0; j < size; j++) {
-            if (array[j] == i){
-                remove(j);
+    public boolean removeInt(int i){
+        if (this.contains(i)){
+            for (int j = 0; j < size; j++) {
+                if (array[j] == i){
+                    remove(j);
+                    break;
+                }
             }
+            return true;
+        }else {
+            return false;
         }
     }
 
@@ -148,6 +167,9 @@ public class DynamicArray {
     }
 
     public void clear() {
+        for (int i = 0; i < size; i++) {
+            this.remove(i);
+        }
         size = 0;
     }
 
@@ -157,14 +179,6 @@ public class DynamicArray {
             newDynamicArray.add(array[i]);
         }
         return newDynamicArray;
-    }
-
-    private void extend() {
-        int[] newArray = new int[array.length * 2];
-        for (int i = 0; i < array.length; i++) {
-            newArray[i] = array[i];
-        }
-        array = newArray;
     }
 
     public int indexOf(int obj) {
@@ -227,7 +241,9 @@ public class DynamicArray {
     public void trimToSize() {
         int[] newArray = new int[size];
         if (size < array.length) {
-            System.arraycopy(array, 0, newArray, 0, size);
+            for (int i = 0; i < size; i++) {
+                newArray[i] = array[i];
+            }
             array = newArray;
         }
     }
@@ -251,4 +267,12 @@ public class DynamicArray {
         stringBuilder.append(array[size - 1]).append("]");
         return stringBuilder.toString();
     }
+    private void extend() {
+        int[] newArray = new int[array.length * 2];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[i];
+        }
+        array = newArray;
+    }
+
 }

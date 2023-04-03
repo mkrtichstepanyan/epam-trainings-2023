@@ -39,5 +39,11 @@ public class Main {
         dynamicArray1.add(13);
         dynamicArray.addAll(dynamicArray1);
         System.out.println(dynamicArray + " " + dynamicArray.getSize());
+
+        dynamicArray.remove(12);
+        System.out.println(dynamicArray + " " + dynamicArray.getSize());
+
+        dynamicArray.clear();
+
     }
 }
