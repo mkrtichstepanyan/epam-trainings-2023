@@ -37,9 +37,7 @@ public class DynamicArray {
 
     private void extend() {
         int[] newArray = new int[array.length * 2];
-        for (int i = 0; i < array.length; i++) {
-            newArray[i] = array[i];
-        }
+        System.arraycopy(array, 0, newArray, 0, array.length);
         array = newArray;
     }
 
@@ -59,10 +57,8 @@ public class DynamicArray {
     }
 
     public int[] clone() {
-        int[] newArray = new int[array.length];
-        for (int i = 0; i < array.length; i++) {
-            newArray[i] = array[i];
-        }
+        int[] newArray = new int[size];
+        System.arraycopy(array, 0, newArray, 0, size);
         return newArray;
     }
 
@@ -80,7 +76,7 @@ public class DynamicArray {
     }
 
     public int indexOf(int value) {
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < size; i++) {
             if (array[i] == value) {
                 return i;
             }
@@ -109,8 +105,8 @@ public class DynamicArray {
     public boolean removeAll(int[] removalArray) {
         boolean result = false;
         for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < removalArray.length; j++) {
-                if (array[i] == removalArray[j]) {
+            for (int value : removalArray) {
+                if (array[i] == value) {
                     remove(i);
                     result = true;
                     i--;
@@ -166,9 +162,7 @@ public class DynamicArray {
     public void trimToSize() {
         if(!isEmpty() && size < array.length) {
             int[] trimArray = new int[size];
-            for (int i = 0; i < trimArray.length; i++) {
-                trimArray[i] = array[i];
-            }
+            System.arraycopy(array, 0, trimArray, 0, trimArray.length);
             array = trimArray;
         }
     }
@@ -177,15 +171,16 @@ public class DynamicArray {
         if (fromIndex > toIndex) {
             throw new IndexOutOfBoundsException();
         }
-        if(toIndex < array.length) {
-            int[] newArray = new int[array.length - (toIndex - fromIndex)];
-            for (int i = 0, k = 0; i < array.length; i++) {
+        if(toIndex < size) {
+            int[] newArray = new int[size - (toIndex - fromIndex)];
+            for (int i = 0, k = 0; i < size; i++) {
                 if (i < fromIndex || i >= toIndex) {
                     newArray[k] = array[i];
                     k++;
                 }
             }
             array = newArray;
+            size -= toIndex - fromIndex;
         }
     }
 
@@ -202,15 +197,15 @@ public class DynamicArray {
         if (size == 0) {
             return "[]";
         }
-        trimToSize();
         StringBuilder sb = new StringBuilder();
         sb.append('[');
-        for (int item : array)
-            if (item == array[array.length - 1]) {
-                sb.append(item);
+        for (int i = 0; i < size; i++) {
+            if (array[i] == array[size - 1]) {
+                sb.append(array[i]);
             } else {
-                sb.append(item).append(" ");
+                sb.append(array[i]).append(" ");
             }
+        }
         return sb.append("]").toString();
     }
 }
