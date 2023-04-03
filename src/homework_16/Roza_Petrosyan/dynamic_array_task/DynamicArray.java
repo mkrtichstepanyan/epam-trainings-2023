@@ -43,7 +43,10 @@ public class DynamicArray {
         array = newArray;
     }
 
-    public int[] addAll(int[] addedArray) {
+    public boolean addAll(int[] addedArray) {
+        if(addedArray.length == 0) {
+            return false;
+        }
         int addedLength;
         if (array.length - size >= addedArray.length) {
             addedLength = array.length;
@@ -58,7 +61,7 @@ public class DynamicArray {
         for (int i = 0; i < addedArray.length; i++) {
             add(addedArray[i]);
         }
-        return array;
+        return true;
     }
 
     public void clear() {
@@ -190,13 +193,12 @@ public class DynamicArray {
         array = newArray;
     }
 
-    public int[] replaceAll(int value, int replacement) {
+    public void replaceAll(int value, int replacement) {
         for (int i = 0; i < array.length; i++) {
             if (array[i] == value) {
                 array[i] = replacement;
             }
         }
-        return array;
     }
 
     @Override
