@@ -122,7 +122,7 @@ public class DynamicArray {
 
     public int[] subList(int fromIndex, int toIndex) {
         int[] newArray = new int[toIndex - fromIndex];
-        for (int i = 0, k = 0; i < array.length; i++) {
+        for (int i = 0, k = 0; i < size; i++) {
             if (i >= fromIndex && i < toIndex) {
                 newArray[k] = array[i];
                 k++;
@@ -136,7 +136,7 @@ public class DynamicArray {
         if (index < 0 || index > size - 1) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < size; i++) {
             if (i == index) {
                 result = array[i];
                 array[i] = value;
@@ -146,9 +146,8 @@ public class DynamicArray {
     }
 
     public int[] sort() {
-        trimToSize();
-        for (int i = 0; i < array.length; i++) {
-            for (int j = i + 1; j < array.length; j++) {
+        for (int i = 0; i < size; i++) {
+            for (int j = i + 1; j < size; j++) {
                 if (array[i] > array[j]) {
                     int temp = array[i];
                     array[i] = array[j];
