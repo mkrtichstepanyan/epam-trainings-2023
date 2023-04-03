@@ -48,16 +48,14 @@ public class DynamicArray {
             return false;
         }
         int addedLength;
-        if (array.length - size >= addedArray.length) {
-            addedLength = array.length;
-        } else {
+        if (array.length - size < addedArray.length) {
             addedLength = array.length + addedArray.length;
+            int[] newArray = new int[addedLength];
+            for (int i = 0; i < array.length; i++) {
+                newArray[i] = array[i];
+            }
+            array = newArray;
         }
-        int[] newArray = new int[addedLength];
-        for (int i = 0; i < array.length; i++) {
-            newArray[i] = array[i];
-        }
-        array = newArray;
         for (int i = 0; i < addedArray.length; i++) {
             add(addedArray[i]);
         }
@@ -183,6 +181,9 @@ public class DynamicArray {
     }
 
     public void removeRange(int fromIndex, int toIndex) {
+        if (fromIndex > toIndex) {
+            throw new IndexOutOfBoundsException();
+        }
         int[] newArray = new int[array.length - (toIndex - fromIndex)];
         for (int i = 0, k = 0; i < array.length; i++) {
             if (i < fromIndex || i >= toIndex) {
