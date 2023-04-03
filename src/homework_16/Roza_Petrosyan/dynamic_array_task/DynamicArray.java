@@ -51,18 +51,12 @@ public class DynamicArray {
             addedLength = array.length + addedArray.length;
         }
         int[] newArray = new int[addedLength];
-
         for (int i = 0; i < array.length; i++) {
             newArray[i] = array[i];
         }
         array = newArray;
-        int addedIndex = size;
         for (int i = 0; i < addedArray.length; i++) {
-            newArray[addedIndex++] = addedArray[i];
-            if (size == array.length) {
-                extend();
-            }
-            array[size++] = addedArray[i];
+            add(addedArray[i]);
         }
         return array;
     }
