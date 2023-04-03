@@ -120,35 +120,14 @@ public class DynamicArray {
         array = newArray;
         return removedElement;
     }
-
-    private int[] removeDuplicates() {
-        int j = 0, count = 0;
-        int[] temp = new int[array.length];
-        for (int i = 0; i < array.length; i++) {
-            if (i + 1 < array.length) {
-                if (array[i] == array[i + 1]) {
-                    count++;
-                } else {
-                    temp[j++] = array[i];
-                }
-            }
-        }
-        temp[j] = array[array.length - 1];
-
-        int[] newArray = new int[array.length - count];
-        System.arraycopy(temp, 0, newArray, 0, newArray.length);
-        array = newArray;
-        return array;
-    }
-
     public boolean removeAll(int[] removalArray) {
         boolean result = false;
-        removeDuplicates();
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < removalArray.length; j++) {
                 if (array[i] == removalArray[j]) {
                     remove(i);
                     result = true;
+                    i--;
                 }
             }
         }
