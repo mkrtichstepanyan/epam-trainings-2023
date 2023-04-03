@@ -67,8 +67,8 @@ public class Test {
         System.out.println();
 
 
-        System.out.println("Dynamic array after removeAll(new int[]{-11,93,12})) method:");
-        System.out.println(myDynamicArray.removeAll(new int[]{-11,93,12}));
+        System.out.println("Dynamic array after removeAll(new int[]{-11,93,103})) method:");
+        System.out.println(myDynamicArray.removeAll(new int[]{-11,93,103}));
         System.out.println(myDynamicArray);
         System.out.println();
 

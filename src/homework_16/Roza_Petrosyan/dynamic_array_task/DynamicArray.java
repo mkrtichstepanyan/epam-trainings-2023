@@ -99,14 +99,11 @@ public class DynamicArray {
     }
     public boolean removeAll(int[] removalArray) {
         boolean result = false;
-        for (int i = 0; i < array.length; i++) {
+        for (int i = size - 1; i >= 0; i--) {
             for (int value : removalArray) {
                 if (array[i] == value) {
                     remove(i);
                     result = true;
-                    if(i > 0) {
-                        i--;
-                    }
                 }
             }
         }
