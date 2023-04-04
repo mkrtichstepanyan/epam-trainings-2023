@@ -70,13 +70,12 @@ public class DynamicArray {
     }
 
 
-
-
     //--------------------------------------------------------------------
     public void clear() {
-      for (int i=0;i<array.length;i++){
-          array[i]=0;
-      }
+        for (int i = 0; i < size; i++) {
+            array[i] = 0;
+        }
+        size = 0;
     }
 
     //--------------------------------------------------------------------
@@ -90,11 +89,11 @@ public class DynamicArray {
 
     //--------------------------------------------------------------------
     public int[] remove(int value) {
-        int index= indexOf(value);
-        if(index>0){
+        int index = indexOf(value);
+        if (index > 0) {
             for (int i = index; i < size - 1; i++) {
                 array[i] = array[i + 1];
-        }
+            }
             size--;
         }
         return array;
@@ -130,7 +129,7 @@ public class DynamicArray {
         boolean curr = true;
         while (curr) {
             curr = false;
-            for (int i = 0; i < size -1; i++) {
+            for (int i = 0; i < size - 1; i++) {
                 if (array[i] > array[i + 1]) {
                     int a = array[i];
                     array[i] = array[i + 1];
@@ -211,6 +210,7 @@ public class DynamicArray {
             array = newArray;
         }
     }
+
     private void extend() {
         int[] newArray = new int[array.length * 2];
         for (int i = 0; i < array.length; i++) {

@@ -17,9 +17,9 @@ public class Test {
 //        System.out.println(myDynamicArray.contains(9));
 //
 //
-        System.out.println("Dynamic array after remove() method");
-        myDynamicArray.remove(2);
-        System.out.println(myDynamicArray);
+//        System.out.println("Dynamic array after remove() method");
+//        myDynamicArray.remove(2);
+//        System.out.println(myDynamicArray);
 //
 //
 //        System.out.println("Dynamic array after removeAll() method");
@@ -31,9 +31,9 @@ public class Test {
 //        myDynamicArray.sort();
 //        System.out.println(myDynamicArray);
 //
-//        System.out.println("Dynamic array after clear() method");
-//        myDynamicArray.clear();
-//        System.out.println(myDynamicArray);
+        System.out.println("Dynamic array after clear() method");
+        myDynamicArray.clear();
+        System.out.println(myDynamicArray);
 //
 //        System.out.println("Dynamic array after removeRange() method");
 //        myDynamicArray.removeRange(1, 4);
