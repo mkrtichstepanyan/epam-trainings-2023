@@ -24,10 +24,6 @@ import java.util.Arrays;
  */
 public class DynamicArray {
 
-    public int[] getArray() {
-        return array;
-    }
-
     private int[] array;
 
     private int size = 0;
@@ -73,21 +69,14 @@ public class DynamicArray {
         return array[index];
     }
 
-    //--------------------------------------------------------------------
-    private void extend() {
-        int[] newArray = new int[array.length * 2];
-        for (int i = 0; i < array.length; i++) {
-            newArray[i] = array[i];
-        }
-        array = newArray;
-    }
+
+
 
     //--------------------------------------------------------------------
     public void clear() {
-        for (int i = 0; i < array.length; i++) {
-            array[i] = i;
-        }
-        Arrays.fill(array, 0);
+      for (int i=0;i<array.length;i++){
+          array[i]=0;
+      }
     }
 
     //--------------------------------------------------------------------
@@ -100,11 +89,15 @@ public class DynamicArray {
     }
 
     //--------------------------------------------------------------------
-    public void remove(int index) {
-        for (int i = index; i < size - 1; i++) {
-            array[i] = array[i + 1];
+    public int[] remove(int value) {
+        int index= indexOf(value);
+        if(index>0){
+            for (int i = index; i < size - 1; i++) {
+                array[i] = array[i + 1];
         }
-        size--;
+            size--;
+        }
+        return array;
     }
 
     //--------------------------------------------------------------------
@@ -217,5 +210,12 @@ public class DynamicArray {
             }
             array = newArray;
         }
+    }
+    private void extend() {
+        int[] newArray = new int[array.length * 2];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[i];
+        }
+        array = newArray;
     }
 }

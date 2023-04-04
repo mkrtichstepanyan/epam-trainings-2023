@@ -17,9 +17,9 @@ public class Test {
 //        System.out.println(myDynamicArray.contains(9));
 //
 //
-//        System.out.println("Dynamic array after remove() method");
-//        myDynamicArray.remove(4);
-//        System.out.println(myDynamicArray);
+        System.out.println("Dynamic array after remove() method");
+        myDynamicArray.remove(2);
+        System.out.println(myDynamicArray);
 //
 //
 //        System.out.println("Dynamic array after removeAll() method");
