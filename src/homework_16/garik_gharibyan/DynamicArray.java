@@ -6,7 +6,9 @@ import javax.naming.OperationNotSupportedException;
 import java.util.ArrayList;
 
 /* Please create methods below
++   addByIndex () -> added new value without replacing
 +   addAll() -> adds all elements of a collection to arraylist
+    addAllByIndex () -> added new values without replacing
 +   clear() -> removes all the elements from arraylist
 +   clone() -> makes a copy of the array list
 +   contains() -> checks if the element is present in the arraylist
@@ -47,11 +49,32 @@ public class DynamicArray {
     public int getSize() {
         return size;
     }
+
     public void add(int value) {
         if (size == array.length) {
             extend();
         }
         array[size++] = value;
+    }
+
+    public void addByIndex(int index, int value) {
+        if (index < 0 || index > size) {
+            throw new ArrayIndexOutOfBoundsException("The index must be in to range 0-" + size);
+        }
+        if (size == array.length) {
+            extend();
+        }
+        int[] tempArray = new int[array.length];
+        for (int i = 0; i < index; i++) {
+            tempArray[i] = array[i];
+        }
+        tempArray[index] = value;
+        for (int i = index; i < size; i++) {
+            tempArray[i + 1] = array[i];
+        }
+        array = tempArray;
+        size++;
+
     }
 
     public void addAll(int[] newArray) {
@@ -61,11 +84,28 @@ public class DynamicArray {
     }
 
     public void addAll(DynamicArray dynamicArray) {
-        int[] array = dynamicArray.array;
         int size = dynamicArray.getSize();
         for (int i = 0; i < size; i++) {
-            add(array[i]);
+            add(dynamicArray.get(i));
         }
+    }
+
+    public void addAllByIndex(int index, DynamicArray values) {
+        if (index < 0 || index > size) {
+            throw new ArrayIndexOutOfBoundsException("The index must be in to range 0-" + size);
+        }
+        DynamicArray tempDynamicArray = new DynamicArray();
+        for (int i = 0; i < index; i++) {
+            tempDynamicArray.add(array[i]);
+        }
+        for (int i = 0; i < values.size; i++) {
+            tempDynamicArray.add(values.get(i));
+        }
+        for (int i = index; i < size; i++) {
+            tempDynamicArray.add(array[i]);
+        }
+        array = tempDynamicArray.array;
+        size = tempDynamicArray.getSize();
     }
 
     public boolean remove(int index) {
@@ -76,8 +116,8 @@ public class DynamicArray {
         for (int i = 0; i < index; i++) {
             newArray[i] = array[i];
         }
-        for (int i = index+1; i < size; i++) {
-            newArray[i-1] = array[i];
+        for (int i = index + 1; i < size; i++) {
+            newArray[i - 1] = array[i];
         }
 
 //        System.arraycopy(array, 0, newArray, 0, index);
@@ -97,41 +137,41 @@ public class DynamicArray {
         if (toIndex > size) {
             throw new IllegalArgumentException("toIndex must be less  than " + size);
         }
-        int[] newArray = new int[size - (toIndex - fromIndex)];
+        int[] tempArray = new int[size - (toIndex - fromIndex)];
 
         for (int i = 0; i < fromIndex; i++) {
-            newArray[i] = array[i];
+            tempArray[i] = array[i];
         }
         int temp = fromIndex;
         for (int i = toIndex; i < size; i++) {
-            newArray[temp++] = array[i];
+            tempArray[temp++] = array[i];
         }
 
 //        System.arraycopy(array, 0, newArray, 0, fromIndex);
 //        System.arraycopy(array, toIndex, newArray, fromIndex, size - toIndex);
 
-        array = newArray;
+        array = tempArray;
         size = size - (toIndex - fromIndex);
     }
 
-    public boolean removeInt(int i){
-        if (this.contains(i)){
+    public boolean removeInt(int i) {
+        if (this.contains(i)) {
             for (int j = 0; j < size; j++) {
-                if (array[j] == i){
+                if (array[j] == i) {
                     remove(j);
                     break;
                 }
             }
             return true;
-        }else {
+        } else {
             return false;
         }
     }
 
-    public void removeAll(DynamicArray dynamicArray){
-        for (int i:array) {
-            for (int j: dynamicArray.array) {
-                if (j == i){
+    public void removeAll(DynamicArray dynamicArray) {
+        for (int i : array) {
+            for (int j : dynamicArray.array) {
+                if (j == i) {
                     this.removeInt(j);
                 }
             }
@@ -140,7 +180,7 @@ public class DynamicArray {
 
     public DynamicArray subList(int fromIndex, int toIndex) {
 
-        if (size == 0){
+        if (size == 0) {
             throw new IllegalArgumentException("DynamicArray is Empty");
         }
         if (fromIndex > toIndex) {
@@ -152,11 +192,11 @@ public class DynamicArray {
         if (toIndex > size) {
             throw new IllegalArgumentException("toIndex must be less  than " + size);
         }
-        DynamicArray newDynamicArray = new DynamicArray();
+        DynamicArray tmepDynamicArray = new DynamicArray();
         for (int i = fromIndex; i < toIndex; i++) {
-            newDynamicArray.add(array[i]);
+            tmepDynamicArray.add(array[i]);
         }
-        return newDynamicArray;
+        return tmepDynamicArray;
     }
 
     public int get(int index) {
@@ -168,17 +208,17 @@ public class DynamicArray {
 
     public void clear() {
         for (int i = 0; i < size; i++) {
-            this.remove(i);
+            array[i] = 0;
         }
         size = 0;
     }
 
     public DynamicArray clone() {
-        DynamicArray newDynamicArray = new DynamicArray();
+        DynamicArray tmepDynamicArray = new DynamicArray();
         for (int i = 0; i < size; i++) {
-            newDynamicArray.add(array[i]);
+            tmepDynamicArray.add(array[i]);
         }
-        return newDynamicArray;
+        return tmepDynamicArray;
     }
 
     public int indexOf(int obj) {
@@ -218,7 +258,7 @@ public class DynamicArray {
 
     public int set(int index, int value) {
         if (index < 0 || index >= size) {
-            throw new IllegalArgumentException("The index must be in to range 0-" + (size-1));
+            throw new IllegalArgumentException("The index must be in to range 0-" + (size - 1));
         }
 
         int temp;
@@ -232,19 +272,19 @@ public class DynamicArray {
 
     }
 
-    public void replaceAll(DynamicArray dynamicArray){
-       array = dynamicArray.array;
-       size = dynamicArray.getSize();
+    public void replaceAll(DynamicArray dynamicArray) {
+        array = dynamicArray.array;
+        size = dynamicArray.getSize();
 
     }
 
     public void trimToSize() {
-        int[] newArray = new int[size];
+        int[] tempArray = new int[size];
         if (size < array.length) {
             for (int i = 0; i < size; i++) {
-                newArray[i] = array[i];
+                tempArray[i] = array[i];
             }
-            array = newArray;
+            array = tempArray;
         }
     }
 
@@ -267,6 +307,7 @@ public class DynamicArray {
         stringBuilder.append(array[size - 1]).append("]");
         return stringBuilder.toString();
     }
+
     private void extend() {
         int[] newArray = new int[array.length * 2];
         for (int i = 0; i < array.length; i++) {

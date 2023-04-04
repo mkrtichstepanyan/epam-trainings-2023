@@ -1,7 +1,5 @@
 package homework_16.garik_gharibyan;
 
-import java.util.*;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -38,12 +36,41 @@ public class Main {
         dynamicArray1.add(12);
         dynamicArray1.add(13);
         dynamicArray.addAll(dynamicArray1);
-        System.out.println(dynamicArray + " " + dynamicArray.getSize());
+        System.out.println(dynamicArray + " size: " + dynamicArray.getSize());
 
+
+        System.out.println("----------------------------------");
+        System.out.println("Test remove(index = 12)");
         dynamicArray.remove(12);
-        System.out.println(dynamicArray + " " + dynamicArray.getSize());
+        System.out.println(dynamicArray + " size: " + dynamicArray.getSize());
 
-        dynamicArray.clear();
+        System.out.println("----------------------------------");
+        System.out.println("Test addByIndex(index = 11,value = 100)");
+        dynamicArray.addByIndex(11,100);
+        System.out.println(dynamicArray + " size: " + dynamicArray.getSize());
+
+        System.out.println("----------------------------------");
+        System.out.println("Test addAll(int[])");
+        System.out.println(dynamicArray + " size: " + dynamicArray.getSize());
+        System.out.println("[100,101,102]");
+        int[] ints = {100,101,102};
+        dynamicArray.addAll(ints);
+        System.out.println(dynamicArray + " size: " + dynamicArray.getSize());
+
+        System.out.println("----------------------------------");
+        System.out.println("Test addAll(DynamicArray)");
+        System.out.println(dynamicArray + " size: " + dynamicArray.getSize());
+        System.out.println(dynamicArray1 + " size: " + dynamicArray1.getSize());
+        dynamicArray.addAll(dynamicArray1);
+        System.out.println(dynamicArray + " size: " + dynamicArray.getSize());
+
+        System.out.println("----------------------------------");
+        System.out.println("Test addAllByIndex(int,DynamicArray)");
+        System.out.println(dynamicArray + " size: " + dynamicArray.getSize());
+        System.out.println(dynamicArray1 + " size: " + dynamicArray1.getSize());
+        dynamicArray.addAllByIndex(17,dynamicArray1);
+        System.out.println(dynamicArray + " size: " + dynamicArray.getSize());
+
 
     }
 }
