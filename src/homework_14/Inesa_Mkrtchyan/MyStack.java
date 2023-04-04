@@ -1,25 +1,25 @@
 package homework_14.Inesa_Mkrtchyan;
 
 public class MyStack<T> {
-    T[] arr;
-    int size;
-    int length;
+    private T[] arr;
+    private int size;
+    private int length;
 
-    MyStack() {
+    public MyStack() {
         length = 10;
         arr = (T[]) new Object[length];
         size = -1;
     }
 
-    MyStack(int l) {
+    public MyStack(int l) {
         length = l;
         arr = (T[]) new Object[length];
         size = -1;
     }
-    boolean isEmpty(){
+    public boolean isEmpty(){
         return size == -1;
     }
-    void push(T value) {
+    public void push(T value) {
         if (size >= (length * 75) / 100) {
             T[] newArr = (T[]) new Object[length * 2];
             for (int i = 0; i <= size; i++) {
@@ -31,7 +31,7 @@ public class MyStack<T> {
         arr[++size] = value;
     }
 
-    T pop() {
+    public T pop() {
         if (size < 0) {
             System.out.println("Stack is empty");
             return null;
@@ -39,6 +39,10 @@ public class MyStack<T> {
         T result = arr[size];
         arr[size--] = null;
         return result;
+    }
+
+    public int getSize() {
+        return size;
     }
 
 }
