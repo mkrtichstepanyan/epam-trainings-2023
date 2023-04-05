@@ -1,5 +1,7 @@
 /* Please create methods below
+   add() -> adds element to arraylist by index
    addAll() -> adds all elements of a collection to arraylist
+   addAll() -> adds all elements of a collection to arraylist by index
    clear() -> removes all the elements from arraylist
    clone() -> makes a copy of the array list
    contains() -> checks if the element is present in the arraylist

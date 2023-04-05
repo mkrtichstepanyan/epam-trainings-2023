@@ -61,19 +61,33 @@ public class Test {
         System.out.println(myDynamicArray);
         System.out.println();
 
-        System.out.println("Dynamic array after replaceAll(e->e+100) method:");
-        myDynamicArray.replaceAll(e->e+100);
+        System.out.println("Dynamic array after replaceAll(\"+\",100) method:");
+        myDynamicArray.replaceAll("+",100);
         System.out.println(myDynamicArray);
         System.out.println();
 
 
-        System.out.println("Dynamic array after removeAll(new int[]{-11,93,103})) method:");
-        System.out.println(myDynamicArray.removeAll(new int[]{-11,93,103}));
+        System.out.println("Dynamic array after removeAll(new int[]{-11,93,103,20})) method:");
+        System.out.println(myDynamicArray.removeAll(new int[]{-11,93,103,20}));
         System.out.println(myDynamicArray);
         System.out.println();
 
         System.out.println("Dynamic array after clear() method:");
         myDynamicArray.clear();
+        System.out.println(myDynamicArray);
+        System.out.println();
+
+        System.out.println("Dynamic array after add() method with index:");
+        myDynamicArray.add(5);
+        myDynamicArray.add(15);
+        myDynamicArray.add(7);
+        myDynamicArray.add(0,44);
+        myDynamicArray.add(1,15);
+        System.out.println(myDynamicArray);
+        System.out.println();
+
+        System.out.println("Dynamic array after addAll() method with index:");
+        myDynamicArray.addAll(2,new int[]{11,2,4});
         System.out.println(myDynamicArray);
     }
 }
