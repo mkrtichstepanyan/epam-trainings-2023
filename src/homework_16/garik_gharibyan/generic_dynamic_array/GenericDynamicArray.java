@@ -1,9 +1,11 @@
-package homework_16.garik_gharibyan;
+package homework_16.garik_gharibyan.generic_dynamic_array;
 
-import homework_15.garik_gharibyan.Sort;
 
-import javax.naming.OperationNotSupportedException;
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /* Please create methods below
 +   addByIndex () -> added new value without replacing
@@ -25,46 +27,45 @@ import java.util.ArrayList;
 +   removeRange() -> removes a portion of the arraylist
 +   replaceAll() -> replace all elements from the arraylist
  */
-public class DynamicArray {
+public class GenericDynamicArray<T extends Comparable<T>> {
 
-    private int[] array;
+    private Object[] array;
 
     private int size = 0;
 
     private static final int DEFAULT_CAPACITY = 16;
 
-
-    public DynamicArray(int capacity) {
+    public GenericDynamicArray(int capacity) {
         if (capacity > 0) {
-            this.array = new int[capacity];
+            this.array =  new Object[capacity];
         } else {
             throw new IllegalArgumentException("Array length must be bigger than 0");
         }
     }
 
-    public DynamicArray() {
-        this.array = new int[DEFAULT_CAPACITY];
+    public GenericDynamicArray() {
+        this.array = new Object[DEFAULT_CAPACITY];
     }
 
     public int getSize() {
         return size;
     }
 
-    public void add(int value) {
+    public void add(T value) {
         if (size == array.length) {
             extend();
         }
         array[size++] = value;
     }
 
-    public void addByIndex(int index, int value) {
+    public void addByIndex(int index, T value) {
         if (index < 0 || index > size) {
             throw new ArrayIndexOutOfBoundsException("The index must be in to range 0-" + size);
         }
         if (size == array.length) {
             extend();
         }
-        int[] tempArray = new int[array.length];
+        Object[] tempArray = new Object[array.length];
         for (int i = 0; i < index; i++) {
             tempArray[i] = array[i];
         }
@@ -74,35 +75,34 @@ public class DynamicArray {
         }
         array = tempArray;
         size++;
-
     }
 
-    public void addAll(int[] newArray) {
-        for (int i : newArray) {
+    public void addAll(T[] values) {
+        for (T i : values) {
             add(i);
         }
     }
 
-    public void addAll(DynamicArray dynamicArray) {
-        int size = dynamicArray.getSize();
+    public void addAll(GenericDynamicArray<T> genericDynamicArray) {
+        int size = genericDynamicArray.getSize();
         for (int i = 0; i < size; i++) {
-            add(dynamicArray.get(i));
+            add(genericDynamicArray.get(i));
         }
     }
 
-    public void addAllByIndex(int index, DynamicArray values) {
+    public void addAllByIndex(int index, GenericDynamicArray<T> values) {
         if (index < 0 || index > size) {
             throw new ArrayIndexOutOfBoundsException("The index must be in to range 0-" + size);
         }
-        DynamicArray tempDynamicArray = new DynamicArray();
+        GenericDynamicArray<T> tempDynamicArray = new GenericDynamicArray<>();
         for (int i = 0; i < index; i++) {
-            tempDynamicArray.add(array[i]);
+            tempDynamicArray.add((T)array[i]);
         }
         for (int i = 0; i < values.size; i++) {
             tempDynamicArray.add(values.get(i));
         }
         for (int i = index; i < size; i++) {
-            tempDynamicArray.add(array[i]);
+            tempDynamicArray.add((T)array[i]);
         }
         array = tempDynamicArray.array;
         size = tempDynamicArray.getSize();
@@ -112,17 +112,17 @@ public class DynamicArray {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("The index must be in to range of 0-" + (size - 1));
         }
-        int[] newArray = new int[size - 1];
+        Object[] tempArray = new Object[array.length];
         for (int i = 0; i < index; i++) {
-            newArray[i] = array[i];
+            tempArray[i] = array[i];
         }
         for (int i = index + 1; i < size; i++) {
-            newArray[i - 1] = array[i];
+            tempArray[i - 1] = array[i];
         }
 
 //        System.arraycopy(array, 0, newArray, 0, index);
 //        System.arraycopy(array, index + 1, newArray, index, size - (index + 1));
-        array = newArray;
+        array = tempArray;
         size = size - 1;
         return true;
     }
@@ -137,7 +137,7 @@ public class DynamicArray {
         if (toIndex > size) {
             throw new IllegalArgumentException("toIndex must be less  than " + size);
         }
-        int[] tempArray = new int[size - (toIndex - fromIndex)];
+        Object[] tempArray = new Object[array.length];
 
         for (int i = 0; i < fromIndex; i++) {
             tempArray[i] = array[i];
@@ -154,10 +154,10 @@ public class DynamicArray {
         size = size - (toIndex - fromIndex);
     }
 
-    public boolean removeInt(int i) {
-        if (this.contains(i)) {
+    public boolean removeObject(T obj) {
+        if (this.contains(obj)) {
             for (int j = 0; j < size; j++) {
-                if (array[j] == i) {
+                if (array[j].equals(obj)) {
                     remove(j);
                     break;
                 }
@@ -168,17 +168,17 @@ public class DynamicArray {
         }
     }
 
-    public void removeAll(DynamicArray dynamicArray) {
-        for (int i : array) {
-            for (int j : dynamicArray.array) {
-                if (j == i) {
-                    this.removeInt(j);
+    public void removeAll(GenericDynamicArray<T> genericDynamicArray) {
+        for (Object obj : array) {
+            for (int j = 0; j < genericDynamicArray.getSize(); j++) {
+                if (genericDynamicArray.get(j).equals(obj)){
+                    this.removeObject(genericDynamicArray.get(j));
                 }
             }
         }
     }
 
-    public DynamicArray subList(int fromIndex, int toIndex) {
+    public GenericDynamicArray<T> subList(int fromIndex, int toIndex) {
 
         if (size == 0) {
             throw new IllegalArgumentException("DynamicArray is Empty");
@@ -192,61 +192,59 @@ public class DynamicArray {
         if (toIndex > size) {
             throw new IllegalArgumentException("toIndex must be less  than " + size);
         }
-        DynamicArray tmepDynamicArray = new DynamicArray();
+        GenericDynamicArray<T> tempGenericDynamicArray = new GenericDynamicArray<>();
         for (int i = fromIndex; i < toIndex; i++) {
-            tmepDynamicArray.add(array[i]);
+            tempGenericDynamicArray.add((T)array[i]);
         }
-        return tmepDynamicArray;
+        return tempGenericDynamicArray;
     }
 
-    public int get(int index) {
+    public T get(int index) {
         if (index < 0 || index > size - 1) {
             throw new ArrayIndexOutOfBoundsException("Wrong index");
         }
-        return array[index];
+        return(T) array[index];
     }
 
     public void clear() {
         for (int i = 0; i < size; i++) {
-            array[i] = 0;
+            array[i] = null;
         }
         size = 0;
     }
 
-    public DynamicArray clone() {
-        DynamicArray tmepDynamicArray = new DynamicArray();
+    public int indexOf(T obj) {
         for (int i = 0; i < size; i++) {
-            tmepDynamicArray.add(array[i]);
-        }
-        return tmepDynamicArray;
-    }
-
-    public int indexOf(int obj) {
-        for (int i = 0; i < size; i++) {
-            if (array[i] == obj) {
+            if (array[i].equals(obj)) {
                 return i;
             }
         }
         return -1;
     }
 
-    public boolean contains(int obj) {
+    public boolean contains(T obj) {
         if (indexOf(obj) == -1) {
             return false;
         }
         return true;
     }
 
-    public boolean containsAll(int[] objs) {
+    public boolean containsAll(T[] values) {
         int index = 0;
         for (int i = 0; i < size; i++) {
-            for (int obj : objs) {
-                if (array[i] == obj) {
-                    if (++index == objs.length) {
-                        return true;
-                    }
-                    break;
+            for (T t : values) {
+                if (array[i].equals(t)){
+                    index++;
                 }
+                if (index == values.length){
+                    return true;
+                }
+//                if (array[i] == t) {
+//                    if (++index == values.length) {
+//                        return true;
+//                    }
+//                    break;
+//                }
             }
         }
         return false;
@@ -256,36 +254,54 @@ public class DynamicArray {
         return size == 0;
     }
 
-    public int set(int index, int value) {
+    public T set(int index, T value) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("The index must be in to range 0-" + (size - 1));
         }
 
-        int temp;
-        temp = array[index];
+        T temp;
+        temp =(T) array[index];
         array[index] = value;
         return temp;
     }
 
     public void sort() {
-        Sort.insertion(array);
+        this.insertionSort();
 
     }
 
-    public void replaceAll(DynamicArray dynamicArray) {
-        array = dynamicArray.array;
-        size = dynamicArray.getSize();
+    public void replaceAll(GenericDynamicArray<T> genericDynamicArray) {
+        array = genericDynamicArray.array;
+        size = genericDynamicArray.getSize();
 
     }
 
     public void trimToSize() {
-        int[] tempArray = new int[size];
+        Object[] tempArray = new Object[size];
         if (size < array.length) {
             for (int i = 0; i < size; i++) {
                 tempArray[i] = array[i];
             }
             array = tempArray;
         }
+    }
+
+    public GenericDynamicArray<T> clone() {
+        GenericDynamicArray<T> newGenericDynamicArray = new GenericDynamicArray<>(array.length);
+
+        for (int i = 0; i < size; i++) {
+            Object newObj = new Object();
+            newObj = array[i];
+            newGenericDynamicArray.add((T)newObj);
+
+        }
+        return newGenericDynamicArray;
+    }
+
+
+    public String sizeAndLength(){
+        return " ,size: " + size +
+                " ,length: "+ array.length;
     }
 
     @Override
@@ -309,11 +325,27 @@ public class DynamicArray {
     }
 
     private void extend() {
-        int[] newArray = new int[array.length * 2];
+        Object[] newArray = new Object[array.length * 2];
         for (int i = 0; i < array.length; i++) {
             newArray[i] = array[i];
         }
         array = newArray;
+    }
+    private void insertionSort() {
+
+        T temp;
+        for (int k = 0; k < size; k++) {
+            for (int i = k; i > 0; i--) {
+
+                if (((T)array[i]).compareTo((T)array[i - 1]) < 0) {
+                    temp =(T) array[i - 1];
+                    array[i - 1] = array[i];
+                    array[i] = temp;
+                } else {
+                    break;
+                }
+            }
+        }
     }
 
 }

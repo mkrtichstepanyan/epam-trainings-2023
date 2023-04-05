@@ -1,4 +1,4 @@
-package homework_16.garik_gharibyan;
+package homework_16.garik_gharibyan.dynamic_array;
 
 public class Main {
     public static void main(String[] args) {
