@@ -1,15 +1,53 @@
-package homework_16.rafik_pahlevanyan;
+package homework_16.rafik_pahlevanyan.generic_dynamic_array;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Test {
 
     public static void main(String[] args) {
-        DynamicArray firstArray = new DynamicArray();
-        DynamicArray secondArray = new DynamicArray();
-        List<Integer> elementsToAdd = new LinkedList<>(); //used collection
+        GenericDynamicArray<Object> firstArray = new GenericDynamicArray<>();
+        GenericDynamicArray<Object> secondArray = new GenericDynamicArray<>();
+        List<Object> elementsToAdd = new LinkedList<>(); //used collection
+        GenericDynamicArray<Object> str = new GenericDynamicArray<>(10);
+        GenericDynamicArray<Object> str2 = new GenericDynamicArray<>();
+
+        //Methods works with String type too
+        str.add("A");
+        str.add("B");
+        System.out.println(str);
+        GenericDynamicArray<Object> clone = str.clone();
+        System.out.println(clone);
+        str.contains("C");  //prints false
+        str.contains("A");  //prints true
+        str.removeAll("B");
+        System.out.println(str);
+        for (int i = 0; i < 5; i++) {
+            str2.add("ABC" + i);
+        }
+        str.replaceAll("G", "W");
+        str2.clear();
+
+        //addAllByIndex
+        GenericDynamicArray<Object> gda = new GenericDynamicArray<>(10);
+        gda.add(5);
+        gda.add(6);
+        gda.add(7);
+        Object[] valuesToAdd = new Object[]{9, 10, 11};
+        Object[] integers = gda.addAllByIndex(2, valuesToAdd);
+
+        //that will give us non-null items
+        Object[] nonNullInt = Arrays.stream(integers)
+                .filter(Objects::nonNull)
+                .toArray(Object[]::new);
+        System.out.println(Arrays.toString(nonNullInt));
+
+
+        //addByIndex method call
+        System.out.println(str);
+        str.addByIndex(0, "Z");
+        System.out.println(str);
+        str.addByIndex(0, "Z");
+        System.out.println(str);
 
         //add all method
         elementsToAdd.add(10);
@@ -76,12 +114,12 @@ public class Test {
         System.out.println("First array items: " + firstArray); //has 1 item
         firstArray.isEmpty();   // we can see that array is not empty
         //let`s create another array
-        DynamicArray emptyArray = new DynamicArray();
+        GenericDynamicArray<Integer> emptyArray = new GenericDynamicArray<>();
         emptyArray.isEmpty();
 
         //subList method call
         System.out.println("Second array items: " + secondArray);
-        DynamicArray dynamicArray = secondArray.subList(3, 10);
+        GenericDynamicArray<Object> dynamicArray = secondArray.subList(3, 10);
         System.out.println(dynamicArray);
 
         //set method call
@@ -90,8 +128,8 @@ public class Test {
         System.out.println("First array items: " + firstArray);
 
         //sort method call
-        //now let's create another array
-        DynamicArray anotherArray = new DynamicArray();
+        //now let 's create another array
+        GenericDynamicArray<Integer> anotherArray = new GenericDynamicArray<>();
         anotherArray.add(20);
         anotherArray.add(26);
         anotherArray.add(45);
@@ -100,7 +138,7 @@ public class Test {
             anotherArray.add(i);
         }
         System.out.println("Unsorted Array: " + anotherArray);
-        anotherArray.sort();
+        anotherArray.sort(Comparator.naturalOrder());
         System.out.println("Sorted Array: " + anotherArray);
 
         //toString method call
@@ -121,7 +159,7 @@ public class Test {
         System.out.println("Second Array items: " + secondArray);
 
         //replaceAll method call
-        DynamicArray sameElements = new DynamicArray();
+        GenericDynamicArray<Object> sameElements = new GenericDynamicArray<>();
         sameElements.add(5);
         sameElements.add(5);
         sameElements.add(5);
