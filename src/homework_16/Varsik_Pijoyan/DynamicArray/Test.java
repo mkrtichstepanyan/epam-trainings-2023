@@ -32,6 +32,11 @@ public class Test {
         System.out.println(dynamicArray);
         System.out.println("----------------------------");
 
+        System.out.println("Calling addByIndex() method");
+        dynamicArray.addByIndex(12,13);
+        System.out.println(dynamicArray);
+        System.out.println("----------------------------");
+
         System.out.println("Calling sort() method to sort elements after addAll()");
         dynamicArray.sort();
         System.out.println(dynamicArray);
