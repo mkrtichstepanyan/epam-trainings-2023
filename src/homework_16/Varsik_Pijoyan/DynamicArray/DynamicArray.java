@@ -34,6 +34,28 @@ public class DynamicArray {
         array[size++] = value;
     }
 
+    public void addByIndex(int index, int element){
+        for (int i = size; i < index; i--) {
+            array[i] = array[i - 1];
+        }
+        array[index] = element;
+        size++;
+    }
+
+    public void addAllByIndex(int index, int[] list){
+        if (index < 0 || index > size){
+            throw new IllegalArgumentException("Wrong index!");
+        }
+        int listLength = list.length;
+        for (int i = size; i < listLength; i--) {
+            extend();
+            array[i + listLength] = array[i];
+        }
+        for (int i = 0; i < listLength; i++) {
+            array[index++] = list[i];
+            size++;
+        }
+    }
     public int get(int index) {
         if (index < 0 || index > size - 1) {
             throw new ArrayIndexOutOfBoundsException("Wrong index");
