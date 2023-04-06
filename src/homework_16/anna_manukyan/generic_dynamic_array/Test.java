@@ -32,7 +32,7 @@ public class Test {
         myDynamicArray.subList(2, 5);
         System.out.println("**********");
         myDynamicArray.set(2, "100");
-////        myDynamicArray.sort();
+        myDynamicArray.sort();
         System.out.println("*******************");
         System.out.println("Remove elements");
         myDynamicArray.removeRange(2, 7);
