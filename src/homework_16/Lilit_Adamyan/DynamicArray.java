@@ -192,6 +192,7 @@ public class DynamicArray {
             }
         }
     }
+
     public DynamicArray subList(int startIndex, int endIndex) {
         if (startIndex < 0 || startIndex >= size || endIndex < 0 || endIndex > size || startIndex > endIndex) {
             throw new IllegalArgumentException("Invalid start or end index");
@@ -203,6 +204,33 @@ public class DynamicArray {
         return subList;
     }
 
+    public void addByIndex(int index, int value) {
+        if (index < 0 || index > size) {
+            throw new ArrayIndexOutOfBoundsException("Invalid index");
+        }
+        if (size == array.length) {
+            extend();
+        }
+        for (int i = size; i >= index; i--) {
+            array[i + 1] = array[i];
+        }
+        array[index] = value;
+        size++;
+    }
+
+    public void addAllByIndex(int index, int[] values) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+        while (size + values.length > array.length) {
+            extend();
+        }
+        for (int i = size - 1; i >= index; i--) {
+            array[i + values.length] = array[i];
+        }
+        System.arraycopy(values, 0, array, index + 0, values.length);
+        size += values.length;
+    }
 
 
 }

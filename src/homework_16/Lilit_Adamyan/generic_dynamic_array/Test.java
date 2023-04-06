@@ -82,11 +82,9 @@ public class Test {
         arr9.add(5);
         System.out.println("Original array: " + arr9);
 
-        // addByIndex
         arr9.addByIndex(1, 2);
         System.out.println("After adding 2 at index 1: " + arr9);
 
-        // addAllByIndex
         Integer[] valuesToAdd = {4, 6};
         arr9.addAllByIndex(3, valuesToAdd);
         System.out.println("After adding 4 and 6 at index 3: " + arr9);

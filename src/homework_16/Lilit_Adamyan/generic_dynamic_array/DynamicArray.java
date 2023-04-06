@@ -3,11 +3,9 @@ package homework_16.Lilit_Adamyan.generic_dynamic_array;
 import java.util.Arrays;
 
 public class DynamicArray<T> {
-    private T[] array;
-
-    private int size = 0;
-
     private static final int DEFAULT_CAPACITY = 16;
+    private T[] array;
+    private int size = 0;
 
 
     public DynamicArray(int capacity) {
@@ -199,7 +197,7 @@ public class DynamicArray<T> {
         for (int i = size - 1; i >= index; i--) {
             array[i + values.length] = array[i];
         }
-        System.arraycopy(values, 0, array, index + 0, values.length);
+        System.arraycopy(values, 0, array, index, values.length);
         size += values.length;
     }
 
