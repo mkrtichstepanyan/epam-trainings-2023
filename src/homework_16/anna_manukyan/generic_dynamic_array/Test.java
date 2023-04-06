@@ -56,8 +56,10 @@ public class Test {
         System.out.println("Add elements starting from  index");
         myDynamicArray.addAllByIndex(2, new String[]{"apple", "orange"});
         System.out.println(myDynamicArray.toString());
-        myDynamicArray.clear();
+//        myDynamicArray.clear();
+        System.out.println("************");
+        System.out.println("Array clone");
+        myDynamicArray.clone();
         System.out.println(myDynamicArray.toString());
-
     }
 }

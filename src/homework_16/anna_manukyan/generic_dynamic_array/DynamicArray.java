@@ -124,14 +124,14 @@ public class DynamicArray<T> {
     public T[] clone() {
         T[] clone = (T[]) new Object[size];
         for (int i = 0; i < size; i++) {
-            if (array[i] instanceof Number || array[i] instanceof String) {
-                clone[i] = array[i];
-            } else {
-                T item = (T) new DynamicArray(array[i]);
-                Class<?> aClass = item.getClass();
-                clone[i] = item;
+            if (array[i] != null){
+                if (array[i] instanceof Number || array[i] instanceof String) {
+                    clone[i] = array[i];
+                } else {
+                    T item = (T) new DynamicArray(array[i]);
+                    clone[i] = item;
+                }
             }
-
         }
         return clone;
     }
