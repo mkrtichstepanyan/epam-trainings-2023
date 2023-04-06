@@ -72,17 +72,19 @@ public class DynamicArray<T> {
     }
 
     public void addAllByIndex(int index, T[] c) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Wrong index.");
         }
-        for (int i = size; i >= index; i--) {
+        while (size+c.length>array.length){
             extend();
+        }
+        for (int i = size; i >= index; i--) {
             array[i + c.length] = array[i];
+
         }
-        for (int i = 0; i < c.length; i++) {
-            array[index++] = c[i];
-            size++;
-        }
+    System.arraycopy(c,0,array,index,c.length);
+
+           size+=c.length;
     }
 
     public T get(int index) {
@@ -101,12 +103,11 @@ public class DynamicArray<T> {
     }
 
     //--------------------------------------------------------------------
-    public T[] clone() {
-        T[] newArray = (T[]) new Object[array.length];
-        for (int i = 0; i < array.length; i++) {
-            newArray[i] = array[i];
-        }
-        return newArray;
+    public DynamicArray<T> clone() {
+        DynamicArray<T> clone = new DynamicArray<>(array.length);
+        clone.size = size;
+        System.arraycopy(array,0,clone.array,0,size);
+        return clone;
     }
 
     //--------------------------------------------------------------------
@@ -115,12 +116,15 @@ public class DynamicArray<T> {
         if (index == -1) {
             return false;
         }
-        for (int i = index; i < size - 1; i++) {
-            array[i] = array[i + 1];
+        size++;
+        for (int i =index; i < size-1; i++) {
+            array[i]=array[i+1];
         }
         size--;
         return true;
     }
+
+
     //--------------------------------------------------------------------
     public boolean removeAll(T element) {
         boolean removed = false;
@@ -131,13 +135,14 @@ public class DynamicArray<T> {
                 array[index] = array[i];
                 index++;
 
-            }else{
+            } else {
                 removed = true;
             }
         }
-        size=index;
+        size = index;
         return removed;
     }
+
     //--------------------------------------------------------------------
     public String toString() {
         String string = "";

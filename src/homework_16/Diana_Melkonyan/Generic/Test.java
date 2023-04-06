@@ -8,7 +8,7 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args) {
-        DynamicArray<Integer> myArrayList = new DynamicArray<>();
+        DynamicArray<Integer> myArrayList = new DynamicArray<>(5);
 
         myArrayList.add(3);
         myArrayList.add(6);
@@ -19,10 +19,14 @@ public class Test {
         myArrayList.add(65);
         myArrayList.add(7);
         myArrayList.add(56);
+        myArrayList.addAllByIndex(3, new Integer[]{55,66,777,88,99,44,33,22,22,11,55,77,13,14,15,16,17,18,19,20});
+
 
         System.out.println(myArrayList);
 
 
+//        DynamicArray<Integer> clone = myArrayList.clone();
+//        System.out.println(clone);
 
 //        System.out.println(myArrayList.get(2));
 //        System.out.println(myArrayList);
@@ -43,7 +47,7 @@ public class Test {
 //        myArrayList.addByIndex(0,2);
 //        System.out.println(myArrayList);
 
-//        myArrayList.remove(3);
+//        myArrayList.remove(71);
 //        System.out.println(myArrayList);
 
 //        System.out.println(Arrays.toString(myArrayList.subList(1,3)))
@@ -62,11 +66,6 @@ public class Test {
 //        myArrayList.sort();
 //        System.out.println(myArrayList);
 
-
-//        DynamicArray <String> stringDynamicArray = new DynamicArray<>();
-//        stringDynamicArray.addAll(Arrays.asList("Lesson", "2023"));
-//        stringDynamicArray.addAllByIndex(0,new String[]{"Hello", "Java"});
-//        System.out.println(stringDynamicArray);
 
 //        System.out.println(myArrayList.izEmpty());
 
