@@ -1,6 +1,8 @@
 package homework_16.anna_manukyan.generic_dynamic_array;
 
 
+import homework_15.anna_manukyan.MergeSort;
+
 import java.util.Arrays;
 
 /* Please create methods below
@@ -261,9 +263,8 @@ public class DynamicArray<T> {
     }
 
     public void sort() {
-        if (array instanceof Number[]) {
-//            MergeSort.sortArray(array);
-        }
+            GenericInsertionSort<T> insertionSort = new  GenericInsertionSort<>();
+            insertionSort.printArray(insertionSort.sortArray(array));
     }
 
     private void extend() {
