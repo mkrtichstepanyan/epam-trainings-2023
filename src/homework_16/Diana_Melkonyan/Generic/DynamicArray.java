@@ -54,6 +54,7 @@ public class DynamicArray<T> {
             extend();
         }
         array[size++] = element;
+
     }
 
     public void addAll(Collection<T> c) {
@@ -105,24 +106,34 @@ public class DynamicArray<T> {
     //--------------------------------------------------------------------
     public DynamicArray<T> clone() {
         DynamicArray<T> clone = new DynamicArray<>(array.length);
-        clone.size = size;
-        System.arraycopy(array,0,clone.array,0,size);
+        for (int i = 0; i < size; i++) {
+            Object object;
+            object=array[i];
+            clone.add((T)object);
+
+        }
+
         return clone;
     }
 
     //--------------------------------------------------------------------
-    public boolean remove(T element) {
-        int index = indexOf(element);
-        if (index == -1) {
-            return false;
+    public void remove(T element) {
+        int index = -1;
+        for (int i = 0; i < size; i++) {
+            if (array[i] == element) {
+                index = i;
+                break;
+            }
         }
-        size++;
-        for (int i =index; i < size-1; i++) {
-            array[i]=array[i+1];
+        if (index == -1) {
+            return;
+        }
+        for (int i = index + 1; i < array.length; i++) {
+            array[i - 1] = array[i];
         }
         size--;
-        return true;
     }
+
 
 
     //--------------------------------------------------------------------

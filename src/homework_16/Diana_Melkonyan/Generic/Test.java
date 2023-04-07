@@ -8,7 +8,7 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args) {
-        DynamicArray<Integer> myArrayList = new DynamicArray<>(5);
+        DynamicArray<Integer> myArrayList = new DynamicArray<>();
 
         myArrayList.add(3);
         myArrayList.add(6);
@@ -19,7 +19,7 @@ public class Test {
         myArrayList.add(65);
         myArrayList.add(7);
         myArrayList.add(56);
-        myArrayList.addAllByIndex(3, new Integer[]{55,66,777,88,99,44,33,22,22,11,55,77,13,14,15,16,17,18,19,20});
+      //  myArrayList.addAllByIndex(3, new Integer[]{55,66,777,88,99,44,33,22,22,11,55,77,13,14,15,16,17,18,19,20});
 
 
         System.out.println(myArrayList);
@@ -47,7 +47,7 @@ public class Test {
 //        myArrayList.addByIndex(0,2);
 //        System.out.println(myArrayList);
 
-//        myArrayList.remove(71);
+//        myArrayList.remove(5);
 //        System.out.println(myArrayList);
 
 //        System.out.println(Arrays.toString(myArrayList.subList(1,3)))
