@@ -2,6 +2,7 @@ package homework_15.Sofya_Ghazaryan;
 
 import static homework_15.Sofya_Ghazaryan.BubbleSort.bubbleSort;
 import static homework_15.Sofya_Ghazaryan.InsertionSort.insertionSort;
+import static homework_15.Sofya_Ghazaryan.MergeSort.mergeSort;
 import static homework_15.Sofya_Ghazaryan.SelectionSort.printArray;
 import static homework_15.Sofya_Ghazaryan.SelectionSort.selectionSort;
 
@@ -32,5 +33,11 @@ public class Main {
         System.out.println("Insertion Sort(array1)");
         insertionSort(array1);
         printArray(array1);
+
+        System.out.println();
+
+        System.out.println("Merge Sort(array)");
+        mergeSort(array, 0, array.length - 1);
+        printArray(array);
     }
 }
