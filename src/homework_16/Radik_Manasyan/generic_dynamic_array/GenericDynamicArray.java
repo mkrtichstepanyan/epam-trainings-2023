@@ -273,8 +273,6 @@ public class GenericDynamicArray<T> {
     }
 
     public void sort(Comparator<T> comparator) {
-        // TODO Generic class ????????? ??? ?????
-
     }
 
     public void trimToSize() {
