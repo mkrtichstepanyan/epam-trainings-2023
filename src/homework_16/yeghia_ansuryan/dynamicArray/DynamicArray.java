@@ -20,11 +20,8 @@ package homework_16.yeghia_ansuryan.dynamicArray;
    replaceAll() -> replace all elements from the arraylist
  */
 public class DynamicArray {
-
     private int[] array;
-
     private int size = 0;
-
     private static final int DEFAULT_CAPACITY = 16;
 
 
@@ -58,37 +55,26 @@ public class DynamicArray {
         return array[index];
     }
 
-    private void extend() {
-        int[] newArray = new int[array.length * 2];
-        for (int i = 0; i < array.length; i++) {
-            newArray[i] = array[i];
-        }
-        array = newArray;
-    }
-
     public void addAll(int[] dell) {
-        for (int i = 0; i < dell.length; i++) {
-            add(dell[i]);
+        for (int j : dell) {
+            add(j);
         }
     }
 
     public void clear() {
-        int[] newArray = new int[DEFAULT_CAPACITY];
-        array = newArray;
+        array = new int[DEFAULT_CAPACITY];
         size = 0;
     }
 
     public int[] clone() {
         int[] clone = new int[size];
-        for (int i = 0; i < size; i++) {
-            clone[i] = array[i];
-        }
+        System.arraycopy(array, 0, clone, 0, size);
         return clone;
     }
 
-    public boolean contains(Integer checkElement) {
+    public boolean contains(int element) {
         for (int i = 0; i < size; i++) {
-            if (array[i] == checkElement) {
+            if (array[i] == element) {
                 return true;
             }
         }
@@ -96,84 +82,62 @@ public class DynamicArray {
     }
 
     public boolean containsAll(int[] dell) {
-        for (int i = 0; i < dell.length; i++) {
-            if (!contains(i)) {
+        for (int j : dell) {
+            if (!contains(j)) {
                 return false;
             }
         }
         return true;
     }
 
-    public int indexOf(Integer checkElement) {
+    public int indexOf(int element) {
         for (int i = 0; i < size; i++) {
-            if (array[i] == checkElement) {
+            if (array[i] == element) {
                 return i;
             }
         }
         return -1;
     }
 
-    public Integer remove(int indexOfRemove) {
-        Integer oldValue = array[indexOfRemove];
-        for (int i = indexOfRemove; i < size; i++) {
-            array[i] = array[i + 1];
-
-            size--;
+    public int remove(int indexOfRemove) {
+        if (indexOfRemove < 0 || indexOfRemove >= size) {
+            throw new IndexOutOfBoundsException("Index of remove " + indexOfRemove + " is not of bounds!");
         }
+        int oldValue = array[indexOfRemove];
+        for (int i = indexOfRemove; i < size - 1; i++) {
+            array[i] = array[i + 1];
+        }
+        size--;
         return oldValue;
     }
 
-    public boolean removeAll(Integer removeAllOfValue) {
-        for (int i = 0; i < size; i++) {
-            if (array[i] == removeAllOfValue) {
-                remove(i);
-                size--;
+    public boolean removeAll(int[] removeAllOfValue) {
+        if (containsAll(removeAllOfValue)) {
+            for (int i : removeAllOfValue) {
+                remove(indexOf(i));
             }
-        }
-        for (Integer perValue : array) {
-            if (perValue == removeAllOfValue) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public boolean isEmpty() {
-        if (size == 0) {
             return true;
         }
         return false;
     }
 
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
     public int[] subList(int startIndex, int endIndex) {
-        int[] dell = null;
-        if (indexValidation(startIndex, endIndex)) {
-            dell = new int[endIndex - startIndex];
-            int index = 0;
-            for (int i = startIndex; i < endIndex; i++) {
-                dell[index++] = array[i];
-            }
+        int[] dell;
+        checkStartAndEndIndexes(startIndex, endIndex);
+        dell = new int[endIndex - startIndex];
+        int index = 0;
+        for (int i = startIndex; i < endIndex; i++) {
+            dell[index++] = array[i];
         }
         return dell;
     }
 
-    private boolean indexValidation(int startIndex, int endIndex) {
-        if (startIndex < 0 || startIndex > size) {
-            throw new IndexOutOfBoundsException("Please write positive start index" +
-                    " for example 0 < and small than size");
-        }
-        if (endIndex < 0 || endIndex > size) {
-            throw new IndexOutOfBoundsException("Please write positive end index" +
-                    " for example 0 < and small than size");
-        }
-        if (startIndex > endIndex) {
-            throw new IllegalArgumentException("Please write smaller start index than end index");
-        }
-        return true;
-    }
-
-    public Integer set(Integer element, int index) {
-        Integer oldElement = array[index];
+    public int set(int index, int element) {
+        int oldElement = array[index];
         array[index] = element;
         return oldElement;
     }
@@ -191,7 +155,6 @@ public class DynamicArray {
                 }
             }
         }
-
     }
 
     public String toString() {
@@ -204,31 +167,33 @@ public class DynamicArray {
 
     public void trimToSize() {
         int[] dellTrimArray = new int[size];
-        for (int i = 0; i < size; i++) {
-            dellTrimArray[i] = array[i];
-        }
+        System.arraycopy(array, 0, dellTrimArray, 0, size);
         array = dellTrimArray;
     }
 
     public void removeRange(int startIndex, int lastIndex) {
-        if (indexValidation(startIndex, lastIndex)) {
-            for (int i = startIndex; i < lastIndex; i++) {
-                remove(i);
-            }
+        if (startIndex < 0 || lastIndex > size || startIndex > lastIndex) {
+            throw new IndexOutOfBoundsException();
+        }
+        for (int i = startIndex; i < lastIndex; i++) {
+            remove(startIndex);
         }
     }
 
     public void replaceAll(int[] hp) {
         if (hp.length == size) {
-            for (int i = 0; i < size; i++) {
-                array[i] = hp[i];
-            }
+            System.arraycopy(hp, 0, array, 0, size);
         } else {
             System.out.println("Wrong size of array");
         }
     }
 
-    public int[] getArray() {
-        return array;
+    private void extend() {
+        int[] newArray = new int[array.length * 2];
+        System.arraycopy(array, 0, newArray, 0, array.length);
+        array = newArray;
+    }
+
+    private void checkStartAndEndIndexes(int startIndex, int endIndex) {
     }
 }
