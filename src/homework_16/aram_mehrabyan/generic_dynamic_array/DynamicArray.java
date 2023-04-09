@@ -245,17 +245,17 @@ public class DynamicArray<T> {
         }
         return array[index];
     }
-    /*
 
 
 
-    public int[]clone(){
-        int []array2=new int[array.length];
+
+    public T[]clone(){
+        T []array2=(T[]) new Object[array.length];
         for (int i=0;i<array.length;i++){
             array2[i]=array[i];
         }
         return array2;
     }
-*/
+
 
 }
