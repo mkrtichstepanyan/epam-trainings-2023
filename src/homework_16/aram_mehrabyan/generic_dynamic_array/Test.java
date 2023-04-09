@@ -1,6 +1,6 @@
 package homework_16.aram_mehrabyan.generic_dynamic_array;
 
-import java.util.Arrays;
+
 
 public class Test {
 
@@ -15,8 +15,9 @@ public class Test {
         myDynamicArray.add("Gor");
         myDynamicArray.add(1, "Monika");
         myDynamicArray.addAll(str);
-        myDynamicArray.removeAll(str1);
-        myDynamicArray.remove(4);
+        myDynamicArray.sort();
+       // myDynamicArray.removeAll(str1);
+       /* myDynamicArray.remove(4);
         myDynamicArray.clear();
         myDynamicArray.contains("Aram");
         myDynamicArray.indexOf("Gor");
@@ -26,6 +27,8 @@ public class Test {
         myDynamicArray.addAllByIndex(3, str3);
         myDynamicArray.removeRange(1, 4);
         myDynamicArray.replaceAll("Aram", "Argam");
+
+        */
         for (int i = 0; i < myDynamicArray.getSize(); i++) {
             System.out.println(myDynamicArray.get(i));
         }

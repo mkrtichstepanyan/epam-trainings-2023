@@ -1,6 +1,6 @@
 package homework_16.aram_mehrabyan.generic_dynamic_array;
 
-
+import java.lang.Comparable;
 /* Please create methods below
    addAll() -> adds all elements of a collection to arraylist+
    clear() -> removes all the elements from arraylist+
@@ -213,6 +213,7 @@ public class DynamicArray<T> {
             arr2[j]=array[i];
         System.arraycopy(arr2,0,array,arr1.length,arr2.length);
     }
+
     public void trimToSize() {
         if (size < array.length) {
             T[] newArray = (T[]) new Object[size];
