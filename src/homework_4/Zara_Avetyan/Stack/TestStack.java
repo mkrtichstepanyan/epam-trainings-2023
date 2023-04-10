@@ -1,5 +1,8 @@
 package homework_4.Zara_Avetyan.Stack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestStack {
     public static void main(String[] args) {
         int size = 10;
