@@ -26,7 +26,7 @@ public class Test {
 
 //       myDynamicArray.subList(2, 5);
 
-       myDynamicArray.set(5,2);
+        myDynamicArray.set(5, 2);
         System.out.println(myDynamicArray.get(5));
 
         myDynamicArray.sort();
@@ -35,8 +35,21 @@ public class Test {
 
         myDynamicArray.trimToSize();
         System.out.println(myDynamicArray.getSize());
-        myDynamicArray.removeRange(5,7);
+        myDynamicArray.removeRange(5, 7);
         System.out.println(myDynamicArray.getSize());
+
+        myDynamicArray.addByIndex(2, 5);
+
+        int[] newArray = {55, 1122, 47, 4, 15};
+        myDynamicArray.addAllByIndex(1, newArray);
+
+        GenericDynamicArray <Object> array = new GenericDynamicArray<>();
+
+        Address address = new Address("Ani", "P.Sevak", 15);
+        User user = new User("Poghos","Poghosyan", 34, address);
+        array.add(user);
+        array.clone();
+
 
     }
 }
