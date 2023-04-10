@@ -1,5 +1,7 @@
 package homework_17.Ani_Barseghyan;
 
+import homework_12.Radik_Manasyan.chapter21.OnlyExt;
+
 import java.util.*;
 
 public class GenericLinkedList<Type> implements List<Type>, Comparable<Type>, Cloneable {
@@ -10,7 +12,7 @@ public class GenericLinkedList<Type> implements List<Type>, Comparable<Type>, Cl
 
     @Override
     public int size() {
-        return this.indexOf(tail);
+        return this.indexOf(tail.data) + 1;
     }
 
     @Override
@@ -20,25 +22,23 @@ public class GenericLinkedList<Type> implements List<Type>, Comparable<Type>, Cl
 
     @Override
     public boolean contains(Object element) {
-        return indexOf(element) >= 0;
+        return this.indexOf(element) >= 0;
     }
 
 
     @Override
     public Iterator<Type> iterator() {
         return new Iterator<>() {
-            Node<Type> currentNode = head;
+
 
             @Override
             public boolean hasNext() {
-                return currentNode != null;
+                return false;
             }
 
             @Override
             public Type next() {
-                Type data = currentNode.data;
-                currentNode = currentNode.next;
-                return data;
+                return null;
             }
         };
     }
@@ -63,7 +63,7 @@ public class GenericLinkedList<Type> implements List<Type>, Comparable<Type>, Cl
 
     private void tailLink(Type element) {
         Node<Type> last = this.tail;
-        Node<Type> newNode = new Node<Type>(last, element, null);
+        Node<Type> newNode = new Node<>(last, element, null);
         this.tail = newNode;
         if (last == null) {
             this.head = newNode;
@@ -79,12 +79,49 @@ public class GenericLinkedList<Type> implements List<Type>, Comparable<Type>, Cl
 
     @Override
     public boolean addAll(Collection c) {
-        return false;
+        for (Object o : c.toArray()) {
+            this.tailLink((Type) o);
+        }
+        return true;
     }
 
     @Override
     public boolean addAll(int index, Collection c) {
-        return false;
+        Object[] newArr = c.toArray();
+        if (index < 0 || index > this.size()) {
+            throw new IndexOutOfBoundsException("Wrong index");
+        }
+        if (newArr.length == 0) {
+            return false;
+        } else {
+            Node<Type> next;
+            Node<Type> prev;
+            if (index == this.size()) {
+                next = null;
+                prev = this.tail;
+            } else {
+                next = this.head.next;
+                prev = this.head;
+            }
+
+            for (Object e : newArr) {
+                Node<Type> newNode = new Node<>(prev, (Type) e, (Node) null);
+                if (prev == null) {
+                    this.head = newNode;
+                } else {
+                    prev.next = newNode;
+                }
+                prev = newNode;
+            }
+            if (next == null) {
+                this.tail = prev;
+            } else {
+                prev.next = next;
+                next.prev = prev;
+            }
+        }
+
+        return true;
     }
 
     @Override
@@ -100,13 +137,26 @@ public class GenericLinkedList<Type> implements List<Type>, Comparable<Type>, Cl
 
     @Override
     public Type get(int index) {
-        int i = indexOf(head);
-        Node<Type> current = head;
-        if (i < index) {
-            ++i;
-            current = current.next;
+        int i = 0;
+        Node<Type> current;
+
+        if (index < 0 || index > size()) {
+            throw new IndexOutOfBoundsException("Wrong index");
+        } else {
+            if (index == i) {
+                current = head;
+                return head.data;
+            } else {
+                for (Node<Type> node = head; node != null; node = node.next) {
+                    i++;
+                    if (index == i) {
+                        current = node.next;
+                        return current.data;
+                    }
+                }
+            }
         }
-        return current.data;
+        return null;
     }
 
     @Override
@@ -142,7 +192,7 @@ public class GenericLinkedList<Type> implements List<Type>, Comparable<Type>, Cl
                 index++;
             }
         }
-        return index;
+        return -1;
     }
 
     @Override
@@ -193,7 +243,16 @@ public class GenericLinkedList<Type> implements List<Type>, Comparable<Type>, Cl
 
     @Override
     public boolean containsAll(Collection c) {
-        return false;
+        boolean isContains = false;
+        for (Object o : c) {
+            if (this.contains(o)) {
+                isContains = true;
+            } else {
+                isContains = false;
+            }
+        }
+
+        return isContains;
     }
 
     @Override
