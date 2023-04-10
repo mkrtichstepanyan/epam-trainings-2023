@@ -1,5 +1,7 @@
 package homework_17.anna_manukyan;
 
+import java.util.HashSet;
+
 public class LinkedListDemo {
     public static void main(String[] args) {
         GenericLinkedList<Integer> integers = new GenericLinkedList<>();
@@ -74,6 +76,26 @@ public class LinkedListDemo {
         System.out.println("***Last index of***");
         System.out.println(integers.lastIndexOf(70));
 
+        //RemoveAll
+        System.out.println("***Remove collection from list***");
+        GenericLinkedList<Integer> removingList = new GenericLinkedList<>();
+        removingList.add(14);
+        removingList.add(-5);
+        integers.removeAll(removingList);
+        for (Object o : integers.toArray()) {
+            System.out.print(o + ", ");
+        }
+        System.out.println();
+
+        //Contains all
+        System.out.println("***Contains collection in list***");
+        GenericLinkedList<Integer> containingList = new GenericLinkedList<>();
+        containingList.add(450);
+        containingList.add(-52);
+
+        System.out.println(integers.containsAll(containingList));
+
+        System.out.println();
 //        System.out.println(integers.toArray());
     }
 }

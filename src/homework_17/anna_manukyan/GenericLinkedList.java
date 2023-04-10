@@ -1,9 +1,6 @@
 package homework_17.anna_manukyan;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
 
@@ -93,7 +90,6 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
                         head = item.next;
                     } else {
                         item.prev.next = item.next;
-                        item.prev = null;
                     }
                     if (item.next == null) {
                         tail = item.prev;
@@ -101,6 +97,7 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
                         item.next.prev = item.prev;
                         item.next = null;
                     }
+                    item.prev=null;
                     item = null;
                     size--;
                     return true;
@@ -243,20 +240,33 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
 
     @Override
     public List subList(int fromIndex, int toIndex) {
-        return null;
+        if ((fromIndex < 0 || fromIndex > size - 1) || (toIndex < 0 || toIndex > size - 1) || (fromIndex > toIndex)) {
+            throw new IllegalArgumentException("Wrong index");
+        } else {
+            T start = get(fromIndex);
+            T end = get(toIndex);
+            for (Node<T> item = (Node<T>) start; item != null; item = item.next) {
+
+            }
+        }
     }
 
 
     @Override
     public boolean removeAll(Collection c) {
-        boolean isRemoved;
-        for (Object o : c) {
-            if (this.contains(o)) {
+        boolean isRemoved = false;
+        for (Object o : c.toArray()) {
+            if (contains(o)) {
                 isRemoved = remove(o);
                 if (!isRemoved) {
                     System.out.println("Collection does not contains " + o.toString() + " object. And can not remove this object");
                     return isRemoved;
                 }
+
+            } else {
+                System.out.println("No such an element");
+                System.out.println(o.toString());
+                System.exit(1);
             }
         }
 //        while (head != null){
@@ -266,19 +276,21 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
 //            }
 //        }
 
-        return true;
+        return isRemoved;
     }
 
     @Override
     public boolean containsAll(Collection c) {
         boolean isContains = false;
-        for (Object o : c) {
-            if (this.contains(o)) {
+        for (Object o : c.toArray()) {
+            if (contains(o)) {
                 isContains = true;
-                if (!isContains) {
-                    System.out.println("Collection does not contains " + o.toString() + " object.");
-                    return isContains;
-                }
+            }  else {
+                isContains = false;
+            }
+            if (!isContains) {
+                System.out.println("Collection does not contains " + o.toString() + " object.");
+                return isContains;
             }
         }
         return isContains;
