@@ -6,7 +6,7 @@ package homework_14.gevorg_arghushyan;
 public class GenericStack<E> {
 
     private Object[] array = new Object[10];
-    public static int size = 0;
+    private  int size = 0;
 
     public void push(E object) {
         isFull();
@@ -36,8 +36,13 @@ public class GenericStack<E> {
 
     private void extend() {
         Object[] newObjects = new Object[array.length + 10];
-        System.arraycopy(array, 0, newObjects, 0, array.length);
-        array = newObjects;
+
+
+        int i = 0;
+        while (i < array.length){
+            newObjects[i] = array[i++];
+        }
+       array = newObjects;
 
     }
 }
