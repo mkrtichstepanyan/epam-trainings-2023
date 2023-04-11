@@ -71,5 +71,9 @@ public class Demo {
         // genericLinkedList.clear();
         genericLinkedList.print();
         //System.out.println(genericLinkedList.size()); return 0
+
+        //subList(int fromIndex, int toIndex)
+        genericLinkedList.print();
+        System.out.println(genericLinkedList.subList(0, 7));
     }
 }
