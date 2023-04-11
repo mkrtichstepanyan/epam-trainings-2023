@@ -2,7 +2,7 @@ package homework_17.anna_manukyan;
 
 import java.util.*;
 
-public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
+public class GenericLinkedList<T> implements List<T>, Cloneable {
 
     private int size;
     private int index;
@@ -75,7 +75,7 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
             head = newNode;
         } else {
             last.next = newNode;
-            tail=newNode;
+            tail = newNode;
         }
         size++;
         return true;
@@ -97,7 +97,7 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
                         item.next.prev = item.prev;
                         item.next = null;
                     }
-                    item.prev=null;
+                    item.prev = null;
                     item = null;
                     size--;
                     return true;
@@ -118,10 +118,10 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
 
     @Override
     public boolean addAll(int index, Collection c) {
-        if (index < 0 || index > size) {
-            throw new IllegalArgumentException();
+        checkIndexPos(index);
+        for (Object o : c.toArray()) {
+            add(index++, o);
         }
-
         return false;
     }
 
@@ -147,20 +147,16 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
     @Override
     public T get(int index) {
         int currentIndex = 0;
-
-        if (index < 0 || index > size) {
-            throw new IllegalArgumentException();
+        checkIndexPos(index);
+        if (index == currentIndex) {
+            currentNode = head;
+            return head.element;
         } else {
-            if (index == currentIndex) {
-                currentNode = head;
-                return head.element;
-            }  else {
-                for (Node<T> item = head; item != null; item = item.next) {
-                    currentIndex++;
-                    if (index == currentIndex) {
-                        currentNode = item.next;
-                        return item.next.element;
-                    }
+            for (Node<T> item = head; item != null; item = item.next) {
+                currentIndex++;
+                if (index == currentIndex) {
+                    currentNode = item.next;
+                    return item.next.element;
                 }
             }
         }
@@ -170,17 +166,45 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
     @Override
     public Object set(int index, Object element) {
         get(index);
-        currentNode.element= (T) element;
+        currentNode.element = (T) element;
         return currentNode.element;
     }
 
     @Override
     public void add(int index, Object element) {
-
+        checkIndexPos(index);
+        get(index);
+        Node<T> prev = currentNode.prev;
+        Node<T> newNode = new Node<>((T) element, prev, currentNode);
+        currentNode.prev = newNode;
+        if (prev == null) {
+            head = newNode;
+        } else {
+            prev.next = newNode;
+        }
+        size++;
     }
 
     @Override
     public T remove(int index) {
+        checkIndexPos(index);
+        get(index);
+        Node<T> next = currentNode.next;
+        Node<T> prev = currentNode.prev;
+        if (prev == null) {
+            head = next;
+        } else {
+            prev.next = next;
+        }
+
+        if (next == null) {
+            tail = prev;
+        } else {
+            next.prev = prev;
+        }
+
+        currentNode.element = null;
+        size--;
         return null;
     }
 
@@ -240,15 +264,19 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
 
     @Override
     public List subList(int fromIndex, int toIndex) {
-        if ((fromIndex < 0 || fromIndex > size - 1) || (toIndex < 0 || toIndex > size - 1) || (fromIndex > toIndex)) {
-            throw new IllegalArgumentException("Wrong index");
-        } else {
-            T start = get(fromIndex);
-            T end = get(toIndex);
-            for (Node<T> item = (Node<T>) start; item != null; item = item.next) {
-
+        List<T> subList = new ArrayList<>();
+        checkIndexPos(fromIndex);
+        checkIndexPos(toIndex);
+        if (toIndex<fromIndex) {
+            throw new IllegalArgumentException("Second index must be greater than first.");
+        }
+        get(fromIndex);
+        for (Node<T> item = currentNode; item != null; item = item.next) {
+            if (indexOf(item.element) <= toIndex) {
+                subList.add(item.element);
             }
         }
+        return subList;
     }
 
 
@@ -262,20 +290,12 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
                     System.out.println("Collection does not contains " + o.toString() + " object. And can not remove this object");
                     return isRemoved;
                 }
-
             } else {
                 System.out.println("No such an element");
                 System.out.println(o.toString());
                 System.exit(1);
             }
         }
-//        while (head != null){
-//            if (head.next != null) {
-//                head.next=head;
-//                head=null;
-//            }
-//        }
-
         return isRemoved;
     }
 
@@ -285,7 +305,7 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
         for (Object o : c.toArray()) {
             if (contains(o)) {
                 isContains = true;
-            }  else {
+            } else {
                 isContains = false;
             }
             if (!isContains) {
@@ -296,9 +316,9 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
         return isContains;
     }
 
-    @Override
-    public int compareTo(Object o) {
-        return 0;
+    private void checkIndexPos(int index) {
+        if (index < 0 || index > size - 1) {
+            throw new IllegalArgumentException("Wrong index");
+        }
     }
-
 }
