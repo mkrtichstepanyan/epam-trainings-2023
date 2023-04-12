@@ -1,5 +1,7 @@
-package homework_16.anna_manukyan;
+package homework_16.anna_manukyan.dynamic_array;
 
+
+import homework_16.anna_manukyan.dynamic_array.DynamicArray;
 
 public class Test {
 

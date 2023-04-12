@@ -1,55 +1,35 @@
 package homework_16.gohar_hakobyan;
 
-
+import java.util.Arrays;
 import java.util.Collection;
 
-/* Please create methods below
-   addAll() -> adds all elements of a collection to arraylist
-   clear() -> removes all the elements from arraylist
-   addByIndex () -> added new value without replacing
-   addAllByIndex () -> added new values without replacing
-   clone() -> makes a copy of the array list
-   contains() -> checks if the element is present in the arraylist
-   containsAll() -> checks if a collection is a subset of arraylist ?
-   indexOf() -> returns the position of the specified element
-   remove() -> removes the single element from the arraylist
-   removeAll() -> removes multiple elements from the arraylist
-   isEmpty() -> checks if the arraylist is empty
-   subList() -> returns a portion of the arraylist
-   set() -> replace the single element from an arraylist
-   sort() -> sorts the arraylist according to specified order -> use one of our previous algorithms (bubble, insertion ...)
-   toString() -> converts the arraylist into a String
-   trimToSize() -> trims the capacity of arraylist equal to the size
-   removeRange() -> removes a portion of the arraylist
-   replaceAll() -> replace all elements from the arraylist
- */
-public class DynamicArray {
-
-    private int[] array;
+public class GenericDynamicArray<T> {
+    private T[] array;
 
     private int size = 0;
 
     private static final int DEFAULT_CAPACITY = 16;
 
 
-    public DynamicArray(int capacity) {
+    public GenericDynamicArray(int capacity) {
         if (capacity > 0) {
-            this.array = new int[capacity];
+            this.array = ((T[]) new Object[capacity]);
         } else {
             throw new IllegalArgumentException("Array length must be bigger than 0");
         }
     }
 
-    public DynamicArray() {
-        this.array = new int[DEFAULT_CAPACITY];
+    public GenericDynamicArray() {
+        this.array = (T[]) new Object[DEFAULT_CAPACITY];
     }
+
 
     public int getSize() {
         return size;
     }
 
 
-    public void add(int value) {
+    public void add(T value) {
         if (size == array.length) {
             extend();
         }
@@ -57,9 +37,9 @@ public class DynamicArray {
     }
 
 
-    public void addByIndex(int index, int value) {
+    public void addByIndex(int index, T value) {
         if (index > 0 && index < size) {
-            int[] newArray = new int[array.length + 1];
+            T[] newArray = (T[]) new Object[array.length + 1];
             System.arraycopy(array, 0, newArray, 0, index);
             newArray[index] = value;
             for (int i = index + 1; i < newArray.length; i++) {
@@ -72,9 +52,9 @@ public class DynamicArray {
         }
     }
 
-    public void addAllByIndex(int index, int[] toAdd) {
+    public void addAllByIndex(int index, T[] toAdd) {
         if (index > 0 && index < size) {
-            int[] newArray = new int[size + toAdd.length];
+            T[] newArray = (T[]) new Object[size + toAdd.length];
 
             //Copy the part of array before the index
             System.arraycopy(array, 0, newArray, 0, index);
@@ -92,14 +72,14 @@ public class DynamicArray {
     }
 
 
-    public void addAll(Collection<? extends Integer> c) {
-        for (Integer value : c) {
+    public void addAll(Collection<? extends T> c) {
+        for (T value : c) {
             add(value);
         }
     }
 
 
-    public int get(int index) {
+    public T get(int index) {
         if (index < 0 || index > size - 1) {
             throw new ArrayIndexOutOfBoundsException("Wrong index");
         }
@@ -110,18 +90,22 @@ public class DynamicArray {
     //The method for removing all elements in array
     public void clear() {
         for (int to = size, i = size = 0; i < to; i++)
-            array[i] = 0;
+            array[i] = null;
     }
 
 
     //The method for removing a single element
     public void remove(int index) {
-        if (index >= 0 && index < size) {
-            if (size + 1 - index >= 0) {
-                System.arraycopy(array, index + 1, array, index, size + 1 - index);
-            }
-            size--;
+        if (index < 0 || index > size) {
+            throw new ArrayIndexOutOfBoundsException("Wrong index");
         }
+        T[] newArray = (T[]) new Object[array.length - 1];
+        System.arraycopy(array, 0, newArray, 0, index);
+        for (int i = index; i < newArray.length; i++) {
+            newArray[i] = array[i + 1];
+        }
+        array = newArray;
+        size--;
     }
 
     //The method for removing whole list
@@ -135,18 +119,21 @@ public class DynamicArray {
     }
 
 
-    public DynamicArray clone() {
-        DynamicArray cloned = new DynamicArray(array.length);
-        cloned.size = size;
-        System.arraycopy(array, 0, cloned.array, 0, array.length);
+    public GenericDynamicArray<T> clone() {
+        GenericDynamicArray<T> cloned = new GenericDynamicArray<>(array.length);
+        for (int i = 0; i < size; i++) {
+            Object obj;
+            obj = array[i];
+            cloned.add((T) obj);
+        }
         return cloned;
     }
 
 
     //This method check if array contains an element
-    public boolean contains(int element) {
-        for (int i : array) {
-            if (i == element) {
+    public boolean contains(T element) {
+        for (T t : array) {
+            if (t == element) {
                 return true;
             }
         }
@@ -155,9 +142,9 @@ public class DynamicArray {
 
 
     //This method check if c a collection is a subset of arraylist
-    public boolean containsAll(Collection<? extends Integer> c) {
+    public boolean containsAll(Collection<? extends T> c) {
         boolean isContains = false;
-        for (Integer element : c) {
+        for (T element : c) {
             if (!contains(element)) {
                 return isContains;
             }
@@ -166,11 +153,11 @@ public class DynamicArray {
     }
 
 
-    public int[] subList(int fromIndex, int toIndex) {
+    public T[] subList(int fromIndex, int toIndex) {
         if ((fromIndex < 0 || fromIndex > size) || (toIndex < 0 || toIndex > size)) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        int[] result = new int[toIndex - fromIndex];
+        T[] result = (T[]) new Object[toIndex - fromIndex];
         for (int i = fromIndex; i < toIndex; i++) {
             result[i - fromIndex] = array[i];
         }
@@ -178,7 +165,7 @@ public class DynamicArray {
     }
 
 
-    public void set(int index, int value) {
+    public void set(int index, T value) {
         if (index >= 0 && index < size) {
             array[index] = value;
         } else {
@@ -186,28 +173,18 @@ public class DynamicArray {
         }
     }
 
-    public int indexOf(int value) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == value) {
-                return i;
-            }
-        }
-        return -1;
-    }
 
-
-    //This method for integers insertion sorting
-    public int[] sort() {
+    //This method for  insertion sorting
+    public <T extends Comparable<T>> void sort(T[] arr) {
         for (int i = 1; i < array.length; i++) {
-            int tmp = array[i];
+            T tmp = arr[i];
             int j = i - 1;
-            while (j >= 0 && array[j] > tmp) {
+            while (j >= 0 && (arr[j]).compareTo(tmp) > 0) {
                 array[j + 1] = array[j];
                 j--;
             }
-            array[j + 1] = tmp;
+            arr[j + 1] = tmp;
         }
-        return array;
     }
 
     public String toString() {
@@ -226,10 +203,19 @@ public class DynamicArray {
 
     public void trimToSize() {
         if (array.length > size) {
-            int[] result = new int[size];
+            T[] result = (T[]) new Object[size];
             System.arraycopy(array, 0, result, 0, size);
             array = result;
         }
+    }
+
+    public int indexOf(T object) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(object)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
 
@@ -239,7 +225,7 @@ public class DynamicArray {
             throw new IndexOutOfBoundsException();
         }
         int range = endIndex - startIndex + 1;
-        int[] tempArray = new int[size - range];
+        T[] tempArray = (T[]) new Object[size - range];
         System.arraycopy(array, 0, tempArray, 0, startIndex);
         int i = endIndex;
         while (i < size - 1) {
@@ -250,14 +236,14 @@ public class DynamicArray {
         size = size - range;
     }
 
-    public void replaceAll(int[] newArray) {
+    public void replaceAll(T[] newArray) {
         if (newArray.length < size) {
             System.arraycopy(array, 0, newArray, 0, newArray.length);
         } else throw new IndexOutOfBoundsException();
     }
 
     private void extend() {
-        int[] newArray = new int[array.length * 2];
+        T[] newArray = (T[]) new Object[array.length * 2];
         for (int i = 0; i < array.length; i++) {
             newArray[i] = array[i];
         }
