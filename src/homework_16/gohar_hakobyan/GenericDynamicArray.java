@@ -152,7 +152,6 @@ public class GenericDynamicArray<T> {
         return true;
     }
 
-
     public T[] subList(int fromIndex, int toIndex) {
         if ((fromIndex < 0 || fromIndex > size) || (toIndex < 0 || toIndex > size)) {
             throw new ArrayIndexOutOfBoundsException();
