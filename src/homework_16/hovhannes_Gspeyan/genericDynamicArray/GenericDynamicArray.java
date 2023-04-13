@@ -2,10 +2,11 @@ package homework_16.hovhannes_Gspeyan.genericDynamicArray;
 
 import homework_15.hovhannes_gspeyan.sorting_algorithms.SelectionSort;
 
+import java.io.*;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 
-public class GenericDynamicArray<T> {
+public class GenericDynamicArray<T> implements Serializable {
 
     private T[] arr;
 
@@ -237,6 +238,39 @@ public class GenericDynamicArray<T> {
             System.out.print(i + " | ");
         }
         System.out.println();
+    }
+    public GenericDynamicArray<T> deepCopy() throws IOException, ClassNotFoundException {
+        ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+        ObjectOutputStream objectStream = new ObjectOutputStream(byteStream);
+        objectStream.writeObject(this);
+        ByteArrayInputStream byteInStream = new ByteArrayInputStream(byteStream.toByteArray());
+        ObjectInputStream objInStream = new ObjectInputStream(byteInStream);
+        return (GenericDynamicArray<T>) objInStream.readObject();
+    }
+    public void writeObj(){
+        try {
+            File file = new File("dynamicArray.txt");
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(this);
+            objectOutputStream.close();
+            fileOutputStream.close();
+            System.out.println("Object serialized successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void deserializeObj(){
+        try {
+            FileInputStream fileInputStream = new FileInputStream("dynamicArray.txt");
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            GenericDynamicArray gda = (GenericDynamicArray) objectInputStream.readObject();
+            objectInputStream.close();
+            fileInputStream.close();
+            System.out.println("Object deserialized successfully.");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public T[] deepClone(T[] originalArray) throws InstantiationException, IllegalAccessException {
