@@ -1,4 +1,4 @@
-package homework_17.Ani_Barseghyan.linked_list_book;
+package homework_17.Ani_Barseghyan;
 
 import homework_17.Ani_Barseghyan.GenericLinkedList;
 
