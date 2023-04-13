@@ -34,8 +34,15 @@ public class GenericLinkedList<E> implements List<E>, Comparable, Cloneable {
     }
 
     @Override
-    public Object[] toArray() {
-        return new Object[0];
+    public E[] toArray() {
+        E[] array = (E[]) new Object[this.size];
+        int i = 0;
+        Element<E> curr = this.head;
+        while (curr!= null){
+            array[i++] = curr.value;
+            curr= curr.next;
+        }
+        return array;
     }
 
     @Override
@@ -176,12 +183,29 @@ public class GenericLinkedList<E> implements List<E>, Comparable, Cloneable {
                 index++;
             }
         }
-        return index;
+        return -1;
     }
 
     @Override
-    public int lastIndexOf(Object o) {
-        return 0;
+    public int lastIndexOf(Object element) {
+        int index = this.size -1;
+        Element<E> element1;
+        if (element == null) {
+            for (element1 = this.tail; element1 != null; element1 = element1.prev) {
+                if (element1.value == null) {
+                    return index;
+                }
+                index++;
+            }
+        } else {
+            for (element1 = this.tail; element1 != null; element1 = element1.prev) {
+                if (element1.value.equals(element)) {
+                    return index;
+                }
+                index++;
+            }
+        }
+        return -1;
     }
 
     @Override

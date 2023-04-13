@@ -18,6 +18,7 @@ public class Test {
         list.set(2, 7);
         System.out.println(list.toString());
 //        System.out.println(list.subList(1,3).toString());
+        System.out.println(list.lastIndexOf(15));
 
 
     }
