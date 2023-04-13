@@ -2,12 +2,14 @@ package homework_17.Ani_Barseghyan.linked_list_book;
 
 import homework_17.Ani_Barseghyan.GenericLinkedList;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
 public class Demo {
     public static void main(String[] args) {
         GenericLinkedList<Integer> linkedList = new GenericLinkedList<>();
+        Integer[] addArr = {51, 61, 71, 81};
         Integer[] newArr = {11, 21, 31, 41};
 
         linkedList.add(6);
@@ -36,10 +38,8 @@ public class Demo {
 
 
         System.out.print("Add all -> ");
-        linkedList.addAll(List.of(newArr));
-        for (int i = 0; i < linkedList.size(); i++) {
-            System.out.print(linkedList.get(i) + " ");
-        }
+        linkedList.addAll(List.of(addArr));
+        System.out.println(Arrays.toString(linkedList.toArray()));
         System.out.println();
 
         System.out.print("Contains element 5? -> ");
@@ -48,12 +48,19 @@ public class Demo {
         System.out.print("Contains all -> ");
         System.out.println(linkedList.containsAll(List.of(newArr)));
 
-        System.out.println("Add all from index 2 -> ");
+        System.out.print("Add all from index 2 -> ");
         linkedList.addAll(2, List.of(newArr));
-//        for (int i = 0; i < linkedList.size(); i++) {
-//            System.out.println(linkedList.get(i));
-//        }
+        System.out.println(Arrays.toString(linkedList.toArray()));
 
+        //linkedList.remove(0);
+        //linkedList.remove(Integer.valueOf(11));
+        //linkedList.removeAll(List.of(newArr));
 
+        System.out.print("Add 88 from index 1 -> ");
+        linkedList.add(1, 88);
+
+        linkedList.set(0,33);
+        System.out.println(Arrays.toString(linkedList.toArray()));
+        //linkedList.clear();
     }
 }
