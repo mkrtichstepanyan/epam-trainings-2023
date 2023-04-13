@@ -4,7 +4,12 @@ package homework_16.anna_manukyan.generic_dynamic_array;
 public class Test {
 
     public static void main(String[] args) {
-        DynamicArray<String> myDynamicArray = new DynamicArray<String>(5);
+        DynamicArray<String> myDynamicArray = new DynamicArray<String>(5) {
+            @Override
+            public Object clone(Object object) {
+                return object;
+            }
+        };
 
         for (int i = 0; i < 14; i++) {
             myDynamicArray.add(String.valueOf(i));
@@ -59,7 +64,6 @@ public class Test {
 //        myDynamicArray.clear();
         System.out.println("************");
         System.out.println("Array clone");
-        myDynamicArray.clone();
         System.out.println(myDynamicArray.toString());
     }
 }
