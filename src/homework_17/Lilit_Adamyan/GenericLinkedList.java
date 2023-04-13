@@ -117,16 +117,17 @@ public class GenericLinkedList<T> {
 
 
     public T get(int index) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index" + index + "size" + size);
         }
-        Node<T> current = head.next;
-        for (int i = 0; i < index; i++) {
-            current = current.next;
-        }
-        return current.data;
-    }
+        Node<T> current = head;
+        if (current != null) {
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
 
+        }return current.data;
+    }
 
     public T set(int index, T element) {
         if (index < 0 || index > size) {
@@ -216,12 +217,25 @@ public class GenericLinkedList<T> {
         }
         return index;
     }
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("[");
+        Node current = head;
+        while (current != null) {
+            sb.append(current.data.toString());
+            if (current.next != null) {
+                sb.append(", ");
+            }
+            current = current.next;
+        }
+        sb.append("]");
+        return sb.toString();
+    }
 
 
     public List subList(int fromIndex, int toIndex) {
         return null;
     }
-
 
 
 
