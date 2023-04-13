@@ -1,12 +1,10 @@
-package homework_14.Zara_Avetyan;
+package homework_13.Zara_Avetyan;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.Properties;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
@@ -49,12 +47,12 @@ public class Notepad extends JFrame {
 
         public NotepadMenuBar() {
 
-            file = new JMenu("File");
-            newFile = new JMenu("New");
-            openFile = new JMenu("Open");
-            save = new JMenu("Save");
-            saveAs = new JMenu("Save as");
-            close = new JMenu("Close");
+            file = new JMenu();
+            newFile = new JMenuItem();
+            openFile = new JMenuItem();
+            save = new JMenuItem();
+            saveAs = new JMenuItem();
+            close = new JMenuItem();
 
             file.add(newFile);
             file.add(openFile);
@@ -62,10 +60,10 @@ public class Notepad extends JFrame {
             file.add(saveAs);
             file.add(close);
 
-            language = new JMenu("Language");
-            enLang = new JMenu("English");
-            amLang = new JMenu("Armenian");
-            ruLang = new JMenu("Russian");
+            language = new JMenu();
+            enLang = new JMenuItem();
+            amLang = new JMenuItem();
+            ruLang = new JMenuItem();
 
             language.add(enLang);
             language.add(amLang);
@@ -73,11 +71,71 @@ public class Notepad extends JFrame {
 
             add(file);
             add(language);
+            loadMenuLabels(LabelKey.EN);
 
             close.addActionListener(this::onCloseActionPerformed);
             save.addActionListener(this::onSaveActionPerformed);
             openFile.addActionListener(this::onOpenActionPerformed);
+            amLang.addActionListener(this::onAmLangActionPerformed);
+            enLang.addActionListener(this::onEnLangActionPerformed);
+            ruLang.addActionListener(this::onRuLangActionPerformed);
         }
+
+
+        private void onAmLangActionPerformed(ActionEvent actionEvent) {
+            loadMenuLabels(LabelKey.AM);
+        }
+
+        private void onEnLangActionPerformed(ActionEvent actionEvent) {
+            loadMenuLabels(LabelKey.EN);
+        }
+
+        private void onRuLangActionPerformed(ActionEvent actionEvent) {
+            loadMenuLabels(LabelKey.RU);
+        }
+
+        private void loadMenuLabels(LabelKey labelKey) {
+            Properties properties = loadMessages(labelKey);
+            loadMenuLabels(properties);
+        }
+
+        private void loadMenuLabels(Properties properties) {
+            file.setText(properties.getProperty("file.menu.name"));
+            newFile.setText(properties.getProperty("new.menu.name"));
+            openFile.setText(properties.getProperty("open.menu.name"));
+            save.setText(properties.getProperty("save.menu.name"));
+            saveAs.setText(properties.getProperty("saveAs.menu.name"));
+            close.setText(properties.getProperty("close.menu.name"));
+            language.setText(properties.getProperty("language.menu.name"));
+            amLang.setText(properties.getProperty("hy.menu.name"));
+            enLang.setText(properties.getProperty("en.menu.name"));
+            ruLang.setText(properties.getProperty("ru.menu.name"));
+
+        }
+
+        private Properties loadMessages(LabelKey labelKey) {
+            InputStream inputStream;
+            String path = "";
+            switch (labelKey.getLabel()) {
+                case "am":
+                    path = "homework_13/Zara_Avetyan/i18n/label_hy.properties";
+                    break;
+                case "ru":
+                    path = "homework_13/Zara_Avetyan/i18n/label_ru.properties";
+                    break;
+                default:
+                    path = "homework_13/Zara_Avetyan/i18n/label.properties";
+            }
+            inputStream = getClass().getClassLoader().getResourceAsStream(path);
+            Properties properties = new Properties();
+            try {
+                properties.load(inputStream);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return properties;
+        }
+
 
         private void onOpenActionPerformed(ActionEvent actionEvent) {
             JFileChooser fileChooser = new JFileChooser();
@@ -106,6 +164,25 @@ public class Notepad extends JFrame {
                 System.exit(0);
             }
         }
+
+        enum LabelKey {
+            AM("am"),
+            EN("en"),
+            RU("ru");
+
+            private String label;
+
+            LabelKey(String label) {
+                this.label = label;
+            }
+
+            public String getLabel() {
+                return label;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        new Notepad();
     }
 }
-
