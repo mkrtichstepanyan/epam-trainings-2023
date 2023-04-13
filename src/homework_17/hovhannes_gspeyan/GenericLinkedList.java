@@ -1,10 +1,6 @@
 package homework_17.hovhannes_gspeyan;
 
-import homework_15.hovhannes_gspeyan.sorting_algorithms.SelectionSort;
-import homework_16.hovhannes_Gspeyan.model.Person;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -287,7 +283,6 @@ public class GenericLinkedList<T> implements Cloneable {
     }
 
     private static class Node<T> {
-
         private Node<T> next;
         private T value;
 
