@@ -5,6 +5,7 @@ import homework_15.hovhannes_gspeyan.sorting_algorithms.SelectionSort;
 import java.io.*;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.util.Arrays;
 
 public class GenericDynamicArray<T> implements Serializable {
 
@@ -265,6 +266,7 @@ public class GenericDynamicArray<T> implements Serializable {
             FileInputStream fileInputStream = new FileInputStream("dynamicArray.txt");
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             GenericDynamicArray gda = (GenericDynamicArray) objectInputStream.readObject();
+            System.out.println(gda.toString());
             objectInputStream.close();
             fileInputStream.close();
             System.out.println("Object deserialized successfully.");
@@ -314,5 +316,10 @@ public class GenericDynamicArray<T> implements Serializable {
             newArr[i] = this.arr[i];
         }
         this.arr = newArr;
+    }
+    @Override
+    public String toString() {
+        return Arrays.toString(arr) +
+                '}';
     }
 }
