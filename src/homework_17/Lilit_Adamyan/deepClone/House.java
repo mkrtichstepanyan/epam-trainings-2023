@@ -2,7 +2,7 @@ package homework_17.Lilit_Adamyan.deepClone;
 
 import homework_7.garik_gharibyan.exceptions.NameException;
 
-public class House {
+public class House implements Cloneable{
     private NarekatsiStreet narekatsiStreet;
 
     public House(NarekatsiStreet narekatsiStreet) {

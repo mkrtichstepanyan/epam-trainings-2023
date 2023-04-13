@@ -1,7 +1,7 @@
 package homework_17.Lilit_Adamyan.deepClone;
 
 public class DeepClone {
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
 
         Space space = new Space("Milky Way");
         MilkyWayGalactic galactic = new MilkyWayGalactic(space);
@@ -16,18 +16,16 @@ public class DeepClone {
         NarekatsiStreet street = new NarekatsiStreet(vanadzorCity);
         House house = new House(street);
 
-        House clonedHouse = null;
+
         try {
-            clonedHouse = house.deepClone();
-            System.out.println(house == clonedHouse);
+            House clonedHouse = house.deepClone();
+            System.out.println(house.equals(clonedHouse));
             System.out.println(house.getNarekatsiStreet() == clonedHouse.getNarekatsiStreet());
             System.out.println(house.getNarekatsiStreet().getVanadzorCity() == clonedHouse.getNarekatsiStreet().getVanadzorCity());
             System.out.println(house.getNarekatsiStreet().getVanadzorCity().getLoriRegion() == clonedHouse.getNarekatsiStreet().getVanadzorCity().getLoriRegion());
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
         }
-
-
 
 
     }

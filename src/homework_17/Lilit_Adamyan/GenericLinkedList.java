@@ -2,7 +2,7 @@ package homework_17.Lilit_Adamyan;
 
 import java.util.*;
 
-public class GenericLinkedList<T>  {
+public class GenericLinkedList<T> {
 
     Node<T> head;
     Node<T> tail;
@@ -39,8 +39,14 @@ public class GenericLinkedList<T>  {
         return false;
 
     }
-
-
+    public boolean containsAll(T[] values) {
+        for (T value : values) {
+            if (!this.contains(value)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 
     public boolean add(T data) {
@@ -54,6 +60,7 @@ public class GenericLinkedList<T>  {
         tail = newNode;
         return true;
     }
+
     public void addFirst(T data) {
         Node newNode = new Node(data);
         newNode.next = head;
@@ -62,6 +69,78 @@ public class GenericLinkedList<T>  {
 
     }
 
+
+    public void sort(Comparator<? super T> c) {
+
+    }
+
+
+    public void addAll(T[] values) {
+        Node<T> current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        for (T data : values) {
+            current.next = new Node<>(data);
+            current = current.next;
+            size++;
+        }
+    }
+
+
+    public boolean addAll(int index, T[] values) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        Node<T> current = head;
+        for (int i = 0; i < index - 1; i++) {
+            current = current.next;
+        }
+        Node<T> node = current.next;
+        for (T data : values) {
+            Node<T> newNode = new Node<>(data);
+            current.next = newNode;
+            newNode.next = node;
+            current = newNode;
+            size++;
+        }
+        return true;
+    }
+
+
+    public void clear() {
+        head = null;
+        tail = null;
+        size = 0;
+
+    }
+
+
+    public T get(int index) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index" + index + "size" + size);
+        }
+        Node<T> current = head.next;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.data;
+    }
+
+
+    public T set(int index, T element) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        Node<T> current = head.next;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        T oldData = current.data;
+        current.data = element;
+        return oldData;
+
+    }
 
     public boolean remove(T t) {
         Node<T> previous = null;
@@ -86,60 +165,57 @@ public class GenericLinkedList<T>  {
     }
 
 
-    public void sort(Comparator<? super T> c) {
-
-    }
-
-
-    public boolean addAll(Collection c) {
-        return false;
-    }
-
-
-    public boolean addAll(int index, Collection c) {
-        return false;
-    }
-
-
-
-    public void clear() {
-        head = null;
-        tail = null;
-        size =0;
-
-    }
-
-
-    public T get(int index) {
-        return null;
-    }
-
-
-    public Object set(int index, Object element) {
-        return null;
-    }
-
-
-    public void add(int index, Object element) {
-
-    }
-
-
     public T remove(int index) {
-
-        return null;
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        Node<T> prev = head;
+        for (int i = 0; i < index; i++) {
+            prev = prev.next;
+        }
+        Node<T> current = prev.next;
+        prev.next = current.next;
+        size--;
+        return current.data;
     }
 
 
-    public int indexOf(Object o) {
-        return 0;
+    public boolean removeAll(T[] values) {
+        boolean removed = false;
+        for(T value :values){
+            while (contains(value)){
+                remove (value);
+                removed = true;
+            }
+        }
+        return removed;
+    }
+
+    public int indexOf(T t) {
+        int index = 0;
+        Node<T> current = head.next;
+        while (current != null) {
+            if (Objects.equals(t, current.data)) {
+                return index;
+            }
+            current = current.next;
+            index++;
+        }
+        return -1;
     }
 
 
-    public int lastIndexOf(Object o) {
-        return 0;
+    public int lastIndexOf(T t) {
+        int index = -1;
+        int i = 0;
+        for (Node current = head; current != null; current = current.next) {
+            if (Objects.equals(current.data, t)) {
+                index = i;
+            }
+            i++;
+        }
+        return index;
     }
-
 
 
     public List subList(int fromIndex, int toIndex) {
@@ -147,16 +223,6 @@ public class GenericLinkedList<T>  {
     }
 
 
-
-    public boolean removeAll(Collection c) {
-
-        return false;
-    }
-
-
-    public boolean containsAll(Collection c) {
-        return false;
-    }
 
 
 }
