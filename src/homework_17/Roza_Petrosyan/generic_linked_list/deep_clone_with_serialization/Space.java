@@ -2,7 +2,7 @@ package homework_17.Roza_Petrosyan.generic_linked_list.deep_clone_with_serializa
 
 import java.io.*;
 
-public class Space implements Cloneable, Serializable {
+public class Space implements Serializable {
     private String galactic;
     private String system;
     private String planet;
