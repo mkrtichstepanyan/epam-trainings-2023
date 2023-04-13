@@ -130,7 +130,10 @@ public class GenericLinkedList<T> {
 
 
     public Object remove(int index) {
-        if (index == 1) {
+        if (head == null) {
+            return false;
+        }
+        else if (index == 1) {
             head = head.next;
         } else {
             Node current = head;

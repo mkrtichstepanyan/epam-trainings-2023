@@ -3,11 +3,11 @@ package homework_17.Diana_Melkonyan;
 public class Main {
     public static void main(String[] args) {
         GenericLinkedList<Integer> list = new GenericLinkedList<Integer>();
-        list.add(22);
-        list.add(23);
-        list.add(24);
-        list.add(25);
-        list.add(26);
+//        list.add(22);
+//        list.add(23);
+//        list.add(24);
+//        list.add(25);
+//        list.add(26);
 
         list.print();
 
@@ -22,9 +22,9 @@ public class Main {
 //        list.clear();
 //        list.print();
 //
-//        System.out.println("After remove mathod");
-//        list.remove(1);
-//        list.print();
+        System.out.println("After remove mathod");
+        list.remove(1);
+        list.print();
 //
 //        System.out.println("After add mathod two parameters");
 //        list.add(1, 55);
