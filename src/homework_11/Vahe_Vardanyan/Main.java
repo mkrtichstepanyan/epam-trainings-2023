@@ -5,9 +5,9 @@ import static homework_11.Vahe_Vardanyan.PhoneNumbersGenerator.writeToFile;
 
 public class Main {
     public static void main(String[] args) {
-        String readFile = "src\\homework_11\\Vahe_Vardanyan\\readFile";
-        String writeFile = "src\\homework_11\\Vahe_Vardanyan\\writeFile.txt";
-        String phoneNumbersFile = "src\\homework_11\\Vahe_Vardanyan\\phoneNumbersFile.txt";
+        String readFile = "src/homework_11/Vahe_Vardanyan/readFile.txt";
+        String writeFile = "src/homework_11/Vahe_Vardanyan/writeFile.txt";
+        String phoneNumbersFile = "src/homework_11/Vahe_Vardanyan/phoneNumbersFile.txt";
 
         String data = FileProcessor.readFile(readFile);
         System.out.println(data);
