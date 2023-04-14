@@ -6,6 +6,8 @@ import java.util.Collection;
 /* Please create methods below
    addAll() -> adds all elements of a collection to arraylist
    clear() -> removes all the elements from arraylist
+   addByIndex () -> added new value without replacing
+   addAllByIndex () -> added new values without replacing
    clone() -> makes a copy of the array list
    contains() -> checks if the element is present in the arraylist
    containsAll() -> checks if a collection is a subset of arraylist ?
@@ -54,6 +56,42 @@ public class DynamicArray {
         array[size++] = value;
     }
 
+
+    public void addByIndex(int index, int value) {
+        if (index > 0 && index < size) {
+            int[] newArray = new int[array.length + 1];
+            System.arraycopy(array, 0, newArray, 0, index);
+            newArray[index] = value;
+            for (int i = index + 1; i < newArray.length; i++) {
+                newArray[i] = array[i - 1];
+            }
+            array = newArray;
+            size++;
+        } else {
+            System.out.println("Invalid index.");
+        }
+    }
+
+    public void addAllByIndex(int index, int[] toAdd) {
+        if (index > 0 && index < size) {
+            int[] newArray = new int[size + toAdd.length];
+
+            //Copy the part of array before the index
+            System.arraycopy(array, 0, newArray, 0, index);
+
+            //Copy the array toAdd
+            System.arraycopy(toAdd, 0, newArray, index, toAdd.length);
+
+            //Copy the part of array after the index
+            System.arraycopy(array, index, newArray, index + toAdd.length, size - index);
+            array = newArray;
+            size += toAdd.length;
+        } else {
+            System.out.println("Invalid index.");
+        }
+    }
+
+
     public void addAll(Collection<? extends Integer> c) {
         for (Integer value : c) {
             add(value);
@@ -66,14 +104,6 @@ public class DynamicArray {
             throw new ArrayIndexOutOfBoundsException("Wrong index");
         }
         return array[index];
-    }
-
-    private void extend() {
-        int[] newArray = new int[array.length * 2];
-        for (int i = 0; i < array.length; i++) {
-            newArray[i] = array[i];
-        }
-        array = newArray;
     }
 
 
@@ -104,10 +134,6 @@ public class DynamicArray {
         }
     }
 
-
-    private boolean isEmpty() {
-        return size == 0;
-    }
 
     public DynamicArray clone() {
         DynamicArray cloned = new DynamicArray(array.length);
@@ -158,6 +184,15 @@ public class DynamicArray {
         } else {
             System.out.println("Invalid index.");
         }
+    }
+
+    public int indexOf(int value) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == value) {
+                return i;
+            }
+        }
+        return -1;
     }
 
 
@@ -219,5 +254,17 @@ public class DynamicArray {
         if (newArray.length < size) {
             System.arraycopy(array, 0, newArray, 0, newArray.length);
         } else throw new IndexOutOfBoundsException();
+    }
+
+    private void extend() {
+        int[] newArray = new int[array.length * 2];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[i];
+        }
+        array = newArray;
+    }
+
+    private boolean isEmpty() {
+        return size == 0;
     }
 }
