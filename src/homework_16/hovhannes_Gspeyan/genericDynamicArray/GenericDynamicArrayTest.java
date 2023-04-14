@@ -28,5 +28,8 @@ public class GenericDynamicArrayTest {
         gda1.printArray();
         gda.trimToSize();
         gda.printArray();
+        gda1.deepCopy();
+        gda1.writeObj();
+        gda1.deserializeObj();
     }
 }
