@@ -1,26 +1,34 @@
 package homework_16.TatevKocharyan.genericDynamicArray;
 
+import java.util.Comparator;
+
 public class Test {
 
     public static void main(String[] args) {
-        GenericDynamicArray genericDynamicArray = new GenericDynamicArray();
-        GenericDynamicArray genericDynamicArray1 = new GenericDynamicArray();
+        GenericDynamicArray <Integer> genericDynamicArray = new GenericDynamicArray();
+        GenericDynamicArray<String > genericDynamicArray1 = new GenericDynamicArray();
         genericDynamicArray.add(55);
         genericDynamicArray.add(66);
         genericDynamicArray.add(77);
-        genericDynamicArray.add("hello");
-        genericDynamicArray.add("he");
-        genericDynamicArray.add("she");
 
-        genericDynamicArray1.add(78);
-        genericDynamicArray1.add("hhhhh");
-        genericDynamicArray1.add(98);
+        genericDynamicArray1.add("78");
+        genericDynamicArray1.add("98");
         genericDynamicArray1.trimToSize();
-        genericDynamicArray.addAllByIndex(2, genericDynamicArray1.getArray());
         genericDynamicArray.print();
         genericDynamicArray.addByIndex(2, 55);
 
+        genericDynamicArray.bubbleSort(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                 if (o1 > o2) {
+                    return -1;
+                } else if (o1 == o2) {
+                    return 0;
+                }
+                return 1;
+            }
 
+        });
         Object[] genericDynamicArray3 = genericDynamicArray.subList(2, 6);
         for (int i = 0; i < genericDynamicArray3.length - 1; i++) {
             System.out.println(genericDynamicArray3[i] + " ");
