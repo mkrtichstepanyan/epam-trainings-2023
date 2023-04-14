@@ -14,13 +14,8 @@ public class BubbleSort {
         return array;
     }
 
-    public static void printArray(int[] array) {
-        for (int i : array) {
-            System.out.println(i + " ");
-        }
-    }
 
-    public static void swap(int[] array, int index) {
+   private static void swap(int[] array, int index) {
         if (array[index] > array[index + 1]) {
             int temp = array[index];
             array[index] = array[index + 1];
