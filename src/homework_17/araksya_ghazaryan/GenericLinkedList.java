@@ -2,10 +2,7 @@ package homework_17.araksya_ghazaryan;
 
 
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
 
@@ -54,22 +51,22 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
         }
         return objects;
     }
-    @Override
-    public Iterator iterator() {
-        Node<T> current = head;
 
-        return new Iterator<>() {
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+            private Node<T> currentNode = head;
             @Override
             public boolean hasNext() {
-                if (current != null) {
-                    return true;
-                }
-                return false;
+                return currentNode != null;
             }
-
             @Override
-            public Object next() {
-                return null;
+            public T next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+                T item = currentNode.element;
+                currentNode = currentNode.next;
+                return item;
             }
         };
     }
@@ -116,7 +113,6 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException();
         }
-
         return false;
     }
     @Override
@@ -169,8 +165,21 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
     }
     @Override
     public T remove(int index) {
+        if (index == 1) {
+            head = head.next;
+        } else {
+            Node current = head;
+            for (int i = 1; i < index - 1; i++) {
+                current = current.next;
+            }
+            Node temp = null;
+            temp = current.next;
+            current.next = temp.next;
+
+        }
         return null;
     }
+
     @Override
     public int indexOf(Object o) {
         int index = 0;
@@ -222,10 +231,25 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
         // not implement
         return null;
     }
+
     @Override
     public List subList(int fromIndex, int toIndex) {
-        return null;
+        if (fromIndex < 0 || toIndex > size() || fromIndex > toIndex) {
+            throw new IndexOutOfBoundsException();
+        }
+        List<T> result = new LinkedList<T>();
+        Node<T> temp = this.head;
+        int count = 0;
+        while (temp != null) {
+            if (count >= fromIndex && count < toIndex) {
+                result.add(temp.element);
+            }
+            temp = temp.next;
+            count++;
+        }
+        return result;
     }
+
     @Override
     public boolean removeAll(Collection c) {
         boolean isRemoved;
@@ -255,7 +279,27 @@ public class GenericLinkedList<T> implements List<T>, Comparable<T>, Cloneable {
         return isContains;
     }
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(Object o) {    //nor
+        Node<T> node;
+        for (node = head; node != null; node = node.next) {
+            if ((Integer) node.element < (Integer) o) {
+                return -1;
+            } else {
+                if ((Integer) node.element < (Integer) o)
+                    return -1;
+            }
+        }
         return 0;
+    }
+    public  static class Node<E> {
+        E element;
+        Node<E> prev;
+        Node<E> next;
+
+        public Node(E element,Node<E> prev, Node<E> next) {
+            this.element = element;
+            this.prev = prev;
+            this.next = next;
+        }
     }
 }
