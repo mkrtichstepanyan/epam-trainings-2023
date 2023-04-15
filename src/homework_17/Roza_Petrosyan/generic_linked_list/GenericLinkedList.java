@@ -4,11 +4,9 @@ import java.util.*;
 
 public class GenericLinkedList<T> implements Cloneable {
 
-    Node<T> head;
-    Node<T> tail;
+    private Node<T> head;
+    private Node<T> tail;
     private int size = 0;
-
-
     public int size() {
         return size;
     }
