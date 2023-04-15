@@ -1,9 +1,6 @@
-package homework_17.Ani_Barseghyan;
-
-import homework_17.Ani_Barseghyan.GenericLinkedList;
+package homework_17.Ani_Barseghyan.generic_linked_list;
 
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 public class Demo {

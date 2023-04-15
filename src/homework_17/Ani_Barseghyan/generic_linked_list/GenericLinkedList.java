@@ -1,4 +1,4 @@
-package homework_17.Ani_Barseghyan;
+package homework_17.Ani_Barseghyan.generic_linked_list;
 
 import java.util.*;
 

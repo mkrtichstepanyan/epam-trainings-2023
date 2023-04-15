@@ -1,6 +1,4 @@
-package homework_17.Ani_Barseghyan;
-
-import java.util.LinkedList;
+package homework_17.Ani_Barseghyan.generic_linked_list;
 
 public class Node<Type> {
     Type data;
