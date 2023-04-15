@@ -25,7 +25,7 @@ import java.util.Comparator;
    removeRange() -> removes a portion of the arraylist  +
    replaceAll() -> replace all elements from the arraylist  +
  */
-public class GenericDynamicArray<T> {
+public class GenericDynamicArray <T extends Comparable <T> >{
 
     private T[] array;
 
@@ -102,7 +102,6 @@ public class GenericDynamicArray<T> {
         for (int i = 0; i < array.length; i++) {
             clonedArray[i] = array[i];
         }
-
         return clonedArray;
     }
 
