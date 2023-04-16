@@ -6,6 +6,7 @@ public class GenericMap<K, V> {
 
     private int size;
     private Node<K, V>[] table;
+    private static final double  LOAD_FACTOR = 0.75D;
 
     @SuppressWarnings("unchecked")
     public GenericMap() {
@@ -51,8 +52,9 @@ public class GenericMap<K, V> {
         return value;
     }
 
+
     public void extend() {
-        if (this.size > this.table.length && (this.table.length < (1 << 30))) {
+        if (this.size > (this.table.length * this.LOAD_FACTOR) && (this.table.length < (1 << 30))) {
             this.size = 0;
             Node<K, V>[] oldTable = this.table;
             this.table = new Node[this.table.length * 2];
