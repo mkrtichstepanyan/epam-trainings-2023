@@ -30,7 +30,7 @@ public class DynamicArray {
         array[size++] = element;
     }
 
-    private void Extand() {
+    private void extand() {
         int[] newArray = new int[array.length * 2];
         for (int i = 0; i < array.length; i++) {
 
@@ -51,7 +51,7 @@ clone.size = this.size;
     public boolean isEmpty(){
         if(size==0);
         System.out.println("the array is empty");
-        return  true;
+        return false;
     }
     {
         System.out.println("the array contains ellement");
