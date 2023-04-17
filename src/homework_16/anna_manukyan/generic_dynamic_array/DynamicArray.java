@@ -1,8 +1,6 @@
 package homework_16.anna_manukyan.generic_dynamic_array;
 
 
-import homework_15.anna_manukyan.MergeSort;
-
 import java.util.Arrays;
 
 /* Please create methods below
@@ -23,7 +21,7 @@ import java.util.Arrays;
    removeRange() -> removes a portion of the arraylist +
    replaceAll() -> replace all elements from the arraylist +
  */
-public class DynamicArray<T> {
+public abstract class DynamicArray<T> {
 
     private T[] array;
 
@@ -121,20 +119,7 @@ public class DynamicArray<T> {
         return listCopy;
     }
 
-    public T[] clone() {
-        T[] clone = (T[]) new Object[size];
-        for (int i = 0; i < size; i++) {
-            if (array[i] != null){
-                if (array[i] instanceof Number || array[i] instanceof String) {
-                    clone[i] = array[i];
-                } else {
-                    T item = (T) new DynamicArray(array[i]);
-                    clone[i] = item;
-                }
-            }
-        }
-        return clone;
-    }
+    public abstract Object clone(Object object);
 
     public boolean contains(T element) {
         if (!isEmpty()) {
@@ -263,8 +248,8 @@ public class DynamicArray<T> {
     }
 
     public void sort() {
-            GenericInsertionSort<T> insertionSort = new  GenericInsertionSort<>();
-            insertionSort.printArray(insertionSort.sortArray(array));
+        GenericInsertionSort<T> insertionSort = new GenericInsertionSort<>();
+        insertionSort.printArray(insertionSort.sortArray(array));
     }
 
     private void extend() {
