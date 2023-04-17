@@ -2,6 +2,7 @@ package homework_18.anna_manukyan;
 
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -15,10 +16,11 @@ public class GenericMap<K, V> implements Map<K, V> {
     private Node<K, V>[] buckets;
     private int size;
     private static final double LOAD_FACTOR = 0.75D;
+    private static final int DEFAULT_CAPACITY = 16;
 
 
-    public GenericMap(Node<K, V>[] buckets) {
-        this.buckets = buckets;
+    public GenericMap() {
+        this.buckets = new Node[DEFAULT_CAPACITY];
     }
 
     @Override
@@ -33,6 +35,24 @@ public class GenericMap<K, V> implements Map<K, V> {
 
     @Override
     public boolean containsKey(Object key) {
+        if (key != null) {
+            if (size > 0) {
+                for (int i = 0; i < buckets.length; i++) {
+                    Node<K, V> current = buckets[i];
+                    while (current != null) {
+                        if (current.getKey().equals(key)) {
+                            return true;
+                        }
+                        current = current.getNext();
+                    }
+                }
+            } else {
+                System.out.println("Map did not contain any element.");
+                System.exit(1);
+            }
+        } else {
+            throw new NullPointerException("Value can not be null!");
+        }
         return false;
     }
 
@@ -40,9 +60,13 @@ public class GenericMap<K, V> implements Map<K, V> {
     public boolean containsValue(Object value) {
         if (value != null) {
             if (size > 0) {
-                for (Node<K, V> bucket : buckets) {
-                    if (bucket.getValue().equals(value)) {
-                        return true;
+                for (int i = 0; i < buckets.length; i++) {
+                    Node<K, V> current = buckets[i];
+                    while (current != null) {
+                        if (current.getValue().equals(value)) {
+                            return true;
+                        }
+                        current = current.getNext();
                     }
                 }
             } else {
@@ -57,10 +81,13 @@ public class GenericMap<K, V> implements Map<K, V> {
 
     @Override
     public V get(Object key) {
-        for (Node<K, V> bucket : buckets) {
+        int index = getIndex(key);
+        Node<K, V> bucket = buckets[index];
+        while (bucket != null) {
             if (bucket.getKey().equals(key)) {
                 return bucket.getValue();
             }
+            bucket = bucket.getNext();
         }
         return null;
     }
@@ -68,11 +95,21 @@ public class GenericMap<K, V> implements Map<K, V> {
     @Override
     public V put(K key, V value) {
         int index = getIndex(key);
-        if (index > buckets.length - 1) {
-            extend();
-        }
+        Node<K, V> current = buckets[index];
+        if (current != null) {
+            if (current.getKey().equals(key)) {
+                current.setValue(value);
+                return current.getValue();
+            }
+            Node<K, V> next = current.getNext();
+            next = current;
 
-        return null;
+        }
+        Node<K, V> newNode = new Node<>(key, value, current);
+        buckets[index] = newNode;
+        size++;
+        extend();
+        return value;
     }
 
     @Override
@@ -87,12 +124,25 @@ public class GenericMap<K, V> implements Map<K, V> {
 
     @Override
     public void clear() {
-
+        for (Node<K, V> bucket : buckets) {
+            while (bucket != null){
+                bucket.setValue(null);
+                bucket.setElement(null);
+                bucket.setKey(null);
+            }
+            bucket=null;
+        }
+        buckets=null;
+        size = 0;
     }
 
     @Override
     public Set<K> keySet() {
-        return null;
+        Set<K> keySet = new HashSet<>();
+//        for (Node<K, V> bucket : buckets) {
+//            bucket.getNext().
+//        }
+        return keySet;
     }
 
     @Override
@@ -110,11 +160,11 @@ public class GenericMap<K, V> implements Map<K, V> {
         return index % buckets.length;
     }
 
-    private void checkIndex(int index) {
-        if (index < 0 || index > buckets.length - 1) {
-            throw new IndexOutOfBoundsException("Wrong index");
-        }
-    }
+//    private void checkIndex(int index) {
+//        if (index < 0 || index > buckets.length - 1) {
+//            throw new IndexOutOfBoundsException("Wrong index");
+//        }
+//    }
 
     private void extend() {
         if ((double) (size / buckets.length) >= LOAD_FACTOR) {
@@ -130,6 +180,16 @@ public class GenericMap<K, V> implements Map<K, V> {
                 }
             }
             buckets = newMap;
+        }
+    }
+
+    public void print() {
+        for (Node<K, V> bucket : buckets) {
+            while (bucket != null) {
+                System.out.print("For " + bucket.getKey() + " key value is " + bucket.getValue());
+                System.out.print("\n");
+                bucket = bucket.getNext();
+            }
         }
     }
 

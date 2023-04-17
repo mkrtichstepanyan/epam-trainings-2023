@@ -1,9 +1,8 @@
 package homework_18.anna_manukyan;
 
-import java.util.Iterator;
 import java.util.Map;
 
-public class Node<K,V> {
+public class Node<K, V> implements Map.Entry<K, V> {
     private K key;
     private V value;
     private Node<K, V> next;
@@ -15,10 +14,10 @@ public class Node<K,V> {
     }
 
 
-
     public void setKey(K key) {
         this.key = key;
     }
+
     public Node<K, V> getNext() {
         return next;
     }
@@ -35,8 +34,10 @@ public class Node<K,V> {
         return value;
     }
 
-    public void setValue(V value) {
+    @Override
+    public V setValue(V value) {
         this.value = value;
+        return value;
     }
 
 
