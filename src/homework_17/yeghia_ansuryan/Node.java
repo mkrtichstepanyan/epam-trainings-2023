@@ -12,4 +12,10 @@ public class Node<T> {
         this.nextNode = nextNode;
     }
 
+    @Override
+    public String toString() {
+        return "Node{" + "previous element" + previousNode.element +
+                ", element=" + element + "next element" + nextNode.element+
+                '}';
+    }
 }

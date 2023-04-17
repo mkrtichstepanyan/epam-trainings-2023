@@ -1,18 +1,17 @@
 package homework_17.yeghia_ansuryan;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
-public class GenericLinkedList<T> implements Comparable<T>, Cloneable {
+public class GenericLinkedList<T> {
 
     private int size = 0;
     private int location = 0;
-    private int tailLocation;
     private Node<T> head;
     private Node<T> tail;
-    private Node<T> localTail;
-    private Node<T> localHead;
     private Node<T> currentNode;
+    private boolean elementFound;
     ArrayList<T> listToIterate;
 
 
@@ -28,48 +27,66 @@ public class GenericLinkedList<T> implements Comparable<T>, Cloneable {
     }
 
     public boolean add(T inputValue) {
+        notNull(inputValue);
         if (head == null) {
             currentNode = new Node<>(null, inputValue, null);
             head = tail = currentNode;
             size++;
             return true;
         }
-        currentNode = new Node<>(null, inputValue, head);
-        head = currentNode;
-        updateTail();
+        head = new Node<>(null, inputValue, head);
+        head.nextNode.previousNode = head;
         size++;
         return true;
     }
 
     public void add(int index, T element) {
         checkIndex(index);
+        notNull(element);
         Node<T> nodeOnTheIndex = getNode(index);
-        Node<T> nodeNeedAdd = new Node<>(nodeOnTheIndex.previousNode, element, nodeOnTheIndex);
+        Node<T> nodeToAdd;
+        if (index == 0) {
+            nodeToAdd = new Node<>(null, element, head);
+            head = nodeToAdd;
+            size++;
+        } else {
+            nodeToAdd = new Node<>(nodeOnTheIndex.previousNode, element, nodeOnTheIndex);
+            nodeOnTheIndex.previousNode.nextNode = nodeToAdd;
+            nodeOnTheIndex.previousNode = nodeToAdd;
+            size++;
+        }
     }
 
     public boolean addAll(T[] elements) {
-        for (T value : elements) {
-            add(value);
-            return true;
+        if(elements.length == 0){
+            return false;
         }
-        return false;
+        for (T element : elements) {
+            notNull(element);
+            add(element);
+        }
+        return true;
     }
 
     public boolean addAll(int index, T[] elements) {
-        Node<T> nodeOnTheIndex = getNode(index);
-        makingLinkedList(elements);
-        localTail.nextNode = nodeOnTheIndex;
-        localHead.previousNode = nodeOnTheIndex.previousNode;
-        return false;
+        checkIndex(index);
+        if(elements.length== 0){
+            return false;
+        }
+        for (T element : elements) {
+            notNull(element);
+            add(index, element);
+        }
+        return true;
     }
 
     public ArrayList<T> iterator() {
         listToIterate = new ArrayList<>();
-        T nextElement;
-        listToIterate.add(currentNode.element);
-        if (hasNext()) {
-            nextElement = currentNode.nextNode.element;
-            listToIterate.add(nextElement);
+        Node<T> nodeToIterate = head;
+        listToIterate.add(nodeToIterate.element);
+        while (hasNext(nodeToIterate)) {
+            nodeToIterate = nodeToIterate.nextNode;
+            listToIterate.add(nodeToIterate.element);
         }
         return listToIterate;
     }
@@ -77,11 +94,21 @@ public class GenericLinkedList<T> implements Comparable<T>, Cloneable {
     public boolean contains(T element) {
         listToIterate = iterator();
         for (int i = 0; i < size; i++) {
-            if (findMachiningValue(element, listToIterate, i) >= 0) {
+            findMachiningValue(element, listToIterate, i);
+            if (elementFound) {
                 return true;
             }
         }
         return false;
+    }
+
+    public boolean containsAll(T[] elements) {
+        for (T element : elements) {
+            if (!contains(element)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public Object[] toArray() {
@@ -98,29 +125,13 @@ public class GenericLinkedList<T> implements Comparable<T>, Cloneable {
             listToIterate = iterator();
             for (int i = 0; i < size; i++) {
                 location = findMachiningValue(removeElement, listToIterate, i);
+                if (elementFound) {
+                    remove(location);
+                    return true;
+                }
             }
-            remove(location);
-            return true;
         }
         return false;
-    }
-
-//    @Override
-//    public void clear() {
-//
-//    }
-
-    public T get(int index) {
-        checkIndex(index);
-        return getNode(index).element;
-    }
-
-    public T set(int index, T newElement) {
-        checkIndex(index);
-        T oldElement;
-        oldElement = get(index);
-        getNode(index).element = newElement;
-        return oldElement;
     }
 
     public T remove(int index) {
@@ -143,20 +154,60 @@ public class GenericLinkedList<T> implements Comparable<T>, Cloneable {
         return removedElement;
     }
 
+    public boolean removeAll(T[] elements) {
+        if (containsAll(elements)) {
+            for (T element : elements) {
+                location = indexOf(element);
+                remove(location);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public void clear() {
+        size = size - 1;
+        do {
+            getNode(size).previousNode = null;
+            getNode(size).nextNode = null;
+            size--;
+        } while (size > 0);
+    }
+
+    public T get(int index) {
+        checkIndex(index);
+        return getNode(index).element;
+    }
+
+    public T set(int index, T newElement) {
+        checkIndex(index);
+        T oldElement;
+        oldElement = get(index);
+        getNode(index).element = newElement;
+        return oldElement;
+    }
+
+
     public int indexOf(T element) {
         listToIterate = iterator();
         for (int i = 0; i < size; i++) {
             location = findMachiningValue(element, listToIterate, i);
+            if (elementFound) {
+                return location;
+            }
         }
-        return location;
+        return -1;
     }
 
     public int lastIndexOf(T element) {
         listToIterate = iterator();
-        for (int i = size; i > 0; i--) {
+        for (int i = size-1; i > 0; i--) {
             location = findMachiningValue(element, listToIterate, i);
+            if (elementFound) {
+                return location;
+            }
         }
-        return location;
+        return -1;
     }
 
     public List subList(int fromIndex, int toIndex) {
@@ -168,24 +219,6 @@ public class GenericLinkedList<T> implements Comparable<T>, Cloneable {
             subList.add(listToIterate.get(i));
         }
         return subList;
-    }
-
-//    public boolean removeAll(Collection c) {
-//        return false;
-//    }
-
-    public boolean containsAll(T[] elements) {
-        for (T element : elements) {
-            if (contains(element)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        return 0;
     }
 
     @Override
@@ -200,29 +233,32 @@ public class GenericLinkedList<T> implements Comparable<T>, Cloneable {
         return String.valueOf(stringBuilder);
     }
 
-    private void updateTail() {
-        Node<T> tailNode = getNode(size);
-        if (tailNode.nextNode == null) {
-            tail = tailNode;
+    private void notNull(T element) {
+        if (element == null) {
+            throw new NullPointerException("The input value must not be null");
         }
     }
 
-    private boolean hasNext() {
-        return currentNode.nextNode != null;
+    private boolean hasNext(Node<T> nodeToIterate) {
+        return nodeToIterate.nextNode != null;
     }
 
-    private int findMachiningValue(T value, ArrayList<T> iterator, int i) {
-        if (value instanceof Number) {
-            if (iterator.get(i) == value) {
+    private int findMachiningValue(T element, ArrayList<T> iterator, int i) {
+        elementFound = false;
+        if (element instanceof Number) {
+            if (iterator.get(i) == element) {
+                elementFound = true;
                 return i;
             }
-        } else if (value instanceof String) {
-            if (iterator.get(i).equals(value)) {
+        } else if (element instanceof String) {
+            if (iterator.get(i).equals(element)) {
+                elementFound = true;
                 return i;
             }
-        } else if (value instanceof Comparable<?> && iterator.get(i) instanceof Comparable<?>) {
+        } else if (element instanceof Comparable<?> && iterator.get(i) instanceof Comparable<?>) {
             Comparable<T> comparable1 = (Comparable<T>) iterator.get(i);
-            if ((comparable1.compareTo(value)) == 0) {
+            if ((comparable1.compareTo(element)) == 0) {
+                elementFound = true;
                 return i;
             }
         }
@@ -246,32 +282,9 @@ public class GenericLinkedList<T> implements Comparable<T>, Cloneable {
         return nodeToIterate;
     }
 
-    private T getElement(int index) {
-        checkIndex(index);
-        return getNode(index).element;
-    }
-
     private void checkIndex(int index) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Wrong index");
         }
-    }
-
-    private void makingLinkedList(T[] elements) {
-        Node<T> newNode;
-        int i = 0;
-        do {
-            if (i == 0) {
-                newNode = new Node<>(null, elements[i], null);
-                localHead = newNode;
-            } else {
-                newNode = new Node<>(null, elements[i], localHead);
-                if (localHead.nextNode == null) {
-                    localTail = localHead;
-                }
-                localHead = newNode;
-            }
-            i++;
-        } while (i < elements.length);
     }
 }
