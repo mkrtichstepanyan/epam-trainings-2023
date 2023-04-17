@@ -138,14 +138,14 @@ public class GenericLinkedList<T> implements Cloneable {
     }
 
     public T get(int index) {
-        if (index < 0 && index > size) {
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
         return (T) node(index).item;
     }
 
     public T set(int index, T element) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException();
         }
         T oldValue = null;
