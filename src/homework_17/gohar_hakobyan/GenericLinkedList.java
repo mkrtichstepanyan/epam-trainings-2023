@@ -1,13 +1,10 @@
 package homework_17.gohar_hakobyan;
 
-import java.util.Collection;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 
 public class GenericLinkedList<E> implements Cloneable {
 
-    private Node<E> next;
+    private Node<E> tail;
     private Node<E> head;
     private int size;
 
@@ -18,37 +15,34 @@ public class GenericLinkedList<E> implements Cloneable {
     }
 
 
-    public GenericLinkedList(Node next, Node head) {
-        this.next = next;
-        this.head = head;
-    }
-
-
     public int size() {
         return size;
     }
 
 
-    private boolean isEmpty() {
-        return size == 0;
+    public boolean contains(E element) {
+        Node<E> current = head;
+        while (current != null) {
+            if (current.item.equals(element)) {
+                System.out.println("Contains the value " + element);
+                return true;
+            }
+            current = current.next;
+        }
+        System.out.println("The list doesn't contain " + element);
+        return false;
     }
 
 
-    public boolean contains(Object obj) {
-        return indexOf(obj) >= 0;
-    }
 
-
-    public Iterator iterator() {
-        return null;
-    }
-
-
-    public Object[] toArray() {
-        Object[] result = new Object[size];
-        int i = 0;
-        for (Node<E> elem = head; elem != null; elem = elem.next) {
-            result[i++] = elem.item;
+    public E[] toArray() {
+        E[] result = (E[]) new Object[size];
+        int count = 0;
+        for (Node<E> elem = head; elem != null && elem.next != null; elem = elem.next) {
+            result[count++] = elem.item;
+        }
+        for (E val : result) {
+            System.out.println("---> " + val + ", ");
         }
         return result;
     }
@@ -68,28 +62,25 @@ public class GenericLinkedList<E> implements Cloneable {
         size++;
     }
 
-
-    public boolean remove(Object o) {
-        if (head == null) {
-            return false;
+    //add element by index
+    public void add(int index, Object element) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
         }
+        Node<E> node = new Node<>((E) element);
         Node<E> current = head;
-        if (head.item.equals(o)) {
-            head = head.next;
-            size--;
-            return true;
-        }
-        while (current.next != null) {
-            if (current.next.item.equals(o)) {
-                current.next = current.next.next;
-                size--;
-                return true;
+        if (index == 0) {
+            node.next = head;
+            head = node;
+        } else {
+            for (int i = 0; i < index - 1; i++) {
+                current = current.next;
             }
-            current = current.next;
+            node.next = current.next;
+            current.next = node;
         }
-        return false;
+        size++;
     }
-
 
     public E[] addAll(E... items) {
         for (E item : items) {
@@ -99,7 +90,7 @@ public class GenericLinkedList<E> implements Cloneable {
         return items;
     }
 
-
+     //add all method by index
     public boolean addAll(int index, E... items) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
@@ -152,26 +143,6 @@ public class GenericLinkedList<E> implements Cloneable {
         E oldValue = current.item;
         current.item = (E) element;
         return oldValue;
-    }
-
-
-    public void add(int index, Object element) {
-        if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException();
-        }
-        Node<E> node = new Node<>((E) element);
-        Node<E> current = head;
-        if (index == 0) {
-            node.next = head;
-            head = node;
-        } else {
-            for (int i = 0; i < index - 1; i++) {
-                current = current.next;
-            }
-            node.next = current.next;
-            current.next = node;
-        }
-        size++;
     }
 
 
@@ -255,11 +226,33 @@ public class GenericLinkedList<E> implements Cloneable {
         for (int i = 0; i < fromIndex; i++) {
             current = current.next;
         }
-        for (int i = 0; i < toIndex ; i++) {
+        for (int i = 0; i < toIndex; i++) {
             subList.add(current.item);
             current = current.next;
         }
         return subList;
+    }
+
+
+    public boolean remove(Object o) {
+        if (head == null) {
+            return false;
+        }
+        Node<E> current = head;
+        if (head.item.equals(o)) {
+            head = head.next;
+            size--;
+            return true;
+        }
+        while (current.next != null) {
+            if (current.next.item.equals(o)) {
+                current.next = current.next.next;
+                size--;
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
     }
 
 
@@ -294,15 +287,46 @@ public class GenericLinkedList<E> implements Cloneable {
     }
 
 
-    public boolean containsAll(Collection c) {
-        for (Object o : c) {
-            if (!contains(o)) {
+    public Iterator iterator() {
+        Node<E> current = head;
+        return new Iterator<>() {
+            @Override
+            public boolean hasNext() {
+                if (current != null) {
+                    return true;
+                }
+                return false;
+            }
+
+            @Override
+            public Object next() {
+                return null;
+            }
+        };
+    }
+
+
+    public boolean containsAll(E... values) {
+        for (E value : values) {
+            if (!contains(value)) {
                 return false;
             }
         }
         return true;
     }
 
+
+    public Object clone() {
+        GenericLinkedList<E> clone = superClone();
+
+        clone.head = clone.tail = null;
+        clone.size = 0;
+
+        for (Node<E> elem = head; elem != null; elem = elem.next)
+            clone.add(elem.item);
+
+        return clone;
+    }
 
     public void print() {
         Node currentNode = head;
@@ -315,16 +339,8 @@ public class GenericLinkedList<E> implements Cloneable {
         System.out.println();
     }
 
-    public Object clone() {
-        GenericLinkedList<E> clone = superClone();
-
-        clone.head = clone.next = null;
-        clone.size = 0;
-
-        for (Node<E> elem = head; elem != null; elem = elem.next)
-            clone.add(elem.item);
-
-        return clone;
+    private boolean isEmpty() {
+        return size == 0;
     }
 
     private GenericLinkedList<E> superClone() {
