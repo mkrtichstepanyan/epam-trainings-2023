@@ -1,7 +1,5 @@
 package homework_17.anna_manukyan;
 
-import java.util.HashSet;
-
 public class LinkedListDemo {
     public static void main(String[] args) {
         GenericLinkedList<Integer> integers = new GenericLinkedList<>();
@@ -21,7 +19,7 @@ public class LinkedListDemo {
         System.out.println(integers.isEmpty());
 
         //Element containing
-        System.out.println("***Contain element or not? " + 710 + " and " + 50+" ***");
+        System.out.println("***Contain element or not? " + 710 + " and " + 50 + " ***");
         System.out.println(integers.contains(710));
         System.out.println(integers.contains(50));
 
@@ -33,14 +31,12 @@ public class LinkedListDemo {
         System.out.println();
 
         //Removing element
-        System.out.println("***Removing element " + Integer.valueOf(60)+" ***");
+        System.out.println("***Removing element " + Integer.valueOf(60) + " ***");
         System.out.println(integers.remove(Integer.valueOf(60)));
-//        for (Object o : integers.toArray()) {
-//            System.out.print(o+", ");
-//        }
+
 
         //Getting element
-        System.out.println("***Get element by index: " + 1+"***");
+        System.out.println("***Get element by index: " + 1 + "***");
         System.out.println(integers.get(1));
 
         //Set element
@@ -62,6 +58,7 @@ public class LinkedListDemo {
 
         //clear
 //        integers.clear();
+        System.out.println("***Add elements in list***");
         System.out.println(integers.addAll(addingList));
         for (Object o : integers.toArray()) {
             System.out.print(o + ", ");
@@ -69,7 +66,7 @@ public class LinkedListDemo {
         System.out.println();
 
         //Getting element index
-        System.out.println("***Get index by value " + 70+"***");
+        System.out.println("***Get index by value " + 70 + "***");
         System.out.println(integers.indexOf(70));
 
         //Getting last index
@@ -96,6 +93,43 @@ public class LinkedListDemo {
         System.out.println(integers.containsAll(containingList));
 
         System.out.println();
-//        System.out.println(integers.toArray());
+
+        //add element by index
+        System.out.println("***Add element by index***");
+        integers.add(1, Integer.valueOf(368));
+        integers.add(2, Integer.valueOf(-63));
+        for (Object o : integers.toArray()) {
+            System.out.print(o + ", ");
+        }
+        System.out.println();
+
+        //add element list by index
+        System.out.println("***Add elements by index***");
+        GenericLinkedList<Integer> addCollList = new GenericLinkedList<>();
+        addCollList.add(1014);
+        addCollList.add(-355);
+        integers.addAll(0, addCollList);
+        for (Object o : integers.toArray()) {
+            System.out.print(o + ", ");
+        }
+        System.out.println();
+
+        //get sublist from list
+        System.out.println("***Get sublist***");
+        for (Object o : integers.subList(1, 3)) {
+            System.out.print(o.toString() + ", ");
+        }
+        System.out.println();
+
+
+        //remove by index
+        System.out.println("***Remove element by index***");
+        integers.remove(4);
+        for (Object o : integers.toArray()) {
+            System.out.print(o + ", ");
+        }
+        System.out.println();
+
+
     }
 }

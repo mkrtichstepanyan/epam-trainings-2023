@@ -39,7 +39,7 @@ public class Test {
 //        dynArray.replaceAll(55, 33);
 //        System.out.println(dynArray.toString());
 //
-//        System.out.println(dynArray.clone().toString());
+        System.out.println(dynArray.deepClone().toString());
 
 //        dynArray.trimToSize();
 //        System.out.println(dynArray.toString());
