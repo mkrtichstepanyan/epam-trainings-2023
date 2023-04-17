@@ -1,4 +1,4 @@
-package homework_17.yeghia_ansuryan;
+package homework_17.yeghia_ansuryan.linkedList;
 
 public class Test {
     public static void main(String[] args) {

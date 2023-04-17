@@ -1,7 +1,6 @@
-package homework_17.yeghia_ansuryan;
+package homework_17.yeghia_ansuryan.linkedList;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class GenericLinkedList<T> {
