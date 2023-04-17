@@ -1,6 +1,7 @@
 package homework_16.Nona_Asatryan.genericDynamicArray;
 
 
+import java.io.*;
 import java.util.Arrays;
 
 /* Please create methods below
@@ -23,7 +24,7 @@ V   trimToSize() -> trims the capacity of arraylist equal to the size
 V   removeRange() -> removes a portion of the arraylist
 V   replaceAll() -> replace all elements from the arraylist
  */
-public class GenericDynamicArray<T> implements Cloneable {
+public class GenericDynamicArray<T> implements Cloneable, Serializable {
 
     private T[] array;
     private int size;
@@ -95,12 +96,19 @@ public class GenericDynamicArray<T> implements Cloneable {
             array[i] = newArray[i];
         }
     }
-    public GenericDynamicArray<T> clone() {
-        GenericDynamicArray<T> copy = new GenericDynamicArray<T>(array.length);
-        for (T t : array) {
-            copy.add(t);
+    public GenericDynamicArray<T> deepClone() {
+        try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
+             ObjectOutputStream oos = new ObjectOutputStream(bos)) {
+
+            oos.writeObject(this);
+
+            try (ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+                 ObjectInputStream ois = new ObjectInputStream(bis)) {
+                return (GenericDynamicArray<T>) ois.readObject();
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException("Cloning failed.", e);
         }
-        return copy;
     }
 
     public void clear() {
