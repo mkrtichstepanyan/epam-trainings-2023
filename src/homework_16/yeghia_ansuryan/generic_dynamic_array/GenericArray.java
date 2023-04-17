@@ -20,7 +20,7 @@ import java.util.Arrays;
    removeRange() -> removes a portion of the arraylist
    replaceAll() -> replace all elements from the arraylist
  */
-public class GenericArray<T extends Number> {
+public class GenericArray<T> {
     private Object[] array;
     private int size = 0;
     private static final int DEFAULT_CAPACITY = 16;
@@ -49,7 +49,7 @@ public class GenericArray<T extends Number> {
         array[size++] = value;
     }
 
-    public void addByIndex(int index, T value) {
+    public void add(int index, T value) {
         get(index);
         if (size == array.length) {
             extend();
@@ -61,11 +61,11 @@ public class GenericArray<T extends Number> {
         size++;
     }
 
-    public Object get(int index) {
+    public T get(int index) {
         if (index < 0 || index > size - 1) {
             throw new ArrayIndexOutOfBoundsException("Wrong index");
         }
-        return array[index];
+        return (T)array[index];
     }
 
     public void addAll(T[] dell) {
@@ -74,7 +74,7 @@ public class GenericArray<T extends Number> {
         }
     }
 
-    public void addAllByIndex(int index, Object[] values) {
+    public void addAll(int index, T[] values) {
         get(index);
         int newSize = size + values.length;
         if (newSize > array.length) {
@@ -128,7 +128,7 @@ public class GenericArray<T extends Number> {
         return -1;
     }
 
-    public Object remove(int indexOfRemove) {
+    public T remove(int indexOfRemove) {
         if (indexOfRemove < 0 || indexOfRemove >= size) {
             throw new IndexOutOfBoundsException("Index of remove " + indexOfRemove + " is not of bounds!");
         }
@@ -137,7 +137,7 @@ public class GenericArray<T extends Number> {
             array[i] = array[i + 1];
         }
         size--;
-        return oldValue;
+        return (T)oldValue;
     }
 
     public boolean removeAll(T[] removeAllOfValue) {
@@ -154,16 +154,15 @@ public class GenericArray<T extends Number> {
         return size == 0;
     }
 
-    public Object[] subList(int startIndex, int endIndex) {
-        int[] dell;
+    public T[] subList(int startIndex, int endIndex) {
         checkStartAndEndIndexes(startIndex, endIndex);
-        return Arrays.copyOfRange(array, startIndex, endIndex);
+        return (T[])Arrays.copyOfRange(array, startIndex, endIndex);
     }
 
-    public Object set(int index, T element) {
+    public T set(int index, T element) {
         Object oldElement = array[index];
         array[index] = element;
-        return oldElement;
+        return (T)oldElement;
     }
 
     public void sort() {

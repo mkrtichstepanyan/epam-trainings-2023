@@ -15,7 +15,7 @@ public class Test {
         System.out.println("--------------------");
 
         System.out.println();
-        myGenericArray.addByIndex(4, 777);
+        myGenericArray.add(4, 777);
         System.out.println("Printed addByIndex method" + " " + myGenericArray);
         System.out.println("--------------------");
 
@@ -34,7 +34,7 @@ public class Test {
 
         System.out.println();
         Number[] asus = {99, 88, 77, 66};
-        myGenericArray.addAllByIndex(4, asus);
+        myGenericArray.addAll(4, asus);
         System.out.println("Printed addAllByIndex method" + " " + myGenericArray);
         System.out.println("---------------------");
 
