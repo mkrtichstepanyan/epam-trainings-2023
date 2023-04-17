@@ -14,6 +14,12 @@ public class GenericMap<K, V> implements Map<K, V> {
 
     private Node<K, V>[] buckets;
     private int size;
+    private static final double LOAD_FACTOR = 0.75D;
+
+
+    public GenericMap(Node<K, V>[] buckets) {
+        this.buckets = buckets;
+    }
 
     @Override
     public int size() {
@@ -62,7 +68,11 @@ public class GenericMap<K, V> implements Map<K, V> {
     @Override
     public V put(K key, V value) {
         int index = getIndex(key);
-         return null;
+        if (index > buckets.length - 1) {
+            extend();
+        }
+
+        return null;
     }
 
     @Override
@@ -100,9 +110,27 @@ public class GenericMap<K, V> implements Map<K, V> {
         return index % buckets.length;
     }
 
-    private void checkIndex (int index) {
-        if (index<0 || index > buckets.length-1) {
-            throw  new IndexOutOfBoundsException("Wrong index");
+    private void checkIndex(int index) {
+        if (index < 0 || index > buckets.length - 1) {
+            throw new IndexOutOfBoundsException("Wrong index");
         }
     }
+
+    private void extend() {
+        if ((double) (size / buckets.length) >= LOAD_FACTOR) {
+            int newCap = 2 * buckets.length;
+            Node<K, V>[] newMap = new Node[newCap];
+            for (int i = 0; i < buckets.length; i++) {
+                if (buckets[i] != null) {
+                    int newIndex = getIndex(buckets[i]);
+                    Node<K, V> next = buckets[i].getNext();
+                    next = newMap[newIndex];
+                    newMap[newIndex] = buckets[i];
+
+                }
+            }
+            buckets = newMap;
+        }
+    }
+
 }

@@ -19,7 +19,7 @@ public class Node<K,V> {
     public void setKey(K key) {
         this.key = key;
     }
-    public Node<K, V> getElement() {
+    public Node<K, V> getNext() {
         return next;
     }
 
