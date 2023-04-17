@@ -58,8 +58,8 @@ public class DynamicArray {
     }
 
     public void addAll(int[] arrayList) {
-        for (int i = 0; i < arrayList.length; i++) {
-            add(arrayList[i]);
+        for (int j : arrayList) {
+            add(j);
         }
     }
 
@@ -72,9 +72,7 @@ public class DynamicArray {
 
     private void extend() {
         int[] newArray = new int[array.length * 2];
-        for (int i = 0; i < array.length; i++) {
-            newArray[i] = array[i];
-        }
+        System.arraycopy(array, 0, newArray, 0, array.length);
         array = newArray;
     }
 
@@ -94,8 +92,8 @@ public class DynamicArray {
 
 
     public boolean contains(int value) {
-        for (int item : array) {
-            if (item == value) {
+        for (int i = 0; i < size + 1; i++) {
+            if (array[i] == value) {
                 return true;
             }
         }
@@ -103,8 +101,8 @@ public class DynamicArray {
     }
 
     public boolean containsAll(int[] arrayList) {
-        for (int i = 0; i < arrayList.length; i++) {
-            if (!contains(arrayList[i])) {
+        for (int j : arrayList) {
+            if (!contains(j)) {
                 return false;
             }
         }
@@ -128,6 +126,7 @@ public class DynamicArray {
                     array[i] = array[i + 1];
                     i++;
                 }
+                size--;
                 return true;
             }
         }
@@ -136,8 +135,8 @@ public class DynamicArray {
 
     public void removeAll(int[] arrayList) {
         for (int i = 0; i < size; i++) {
-            for (int j = 0; j < arrayList.length; j++) {
-                if (arrayList[j] == array[i]) {
+            for (int k : arrayList) {
+                if (k == array[i]) {
                     remove(array[i]);
                 }
             }
@@ -150,19 +149,18 @@ public class DynamicArray {
     }
 
     public int[] subList(int fromIndex, int toIndex) {
-        if (fromIndex < 0 || fromIndex > size || toIndex < 0 || toIndex > size) {
+        if (fromIndex < 0 || fromIndex >= size || toIndex < 0 || toIndex >= size) {
             throw new ArrayIndexOutOfBoundsException();
         }
         if (fromIndex > toIndex) {
             throw new NegativeArraySizeException();
         }
 
-        int[] subArray = Arrays.copyOfRange(array, fromIndex, toIndex + 1);
-        return subArray;
+        return Arrays.copyOfRange(array, fromIndex, toIndex + 1);
     }
 
     public void set(int index, int value) {
-        if (index < 0 || index > array.length) {
+        if (index < 0 || index > size) {
             throw new ArrayIndexOutOfBoundsException();
         }
         array[index] = value;
@@ -186,7 +184,7 @@ public class DynamicArray {
     }
 
     public void trimToSize() {
-        int[] trimedArray = new int[size - 1];
+        int[] trimedArray = new int[size];
         for (int i = 0; i < trimedArray.length; i++) {
             trimedArray[i] = array[i];
         }
@@ -194,7 +192,7 @@ public class DynamicArray {
     }
 
     public void removeRange(int fromIndex, int toIndex) {
-        int newArrayLength = size - (toIndex - fromIndex) + 1;
+        int newArrayLength = size - ((toIndex - fromIndex) + 1);
         int[] newArray = new int[newArrayLength];
 
         if (fromIndex < 0 || fromIndex > size || toIndex < 0 || toIndex > size) {
@@ -204,13 +202,14 @@ public class DynamicArray {
             throw new NegativeArraySizeException();
         }
         int k = 0;
-        for (int i = 0; i <= newArrayLength - 1; i++) {
+        for (int i = 0; i < size; i++) {
             if (i < fromIndex || i > toIndex) {
                 newArray[k] = array[i];
                 k++;
             }
         }
         array = newArray;
+        size = newArrayLength;
     }
 
     /**
@@ -224,18 +223,15 @@ public class DynamicArray {
     }
 
     public boolean addByIndex(int index, int value) {
-        if (index < 0 || index > array.length) {
+        if (index < 0 || index >= size) {
             return false;
         } else {
-            int[] newArray = new int[array.length + 1];
+            int[] newArray = new int[size + 1];
 
-            for (int i = 0; i < index; i++) {
-                newArray[i] = array[i];
-            }
+            System.arraycopy(array, 0, newArray, 0, index);
             newArray[index] = value;
-            for (int i = index; i < array.length; i++) {
-                newArray[i + 1] = array[i];
-            }
+            System.arraycopy(array, index, newArray, index + 1, size - index);
+            size++;
             array = newArray;
             return true;
         }
@@ -243,32 +239,23 @@ public class DynamicArray {
 
     public boolean addAllByIndex(int index, int[] arrayList) {
 
-        int[] newArray = new int[array.length + arrayList.length];
-        if (index < 0 || index > array.length) {
+        int[] newArray = new int[size + arrayList.length];
+        if (index < 0 || index >= size) {
             return false;
         } else {
-            for (int i = 0; i < index; i++) {
-                newArray[i] = array[i];
-            }
+            System.arraycopy(array, 0, newArray, 0, index);
             int k = 0;
             for (int i = index; i < index + arrayList.length; i++) {
                 newArray[i] = arrayList[k];
                 k++;
             }
-            for (int i = index + arrayList.length; i < array.length + arrayList.length - 1; i++) {
+            for (int i = index + arrayList.length; i < size + arrayList.length; i++) {
                 newArray[i] = array[index];
                 index++;
             }
         }
         array = newArray;
+        size += arrayList.length;
         return true;
     }
-
-    public void printArray() {
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
-        }
-        System.out.println();
-    }
-
 }

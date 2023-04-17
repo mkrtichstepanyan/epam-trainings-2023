@@ -18,12 +18,13 @@ public class Test {
         // myDynamicArray.clear();
 
         System.out.print("Initial dynamic array:  ");
-        myDynamicArray.printArray();
+        System.out.println(myDynamicArray.toString());
         System.out.println();
 
         System.out.print("The dynamic array after adding the arrayList:  ");
         myDynamicArray.addAll(arrayList);
-        myDynamicArray.printArray();
+        System.out.println(myDynamicArray.toString());
+        System.out.println(myDynamicArray.getSize());
         System.out.println();
 
         System.out.print("the dynamic array contains 55- ");
@@ -45,18 +46,20 @@ public class Test {
 
         System.out.print("the 9 has removed: ");
         System.out.println(myDynamicArray.remove(9));
+        System.out.println(myDynamicArray.getSize());
         System.out.print("the 600 has removed: ");
         System.out.println(myDynamicArray.remove(600));
-        myDynamicArray.printArray();
+        System.out.println(myDynamicArray.toString());
         System.out.println();
 
 
 //        myDynamicArray.removeAll(arrayList);
+//        System.out.println(myDynamicArray.getSize());
 //        myDynamicArray.printArray();
 
         System.out.println("The dynamic Array after using trimToSize() method ");
         myDynamicArray.trimToSize();
-        myDynamicArray.printArray();
+        System.out.println(myDynamicArray.toString());
         System.out.println();
 
         int[] subArray = myDynamicArray.subList(2, 4);
@@ -71,12 +74,12 @@ public class Test {
         myDynamicArray.set(1, 1000);
         myDynamicArray.set(5, -3);
         myDynamicArray.set(9, 19);
-        myDynamicArray.printArray();
+        System.out.println(myDynamicArray.toString());
         System.out.println();
 
         System.out.print("the sorted array: ");
         myDynamicArray.sort();
-        myDynamicArray.printArray();
+        System.out.println(myDynamicArray.toString());
         System.out.println();
 
         System.out.print("converted arraylist to string: ");
@@ -85,22 +88,24 @@ public class Test {
 
         System.out.println("The dynamic Array after removing given range: ");
         myDynamicArray.removeRange(3, 6);
-        myDynamicArray.printArray();
+        System.out.println(myDynamicArray.toString());
+        System.out.println(myDynamicArray.getSize());
         System.out.println();
 
         System.out.println("The dynamic Array after replacing: ");
         myDynamicArray.replaceAll();
-        myDynamicArray.printArray();
+        System.out.println(myDynamicArray.toString());
         System.out.println();
 
         System.out.print("The given element has added by index: ");
         System.out.println(myDynamicArray.addByIndex(4, 99));
-        myDynamicArray.printArray();
+        System.out.println(myDynamicArray.toString());
+        System.out.println(myDynamicArray.getSize());
         System.out.println();
 
         System.out.print("The given arrayList has added by index: ");
         System.out.println(myDynamicArray.addAllByIndex(4, arrayList2));
-        myDynamicArray.printArray();
-
+        System.out.println(myDynamicArray.getSize());
+        System.out.println(myDynamicArray.toString());
     }
 }
