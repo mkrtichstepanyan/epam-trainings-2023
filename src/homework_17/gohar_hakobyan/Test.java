@@ -3,14 +3,12 @@ package homework_17.gohar_hakobyan;
 import homework_17.gohar_hakobyan.model.Address;
 import homework_17.gohar_hakobyan.model.User;
 
-import java.util.Collections;
-
 public class Test {
     public static void main(String[] args) {
         //Create GenericLinked list for integers
         GenericLinkedList<Integer> integersList = new GenericLinkedList<>();
 
-        //Create GenericLinked list User objects
+        //Create Generic LinkedList User objects
         GenericLinkedList<User> usersList = new GenericLinkedList<>();
 
 
@@ -26,11 +24,21 @@ public class Test {
 //        integersList.add(2, 802);
         integersList.print();
 
-//        integersList.toArray();
+        integersList.toArray();
 
         integersList.subList(1,2).print();
 
+        //check contains, contains all
+        System.out.println(integersList.contains(15));
+        System.out.println(integersList.contains(1115));
+        System.out.println(integersList.containsAll(55, 155, 15, 415));
+
+
+//        integersList.removeAll(5,155,15,415);
+
         System.out.println(integersList.size());
+
+        integersList.clone();
 
         //Create user objects for LikedList testing
         Address address1 = new Address("P.Sevak", 7);
@@ -43,21 +51,20 @@ public class Test {
         for (User user : users) {
             System.out.println(user.getName());
         }
-//        usersList.remove(users);
-//        for (User user : users) {
-//            System.out.println(user.getName());
-//        }
-//        usersList.clear();
+        usersList.remove(users);
+        for (User user : users) {
+            System.out.println(user.getName());
+        }
 
-//        System.out.println(usersList.contains(user1));
+        System.out.println(usersList.contains(user1));
         System.out.println(usersList.indexOf(user2));
         System.out.println(usersList.lastIndexOf(1));
 
+
         System.out.println(usersList.size());
         usersList.add(1, new User("G", "Hyan", 28, address1));
-        usersList.print();
 
-
+        usersList.clear();
 
 
     }
