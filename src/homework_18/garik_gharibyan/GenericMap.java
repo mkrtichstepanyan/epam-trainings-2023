@@ -9,6 +9,8 @@ public class GenericMap<K, V> {
     private static final int DEFAULT_CAPACITY = 16;
     private Object[] array;
 
+    private int length;
+
     private int size = 0;
 
     GenericMap() {
@@ -27,7 +29,14 @@ public class GenericMap<K, V> {
         return size;
     }
 
+    public int getLength() {
+        return array.length;
+    }
+
     public void put(K kay, V value) {
+        if (size == array.length){
+            extend();
+        }
         Pair<K, V> pair = new Pair<>(kay, value);
         int index = getIndex(kay);
         Pair<K, V> currentPair = (Pair<K, V>) array[index];
@@ -66,13 +75,13 @@ public class GenericMap<K, V> {
 
         Pair<K, V> pair = (Pair<K, V>) array[index];
 
-        if (pair != null){
+        if (pair != null) {
 
-            if (pair.getKay().equals(kay)){
+            if (pair.getKay().equals(kay)) {
                 return pair.getValue();
-            }else {
-                while (pair.hasNext()){
-                    if (pair.next().getKay().equals(kay)){
+            } else {
+                while (pair.hasNext()) {
+                    if (pair.next().getKay().equals(kay)) {
                         return pair.next().getValue();
                     }
                     pair = pair.next();
@@ -80,7 +89,21 @@ public class GenericMap<K, V> {
             }
 
         }
-            return null;
+        return null;
+    }
+
+    public void extend() {
+        GenericMap<K, V> newGenericMap = new GenericMap<>(array.length * 2);
+        Pair<K, V> tempPair;
+        for (int i = 0; i < array.length; i++) {
+            tempPair = (Pair<K, V>) array[i];
+            newGenericMap.put(tempPair.getKay(), tempPair.getValue());
+            while (tempPair.hasNext()) {
+                newGenericMap.put(tempPair.next().getKay(),tempPair.next().getValue());
+                tempPair = tempPair.next();
+            }
+        }
+        this.array = newGenericMap.array;
     }
 
     @Override
@@ -103,7 +126,7 @@ public class GenericMap<K, V> {
         return stringBuilder.toString();
     }
 
-    private int getIndex(K kay){
+    private int getIndex(K kay) {
         int hash = kay.hashCode();
         return hash % array.length;
 

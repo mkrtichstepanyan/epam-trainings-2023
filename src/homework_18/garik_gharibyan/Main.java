@@ -13,17 +13,19 @@ public class Main {
         map.put(20,"2020");
         map.put(84,"8484");
         System.out.println(map + " Size: " + map.getSize());
-
         System.out.println(map.get(84));
 
-        GenericMap<String,String> mapStr = new GenericMap<>();
-        mapStr.put("hello","barev");
-        mapStr.put("yes","ayo");
-        mapStr.put("no","voch");
-        mapStr.put("get","vercnel");
-        System.out.println(mapStr);
-        System.out.println(mapStr.get("get"));
-
+        GenericMap<Object,String> mapObject = new GenericMap<>();
+        mapObject.put(Boolean.TRUE,"a");
+        mapObject.put(Boolean.FALSE,"b");
+        mapObject.put(Boolean.TRUE,"c");
+        mapObject.put(Boolean.FALSE,"d");
+        mapObject.put(1231,"e");
+        mapObject.put(1237,"f");
+        System.out.println(mapObject.get(Boolean.TRUE));
+        System.out.println(mapObject.get(Boolean.FALSE));
+        System.out.println(mapObject.get(1231));
+        System.out.println(mapObject.get(1237));
 
     }
 }
