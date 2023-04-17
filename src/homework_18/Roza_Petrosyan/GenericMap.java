@@ -11,7 +11,7 @@ import java.util.LinkedList;
 public class GenericMap<T, E> {
     private final int INITIAL_CAPACITY = 16;
     private int newCapacity = 0;
-    ArrayList<LinkedList<Entity<T, E>>> list = new ArrayList<>(INITIAL_CAPACITY);
+    ArrayList<LinkedList<Entry<T, E>>> list = new ArrayList<>(INITIAL_CAPACITY);
 
     GenericMap() {
         for (int i = 0; i < INITIAL_CAPACITY; i++) {
@@ -37,16 +37,16 @@ public class GenericMap<T, E> {
                 }
             }
             if (i == index) {
-                list.get(i).add(new Entity<>(key, value));
+                list.get(i).add(new Entry<>(key, value));
             }
         }
     }
 
     public E get(T key) {
-        for (LinkedList<Entity<T, E>> entities : list) {
-            for (Entity<T, E> entity : entities) {
-                if (entity.getKey().equals(key)) {
-                    return (E) entity.getValue();
+        for (LinkedList<Entry<T, E>> entries : list) {
+            for (Entry<T, E> entry : entries) {
+                if (entry.getKey().equals(key)) {
+                    return (E) entry.getValue();
                 }
             }
         }
@@ -55,7 +55,7 @@ public class GenericMap<T, E> {
 
     public void extend(int item) {
         newCapacity = INITIAL_CAPACITY * 2;
-        ArrayList<LinkedList<Entity<T, E>>> newlist = new ArrayList<>(newCapacity);
+        ArrayList<LinkedList<Entry<T, E>>> newlist = new ArrayList<>(newCapacity);
         newlist.addAll(list);
         for (int i = INITIAL_CAPACITY + 1; i <= newCapacity; i++) {
             newlist.add(new LinkedList<>());
@@ -70,9 +70,9 @@ public class GenericMap<T, E> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (LinkedList<Entity<T, E>> linkedList : list) {
-            for (Entity<T, E> teEntity : linkedList) {
-                sb.append(teEntity).append(", ");
+        for (LinkedList<Entry<T, E>> linkedList : list) {
+            for (Entry<T, E> entry : linkedList) {
+                sb.append(entry).append(", ");
             }
         }
         return sb.toString();

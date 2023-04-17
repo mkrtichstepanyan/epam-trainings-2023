@@ -2,11 +2,11 @@ package homework_18.Roza_Petrosyan;
 
 import java.util.Objects;
 
-public class Entity<T, E> {
+public class Entry<T, E> {
     private T key;
     private E value;
 
-    public Entity(T key, E value) {
+    public Entry(T key, E value) {
         this.key = key;
         this.value = value;
     }
@@ -23,8 +23,8 @@ public class Entity<T, E> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Entity<?, ?> entity = (Entity<?, ?>) o;
-        return Objects.equals(key, entity.key) && Objects.equals(value, entity.value);
+        Entry<?, ?> entry = (Entry<?, ?>) o;
+        return Objects.equals(key, entry.key) && Objects.equals(value, entry.value);
     }
 
     @Override
