@@ -9,8 +9,6 @@ public class GenericMap<K, V> {
     private static final int DEFAULT_CAPACITY = 16;
     private Object[] array;
 
-    private int length;
-
     private int size = 0;
 
     GenericMap() {
@@ -131,7 +129,7 @@ public class GenericMap<K, V> {
             return 0;
         }
         int hash = kay.hashCode();
-        return hash % array.length;
+        return Math.abs(hash % array.length);
     }
 
 }
