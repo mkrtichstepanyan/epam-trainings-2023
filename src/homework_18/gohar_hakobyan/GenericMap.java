@@ -1,7 +1,5 @@
 package homework_18.gohar_hakobyan;
 
-import java.util.Objects;
-
 /* Please create methods below
    put -> add element to MAP
    get -> get element from MAP by key
@@ -25,7 +23,7 @@ public class GenericMap<K, V> {
         this.buckets = new Node[capacity];
     }
 
-    private static int getsize() {
+    private static int getSize() {
         return buckets.length;
     }
 
@@ -66,7 +64,7 @@ public class GenericMap<K, V> {
             if (key == null) {
                 return null;
             }
-            int bucket = getHASH(key) % getsize();
+            int bucket = getHASH(key) % getSize();
             if (bucket >= 0 && bucket < buckets.length) {
                 Node existingNode = buckets[bucket];
                 while (existingNode != null) {
@@ -84,7 +82,7 @@ public class GenericMap<K, V> {
         public void put(K key, V value) {
             Entry<K, V> entry = new Node<>(key, value);
 
-            int bucket = getHASH(key) % getsize();
+            int bucket = getHASH(key) % getSize();
             if (bucket >= 0 && bucket < buckets.length) {
                 Node<K, V> existing = buckets[bucket];
                 if (existing == null) {
@@ -108,6 +106,7 @@ public class GenericMap<K, V> {
                 if (size >= buckets.length) {
                     extendCapacity();
                 }
+
             }
         }
 
@@ -128,18 +127,6 @@ public class GenericMap<K, V> {
             this.next = next;
         }
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Node<?, ?> node = (Node<?, ?>) o;
-            return HASH == node.HASH && KEY.equals(node.KEY) && Objects.equals(value, node.value) && Objects.equals(next, node.next);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(HASH, KEY);
-        }
 
         private int getHASH(K key) {
             if (key == null) {
