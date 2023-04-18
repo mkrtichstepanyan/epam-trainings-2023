@@ -1,4 +1,8 @@
 package homework_18.Roza_Petrosyan;
+
+import homework_18.Roza_Petrosyan.entity.Address;
+import homework_18.Roza_Petrosyan.entity.User;
+
 public class TestMap {
     public static void main(String[] args) {
         GenericMap<String, Integer> map = new GenericMap<>();
@@ -85,7 +89,12 @@ public class TestMap {
         System.out.println(map.get("X"));
         System.out.println(map.get("one"));
 
-
-
+        GenericMap<User, Integer> userMap = new GenericMap<>();
+        User user1 = new User("Tom","Smith", 30, new Address("France","Paris", "2nd",15));
+        User user2 = new User("John","Hoking", 27, new Address("UK","London", "1th",4));
+        userMap.put(user1,1000);
+        userMap.put(user2,2000);
+        System.out.println(userMap);
+        System.out.println(userMap.get(user1));
     }
 }
