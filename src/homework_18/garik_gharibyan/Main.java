@@ -14,6 +14,8 @@ public class Main {
         map.put(84,"8484");
         System.out.println(map + " Size: " + map.getSize());
         System.out.println(map.get(84));
+        map.put(null,"abcd");
+        System.out.println(map);
 
         GenericMap<Object,String> mapObject = new GenericMap<>();
         mapObject.put(Boolean.TRUE,"a");

@@ -127,9 +127,11 @@ public class GenericMap<K, V> {
     }
 
     private int getIndex(K kay) {
+        if (kay == null){
+            return 0;
+        }
         int hash = kay.hashCode();
         return hash % array.length;
-
     }
 
 }
