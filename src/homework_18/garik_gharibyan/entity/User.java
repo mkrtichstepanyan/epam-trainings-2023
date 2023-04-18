@@ -1,12 +1,11 @@
 package homework_18.garik_gharibyan.entity;
 
-public class User {
+public final class User {
 
     private final String name;
     private final String surname;
     private final String email;
     private final String password;
-
     private final Address address;
     private final int age;
 
@@ -30,7 +29,9 @@ public class User {
         return address;
     }
 
-    public User(String name, String surname, String email, String password, int age, Address address) {
+    public User(final String name,final String surname,
+                final String email,final String password,
+                final int age,final Address address) {
         this.name = name;
         this.surname = surname;
         this.email = email;

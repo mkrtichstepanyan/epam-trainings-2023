@@ -39,7 +39,6 @@ public class Main {
 
 
         GenericMap<User,String> users = new GenericMap<>();
-
         users.put(user1,"Garik");
         users.put(user2,"Poxos");
 

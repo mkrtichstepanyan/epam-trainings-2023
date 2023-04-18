@@ -1,12 +1,12 @@
 package homework_18.garik_gharibyan.entity;
 
-public class Address {
+public final class Address {
     private final String city;
     private final String street;
 
     private final int homeCount;
 
-    public Address(String city, String street, int homeCount) {
+    public Address(final String city, final String street, final int homeCount) {
         this.city = city;
         this.street = street;
         this.homeCount = homeCount;
