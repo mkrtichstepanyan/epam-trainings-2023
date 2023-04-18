@@ -3,18 +3,38 @@ package homework_18.Nona_Asatryan.entity;
 import java.util.Objects;
 
 public class Address {
-    private String address;
+    private String country;
+    private String city;
+    private String street;
 
-    public Address(String address) {
-        this.address = address;
+    public Address(String country, String city, String street) {
+        this.country = country;
+        this.city = city;
+        this.street = street;
     }
 
-    public String getAddress() {
-        return address;
+    public String getCountry() {
+        return country;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     @Override
@@ -22,20 +42,27 @@ public class Address {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Address address1 = (Address) o;
+        Address address = (Address) o;
 
-        return Objects.equals(address, address1.address);
+        if (!Objects.equals(country, address.country)) return false;
+        if (!Objects.equals(city, address.city)) return false;
+        return Objects.equals(street, address.street);
     }
 
     @Override
     public int hashCode() {
-        return address != null ? address.hashCode() : 0;
+        int result = country != null ? country.hashCode() : 0;
+        result = 31 * result + (city != null ? city.hashCode() : 0);
+        result = 31 * result + (street != null ? street.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "Address{" +
-                "address='" + address + '\'' +
+                "country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
                 '}';
     }
 }
