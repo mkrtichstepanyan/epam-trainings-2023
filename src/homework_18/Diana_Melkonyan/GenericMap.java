@@ -24,16 +24,13 @@ public class GenericMap<K, V> {
     }
 
     public V put(K key, V value) {
-        if (key == null || value == null) {
-            throw new IllegalArgumentException();
-        }
         int index = key.hashCode() % capacity;
         Entry<K, V> head = table[index];
         if (head != null) {
             for (Entry<K, V> entry = head; entry != null; entry = entry.next) {
                 if (head.key.equals(key)) {
                     V value1 = head.value;
-                    head.value = value1;
+                    head.value = value;
                     return value1;
                 }
             }
