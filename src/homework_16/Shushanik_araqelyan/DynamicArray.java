@@ -24,6 +24,7 @@ public class DynamicArray {
 
     public void add(int element) {
         if (size == array.length) {
+            extand();
             System.out.println("The array is already full");
             return;
         }
@@ -39,30 +40,38 @@ public class DynamicArray {
         }
         array = newArray;
     }
-    public Object clone(){
-        DynamicArray clone=new DynamicArray();
 
-clone.array = Arrays.copyOf(this.array , this.array.length);
-clone.size = this.size;
+    public Object clone() {
+        DynamicArray clone = new DynamicArray();
+
+        clone.array = Arrays.copyOf(this.array, this.array.length);
+        clone.size = this.size;
 
         System.out.println("here is cloned array");
         return clone;
     }
-    public boolean isEmpty(){
-        if(size==0);
-        System.out.println("the array is empty");
+
+    public boolean isEmpty() {
+        if (size == 0) {
+            System.out.println("the array is empty");
+            return true;
+        }
+        System.out.println("the array contains element");
         return false;
     }
-    {
-        System.out.println("the array contains ellement");
-    }
-    public boolean Contains(){
-        if(size!=0);
-        System.out.println("Array contains ellement");
-        return true;
-    }
 
+    public boolean contains(int item) {
+        for (int i = 0; i < size; i++)
+            if (array[i] == item) {
+                System.out.println("The item contains in array");
+                return true;
+            }
+        System.out.println("There is no similar item");
+        return false;
+    }
 }
+
+
 
 
 
