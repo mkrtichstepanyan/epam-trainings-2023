@@ -173,9 +173,9 @@ public class DynamicArray {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("[");
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < size; i++) {
             stringBuilder.append(array[i]);
-            if (i < array.length - 1) {
+            if (i < size - 1) {
                 stringBuilder.append(" ");
             }
         }
