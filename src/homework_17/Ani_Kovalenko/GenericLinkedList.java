@@ -144,6 +144,9 @@ public class GenericLinkedList<T> {
     }
 
     public boolean addAll(T[] values) {
+        if (values.length == 0) {
+            return false;
+        }
         for (T value : values) {
             notNull(value);
             add(value);
@@ -152,6 +155,9 @@ public class GenericLinkedList<T> {
     }
 
     public boolean addAll(int index, T[] values) {
+        if (values.length == 0) {
+            return false;
+        }
         checkIndex(index);
         for (T value : values) {
             notNull(value);
@@ -248,7 +254,7 @@ public class GenericLinkedList<T> {
 
     private void notNull(T value) {
         if (value == null) {
-            throw new NullPointerException("The input value must not me null");
+            throw new NullPointerException("The input value must not be null");
         }
     }
 

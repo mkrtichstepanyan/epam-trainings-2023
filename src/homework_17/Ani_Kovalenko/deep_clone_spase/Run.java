@@ -15,6 +15,7 @@ public class Run {
         Galactic milkyWay = new Galactic(solarSystem);
         Space address = new Space(milkyWay);
 
+
         try {
             Home homeCloned = (Home) home.clone();
             City gyumriCloned = (City) gyumri.clone();
@@ -28,14 +29,15 @@ public class Run {
             Galactic milkyWayCloned = (Galactic) milkyWay.clone();
             Space addressCloned = (Space) address.clone();
 
-            print(home, address, homeCloned, addressCloned);
+            print(home, address, homeCloned, addressCloned, gyumri, gyumriCloned);
+
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
 
     }
 
-    private static void print(Home home, Space address, Home homeCloned, Space addressCloned) {
+    private static void print(Home home, Space address, Home homeCloned, Space addressCloned, City city, City cityCloned) {
         System.out.println(address == addressCloned);
         System.out.println(address.equals(addressCloned));
 
@@ -43,5 +45,14 @@ public class Run {
 
         System.out.println(home == homeCloned);
         System.out.println(home.equals(homeCloned));
+
+        System.out.println("---------------");
+
+        Home anotherHome = new Home("Sayat Nova", 5);
+        cityCloned.setHome(anotherHome);
+        System.out.println("Home in the original City: " + city.getHome().toString());
+        System.out.println("Home in the cloned City: " + cityCloned.getHome().toString());
+        System.out.println(city == cityCloned);
+        System.out.println(city.equals(cityCloned));
     }
 }

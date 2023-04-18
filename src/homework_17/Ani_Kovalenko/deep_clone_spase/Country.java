@@ -1,15 +1,37 @@
 package homework_17.Ani_Kovalenko.deep_clone_spase;
 
+import java.util.Objects;
+
 public class Country implements Cloneable {
 
-    Province province;
+    private Province province;
 
     Country(Province province) {
         this.province = province;
     }
 
+    public void setProvince(Province province) {
+        this.province = province;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Country country = (Country) o;
+        return province.equals(country.province);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(province);
+    }
+
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
+        Country countryCloned = (Country) super.clone();
+        Province provinceCloned = (Province) this.province.clone();
+        countryCloned.setProvince(provinceCloned);
+        return countryCloned;
     }
 }
