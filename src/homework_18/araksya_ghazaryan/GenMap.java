@@ -1,5 +1,7 @@
 package homework_18.araksya_ghazaryan;
 
+import java.util.Arrays;
+
 public class GenMap<K, V> {
     private int size;
     private Node<K, V>[] genMap;
@@ -29,23 +31,29 @@ public class GenMap<K, V> {
     public void put(K key, V value) {
         int index = this.indexOf(key);
         Node newNode = new Node(key, value, null);
-        if (genMap[index] == null) {
+        Node<K, V> nodeFromArray = genMap[index];
+
+        if (nodeFromArray == null) {
             genMap[index] = newNode;
+            size = ++size;
         } else {
-            Node<K, V> prevNode = null;
-            Node<K, V> currentNode = genMap[index];
-            while (currentNode != null) {
-                if (currentNode.getValue().equals(value)) {
-                    currentNode.setValue(value);
-                    break;
-                }
-                prevNode = currentNode;
-                currentNode = currentNode.getNext();
-            }
-            if (prevNode != null) {
-                prevNode.setNext(newNode);
+            boolean isValueChanged = nodeValueIsReplaced(key, value, nodeFromArray);
+            if (!isValueChanged) {
+                newNode.setNext(nodeFromArray);
+                genMap[index] = newNode;
             }
         }
+    }
+    private boolean nodeValueIsReplaced(K key, V value, Node<K, V> nodeFromArray) {
+        Node<K, V> temporaryNode = nodeFromArray;
+        while (temporaryNode != null) {
+            if (temporaryNode.getKey().equals(key)) {
+                temporaryNode.setValue(value);
+                return true;
+            }
+            temporaryNode = temporaryNode.getNext();
+        }
+        return false;
     }
 
     public int indexOf(K key) {
@@ -54,7 +62,6 @@ public class GenMap<K, V> {
         }
         return Math.abs(key.hashCode() % this.genMap.length - 1);
     }
-
     public  class Node<K, V> {
         K key;
         V value;
@@ -89,5 +96,13 @@ public class GenMap<K, V> {
         public void setNext(Node<K, V> next) {
             this.next = next;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "GenMap{" +
+                "size=" + size +
+                ", genMap=" + Arrays.toString(genMap) +
+                '}';
     }
 }
