@@ -2,6 +2,8 @@ package homework_16.anna_manukyan.deep_copy;
 
 import homework_16.anna_manukyan.generic_dynamic_array.DynamicArray;
 
+import java.util.Objects;
+
 public class Region extends DynamicArray implements Cloneable {
     private String name;
 
@@ -49,5 +51,18 @@ public class Region extends DynamicArray implements Cloneable {
                 "name='" + name + '\'' +
                 ", city=" + city +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Region region = (Region) o;
+        return Objects.equals(name, region.name) && Objects.equals(city, region.city);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, city);
     }
 }
