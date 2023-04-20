@@ -22,16 +22,15 @@ public class DynamicArray {
         this.array = new int[DEFAULT_CAPACITY];
     }
 
-    public void add(int element) {
-        if (size == array.length) {
-            extand();
-            System.out.println("The array is already full");
-            return;
+    public void add(int value) {
+            if (size == array.length) {
+                extend();
+            }
+            array[size++] = value;
+        System.out.println(value);
         }
-        array[size++] = element;
-    }
 
-    private void extand() {
+    private void extend() {
         int[] newArray = new int[array.length * 2];
         for (int i = 0; i < array.length; i++) {
 

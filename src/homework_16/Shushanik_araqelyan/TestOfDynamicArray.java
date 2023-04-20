@@ -37,5 +37,6 @@ dynamicArray1.add(4);
         System.out.println(dynamicArray1.isEmpty());
         dynamicArray1.contains(4);
         dynamicArray1.clone();
+        dynamicArray1.add(18);
     }
 }
