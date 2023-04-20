@@ -34,8 +34,8 @@ public final class User {
         if(this == o) return true;
         if(o == null || this.getClass() != o.getClass()) return false;
         User obj = (User) o;
-        return this.name.equals(obj.name) && this.surName.equals(obj.surName)
-                && this.age == obj.age && this.address.equals(obj.address);
+        return (this.name != null && this.name.equals(obj.name)) && (this.surName != null && this.surName.equals(obj.surName))
+                && (this.age > 0 && this.age == obj.age) && (this.address != null && this.address.equals(obj.address));
 
     }
 

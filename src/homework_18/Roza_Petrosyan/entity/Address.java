@@ -18,8 +18,8 @@ public final class Address {
         if (this == o) return true;
         if (o == null || this.getClass() != o.getClass()) return false;
         Address obj = (Address) o;
-        return this.country.equals(obj.country) && this.city.equals(obj.city)
-                && this.street.equals(obj.street) && this.homeNumber == obj.homeNumber;
+        return (this.country != null && this.country.equals(obj.country)) && (this.city != null && this.city.equals(obj.city))
+                && (this.street != null && this.street.equals(obj.street)) && this.homeNumber == obj.homeNumber;
 
     }
 
