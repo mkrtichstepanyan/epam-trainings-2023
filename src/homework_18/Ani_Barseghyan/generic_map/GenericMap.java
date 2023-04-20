@@ -4,7 +4,7 @@ public class GenericMap<K, V> {
     private int size;
     private Node<K, V>[] genericMap;
 
-    GenericMap() {
+    public GenericMap() {
         this.genericMap = new Node[16];
     }
 
