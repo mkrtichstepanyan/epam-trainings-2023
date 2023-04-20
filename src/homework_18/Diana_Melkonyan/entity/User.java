@@ -4,14 +4,14 @@ public final class User {
     private final String name;
     private final String surname;
     private final int age;
-    private Address adress;
+    private  final Address adress;
 
 
-    public User(String name, String surname, int age, Address adress) {
+    public User(String name, String surname, int age, Address adress){
         this.name = name;
         this.surname = surname;
         this.age = age;
-        this.adress = adress;
+        this.adress = new Address(adress.getAddress(),adress.getStreet());
     }
 
     public String getName() {
@@ -26,8 +26,9 @@ public final class User {
         return age;
     }
 
-    public Address getAdress() {
-        return adress;
+    public Address getAdress(){
+
+        return new Address(adress.getAddress(),adress.getStreet());
     }
 
 
@@ -40,7 +41,7 @@ public final class User {
         }
         User user = (User) o;
         if (this.name.equals(user.name) && (this.surname.equals(user.surname))
-                && this.age == age) ;
+                && this.age == age && this.adress.equals(user.adress)) ;
         return true;
     }
 

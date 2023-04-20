@@ -47,11 +47,11 @@ public class GenericMap<K, V> {
             Entry<K, V>[] oldTable = table;
             table = new Entry[2 * capacity + 1];
             for (Entry<K, V> entry : oldTable) {
-                if (entry != null) {
+                if (entry != null) {}
                     for (Entry<K, V> e = entry; e != null; e = e.next) {
                         put(e.key, e.value);
                     }
-                }
+
             }
         }
 

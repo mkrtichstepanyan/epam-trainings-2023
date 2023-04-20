@@ -37,13 +37,11 @@ public class Main {
 //        System.out.println(hashTable.get(6));
 
         GenericMap<User, String> newUser = new GenericMap<>();
-
-        User user = new User("Diana", "Melkonyan", 38, new Address("Tigran Mec"));
-        User user1 = new User("Vika", "Simonyan", 10, new Address("Tigran Mec"));
+        Address address=new Address("Tigran Mec");
+        User user = new User("Diana", "Melkonyan", 38, address);
         newUser.put(user, "Diana");
-        newUser.put(user1, "Vika");
         System.out.println(newUser.get(user));
-        System.out.println(newUser.get(user1));
+
 
     }
 }

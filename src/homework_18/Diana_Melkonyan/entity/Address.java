@@ -1,6 +1,6 @@
 package homework_18.Diana_Melkonyan.entity;
 
-public class Address {
+public class Address{
     private String address;
     private String street;
 
@@ -9,10 +9,10 @@ public class Address {
         this.street = street;
 
     }
-
     public Address(String address) {
         this.address=address;
     }
+
 
     public String getAddress() {
         return address;
@@ -44,11 +44,10 @@ public class Address {
     }
 
     public int hashCode() {
-       return 31*(address.hashCode()+street.hashCode());
 
-//        int result = address != null ? address.hashCode() : 0;
-//        result = 31 * result + (street != null ? street.hashCode() : 0);
-//        return result;
+        int result = address != null ? address.hashCode() : 0;
+        result = 31 * result + (street != null ? street.hashCode() : 0);
+        return result;
 
     }
     public String toString(){
