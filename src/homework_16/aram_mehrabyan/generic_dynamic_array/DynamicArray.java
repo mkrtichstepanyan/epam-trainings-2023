@@ -79,17 +79,21 @@ public class DynamicArray<T> {
             add(a);
     }
     public void addAllByIndex(int index,T[]a){
+        if (index < 0 || index > size - 1) {
+            throw new IndexOutOfBoundsException("Wrong index");
+        }
         if ((size == array.length)||a.length>size) {
             extend();
         }
-        size+=a.length-1;
-        for(int k=size;k>index;k--){
-            array[k]=array[k-1];
+
+        for(int k=size-1;k>=index;k--){
+            array[k+a.length]=array[k];
         }
         for(int j=0;j<a.length;j++){
             array[index]=a[j];
             index++;
         }
+        size+=a.length-1;
     }
 
     public void remove(int index) {
