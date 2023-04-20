@@ -20,6 +20,12 @@ public class GenericMap<T, E> {
     }
 
     public void put(T key, E value) {
+        if(key == null) {
+            key = (T)"null";
+        }
+        if(value == null) {
+            value = (E)"null";
+        }
         int capacity;
         if (newCapacity > 0) {
             capacity = newCapacity;

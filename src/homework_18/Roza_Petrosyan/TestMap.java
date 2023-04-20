@@ -80,9 +80,9 @@ public class TestMap {
         map.put("T",71);
         map.put("U",72);
         map.put("V",73);
-        map.put("W",74);
+        map.put("W",null);
         map.put("X",-75);
-        map.put("Y",76);
+        map.put(null,76);
         map.put("X",75);
         System.out.println(map);
         System.out.println(map.get("a"));
