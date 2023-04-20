@@ -17,7 +17,10 @@ public class Main {
         map.put(84,"8484");
         System.out.println(map + " Size: " + map.getSize());
         System.out.println(map.get(84));
-        map.put(null,"abcd");
+        map.put(null,null);
+        map.put(null,"kl");
+        System.out.println(map);
+        map.put(null,null);
         System.out.println(map);
 
         GenericMap<Object,String> mapObject = new GenericMap<>();
@@ -34,7 +37,7 @@ public class Main {
 
         Address address = new Address("Gyumri","Shirakaci",12);
         System.out.println(address.hashCode());
-        User user1 = new User("Garik","Gharibyan","GG.gmail.com","4545",32,address);
+        User user1 = new User(null,"Gharibyan","GG.gmail.com","4545",32,address);
         User user2 = new User("Vahe","Gharibyan","VG.gmail.com","2323",33,address);
 
 
