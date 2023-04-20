@@ -2,7 +2,7 @@ package homework_16.anna_manukyan.deep_copy;
 
 import homework_16.anna_manukyan.generic_dynamic_array.DynamicArray;
 
-public class Address extends DynamicArray implements Cloneable {
+class Address extends DynamicArray implements Cloneable {
     private Space space;
 
     public Address(Space space) {

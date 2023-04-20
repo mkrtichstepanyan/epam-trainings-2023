@@ -1,4 +1,4 @@
-package homework_18.mkrtich_stepanyan.hovhannes_gspeyan;
+package homework_18.hovhannes_gspeyan;
 
 import java.util.*;
 
