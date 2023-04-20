@@ -2,6 +2,8 @@ package homework_16.anna_manukyan.deep_copy;
 
 import homework_16.anna_manukyan.generic_dynamic_array.DynamicArray;
 
+import java.util.Objects;
+
 public class City extends DynamicArray implements Cloneable {
     private String name;
 
@@ -41,5 +43,18 @@ public class City extends DynamicArray implements Cloneable {
                 "name='" + name + '\'' +
                 ", street=" + street +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        City city = (City) o;
+        return Objects.equals(name, city.name) && Objects.equals(street, city.street);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, street);
     }
 }
