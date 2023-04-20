@@ -2,50 +2,46 @@ package homework_18.Nona_Asatryan.entity;
 
 import java.util.Objects;
 
-public class User {
+public final class User {
 
-    private String name;
-    private String surname;
-    private Address address;
-    private int age;
+    private final String name;
+    private final String surname;
+    private final String email;
+    private final String password;
+    private final int age;
+    private final Address address;
 
-    public User(String name, String surname, Address address, int age) {
+    public User(String name, String surname, String email,
+                String password, int age, Address address) {
         this.name = name;
         this.surname = surname;
-        this.address = address;
+        this.email = email;
+        this.password = password;
         this.age = age;
+        this.address = address;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getSurname() {
         return surname;
     }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public String getEmail() {
+        return email;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
+    public String getPassword() {
+        return password;
     }
 
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public Address getAddress() {
+        return address;
     }
 
     @Override
@@ -58,6 +54,8 @@ public class User {
         if (age != user.age) return false;
         if (!Objects.equals(name, user.name)) return false;
         if (!Objects.equals(surname, user.surname)) return false;
+        if (!Objects.equals(email, user.email)) return false;
+        if (!Objects.equals(password, user.password)) return false;
         return Objects.equals(address, user.address);
     }
 
@@ -65,8 +63,10 @@ public class User {
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (surname != null ? surname.hashCode() : 0);
-        result = 31 * result + (address != null ? address.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + age;
+        result = 31 * result + (address != null ? address.hashCode() : 0);
         return result;
     }
 
@@ -75,8 +75,10 @@ public class User {
         return "User{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", address=" + address +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 ", age=" + age +
+                ", address=" + address +
                 '}';
     }
 }

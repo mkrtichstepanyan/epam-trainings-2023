@@ -1,6 +1,8 @@
 package homework_18.karen_mikayelyan;
 
 import java.util.*;
+
+
 public class GenericMap<K, V> implements Map<K, V> {
     private int size;
     private Node<K, V>[] mapTable;
@@ -131,10 +133,10 @@ public class GenericMap<K, V> implements Map<K, V> {
         this.size = 0;
     }
 
-    @Override
-    public void putAll(Map<? extends K, ? extends V> m) {
+      @Override
+      public void putAll(Map<? extends K, ? extends V> m) {
 
-    }
+      }
 
     public List<K> keys() {
         List<K> keys = new ArrayList<>(this.size);
