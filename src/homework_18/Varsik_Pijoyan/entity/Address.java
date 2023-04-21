@@ -9,6 +9,20 @@ public class Address {
         this.city = city;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return this.country.equals(address.country) && this.city.equals(address.city);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        return result * (this.country.hashCode() * this.city.hashCode());
+    }
+
     public String getCountry() {
         return country;
     }
