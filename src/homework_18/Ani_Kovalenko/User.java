@@ -8,7 +8,7 @@ public final class User {
     private final String password;
     private final Integer age;
 
-    User(Address address, String name, String email, String password, int age) {
+    User(Address address, String name, String email, String password, Integer age) {
         this.address = address;
         this.name = name;
         this.email = email;
@@ -21,14 +21,13 @@ public final class User {
             return true;
         }
         if (objectToCheck instanceof User userToCheck) {
-            if (this.name == null || userToCheck.name == null ||
-                    this.email == null || userToCheck.email == null ||
-                    this.password == null || userToCheck.password == null) {
-                return false;
+            if (this.name != null || userToCheck.name != null ||
+                    this.email != null || userToCheck.email != null ||
+                    this.password != null || userToCheck.password != null) {
+                return this.address.equals((userToCheck).address) &&
+                        this.name.equals(userToCheck.name) && this.email.equals(userToCheck.email) &&
+                        this.password.equals(userToCheck.password) && this.age.equals(userToCheck.age);
             }
-            return this.address.equals((userToCheck).address) &&
-                    this.name.equals(userToCheck.name) && this.email.equals(userToCheck.email) &&
-                    this.password.equals(userToCheck.password) && this.age.equals(userToCheck.age);
         }
         return false;
     }
