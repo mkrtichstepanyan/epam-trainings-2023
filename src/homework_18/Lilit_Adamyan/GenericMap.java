@@ -1,7 +1,4 @@
 package homework_18.Lilit_Adamyan;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 /* Please create methods below
    put -> add element to MAP
@@ -9,12 +6,50 @@ import java.util.List;
    extend -> increase buckets count and migrate elements
  */
 public class GenericMap<K, V> {
-    private List<List<Entry<K, V>>> buckets;
+    public static final int DEFAULT_CAPACITY = 16;
+    private Entry<K, V>[] buckets;
     private int size;
 
+    public GenericMap() {
+        buckets = new Entry[DEFAULT_CAPACITY];
+    }
+
+    public void put(K key, V value) {
+        int bucketIndex = key.hashCode() % buckets.length;
+        Entry<K, V> bucket = buckets[bucketIndex];
+        while (bucket != null) {
+            if (bucket.key.equals(key)) {
+                bucket.value = value;
+                return;
+            }
+            bucket = bucket.next;
+        }
+        bucket = new Entry<>(key, value);
+        bucket.next = buckets[bucketIndex];
+        if (buckets[bucketIndex] != null) {
+            buckets[bucketIndex].previous = bucket;
+        }
+        buckets[bucketIndex] = bucket;
+        size++;
+    }
+
+    public V get(K key) {
+        int bucketIndex = key.hashCode() % buckets.length;
+        Entry<K, V> bucket = buckets[bucketIndex];
+        while (bucket != null) {
+            if (bucket.key.equals(key)) {
+                return bucket.value;
+            }
+            bucket = bucket.next;
+        }
+        return null;
+
+    }
     private static class Entry<K, V> {
         K key;
         V value;
+        Entry<K, V> next;
+        Entry<K, V> previous;
 
         public Entry(K key, V value) {
             this.key = key;
@@ -22,38 +57,6 @@ public class GenericMap<K, V> {
         }
     }
 
-    public GenericMap(int defaultBucketCount) {
-        buckets = new ArrayList<>(defaultBucketCount);
-        for (int i = 0; i < defaultBucketCount; i++) {
-            buckets.add(new LinkedList<>());
-        }
-        size = 0;
-    }
-
-    public void put(K key, V value) {
-        int bucketIndex = key.hashCode() % buckets.size();
-        List<Entry<K, V>> bucket = buckets.get(bucketIndex);
-        for (Entry<K, V> entry : bucket) {
-            if (entry.key.equals(key)) {
-                entry.value = value;
-                return;
-            }
-        }
-        bucket.add(new Entry<>(key, value));
-        size++;
-    }
-
-    public V get(K key) {
-        int bucketIndex = key.hashCode() % buckets.size();
-        List<Entry<K, V>> bucket = buckets.get(bucketIndex);
-        for (Entry<K, V> entry : bucket) {
-            if (entry.key.equals(key)) {
-                return entry.value;
-            }
-        }
-        return null;
-
-    }
 
 
 }
