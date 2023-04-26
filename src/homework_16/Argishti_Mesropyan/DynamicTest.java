@@ -17,10 +17,10 @@ public class DynamicTest {
         System.out.println("Contains: >>>" + arrayList);
         DynamicArray clonedArray = arrayList.clone();
         System.out.println("cloned array: " + clonedArray);
-        arrayList.sort(arrayElements);
+        arrayList.sort();
         System.out.println("Sorted: " + arrayList);
-        arrayList.remove(4);
-        System.out.println("Remove single element '4': " + arrayList);
+        arrayList.remove(15);
+        System.out.println("Remove single element : " + arrayList);
         arrayList.trimToSize();
         System.out.println("TrimToSize: " + arrayList);
         arrayList.replace(100, 200);

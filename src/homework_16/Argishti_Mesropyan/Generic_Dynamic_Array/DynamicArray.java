@@ -79,8 +79,8 @@ public class DynamicArray<T> {
     }
 
 
-    public void addAllInt(Integer[] array2) {
-        for (Integer element : array2)
+    public void addAllInt(T[] array2) {
+        for (T element : array2)
             add((T) element);
     }
 
@@ -167,12 +167,16 @@ public class DynamicArray<T> {
     }
 
     List<T> subList(int fromIndex, int toIndex) {
+        if (toIndex > array.length) {
+            toIndex = array.length;
+        }
         List<T> sublist = new ArrayList<>();
         for (int i = fromIndex; i < toIndex; i++) {
             sublist.add(array[i]);
         }
         return sublist;
     }
+
 
     public void set(int index, T value) {
         if (index < 0 || index >= size) {

@@ -33,7 +33,7 @@ public class Test {
 
         System.out.println("checks if the arraylist is empty: " + array.isEmpty());
 
-        System.out.println("returns a portion of the arraylist :  " + array.subList(0, 4));
+        System.out.println("returns a portion of the arraylist :  " + array.subList(0, 5));
 
         array.sort();
         System.out.println(array);

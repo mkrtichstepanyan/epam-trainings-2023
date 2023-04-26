@@ -121,11 +121,16 @@ public class DynamicArray {
     }
 
 
-    public void remove(int value) {
-        int index = indexOf(value);
-        if (index != -1) {
-            removeAt(index);
+    public boolean remove(int element) {
+        int index = indexOf(element);
+        if (index == -1) {
+            return false;
         }
+        for (int i = index; i < size - 1; i++) {
+            array[i] = array[i + 1];
+        }
+        size--;
+        return true;
     }
 
     public void removeAll(int[] elements) {
@@ -156,7 +161,7 @@ public class DynamicArray {
         array[index] = value;
     }
 
-    public void sort(int[] arrayElements) {
+    public void sort() {
         for (int i = 0; i < size - 1; i++) {
             for (int j = 0; j < size - 1 - i; j++) {
                 if (array[j] > array[j + 1]) {
@@ -191,17 +196,12 @@ public class DynamicArray {
         }
     }
 
-    public void removeRange(int[] newArray) {
-        if (newArray.length > 0 && newArray.length < array.length) {
-            for (int i = 0; i < newArray.length; i++) {
-                for (int j = 0; j < array.length; j++) {
-                    if (newArray[i] == array[j]) {
-                        array[j] = 0;
-
-                    }
-                }
-            }
+    public void removeRange(int fromIndex, int toIndex) {
+        if (fromIndex < 0 || toIndex > size || fromIndex > toIndex) {
+            throw new IndexOutOfBoundsException("Invalid index range");
         }
+        System.arraycopy(array, toIndex, array, fromIndex, size - toIndex);
+        size -= toIndex - fromIndex;
     }
 
     public void replace(int oldValue, int newValue) {
