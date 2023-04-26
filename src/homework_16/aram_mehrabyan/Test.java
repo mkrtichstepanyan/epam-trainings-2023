@@ -13,24 +13,27 @@ public class Test {
         for (int i = 0; i < 4; i++) {
             myDynamicArray.add(i);
         }
+
         myDynamicArray.addAll(arr);
         for (int i = 0; i < myDynamicArray.getSize(); i++) {
             System.out.println(myDynamicArray.get(i));
         }
-        myDynamicArray.add(3, 80);
-        myDynamicArray.toString();
+
+
+        //myDynamicArray.add(3, 80);
+       // myDynamicArray.toString();
         myDynamicArray.addAllByIndex(3, a);
         System.out.println();
-        myDynamicArray.sublist(10, 15);
-        myDynamicArray.remove(3);
-        myDynamicArray.set(90, 5);
-        myDynamicArray.sort();
+        //myDynamicArray.sublist(10, 15);
+        //myDynamicArray.remove(3);
+       // myDynamicArray.set(90, 5);
+        //myDynamicArray.sort();
 
-        myDynamicArray.removeAll(a);
+        //myDynamicArray.removeAll(a);
 
-        myDynamicArray.indexOf(50);
+       // myDynamicArray.indexOf(50);
 
-
+/*
         for (int i = 0; i < myDynamicArray.getSize(); i++) {
             if (myDynamicArray.contains(30)) {
                 System.out.println("Contains");
@@ -41,9 +44,11 @@ public class Test {
             }
 
         }
-        myDynamicArray.removeRange(5, 8);
-        myDynamicArray.containsAll(b);
-        myDynamicArray.clear();
+        */
+
+       // myDynamicArray.removeRange(5, 8);
+       // myDynamicArray.containsAll(b);
+       // myDynamicArray.clear();
 
 
     }

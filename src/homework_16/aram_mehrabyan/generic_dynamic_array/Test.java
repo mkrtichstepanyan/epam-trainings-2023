@@ -1,12 +1,13 @@
 package homework_16.aram_mehrabyan.generic_dynamic_array;
 
 
+
 public class Test {
 
     public static void main(String[] args) {
         String[] str = {"Aram", "Noy", "Lusine"};
         String[] str1 = {"Gor", "Aram", "Noy"};
-        String[] str3 = {"Karine", "Mariam", "Karen"};
+        String[] str3 = {"Karine", "Mariam", "Karen","Arthur","Marine"};
 
         DynamicArray<String> myDynamicArray = new DynamicArray<>(5);
         myDynamicArray.add("Armen");
@@ -15,7 +16,7 @@ public class Test {
         myDynamicArray.add(1, "Monika");
         myDynamicArray.addAll(str);
 
-        // myDynamicArray.removeAll(str1);
+       // myDynamicArray.removeAll(str1);
        /* myDynamicArray.remove(4);
         myDynamicArray.clear();
         myDynamicArray.contains("Aram");
@@ -28,7 +29,7 @@ public class Test {
         myDynamicArray.replaceAll("Aram", "Argam");
 
         */
-        myDynamicArray.addAllByIndex(3, str3);
+        myDynamicArray.addAllByIndex(4, str3);
         for (int i = 0; i < myDynamicArray.getSize(); i++) {
             System.out.println(myDynamicArray.get(i));
         }
