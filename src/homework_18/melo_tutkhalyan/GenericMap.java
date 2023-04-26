@@ -1,12 +1,13 @@
 package homework_18.melo_tutkhalyan;
 
+import java.util.Arrays;
 import java.util.Map;
 
 public class GenericMap<K, V> {
 
     private int size;
     private Node<K, V>[] table;
-    private static final double  LOAD_FACTOR = 0.75D;
+    private static final double LOAD_FACTOR = 0.75D;
 
     @SuppressWarnings("unchecked")
     public GenericMap() {
@@ -52,6 +53,44 @@ public class GenericMap<K, V> {
         return value;
     }
 
+    public boolean containsKey(K key) {
+        int index = this.indexOfTable(key);
+        Node<K, V> head = this.table[index];
+        if (head != null) {
+            for (Node<K, V> node = head; node != null; node = node.next) {
+                if (node.getKey().equals(key)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean containsValue(V value) {
+        for (Node<K, V> head : table) {
+            if (head != null) {
+                if (value == null) {
+                    for (Node<K, V> node = head; node != null; node = node.next) {
+                        if (node.getValue() == null) {
+                            return true;
+                        }
+                    }
+                } else {
+                    for (Node<K, V> node = head; node != null; node = node.next) {
+                        if (node.getValue().equals(value)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public void clear() {
+        Arrays.fill(this.table, null);
+        this.size = 0;
+    }
 
     public void extend() {
         if (this.size > (this.table.length * this.LOAD_FACTOR) && (this.table.length < (1 << 30))) {
