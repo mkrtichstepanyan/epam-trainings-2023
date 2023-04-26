@@ -1,6 +1,7 @@
 package homework_16.aram_mehrabyan.generic_dynamic_array;
 
 import java.lang.Comparable;
+
 /* Please create methods below
    addAll() -> adds all elements of a collection to arraylist+
    clear() -> removes all the elements from arraylist+
@@ -78,22 +79,23 @@ public class DynamicArray<T> {
         for (T a : arr)
             add(a);
     }
-    public void addAllByIndex(int index,T[]a){
+
+    public void addAllByIndex(int index, T[] a) {
         if (index < 0 || index > size - 1) {
             throw new IndexOutOfBoundsException("Wrong index");
         }
-        if ((size == array.length)||a.length>size) {
+        if ((size == array.length) || a.length > size) {
             extend();
         }
 
-        for(int k=size-1;k>=index;k--){
-            array[k+a.length]=array[k];
+        for (int k = size - 1; k >= index; k--) {
+            array[k + a.length] = array[k];
         }
-        for(int j=0;j<a.length;j++){
-            array[index]=a[j];
+        for (int j = 0; j < a.length; j++) {
+            array[index] = a[j];
             index++;
         }
-        size+=a.length-1;
+        size += a.length - 1;
     }
 
     public void remove(int index) {
@@ -173,49 +175,52 @@ public class DynamicArray<T> {
         return res;
     }
 
-    public int indexOf(T val){
-        int k=0;
+    public int indexOf(T val) {
+        int k = 0;
         for (int i = 0; i < size; i++) {
             if (array[i] == val) {
-                k=i;
+                k = i;
                 break;
             }
         }
         return k;
     }
-    public void set(T val,int index){
+
+    public void set(T val, int index) {
         if (index < 0 || index > size - 1) {
             throw new ArrayIndexOutOfBoundsException("Wrong index");
         }
-        for(int i=0;i<size;i++){
-            if(i==index)
-                array[i]=val;
+        for (int i = 0; i < size; i++) {
+            if (i == index)
+                array[i] = val;
         }
     }
-    public T []sublist(int low,int high){
-        if (low < 0 || high > size - 1||low>high) {
+
+    public T[] sublist(int low, int high) {
+        if (low < 0 || high > size - 1 || low > high) {
             throw new ArrayIndexOutOfBoundsException("Wrong indexes");
         }
 
-        int length=high-low+1;
-        T[]a=(T[]) new Object[length];
-        for(int i=0;i<a.length;i++){
-            a[i]=array[low+i];
+        int length = high - low + 1;
+        T[] a = (T[]) new Object[length];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = array[low + i];
         }
         return a;
     }
-    public void removeRange(int ind1,int ind2){
-        if (ind1 < 0 || ind2 > size - 1||ind1>ind2) {
+
+    public void removeRange(int ind1, int ind2) {
+        if (ind1 < 0 || ind2 > size - 1 || ind1 > ind2) {
             throw new IndexOutOfBoundsException("Wrong range");
         }
-        T []arr1=(T[]) new Object[ind1];
-        T []arr2=(T[]) new Object[size-ind2];
-        for(int i=0;i<ind1;i++)
-            arr1[i]=array[i];
-        System.arraycopy(arr1,0,array,0,arr1.length);
-        for(int i=ind2+1,j=0;i<size;i++,j++)
-            arr2[j]=array[i];
-        System.arraycopy(arr2,0,array,arr1.length,arr2.length);
+        T[] arr1 = (T[]) new Object[ind1];
+        T[] arr2 = (T[]) new Object[size - ind2];
+        for (int i = 0; i < ind1; i++)
+            arr1[i] = array[i];
+        System.arraycopy(arr1, 0, array, 0, arr1.length);
+        for (int i = ind2 + 1, j = 0; i < size; i++, j++)
+            arr2[j] = array[i];
+        System.arraycopy(arr2, 0, array, arr1.length, arr2.length);
     }
 
     public void trimToSize() {
@@ -227,22 +232,25 @@ public class DynamicArray<T> {
             array = newArray;
         }
     }
-    public void replaceAll(T val, T newval){
-        for(int i=0;i<size;i++){
-            if(array[i]==val)
-                array[i]=newval;
+
+    public void replaceAll(T val, T newval) {
+        for (int i = 0; i < size; i++) {
+            if (array[i] == val)
+                array[i] = newval;
         }
     }
+
     public String toString() {
         String str1 = "[ ";
-        String str2="]";
-        String str="";
+        String str2 = "]";
+        String str = "";
         for (int i = 0; i < size; i++) {
-            str+=array[i]+", ";
+            str += array[i] + ", ";
         }
 
-        return str1+str+str2;
+        return str1 + str + str2;
     }
+
     public T get(int index) {
         if (index < 0 || index > size - 1) {
             throw new ArrayIndexOutOfBoundsException("Wrong index");
@@ -251,12 +259,10 @@ public class DynamicArray<T> {
     }
 
 
-
-
-    public T[]clone(){
-        T []array2=(T[]) new Object[array.length];
-        for (int i=0;i<array.length;i++){
-            array2[i]=array[i];
+    public T[] clone() {
+        T[] array2 = (T[]) new Object[array.length];
+        for (int i = 0; i < array.length; i++) {
+            array2[i] = array[i];
         }
         return array2;
     }

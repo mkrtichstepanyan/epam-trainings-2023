@@ -1,7 +1,6 @@
 package homework_16.aram_mehrabyan.generic_dynamic_array;
 
 
-
 public class Test {
 
     public static void main(String[] args) {
@@ -16,7 +15,7 @@ public class Test {
         myDynamicArray.add(1, "Monika");
         myDynamicArray.addAll(str);
 
-       // myDynamicArray.removeAll(str1);
+        // myDynamicArray.removeAll(str1);
        /* myDynamicArray.remove(4);
         myDynamicArray.clear();
         myDynamicArray.contains("Aram");
