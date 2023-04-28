@@ -92,7 +92,7 @@ public class GenericLinkedList<T> {
     }
 
 
-    public Object get(int index) {
+    public T  get(int index) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Element is not defined");
         }
@@ -103,7 +103,7 @@ public class GenericLinkedList<T> {
         return current.item;
     }
 
-    public Object set(int index, Object element) {
+    public T set(int index, Object element) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
         }
