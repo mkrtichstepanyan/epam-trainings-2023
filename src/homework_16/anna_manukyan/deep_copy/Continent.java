@@ -2,6 +2,8 @@ package homework_16.anna_manukyan.deep_copy;
 
 import homework_16.anna_manukyan.generic_dynamic_array.DynamicArray;
 
+import java.util.Objects;
+
 public class Continent extends DynamicArray implements Cloneable {
     private String name;
 
@@ -49,5 +51,18 @@ public class Continent extends DynamicArray implements Cloneable {
                 "name='" + name + '\'' +
                 ", country=" + country +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Continent continent = (Continent) o;
+        return Objects.equals(name, continent.name) && Objects.equals(country, continent.country);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, country);
     }
 }

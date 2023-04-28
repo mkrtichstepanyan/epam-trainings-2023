@@ -1,4 +1,4 @@
-package homework_16.Zara_Avetyan;
+package homework_16.Zara_Avetyan.dynamicArray;
 
 public class Test {
 
