@@ -1,6 +1,6 @@
 package homework_16.Varsik_Pijoyan.GenericDynamicArray;
 
-public class GenericDynamicArray<T> {
+public class GenericDynamicArray<T> implements Cloneable{
     private T[] array;
     private int size = 0;
     private static final int DEFAULT_CAPACITY = 16;
@@ -119,13 +119,17 @@ public class GenericDynamicArray<T> {
         this.array[index] = value;
     }
 
-    public T[] clone() {
-        T[] newArray = (T[]) new Object[array.length];
-        for (int i = 0; i < array.length; i++) {
-            newArray[i] = array[i];
-        }
-        return newArray;
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone();
     }
+
+//    public T[] clone() {
+//        T[] newArray = (T[]) new Object[array.length];
+//        for (int i = 0; i < array.length; i++) {
+//            newArray[i] = array[i];
+//        }
+//        return newArray;
+//    }
 
     public void indexOf(T element) {
         for (int i = 0; i < size; i++) {

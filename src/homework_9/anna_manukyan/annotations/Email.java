@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public @interface Email {
     Pattern regex = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
 
-    String value() default "valid@gmail.com";
+//    String value() default "valid@gmail.com";
 
     String message() default "Please provide a valid email address";
 }
