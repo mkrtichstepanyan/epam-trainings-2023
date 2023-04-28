@@ -29,6 +29,20 @@ public class GenericTest {
         System.out.println(genericDynamicArray);
         System.out.println("-------------------------------");
 
+        try {
+            System.out.println("Before deep clone");
+            System.out.println(genericDynamicArray);
+
+            Object clone = genericDynamicArray.clone();
+            GenericDynamicArray<Integer> genericDynamicArray1 = (GenericDynamicArray<Integer>) clone;
+
+            System.out.println("After deep clone");
+            System.out.println(genericDynamicArray1);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("-------------------------------");
+
         System.out.println("Calling sort method after addAll() method");
         genericDynamicArray.sort();
         System.out.println(genericDynamicArray);
