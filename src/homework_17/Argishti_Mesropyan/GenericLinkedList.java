@@ -103,7 +103,7 @@ public class GenericLinkedList<T> {
         return current.item;
     }
 
-    public T set(int index, Object element) {
+    public T set(int index, T element) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
         }
