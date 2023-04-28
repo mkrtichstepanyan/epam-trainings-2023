@@ -1,5 +1,8 @@
 package homework_18.garik_gharibyan;
 
+import homework_18.garik_gharibyan.entity.Address;
+import homework_18.garik_gharibyan.entity.User;
+
 public class Main {
     public static void main(String[] args) {
         GenericMap<Integer,String> map = new GenericMap<>();
@@ -14,6 +17,11 @@ public class Main {
         map.put(84,"8484");
         System.out.println(map + " Size: " + map.getSize());
         System.out.println(map.get(84));
+        map.put(null,null);
+        map.put(null,"kl");
+        System.out.println(map);
+        map.put(null,null);
+        System.out.println(map);
 
         GenericMap<Object,String> mapObject = new GenericMap<>();
         mapObject.put(Boolean.TRUE,"a");
@@ -26,6 +34,18 @@ public class Main {
         System.out.println(mapObject.get(Boolean.FALSE));
         System.out.println(mapObject.get(1231));
         System.out.println(mapObject.get(1237));
+
+        Address address = new Address("Gyumri","Shirakaci",12);
+        System.out.println(address.hashCode());
+        User user1 = new User(null,"Gharibyan","GG.gmail.com","4545",32,address);
+        User user2 = new User("Vahe","Gharibyan","VG.gmail.com","2323",33,address);
+
+
+        GenericMap<User,String> users = new GenericMap<>();
+        users.put(user1,"Garik");
+        users.put(user2,"Poxos");
+
+        System.out.println(users);
 
     }
 }

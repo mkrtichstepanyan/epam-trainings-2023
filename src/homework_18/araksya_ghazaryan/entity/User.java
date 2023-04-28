@@ -16,7 +16,7 @@ public final class User {
         this.email = email;
         this.password = password;
         this.age = age;
-        this.address = address;
+        this.address =  new Address(address.getCountry(),address.getCity(),address.getHomeNumber());
     }
 
     public String getName() {
@@ -75,5 +75,25 @@ public final class User {
                 Objects.equals(name, user.name) &&
                 Objects.equals(surname, user.surname) &&
                 Objects.equals(password, user.password);
+    }
+    public int hashCode(){
+        int hashCode = this.age;
+        hashCode = hashCode * 31 + (this.name == null ? 0 : this.name.hashCode());
+        hashCode = hashCode * 31 + (this.surname == null ? 0 : this.surname.hashCode());
+        hashCode = hashCode * 31 + (this.password == null ? 0 : this.password.hashCode());
+        hashCode = hashCode * 31 + (this.email == null ? 0 : this.email.hashCode());
+        return hashCode;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", age=" + age +
+                ", address=" + address +
+                '}';
     }
 }

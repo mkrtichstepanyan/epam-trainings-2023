@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class GenMap<K, V> {
     private int size;
     private Node<K, V>[] genMap;
+    private  int length;
 
     GenMap() {
         this.genMap = new Node[16];
