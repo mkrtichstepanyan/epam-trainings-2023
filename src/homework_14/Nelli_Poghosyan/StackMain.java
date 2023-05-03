@@ -2,7 +2,7 @@ package homework_14.Nelli_Poghosyan;
 
 public class StackMain {
     public static void main(String[] args) {
-        GenericStack<Integer> stack = new GenericStack<>(3);
+        GenericStack<Integer> stack = new GenericStack<>(4);
         stack.push(12);
         stack.push(21);
         stack.push(1);
