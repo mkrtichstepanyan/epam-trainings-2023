@@ -138,7 +138,42 @@ public abstract class GenericLinkedList<T> implements List<T>, Cloneable {
 
     public boolean removeAll(Collection<?> c) {
         boolean modified = false;
-        MyListIterator it = new MyListIterator;
+        MyListIterator it = new MyListIterator() {
+            @Override
+            public boolean hasPrevious() {
+                return false;
+            }
+
+            @Override
+            public T previous() {
+                return null;
+            }
+
+            @Override
+            public int nextIndex() {
+                return 0;
+            }
+
+            @Override
+            public int previousIndex() {
+                return 0;
+            }
+
+            @Override
+            public void remove() {
+
+            }
+
+            @Override
+            public void set(T t) {
+
+            }
+
+            @Override
+            public void add(T t) {
+
+            }
+        };
         while (it.hasNext()) {
             if (c.contains(it.next())) {
                 it.remove();
@@ -148,7 +183,7 @@ public abstract class GenericLinkedList<T> implements List<T>, Cloneable {
         return modified;
     }
 
-    public ListIterator<T> listIterator() {return new MyListIterator};
+
         public ListIterator<T> listIterator(int index) {
             if (index < 0 || index > size()) {
                 throw new IndexOutOfBoundsException("Index: " + index);
@@ -204,6 +239,11 @@ public abstract class GenericLinkedList<T> implements List<T>, Cloneable {
             next = (index == size) ? null : getNode(index);
             nextIndex = index;
         }
+
+        public MyListIterator() {
+
+        }
+
         public boolean hasNext() {
             return nextIndex < size;
         }
