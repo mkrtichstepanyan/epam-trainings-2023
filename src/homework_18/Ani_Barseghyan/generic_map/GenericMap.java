@@ -34,6 +34,9 @@ public class GenericMap<K, V> {
     public void put(K key, V value) {
         int index = this.indexOf(key);
         Node newNode = new Node(key, value, null);
+        if (size > 0.75 * genericMap.length) {
+            extend();
+        }
         if (genericMap[index] == null) {
             genericMap[index] = newNode;
         } else {
@@ -51,6 +54,15 @@ public class GenericMap<K, V> {
                 prevNode.setNext(newNode);
             }
         }
+        size++;
+    }
+
+    private void extend() {
+        Node<K, V>[] newArray = new Node[genericMap.length * 2];
+        for (int i = 0; i < genericMap.length; i++) {
+            newArray[i] = genericMap[i];
+        }
+        genericMap = newArray;
     }
 
     public int indexOf(K key) {
