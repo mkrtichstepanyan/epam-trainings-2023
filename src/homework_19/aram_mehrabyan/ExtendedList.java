@@ -1,4 +1,4 @@
-package homework_19;
+package homework_19.aram_mehrabyan;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,7 +21,8 @@ public class ExtendedList<T> extends ArrayList<T> {
      */
     public <R> ExtendedList<R> map(Function<T, R> function) {
 
-        return null;
+        return this.stream().map(function)
+                .collect(Collectors.toCollection(ExtendedList::new));
 
     }
 
@@ -32,6 +33,9 @@ public class ExtendedList<T> extends ArrayList<T> {
      * @param count    the amount fo the elements that should be generated.
      */
     public void fill(Supplier<T> supplier, int count) {
+        Stream.generate(supplier)
+                .limit(count)
+                .forEach(this::add);
 
     }
 
@@ -42,7 +46,8 @@ public class ExtendedList<T> extends ArrayList<T> {
      * @return true if test is true for all elements in the ExtendedList, otherwise return false
      */
     public boolean forAll(Predicate<T> predicate) {
-        return false;
+        return
+                this.stream().allMatch(predicate);
     }
 
     /**
@@ -52,7 +57,12 @@ public class ExtendedList<T> extends ArrayList<T> {
      * @return the list of partitions, usually this should contain two extended list 1. the test is true 2. the test is false
      */
     public List<ExtendedList<T>> partition(Predicate<T> predicate) {
-      return null;
+        ExtendedList<T> trueList = new ExtendedList<>();
+        ExtendedList<T> falseList = new ExtendedList<>();
+        trueList=this.stream().filter(predicate).collect(Collectors.toCollection(ExtendedList::new));
+        falseList=this.stream().filter(predicate.negate()).collect(Collectors.toCollection(ExtendedList::new));
+
+      return List.of(trueList,falseList);
     }
 
     /**
@@ -64,7 +74,7 @@ public class ExtendedList<T> extends ArrayList<T> {
      */
     public T reduce(BinaryOperator<T> binaryOperator, T identity) {
 
-        return null;
+        return this.stream().reduce(identity,binaryOperator);
     }
 
 }
