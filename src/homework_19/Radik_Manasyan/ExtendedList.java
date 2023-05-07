@@ -6,6 +6,7 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ExtendedList<T> extends ArrayList<T> {
@@ -24,9 +25,8 @@ public class ExtendedList<T> extends ArrayList<T> {
      * @return extended list of R type
      */
     public <R> ExtendedList<R> map(Function<T, R> function) {
-        ExtendedList<R> tmpList = new ExtendedList<>();
-        eList.forEach((e) -> tmpList.add(function.apply(e)));
-        return tmpList;
+        return eList.stream()
+                .map(function).collect(Collectors.toCollection(ExtendedList::new));
     }
 
     /**
@@ -36,12 +36,9 @@ public class ExtendedList<T> extends ArrayList<T> {
      * @param count    the amount fo the elements that should be generated.
      */
     public void fill(Supplier<T> supplier, int count) {
-        List<T> list = Stream.generate(supplier).limit(count).toList();
-        for (T t : list) {
-            eList.add(t);
-        }
-
-
+        Stream.generate(() -> supplier)
+                .limit(count)
+                .forEach(tSupplier -> eList.add(tSupplier.get()));
     }
 
     /**
@@ -51,14 +48,8 @@ public class ExtendedList<T> extends ArrayList<T> {
      * @return true if test is true for all elements in the ExtendedList, otherwise return false
      */
     public boolean forAll(Predicate<T> predicate) {
-        boolean flag = true;
-        for (T t : eList) {
-            if (!predicate.test(t)) {
-                flag = false;
-                break;
-            }
-        }
-        return flag;
+        return eList.stream()
+                .anyMatch(predicate);
     }
 
     /**
@@ -68,20 +59,15 @@ public class ExtendedList<T> extends ArrayList<T> {
      * @return the list of partitions, usually this should contain two extended list 1. the test is true 2. the test is false
      */
     public List<ExtendedList<T>> partition(Predicate<T> predicate) {
-        List<ExtendedList<T>> extendedLists = new ExtendedList<>();
-        ExtendedList<T> trueLIst = new ExtendedList<>();
-        ExtendedList<T> falseLIst = new ExtendedList<>();
+        ExtendedList<T> left = eList.stream().
+                filter(predicate).
+                collect(Collectors.toCollection(ExtendedList::new));
 
-        for (T t : eList) {
-            if (predicate.test(t)) {
-                trueLIst.add(t);
-            } else {
-                falseLIst.add(t);
-            }
-        }
-        extendedLists.add(trueLIst);
-        extendedLists.add(falseLIst);
-        return extendedLists;
+        ExtendedList<T> right = eList.stream()
+                .filter(predicate.negate())
+                .collect(Collectors.toCollection(ExtendedList::new));
+
+        return List.of(left, right);
     }
 
     /**
@@ -92,20 +78,7 @@ public class ExtendedList<T> extends ArrayList<T> {
      * @return the resulted value
      */
     public T reduce(BinaryOperator<T> binaryOperator, T identity) {
-        T apply = null;
-
-        if (eList.size() == 0) {
-            return identity;
-        } else if (eList.size() == 1) {
-            return eList.get(0);
-        }
-        apply = binaryOperator.apply(eList.get(0), eList.get(1));
-
-        for (int i = 2; i < eList.size(); i++) {
-            apply = binaryOperator.apply(apply, eList.get(i));
-        }
-
-        return apply;
+        return eList.stream()
+                .reduce(identity, binaryOperator);
     }
-
 }
