@@ -3,16 +3,16 @@ package homework_18.argishti_Mesropyan.entity;
 import java.util.Objects;
 
 public class Address {
-    private String country;
-    private String city;
-    private String street;
-    private int home;
+    private final String country;
+    private final String city;
+    private final String street;
+    private final int home;
 
 
     public Address(String country, String city, String street, int home) {
-        this.country = country;
-        this.city = city;
-        this.street = street;
+        this.country = Objects.requireNonNull(country);
+        this.city = Objects.requireNonNull(city);
+        this.street = Objects.requireNonNull(street);
         this.home = home;
     }
 
@@ -21,38 +21,20 @@ public class Address {
         return country;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
 
     public String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
 
     public String getStreet() {
         return street;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
 
     public int getHome() {
         return home;
     }
-
-    public void setHome(int home) {
-        this.home = home;
-    }
-
-    public Address() {
-        super();
-    }
-
 
     @Override
     public boolean equals(Object o) {
