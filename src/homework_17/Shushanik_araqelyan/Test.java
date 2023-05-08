@@ -3,10 +3,63 @@ package homework_17.Shushanik_araqelyan;
 
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.ListIterator;
 
-public class Test {
+public  class Test {
     public static void main(String[] args) {
-        GenericLinkedList<Integer>GL = new homework_17.Shushanik_araqelyan.GenericLinkedList<>();
+        GenericLinkedList<Integer>GL = new GenericLinkedList<>() {
+            @Override
+            public boolean addAll(Collection<? extends Integer> c) {
+                return false;
+            }
+
+            @Override
+            public void clear() {
+
+            }
+
+            @Override
+            public Integer get(int index) {
+                return null;
+            }
+
+            @Override
+            public Integer set(int index, Integer element) {
+                return null;
+            }
+
+            @Override
+            public void add(int index, Integer element) {
+
+            }
+
+            @Override
+            public Integer remove(int index) {
+                return null;
+            }
+
+            @Override
+            public int indexOf(Object o) {
+                return 0;
+            }
+
+            @Override
+            public int lastIndexOf(Object o) {
+                return 0;
+            }
+
+            @Override
+            public ListIterator<Integer> listIterator() {
+                return null;
+            }
+
+            @Override
+            public List<Integer> subList(int fromIndex, int toIndex) {
+                return null;
+            }
+        };
         //add methods call
         for (int i = 0; i < 5; i++) {
             GL.add(i);
@@ -35,7 +88,57 @@ public class Test {
 
         //addAll Methods call
         System.out.println(GL);
-        GenericLinkedList<Integer> newList = new GenericLinkedList<>();
+        GenericLinkedList<Integer> newList = new GenericLinkedList<>() {
+            @Override
+            public boolean addAll(Collection<? extends Integer> c) {
+                return false;
+            }
+
+            @Override
+            public void clear() {
+
+            }
+
+            @Override
+            public Integer get(int index) {
+                return null;
+            }
+
+            @Override
+            public Integer set(int index, Integer element) {
+                return null;
+            }
+
+            @Override
+            public void add(int index, Integer element) {
+
+            }
+
+            @Override
+            public Integer remove(int index) {
+                return null;
+            }
+
+            @Override
+            public int indexOf(Object o) {
+                return 0;
+            }
+
+            @Override
+            public int lastIndexOf(Object o) {
+                return 0;
+            }
+
+            @Override
+            public ListIterator<Integer> listIterator() {
+                return null;
+            }
+
+            @Override
+            public List<Integer> subList(int fromIndex, int toIndex) {
+                return null;
+            }
+        };
         newList.add(25);
         newList.add(28);
         newList.add(23);
@@ -54,7 +157,57 @@ public class Test {
 
 
         //removeAll method call
-        GenericLinkedList<Integer> removed = new GenericLinkedList<>();
+        GenericLinkedList<Integer> removed = new GenericLinkedList<>() {
+            @Override
+            public boolean addAll(Collection<? extends Integer> c) {
+                return false;
+            }
+
+            @Override
+            public void clear() {
+
+            }
+
+            @Override
+            public Integer get(int index) {
+                return null;
+            }
+
+            @Override
+            public Integer set(int index, Integer element) {
+                return null;
+            }
+
+            @Override
+            public void add(int index, Integer element) {
+
+            }
+
+            @Override
+            public Integer remove(int index) {
+                return null;
+            }
+
+            @Override
+            public int indexOf(Object o) {
+                return 0;
+            }
+
+            @Override
+            public int lastIndexOf(Object o) {
+                return 0;
+            }
+
+            @Override
+            public ListIterator<Integer> listIterator() {
+                return null;
+            }
+
+            @Override
+            public List<Integer> subList(int fromIndex, int toIndex) {
+                return null;
+            }
+        };
         removed.add(1);
         removed.add(23);
         System.out.println(GL);
@@ -62,7 +215,57 @@ public class Test {
         System.out.println(GL);
 
         //containsAll method call
-        GenericLinkedList<Integer> contains = new GenericLinkedList<>();
+        GenericLinkedList<Integer> contains = new GenericLinkedList<>() {
+            @Override
+            public boolean addAll(Collection<? extends Integer> c) {
+                return false;
+            }
+
+            @Override
+            public void clear() {
+
+            }
+
+            @Override
+            public Integer get(int index) {
+                return null;
+            }
+
+            @Override
+            public Integer set(int index, Integer element) {
+                return null;
+            }
+
+            @Override
+            public void add(int index, Integer element) {
+
+            }
+
+            @Override
+            public Integer remove(int index) {
+                return null;
+            }
+
+            @Override
+            public int indexOf(Object o) {
+                return 0;
+            }
+
+            @Override
+            public int lastIndexOf(Object o) {
+                return 0;
+            }
+
+            @Override
+            public ListIterator<Integer> listIterator() {
+                return null;
+            }
+
+            @Override
+            public List<Integer> subList(int fromIndex, int toIndex) {
+                return null;
+            }
+        };
         contains.add(2);
         contains.add(3);
         contains.add(10);
