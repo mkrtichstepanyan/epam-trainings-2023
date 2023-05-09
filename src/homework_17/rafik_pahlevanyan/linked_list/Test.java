@@ -2,7 +2,8 @@ package homework_17.rafik_pahlevanyan.linked_list;
 
 import java.util.Arrays;
 
-public class Test {
+public class
+Test {
     public static void main(String[] args) {
         GenericLinkedList<Integer> gl = new GenericLinkedList<>();
         //add methods call
