@@ -9,9 +9,9 @@ public class Producer implements Runnable {
     }
     @Override
     public void run(){
-        Integer data=0;
+        String data="Value";
         while(true){
-            buffer.put(data++);
+            buffer.put(data);
         }
 
     }
