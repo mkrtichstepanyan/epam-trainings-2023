@@ -22,18 +22,18 @@ public class FileSearcher {
         searchRecursive(root, fileNamePattern, matches);
 
 
-            String[] patternParts = fileNamePattern.split("\\*\\*");
-            if (patternParts.length == 2) {
-                List<String> filteredMatches = new ArrayList<>();
-                String firstPattern = patternParts[0];
-                String secondPattern = patternParts[1];
-                for (String match : matches) {
-                    if (match.contains(firstPattern) && match.contains(secondPattern)) {
-                        filteredMatches.add(match);
-                    }
+        String[] patternParts = fileNamePattern.split("\\*\\*");
+        if (patternParts.length == 2) {
+            List<String> filteredMatches = new ArrayList<>();
+            String firstPattern = patternParts[0];
+            String secondPattern = patternParts[1];
+            for (String match : matches) {
+                if (match.contains(firstPattern) && match.contains(secondPattern)) {
+                    filteredMatches.add(match);
                 }
-                return filteredMatches;
             }
+            return filteredMatches;
+        }
         return matches;
     }
 
