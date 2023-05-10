@@ -7,9 +7,11 @@ import java.util.List;
 public class FileSearcher {
     private final String rootPath;
 
+
     public FileSearcher(String rootPath) {
         this.rootPath = rootPath;
     }
+
 
     public List<String> search(String fileNamePattern) {
         List<String> matches = new ArrayList<>();
@@ -19,7 +21,7 @@ public class FileSearcher {
         }
         searchRecursive(root, fileNamePattern, matches);
 
-        if (fileNamePattern.contains("**")) {
+
             String[] patternParts = fileNamePattern.split("\\*\\*");
             if (patternParts.length == 2) {
                 List<String> filteredMatches = new ArrayList<>();
@@ -32,7 +34,6 @@ public class FileSearcher {
                 }
                 return filteredMatches;
             }
-        }
         return matches;
     }
 
@@ -55,4 +56,5 @@ public class FileSearcher {
     private boolean matchesPattern(String fileName, String fileNamePattern) {
         return fileName.matches(fileNamePattern.replace(".", "\\.").replace("*", ".*"));
     }
+
 }
