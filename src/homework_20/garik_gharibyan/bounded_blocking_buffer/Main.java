@@ -4,23 +4,18 @@ public class Main {
     public static void main(String[] args) {
         Buffer<Integer> buffer = new Buffer<>();
 
-        Thread t1 = new Thread(new Runnable() {
 
-            @Override
-            public void run() {
-                for (int i = 0; i < 5; i++) {
-                    buffer.put(i);
-                }
+        Thread t1 = new Thread(() -> {
+            for (int i = 0; i < 5; i++) {
+                buffer.put(i);
             }
-        });
-        Thread t2 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 5; i++) {
-                    buffer.take();
-                }
+        }, "Consumer");
+
+        Thread t2 = new Thread(() -> {
+            for (int i = 0; i < 5; i++) {
+                buffer.take();
             }
-        });
+        },"Producer");
 
 
         t1.start();
