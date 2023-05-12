@@ -9,8 +9,6 @@ public class GenericMap<K, V> {
     private static final int DEFAULT_CAPACITY = 16;
     private Object[] array;
 
-    private int length;
-
     private int size = 0;
 
     GenericMap() {
@@ -47,20 +45,27 @@ public class GenericMap<K, V> {
             if (currentPair.getKay().equals(kay)) {
                 currentPair.setValue(value);
             } else {
-                Pair<K, V> nextPair = currentPair.next();
                 if (!currentPair.hasNext()) {
                     currentPair.setNext(pair);
                     size++;
                 } else {
+                    Pair<K, V> nextPair = currentPair.next();
                     while (nextPair != null) {
-                        if (nextPair.getKay().equals(kay)) {
-                            nextPair.setValue(value);
-                            return;
-                        } else if (nextPair.hasNext()) {
-                            nextPair = nextPair.next();
-                        } else {
-                            nextPair.setNext(pair);
-                            size++;
+                                if(nextPair.getKay() == null){
+                                    if (kay == null){
+                                        nextPair.setValue(value);
+                                        return;
+                                    }else {
+                                        nextPair = nextPair.next();
+                                    }
+                                } else if (nextPair.getKay().equals(kay)) {
+                                    nextPair.setValue(value);
+                                    return;
+                                } else if (nextPair.hasNext()) {
+                                    nextPair = nextPair.next();
+                                } else {
+                                    nextPair.setNext(pair);
+                                    size++;
                         }
 
                     }
@@ -127,9 +132,11 @@ public class GenericMap<K, V> {
     }
 
     private int getIndex(K kay) {
+        if (kay == null){
+            return 0;
+        }
         int hash = kay.hashCode();
-        return hash % array.length;
-
+        return Math.abs(hash % array.length);
     }
 
 }
