@@ -17,5 +17,20 @@ public class DemoExtendedList {
         System.out.println(extendedList.partition((n) -> n.endsWith("e")));
         System.out.println(extendedList.reduce((a, b) -> a + " - " + b, ""));
 
+        ExtendedListWithStreams<String> extendedListWithStreams = new ExtendedListWithStreams<>();
+        extendedListWithStreams.add("one");
+        extendedListWithStreams.add("two");
+        extendedListWithStreams.add("three");
+        extendedListWithStreams.add("four");
+
+        ExtendedListWithStreams<String> mapStream = extendedListWithStreams.map(String::toUpperCase);
+        System.out.println(mapStream);
+
+        extendedListWithStreams.fill(() -> "five", 3);
+        System.out.println(extendedListWithStreams);
+        System.out.println(extendedListWithStreams.forAll((n) -> n.startsWith("t")));
+        System.out.println(extendedListWithStreams.partition((n) -> n.endsWith("e")));
+        System.out.println(extendedListWithStreams.reduce((a, b) -> a + " - " + b, ""));
+
     }
 }
