@@ -31,7 +31,6 @@ public class BoundedBlockingBuffer<T> {
                 System.out.println("Interrupted");
             }
         }
-        // new Data??
         notifyAll();
         newData = data;
         data = null;
