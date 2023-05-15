@@ -1,26 +1,28 @@
 package classwork.threads.counter;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Counter {
+    // assignment operation atomic
+    // 32 bit
 
-    private static int count = 0;
+    // optional
 
-    public static synchronized void increment() {
-        count++;
+    // happens-before
+    private volatile double volInteger = 0;
+
+//    private AtomicInteger count = new AtomicInteger();
+
+    public void increment() {
+        volInteger++;
     }
 
-    public static synchronized void decrement() {
-        count--;
+    public void decrement() {
+        volInteger--;
+//        count.decrementAndGet();
     }
 
-    public static void nonSyncMethod() throws InterruptedException {
-        System.out.println("In non synchronized method");
-        while (true) {
-            Thread.sleep(10);
-            System.out.println(Thread.currentThread().getState());
-        }
-    }
-
-    public int getCount() {
-        return count;
+    public double getCount() {
+        return volInteger;
     }
 }
