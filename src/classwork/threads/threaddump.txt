@@ -1,0 +1,167 @@
+Full thread dump
+
+"RMI TCP Connection(1)-192.168.0.198" prio=0 tid=0x0 nid=0x0 runnable
+     java.lang.Thread.State: RUNNABLE
+	at java.management@17.0.5/sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at java.management@17.0.5/sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:521)
+	at java.management@17.0.5/sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:509)
+	at java.base@17.0.5/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.5/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.5/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.5/java.lang.reflect.Method.invoke(Method.java:568)
+	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:72)
+	at java.base@17.0.5/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.5/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.5/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.5/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base@17.0.5/sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:262)
+	at java.management@17.0.5/com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:193)
+	at java.management@17.0.5/com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:175)
+	at java.management@17.0.5/com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:117)
+	at java.management@17.0.5/com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:54)
+	at java.management@17.0.5/com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(MBeanIntrospector.java:237)
+	at java.management@17.0.5/com.sun.jmx.mbeanserver.PerInterface.invoke(PerInterface.java:138)
+	at java.management@17.0.5/com.sun.jmx.mbeanserver.MBeanSupport.invoke(MBeanSupport.java:252)
+	at java.management@17.0.5/javax.management.StandardMBean.invoke(StandardMBean.java:405)
+	at java.management@17.0.5/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:814)
+	at java.management@17.0.5/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802)
+	at java.management.rmi@17.0.5/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1472)
+	at java.management.rmi@17.0.5/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310)
+	at java.management.rmi@17.0.5/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405)
+	at java.management.rmi@17.0.5/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829)
+	at java.base@17.0.5/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.5/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.5/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.5/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.rmi@17.0.5/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi@17.0.5/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi@17.0.5/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base@17.0.5/java.security.AccessController.executePrivileged(AccessController.java:807)
+	at java.base@17.0.5/java.security.AccessController.doPrivileged(AccessController.java:712)
+	at java.rmi@17.0.5/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi@17.0.5/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:587)
+	at java.rmi@17.0.5/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:828)
+	at java.rmi@17.0.5/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:705)
+	at java.rmi@17.0.5/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler$$Lambda$99/0x0000000800c8bdf8.run(Unknown Source)
+	at java.base@17.0.5/java.security.AccessController.executePrivileged(AccessController.java:776)
+	at java.base@17.0.5/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.rmi@17.0.5/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:704)
+	at java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+
+
+"Monitor Ctrl-Break" prio=0 tid=0x0 nid=0x0 runnable
+     java.lang.Thread.State: RUNNABLE
+ (in native)
+	at java.base@17.0.5/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base@17.0.5/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:46)
+	at java.base@17.0.5/sun.nio.ch.NioSocketImpl.tryRead(NioSocketImpl.java:261)
+	at java.base@17.0.5/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:312)
+	at java.base@17.0.5/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base@17.0.5/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base@17.0.5/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base@17.0.5/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base@17.0.5/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base@17.0.5/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base@17.0.5/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base@17.0.5/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base@17.0.5/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base@17.0.5/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at app//com.intellij.rt.execution.application.AppMainV2$1.run(AppMainV2.java:49)
+
+
+"RMI TCP Accept-0" prio=0 tid=0x0 nid=0x0 runnable
+     java.lang.Thread.State: RUNNABLE
+ (in native)
+	at java.base@17.0.5/sun.nio.ch.Net.accept(Native Method)
+	at java.base@17.0.5/sun.nio.ch.NioSocketImpl.accept(NioSocketImpl.java:755)
+	at java.base@17.0.5/java.net.ServerSocket.implAccept(ServerSocket.java:675)
+	at java.base@17.0.5/java.net.ServerSocket.platformImplAccept(ServerSocket.java:641)
+	at java.base@17.0.5/java.net.ServerSocket.implAccept(ServerSocket.java:617)
+	at java.base@17.0.5/java.net.ServerSocket.implAccept(ServerSocket.java:574)
+	at java.base@17.0.5/java.net.ServerSocket.accept(ServerSocket.java:532)
+	at jdk.management.agent@17.0.5/sun.management.jmxremote.LocalRMIServerSocketFactory$1.accept(LocalRMIServerSocketFactory.java:52)
+	at java.rmi@17.0.5/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.executeAcceptLoop(TCPTransport.java:413)
+	at java.rmi@17.0.5/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.run(TCPTransport.java:377)
+	at java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+
+
+"Common-Cleaner" prio=0 tid=0x0 nid=0x0 waiting on condition
+     java.lang.Thread.State: TIMED_WAITING
+ on java.lang.ref.ReferenceQueue$Lock@428ce64a
+	at java.base@17.0.5/java.lang.Object.wait(Native Method)
+	at java.base@17.0.5/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	at java.base@17.0.5/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
+	at java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+	at java.base@17.0.5/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:162)
+
+
+"Main thread." prio=0 tid=0x0 nid=0x0 blocked
+     java.lang.Thread.State: BLOCKED
+ on classwork.threads.deadlock.B@4cb262e8 owned by "Racing thread" Id=16
+	at app//classwork.threads.deadlock.B.last(A.java:40)
+	at app//classwork.threads.deadlock.A.foo(A.java:16)
+	at app//classwork.threads.deadlock.Deadlock.deadlockStart(A.java:60)
+	at app//classwork.threads.deadlock.Deadlock.main(A.java:74)
+
+
+"Racing thread" prio=0 tid=0x0 nid=0x0 blocked
+     java.lang.Thread.State: BLOCKED
+ on classwork.threads.deadlock.A@1715d09f owned by "Main thread." Id=1
+	at app//classwork.threads.deadlock.A.last(A.java:20)
+	at app//classwork.threads.deadlock.B.bar(A.java:36)
+	at app//classwork.threads.deadlock.Deadlock.run(A.java:67)
+	at java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+
+
+"JMX server connection timeout 21" prio=0 tid=0x0 nid=0x0 waiting on condition
+     java.lang.Thread.State: TIMED_WAITING
+ on [I@1f3ce353
+	at java.base@17.0.5/java.lang.Object.wait(Native Method)
+	at java.management@17.0.5/com.sun.jmx.remote.internal.ServerCommunicatorAdmin$Timeout.run(ServerCommunicatorAdmin.java:171)
+	at java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+
+
+"RMI Scheduler(0)" prio=0 tid=0x0 nid=0x0 waiting on condition
+     java.lang.Thread.State: TIMED_WAITING
+ on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@46fc4517
+	at java.base@17.0.5/jdk.internal.misc.Unsafe.park(Native Method)
+	at java.base@17.0.5/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+	at java.base@17.0.5/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+	at java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+	at java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+	at java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+	at java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+	at java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+
+
+"Reference Handler" prio=0 tid=0x0 nid=0x0 runnable
+     java.lang.Thread.State: RUNNABLE
+	at java.base@17.0.5/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+	at java.base@17.0.5/java.lang.ref.Reference.processPendingReferences(Reference.java:253)
+	at java.base@17.0.5/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:215)
+
+
+"Finalizer" prio=0 tid=0x0 nid=0x0 waiting on condition
+     java.lang.Thread.State: WAITING
+ on java.lang.ref.ReferenceQueue$Lock@2adda47a
+	at java.base@17.0.5/java.lang.Object.wait(Native Method)
+	at java.base@17.0.5/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	at java.base@17.0.5/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
+	at java.base@17.0.5/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:172)
+
+
+"Attach Listener" prio=0 tid=0x0 nid=0x0 runnable
+     java.lang.Thread.State: RUNNABLE
+
+
+"Notification Thread" prio=0 tid=0x0 nid=0x0 runnable
+     java.lang.Thread.State: RUNNABLE
+
+
+"Signal Dispatcher" prio=0 tid=0x0 nid=0x0 runnable
+     java.lang.Thread.State: RUNNABLE
+
+
