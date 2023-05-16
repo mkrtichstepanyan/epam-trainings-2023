@@ -1,4 +1,7 @@
-package classwork.threads.counter;
+package classwork.threads.readwritelockex;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Counter {
 

@@ -6,5 +6,9 @@
 - CAS - compare and set
 - atomic classes
 - volatile
-
 - talk about the overhaed of the multithreading programming
+
+- lock
+- synchronizer
+- executor service.
+
