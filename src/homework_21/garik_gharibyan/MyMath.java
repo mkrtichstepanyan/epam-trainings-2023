@@ -30,4 +30,17 @@ public class MyMath {
         }
         return sum / list.size();
     }
+
+    public static long getMedian(ArrayList<Long> list) {
+        list.sort(Long::compareTo);
+
+        if (list.size() % 2 == 0) {
+            int medianIndex1 = list.size() / 2 - 1;
+            int medianIndex2 = list.size() / 2 ;
+            return (list.get(medianIndex1) + list.get(medianIndex2)) / 2;
+        } else {
+            int medianIndex = ((list.size() + 1) / 2) - 1;
+            return list.get(medianIndex);
+        }
+    }
 }

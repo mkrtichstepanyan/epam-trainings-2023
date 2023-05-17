@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         CalculatorOfSortingVelocity calculator = new CalculatorOfSortingVelocity();
-        calculator.calculateSpeed(18, 4);
+        calculator.calculateSpeed(18, 5);
     }
 
 }
