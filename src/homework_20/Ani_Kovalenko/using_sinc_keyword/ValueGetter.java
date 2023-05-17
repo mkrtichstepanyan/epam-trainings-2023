@@ -10,8 +10,12 @@ public class ValueGetter implements Runnable {
     @Override
     public void run() {
         for (int i = 1; i <= 5; i++) {
-            buffer.pick();
-            System.out.println("after calling pick method");
+            System.out.println(buffer.pick());
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }
