@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class BubbleRunnable extends AbstractAttemptsRunnable {
 
     public BubbleRunnable(ArrayList<Integer> list, int attemptsCount) {
-        super(list, attemptsCount, Algorithm.BUBBLE);
+        super(list, attemptsCount,"Bubble");
     }
 
     @Override

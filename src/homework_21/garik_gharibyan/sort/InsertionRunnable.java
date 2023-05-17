@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class InsertionRunnable extends AbstractAttemptsRunnable {
 
     public InsertionRunnable(ArrayList<Integer> list, int attemptsCount) {
-        super(list, attemptsCount, Algorithm.INSERTION);
+        super(list, attemptsCount, "Insertion");
     }
 
     @Override

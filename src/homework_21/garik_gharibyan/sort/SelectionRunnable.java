@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class SelectionRunnable extends AbstractAttemptsRunnable {
 
     public SelectionRunnable(ArrayList<Integer> list, int attemptsCount) {
-        super(list, attemptsCount, Algorithm.SELECTION);
+        super(list, attemptsCount, "Selection");
     }
 
     @Override

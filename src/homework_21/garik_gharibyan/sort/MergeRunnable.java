@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class MergeRunnable extends AbstractAttemptsRunnable {
     public MergeRunnable(ArrayList<Integer> list, int attemptsCount) {
-        super(list, attemptsCount, Algorithm.MERGE);
+        super(list, attemptsCount, "Merge");
     }
 
     @Override
