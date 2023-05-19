@@ -9,14 +9,15 @@ public final class User {
     private final String email;
     private final String password;
     private final int age;
+    private final Address address;
 
-
-    public User(String name, String surname, String email, String password, int age) {
+    public User(String name, String surname, String email, String password, int age, Address address) {
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
         this.age = age;
+        this.address=new Address(address.getCityName(),address.getStreet(),address.getHomeNumber());
     }
 
     public String getName() {
@@ -37,6 +38,10 @@ public final class User {
 
     public int getAge() {
         return age;
+    }
+
+    public Address getAddress() {
+        return new Address(address.getCityName(),address.getStreet(),address.getHomeNumber());
     }
 
     @Override
@@ -61,5 +66,17 @@ public final class User {
     @Override
     public int hashCode() {
         return Objects.hash(name, surname, email, password, age);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", age=" + age +
+                ", address=" + address +
+                '}';
     }
 }
