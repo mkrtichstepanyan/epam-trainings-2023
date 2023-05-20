@@ -1,40 +1,35 @@
 package homework_20.Ani_Kovalenko.using_sinc_keyword;
 
 public class BoundedBlockingBuffer {
+
     private int num = 1;
     private boolean valueSet;
 
-
-    public synchronized void put(int data) {
-        System.out.println("put has been called");
-        if (valueSet) {
+    synchronized void put (int inputValue){
+        System.out.println("The start of put() method");
+        while (valueSet){
             try {
                 wait();
-            } catch (InterruptedException e) {
+            }catch(InterruptedException e){
                 e.printStackTrace();
             }
         }
-        this.num *= data;
-        System.out.println("the put`  'after initialization ' : " + num);
+        num *= inputValue;
         valueSet = true;
         notify();
     }
 
-    public synchronized int pick() {
-        System.out.print("pick has been called : ");
-        if (!valueSet) {
-            try {
+    synchronized int pick(){
+        System.out.println("The start of pick() method");
+        while (!valueSet){
+            try{
                 wait();
-            } catch (InterruptedException e) {
+            }catch (InterruptedException e){
                 e.printStackTrace();
             }
         }
         valueSet = false;
         notify();
-        return num;
-    }
-
-    public int getNum() {
         return num;
     }
 }

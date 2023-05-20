@@ -5,14 +5,36 @@ public class Run {
 
         BoundedBlockingBuffer buffer = new BoundedBlockingBuffer();
 
-        Thread thread_1 = new Thread(new InputMaker(buffer));
-        Thread thread_2 = new Thread(new ValueGetter(buffer));
+        Thread inputMaker = new Thread(() -> {
+            for (int i = 1; i <= 5; i++) {
+                System.out.println("The input value is " + i);
+                buffer.put(i);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
 
-        thread_1.start();
-        thread_2.start();
+        Thread valueGetter = new Thread(() -> {
+            for (int i = 1; i <= 5; i++) {
+                System.out.println("The output is " + buffer.pick());
+                System.out.println("-------------------------------");
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        inputMaker.start();
+        Thread.sleep(100);
+        valueGetter.start();
         Thread.sleep(10000);
 
-        System.out.println("Status of the thread 1: " + thread_1.getState());
-        System.out.println("Status of the thread 2: " + thread_2.getState());
+        System.out.println("Status of input maker thread is: " + inputMaker.getState());
+        System.out.println("Status of value getter thread is: " + valueGetter.getState());
     }
 }
