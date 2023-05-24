@@ -1,28 +1,23 @@
 package homework_19;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class ExtendedList<T> extends ArrayList<T> {
 
     /**
      * implement a method that will apply the given function to all elements of the extendedList
      *
-     * @param function mapper function
      * @param <R>      the type of the element in the returned collection.
      * @return extended list of R type
      */
     public <R> ExtendedList<R> map(Function<T, R> function) {
 
         return null;
-
     }
 
     /**
@@ -52,7 +47,7 @@ public class ExtendedList<T> extends ArrayList<T> {
      * @return the list of partitions, usually this should contain two extended list 1. the test is true 2. the test is false
      */
     public List<ExtendedList<T>> partition(Predicate<T> predicate) {
-      return null;
+        return null;
     }
 
     /**
@@ -63,7 +58,6 @@ public class ExtendedList<T> extends ArrayList<T> {
      * @return the resulted value
      */
     public T reduce(BinaryOperator<T> binaryOperator, T identity) {
-
         return null;
     }
 
