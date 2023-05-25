@@ -1,35 +1,16 @@
 package homework_20.Nona_Asatryan;
 
 public class BoundedBlockingBufferDemo {
-    public static void main(String[] args) {
-        BoundedBlockingBuffer<String> buffer = new BoundedBlockingBuffer<>(1);
+    public static void main(String[] args) throws InterruptedException {
+        BoundedBlockingBuffer<String> buffer = new BoundedBlockingBuffer<>();
 
-        Thread producer = new Thread(() -> {
-            try {
-                buffer.put("hello");
-                System.out.println("Producer: put 'hello'");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-
-        Thread consumer = new Thread(() -> {
-            try {
-                String result = buffer.take();
-                System.out.println("Consumer: got '" + result + "'");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
+        Thread producer = new Thread(new Producer<>(buffer));
+        Thread consumer = new Thread(new Consumer<>(buffer));
 
         producer.start();
         consumer.start();
 
-        try {
-            producer.join();
-            consumer.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        producer.join();
+        consumer.join();
     }
 }

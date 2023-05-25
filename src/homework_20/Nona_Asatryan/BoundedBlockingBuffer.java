@@ -1,31 +1,35 @@
 package homework_20.Nona_Asatryan;
 
 public class BoundedBlockingBuffer<T> {
-    private int capacity;
     private T data;
-    private boolean hasData;
+    private boolean hasData = false;
 
-    public BoundedBlockingBuffer(int capacity) {
-        this.capacity = capacity;
-    }
-
-    public synchronized void put(T data) throws InterruptedException {
+    public synchronized void put(T data) {
         while (hasData) {
-            wait();
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
+        System.out.println("Put data " + data);
         this.data = data;
         hasData = true;
         notifyAll();
     }
 
-    public synchronized T take() throws InterruptedException {
+    public synchronized T take() {
         while (!hasData) {
-            wait();
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException();
+            }
         }
-        T result = data;
+        System.out.println("Get data " + data);
         hasData = false;
         notifyAll();
-        return result;
+        return data;
     }
 }
 
