@@ -12,6 +12,7 @@ public class ExtendedList<T> extends ArrayList<T> {
     /**
      * implement a method that will apply the given function to all elements of the extendedList
      *
+     * @param function mapper function
      * @param <R>      the type of the element in the returned collection.
      * @return extended list of R type
      */
