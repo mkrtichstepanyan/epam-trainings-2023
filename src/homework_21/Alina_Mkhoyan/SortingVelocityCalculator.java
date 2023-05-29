@@ -7,7 +7,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class SortingVelocityCalculator {
-
     public static void main(String[] args) {
         int arrayLength = 1500;
         int numAttempts = 4;

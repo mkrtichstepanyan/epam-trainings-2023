@@ -1,6 +1,7 @@
 package homework_21.Alina_Mkhoyan;
 
 public class MergeSort implements SortingAlgorithm {
+
     @Override
     public void sort(int[] array) {
         mergeSort(array, 0, array.length - 1);
