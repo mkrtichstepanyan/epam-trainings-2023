@@ -78,7 +78,6 @@ public class SortingVelocityCalculator {
             e.printStackTrace();
         }
     }
-
     private static int[] generateRandomArray(int length) {
         Random random = new Random();
         int[] array = new int[length];

@@ -1,6 +1,7 @@
 package homework_21.Alina_Mkhoyan;
 
 public class BubbleSort implements SortingAlgorithm {
+
     @Override
     public void sort(int[] array) {
         int n = array.length;
