@@ -1,7 +1,6 @@
 package homework_21.Alina_Mkhoyan;
 
 public class SelectionSort implements SortingAlgorithm {
-
     @Override
     public void sort(int[] array) {
         int n = array.length;

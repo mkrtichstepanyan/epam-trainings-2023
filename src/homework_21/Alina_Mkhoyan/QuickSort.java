@@ -1,7 +1,6 @@
 package homework_21.Alina_Mkhoyan;
 
 public class QuickSort implements SortingAlgorithm {
-
     @Override
     public void sort(int[] array) {
         quickSort(array, 0, array.length - 1);
