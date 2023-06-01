@@ -20,7 +20,7 @@ public class Main {
 //потоковый объект, создающий записи в очереди
 class Thread1 implements Runnable {
 
-    BoundedBlockingBuffer<Integer> blockingBuffer = new BoundedBlockingBuffer();
+    BoundedBlockingBuffer<Integer> blockingBuffer;
 
     Thread1(BoundedBlockingBuffer blockingBuffer) {
         this.blockingBuffer = blockingBuffer;
@@ -38,7 +38,7 @@ class Thread1 implements Runnable {
 
 //потоковый объект, забирающий записи из очереди
 class Thread2 implements Runnable {
-    BoundedBlockingBuffer<Integer> blockingBuffer = new BoundedBlockingBuffer();
+    BoundedBlockingBuffer<Integer> blockingBuffer;
 
     Thread2(BoundedBlockingBuffer blockingBuffer) {
         this.blockingBuffer = blockingBuffer;
