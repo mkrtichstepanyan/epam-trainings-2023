@@ -1,5 +1,7 @@
 package homework_19.gohar_hakobyan;
 
+import homework_10.araksya_ghazaryan.chapter_10.Ex;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -56,19 +58,13 @@ public class ExtendedList<T> extends ArrayList<T> {
      * @return the list of partitions, usually this should contain two extended list 1. the test is true 2. the test is false
      */
     public List<ExtendedList<T>> partition(Predicate<T> predicate) {
-        List<ExtendedList<T>> partitions = new ArrayList<>();
-        ExtendedList<T> trueList = new ExtendedList<>();
-        ExtendedList<T> falseList = new ExtendedList<>();
-        this.forEach(elem -> {
-            if (predicate.test(elem)) {
-                trueList.add(elem);
-            } else {
-                falseList.add(elem);
-            }
-        });
-        partitions.add(trueList);
-        partitions.add(falseList);
-        return partitions;
+        ExtendedList<T> trueList = this.stream()
+                .filter(predicate)
+                .collect(Collectors.toCollection(ExtendedList::new));
+        ExtendedList<T> falseList = this.stream()
+                .filter(predicate.negate())
+                .collect(Collectors.toCollection(ExtendedList::new));
+        return List.of(trueList, falseList);
     }
 
     /**

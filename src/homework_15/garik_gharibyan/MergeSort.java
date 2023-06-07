@@ -7,7 +7,7 @@ public class MergeSort {
     }
 
 
-    static int[] sort(int[] array) {
+    public static int[] sort(int[] array) {
         MergeSort margeSort = new MergeSort();
 
         DividedArray dividedArray = margeSort.divide(array);
