@@ -1,0 +1,15 @@
+Implement a console application that will calculate the sorting velocity (speed) for the given array.
+1. The application should accept two parameters: length of the array(from 0 to 1_000_000), and amount of attempts (from 0 to 10).
+2. Generate an array of integers with the given length
+3. Attempts (runs) for each sorting type should be in parallel.
+4. The application should run sorting using four different algorithms (merge, quick, bubble, selection)
+5. The result should be printed into console in the following way.
+
+Array length - 1500, attempts (parallel runs) - 4
+           | run 1 | run 2 | run 3 | run 4 | min | max | avg | median
+bubble     |       |       |       |       |     |     |     |
+selection  |       |       |       |       |     |     |     |
+quick      |       |       |       |       |     |     |     |
+merge      |       |       |       |       |     |     |     |
+
+calculate median - https://www.mathsisfun.com/median.html, https://www.youtube.com/watch?v=0SYsi38XucI&t=1s
