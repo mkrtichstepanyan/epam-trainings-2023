@@ -26,3 +26,7 @@ hs_err_pid*
 
 *.iml
 out
+new.txt
+
+src/classwork/io/Address.java
+
