@@ -1,1 +1,4 @@
-Change from New_Test_Branch
+Change from Conflict branch
+Change from
+
+I merged it
