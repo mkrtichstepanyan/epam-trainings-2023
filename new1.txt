@@ -2,6 +2,5 @@ Change from Conflict branch
 Change from
 
 I merged it
-new line
+conflict
 
-last line
