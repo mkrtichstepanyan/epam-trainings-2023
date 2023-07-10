@@ -2,5 +2,4 @@ Change from Conflict branch
 Change from
 
 I merged it
-conflict
-
+new line
