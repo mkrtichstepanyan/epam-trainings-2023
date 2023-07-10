@@ -3,3 +3,5 @@ Change from
 
 I merged it
 new line
+
+last line
