@@ -1,6 +1,7 @@
 package homework_21.qnarik_khachatryan;
 
 import java.util.ArrayList;
+import java.lang.Math;
 
 
 public class MergeSorter extends AbstractSorter {
@@ -11,7 +12,7 @@ public class MergeSorter extends AbstractSorter {
         if (arrayList.size() == 1) {
             return arrayList;
         }
-        int midPos = (int) Math.ceil((double) arrayList.size() / 2);
+        int midPos = (int)Math.ceil((double) arrayList.size() / 2);
         ArrayList<Integer> leftSide = new ArrayList<>();
         for (int i = 0; i < midPos; i++) {
             leftSide.add(arrayList.get(i));
